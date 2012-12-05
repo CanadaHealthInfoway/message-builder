@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.Generi
 
 
 /**
- * <p>POME_IN010010CA: Drug document query</p>
+ * <p>Business Name: POME_IN010010CA: Drug document query</p>
+ * 
+ * <p>Requests retrieval of a specific monograph or set of 
+ * monographs for a particular medication (specified by 
+ * identifier) or indication. The type of monograph (provider, 
+ * patient, long, short, etc.) may be specified.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.Generi
 @Hl7PartTypeMapping({"POME_IN010010CA"})
 public class DrugDocumentQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -33,7 +33,7 @@ import java.util.List;
 
 
 /**
- * <p>AdjudicationResult</p>
+ * <p>Business Name: AdjudicationResult</p>
  * 
  * <p>COCT_MT680000CA.AdjudicationResult: Adjudication Result</p>
  * 
@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResult","FICR_MT610201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
@@ -51,12 +51,20 @@ public class AdjudicationResultBean extends MessagePartBean {
 
 
     /**
-     * <p>Code denoting adjudication results</p>
+     * <p>Other Business Name: CodeDenotingAdjudicationResults</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.AdjudicationResult.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>(Summary of the adjudication processing - as submitted, 
      * w/ adjust, refuse adjust, refuse</p>
      * 
-     * <p>Result Explanation</p>
+     * <p>Other Business Name: ResultExplanation</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicationResult.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActAdjudicationType getCode() {
@@ -64,36 +72,90 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
     /**
-     * <p>Code denoting adjudication results</p>
+     * <p>Other Business Name: CodeDenotingAdjudicationResults</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.AdjudicationResult.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>(Summary of the adjudication processing - as submitted, 
      * w/ adjust, refuse adjust, refuse</p>
      * 
-     * <p>Result Explanation</p>
+     * <p>Other Business Name: ResultExplanation</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicationResult.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(ActAdjudicationType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicationResult.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResult.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     */
     @Hl7XmlMapping({"reference"})
     public List<AdjudicationResultReferenceBean> getReference() {
         return this.reference;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdditionalPertinentInformation.adjudicationCodeChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdditionalPertinentInformation.adjudicationCodeChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
     public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
         return this.pertinentInformationAdjudicationCodeChoice;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultTrigger.adjudicationResultRequiredAct</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"trigger/adjudicationResultRequiredAct"})
     public List<AdjudicationResultRequiredActBean> getTriggerAdjudicationResultRequiredAct() {
         return this.triggerAdjudicationResultRequiredAct;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationObservationReason.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reasonOf/detectedIssueEvent"})
     public List<IssuesBean> getReasonOfDetectedIssueEvent() {
         return this.reasonOfDetectedIssueEvent;

@@ -34,122 +34,50 @@ import java.util.Set;
 
 
 /**
- * <p>Response Object</p>
- * 
- * <p>This is an optional output control parameter. Sender 
- * indicates via coded values which class or class attributes 
- * in the response model are to be valued in the response. By 
- * site agreement codes can be based upon local object model, 
- * or alternatively, the classes and attributes from the query 
- * response model, as in the example below. Example: requestor 
- * wants provider identifier, name and service delivery 
- * location data returned so ResponseObject is valued as 
- * follows:</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;HealthCareProvider.id&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;PrincipalPerson.name&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;ServiceDeliveryLocation&quot;/&gt;&lt;/ResponseObject&gt;</p><p>Utilized 
- * to support cases when a source or consumer (such as a Health 
- * Authority) wants only specific information about a given set 
- * of providers. For example, a HA might want to know all the 
- * Work Locations for a given provider type, and wouldn't want 
- * to receive all information. The type of information expected 
- * in the response is provided via the response object.</p>
- * 
- * <p>This is an optional output control parameter. Sender 
- * indicates via coded values which class or class attributes 
- * in the response model are to be valued in the response. By 
- * site agreement codes can be based upon local object model, 
- * or alternatively, the classes and attributes from the query 
- * response model, as in the example below. Example: requestor 
- * wants provider identifier, name and service delivery 
- * location data returned so ResponseObject is valued as 
- * follows:</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;HealthCareProvider.id&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;PrincipalPerson.name&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;ServiceDeliveryLocation&quot;/&gt;&lt;/ResponseObject&gt;</p><p>Utilized 
- * to support cases when a source or consumer (such as a Health 
- * Authority) wants only specific information about a given set 
- * of providers. For example, a HA might want to know all the 
- * Work Locations for a given provider type, and wouldn't want 
- * to receive all information. The type of information expected 
- * in the response is provided via the response object.</p>
- * 
- * <p>This is an optional output control parameter. Sender 
- * indicates via coded values which class or class attributes 
- * in the response model are to be valued in the response. By 
- * site agreement codes can be based upon local object model, 
- * or alternatively, the classes and attributes from the query 
- * response model, as in the example below. Example: requestor 
- * wants provider identifier, name and service delivery 
- * location data returned so ResponseObject is valued as 
- * follows:</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;HealthCareProvider.id&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;PrincipalPerson.name&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;ServiceDeliveryLocation&quot;/&gt;&lt;/ResponseObject&gt;</p><p>Utilized 
- * to support cases when a source or consumer (such as a Health 
- * Authority) wants only specific information about a given set 
- * of providers. For example, a HA might want to know all the 
- * Work Locations for a given provider type, and wouldn't want 
- * to receive all information. The type of information expected 
- * in the response is provided via the response object.</p>
- * 
- * <p>This is an optional output control parameter. Sender 
- * indicates via coded values which class or class attributes 
- * in the response model are to be valued in the response. By 
- * site agreement codes can be based upon local object model, 
- * or alternatively, the classes and attributes from the query 
- * response model, as in the example below. Example: requestor 
- * wants provider identifier, name and service delivery 
- * location data returned so ResponseObject is valued as 
- * follows:</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;HealthCareProvider.id&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;PrincipalPerson.name&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;ServiceDeliveryLocation&quot;/&gt;&lt;/ResponseObject&gt;</p><p>Utilized 
- * to support cases when a source or consumer (such as a Health 
- * Authority) wants only specific information about a given set 
- * of providers. For example, a HA might want to know all the 
- * Work Locations for a given provider type, and wouldn't want 
- * to receive all information. The type of information expected 
- * in the response is provided via the response object.</p>
- * 
- * <p>This is an optional output control parameter. Sender 
- * indicates via coded values which class or class attributes 
- * in the response model are to be valued in the response. By 
- * site agreement codes can be based upon local object model, 
- * or alternatively, the classes and attributes from the query 
- * response model, as in the example below. Example: requestor 
- * wants provider identifier, name and service delivery 
- * location data returned so ResponseObject is valued as 
- * follows:</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;HealthCareProvider.id&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;PrincipalPerson.name&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
- * code=&quot;ServiceDeliveryLocation&quot;/&gt;&lt;/ResponseObject&gt;</p><p>Utilized 
- * to support cases when a source or consumer (such as a Health 
- * Authority) wants only specific information about a given set 
- * of providers. For example, a HA might want to know all the 
- * Work Locations for a given provider type, and wouldn't want 
- * to receive all information. The type of information expected 
- * in the response is provided via the response object.</p>
+ * <p>Business Name: Response Object</p>
  * 
  * <p>Supports the business request to be able to specify 
  * expected response to this query</p>
+ * 
+ * <p>This is an optional output control parameter. Sender 
+ * indicates via coded values which class or class attributes 
+ * in the response model are to be valued in the response. By 
+ * site agreement codes can be based upon local object model, 
+ * or alternatively, the classes and attributes from the query 
+ * response model, as in the example below. Example: requestor 
+ * wants provider identifier, name and service delivery 
+ * location data returned so ResponseObject is valued as 
+ * follows:</p><p>&lt;ResponseObject&gt;&lt;value 
+ * code=&quot;HealthCareProvider.id&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
+ * code=&quot;PrincipalPerson.name&quot;/&gt;&lt;/ResponseObject&gt;</p><p>&lt;ResponseObject&gt;&lt;value 
+ * code=&quot;ServiceDeliveryLocation&quot;/&gt;&lt;/ResponseObject&gt;</p><p>Utilized 
+ * to support cases when a source or consumer (such as a Health 
+ * Authority) wants only specific information about a given set 
+ * of providers. For example, a HA might want to know all the 
+ * Work Locations for a given provider type, and wouldn't want 
+ * to receive all information. The type of information expected 
+ * in the response is provided via the response object.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306010CA.ResponseObject"})
 public class ResponseObjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<CV, Code> value = new SETImpl<CV, Code>(CVImpl.class);
 
 
     /**
-     * <p>Provider Query Response Object</p>
+     * <p>Business Name: Provider Query Response Object</p>
      * 
-     * <p>Outlines the values expected to be received by this 
-     * query</p>
+     * <p>Relationship: PRPM_MT306010CA.ResponseObject.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
      * 
      * <p>Populated attribute provides tremendous value in giving 
      * the organization issuing the query the flexibility to 
      * request particular items in the response.</p>
+     * 
+     * <p>Outlines the values expected to be received by this 
+     * query</p>
      */
     @Hl7XmlMapping({"value"})
     public Set<QueryParameterValue> getValue() {

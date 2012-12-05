@@ -36,9 +36,12 @@ import java.util.Date;
 
 
 /**
- * <p>Adjudicator</p>
+ * <p>Business Name: Adjudicator</p>
  * 
  * <p>QUCR_MT830201CA.AdjudicatedInvoiceAuthor: Adjudicator</p>
+ * 
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
  * 
  * <p>This is used to indicate that the submitted Invoice 
  * Grouping was adjudicated (&amp; submitted) electronic or 
@@ -46,60 +49,80 @@ import java.util.Date;
  * where it can be used to indicate manually adjudicated 
  * Invoice Groupings.</p>
  * 
- * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p>
- * 
  * <p>FICR_MT610201CA.AdjudicatedInvoiceAuthor: Adjudicator</p>
  * 
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
+ * 
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
+ * 
  * <p>Adjudicator Information</p>
- * 
- * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p>
- * 
- * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor","QUCR_MT830201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS contextControlCode = new CSImpl();
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private AdjudicatorRoleBean adjudicatorRole;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
 
 
     /**
-     * <p>AdjudicationDateTime</p>
+     * <p>Business Name: AdjudicationDateTime</p>
      * 
-     * <p>Adjudication date/time</p>
+     * <p>Other Business Name: AdjudicationDateTime</p>
      * 
-     * <p>Adjudication date/time</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.time</p>
      * 
-     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
-     * (COB): Will only be valued for electronic EOBs.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
+     * only be value for electronic EOBs</p>
+     * 
+     * <p>Date and time of Adjudication</p>
+     * 
+     * <p>Other Business Name: AdjudicationDateTime</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
      * (COB): Will only be valued for electronic EOBs.</p>
      * 
      * <p>Used in RX for daily totals.</p>
      * 
-     * <p>(Adjudication date/time</p>
-     * 
-     * <p>Date and time of Adjudication</p>
-     * 
-     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
-     * only be value for electronic EOBs</p>
+     * <p>Adjudication date/time</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -107,26 +130,33 @@ public class AdjudicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdjudicationDateTime</p>
+     * <p>Business Name: AdjudicationDateTime</p>
      * 
-     * <p>Adjudication date/time</p>
+     * <p>Other Business Name: AdjudicationDateTime</p>
      * 
-     * <p>Adjudication date/time</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.time</p>
      * 
-     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
-     * (COB): Will only be valued for electronic EOBs.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
+     * only be value for electronic EOBs</p>
+     * 
+     * <p>Date and time of Adjudication</p>
+     * 
+     * <p>Other Business Name: AdjudicationDateTime</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
      * (COB): Will only be valued for electronic EOBs.</p>
      * 
      * <p>Used in RX for daily totals.</p>
      * 
-     * <p>(Adjudication date/time</p>
-     * 
-     * <p>Date and time of Adjudication</p>
-     * 
-     * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
-     * only be value for electronic EOBs</p>
+     * <p>Adjudication date/time</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -134,27 +164,20 @@ public class AdjudicatorBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
+     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
+     * only</p>
      * 
      * <p>EOB Communication Method</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
@@ -162,38 +185,61 @@ public class AdjudicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
+     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
+     * only</p>
      * 
      * <p>EOB Communication Method</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
      */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"adjudicatorRole"})
     public AdjudicatorRoleBean getAdjudicatorRole() {
         return this.adjudicatorRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
         this.adjudicatorRole = adjudicatorRole;
     }

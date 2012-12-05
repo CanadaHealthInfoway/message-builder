@@ -37,42 +37,42 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PatientCodedObservations</p>
+ * <p>Business Name: PatientCodedObservations</p>
  * 
  * <p>PORX_MT980030CA.ObservationCodedEvent: Patient Coded 
  * Observations</p>
  * 
+ * <p>Useful for determining appropriate management and for 
+ * drilling down for more information.</p>
+ * 
  * <p>This is the recorded observation (e.g. allergy, medical 
  * condition, lab result, pregnancy status, etc.) of the 
  * patient that contributed to the issue being raised.</p>
- * 
- * <p>Useful for determining appropriate management and for 
- * drilling down for more information.</p>
  * 
  * <p>PORX_MT980010CA.ObservationCodedEvent: Patient Coded 
  * Observations</p>
  * 
+ * <p>Useful for determining appropriate management and for 
+ * drilling down for more information.</p>
+ * 
  * <p>This is the recorded observation (e.g. allergy, medical 
  * condition, lab result, pregnancy status, etc.) of the 
  * patient that contributed to the issue being raised.</p>
- * 
- * <p>Useful for determining appropriate management and for 
- * drilling down for more information.</p>
  * 
  * <p>PORX_MT980020CA.ObservationCodedEvent: Patient Coded 
  * Observations</p>
  * 
+ * <p>Useful for determining appropriate management and for 
+ * drilling down for more information.</p>
+ * 
  * <p>This is the recorded observation (e.g. allergy, medical 
  * condition, lab result, pregnancy status, etc.) of the 
  * patient that contributed to the issue being raised.</p>
- * 
- * <p>Useful for determining appropriate management and for 
- * drilling down for more information.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationCodedEvent","PORX_MT980020CA.ObservationCodedEvent","PORX_MT980030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CV confidentialityCode = new CVImpl();
@@ -80,29 +80,52 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
 
 
     /**
-     * <p>ObservationIdentifier</p>
+     * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>A:Observation Identifier</p>
+     * <p>Other Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows lookup of the specific coded observation (e.g. 
+     * allergy, medical condition, pregnancy status, etc.) for 
+     * additional details when evaluating appropriateness of issue 
+     * management.</p>
      * 
      * <p>Unique identifier for the record of the coded observation 
      * (e.g. allergy, medical condition, pregnancy status, etc.) 
      * that contributed to the issue.</p>
+     * 
+     * <p>Other Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows lookup of the specific coded observation (e.g. 
+     * allergy, medical condition, pregnancy status, etc.) for 
+     * additional details when evaluating appropriateness of issue 
+     * management.</p>
+     * 
+     * <p>Unique identifier for the record of the coded observation 
+     * (e.g. allergy, medical condition, pregnancy status, etc.) 
+     * that contributed to the issue.</p>
+     * 
+     * <p>Other Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows lookup of the specific coded observation (e.g. 
      * allergy, medical condition, pregnancy status, etc) for 
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>A:Observation Identifier</p>
-     * 
      * <p>Unique identifier for the record of the coded observation 
      * (e.g. allergy, medical condition, pregnancy status, etc.) 
      * that contributed to the issue.</p>
-     * 
-     * <p>Allows lookup of the specific coded observation (e.g. 
-     * allergy, medical condition, pregnancy status, etc.) for 
-     * additional details when evaluating appropriateness of issue 
-     * management.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -110,29 +133,52 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
 
     /**
-     * <p>ObservationIdentifier</p>
+     * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>A:Observation Identifier</p>
+     * <p>Other Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows lookup of the specific coded observation (e.g. 
+     * allergy, medical condition, pregnancy status, etc.) for 
+     * additional details when evaluating appropriateness of issue 
+     * management.</p>
      * 
      * <p>Unique identifier for the record of the coded observation 
      * (e.g. allergy, medical condition, pregnancy status, etc.) 
      * that contributed to the issue.</p>
+     * 
+     * <p>Other Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows lookup of the specific coded observation (e.g. 
+     * allergy, medical condition, pregnancy status, etc.) for 
+     * additional details when evaluating appropriateness of issue 
+     * management.</p>
+     * 
+     * <p>Unique identifier for the record of the coded observation 
+     * (e.g. allergy, medical condition, pregnancy status, etc.) 
+     * that contributed to the issue.</p>
+     * 
+     * <p>Other Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows lookup of the specific coded observation (e.g. 
      * allergy, medical condition, pregnancy status, etc) for 
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>A:Observation Identifier</p>
-     * 
      * <p>Unique identifier for the record of the coded observation 
      * (e.g. allergy, medical condition, pregnancy status, etc.) 
      * that contributed to the issue.</p>
-     * 
-     * <p>Allows lookup of the specific coded observation (e.g. 
-     * allergy, medical condition, pregnancy status, etc.) for 
-     * additional details when evaluating appropriateness of issue 
-     * management.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -140,9 +186,24 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
 
 
     /**
-     * <p>ObservationType</p>
+     * <p>Business Name: ObservationType</p>
      * 
-     * <p>B:Observation Type</p>
+     * <p>Other Business Name: ObservationType</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Differentiates DAI from DPD Contraindications</p>
+     * 
+     * <p>DRU.100-04 (mnemonic)</p>
+     * 
+     * <p>DRU.100-05 (code system)</p>
+     * 
+     * <p>Indicates the type of recorded observation being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p>
      * 
      * <p>Distinguishes the kinds of coded observation that could 
      * be the trigger for clinical issue detection. Coded 
@@ -152,22 +213,55 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * deemed as a possible trigger for clinical issue 
      * detection.</p>
      * 
-     * <p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p>
+     * <p>Other Business Name: ObservationType</p>
      * 
-     * <p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p>
+     * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.code</p>
      * 
-     * <p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Differentiates DAI from DPD Contraindications</p>
+     * 
+     * <p>DRU.100-04 (mnemonic)</p>
+     * 
+     * <p>DRU.100-05 (code system)</p>
      * 
      * <p>Indicates the type of recorded observation being 
      * referenced. The attribute is mandatory because it is 
      * essential to interpreting the rest of the information on the 
      * class.</p>
+     * 
+     * <p>Distinguishes the kinds of coded observation that could 
+     * be the trigger for clinical issue detection. Coded 
+     * Observation types include: Allergy, Intolerance, Medical 
+     * Condition, Indication, Pregnancy status, Lactation status 
+     * and other observable information about a person that may be 
+     * deemed as a possible trigger for clinical issue 
+     * detection.</p>
+     * 
+     * <p>Other Business Name: ObservationType</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Differentiates DAI from DPD Contraindications</p>
+     * 
+     * <p>DRU.100-04 (mnemonic)</p>
+     * 
+     * <p>DRU.100-05 (code system)</p>
+     * 
+     * <p>Indicates the type of recorded observation being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p>
+     * 
+     * <p>Distinguishes the kinds of coded observation that could 
+     * be the trigger for clinical issue detection. Coded 
+     * Observation types include: Allergy, Intolerance, Medical 
+     * Condition, Indication, Pregnancy status, Lactation status 
+     * and other observable information about a person that may be 
+     * deemed as a possible trigger for clinical issue 
+     * detection.</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationIssueTriggerCodedObservationType getCode() {
@@ -175,9 +269,24 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
 
     /**
-     * <p>ObservationType</p>
+     * <p>Business Name: ObservationType</p>
      * 
-     * <p>B:Observation Type</p>
+     * <p>Other Business Name: ObservationType</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Differentiates DAI from DPD Contraindications</p>
+     * 
+     * <p>DRU.100-04 (mnemonic)</p>
+     * 
+     * <p>DRU.100-05 (code system)</p>
+     * 
+     * <p>Indicates the type of recorded observation being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p>
      * 
      * <p>Distinguishes the kinds of coded observation that could 
      * be the trigger for clinical issue detection. Coded 
@@ -187,22 +296,55 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * deemed as a possible trigger for clinical issue 
      * detection.</p>
      * 
-     * <p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p>
+     * <p>Other Business Name: ObservationType</p>
      * 
-     * <p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p>
+     * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.code</p>
      * 
-     * <p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Differentiates DAI from DPD Contraindications</p>
+     * 
+     * <p>DRU.100-04 (mnemonic)</p>
+     * 
+     * <p>DRU.100-05 (code system)</p>
      * 
      * <p>Indicates the type of recorded observation being 
      * referenced. The attribute is mandatory because it is 
      * essential to interpreting the rest of the information on the 
      * class.</p>
+     * 
+     * <p>Distinguishes the kinds of coded observation that could 
+     * be the trigger for clinical issue detection. Coded 
+     * Observation types include: Allergy, Intolerance, Medical 
+     * Condition, Indication, Pregnancy status, Lactation status 
+     * and other observable information about a person that may be 
+     * deemed as a possible trigger for clinical issue 
+     * detection.</p>
+     * 
+     * <p>Other Business Name: ObservationType</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Differentiates DAI from DPD Contraindications</p>
+     * 
+     * <p>DRU.100-04 (mnemonic)</p>
+     * 
+     * <p>DRU.100-05 (code system)</p>
+     * 
+     * <p>Indicates the type of recorded observation being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p>
+     * 
+     * <p>Distinguishes the kinds of coded observation that could 
+     * be the trigger for clinical issue detection. Coded 
+     * Observation types include: Allergy, Intolerance, Medical 
+     * Condition, Indication, Pregnancy status, Lactation status 
+     * and other observable information about a person that may be 
+     * deemed as a possible trigger for clinical issue 
+     * detection.</p>
      */
     public void setCode(ObservationIssueTriggerCodedObservationType code) {
         this.code.setValue(code);
@@ -210,11 +352,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
 
 
     /**
-     * <p>D:Observation Masked Indicator</p>
+     * <p>Other Business Name: ObservationMaskingIndicator</p>
      * 
-     * <p>An indication of sensitivity surrounding the implicated 
-     * condition, and thus defines the required sensitivity for the 
-     * detected issue.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.ObservationCodedEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Contraindication.intractingSourceMasked (Normal=false; 
      * Restricted or Very Restricted = True); (Information is 
@@ -222,19 +365,20 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * NULL flavour of 'Masked')</p>
      * 
      * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation.</p><p>The attribute is optional because 
-     * not all systems will support masking.</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation.</p><p>The attribute is optional because 
-     * not all systems will support masking.</p>
-     * 
-     * <p>D:Observation Masking Indicator</p>
+     * of the observation information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * condition, and thus defines the required sensitivity for the 
      * detected issue.</p>
      * 
+     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.ObservationCodedEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>Contraindication.intractingSourceMasked (Normal=false; 
      * Restricted or Very Restricted = True); (Information is 
      * withheld because the prescription is masked will be given a 
@@ -244,9 +388,29 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
+     * <p>An indication of sensitivity surrounding the related 
+     * condition, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.ObservationCodedEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Contraindication.intractingSourceMasked (Normal=false; 
+     * Restricted or Very Restricted = True); (Information is 
+     * withheld because the prescription is masked will be given a 
+     * NULL flavour of 'Masked')</p>
+     * 
      * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * of the observation.</p><p>The attribute is optional because 
+     * not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the implicated 
+     * condition, and thus defines the required sensitivity for the 
+     * detected issue.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -254,11 +418,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
 
     /**
-     * <p>D:Observation Masked Indicator</p>
+     * <p>Other Business Name: ObservationMaskingIndicator</p>
      * 
-     * <p>An indication of sensitivity surrounding the implicated 
-     * condition, and thus defines the required sensitivity for the 
-     * detected issue.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.ObservationCodedEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Contraindication.intractingSourceMasked (Normal=false; 
      * Restricted or Very Restricted = True); (Information is 
@@ -266,19 +431,20 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * NULL flavour of 'Masked')</p>
      * 
      * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation.</p><p>The attribute is optional because 
-     * not all systems will support masking.</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation.</p><p>The attribute is optional because 
-     * not all systems will support masking.</p>
-     * 
-     * <p>D:Observation Masking Indicator</p>
+     * of the observation information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * condition, and thus defines the required sensitivity for the 
      * detected issue.</p>
      * 
+     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.ObservationCodedEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>Contraindication.intractingSourceMasked (Normal=false; 
      * Restricted or Very Restricted = True); (Information is 
      * withheld because the prescription is masked will be given a 
@@ -288,9 +454,29 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
+     * <p>An indication of sensitivity surrounding the related 
+     * condition, and thus defines the required sensitivity for the 
+     * detected issue.</p>
+     * 
+     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.ObservationCodedEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Contraindication.intractingSourceMasked (Normal=false; 
+     * Restricted or Very Restricted = True); (Information is 
+     * withheld because the prescription is masked will be given a 
+     * NULL flavour of 'Masked')</p>
+     * 
      * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * of the observation.</p><p>The attribute is optional because 
+     * not all systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the implicated 
+     * condition, and thus defines the required sensitivity for the 
+     * detected issue.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -298,151 +484,97 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
 
 
     /**
-     * <p>ObservationValue</p>
+     * <p>Business Name: ObservationValue</p>
      * 
-     * <p>C:Observation Value</p>
+     * <p>Other Business Name: ObservationValue</p>
      * 
-     * <p>Denotes a specific coded observation made about a person 
-     * that might have trigger the clinical issue detection.</p>
+     * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.value</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Containdication.allergenGroupName (PrintName) 
      * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * - if it is a DIN it is probably a drug)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>Contraindication.indicationDescription</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.7.1 (Code System)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.7.2 (mnemonic)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.2 (Code System)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.3 (mnemonic)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.1 (Print Name)</p>
+     * 
+     * <p>Disease Code</p>
      * 
      * <p>Provides unambiguous reference to the related coded 
      * observation.</p>
      * 
-     * <p>C:Observation Value</p>
+     * <p>Denotes a specific coded observation made about a person 
+     * that might have trigger the clinical issue detection.</p>
+     * 
+     * <p>Other Business Name: ObservationValue</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a drug)</p>
+     * 
+     * <p>Contraindication.indicationDescription</p>
+     * 
+     * <p>ZDU.7.1 (Code System)</p>
+     * 
+     * <p>ZDU.7.2 (mnemonic)</p>
+     * 
+     * <p>ZDU.8.2 (Code System)</p>
+     * 
+     * <p>ZDU.8.3 (mnemonic)</p>
+     * 
+     * <p>ZDU.8.1 (Print Name)</p>
+     * 
+     * <p>Disease Code</p>
+     * 
+     * <p>Provides unambiguous reference to the related coded 
+     * observation.</p>
      * 
      * <p>Denotes a specific coded observation made about a person 
      * that might have trigger the clinical issue detection.</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>Other Business Name: ObservationValue</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Containdication.allergenGroupName (PrintName) 
      * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * - if it is a DIN it is probably a drug)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>Contraindication.indicationDescription</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.7.1 (Code System)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.7.2 (mnemonic)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.2 (Code System)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.3 (mnemonic)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.1 (Print Name)</p>
+     * 
+     * <p>Disease Code</p>
      * 
      * <p>Provides unambiguous reference to the implicated coded 
      * observation.</p>
+     * 
+     * <p>Denotes a specific coded observation made about a person 
+     * that might have trigger the clinical issue detection.</p>
      */
     @Hl7XmlMapping({"value"})
     public IssueTriggerObservationValue getValue() {
@@ -450,151 +582,97 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
 
     /**
-     * <p>ObservationValue</p>
+     * <p>Business Name: ObservationValue</p>
      * 
-     * <p>C:Observation Value</p>
+     * <p>Other Business Name: ObservationValue</p>
      * 
-     * <p>Denotes a specific coded observation made about a person 
-     * that might have trigger the clinical issue detection.</p>
+     * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.value</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Containdication.allergenGroupName (PrintName) 
      * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * - if it is a DIN it is probably a drug)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>Contraindication.indicationDescription</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.7.1 (Code System)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.7.2 (mnemonic)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.2 (Code System)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.3 (mnemonic)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.1 (Print Name)</p>
+     * 
+     * <p>Disease Code</p>
      * 
      * <p>Provides unambiguous reference to the related coded 
      * observation.</p>
      * 
-     * <p>C:Observation Value</p>
+     * <p>Denotes a specific coded observation made about a person 
+     * that might have trigger the clinical issue detection.</p>
+     * 
+     * <p>Other Business Name: ObservationValue</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a drug)</p>
+     * 
+     * <p>Contraindication.indicationDescription</p>
+     * 
+     * <p>ZDU.7.1 (Code System)</p>
+     * 
+     * <p>ZDU.7.2 (mnemonic)</p>
+     * 
+     * <p>ZDU.8.2 (Code System)</p>
+     * 
+     * <p>ZDU.8.3 (mnemonic)</p>
+     * 
+     * <p>ZDU.8.1 (Print Name)</p>
+     * 
+     * <p>Disease Code</p>
+     * 
+     * <p>Provides unambiguous reference to the related coded 
+     * observation.</p>
      * 
      * <p>Denotes a specific coded observation made about a person 
      * that might have trigger the clinical issue detection.</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>Other Business Name: ObservationValue</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Containdication.allergenGroupName (PrintName) 
      * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * - if it is a DIN it is probably a drug)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>Contraindication.indicationDescription</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.7.1 (Code System)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.7.2 (mnemonic)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.2 (Code System)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.3 (mnemonic)</p>
      * 
-     * <p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p>
+     * <p>ZDU.8.1 (Print Name)</p>
+     * 
+     * <p>Disease Code</p>
      * 
      * <p>Provides unambiguous reference to the implicated coded 
      * observation.</p>
+     * 
+     * <p>Denotes a specific coded observation made about a person 
+     * that might have trigger the clinical issue detection.</p>
      */
     public void setValue(IssueTriggerObservationValue value) {
         this.value.setValue(value);

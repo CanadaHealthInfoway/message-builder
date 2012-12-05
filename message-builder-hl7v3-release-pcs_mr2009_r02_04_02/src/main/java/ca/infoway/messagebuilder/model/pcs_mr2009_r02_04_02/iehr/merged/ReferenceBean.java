@@ -32,20 +32,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT210001CA.Reference","REPC_MT210003CA.Reference","REPC_MT220001CA.Reference","REPC_MT220003CA.Reference","REPC_MT230001CA.Reference","REPC_MT230003CA.Reference"})
 public class ReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>ReferenceRecordLinks</p>
+     * <p>Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>L:Reference Record Links</p>
+     * <p>Other Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>L:Reference Record Links</p>
+     * <p>Relationship: REPC_MT220001CA.Reference.id</p>
      * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The external references allow accessing discrete data for 
      * additional analysis and manipulation such as graphing, 
@@ -53,6 +51,84 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>For sections, the links may refer specifically to records 
      * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The external references allow accessing discrete data for 
+     * additional analysis and manipulation such as graphing, 
+     * automated comparison or decision-support.</p>
+     * 
+     * <p>For sections, the links may refer specifically to records 
+     * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The external references allow accessing discrete data for 
+     * additional analysis and manipulation such as graphing, 
+     * automated comparison or decision-support.</p>
+     * 
+     * <p>For sections, the links may refer specifically to records 
+     * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The external references allow accessing discrete data for 
+     * additional analysis and manipulation such as graphing, 
+     * automated comparison or decision-support.</p>
+     * 
+     * <p>For sections, the links may refer specifically to records 
+     * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The external references allow accessing discrete data for 
+     * additional analysis and manipulation such as graphing, 
+     * automated comparison or decision-support.</p>
+     * 
+     * <p>For sections, the links may refer specifically to records 
+     * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -60,15 +136,13 @@ public class ReferenceBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReferenceRecordLinks</p>
+     * <p>Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>L:Reference Record Links</p>
+     * <p>Other Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>L:Reference Record Links</p>
+     * <p>Relationship: REPC_MT220001CA.Reference.id</p>
      * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The external references allow accessing discrete data for 
      * additional analysis and manipulation such as graphing, 
@@ -76,6 +150,84 @@ public class ReferenceBean extends MessagePartBean {
      * 
      * <p>For sections, the links may refer specifically to records 
      * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The external references allow accessing discrete data for 
+     * additional analysis and manipulation such as graphing, 
+     * automated comparison or decision-support.</p>
+     * 
+     * <p>For sections, the links may refer specifically to records 
+     * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The external references allow accessing discrete data for 
+     * additional analysis and manipulation such as graphing, 
+     * automated comparison or decision-support.</p>
+     * 
+     * <p>For sections, the links may refer specifically to records 
+     * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The external references allow accessing discrete data for 
+     * additional analysis and manipulation such as graphing, 
+     * automated comparison or decision-support.</p>
+     * 
+     * <p>For sections, the links may refer specifically to records 
+     * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Reference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The external references allow accessing discrete data for 
+     * additional analysis and manipulation such as graphing, 
+     * automated comparison or decision-support.</p>
+     * 
+     * <p>For sections, the links may refer specifically to records 
+     * which have been rendered as part of the section.</p>
+     * 
+     * <p>These identifiers allow for referencing other discrete 
+     * records within the EHR which are considered relevant to the 
+     * document as a whole or a particular section.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

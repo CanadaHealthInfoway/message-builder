@@ -64,7 +64,7 @@ import java.util.Set;
 
 
 /**
- * <p>Battery or Panel</p>
+ * <p>Business Name: Battery or Panel</p>
  * 
  * <p>Used as a functional grouper of tests. Usually a 
  * &quot;panel&quot; or &quot;battery&quot; of tests are 
@@ -74,7 +74,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001000CA.BatteryRequest"})
 public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private Patient_1Bean recordTargetPatient;
     private II id = new IIImpl();
@@ -115,12 +115,16 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
 
 
     /**
-     * <p>Q:Battery Identifier</p>
+     * <p>Business Name: Q:Battery Identifier</p>
      * 
-     * <p>Uniquely identifies this panel or battery.</p>
+     * <p>Relationship: POLB_MT001000CA.BatteryRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory for create, revise, cancel, and nullify 
      * actions.</p>
+     * 
+     * <p>Uniquely identifies this panel or battery.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -128,23 +132,37 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
     /**
-     * <p>Q:Battery Identifier</p>
+     * <p>Business Name: Q:Battery Identifier</p>
      * 
-     * <p>Uniquely identifies this panel or battery.</p>
+     * <p>Relationship: POLB_MT001000CA.BatteryRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory for create, revise, cancel, and nullify 
      * actions.</p>
+     * 
+     * <p>Uniquely identifies this panel or battery.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedEntity"})
     public HealthcareOrganizationBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }
@@ -157,7 +175,14 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
 
 
     /**
-     * <p>R:Battery Type</p>
+     * <p>Business Name: R:Battery Type</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.BatteryRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to categorize and specify the type of battery to be 
+     * performed.</p>
      * 
      * <p>The type of battery or the &quot;code&quot; for this 
      * battery or panel. The value set bound to this attribute is a 
@@ -165,9 +190,6 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * Observation Code Database (pCLOCD). Only those records 
      * flagged as orderable or &quot;both&quot; in the pCLOCD can 
      * be used.</p>
-     * 
-     * <p>Used to categorize and specify the type of battery to be 
-     * performed.</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationOrderableLabType getCode() {
@@ -175,7 +197,14 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
     /**
-     * <p>R:Battery Type</p>
+     * <p>Business Name: R:Battery Type</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.BatteryRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to categorize and specify the type of battery to be 
+     * performed.</p>
      * 
      * <p>The type of battery or the &quot;code&quot; for this 
      * battery or panel. The value set bound to this attribute is a 
@@ -183,9 +212,6 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * Observation Code Database (pCLOCD). Only those records 
      * flagged as orderable or &quot;both&quot; in the pCLOCD can 
      * be used.</p>
-     * 
-     * <p>Used to categorize and specify the type of battery to be 
-     * performed.</p>
      */
     public void setCode(ObservationOrderableLabType code) {
         this.code.setValue(code);
@@ -199,7 +225,17 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
 
 
     /**
-     * <p>T:Battery Status</p>
+     * <p>Business Name: T:Battery Status</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.BatteryRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * test e.g. active=in progress or not yet started, 
+     * complete=resulted and/or reported. For a battery, a 
+     * &quot;complete&quot; status represents a 
+     * &quot;complete&quot; status for all child orders.</p>
      * 
      * <p>The statusCode represents the &quot;state&quot; of the 
      * battery e.g. active=in progress or not yet started, 
@@ -207,12 +243,6 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * order placer to determine, upon receipt of one or more 
      * results which fulfill this battery request, when the order 
      * is complete.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * test e.g. active=in progress or not yet started, 
-     * complete=resulted and/or reported. For a battery, a 
-     * &quot;complete&quot; status represents a 
-     * &quot;complete&quot; status for all child orders.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -220,7 +250,17 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
     /**
-     * <p>T:Battery Status</p>
+     * <p>Business Name: T:Battery Status</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.BatteryRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * test e.g. active=in progress or not yet started, 
+     * complete=resulted and/or reported. For a battery, a 
+     * &quot;complete&quot; status represents a 
+     * &quot;complete&quot; status for all child orders.</p>
      * 
      * <p>The statusCode represents the &quot;state&quot; of the 
      * battery e.g. active=in progress or not yet started, 
@@ -228,12 +268,6 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * order placer to determine, upon receipt of one or more 
      * results which fulfill this battery request, when the order 
      * is complete.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * test e.g. active=in progress or not yet started, 
-     * complete=resulted and/or reported. For a battery, a 
-     * &quot;complete&quot; status represents a 
-     * &quot;complete&quot; status for all child orders.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -241,16 +275,21 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
 
 
     /**
-     * <p>S:Battery Request Time Specification</p>
+     * <p>Business Name: S:Battery Request Time Specification</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.BatteryRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-9)</p>
+     * 
+     * <p>Would be used to communicate that an Order is for a 
+     * future date.</p>
      * 
      * <p>The time specification for when the battery is requested 
      * to be performed or occur or when the changes to the request 
      * took effect or are supposed to take effect. This time 
      * specification includes support for complex, repeating 
      * orders.</p>
-     * 
-     * <p>Would be used to communicate that an Order is for a 
-     * future date.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public List<GeneralTimingSpecification> getEffectiveTime() {
@@ -258,6 +297,11 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Verifier.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"verifier/assignedEntity"})
     public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean> getVerifierAssignedEntity() {
         return this.verifierAssignedEntity;
@@ -275,12 +319,16 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
 
 
     /**
-     * <p>U:Battery Priority Code</p>
+     * <p>Business Name: U:Battery Priority Code</p>
      * 
-     * <p>Priority code associated with a specific test.</p>
+     * <p>Relationship: POLB_MT001000CA.BatteryRequest.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Communicates requested test priority (e.g. routine, stat, 
      * etc.)</p>
+     * 
+     * <p>Priority code associated with a specific test.</p>
      */
     @Hl7XmlMapping({"priorityCode"})
     public ActPriority getPriorityCode() {
@@ -288,12 +336,16 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
     /**
-     * <p>U:Battery Priority Code</p>
+     * <p>Business Name: U:Battery Priority Code</p>
      * 
-     * <p>Priority code associated with a specific test.</p>
+     * <p>Relationship: POLB_MT001000CA.BatteryRequest.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Communicates requested test priority (e.g. routine, stat, 
      * etc.)</p>
+     * 
+     * <p>Priority code associated with a specific test.</p>
      */
     public void setPriorityCode(ActPriority priorityCode) {
         this.priorityCode.setValue(priorityCode);
@@ -301,7 +353,16 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
 
 
     /**
-     * <p>V:Battery Masking Indicator</p>
+     * <p>Business Name: V:Battery Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.BatteryRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>This code allows for privacy control by patients as well 
+     * as flagged for 'not for disclosure to patient' by care 
+     * providers.</p>
      * 
      * <p>Any piece of information is potentially subject to 
      * 'masking', restricting it's availability from providers who 
@@ -310,10 +371,6 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
      * direct disclosure to patient&quot;. The values in this 
      * attribute enable the above masking to be represented and 
      * messaged.</p>
-     * 
-     * <p>This code allows for privacy control by patients as well 
-     * as flagged for 'not for disclosure to patient' by care 
-     * providers.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -367,6 +424,11 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Component5.requestChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component4/requestChoice"})
     public List<RequestChoice> getComponent4RequestChoice() {
         return this.component4RequestChoice;

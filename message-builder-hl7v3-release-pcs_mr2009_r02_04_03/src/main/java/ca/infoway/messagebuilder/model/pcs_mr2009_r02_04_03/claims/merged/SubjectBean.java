@@ -33,15 +33,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.Subject","FICR_MT600201CA.Subject"})
 public class SubjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST signatureText = new STImpl();
     private BL patientConsent = new BLImpl(false);
 
 
     /**
-     * <p>PatientKeyword</p>
+     * <p>Business Name: PatientKeyword</p>
      * 
-     * <p>Patient Keyword</p>
+     * <p>Other Business Name: PatientKeyword</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PatientKeyword</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.Subject.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
@@ -49,20 +59,56 @@ public class SubjectBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientKeyword</p>
+     * <p>Business Name: PatientKeyword</p>
      * 
-     * <p>Patient Keyword</p>
+     * <p>Other Business Name: PatientKeyword</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PatientKeyword</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.Subject.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.Subject.patientConsent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"patientConsent"})
     public Boolean getPatientConsent() {
         return this.patientConsent.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.Subject.patientConsent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPatientConsent(Boolean patientConsent) {
         this.patientConsent.setValue(patientConsent);
     }

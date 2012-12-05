@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt000012ca
 
 
 /**
- * <p>REPC_IN000008CA: Update adverse reaction request</p>
+ * <p>Business Name: REPC_IN000008CA: Update adverse reaction 
+ * request</p>
+ * 
+ * <p>Requests that information such as severity, outcome and 
+ * suspected cause of a previously-recorded adverse reaction be 
+ * updated.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt000012ca
 @Hl7PartTypeMapping({"REPC_IN000008CA"})
 public class UpdateAdverseReactionRequestBean extends HL7Message_1Bean<TriggerEventBean<ReportedReactionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -23,31 +23,42 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt61020
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.PaymentIntentBean;
 
 
 
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementComponent"})
 public class AdjudicatedInvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementComponent.adjudicatedInvoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"adjudicatedInvoiceElementChoice"})
     public AdjudicatedInvoiceElementChoice getAdjudicatedInvoiceElementChoice() {
         return this.adjudicatedInvoiceElementChoice;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementComponent.adjudicatedInvoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice) {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
     }
 
-    public PaymentIntentBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementGroup() {
-        return this.adjudicatedInvoiceElementChoice instanceof PaymentIntentBean ? (PaymentIntentBean) this.adjudicatedInvoiceElementChoice : null;
+    public AdjudicatedInvoiceElementGroupBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementGroup() {
+        return this.adjudicatedInvoiceElementChoice instanceof AdjudicatedInvoiceElementGroupBean ? (AdjudicatedInvoiceElementGroupBean) this.adjudicatedInvoiceElementChoice : null;
     }
     public boolean hasAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementGroup() {
-        return (this.adjudicatedInvoiceElementChoice instanceof PaymentIntentBean);
+        return (this.adjudicatedInvoiceElementChoice instanceof AdjudicatedInvoiceElementGroupBean);
     }
 
     public AdjudicatedInvoiceElementDetailBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementDetail() {

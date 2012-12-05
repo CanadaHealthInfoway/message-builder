@@ -33,14 +33,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Request</p>
+ * <p>Business Name: Request</p>
  * 
  * <p>REPC_MT610002CA.ActRequest: A:Request</p>
  * 
- * <p> <i>This ties the record to the request (referral or 
- * specific request) that resulted in the creation of the 
- * Professional Service record.</i> </p>
- * 
  * <p> <i>By requesting the action, a provider takes a level of 
  * responsibility for it. Also, a link between request and 
  * fulfilling record may result in differences in query 
@@ -48,13 +44,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * in retrieval of fulfilling records. Requesting providers 
  * generally have authorization to view masked information as 
  * well.</i> </p>
+ * 
+ * <p> <i>This ties the record to the request (referral or 
+ * specific request) that resulted in the creation of the 
+ * Professional Service record.</i> </p>
  * 
  * <p>REPC_MT610001CA.ActRequest: A:Request</p>
  * 
- * <p> <i>This ties the record to the request (referral or 
- * specific request) that resulted in the creation of the 
- * Professional Service record.</i> </p>
- * 
  * <p> <i>By requesting the action, a provider takes a level of 
  * responsibility for it. Also, a link between request and 
  * fulfilling record may result in differences in query 
@@ -62,27 +58,48 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * in retrieval of fulfilling records. Requesting providers 
  * generally have authorization to view masked information as 
  * well.</i> </p>
+ * 
+ * <p> <i>This ties the record to the request (referral or 
+ * specific request) that resulted in the creation of the 
+ * Professional Service record.</i> </p>
  */
 @Hl7PartTypeMapping({"REPC_MT610001CA.ActRequest","REPC_MT610002CA.ActRequest"})
 public class Request_3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private RequestedByBean author;
 
 
     /**
-     * <p>RequestType</p>
+     * <p>Business Name: RequestType</p>
      * 
-     * <p>B:Request Type</p>
+     * <p>Other Business Name: RequestType</p>
      * 
-     * <p> <i>This distinguishes between &quot;referral&quot; 
-     * requests and specific orders.</i> </p>
+     * <p>Relationship: REPC_MT610002CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Needed to know what query to execute to retrieve 
      * details about the request. (I.e. Get Patient Referral vs. 
      * Get Professional Service Order.)</i> </p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT610001CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Professional Service Order.)</i> </p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
      */
     @Hl7XmlMapping({"classCode"})
     public x_ActClassCareProvisionProcedure getClassCode() {
@@ -90,16 +107,33 @@ public class Request_3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>RequestType</p>
+     * <p>Business Name: RequestType</p>
      * 
-     * <p>B:Request Type</p>
+     * <p>Other Business Name: RequestType</p>
      * 
-     * <p> <i>This distinguishes between &quot;referral&quot; 
-     * requests and specific orders.</i> </p>
+     * <p>Relationship: REPC_MT610002CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Needed to know what query to execute to retrieve 
      * details about the request. (I.e. Get Patient Referral vs. 
      * Get Professional Service Order.)</i> </p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT610001CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Professional Service Order.)</i> </p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
      */
     public void setClassCode(x_ActClassCareProvisionProcedure classCode) {
         this.classCode.setValue(classCode);
@@ -107,23 +141,33 @@ public class Request_3Bean extends MessagePartBean {
 
 
     /**
-     * <p>RequestId</p>
+     * <p>Business Name: RequestId</p>
      * 
-     * <p>A: Request Id</p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
      * 
      * <p> <i>This identifies the specific request record (referral 
      * or order) that this Professional Service is fulfilling. The 
      * type of request is identified by the Request Type.</i> </p>
      * 
-     * <p> <i>Associates a request to its results. Allows querying 
-     * for results associated by a request. Also, authors of 
-     * requests are generally authorized to view associated 
-     * results, even if masked. Result records may also be 
-     * automatically retrieved when retrieving the request 
-     * record.</i> </p><p> <i>This attributes is only 
-     * &quot;required&quot; because in some cases there might not 
-     * be a formal electronic request. However, the requesting 
-     * provider may still be known.</i> </p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT610001CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Associates a request to its results. Allows querying 
      * for results associated by a request. Also, authors of 
@@ -134,6 +178,10 @@ public class Request_3Bean extends MessagePartBean {
      * &quot;required&quot; because in some cases there might not 
      * be a formal electronic request. However, the requesting 
      * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Professional Service is fulfilling. The 
+     * type of request is identified by the Request Type.</i> </p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -141,23 +189,33 @@ public class Request_3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>RequestId</p>
+     * <p>Business Name: RequestId</p>
      * 
-     * <p>A: Request Id</p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
      * 
      * <p> <i>This identifies the specific request record (referral 
      * or order) that this Professional Service is fulfilling. The 
      * type of request is identified by the Request Type.</i> </p>
      * 
-     * <p> <i>Associates a request to its results. Allows querying 
-     * for results associated by a request. Also, authors of 
-     * requests are generally authorized to view associated 
-     * results, even if masked. Result records may also be 
-     * automatically retrieved when retrieving the request 
-     * record.</i> </p><p> <i>This attributes is only 
-     * &quot;required&quot; because in some cases there might not 
-     * be a formal electronic request. However, the requesting 
-     * provider may still be known.</i> </p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT610001CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Associates a request to its results. Allows querying 
      * for results associated by a request. Also, authors of 
@@ -168,17 +226,47 @@ public class Request_3Bean extends MessagePartBean {
      * &quot;required&quot; because in some cases there might not 
      * be a formal electronic request. However, the requesting 
      * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Professional Service is fulfilling. The 
+     * type of request is identified by the Request Type.</i> </p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT610001CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RequestedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT610001CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor(RequestedByBean author) {
         this.author = author;
     }

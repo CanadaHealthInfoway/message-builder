@@ -29,7 +29,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.
 
 
 /**
- * <p>POLB_IN224100CA: Result in progress</p>
+ * <p>Business Name: POLB_IN224100CA: Result in progress</p>
+ * 
+ * <p>This interaction is a Result in Progress without Receiver 
+ * Responsibilities (i.e., the sending system utilizes messages 
+ * that do not require application-level responses). This 
+ * interaction indicates that the Laboratory observation has 
+ * occurred and preliminary results are being communicated with 
+ * this notification.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -49,6 +56,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.
 @Hl7PartTypeMapping({"POLB_IN224100CA"})
 public class ResultInProgressBean extends HL7Message_1Bean<TriggerEvent_1Bean<ResultInstancePayloadChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

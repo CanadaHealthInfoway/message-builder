@@ -29,7 +29,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.cr.merged.Identified
 
 
 /**
- * <p>PRPA_IN101004CA: Resolve Duplicate Person Registrations</p>
+ * <p>Business Name: PRPA_IN101004CA: Resolve Duplicate Person 
+ * Registrations</p>
+ * 
+ * <p>A person registry sends this notification after resolving 
+ * duplicate registrations in the registry. The surviving 
+ * registration (RegistrationEvent.statusCode = 
+ * &quot;&quot;active&quot;&quot;) links via the replacementOf 
+ * act relationship to the deprecated registration 
+ * (PriorRegistration.statusCode = 
+ * &quot;&quot;obsolete&quot;&quot;). A copy of the surviving 
+ * person record is sent in the payload message.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +50,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.cr.merged.Identified
 @Hl7PartTypeMapping({"PRPA_IN101004CA"})
 public class ResolveDuplicatePersonRegistrationsBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

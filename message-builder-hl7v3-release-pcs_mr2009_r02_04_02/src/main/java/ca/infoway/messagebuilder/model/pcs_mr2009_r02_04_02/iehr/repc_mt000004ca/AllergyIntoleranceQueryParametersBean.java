@@ -49,18 +49,18 @@ import java.util.List;
 
 
 /**
- * <p>Allergy/Intolerance Query Parameters</p>
+ * <p>Business Name: Allergy/Intolerance Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000004CA.ParameterList"})
 @Hl7RootType
 public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV allergyIntoleranceStatusValue = new CVImpl();
     private CD allergyIntoleranceTypeValue = new CDImpl();
     private IVL<TS, Interval<Date>> alllergyIntoleranceChangePeriodValue = new IVLImpl<TS, Interval<Date>>();
@@ -71,15 +71,20 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Allergy/Intolerance Status</p>
+     * <p>Business Name: G:Allergy/Intolerance Status</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the selective retrieval of allergy/intolerance 
+     * records based on the status of the record.</p>
      * 
      * <p>Indicates that the result set should be filtered to 
      * include only those allergy/intolerance records for the 
      * specified status. Valid statuses include: ACTIVE or 
      * COMPLETE.</p>
-     * 
-     * <p>Allows for the selective retrieval of allergy/intolerance 
-     * records based on the status of the record.</p>
      */
     @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
     public ActStatus getAllergyIntoleranceStatusValue() {
@@ -87,15 +92,20 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Allergy/Intolerance Status</p>
+     * <p>Business Name: G:Allergy/Intolerance Status</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the selective retrieval of allergy/intolerance 
+     * records based on the status of the record.</p>
      * 
      * <p>Indicates that the result set should be filtered to 
      * include only those allergy/intolerance records for the 
      * specified status. Valid statuses include: ACTIVE or 
      * COMPLETE.</p>
-     * 
-     * <p>Allows for the selective retrieval of allergy/intolerance 
-     * records based on the status of the record.</p>
      */
     public void setAllergyIntoleranceStatusValue(ActStatus allergyIntoleranceStatusValue) {
         this.allergyIntoleranceStatusValue.setValue(allergyIntoleranceStatusValue);
@@ -103,15 +113,20 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>H:Allergy/Intolerance Type</p>
+     * <p>Business Name: H:Allergy/Intolerance Type</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value indicating whether to return an allergy 
      * record or an intolerance record. The result set will be 
      * filtered to include only allergy records or intolerance 
      * records accordingly.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
      */
     @Hl7XmlMapping({"allergyIntoleranceType/value"})
     public ObservationIntoleranceType getAllergyIntoleranceTypeValue() {
@@ -119,15 +134,20 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>H:Allergy/Intolerance Type</p>
+     * <p>Business Name: H:Allergy/Intolerance Type</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value indicating whether to return an allergy 
      * record or an intolerance record. The result set will be 
      * filtered to include only allergy records or intolerance 
      * records accordingly.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
      */
     public void setAllergyIntoleranceTypeValue(ObservationIntoleranceType allergyIntoleranceTypeValue) {
         this.allergyIntoleranceTypeValue.setValue(allergyIntoleranceTypeValue);
@@ -135,14 +155,19 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Allergy/Intolerance Change Period</p>
+     * <p>Business Name: F:Allergy/Intolerance Change Period</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in retrieving incremental changes to the patient's 
+     * record.</p>
      * 
      * <p>Filters the query response to only include 
      * allergy/intolerance records which have been created or 
      * modified within the date-range specified.</p>
-     * 
-     * <p>Useful in retrieving incremental changes to the patient's 
-     * record.</p>
      */
     @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
     public Interval<Date> getAlllergyIntoleranceChangePeriodValue() {
@@ -150,14 +175,19 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Allergy/Intolerance Change Period</p>
+     * <p>Business Name: F:Allergy/Intolerance Change Period</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in retrieving incremental changes to the patient's 
+     * record.</p>
      * 
      * <p>Filters the query response to only include 
      * allergy/intolerance records which have been created or 
      * modified within the date-range specified.</p>
-     * 
-     * <p>Useful in retrieving incremental changes to the patient's 
-     * record.</p>
      */
     public void setAlllergyIntoleranceChangePeriodValue(Interval<Date> alllergyIntoleranceChangePeriodValue) {
         this.alllergyIntoleranceChangePeriodValue.setValue(alllergyIntoleranceChangePeriodValue);
@@ -165,30 +195,24 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Care Composition IDs</p>
+     * <p>Business Name: Care Composition IDs</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Relationship: REPC_MT000004CA.CareCompositionID.value</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
     public List<Identifier> getCareCompositionIDValue() {
@@ -197,16 +221,20 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Care Composition Types</p>
+     * <p>Business Name: Care Composition Types</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p>
+     * <p>Relationship: REPC_MT000004CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with a 
      * particular type of encounter, episode or care event. 
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypeValue() {
@@ -215,23 +243,21 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Include Notes Indicator</p>
+     * <p>Business Name: Include Notes Indicator</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for allergy/intolerance 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * allergy/intolerance records are to be returned along with 
      * the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
     public Boolean getIncludeNotesIndicatorValue() {
@@ -239,23 +265,21 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Include Notes Indicator</p>
+     * <p>Business Name: Include Notes Indicator</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for allergy/intolerance 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * allergy/intolerance records are to be returned along with 
      * the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
         this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
@@ -263,15 +287,19 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>I:Reaction</p>
+     * <p>Business Name: I:Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value denoting a specific reaction. E.g. Code for 
      * 'rash'. The result set will be filtered to include only 
      * those allergy records or intolerance records pertaining to 
      * the specified reaction.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
      */
     @Hl7XmlMapping({"reactionType/value"})
     public SubjectReaction getReactionTypeValue() {
@@ -279,15 +307,19 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Reaction</p>
+     * <p>Business Name: I:Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value denoting a specific reaction. E.g. Code for 
      * 'rash'. The result set will be filtered to include only 
      * those allergy records or intolerance records pertaining to 
      * the specified reaction.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
      */
     public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
         this.reactionTypeValue.setValue(reactionTypeValue);

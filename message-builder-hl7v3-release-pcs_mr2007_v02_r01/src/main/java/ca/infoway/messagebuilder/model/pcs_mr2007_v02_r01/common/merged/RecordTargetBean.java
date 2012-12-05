@@ -32,173 +32,95 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>QUQI_MT120006CA.RecordTarget: (no business name)</p>
  * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
  * <p>Associated patient record for which this message applies. 
  * Record target can be one of either identified patient (id, 
  * name, gender, date of birth), indeterminate patient (name, 
  * gender, date of birth) or a patient token (suggesting client 
  * identity).</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
  * 
  * <p>MCAI_MT700230CA.RecordTarget: (no business name)</p>
  * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
  * <p>Associated patient record for which this message applies. 
  * Record target can be one of either identified patient (id, 
  * name, gender, date of birth), indeterminate patient (name, 
  * gender, date of birth) or a patient token (suggesting client 
  * identity).</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
  * 
  * <p>MCAI_MT700216CA.RecordTarget: (no business name)</p>
  * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
  * <p>Associated patient record for which this message applies. 
  * Record target can be one of either identified patient (id, 
  * name, gender, date of birth), indeterminate patient (name, 
  * gender, date of birth) or a patient token (suggesting client 
  * identity).</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
  * 
  * <p>MCAI_MT700220CA.RecordTarget: (no business name)</p>
  * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
  * <p>Associated patient record for which this message applies. 
  * Record target can be one of either identified patient (id, 
  * name, gender, date of birth), indeterminate patient (name, 
  * gender, date of birth) or a patient token (suggesting client 
  * identity).</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
- * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
  * 
  * <p>MCAI_MT700211CA.RecordTarget: (no business name)</p>
  * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
  * <p>Associated patient record for which this message applies. 
  * Record target can be one of either identified patient (id, 
  * name, gender, date of birth), indeterminate patient (name, 
  * gender, date of birth) or a patient token (suggesting client 
  * identity).</p>
  * 
- * <p>Inferring patient identity opens up the potential for 
- * privacy breach through the mis-keying of identifiers. Also, 
- * inclusion of patient identity simplifies logging, processing 
- * and application of data access constraints such as masking 
- * and consent. Finally, patient id is required to support both 
- * EHR Index (record and update) and Patient Profile Summary 
- * query (list).</p><p>Patient identity is key to successful 
- * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to potential privacy violation.</p>
+ * <p>QUQI_MT020000CA.RecordTarget: (no business name)</p>
  * 
  * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
@@ -210,6 +132,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * operation of the EHR.</p><p>A bare identifier exposes the 
  * patient to potential privacy violation.</p>
  * 
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
+ * 
+ * <p>MCAI_MT700217CA.RecordTarget: (no business name)</p>
+ * 
  * <p>Inferring patient identity opens up the potential for 
  * privacy breach through the mis-keying of identifiers. Also, 
  * inclusion of patient identity simplifies logging, processing 
@@ -218,32 +148,449 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * EHR Index (record and update) and Patient Profile Summary 
  * query (list).</p><p>Patient identity is key to successful 
  * operation of the EHR.</p><p>A bare identifier exposes the 
- * patient to pot
+ * patient to potential privacy violation.</p>
+ * 
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
+ * 
+ * <p>MCAI_MT700226CA.RecordTarget: (no business name)</p>
+ * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
+ * 
+ * <p>MCAI_MT700227CA.RecordTarget: (no business name)</p>
+ * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
+ * 
+ * <p>MCAI_MT700210CA.RecordTarget: (no business name)</p>
+ * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a patient token (suggesting client 
+ * identity).</p>
+ * 
+ * <p>MCAI_MT700237CA.RecordTarget: (no business name)</p>
+ * 
+ * <p>Inferring patient identity opens up the potential for 
+ * privacy breach through the mis-keying of identifiers. Also, 
+ * inclusion of patient identity simplifies logging, processing 
+ * and application of data access constraints such as masking 
+ * and consent. Finally, patient id is required to support both 
+ * EHR Index (record and update) and Patient Profile Summary 
+ * query (list).</p><p>Patient identity is key to successful 
+ * operation of the EHR.</p><p>A bare identifier exposes the 
+ * patient to potential privacy violation.</p>
+ * 
+ * <p>Associated patient record for which this message applies. 
+ * Record target can be one of either identified patient (id, 
+ * name, gender, date of birth), indeterminate patient (name, 
+ * gender, date of birth) or a 
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.RecordTarget","MCAI_MT700211CA.RecordTarget","MCAI_MT700216CA.RecordTarget","MCAI_MT700217CA.RecordTarget","MCAI_MT700220CA.RecordTarget","MCAI_MT700221CA.RecordTarget","MCAI_MT700226CA.RecordTarget","MCAI_MT700227CA.RecordTarget","MCAI_MT700230CA.RecordTarget","MCAI_MT700231CA.RecordTarget","MCAI_MT700236CA.RecordTarget","MCAI_MT700237CA.RecordTarget","QUQI_MT020000CA.RecordTarget","QUQI_MT120006CA.RecordTarget"})
 public class RecordTargetBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private Patient_2 patient1;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700216CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700217CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700226CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700227CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700237CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700236CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ParticipationType getTypeCode() {
         return (ParticipationType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700216CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700217CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700226CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700227CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700237CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700236CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700216CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700217CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700226CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700227CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700237CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700236CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"patient1"})
     public Patient_2 getPatient1() {
         return this.patient1;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700216CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700217CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700226CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700227CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700237CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700236CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPatient1(Patient_2 patient1) {
         this.patient1 = patient1;
     }

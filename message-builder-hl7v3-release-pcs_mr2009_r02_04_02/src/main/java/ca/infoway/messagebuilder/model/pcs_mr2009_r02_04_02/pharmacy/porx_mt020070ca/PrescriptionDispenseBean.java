@@ -45,19 +45,19 @@ import java.util.Set;
 
 
 /**
- * <p>Prescription Dispense</p>
- * 
- * <p>This is the detailed information about a medication 
- * dispense that has been performed on behalf a patient.</p>
+ * <p>Business Name: Prescription Dispense</p>
  * 
  * <p>Dispensing is an integral part of the overall medication 
  * process.</p>
+ * 
+ * <p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf a patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.MedicationDispense"})
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;
@@ -69,12 +69,16 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Local Dispense Id</p>
+     * <p>Business Name: A:Local Dispense Id</p>
      * 
-     * <p>Identifier assigned by the dispensing facility.</p>
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows formal tracking of centrally recorded dispenses to 
      * local records for audit and related purposes.</p>
+     * 
+     * <p>Identifier assigned by the dispensing facility.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -82,12 +86,16 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Local Dispense Id</p>
+     * <p>Business Name: A:Local Dispense Id</p>
      * 
-     * <p>Identifier assigned by the dispensing facility.</p>
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows formal tracking of centrally recorded dispenses to 
      * local records for audit and related purposes.</p>
+     * 
+     * <p>Identifier assigned by the dispensing facility.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -95,95 +103,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Prescription Masking Indicators</p>
+     * <p>Business Name: E:Prescription Masking Indicators</p>
      * 
-     * <p>Communicates the intent that the dispense should be 
-     * masked if it is created; If the dispense is masked, this 
-     * makes the complete prescription and all dispenses 
-     * masked.</p><p>Provides support for additional 
-     * confidentiality constraint, giving patients a level of 
-     * control over their information.</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked'); 'V' (very restricted - denotes very restricted 
-     * access as declared by the Privacy Officer of the record 
-     * holder) and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.MedicationDispense.confidentialityCode</p>
      * 
-     * <p>Communicates the intent that the dispense should be 
-     * masked if it is created; If the dispense is masked, this 
-     * makes the complete prescription and all dispenses 
-     * masked.</p><p>Provides support for additional 
-     * confidentiality constraint, giving patients a level of 
-     * control over their information.</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked'); 'V' (very restricted - denotes very restricted 
-     * access as declared by the Privacy Officer of the record 
-     * holder) and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Communicates the intent that the dispense should be 
-     * masked if it is created; If the dispense is masked, this 
-     * makes the complete prescription and all dispenses 
-     * masked.</p><p>Provides support for additional 
-     * confidentiality constraint, giving patients a level of 
-     * control over their information.</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked'); 'V' (very restricted - denotes very restricted 
-     * access as declared by the Privacy Officer of the record 
-     * holder) and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Communicates the intent that the dispense should be 
-     * masked if it is created; If the dispense is masked, this 
-     * makes the complete prescription and all dispenses 
-     * masked.</p><p>Provides support for additional 
-     * confidentiality constraint, giving patients a level of 
-     * control over their information.</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked'); 'V' (very restricted - denotes very restricted 
-     * access as declared by the Privacy Officer of the record 
-     * holder) and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Can be used to set a mask for a new dispense, if present 
-     * in a new dispense request.</p><p>Allows the patient to have 
-     * discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can't have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p>
-     * 
-     * <p>Can be used to set a mask for a new dispense, if present 
-     * in a new dispense request.</p><p>Allows the patient to have 
-     * discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can't have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p>
-     * 
-     * <p>Can be used to set a mask for a new dispense, if present 
-     * in a new dispense request.</p><p>Allows the patient to have 
-     * discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can't have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p>
-     * 
-     * <p>Can be used to set a mask for a new dispense, if present 
-     * in a new dispense request.</p><p>Allows the patient to have 
-     * discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can't have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Can be used to set a mask for a new dispense, if present 
      * in a new dispense request.</p><p>Allows the patient to have 
@@ -197,6 +122,19 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>If a dispense is masked, it implicitly masks the 
      * prescription being dispensed. (There's no point in masking a 
      * dispense if the prescription is unmasked.)</p>
+     * 
+     * <p>Communicates the intent that the dispense should be 
+     * masked if it is created; If the dispense is masked, this 
+     * makes the complete prescription and all dispenses 
+     * masked.</p><p>Provides support for additional 
+     * confidentiality constraint, giving patients a level of 
+     * control over their information.</p><p>Valid values are: 'N' 
+     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
+     * 'Masked'); 'V' (very restricted - denotes very restricted 
+     * access as declared by the Privacy Officer of the record 
+     * holder) and 'T' (taboo - denotes 'Patient Access 
+     * Restricted').</p><p>The default is 'normal' signifying 'Not 
+     * Masked'.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -204,11 +142,21 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Subject8.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public AnimalPatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Subject8.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectPatient(AnimalPatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -234,17 +182,33 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component2/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
         return this.component2DosageInstruction;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component3/supplyEvent"})
     public SupplyEventBean getComponent3SupplyEvent() {
         return this.component3SupplyEvent;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
     }

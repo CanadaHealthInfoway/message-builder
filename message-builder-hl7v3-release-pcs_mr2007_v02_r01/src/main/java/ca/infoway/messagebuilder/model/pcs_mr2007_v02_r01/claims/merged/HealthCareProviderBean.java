@@ -51,7 +51,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT290000CA.HealthCareProvider","COCT_MT490000CA.HealthCareProvider"})
 public class HealthCareProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PN healthCareProviderPersonName = new PNImpl();
@@ -62,13 +62,21 @@ public class HealthCareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderIdentifierS</p>
+     * <p>Business Name: ProviderIdentifierS</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: ProviderIdentifierS</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
      * 
      * <p>Provider ID</p>
-     * 
-     * <p>provider identifier(s</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -77,9 +85,19 @@ public class HealthCareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows for crosswalks between speciality code sets</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public PractitionerCertifiedEntityType getCode() {
@@ -87,9 +105,19 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows for crosswalks between speciality code sets</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(PractitionerCertifiedEntityType code) {
         this.code.setValue(code);
@@ -97,9 +125,19 @@ public class HealthCareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>NameOfProvider</p>
+     * <p>Business Name: NameOfProvider</p>
      * 
-     * <p>Name of Provider</p>
+     * <p>Other Business Name: NameOfProvider</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"healthCareProviderPerson/name"})
     public PersonName getHealthCareProviderPersonName() {
@@ -107,9 +145,19 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>NameOfProvider</p>
+     * <p>Business Name: NameOfProvider</p>
      * 
-     * <p>Name of Provider</p>
+     * <p>Other Business Name: NameOfProvider</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setHealthCareProviderPersonName(PersonName healthCareProviderPersonName) {
         this.healthCareProviderPersonName.setValue(healthCareProviderPersonName);
@@ -117,13 +165,21 @@ public class HealthCareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>only required if provider is not known to the Payor</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.telecom</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>contact info. for Provider</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>only required if provider is not known to the Payor</p>
      */
     @Hl7XmlMapping({"healthCareProviderPerson/telecom"})
     public TelecommunicationAddress getHealthCareProviderPersonTelecom() {
@@ -131,13 +187,21 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>only required if provider is not known to the Payor</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.telecom</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>contact info. for Provider</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>only required if provider is not known to the Payor</p>
      */
     public void setHealthCareProviderPersonTelecom(TelecommunicationAddress healthCareProviderPersonTelecom) {
         this.healthCareProviderPersonTelecom.setValue(healthCareProviderPersonTelecom);
@@ -145,7 +209,19 @@ public class HealthCareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.ProviderPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProviderPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>only required if provider is not known to the Payor</p>
      */
@@ -155,7 +231,19 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.ProviderPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProviderPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>only required if provider is not known to the Payor</p>
      */
@@ -165,7 +253,17 @@ public class HealthCareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>only required if provider is not known to the Payor</p>
      */
@@ -175,7 +273,17 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>only required if provider is not known to the Payor</p>
      */
@@ -185,13 +293,23 @@ public class HealthCareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>CanBeUsedToSpecifyJurisdictionForOOJProviders</p>
+     * <p>Business Name: 
+     * CanBeUsedToSpecifyJurisdictionForOOJProviders</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to specify jurisdiction for OOJ providers</p>
      * 
-     * <p>Can be used to specify jurisdiction for OOJ providers</p>
+     * <p>Other Business Name: 
+     * CanBeUsedToSpecifyJurisdictionForOOJProviders</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to specify jurisdiction for OOJ providers</p>
      */
@@ -201,13 +319,23 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>CanBeUsedToSpecifyJurisdictionForOOJProviders</p>
+     * <p>Business Name: 
+     * CanBeUsedToSpecifyJurisdictionForOOJProviders</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to specify jurisdiction for OOJ providers</p>
      * 
-     * <p>Can be used to specify jurisdiction for OOJ providers</p>
+     * <p>Other Business Name: 
+     * CanBeUsedToSpecifyJurisdictionForOOJProviders</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to specify jurisdiction for OOJ providers</p>
      */

@@ -51,7 +51,7 @@ import java.util.Date;
 @Hl7RootType
 public class SupplyEventBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
@@ -65,7 +65,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Type of Dispense</p>
+     * <p>Business Name: Type of Dispense</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActPharmacySupplyType getCode() {
@@ -73,7 +77,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>Type of Dispense</p>
+     * <p>Business Name: Type of Dispense</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(ActPharmacySupplyType code) {
         this.code.setValue(code);
@@ -81,7 +89,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Dispense Time</p>
+     * <p>Business Name: Dispense Time</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -89,7 +101,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>Dispense Time</p>
+     * <p>Business Name: Dispense Time</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -97,7 +113,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Total Dispensed</p>
+     * <p>Business Name: Total Dispensed</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -105,7 +125,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>Total Dispensed</p>
+     * <p>Business Name: Total Dispensed</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -113,7 +137,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Dispensed Days Supply</p>
+     * <p>Business Name: Dispensed Days Supply</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -121,7 +149,11 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>Dispensed Days Supply</p>
+     * <p>Business Name: Dispensed Days Supply</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
@@ -138,11 +170,23 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.ResponsibleProvider.pharmacistRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/pharmacistRole"})
     public PharmacistRoleBean getPerformerPharmacistRole() {
         return this.performerPharmacistRole;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.ResponsibleProvider.pharmacistRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerPharmacistRole(PharmacistRoleBean performerPharmacistRole) {
         this.performerPharmacistRole = performerPharmacistRole;
     }
@@ -168,11 +212,23 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.SupplyEvent.pertinentInformation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation"})
     public DispenseInstructionsBean getPertinentInformation() {
         return this.pertinentInformation;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.SupplyEvent.pertinentInformation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation(DispenseInstructionsBean pertinentInformation) {
         this.pertinentInformation = pertinentInformation;
     }

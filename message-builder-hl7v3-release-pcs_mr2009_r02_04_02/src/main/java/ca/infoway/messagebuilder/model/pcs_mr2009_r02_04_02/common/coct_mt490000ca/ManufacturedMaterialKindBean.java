@@ -43,14 +43,14 @@ import java.util.Date;
 
 
 /**
- * <p>Manufactured Material Kind</p>
+ * <p>Business Name: Manufactured Material Kind</p>
  * 
  * <p>Type of Product</p>
  */
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST desc = new STImpl();
     private IVL<TS, Interval<Date>> asWarrantorEffectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -61,7 +61,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
-     * <p>Manufactured material code</p>
+     * <p>Business Name: Manufactured material code</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedMaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code for manufactured material</p>
      */
@@ -71,7 +76,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
-     * <p>Manufactured material code</p>
+     * <p>Business Name: Manufactured material code</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedMaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code for manufactured material</p>
      */
@@ -81,7 +91,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
-     * <p>Package description</p>
+     * <p>Business Name: Package description</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedMaterialKind.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>box, blister pack, compliance packaging, etc. HC-PCS?</p>
      */
@@ -91,7 +106,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
-     * <p>Package description</p>
+     * <p>Business Name: Package description</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedMaterialKind.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>box, blister pack, compliance packaging, etc. HC-PCS?</p>
      */
@@ -101,7 +121,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
-     * <p>Time of warranty</p>
+     * <p>Business Name: Time of warranty</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.Warrantor.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>time of warranty</p>
      */
@@ -111,7 +135,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
-     * <p>Time of warranty</p>
+     * <p>Business Name: Time of warranty</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.Warrantor.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>time of warranty</p>
      */
@@ -121,7 +149,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
-     * <p>Warrantor Organisation Name</p>
+     * <p>Business Name: Warrantor Organisation Name</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.WarrantorOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>name of Organization that holds warranty</p>
      */
@@ -131,7 +163,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
-     * <p>Warrantor Organisation Name</p>
+     * <p>Business Name: Warrantor Organisation Name</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.WarrantorOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>name of Organization that holds warranty</p>
      */
@@ -141,7 +177,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
-     * <p>Warrantor Organisation telecom</p>
+     * <p>Business Name: Warrantor Organisation telecom</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.WarrantorOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Warrantor Organization telephone number</p>
      */
@@ -151,7 +192,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
-     * <p>Warrantor Organisation telecom</p>
+     * <p>Business Name: Warrantor Organisation telecom</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.WarrantorOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Warrantor Organization telephone number</p>
      */
@@ -161,7 +207,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
-     * <p>Package Quantity</p>
+     * <p>Business Name: Package Quantity</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ContentPackagedProduct.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>number of items in the package</p>
      */
@@ -171,7 +222,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
-     * <p>Package Quantity</p>
+     * <p>Business Name: Package Quantity</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ContentPackagedProduct.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>number of items in the package</p>
      */
@@ -180,11 +236,23 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ContentPackagedProduct.containedManufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"contentPackagedProduct/containedManufacturedMaterialKind"})
     public ManufacturedMaterialKindBean getContentPackagedProductContainedManufacturedMaterialKind() {
         return this.contentPackagedProductContainedManufacturedMaterialKind;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ContentPackagedProduct.containedManufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setContentPackagedProductContainedManufacturedMaterialKind(ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind) {
         this.contentPackagedProductContainedManufacturedMaterialKind = contentPackagedProductContainedManufacturedMaterialKind;
     }

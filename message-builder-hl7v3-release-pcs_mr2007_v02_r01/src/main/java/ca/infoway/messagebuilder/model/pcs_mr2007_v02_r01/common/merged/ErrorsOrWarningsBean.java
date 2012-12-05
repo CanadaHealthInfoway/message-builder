@@ -38,28 +38,28 @@ import java.util.Set;
 
 
 /**
- * <p>ErrorsOrWarnings</p>
+ * <p>Business Name: ErrorsOrWarnings</p>
  * 
  * <p>MCCI_MT002200CA.AcknowledgementDetail: Errors or Warnings</p>
  * 
- * <p>An error, warning or information message associated with 
- * the message being acknowledged.</p>
- * 
  * <p>Allows identification issues related to the parsing and 
  * low-level processing of the message.</p>
+ * 
+ * <p>An error, warning or information message associated with 
+ * the message being acknowledged.</p>
  * 
  * <p>MCCI_MT002300CA.AcknowledgementDetail: Errors or Warnings</p>
  * 
- * <p>An error, warning or information message associated with 
- * the message being acknowledged.</p>
- * 
  * <p>Allows identification issues related to the parsing and 
  * low-level processing of the message.</p>
+ * 
+ * <p>An error, warning or information message associated with 
+ * the message being acknowledged.</p>
  */
 @Hl7PartTypeMapping({"MCCI_MT002200CA.AcknowledgementDetail","MCCI_MT002300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private CV code = new CVImpl();
     private ST text = new STImpl();
@@ -67,15 +67,33 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageType</p>
+     * <p>Business Name: MessageType</p>
      * 
-     * <p>Message type</p>
+     * <p>Other Business Name: MessageType</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002200CA.AcknowledgementDetail.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Different types of messages have substantially different 
+     * ramifications.</p>
      * 
      * <p>Distinguishes between errors, warnings and information 
      * messages.</p>
      * 
+     * <p>Other Business Name: MessageType</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002300CA.AcknowledgementDetail.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Different types of messages have substantially different 
      * ramifications.</p>
+     * 
+     * <p>Distinguishes between errors, warnings and information 
+     * messages.</p>
      */
     @Hl7XmlMapping({"typeCode"})
     public AcknowledgementDetailType getTypeCode() {
@@ -83,15 +101,33 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     }
 
     /**
-     * <p>MessageType</p>
+     * <p>Business Name: MessageType</p>
      * 
-     * <p>Message type</p>
+     * <p>Other Business Name: MessageType</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002200CA.AcknowledgementDetail.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Different types of messages have substantially different 
+     * ramifications.</p>
      * 
      * <p>Distinguishes between errors, warnings and information 
      * messages.</p>
      * 
+     * <p>Other Business Name: MessageType</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002300CA.AcknowledgementDetail.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Different types of messages have substantially different 
      * ramifications.</p>
+     * 
+     * <p>Distinguishes between errors, warnings and information 
+     * messages.</p>
      */
     public void setTypeCode(AcknowledgementDetailType typeCode) {
         this.typeCode.setValue(typeCode);
@@ -99,18 +135,37 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>ResponseCode</p>
+     * <p>Business Name: ResponseCode</p>
      * 
-     * <p>A:Response Code</p>
+     * <p>Other Business Name: ResponseCode</p>
      * 
-     * <p>Indicates the specific issue represented by this 
-     * message.</p>
+     * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>By providing coded identification of issues and errors, 
      * allows applications to have logic that manages particular 
      * errors and warnings automatically. However in some 
      * circumstances, a code may not be available. Therefore the 
      * attribute is marked as 'populated'.</p>
+     * 
+     * <p>Indicates the specific issue represented by this 
+     * message.</p>
+     * 
+     * <p>Other Business Name: ResponseCode</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>By providing coded identification of issues and errors, 
+     * allows applications to have logic that manages particular 
+     * errors and warnings automatically. However in some 
+     * circumstances, a code may not be available. Therefore the 
+     * attribute is marked as 'populated'.</p>
+     * 
+     * <p>Indicates the specific issue represented by this 
+     * message.</p>
      */
     @Hl7XmlMapping({"code"})
     public AcknowledgementDetailCode getCode() {
@@ -118,18 +173,37 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ResponseCode</p>
+     * <p>Business Name: ResponseCode</p>
      * 
-     * <p>A:Response Code</p>
+     * <p>Other Business Name: ResponseCode</p>
      * 
-     * <p>Indicates the specific issue represented by this 
-     * message.</p>
+     * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>By providing coded identification of issues and errors, 
      * allows applications to have logic that manages particular 
      * errors and warnings automatically. However in some 
      * circumstances, a code may not be available. Therefore the 
      * attribute is marked as 'populated'.</p>
+     * 
+     * <p>Indicates the specific issue represented by this 
+     * message.</p>
+     * 
+     * <p>Other Business Name: ResponseCode</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>By providing coded identification of issues and errors, 
+     * allows applications to have logic that manages particular 
+     * errors and warnings automatically. However in some 
+     * circumstances, a code may not be available. Therefore the 
+     * attribute is marked as 'populated'.</p>
+     * 
+     * <p>Indicates the specific issue represented by this 
+     * message.</p>
      */
     public void setCode(AcknowledgementDetailCode code) {
         this.code.setValue(code);
@@ -137,17 +211,35 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageDescription</p>
+     * <p>Business Name: MessageDescription</p>
      * 
-     * <p>C:Message Description</p>
+     * <p>Other Business Name: MessageDescription</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows supplementing the 'computer' information for 
+     * human-readability.</p>
      * 
      * <p>The human-readable description of the error, warning or 
      * information message. May convey additional details not 
      * present in the 'code', but is not intended to be 
      * human-processable.</p>
      * 
+     * <p>Other Business Name: MessageDescription</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows supplementing the 'computer' information for 
      * human-readability.</p>
+     * 
+     * <p>The human-readable description of the error, warning or 
+     * information message. May convey additional details not 
+     * present in the 'code', but is not intended to be 
+     * human-processable.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -155,17 +247,35 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     }
 
     /**
-     * <p>MessageDescription</p>
+     * <p>Business Name: MessageDescription</p>
      * 
-     * <p>C:Message Description</p>
+     * <p>Other Business Name: MessageDescription</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows supplementing the 'computer' information for 
+     * human-readability.</p>
      * 
      * <p>The human-readable description of the error, warning or 
      * information message. May convey additional details not 
      * present in the 'code', but is not intended to be 
      * human-processable.</p>
      * 
+     * <p>Other Business Name: MessageDescription</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows supplementing the 'computer' information for 
      * human-readability.</p>
+     * 
+     * <p>The human-readable description of the error, warning or 
+     * information message. May convey additional details not 
+     * present in the 'code', but is not intended to be 
+     * human-processable.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -173,13 +283,14 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>ReferencedMessageLocations</p>
+     * <p>Business Name: ReferencedMessageLocations</p>
      * 
-     * <p>B:Referenced Message Locations</p>
+     * <p>Other Business Name: ReferencedMessageLocations</p>
      * 
-     * <p>Indicates the location of the elements within the message 
-     * instance that triggered this error, warning or information 
-     * message.</p>
+     * <p>Relationship: 
+     * MCCI_MT002200CA.AcknowledgementDetail.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Allows syntax and other messages to be linked to 
      * particular fields within the message.</p>
@@ -187,6 +298,28 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>I.e. only the default 'child' axis is permitted, 
      * occurrence numbers are always specified, and no other 
      * predicates are permitted.</p>
+     * 
+     * <p>Indicates the location of the elements within the message 
+     * instance that triggered this error, warning or information 
+     * message.</p>
+     * 
+     * <p>Other Business Name: ReferencedMessageLocations</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002300CA.AcknowledgementDetail.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Allows syntax and other messages to be linked to 
+     * particular fields within the message.</p>
+     * 
+     * <p>I.e. only the default 'child' axis is permitted, 
+     * occurrence numbers are always specified, and no other 
+     * predicates are permitted.</p>
+     * 
+     * <p>Indicates the location of the elements within the message 
+     * instance that triggered this error, warning or information 
+     * message.</p>
      */
     @Hl7XmlMapping({"location"})
     public Set<String> getLocation() {

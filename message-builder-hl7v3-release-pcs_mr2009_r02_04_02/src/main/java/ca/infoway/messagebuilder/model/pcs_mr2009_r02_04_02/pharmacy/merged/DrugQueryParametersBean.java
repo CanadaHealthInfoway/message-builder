@@ -61,57 +61,57 @@ import java.util.List;
  * <p>PORX_MT060180CA.ParameterList: Medication Profile Generic 
  * Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT050020CA.ParameterList: Generic Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>POME_MT010050CA.ParameterList: Generic Query Parameters</p>
  * 
  * <p>One and only one of Drug Code, Prescribing Indication 
  * Code, or Medication Document ID must be specified.</p>
  * 
+ * <p>Root class for query parameters.</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query parameters.</p>
  * 
  * <p>PORX_MT060170CA.ParameterList: Generic Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>POME_MT010030CA.ParameterList: Drug Query Parameters</p>
  * 
+ * <p>Root class for query parameters</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query parameters</p>
  * 
  * <p>POME_MT010090CA.ParameterList: Drug Query Parameters</p>
  * 
  * <p>At least one of drug code or drug name must be 
  * specified</p>
  * 
+ * <p>Root class for query parameters</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query parameters</p>
  */
 @Hl7PartTypeMapping({"POME_MT010030CA.ParameterList","POME_MT010050CA.ParameterList","POME_MT010090CA.ParameterList","PORX_MT050020CA.ParameterList","PORX_MT060170CA.ParameterList","PORX_MT060180CA.ParameterList"})
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDValue = new ArrayList<II>();
@@ -146,23 +146,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AdministrationEffectivePeriod</p>
+     * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Administration Effective Period</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.AdministrationEffectivePeriod.value</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the administration period 
      * of interest for the retrieval. Useful for constraining 
@@ -172,21 +163,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * query response should be considered to be the 'Pick up date 
      * plus the days supply'</p>
      * 
-     * <p>Administration Effective Period</p>
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
      * 
-     * <p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p>
+     * <p>Relationship: 
+     * PORX_MT060170CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the administration period 
      * of interest for the retrieval. Useful for constraining 
@@ -195,6 +184,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * <p>The determination for applicability for inclusion in the 
      * query response should be considered to be the 'Pick up date 
      * plus the days supply'</p>
+     * 
+     * <p>For a prescription indicates the period for which the 
+     * patient was deemed to be taking the drug.</p><p>Filter the 
+     * result set to include only those medication records 
+     * (prescription order, prescription dispense and other 
+     * medication) for which the patient was deemed to be taking 
+     * the drug.</p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
     public Interval<Date> getAdministrationEffectivePeriodValue() {
@@ -202,23 +198,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdministrationEffectivePeriod</p>
+     * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Administration Effective Period</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.AdministrationEffectivePeriod.value</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the administration period 
      * of interest for the retrieval. Useful for constraining 
@@ -228,21 +215,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * query response should be considered to be the 'Pick up date 
      * plus the days supply'</p>
      * 
-     * <p>Administration Effective Period</p>
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
      * 
-     * <p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p>
+     * <p>Relationship: 
+     * PORX_MT060170CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the administration period 
      * of interest for the retrieval. Useful for constraining 
@@ -251,6 +236,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * <p>The determination for applicability for inclusion in the 
      * query response should be considered to be the 'Pick up date 
      * plus the days supply'</p>
+     * 
+     * <p>For a prescription indicates the period for which the 
+     * patient was deemed to be taking the drug.</p><p>Filter the 
+     * result set to include only those medication records 
+     * (prescription order, prescription dispense and other 
+     * medication) for which the patient was deemed to be taking 
+     * the drug.</p>
      */
     public void setAdministrationEffectivePeriodValue(Interval<Date> administrationEffectivePeriodValue) {
         this.administrationEffectivePeriodValue.setValue(administrationEffectivePeriodValue);
@@ -258,26 +250,17 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AmendedInTimeRange</p>
+     * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Amended In Time Range</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Indicates that the returned records should be filtered to 
-     * only include those which have been amended in some way (had 
-     * status changed, been annotated, prescription was dispensed, 
-     * etc.) within the indicated time-period. This will commonly 
-     * be used to 'retrieve everything that has been amended since 
-     * xxx'.</p>
+     * <p>Relationship: PORX_MT060180CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Amended in Time Range</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -286,13 +269,22 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * be used to retrieve everything that has been amended since 
      * xxx.</p>
      * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to 'retrieve everything that has been amended since 
+     * xxx'.</p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
     public Interval<Date> getAmendedInTimeRangeValue() {
@@ -300,26 +292,17 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AmendedInTimeRange</p>
+     * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Amended In Time Range</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Indicates that the returned records should be filtered to 
-     * only include those which have been amended in some way (had 
-     * status changed, been annotated, prescription was dispensed, 
-     * etc.) within the indicated time-period. This will commonly 
-     * be used to 'retrieve everything that has been amended since 
-     * xxx'.</p>
+     * <p>Relationship: PORX_MT060180CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Amended in Time Range</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -328,13 +311,22 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * be used to retrieve everything that has been amended since 
      * xxx.</p>
      * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to 'retrieve everything that has been amended since 
+     * xxx'.</p>
      */
     public void setAmendedInTimeRangeValue(Interval<Date> amendedInTimeRangeValue) {
         this.amendedInTimeRangeValue.setValue(amendedInTimeRangeValue);
@@ -342,32 +334,45 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionIDs</p>
+     * <p>Business Name: CareCompositionIDs</p>
      * 
-     * <p>Care Composition IDs</p>
+     * <p>Other Business Name: CareCompositionIDs</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Relationship: PORX_MT060180CA.CareCompositionID.value</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
+     * 
+     * <p>Other Business Name: CareCompositionIDs</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.CareCompositionID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
     public List<Identifier> getCareCompositionIDValue() {
@@ -376,18 +381,37 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionTypes</p>
+     * <p>Business Name: CareCompositionTypes</p>
      * 
-     * <p>Care Composition Types</p>
+     * <p>Other Business Name: CareCompositionTypes</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p>
+     * <p>Relationship: PORX_MT060180CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with a 
      * particular type of encounter, episode or care event. 
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
+     * 
+     * <p>Other Business Name: CareCompositionTypes</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypeValue() {
@@ -396,16 +420,33 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DiagnosisCode</p>
+     * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Diagnosis Code</p>
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.DiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * diagnosis indication code.</p>
      * 
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.DiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * diagnosis indication code.</p>
      */
     @Hl7XmlMapping({"diagnosisCode/value"})
     public DiagnosisValue getDiagnosisCodeValue() {
@@ -413,16 +454,33 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DiagnosisCode</p>
+     * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Diagnosis Code</p>
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.DiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * diagnosis indication code.</p>
      * 
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.DiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * diagnosis indication code.</p>
      */
     public void setDiagnosisCodeValue(DiagnosisValue diagnosisCodeValue) {
         this.diagnosisCodeValue.setValue(diagnosisCodeValue);
@@ -430,128 +488,120 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>E:Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications pertaining to the 
-     * specified drug.</p><p>The code may refer to an 
-     * administerable medication, an orderable medication or a 
-     * higher level drug classification.</p><p>The contraindication 
-     * records retrieve would comprise the drug-drug interactions 
-     * between this specified and each of the drugs on the 
-     * patient's profile, as well as drug-disease and drug-allergy 
-     * contraindications that might result (based on the 
-     * information on the patient's profile).</p>
+     * <p>Relationship: PORX_MT060180CA.DrugCode.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications pertaining to the 
-     * specified drug.</p><p>The code may refer to an 
-     * administerable medication, an orderable medication or a 
-     * higher level drug classification.</p><p>The contraindication 
-     * records retrieve would comprise the drug-drug interactions 
-     * between this specified and each of the drugs on the 
-     * patient's profile, as well as drug-disease and drug-allergy 
-     * contraindications that might result (based on the 
-     * information on the patient's profile).</p>
-     * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications pertaining to the 
-     * specified drug.</p><p>The code may refer to an 
-     * administerable medication, an orderable medication or a 
-     * higher level drug classification.</p><p>The contraindication 
-     * records retrieve would comprise the drug-drug interactions 
-     * between this specified and each of the drugs on the 
-     * patient's profile, as well as drug-disease and drug-allergy 
-     * contraindications that might result (based on the 
-     * information on the patient's profile).</p>
-     * 
-     * <p>Allows for the retrieval of all potential 
-     * contraindications based on a specific medication being 
-     * introduced onto the patient's medication profile. 
-     * Contraindications can't be found without specifying the 
-     * medication, therefore this attribute is 
-     * mandatory.</p><p>This will most commonly be used by 
-     * providers to test the viability of prescribing/dispensing a 
-     * medication to a patient (in view of the patient's existing 
-     * medication profile).</p>
-     * 
-     * <p>Allows for the retrieval of all potential 
-     * contraindications based on a specific medication being 
-     * introduced onto the patient's medication profile. 
-     * Contraindications can't be found without specifying the 
-     * medication, therefore this attribute is 
-     * mandatory.</p><p>This will most commonly be used by 
-     * providers to test the viability of prescribing/dispensing a 
-     * medication to a patient (in view of the patient's existing 
-     * medication profile).</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>An identifier for a specific drug product. Types of drugs 
-     * identified by drug code include: Manufactured drug, generic 
-     * formulation, generic, therapeutic class, etc.</p>
-     * 
-     * <p>Allows the requester to retrieve detail information about 
-     * a specific drug product.</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>An identifier that describes a drug at any level of the 
-     * clinical drug hierarchy. The code may describe (point to) a 
-     * Manufactured drug, generic drug formulation, generic drug, 
-     * therapeutic classification, etc.</p><p>For example, using a 
-     * therapeutic class code in the DrugCode parameter would 
-     * return a list of all drugs that are within that class. 
-     * Sending a drug name in the DrugName parameter would return a 
-     * list of all drugs that have that name e.g. sending 
-     * acetaminophen would return all of the acetaminophen products 
-     * in the drug data base. By including the DoseForm, DoseRoute, 
-     * DrugManufacturerName or DrugCharacteristic, the list could 
-     * be further constrained.</p>
-     * 
-     * <p>An identifier that describes a drug at any level of the 
-     * clinical drug hierarchy. The code may describe (point to) a 
-     * Manufactured drug, generic drug formulation, generic drug, 
-     * therapeutic classification, etc.</p><p>For example, using a 
-     * therapeutic class code in the DrugCode parameter would 
-     * return a list of all drugs that are within that class. 
-     * Sending a drug name in the DrugName parameter would return a 
-     * list of all drugs that have that name e.g. sending 
-     * acetaminophen would return all of the acetaminophen products 
-     * in the drug data base. By including the DoseForm, DoseRoute, 
-     * DrugManufacturerName or DrugCharacteristic, the list could 
-     * be further constrained.</p>
-     * 
-     * <p>Allows the requester to retrieve drugs of certain 
-     * abstraction only. These drug abstractions include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>An identifier for a type of drug. Types of drugs include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
-     * 
-     * <p>Allows the requester to retrieve drugs of certain 
-     * abstraction only. These drug abstractions include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
-     * 
-     * <p>Drug Code</p>
-     * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those records pertaining to the specified drug. 
-     * The code may refer to an orderable medication or a higher 
-     * level drug classification.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of patient prescriptions and/or 
      * dispenses based on a specific medication that was ordered 
      * and/or dispensed. This will most commonly be used to filter 
      * for therapeutic classifications such as 
      * &quot;Anti-hypertensives&quot;.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified drug. 
+     * The code may refer to an orderable medication or a higher 
+     * level drug classification.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: PORX_MT050020CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of all potential 
+     * contraindications based on a specific medication being 
+     * introduced onto the patient's medication profile. 
+     * Contraindications can't be found without specifying the 
+     * medication, therefore this attribute is 
+     * mandatory.</p><p>This will most commonly be used by 
+     * providers to test the viability of prescribing/dispensing a 
+     * medication to a patient (in view of the patient's existing 
+     * medication profile).</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those contraindications pertaining to the 
+     * specified drug.</p><p>The code may refer to an 
+     * administerable medication, an orderable medication or a 
+     * higher level drug classification.</p><p>The contraindication 
+     * records retrieve would comprise the drug-drug interactions 
+     * between this specified and each of the drugs on the 
+     * patient's profile, as well as drug-disease and drug-allergy 
+     * contraindications that might result (based on the 
+     * information on the patient's profile).</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010050CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve drugs of certain 
+     * abstraction only. These drug abstractions include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>An identifier for a type of drug. Types of drugs include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010030CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve detail information about 
+     * a specific drug product.</p>
+     * 
+     * <p>An identifier for a specific drug product. Types of drugs 
+     * identified by drug code include: Manufactured drug, generic 
+     * formulation, generic, therapeutic class, etc.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient prescriptions and/or 
+     * dispenses based on a specific medication that was ordered 
+     * and/or dispensed. This will most commonly be used to filter 
+     * for therapeutic classifications such as 
+     * &quot;Anti-hypertensives&quot;.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified drug. 
+     * The code may refer to an orderable medication or a higher 
+     * level drug classification.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve drugs of certain 
+     * abstraction only. These drug abstractions include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>An identifier that describes a drug at any level of the 
+     * clinical drug hierarchy. The code may describe (point to) a 
+     * Manufactured drug, generic drug formulation, generic drug, 
+     * therapeutic classification, etc.</p><p>For example, using a 
+     * therapeutic class code in the DrugCode parameter would 
+     * return a list of all drugs that are within that class. 
+     * Sending a drug name in the DrugName parameter would return a 
+     * list of all drugs that have that name e.g. sending 
+     * acetaminophen would return all of the acetaminophen products 
+     * in the drug data base. By including the DoseForm, DoseRoute, 
+     * DrugManufacturerName or DrugCharacteristic, the list could 
+     * be further constrained.</p>
      */
     @Hl7XmlMapping({"drugCode/value"})
     public ClinicalDrug getDrugCodeValue() {
@@ -559,128 +609,120 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>E:Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications pertaining to the 
-     * specified drug.</p><p>The code may refer to an 
-     * administerable medication, an orderable medication or a 
-     * higher level drug classification.</p><p>The contraindication 
-     * records retrieve would comprise the drug-drug interactions 
-     * between this specified and each of the drugs on the 
-     * patient's profile, as well as drug-disease and drug-allergy 
-     * contraindications that might result (based on the 
-     * information on the patient's profile).</p>
+     * <p>Relationship: PORX_MT060180CA.DrugCode.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications pertaining to the 
-     * specified drug.</p><p>The code may refer to an 
-     * administerable medication, an orderable medication or a 
-     * higher level drug classification.</p><p>The contraindication 
-     * records retrieve would comprise the drug-drug interactions 
-     * between this specified and each of the drugs on the 
-     * patient's profile, as well as drug-disease and drug-allergy 
-     * contraindications that might result (based on the 
-     * information on the patient's profile).</p>
-     * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications pertaining to the 
-     * specified drug.</p><p>The code may refer to an 
-     * administerable medication, an orderable medication or a 
-     * higher level drug classification.</p><p>The contraindication 
-     * records retrieve would comprise the drug-drug interactions 
-     * between this specified and each of the drugs on the 
-     * patient's profile, as well as drug-disease and drug-allergy 
-     * contraindications that might result (based on the 
-     * information on the patient's profile).</p>
-     * 
-     * <p>Allows for the retrieval of all potential 
-     * contraindications based on a specific medication being 
-     * introduced onto the patient's medication profile. 
-     * Contraindications can't be found without specifying the 
-     * medication, therefore this attribute is 
-     * mandatory.</p><p>This will most commonly be used by 
-     * providers to test the viability of prescribing/dispensing a 
-     * medication to a patient (in view of the patient's existing 
-     * medication profile).</p>
-     * 
-     * <p>Allows for the retrieval of all potential 
-     * contraindications based on a specific medication being 
-     * introduced onto the patient's medication profile. 
-     * Contraindications can't be found without specifying the 
-     * medication, therefore this attribute is 
-     * mandatory.</p><p>This will most commonly be used by 
-     * providers to test the viability of prescribing/dispensing a 
-     * medication to a patient (in view of the patient's existing 
-     * medication profile).</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>An identifier for a specific drug product. Types of drugs 
-     * identified by drug code include: Manufactured drug, generic 
-     * formulation, generic, therapeutic class, etc.</p>
-     * 
-     * <p>Allows the requester to retrieve detail information about 
-     * a specific drug product.</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>An identifier that describes a drug at any level of the 
-     * clinical drug hierarchy. The code may describe (point to) a 
-     * Manufactured drug, generic drug formulation, generic drug, 
-     * therapeutic classification, etc.</p><p>For example, using a 
-     * therapeutic class code in the DrugCode parameter would 
-     * return a list of all drugs that are within that class. 
-     * Sending a drug name in the DrugName parameter would return a 
-     * list of all drugs that have that name e.g. sending 
-     * acetaminophen would return all of the acetaminophen products 
-     * in the drug data base. By including the DoseForm, DoseRoute, 
-     * DrugManufacturerName or DrugCharacteristic, the list could 
-     * be further constrained.</p>
-     * 
-     * <p>An identifier that describes a drug at any level of the 
-     * clinical drug hierarchy. The code may describe (point to) a 
-     * Manufactured drug, generic drug formulation, generic drug, 
-     * therapeutic classification, etc.</p><p>For example, using a 
-     * therapeutic class code in the DrugCode parameter would 
-     * return a list of all drugs that are within that class. 
-     * Sending a drug name in the DrugName parameter would return a 
-     * list of all drugs that have that name e.g. sending 
-     * acetaminophen would return all of the acetaminophen products 
-     * in the drug data base. By including the DoseForm, DoseRoute, 
-     * DrugManufacturerName or DrugCharacteristic, the list could 
-     * be further constrained.</p>
-     * 
-     * <p>Allows the requester to retrieve drugs of certain 
-     * abstraction only. These drug abstractions include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>An identifier for a type of drug. Types of drugs include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
-     * 
-     * <p>Allows the requester to retrieve drugs of certain 
-     * abstraction only. These drug abstractions include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
-     * 
-     * <p>Drug Code</p>
-     * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those records pertaining to the specified drug. 
-     * The code may refer to an orderable medication or a higher 
-     * level drug classification.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of patient prescriptions and/or 
      * dispenses based on a specific medication that was ordered 
      * and/or dispensed. This will most commonly be used to filter 
      * for therapeutic classifications such as 
      * &quot;Anti-hypertensives&quot;.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified drug. 
+     * The code may refer to an orderable medication or a higher 
+     * level drug classification.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: PORX_MT050020CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of all potential 
+     * contraindications based on a specific medication being 
+     * introduced onto the patient's medication profile. 
+     * Contraindications can't be found without specifying the 
+     * medication, therefore this attribute is 
+     * mandatory.</p><p>This will most commonly be used by 
+     * providers to test the viability of prescribing/dispensing a 
+     * medication to a patient (in view of the patient's existing 
+     * medication profile).</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those contraindications pertaining to the 
+     * specified drug.</p><p>The code may refer to an 
+     * administerable medication, an orderable medication or a 
+     * higher level drug classification.</p><p>The contraindication 
+     * records retrieve would comprise the drug-drug interactions 
+     * between this specified and each of the drugs on the 
+     * patient's profile, as well as drug-disease and drug-allergy 
+     * contraindications that might result (based on the 
+     * information on the patient's profile).</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010050CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve drugs of certain 
+     * abstraction only. These drug abstractions include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>An identifier for a type of drug. Types of drugs include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010030CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve detail information about 
+     * a specific drug product.</p>
+     * 
+     * <p>An identifier for a specific drug product. Types of drugs 
+     * identified by drug code include: Manufactured drug, generic 
+     * formulation, generic, therapeutic class, etc.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient prescriptions and/or 
+     * dispenses based on a specific medication that was ordered 
+     * and/or dispensed. This will most commonly be used to filter 
+     * for therapeutic classifications such as 
+     * &quot;Anti-hypertensives&quot;.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified drug. 
+     * The code may refer to an orderable medication or a higher 
+     * level drug classification.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve drugs of certain 
+     * abstraction only. These drug abstractions include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>An identifier that describes a drug at any level of the 
+     * clinical drug hierarchy. The code may describe (point to) a 
+     * Manufactured drug, generic drug formulation, generic drug, 
+     * therapeutic classification, etc.</p><p>For example, using a 
+     * therapeutic class code in the DrugCode parameter would 
+     * return a list of all drugs that are within that class. 
+     * Sending a drug name in the DrugName parameter would return a 
+     * list of all drugs that have that name e.g. sending 
+     * acetaminophen would return all of the acetaminophen products 
+     * in the drug data base. By including the DoseForm, DoseRoute, 
+     * DrugManufacturerName or DrugCharacteristic, the list could 
+     * be further constrained.</p>
      */
     public void setDrugCodeValue(ClinicalDrug drugCodeValue) {
         this.drugCodeValue.setValue(drugCodeValue);
@@ -688,33 +730,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludeEventHistoryIndicator.value</p>
      * 
-     * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is boolean, it must explicitly indicate a 
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Event History Indicator</p>
      * 
      * <p>Indicates whether or not history events associated with a 
      * prescription order, prescription dispense and/or other 
@@ -722,21 +750,23 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * detailed information.</p><p>&quot;Pending&quot; changes will 
      * be returned regardless of the setting of this flag.</p>
      * 
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludeEventHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including history 
+     * in the retrieval of the requested information.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
      * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or other 
-     * active medications are to be returned along with the 
-     * detailed information.</p><p>&quot;Pending&quot; changes will 
-     * be returned regardless of the setting of this flag.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p><p>&quot;Pending&quot; changes will be 
+     * returned regardless of the setting of this flag.</p>
      */
     @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
     public Boolean getIncludeEventHistoryIndicatorValue() {
@@ -744,33 +774,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludeEventHistoryIndicator.value</p>
      * 
-     * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is boolean, it must explicitly indicate a 
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Event History Indicator</p>
      * 
      * <p>Indicates whether or not history events associated with a 
      * prescription order, prescription dispense and/or other 
@@ -778,21 +794,23 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * detailed information.</p><p>&quot;Pending&quot; changes will 
      * be returned regardless of the setting of this flag.</p>
      * 
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludeEventHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including history 
+     * in the retrieval of the requested information.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
      * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or other 
-     * active medications are to be returned along with the 
-     * detailed information.</p><p>&quot;Pending&quot; changes will 
-     * be returned regardless of the setting of this flag.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p><p>&quot;Pending&quot; changes will be 
+     * returned regardless of the setting of this flag.</p>
      */
     public void setIncludeEventHistoryIndicatorValue(Boolean includeEventHistoryIndicatorValue) {
         this.includeEventHistoryIndicatorValue.setValue(includeEventHistoryIndicatorValue);
@@ -800,26 +818,43 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including issues 
+     * in the retrieval of medication detail profile 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not Issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
      * in the retrieval of medication detail profile 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescriptions, dispenses and other active 
+     * medication records are to be returned along with the 
+     * detailed information.</p>
      */
     @Hl7XmlMapping({"includeIssuesIndicator/value"})
     public Boolean getIncludeIssuesIndicatorValue() {
@@ -827,26 +862,43 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including issues 
+     * in the retrieval of medication detail profile 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not Issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
      * in the retrieval of medication detail profile 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescriptions, dispenses and other active 
+     * medication records are to be returned along with the 
+     * detailed information.</p>
      */
     public void setIncludeIssuesIndicatorValue(Boolean includeIssuesIndicatorValue) {
         this.includeIssuesIndicatorValue.setValue(includeIssuesIndicatorValue);
@@ -854,25 +906,39 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medication profile detail 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * prescription, dispenses and other active medication records 
      * are to be returned along with the detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication profile detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including notes in 
      * the retrieval of information for medication profile detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the 
+     * prescription, dispenses and other active medication records 
+     * are to be returned along with the detailed information.</p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
     public Boolean getIncludeNotesIndicatorValue() {
@@ -880,25 +946,39 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medication profile detail 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * prescription, dispenses and other active medication records 
      * are to be returned along with the detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication profile detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including notes in 
      * the retrieval of information for medication profile detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the 
+     * prescription, dispenses and other active medication records 
+     * are to be returned along with the detailed information.</p>
      */
     public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
         this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
@@ -906,9 +986,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
@@ -916,17 +1007,24 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * medications are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including future 
      * events in the retrieval of the requested 
      * information.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether to include future changes (e.g. status 
+     * changes that aren't effective yet) associated with a 
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p>
      */
     @Hl7XmlMapping({"includePendingChangesIndicator/value"})
     public Boolean getIncludePendingChangesIndicatorValue() {
@@ -934,9 +1032,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
@@ -944,17 +1053,24 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * medications are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including future 
      * events in the retrieval of the requested 
      * information.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether to include future changes (e.g. status 
+     * changes that aren't effective yet) associated with a 
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p>
      */
     public void setIncludePendingChangesIndicatorValue(Boolean includePendingChangesIndicatorValue) {
         this.includePendingChangesIndicatorValue.setValue(includePendingChangesIndicatorValue);
@@ -962,9 +1078,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueFilterCode</p>
+     * <p>Business Name: IssueFilterCode</p>
      * 
-     * <p>Issue Filter Code</p>
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -972,12 +1098,6 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
-     * 
-     * <p>By filtering returned records to include only those which 
-     * have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCodeValue() {
@@ -985,9 +1105,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueFilterCode</p>
+     * <p>Business Name: IssueFilterCode</p>
      * 
-     * <p>Issue Filter Code</p>
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -995,12 +1125,6 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
-     * 
-     * <p>By filtering returned records to include only those which 
-     * have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p>
      */
     public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
         this.issueFilterCodeValue.setValue(issueFilterCodeValue);
@@ -1008,9 +1132,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MostRecentByDrugIndicator</p>
+     * <p>Business Name: MostRecentByDrugIndicator</p>
      * 
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not the medication records are to be 
      * retrieved based on the most recent by Drug Code. If true, 
@@ -1020,18 +1155,6 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * retrieval of prescription, dispense and other active 
      * medication records should not be limited to one per 
      * drug.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
     public Boolean getMostRecentByDrugIndicatorValue() {
@@ -1039,9 +1162,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MostRecentByDrugIndicator</p>
+     * <p>Business Name: MostRecentByDrugIndicator</p>
      * 
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not the medication records are to be 
      * retrieved based on the most recent by Drug Code. If true, 
@@ -1051,18 +1185,6 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * retrieval of prescription, dispense and other active 
      * medication records should not be limited to one per 
      * drug.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
      */
     public void setMostRecentByDrugIndicatorValue(Boolean mostRecentByDrugIndicatorValue) {
         this.mostRecentByDrugIndicatorValue.setValue(mostRecentByDrugIndicatorValue);
@@ -1070,33 +1192,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MostRecentDispenseForEachRxIndicator</p>
+     * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
      * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple dispenses for the same 
@@ -1104,11 +1207,34 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
+     * <p>Indicates whether or not a prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription.</p><p>Allows the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
+     * 
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple dispenses for the same 
      * prescription.</p><p>Because this is a boolean attribute 
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Indicates whether or not a prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription.</p><p>Allows the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
      */
     @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
     public Boolean getMostRecentDispenseForEachRxIndicatorValue() {
@@ -1116,33 +1242,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MostRecentDispenseForEachRxIndicator</p>
+     * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
      * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple dispenses for the same 
@@ -1150,11 +1257,34 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
+     * <p>Indicates whether or not a prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription.</p><p>Allows the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
+     * 
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple dispenses for the same 
      * prescription.</p><p>Because this is a boolean attribute 
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Indicates whether or not a prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription.</p><p>Allows the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
      */
     public void setMostRecentDispenseForEachRxIndicatorValue(Boolean mostRecentDispenseForEachRxIndicatorValue) {
         this.mostRecentDispenseForEachRxIndicatorValue.setValue(mostRecentDispenseForEachRxIndicatorValue);
@@ -1162,16 +1292,33 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherIndicationCode</p>
+     * <p>Business Name: OtherIndicationCode</p>
      * 
-     * <p>Other Indication Code</p>
+     * <p>Other Business Name: OtherIndicationCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.OtherIndicationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * non-condition-related indication code.</p>
      * 
+     * <p>Other Business Name: OtherIndicationCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.OtherIndicationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * non-condition-related indication code.</p>
      */
     @Hl7XmlMapping({"otherIndicationCode/value"})
     public ActNonConditionIndicationCode getOtherIndicationCodeValue() {
@@ -1179,16 +1326,33 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>OtherIndicationCode</p>
+     * <p>Business Name: OtherIndicationCode</p>
      * 
-     * <p>Other Indication Code</p>
+     * <p>Other Business Name: OtherIndicationCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.OtherIndicationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * non-condition-related indication code.</p>
      * 
+     * <p>Other Business Name: OtherIndicationCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.OtherIndicationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * non-condition-related indication code.</p>
      */
     public void setOtherIndicationCodeValue(ActNonConditionIndicationCode otherIndicationCodeValue) {
         this.otherIndicationCodeValue.setValue(otherIndicationCodeValue);
@@ -1196,15 +1360,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationRecordId</p>
+     * <p>Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>E:Other Medication Record Id</p>
+     * <p>Other Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>Identifier of the other active medication record for 
-     * which detailed information is to be retrieved.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.OtherMedicationRecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records based on a 
      * specific active medication record.</p>
+     * 
+     * <p>Identifier of the other active medication record for 
+     * which detailed information is to be retrieved.</p>
      */
     @Hl7XmlMapping({"otherMedicationRecordId/value"})
     public Identifier getOtherMedicationRecordIdValue() {
@@ -1212,15 +1381,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>OtherMedicationRecordId</p>
+     * <p>Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>E:Other Medication Record Id</p>
+     * <p>Other Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>Identifier of the other active medication record for 
-     * which detailed information is to be retrieved.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.OtherMedicationRecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records based on a 
      * specific active medication record.</p>
+     * 
+     * <p>Identifier of the other active medication record for 
+     * which detailed information is to be retrieved.</p>
      */
     public void setOtherMedicationRecordIdValue(Identifier otherMedicationRecordIdValue) {
         this.otherMedicationRecordIdValue.setValue(otherMedicationRecordIdValue);
@@ -1228,24 +1402,22 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriberProviderID</p>
+     * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>Prescriber Provider ID</p>
+     * <p>Other Business Name: PrescriberProviderID</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Relationship: PORX_MT060180CA.PrescriberProviderID.value</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of prescriptions based on the 
      * specific prescribers.</p>
+     * 
+     * <p>Identifier of the prescriber who created and/or 
+     * supervised the prescriptions being retrieved.</p><p>The 
+     * result set will be filtered to only include records which 
+     * were either directly created by this provider, or were 
+     * created 'under the supervision' of this provider.</p>
      */
     @Hl7XmlMapping({"prescriberProviderID/value"})
     public Identifier getPrescriberProviderIDValue() {
@@ -1253,24 +1425,22 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriberProviderID</p>
+     * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>Prescriber Provider ID</p>
+     * <p>Other Business Name: PrescriberProviderID</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Relationship: PORX_MT060180CA.PrescriberProviderID.value</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of prescriptions based on the 
      * specific prescribers.</p>
+     * 
+     * <p>Identifier of the prescriber who created and/or 
+     * supervised the prescriptions being retrieved.</p><p>The 
+     * result set will be filtered to only include records which 
+     * were either directly created by this provider, or were 
+     * created 'under the supervision' of this provider.</p>
      */
     public void setPrescriberProviderIDValue(Identifier prescriberProviderIDValue) {
         this.prescriberProviderIDValue.setValue(prescriberProviderIDValue);
@@ -1278,15 +1448,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>E:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Identifies which prescription dispense record should be 
-     * retrieved.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record.</p>
+     * 
+     * <p>Identifies which prescription dispense record should be 
+     * retrieved.</p>
      */
     @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
     public Identifier getPrescriptionDispenseNumberValue() {
@@ -1294,15 +1469,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>E:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Identifies which prescription dispense record should be 
-     * retrieved.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record.</p>
+     * 
+     * <p>Identifies which prescription dispense record should be 
+     * retrieved.</p>
      */
     public void setPrescriptionDispenseNumberValue(Identifier prescriptionDispenseNumberValue) {
         this.prescriptionDispenseNumberValue.setValue(prescriptionDispenseNumberValue);
@@ -1310,19 +1490,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>D:Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.PrescriptionOrderNumber.value</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved.</p>
+     * 
+     * <p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p>
      */
     @Hl7XmlMapping({"prescriptionOrderNumber/value"})
     public Identifier getPrescriptionOrderNumberValue() {
@@ -1330,19 +1511,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>D:Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.PrescriptionOrderNumber.value</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved.</p>
+     * 
+     * <p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p>
      */
     public void setPrescriptionOrderNumberValue(Identifier prescriptionOrderNumberValue) {
         this.prescriptionOrderNumberValue.setValue(prescriptionOrderNumberValue);
@@ -1350,18 +1532,22 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionStatuses</p>
+     * <p>Business Name: PrescriptionStatuses</p>
      * 
-     * <p>Prescription Statuses</p>
+     * <p>Other Business Name: PrescriptionStatuses</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PrescriptionStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient prescriptions and 
+     * dispenses based on the lifecycle state of the 
+     * prescription.</p>
      * 
      * <p>Indicates that prescriptions of a specific statuses are 
      * to be included in the result set. Specific prescription 
      * statuses are: 'active', completed', 'aborted', 
      * 'suspended'.</p>
-     * 
-     * <p>Allows for the retrieval of patient prescriptions and 
-     * dispenses based on the lifecycle state of the 
-     * prescription.</p>
      */
     @Hl7XmlMapping({"prescriptionStatus/value"})
     public List<ActStatus> getPrescriptionStatusValue() {
@@ -1370,26 +1556,23 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>RxDispenserIndicators</p>
+     * <p>Business Name: RxDispenserIndicators</p>
      * 
-     * <p>Rx Dispenser Indicators</p>
+     * <p>Other Business Name: RxDispenserIndicators</p>
      * 
-     * <p>A coded value indicating the dispensing (fill) status of 
-     * the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p>
+     * <p>Relationship: PORX_MT060180CA.RxDispenseIndicator.value</p>
      * 
-     * <p>A coded value indicating the dispensing (fill) status of 
-     * the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of prescriptions to be retrieved 
      * based on the fill status of the prescription.</p>
+     * 
+     * <p>A coded value indicating the dispensing (fill) status of 
+     * the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
     public List<PrescriptionDispenseFilterCode> getRxDispenseIndicatorValue() {
@@ -1398,16 +1581,33 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>SymptomCode</p>
+     * <p>Business Name: SymptomCode</p>
      * 
-     * <p>Symptom Code</p>
+     * <p>Other Business Name: SymptomCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.SymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * symptom indication code.</p>
      * 
+     * <p>Other Business Name: SymptomCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.SymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * symptom indication code.</p>
      */
     @Hl7XmlMapping({"symptomCode/value"})
     public SymptomValue getSymptomCodeValue() {
@@ -1415,16 +1615,33 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>SymptomCode</p>
+     * <p>Business Name: SymptomCode</p>
      * 
-     * <p>Symptom Code</p>
+     * <p>Other Business Name: SymptomCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.SymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * symptom indication code.</p>
      * 
+     * <p>Other Business Name: SymptomCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.SymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * symptom indication code.</p>
      */
     public void setSymptomCodeValue(SymptomValue symptomCodeValue) {
         this.symptomCodeValue.setValue(symptomCodeValue);
@@ -1432,20 +1649,24 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>TreatmentTypes</p>
+     * <p>Business Name: TreatmentTypes</p>
      * 
-     * <p>Treatment Types</p>
+     * <p>Other Business Name: TreatmentTypes</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.TreatmentType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of prescriptions and dispensed 
+     * based on the intended treatment type of the prescription. 
+     * Repetition of 2 will allow for the result set to be filtered 
+     * based on 1 or two treatment types.</p>
      * 
      * <p>Indicates that the result set is to be filtered to only 
      * include those records pertaining to the specified treatment 
      * type (categories). The specific values are 
      * &quot;Continuous/Chronic&quot;, &quot;Short-Term/Acute&quot; 
      * and &quot;As-Needed/PRN&quot;.</p>
-     * 
-     * <p>Allows for the retrieval of prescriptions and dispensed 
-     * based on the intended treatment type of the prescription. 
-     * Repetition of 2 will allow for the result set to be filtered 
-     * based on 1 or two treatment types.</p>
      */
     @Hl7XmlMapping({"treatmentType/value"})
     public List<ActTherapyDurationWorkingListCode> getTreatmentTypeValue() {
@@ -1454,18 +1675,22 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MedicationDocumentID</p>
+     * <p>Business Name: MedicationDocumentID</p>
      * 
-     * <p>E:Medication Document ID</p>
+     * <p>Other Business Name: MedicationDocumentID</p>
+     * 
+     * <p>Relationship: POME_MT010050CA.MedicationDocumentID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Use of an identifier allows for a quick retrieval of the 
+     * information of interest.</p>
      * 
      * <p>Unique identifier for a particular medication document. 
      * This will reference a specific kind of documentation (e.g. 
      * DDI Monograph, Patient Education Monograph, Allergy 
      * Monograph, etc) created by a specific author organization 
      * (e.g. Health Canada, FDB, WHO, etc).</p>
-     * 
-     * <p>Use of an identifier allows for a quick retrieval of the 
-     * information of interest.</p>
      */
     @Hl7XmlMapping({"medicationDocumentID/value"})
     public Identifier getMedicationDocumentIDValue() {
@@ -1473,18 +1698,22 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MedicationDocumentID</p>
+     * <p>Business Name: MedicationDocumentID</p>
      * 
-     * <p>E:Medication Document ID</p>
+     * <p>Other Business Name: MedicationDocumentID</p>
+     * 
+     * <p>Relationship: POME_MT010050CA.MedicationDocumentID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Use of an identifier allows for a quick retrieval of the 
+     * information of interest.</p>
      * 
      * <p>Unique identifier for a particular medication document. 
      * This will reference a specific kind of documentation (e.g. 
      * DDI Monograph, Patient Education Monograph, Allergy 
      * Monograph, etc) created by a specific author organization 
      * (e.g. Health Canada, FDB, WHO, etc).</p>
-     * 
-     * <p>Use of an identifier allows for a quick retrieval of the 
-     * information of interest.</p>
      */
     public void setMedicationDocumentIDValue(Identifier medicationDocumentIDValue) {
         this.medicationDocumentIDValue.setValue(medicationDocumentIDValue);
@@ -1492,24 +1721,23 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MedicationDocumentType</p>
+     * <p>Business Name: MedicationDocumentType</p>
      * 
-     * <p>D:Medication Document Type</p>
+     * <p>Other Business Name: MedicationDocumentType</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those medication documents pertaining to the 
-     * specified document category.</p><p>Valid medication document 
-     * categories include: Drug Monograph, Contraindication 
-     * Monograph, Indication Protocol, etc.</p>
+     * <p>Relationship: 
+     * POME_MT010050CA.MedicationDocumentType.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those medication documents pertaining to the 
-     * specified document category.</p><p>Valid medication document 
-     * categories include: Drug Monograph, Contraindication 
-     * Monograph, Indication Protocol, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of all medication documents 
      * pertaining to a specific document category.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those medication documents pertaining to the 
+     * specified document category.</p><p>Valid medication document 
+     * categories include: Drug Monograph, Contraindication 
+     * Monograph, Indication Protocol, etc.</p>
      */
     @Hl7XmlMapping({"medicationDocumentType/value"})
     public ActMedicationDocumentCode getMedicationDocumentTypeValue() {
@@ -1517,24 +1745,23 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MedicationDocumentType</p>
+     * <p>Business Name: MedicationDocumentType</p>
      * 
-     * <p>D:Medication Document Type</p>
+     * <p>Other Business Name: MedicationDocumentType</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those medication documents pertaining to the 
-     * specified document category.</p><p>Valid medication document 
-     * categories include: Drug Monograph, Contraindication 
-     * Monograph, Indication Protocol, etc.</p>
+     * <p>Relationship: 
+     * POME_MT010050CA.MedicationDocumentType.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those medication documents pertaining to the 
-     * specified document category.</p><p>Valid medication document 
-     * categories include: Drug Monograph, Contraindication 
-     * Monograph, Indication Protocol, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of all medication documents 
      * pertaining to a specific document category.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those medication documents pertaining to the 
+     * specified document category.</p><p>Valid medication document 
+     * categories include: Drug Monograph, Contraindication 
+     * Monograph, Indication Protocol, etc.</p>
      */
     public void setMedicationDocumentTypeValue(ActMedicationDocumentCode medicationDocumentTypeValue) {
         this.medicationDocumentTypeValue.setValue(medicationDocumentTypeValue);
@@ -1542,15 +1769,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescribingIndicationDiagnosisCode</p>
+     * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>C:Prescribing Indication Diagnosis Code</p>
+     * <p>Other Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Returns documents which relate to a particular 
-     * diagnosis</p>
+     * <p>Relationship: 
+     * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Useful for finding protocols and drug monographs 
      * associated with an indication</p>
+     * 
+     * <p>Returns documents which relate to a particular 
+     * diagnosis</p>
      */
     @Hl7XmlMapping({"prescribingDiagnosisCode/value"})
     public DiagnosisValue getPrescribingDiagnosisCodeValue() {
@@ -1558,15 +1790,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescribingIndicationDiagnosisCode</p>
+     * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>C:Prescribing Indication Diagnosis Code</p>
+     * <p>Other Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Returns documents which relate to a particular 
-     * diagnosis</p>
+     * <p>Relationship: 
+     * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Useful for finding protocols and drug monographs 
      * associated with an indication</p>
+     * 
+     * <p>Returns documents which relate to a particular 
+     * diagnosis</p>
      */
     public void setPrescribingDiagnosisCodeValue(DiagnosisValue prescribingDiagnosisCodeValue) {
         this.prescribingDiagnosisCodeValue.setValue(prescribingDiagnosisCodeValue);
@@ -1574,15 +1811,20 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescribingIndicationSymptomCode</p>
+     * <p>Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Prescribing Indication Symptom Code</p>
+     * <p>Other Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Returns documents which relate to a particular 
-     * symptom</p>
+     * <p>Relationship: 
+     * POME_MT010050CA.PrescribingSymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Useful for finding protocols and drug monographs 
      * associated with an indication</p>
+     * 
+     * <p>Returns documents which relate to a particular 
+     * symptom</p>
      */
     @Hl7XmlMapping({"prescribingSymptomCode/value"})
     public SymptomValue getPrescribingSymptomCodeValue() {
@@ -1590,21 +1832,34 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescribingIndicationSymptomCode</p>
+     * <p>Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Prescribing Indication Symptom Code</p>
+     * <p>Other Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Returns documents which relate to a particular 
-     * symptom</p>
+     * <p>Relationship: 
+     * POME_MT010050CA.PrescribingSymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Useful for finding protocols and drug monographs 
      * associated with an indication</p>
+     * 
+     * <p>Returns documents which relate to a particular 
+     * symptom</p>
      */
     public void setPrescribingSymptomCodeValue(SymptomValue prescribingSymptomCodeValue) {
         this.prescribingSymptomCodeValue.setValue(prescribingSymptomCodeValue);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010090CA.ParameterList.drugCharacteristics</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     @Hl7XmlMapping({"drugCharacteristics"})
     public List<HasCharacteristicBean> getDrugCharacteristics() {
         return this.drugCharacteristics;
@@ -1612,15 +1867,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>OrderableDrugForm</p>
+     * <p>Business Name: OrderableDrugForm</p>
      * 
-     * <p>D:Orderable Drug Form</p>
+     * <p>Other Business Name: OrderableDrugForm</p>
      * 
-     * <p>Indicates the form in which the drug product must is 
-     * manufactured.</p>
+     * <p>Relationship: POME_MT010090CA.DrugForm.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Useful filter for searching drugs. Allows the requester 
      * to specify the drug form of interest for the retrieval.</p>
+     * 
+     * <p>Indicates the form in which the drug product must is 
+     * manufactured.</p>
      */
     @Hl7XmlMapping({"drugForm/value"})
     public OrderableDrugForm getDrugFormValue() {
@@ -1628,15 +1887,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrderableDrugForm</p>
+     * <p>Business Name: OrderableDrugForm</p>
      * 
-     * <p>D:Orderable Drug Form</p>
+     * <p>Other Business Name: OrderableDrugForm</p>
      * 
-     * <p>Indicates the form in which the drug product must is 
-     * manufactured.</p>
+     * <p>Relationship: POME_MT010090CA.DrugForm.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Useful filter for searching drugs. Allows the requester 
      * to specify the drug form of interest for the retrieval.</p>
+     * 
+     * <p>Indicates the form in which the drug product must is 
+     * manufactured.</p>
      */
     public void setDrugFormValue(OrderableDrugForm drugFormValue) {
         this.drugFormValue.setValue(drugFormValue);
@@ -1644,17 +1907,21 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugManufacturerName</p>
+     * <p>Business Name: DrugManufacturerName</p>
      * 
-     * <p>F:Drug Manufacturer Name</p>
+     * <p>Other Business Name: DrugManufacturerName</p>
      * 
-     * <p>The name of a drug manufacturer.</p>
+     * <p>Relationship: POME_MT010090CA.DrugManufacturerName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of drug products based on the 
      * manufacturer.</p>
      * 
      * <p>Manufacturer name search will be 'Starts with...' type of 
      * a search.</p>
+     * 
+     * <p>The name of a drug manufacturer.</p>
      */
     @Hl7XmlMapping({"drugManufacturerName/value"})
     public String getDrugManufacturerNameValue() {
@@ -1662,17 +1929,21 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugManufacturerName</p>
+     * <p>Business Name: DrugManufacturerName</p>
      * 
-     * <p>F:Drug Manufacturer Name</p>
+     * <p>Other Business Name: DrugManufacturerName</p>
      * 
-     * <p>The name of a drug manufacturer.</p>
+     * <p>Relationship: POME_MT010090CA.DrugManufacturerName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of drug products based on the 
      * manufacturer.</p>
      * 
      * <p>Manufacturer name search will be 'Starts with...' type of 
      * a search.</p>
+     * 
+     * <p>The name of a drug manufacturer.</p>
      */
     public void setDrugManufacturerNameValue(String drugManufacturerNameValue) {
         this.drugManufacturerNameValue.setValue(drugManufacturerNameValue);
@@ -1680,14 +1951,18 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugName</p>
+     * <p>Business Name: DrugName</p>
      * 
-     * <p>C:Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
      * 
-     * <p>The name assigned to a drug.</p>
+     * <p>Relationship: POME_MT010090CA.DrugName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name may be the only identification of a drug known by 
      * many prescribers.</p>
+     * 
+     * <p>The name assigned to a drug.</p>
      */
     @Hl7XmlMapping({"drugName/value"})
     public String getDrugNameValue() {
@@ -1695,14 +1970,18 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugName</p>
+     * <p>Business Name: DrugName</p>
      * 
-     * <p>C:Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
      * 
-     * <p>The name assigned to a drug.</p>
+     * <p>Relationship: POME_MT010090CA.DrugName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name may be the only identification of a drug known by 
      * many prescribers.</p>
+     * 
+     * <p>The name assigned to a drug.</p>
      */
     public void setDrugNameValue(String drugNameValue) {
         this.drugNameValue.setValue(drugNameValue);
@@ -1710,15 +1989,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugRouteCode</p>
+     * <p>Business Name: DrugRouteCode</p>
      * 
-     * <p>E:Drug Route Code</p>
+     * <p>Other Business Name: DrugRouteCode</p>
      * 
-     * <p>A filter based on how the drug should be introduced into 
-     * the patient's body (e.g. Oral, topical, etc.)</p>
+     * <p>Relationship: POME_MT010090CA.DrugRoute.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows limiting the returned list of drugs to a single 
      * route.</p>
+     * 
+     * <p>A filter based on how the drug should be introduced into 
+     * the patient's body (e.g. Oral, topical, etc.)</p>
      */
     @Hl7XmlMapping({"drugRoute/value"})
     public RouteOfAdministration getDrugRouteValue() {
@@ -1726,15 +2009,19 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugRouteCode</p>
+     * <p>Business Name: DrugRouteCode</p>
      * 
-     * <p>E:Drug Route Code</p>
+     * <p>Other Business Name: DrugRouteCode</p>
      * 
-     * <p>A filter based on how the drug should be introduced into 
-     * the patient's body (e.g. Oral, topical, etc.)</p>
+     * <p>Relationship: POME_MT010090CA.DrugRoute.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows limiting the returned list of drugs to a single 
      * route.</p>
+     * 
+     * <p>A filter based on how the drug should be introduced into 
+     * the patient's body (e.g. Oral, topical, etc.)</p>
      */
     public void setDrugRouteValue(RouteOfAdministration drugRouteValue) {
         this.drugRouteValue.setValue(drugRouteValue);

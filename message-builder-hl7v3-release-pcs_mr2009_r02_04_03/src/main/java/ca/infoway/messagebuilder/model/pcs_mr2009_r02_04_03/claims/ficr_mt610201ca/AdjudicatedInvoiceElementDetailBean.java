@@ -49,7 +49,7 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AllowableBean reference1Allowable;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private II id = new IIImpl();
@@ -81,7 +81,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Adjudicated Invoice Element Identifier</p>
+     * <p>Business Name: Adjudicated Invoice Element Identifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -89,7 +94,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
 
     /**
-     * <p>Adjudicated Invoice Element Identifier</p>
+     * <p>Business Name: Adjudicated Invoice Element Identifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -97,7 +107,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Adjudicated Product/Service Code</p>
+     * <p>Business Name: Adjudicated Product/Service Code</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceDetailCode getCode() {
@@ -105,7 +120,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
 
     /**
-     * <p>Adjudicated Product/Service Code</p>
+     * <p>Business Name: Adjudicated Product/Service Code</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceDetailCode code) {
         this.code.setValue(code);
@@ -113,7 +133,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Adjudicated Unit Quantity</p>
+     * <p>Business Name: Adjudicated Unit Quantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"unitQuantity"})
     public PhysicalQuantity getUnitQuantity() {
@@ -121,7 +146,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
 
     /**
-     * <p>Adjudicated Unit Quantity</p>
+     * <p>Business Name: Adjudicated Unit Quantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setUnitQuantity(PhysicalQuantity unitQuantity) {
         this.unitQuantity.setValue(unitQuantity);
@@ -129,7 +159,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Adjudicated Unit Price</p>
+     * <p>Business Name: Adjudicated Unit Price</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
     public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
@@ -137,7 +172,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
 
     /**
-     * <p>Adjudicated Unit Price</p>
+     * <p>Business Name: Adjudicated Unit Price</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
         this.unitPriceAmt.setValue(unitPriceAmt);
@@ -145,7 +185,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Adjudicated Invoice Line Amount</p>
+     * <p>Business Name: Adjudicated Invoice Line Amount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -153,7 +198,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
 
     /**
-     * <p>Adjudicated Invoice Line Amount</p>
+     * <p>Business Name: Adjudicated Invoice Line Amount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
@@ -161,7 +211,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Multiplier, e.g. 0.07</p>
+     * <p>Business Name: Multiplier, e.g. 0.07</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"factorNumber"})
     public BigDecimal getFactorNumber() {
@@ -169,7 +224,12 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
 
     /**
-     * <p>Multiplier, e.g. 0.07</p>
+     * <p>Business Name: Multiplier, e.g. 0.07</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setFactorNumber(BigDecimal factorNumber) {
         this.factorNumber.setValue(factorNumber);

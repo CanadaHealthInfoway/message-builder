@@ -38,19 +38,19 @@ import java.util.Date;
 
 
 /**
- * <p>Drug Dispense Instructions</p>
+ * <p>Business Name: Drug Dispense Instructions</p>
+ * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
  * 
  * <p>Specification of the overall use duration of the 
  * prescrbed medication and/or overall quantity to be 
  * dispensed.</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -59,26 +59,23 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Business Name: B:Total Prescribed Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.SupplyRequestItem.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
-     * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p>
-     * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -86,26 +83,23 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Business Name: B:Total Prescribed Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.SupplyRequestItem.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
-     * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p>
-     * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -113,29 +107,25 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Total Days Supply</p>
+     * <p>Business Name: A:Total Days Supply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SupplyRequestItem.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p><p>This attribute is mandatory 
+     * because the prescriber (in discussion with the patient) has 
+     * a better understanding of the days supply needed by the 
+     * patient.</p>
      * 
      * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
      * dispensing and administration of the prescription.</p>
-     * 
-     * <p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p><p>This attribute is mandatory 
-     * because the prescriber (in discussion with the patient) has 
-     * a better understanding of the days supply needed by the 
-     * patient.</p>
-     * 
-     * <p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p><p>This attribute is mandatory 
-     * because the prescriber (in discussion with the patient) has 
-     * a better understanding of the days supply needed by the 
-     * patient.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -143,40 +133,46 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Total Days Supply</p>
+     * <p>Business Name: A:Total Days Supply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SupplyRequestItem.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p><p>This attribute is mandatory 
+     * because the prescriber (in discussion with the patient) has 
+     * a better understanding of the days supply needed by the 
+     * patient.</p>
      * 
      * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
      * dispensing and administration of the prescription.</p>
-     * 
-     * <p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p><p>This attribute is mandatory 
-     * because the prescriber (in discussion with the patient) has 
-     * a better understanding of the days supply needed by the 
-     * patient.</p>
-     * 
-     * <p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p><p>This attribute is mandatory 
-     * because the prescriber (in discussion with the patient) has 
-     * a better understanding of the days supply needed by the 
-     * patient.</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }

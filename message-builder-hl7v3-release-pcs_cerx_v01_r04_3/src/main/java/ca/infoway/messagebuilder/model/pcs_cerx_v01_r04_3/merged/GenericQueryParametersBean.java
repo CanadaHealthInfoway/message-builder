@@ -64,136 +64,136 @@ import java.util.List;
 /**
  * <p>PORX_MT060070CA.ParameterList: Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT060130CA.ParameterList: (no business name)</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT060180CA.ParameterList: Medication Profile Generic 
  * Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT060200CA.ParameterList: (no business name)</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>REPC_MT120001CA.ParameterList: Professional Service Query 
  * Parameters</p>
  * 
+ * <p>Root class for query parameters.</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query parameters.</p>
  * 
  * <p>PORX_MT060080CA.ParameterList: Generic Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>REPC_MT120002CA.ParameterList: Common Observation Query 
  * Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>REPC_MT000004CA.ParameterList: Allergy/Intolerance Query 
  * Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>REPC_MT000015CA.ParameterList: Medical Conditions Query 
  * Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>REPC_MT000016CA.ParameterList: Adverse Reactions Query 
  * Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT060280CA.ParameterList: Drug Prescription Detail 
  * Query Parameters</p>
  * 
+ * <p>Root class for query definition.</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition.</p>
  * 
  * <p>PORX_MT060270CA.ParameterList: (no business name)</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>REPC_MT000008CA.ParameterList: Condition History Query 
  * Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response</p>
  * 
- * <p>Root class for query definition</p>
- * 
  * <p>PORX_MT060220CA.ParameterList: (no business name)</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT060110CA.ParameterList: (no business name)</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT060170CA.ParameterList: Generic Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT060360CA.ParameterList: Generic Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060070CA.ParameterList","PORX_MT060080CA.ParameterList","PORX_MT060110CA.ParameterList","PORX_MT060130CA.ParameterList","PORX_MT060170CA.ParameterList","PORX_MT060180CA.ParameterList","PORX_MT060200CA.ParameterList","PORX_MT060220CA.ParameterList","PORX_MT060270CA.ParameterList","PORX_MT060280CA.ParameterList","PORX_MT060360CA.ParameterList","REPC_MT000004CA.ParameterList","REPC_MT000008CA.ParameterList","REPC_MT000015CA.ParameterList","REPC_MT000016CA.ParameterList","REPC_MT120001CA.ParameterList","REPC_MT120002CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDeviceIndicatorValue = new BLImpl();
@@ -235,9 +235,17 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AmendedInTimeRange</p>
+     * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Amended In Time Range</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -246,15 +254,15 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
      * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Amended in Time Range</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -263,15 +271,15 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
      * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries</p>
-     * 
-     * <p>Amended in Time Range</p>
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -280,32 +288,15 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
      * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Amended in Time Range</p>
-     * 
-     * <p>Indicates that the returned records should be filtered to 
-     * only include those which have been amended in some way (had 
-     * status changed, been annotated, prescription was dispensed, 
-     * etc.) within the indicated time-period. This will commonly 
-     * be used to &quot;retrieve everything that has been amended 
-     * since xxx&quot;.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Amended in Time Range</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -314,13 +305,56 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * be used to retrieve everything that has been amended since 
      * xxx.</p>
      * 
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
+     * records.</p><p>Useful for constraining run-away queries</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to 'retrieve everything that has been amended since 
+     * xxx'.</p>
+     * 
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to &quot;retrieve everything that has been amended 
+     * since xxx&quot;.</p>
+     * 
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to 'retrieve everything that has been amended since 
+     * xxx'.</p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
     public Interval<Date> getAmendedInTimeRangeValue() {
@@ -328,9 +362,17 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AmendedInTimeRange</p>
+     * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Amended In Time Range</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -339,15 +381,15 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
      * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Amended in Time Range</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -356,15 +398,15 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
      * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries</p>
-     * 
-     * <p>Amended in Time Range</p>
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -373,32 +415,15 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
      * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Amended in Time Range</p>
-     * 
-     * <p>Indicates that the returned records should be filtered to 
-     * only include those which have been amended in some way (had 
-     * status changed, been annotated, prescription was dispensed, 
-     * etc.) within the indicated time-period. This will commonly 
-     * be used to &quot;retrieve everything that has been amended 
-     * since xxx&quot;.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Amended in Time Range</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -407,13 +432,56 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * be used to retrieve everything that has been amended since 
      * xxx.</p>
      * 
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
+     * records.</p><p>Useful for constraining run-away queries</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to 'retrieve everything that has been amended since 
+     * xxx'.</p>
+     * 
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the event period of 
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to &quot;retrieve everything that has been amended 
+     * since xxx&quot;.</p>
+     * 
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
+     * 
+     * <p>Indicates that the returned records should be filtered to 
+     * only include those which have been amended in some way (had 
+     * status changed, been annotated, prescription was dispensed, 
+     * etc.) within the indicated time-period. This will commonly 
+     * be used to 'retrieve everything that has been amended since 
+     * xxx'.</p>
      */
     public void setAmendedInTimeRangeValue(Interval<Date> amendedInTimeRangeValue) {
         this.amendedInTimeRangeValue.setValue(amendedInTimeRangeValue);
@@ -421,9 +489,19 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueFilterCode</p>
+     * <p>Business Name: IssueFilterCode</p>
      * 
-     * <p>Issue Filter Code</p>
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -432,11 +510,119 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
      * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>By filtering returned records to include only those which 
      * have unmanaged issues or any issues at all, allows a 
      * provider to focus on those aspects of care where extra 
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCodeValue() {
@@ -444,9 +630,19 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueFilterCode</p>
+     * <p>Business Name: IssueFilterCode</p>
      * 
-     * <p>Issue Filter Code</p>
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -455,11 +651,119 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
      * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>By filtering returned records to include only those which 
      * have unmanaged issues or any issues at all, allows a 
      * provider to focus on those aspects of care where extra 
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
+     * 
+     * <p>Other Business Name: IssueFilterCode</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
+     * 
+     * <p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p>
      */
     public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
         this.issueFilterCodeValue.setValue(issueFilterCodeValue);
@@ -467,9 +771,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MostRecentByDeviceIndicator</p>
+     * <p>Business Name: MostRecentByDeviceIndicator</p>
      * 
-     * <p>Most Recent By Device Indicator</p>
+     * <p>Other Business Name: MostRecentByDeviceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060070CA.MostRecentByDeviceIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all devices that the 
+     * patient is using.</p><p>Because this is a boolean attribute 
+     * whose value must be known to evaluate the query, the 
+     * attribute is mandatory.</p>
      * 
      * <p>Indicates whether or not the records are to be retrieved 
      * based on the most recent by Device Code. If true, only the 
@@ -477,18 +792,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * type will be returned. The default is 'FALSE' indicating 
      * that retrieval of prescription or dispense records should 
      * not be limited to one per device type.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
     public Boolean getMostRecentByDeviceIndicatorValue() {
@@ -496,9 +799,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MostRecentByDeviceIndicator</p>
+     * <p>Business Name: MostRecentByDeviceIndicator</p>
      * 
-     * <p>Most Recent By Device Indicator</p>
+     * <p>Other Business Name: MostRecentByDeviceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060070CA.MostRecentByDeviceIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all devices that the 
+     * patient is using.</p><p>Because this is a boolean attribute 
+     * whose value must be known to evaluate the query, the 
+     * attribute is mandatory.</p>
      * 
      * <p>Indicates whether or not the records are to be retrieved 
      * based on the most recent by Device Code. If true, only the 
@@ -506,18 +820,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * type will be returned. The default is 'FALSE' indicating 
      * that retrieval of prescription or dispense records should 
      * not be limited to one per device type.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p>
      */
     public void setMostRecentByDeviceIndicatorValue(Boolean mostRecentByDeviceIndicatorValue) {
         this.mostRecentByDeviceIndicatorValue.setValue(mostRecentByDeviceIndicatorValue);
@@ -525,28 +827,194 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientBirthDate</p>
+     * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
      * 
-     * <p>Indicates the date on which the patient was born.</p>
+     * <p>Relationship: PORX_MT060070CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the gender of the patient.</p>
      * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
-     * 
-     * <p>Patient Birth Date</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT000015CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDateValue() {
@@ -554,28 +1022,194 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientBirthDate</p>
+     * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
      * 
-     * <p>Indicates the date on which the patient was born.</p>
+     * <p>Relationship: PORX_MT060070CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the gender of the patient.</p>
      * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
-     * 
-     * <p>Patient Birth Date</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT000015CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
+     * 
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
      */
     public void setPatientBirthDateValue(Date patientBirthDateValue) {
         this.patientBirthDateValue.setValue(patientBirthDateValue);
@@ -583,28 +1217,194 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientGender</p>
+     * <p>Business Name: PatientGender</p>
      * 
-     * <p>D:Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the of the patient for the query and is 
      * therefore mandatory.</p>
      * 
-     * <p>Patient Gender</p>
-     * 
      * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>D:Patient Gender</p>
-     * 
      * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT000015CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -612,28 +1412,194 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientGender</p>
+     * <p>Business Name: PatientGender</p>
      * 
-     * <p>D:Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the of the patient for the query and is 
      * therefore mandatory.</p>
      * 
-     * <p>Patient Gender</p>
-     * 
      * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>D:Patient Gender</p>
-     * 
      * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT000015CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
         this.patientGenderValue.setValue(patientGenderValue);
@@ -641,105 +1607,261 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientID</p>
+     * <p>Business Name: PatientID</p>
      * 
-     * <p>B:Patient ID</p>
+     * <p>Other Business Name: PatientID</p>
      * 
-     * <p>Identifier of the patient who is the subject of the 
-     * patient measurement query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p>
+     * <p>Relationship: PORX_MT060070CA.PatientID.value</p>
      * 
-     * <p>Allows filtering of result set by patient Id. This is a 
-     * mandatory field because a patient must be specified for the 
-     * query to be valid</p>
-     * 
-     * <p>B:Patient ID</p>
-     * 
-     * <p>Identifier of the patient who is the subject of the 
-     * condition history query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
-     * 
-     * <p>B:Patient ID</p>
-     * 
-     * <p>Identifier of the patient who is the subject of the 
-     * medical condition query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient Id. This is a 
-     * mandatory field because a patient must be specified for the 
-     * query to be valid</p>
-     * 
-     * <p>B:Patient ID</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * query. Filter the result set to include only those records 
      * pertaining to the patient with this Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>B:Patient ID</p>
-     * 
      * <p>Identifier of the patient who is the subject of the 
-     * allergy/intolerance query. Filter the result set to include 
+     * patient medication query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
-     * query to be valid.</p>
+     * query to be valid</p>
      * 
-     * <p>B:Patient ID</p>
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient drug contraindication query. Filter the result set 
      * to include only those records pertaining to the patient with 
      * this Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>B:Patient ID</p>
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient measurement query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid.</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * allergy/intolerance query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT000015CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * medical condition query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * adverse reaction query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
-     * 
-     * <p>B:Patient ID</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
-     * 
-     * <p>Patient ID</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * condition history query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -747,105 +1869,261 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientID</p>
+     * <p>Business Name: PatientID</p>
      * 
-     * <p>B:Patient ID</p>
+     * <p>Other Business Name: PatientID</p>
      * 
-     * <p>Identifier of the patient who is the subject of the 
-     * patient measurement query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p>
+     * <p>Relationship: PORX_MT060070CA.PatientID.value</p>
      * 
-     * <p>Allows filtering of result set by patient Id. This is a 
-     * mandatory field because a patient must be specified for the 
-     * query to be valid</p>
-     * 
-     * <p>B:Patient ID</p>
-     * 
-     * <p>Identifier of the patient who is the subject of the 
-     * condition history query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
-     * 
-     * <p>B:Patient ID</p>
-     * 
-     * <p>Identifier of the patient who is the subject of the 
-     * medical condition query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient Id. This is a 
-     * mandatory field because a patient must be specified for the 
-     * query to be valid</p>
-     * 
-     * <p>B:Patient ID</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * query. Filter the result set to include only those records 
      * pertaining to the patient with this Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>B:Patient ID</p>
-     * 
      * <p>Identifier of the patient who is the subject of the 
-     * allergy/intolerance query. Filter the result set to include 
+     * patient medication query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
-     * query to be valid.</p>
+     * query to be valid</p>
      * 
-     * <p>B:Patient ID</p>
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient drug contraindication query. Filter the result set 
      * to include only those records pertaining to the patient with 
      * this Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>B:Patient ID</p>
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient measurement query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid.</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * allergy/intolerance query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT000015CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * medical condition query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * adverse reaction query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
-     * 
-     * <p>B:Patient ID</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
-     * 
-     * <p>Patient ID</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
      * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows filtering of result set by patient Id. This is a 
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * condition history query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
+     * 
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
      */
     public void setPatientIDValue(Identifier patientIDValue) {
         this.patientIDValue.setValue(patientIDValue);
@@ -853,133 +2131,244 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientName</p>
+     * <p>Business Name: PatientName</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>The name by which the patient is known.</p>
+     * <p>Relationship: PORX_MT060070CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>The name by which the patient is known.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>The name by which the patient is known.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>The name by which the patient is known.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the drug 
+     * contraindication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * measurement query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
      * 
      * <p>The name of the patient who is the subject of the 
      * allergy/intolerance query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * name.</p>
      * 
-     * <p>Allows filtering of result set by patient name. This is a 
-     * mandatory field because a patient name must match the 
-     * patient Id for the query to be valid.</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>Relationship: REPC_MT000015CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * measurement query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
-     * 
-     * <p>The name of the patient who is the subject of the patient 
-     * measurement query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
-     * 
-     * <p>C:Patient Name</p>
      * 
      * <p>The name of the patient who is the subject of the medical 
      * condition query.</p><p>Filter the result set to include only 
      * those records pertaining to the patient with this name.</p>
      * 
-     * <p>The name of the patient who is the subject of the medical 
-     * condition query.</p><p>Filter the result set to include only 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the adverse 
+     * reaction query.</p><p>Filter the result set to include only 
      * those records pertaining to the patient with this name.</p>
      * 
-     * <p>Allows filtering of result set by patient name. This is a 
-     * mandatory field because a patient name must match the 
-     * patient Id for the query to be valid.</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>Relationship: PORX_MT060280CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the drug 
-     * contraindication query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
-     * 
-     * <p>The name of the patient who is the subject of the drug 
-     * contraindication query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
-     * 
-     * <p>C:Patient Name</p>
      * 
      * <p>The name of the patient who is the subject of the patient 
      * medication query.</p><p>Filter the result set to include 
      * only those records pertaining to the patient with this 
      * name.</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * medication query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Patient Name</p>
-     * 
      * <p>The name of the patient who is the subject of the patient 
      * medication query.</p><p>Filter the result set to include 
      * only those records pertaining to the patient with this 
      * name.</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * medication query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
-     * 
-     * <p>C:Patient Name</p>
      * 
      * <p>The name of the patient who is the subject of the 
      * condition history query.</p><p>Filter the result set to 
      * include only those records pertaining to the patient with 
      * this name.</p>
      * 
-     * <p>The name of the patient who is the subject of the 
-     * condition history query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
      * 
-     * <p>The name of the patient who is the subject of the adverse 
-     * reaction query.</p><p>Filter the result set to include only 
-     * those records pertaining to the patient with this name.</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>The name of the patient who is the subject of the adverse 
-     * reaction query.</p><p>Filter the result set to include only 
-     * those records pertaining to the patient with this name.</p>
+     * <p>Relationship: PORX_MT060110CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>The name by which the patient is known.</p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -987,133 +2376,244 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientName</p>
+     * <p>Business Name: PatientName</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>The name by which the patient is known.</p>
+     * <p>Relationship: PORX_MT060070CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>The name by which the patient is known.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>The name by which the patient is known.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>The name by which the patient is known.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the drug 
+     * contraindication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * measurement query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
      * 
      * <p>The name of the patient who is the subject of the 
      * allergy/intolerance query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * name.</p>
      * 
-     * <p>Allows filtering of result set by patient name. This is a 
-     * mandatory field because a patient name must match the 
-     * patient Id for the query to be valid.</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>Relationship: REPC_MT000015CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * measurement query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
-     * 
-     * <p>The name of the patient who is the subject of the patient 
-     * measurement query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
-     * 
-     * <p>C:Patient Name</p>
      * 
      * <p>The name of the patient who is the subject of the medical 
      * condition query.</p><p>Filter the result set to include only 
      * those records pertaining to the patient with this name.</p>
      * 
-     * <p>The name of the patient who is the subject of the medical 
-     * condition query.</p><p>Filter the result set to include only 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the adverse 
+     * reaction query.</p><p>Filter the result set to include only 
      * those records pertaining to the patient with this name.</p>
      * 
-     * <p>Allows filtering of result set by patient name. This is a 
-     * mandatory field because a patient name must match the 
-     * patient Id for the query to be valid.</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>Relationship: PORX_MT060280CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the drug 
-     * contraindication query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
-     * 
-     * <p>The name of the patient who is the subject of the drug 
-     * contraindication query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
-     * 
-     * <p>C:Patient Name</p>
      * 
      * <p>The name of the patient who is the subject of the patient 
      * medication query.</p><p>Filter the result set to include 
      * only those records pertaining to the patient with this 
      * name.</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * medication query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Patient Name</p>
-     * 
      * <p>The name of the patient who is the subject of the patient 
      * medication query.</p><p>Filter the result set to include 
      * only those records pertaining to the patient with this 
      * name.</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * medication query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
-     * 
-     * <p>C:Patient Name</p>
      * 
      * <p>The name of the patient who is the subject of the 
      * condition history query.</p><p>Filter the result set to 
      * include only those records pertaining to the patient with 
      * this name.</p>
      * 
-     * <p>The name of the patient who is the subject of the 
-     * condition history query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>C:Patient Name</p>
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
      * 
-     * <p>The name of the patient who is the subject of the adverse 
-     * reaction query.</p><p>Filter the result set to include only 
-     * those records pertaining to the patient with this name.</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>The name of the patient who is the subject of the adverse 
-     * reaction query.</p><p>Filter the result set to include only 
-     * those records pertaining to the patient with this name.</p>
+     * <p>Relationship: PORX_MT060110CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient name. This is a 
+     * mandatory field because a patient name must match the 
+     * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * medication query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
+     * 
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to confirm the identity of the patient for the query 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>The name by which the patient is known.</p>
      */
     public void setPatientNameValue(PersonName patientNameValue) {
         this.patientNameValue.setValue(patientNameValue);
@@ -1121,26 +2621,55 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>RxDispenserIndicators</p>
+     * <p>Business Name: RxDispenserIndicators</p>
      * 
-     * <p>Rx Dispenser Indicators</p>
+     * <p>Other Business Name: RxDispenserIndicators</p>
      * 
-     * <p>A coded value indicating the dispensing (fill) status of 
-     * the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p>
+     * <p>Relationship: PORX_MT060070CA.RxDispenseIndicator.value</p>
      * 
-     * <p>A coded value indicating the dispensing (fill) status of 
-     * the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of prescriptions to be retrieved 
      * based on the fill status of the prescription.</p>
+     * 
+     * <p>A coded value indicating the dispensing (fill) status of 
+     * the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p>
+     * 
+     * <p>Other Business Name: RxDispenserIndicators</p>
+     * 
+     * <p>Relationship: PORX_MT060130CA.RxDispenseIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for finer sub-set of prescriptions to be retrieved 
+     * based on the fill status of the prescription.</p>
+     * 
+     * <p>A coded value indicating the dispensing (fill) status of 
+     * the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p>
+     * 
+     * <p>Other Business Name: RxDispenserIndicators</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.RxDispenseIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for finer sub-set of prescriptions to be retrieved 
+     * based on the fill status of the prescription.</p>
+     * 
+     * <p>A coded value indicating the dispensing (fill) status of 
+     * the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
     public List<PrescriptionDispenseFilterCode> getRxDispenseIndicatorValue() {
@@ -1149,25 +2678,23 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>UsageEffectivePeriod</p>
+     * <p>Business Name: UsageEffectivePeriod</p>
      * 
-     * <p>Usage Effective Period</p>
+     * <p>Other Business Name: UsageEffectivePeriod</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * device records (device order and device dispense) for which 
-     * the patient was deemed to be using the device within the 
-     * specified period.</p>
+     * <p>Relationship: PORX_MT060070CA.UsageEffectivePeriod.value</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * device records (device order and device dispense) for which 
-     * the patient was deemed to be using the device within the 
-     * specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the usage period of 
      * interest for the retrieval. Useful for constraining run-away 
      * queries.</p>
+     * 
+     * <p>Indicates the usage period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * device records (device order and device dispense) for which 
+     * the patient was deemed to be using the device within the 
+     * specified period.</p>
      */
     @Hl7XmlMapping({"usageEffectivePeriod/value"})
     public Interval<Date> getUsageEffectivePeriodValue() {
@@ -1175,25 +2702,23 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>UsageEffectivePeriod</p>
+     * <p>Business Name: UsageEffectivePeriod</p>
      * 
-     * <p>Usage Effective Period</p>
+     * <p>Other Business Name: UsageEffectivePeriod</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * device records (device order and device dispense) for which 
-     * the patient was deemed to be using the device within the 
-     * specified period.</p>
+     * <p>Relationship: PORX_MT060070CA.UsageEffectivePeriod.value</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * device records (device order and device dispense) for which 
-     * the patient was deemed to be using the device within the 
-     * specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the usage period of 
      * interest for the retrieval. Useful for constraining run-away 
      * queries.</p>
+     * 
+     * <p>Indicates the usage period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * device records (device order and device dispense) for which 
+     * the patient was deemed to be using the device within the 
+     * specified period.</p>
      */
     public void setUsageEffectivePeriodValue(Interval<Date> usageEffectivePeriodValue) {
         this.usageEffectivePeriodValue.setValue(usageEffectivePeriodValue);
@@ -1201,119 +2726,129 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AdministrationEffectivePeriod</p>
+     * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>D:Administration Effective Period</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Relationship: 
+     * PORX_MT060130CA.AdministrationEffectivePeriod.value</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those other medication records for which the 
-     * patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those other medication records for which the 
-     * patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p>
-     * 
-     * <p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>E:Administration Effective Period</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>Indicates the period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * items that are 'effective' in the indicated period.</p>
-     * 
-     * <p>Indicates the period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * items that are 'effective' in the indicated period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the period of interest 
      * for the retrieval. Useful for constraining run-away 
      * queries.</p>
+     * 
+     * <p>Indicates the period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * items that are 'effective' in the indicated period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060270CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those other medication records for which the 
+     * patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060200CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>For a prescription indicates the period for which the 
+     * patient was deemed to be taking the drug.</p><p>Filter the 
+     * result set to include only those medication records 
+     * (prescription order, prescription dispense and other 
+     * medication) for which the patient was deemed to be taking 
+     * the drug.</p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
     public Interval<Date> getAdministrationEffectivePeriodValue() {
@@ -1321,119 +2856,129 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdministrationEffectivePeriod</p>
+     * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>D:Administration Effective Period</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Relationship: 
+     * PORX_MT060130CA.AdministrationEffectivePeriod.value</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those other medication records for which the 
-     * patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those other medication records for which the 
-     * patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p>
-     * 
-     * <p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>E:Administration Effective Period</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
-     * 
-     * <p>Allows the requester to specify the administration period 
-     * of interest for the retrieval. Useful for constraining 
-     * run-away queries.</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>Indicates the period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * items that are 'effective' in the indicated period.</p>
-     * 
-     * <p>Indicates the period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * items that are 'effective' in the indicated period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the period of interest 
      * for the retrieval. Useful for constraining run-away 
      * queries.</p>
+     * 
+     * <p>Indicates the period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * items that are 'effective' in the indicated period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060270CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those other medication records for which the 
+     * patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060200CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
+     * 
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the administration period 
+     * of interest for the retrieval. Useful for constraining 
+     * run-away queries.</p>
+     * 
+     * <p>For a prescription indicates the period for which the 
+     * patient was deemed to be taking the drug.</p><p>Filter the 
+     * result set to include only those medication records 
+     * (prescription order, prescription dispense and other 
+     * medication) for which the patient was deemed to be taking 
+     * the drug.</p>
      */
     public void setAdministrationEffectivePeriodValue(Interval<Date> administrationEffectivePeriodValue) {
         this.administrationEffectivePeriodValue.setValue(administrationEffectivePeriodValue);
@@ -1441,9 +2986,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MostRecentByDrugIndicator</p>
+     * <p>Business Name: MostRecentByDrugIndicator</p>
      * 
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060130CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not the medication records are to be 
      * retrieved based on the most recent by Drug Code. If true, 
@@ -1454,17 +3010,71 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * medication records should not be limited to one per 
      * drug.</p>
      * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps decrease the volume of records returned, while 
      * still maintaining information on all drugs that the patient 
      * is on.</p><p>Because this is a boolean attribute whose value 
      * must be known to evaluate the query, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not the medication records are to be 
+     * retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p>
+     * 
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060200CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not the medication records are to be 
+     * retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p>
+     * 
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not the medication records are to be 
+     * retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p>
      */
     @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
     public Boolean getMostRecentByDrugIndicatorValue() {
@@ -1472,9 +3082,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MostRecentByDrugIndicator</p>
+     * <p>Business Name: MostRecentByDrugIndicator</p>
      * 
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060130CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not the medication records are to be 
      * retrieved based on the most recent by Drug Code. If true, 
@@ -1485,17 +3106,71 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * medication records should not be limited to one per 
      * drug.</p>
      * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps decrease the volume of records returned, while 
      * still maintaining information on all drugs that the patient 
      * is on.</p><p>Because this is a boolean attribute whose value 
      * must be known to evaluate the query, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not the medication records are to be 
+     * retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p>
+     * 
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060200CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not the medication records are to be 
+     * retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p>
+     * 
+     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not the medication records are to be 
+     * retrieved based on the most recent by Drug Code. If true, 
+     * only the most recent prescription, dispense or other active 
+     * medication for a particular drug generic classification will 
+     * be returned. The default is 'FALSE' indicating that 
+     * retrieval of prescription, dispense and other active 
+     * medication records should not be limited to one per 
+     * drug.</p>
      */
     public void setMostRecentByDrugIndicatorValue(Boolean mostRecentByDrugIndicatorValue) {
         this.mostRecentByDrugIndicatorValue.setValue(mostRecentByDrugIndicatorValue);
@@ -1503,16 +3178,33 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DiagnosisCode</p>
+     * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Diagnosis Code</p>
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.DiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * diagnosis indication code.</p>
      * 
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.DiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * diagnosis indication code.</p>
      */
     @Hl7XmlMapping({"diagnosisCode/value"})
     public DiagnosisValue getDiagnosisCodeValue() {
@@ -1520,16 +3212,33 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DiagnosisCode</p>
+     * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Diagnosis Code</p>
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.DiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * diagnosis indication code.</p>
      * 
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.DiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * diagnosis indication code.</p>
      */
     public void setDiagnosisCodeValue(DiagnosisValue diagnosisCodeValue) {
         this.diagnosisCodeValue.setValue(diagnosisCodeValue);
@@ -1537,20 +3246,41 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those records pertaining to the specified drug. 
-     * The code may refer to an orderable medication or a higher 
-     * level drug classification.</p>
+     * <p>Relationship: PORX_MT060180CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of patient prescriptions and/or 
      * dispenses based on a specific medication that was ordered 
      * and/or dispensed. This will most commonly be used to filter 
      * for therapeutic classifications such as 
      * &quot;Anti-hypertensives&quot;.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified drug. 
+     * The code may refer to an orderable medication or a higher 
+     * level drug classification.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient prescriptions and/or 
+     * dispenses based on a specific medication that was ordered 
+     * and/or dispensed. This will most commonly be used to filter 
+     * for therapeutic classifications such as 
+     * &quot;Anti-hypertensives&quot;.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified drug. 
+     * The code may refer to an orderable medication or a higher 
+     * level drug classification.</p>
      */
     @Hl7XmlMapping({"drugCode/value"})
     public ClinicalDrug getDrugCodeValue() {
@@ -1558,20 +3288,41 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those records pertaining to the specified drug. 
-     * The code may refer to an orderable medication or a higher 
-     * level drug classification.</p>
+     * <p>Relationship: PORX_MT060180CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of patient prescriptions and/or 
      * dispenses based on a specific medication that was ordered 
      * and/or dispensed. This will most commonly be used to filter 
      * for therapeutic classifications such as 
      * &quot;Anti-hypertensives&quot;.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified drug. 
+     * The code may refer to an orderable medication or a higher 
+     * level drug classification.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient prescriptions and/or 
+     * dispenses based on a specific medication that was ordered 
+     * and/or dispensed. This will most commonly be used to filter 
+     * for therapeutic classifications such as 
+     * &quot;Anti-hypertensives&quot;.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified drug. 
+     * The code may refer to an orderable medication or a higher 
+     * level drug classification.</p>
      */
     public void setDrugCodeValue(ClinicalDrug drugCodeValue) {
         this.drugCodeValue.setValue(drugCodeValue);
@@ -1579,55 +3330,36 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is always either 'TRUE' or 'FALSE' it is 
      * mandatory.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is always either 'TRUE' or 'FALSE' it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Event History Indicator</p>
-     * 
-     * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
+     * <p>Indicates whether or not history of selected medication 
+     * records are to be returned along with the detailed 
      * information.</p><p>&quot;Pending&quot; changes will be 
      * returned regardless of the setting of this flag.</p>
      * 
-     * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludeEventHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is boolean, it must explicitly indicate a 
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Event History Indicator</p>
      * 
      * <p>Indicates whether or not history events associated with a 
      * prescription order, prescription dispense and/or other 
@@ -1635,21 +3367,23 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * detailed information.</p><p>&quot;Pending&quot; changes will 
      * be returned regardless of the setting of this flag.</p>
      * 
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludeEventHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including history 
+     * in the retrieval of the requested information.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
      * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or other 
-     * active medications are to be returned along with the 
-     * detailed information.</p><p>&quot;Pending&quot; changes will 
-     * be returned regardless of the setting of this flag.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p><p>&quot;Pending&quot; changes will be 
+     * returned regardless of the setting of this flag.</p>
      */
     @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
     public Boolean getIncludeEventHistoryIndicatorValue() {
@@ -1657,55 +3391,36 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is always either 'TRUE' or 'FALSE' it is 
      * mandatory.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is always either 'TRUE' or 'FALSE' it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Event History Indicator</p>
-     * 
-     * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
+     * <p>Indicates whether or not history of selected medication 
+     * records are to be returned along with the detailed 
      * information.</p><p>&quot;Pending&quot; changes will be 
      * returned regardless of the setting of this flag.</p>
      * 
-     * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludeEventHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is boolean, it must explicitly indicate a 
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Event History Indicator</p>
      * 
      * <p>Indicates whether or not history events associated with a 
      * prescription order, prescription dispense and/or other 
@@ -1713,21 +3428,23 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * detailed information.</p><p>&quot;Pending&quot; changes will 
      * be returned regardless of the setting of this flag.</p>
      * 
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludeEventHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including history 
+     * in the retrieval of the requested information.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
      * <p>Indicates whether or not history events associated with a 
-     * prescription order, prescription dispense and/or other 
-     * active medications are to be returned along with the 
-     * detailed information.</p><p>&quot;Pending&quot; changes will 
-     * be returned regardless of the setting of this flag.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p><p>&quot;Pending&quot; changes will be 
+     * returned regardless of the setting of this flag.</p>
      */
     public void setIncludeEventHistoryIndicatorValue(Boolean includeEventHistoryIndicatorValue) {
         this.includeEventHistoryIndicatorValue.setValue(includeEventHistoryIndicatorValue);
@@ -1735,77 +3452,93 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Indicates whether or not Issues (detected and/or managed) 
-     * attached to the other medication records are to be returned 
-     * along with the detailed information.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication data.</p><p>Because the 
-     * attribute is boolean, it must explicitly indicate a 'TRUE' 
-     * or 'FALSE', and thus it is mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication data.</p><p>Because the 
-     * attribute is boolean, it must explicitly indicate a 'TRUE' 
-     * or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
-     * 
-     * <p>Indicates whether or not Issues (detected and/or managed) 
-     * attached to the prescription dispense record to be returned 
-     * along with the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
+     * in the retrieval of medication detail profile 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
      * in the retrieval of medication detail profile 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
      * 
      * <p>Indicates whether or not Issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * in the retrieval of medication data.</p><p>Because the 
+     * attribute is boolean, it must explicitly indicate a 'TRUE' 
+     * or 'FALSE', and thus it is mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the other medication records are to be returned 
+     * along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including issues 
+     * in the retrieval of patient medication data.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescription dispense record to be returned 
+     * along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
      * in the retrieval of medication detail profile 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescriptions, dispenses and other active 
+     * medication records are to be returned along with the 
+     * detailed information.</p>
      */
     @Hl7XmlMapping({"includeIssuesIndicator/value"})
     public Boolean getIncludeIssuesIndicatorValue() {
@@ -1813,77 +3546,93 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Indicates whether or not Issues (detected and/or managed) 
-     * attached to the other medication records are to be returned 
-     * along with the detailed information.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication data.</p><p>Because the 
-     * attribute is boolean, it must explicitly indicate a 'TRUE' 
-     * or 'FALSE', and thus it is mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication data.</p><p>Because the 
-     * attribute is boolean, it must explicitly indicate a 'TRUE' 
-     * or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
-     * 
-     * <p>Indicates whether or not Issues (detected and/or managed) 
-     * attached to the prescription dispense record to be returned 
-     * along with the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
+     * in the retrieval of medication detail profile 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
      * in the retrieval of medication detail profile 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
      * 
      * <p>Indicates whether or not Issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * in the retrieval of medication data.</p><p>Because the 
+     * attribute is boolean, it must explicitly indicate a 'TRUE' 
+     * or 'FALSE', and thus it is mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the other medication records are to be returned 
+     * along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including issues 
+     * in the retrieval of patient medication data.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescription dispense record to be returned 
+     * along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
      * in the retrieval of medication detail profile 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescriptions, dispenses and other active 
+     * medication records are to be returned along with the 
+     * detailed information.</p>
      */
     public void setIncludeIssuesIndicatorValue(Boolean includeIssuesIndicatorValue) {
         this.includeIssuesIndicatorValue.setValue(includeIssuesIndicatorValue);
@@ -1891,169 +3640,167 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Indicates whether or not notes attached to the 
-     * prescription, dispenses and other active medication records 
-     * are to be returned along with the detailed information.</p>
+     * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication profile detail 
+     * the retrieval of information for medication 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication profile detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the selected 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
+     * the retrieval of information for adverse reactions 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not notes attached to the medical 
-     * condition records are to be returned along with the detailed 
-     * information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medical condition 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medical condition 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not common observation record are to 
-     * be returned along with notes that have been recorded against 
-     * the measurement record.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for common observation 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for common observation 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not notes attached to the 
-     * professional service record are to be returned along with 
-     * the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for professional service 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for professional service 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not notes attached to the other 
-     * medication records are to be returned along with the 
-     * detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the adverse 
      * reactions records are to be returned along with the detailed 
      * information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
+     * the retrieval of information for medication profile detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the 
-     * allergy/intolerance records are to be returned along with 
+     * prescription, dispenses and other active medication records 
+     * are to be returned along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medication 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the other 
+     * medication records are to be returned along with the 
+     * detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for professional service 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the 
+     * professional service record are to be returned along with 
      * the detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
+     * the retrieval of information for medication detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * prescription dispense record are to be returned along with 
      * the detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
+     * the retrieval of information for medication profile detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
+     * <p>Indicates whether or not notes attached to the 
+     * prescription, dispenses and other active medication records 
+     * are to be returned along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
+     * the retrieval of information for allergy/intolerance 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the 
+     * allergy/intolerance records are to be returned along with 
+     * the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for common observation 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not common observation record are to 
+     * be returned along with notes that have been recorded against 
+     * the measurement record.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000015CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medical condition 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the medical 
+     * condition records are to be returned along with the detailed 
+     * information.</p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
     public Boolean getIncludeNotesIndicatorValue() {
@@ -2061,169 +3808,167 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Indicates whether or not notes attached to the 
-     * prescription, dispenses and other active medication records 
-     * are to be returned along with the detailed information.</p>
+     * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication profile detail 
+     * the retrieval of information for medication 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication profile detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the selected 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
+     * the retrieval of information for adverse reactions 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not notes attached to the medical 
-     * condition records are to be returned along with the detailed 
-     * information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medical condition 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medical condition 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not common observation record are to 
-     * be returned along with notes that have been recorded against 
-     * the measurement record.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for common observation 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for common observation 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not notes attached to the 
-     * professional service record are to be returned along with 
-     * the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for professional service 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for professional service 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not notes attached to the other 
-     * medication records are to be returned along with the 
-     * detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the adverse 
      * reactions records are to be returned along with the detailed 
      * information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
+     * the retrieval of information for medication profile detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the 
-     * allergy/intolerance records are to be returned along with 
+     * prescription, dispenses and other active medication records 
+     * are to be returned along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medication 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the other 
+     * medication records are to be returned along with the 
+     * detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for professional service 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the 
+     * professional service record are to be returned along with 
      * the detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
+     * the retrieval of information for medication detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * prescription dispense record are to be returned along with 
      * the detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
+     * the retrieval of information for medication profile detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
+     * <p>Indicates whether or not notes attached to the 
+     * prescription, dispenses and other active medication records 
+     * are to be returned along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
+     * the retrieval of information for allergy/intolerance 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the 
+     * allergy/intolerance records are to be returned along with 
+     * the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for common observation 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not common observation record are to 
+     * be returned along with notes that have been recorded against 
+     * the measurement record.</p>
+     * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000015CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medical condition 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the medical 
+     * condition records are to be returned along with the detailed 
+     * information.</p>
      */
     public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
         this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
@@ -2231,9 +3976,38 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether to include future changes (e.g. status 
+     * changes that aren't effective yet) associated with a 
+     * prescription order and/or prescription dispense are to be 
+     * returned along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
@@ -2241,36 +4015,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * medications are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including future 
      * events in the retrieval of the requested 
      * information.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Include Pending Changes Indicator</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
-     * prescription order and/or prescription dispense are to be 
-     * returned along with the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p>
      */
     @Hl7XmlMapping({"includePendingChangesIndicator/value"})
     public Boolean getIncludePendingChangesIndicatorValue() {
@@ -2278,9 +4040,38 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether to include future changes (e.g. status 
+     * changes that aren't effective yet) associated with a 
+     * prescription order and/or prescription dispense are to be 
+     * returned along with the detailed information.</p>
+     * 
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
@@ -2288,36 +4079,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * medications are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including future 
      * events in the retrieval of the requested 
      * information.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Include Pending Changes Indicator</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
-     * prescription order and/or prescription dispense are to be 
-     * returned along with the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p>
      */
     public void setIncludePendingChangesIndicatorValue(Boolean includePendingChangesIndicatorValue) {
         this.includePendingChangesIndicatorValue.setValue(includePendingChangesIndicatorValue);
@@ -2325,71 +4104,14 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MostRecentDispenseForEachRxIndicator</p>
+     * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
      * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Helps to trim down volume of query response by 
-     * eliminating multiple prescription dispenses for the same 
-     * prescription order.</p><p>Because this is a boolean 
-     * attribute whose value must be known to evaluate the query, 
-     * the attribute is mandatory.</p>
-     * 
-     * <p>Helps to trim down volume of query response by 
-     * eliminating multiple prescription dispenses for the same 
-     * prescription order.</p><p>Because this is a boolean 
-     * attribute whose value must be known to evaluate the query, 
-     * the attribute is mandatory.</p>
-     * 
-     * <p>Most Recent Dispense for each Rx Indicator</p>
-     * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple dispenses for the same 
@@ -2397,11 +4119,55 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
+     * <p>Indicates whether or not a prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription.</p><p>Allows the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
+     * 
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps to trim down volume of query response by 
+     * eliminating multiple prescription dispenses for the same 
+     * prescription order.</p><p>Because this is a boolean 
+     * attribute whose value must be known to evaluate the query, 
+     * the attribute is mandatory.</p>
+     * 
+     * <p>Indicates whether or not prescription dispenses returned 
+     * on a query should be limited to only the most recent 
+     * dispense for a prescription order.</p><p>Allows for the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
+     * 
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple dispenses for the same 
      * prescription.</p><p>Because this is a boolean attribute 
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Indicates whether or not a prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription.</p><p>Allows the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
      */
     @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
     public Boolean getMostRecentDispenseForEachRxIndicatorValue() {
@@ -2409,71 +4175,14 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MostRecentDispenseForEachRxIndicator</p>
+     * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Relationship: 
+     * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
      * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Helps to trim down volume of query response by 
-     * eliminating multiple prescription dispenses for the same 
-     * prescription order.</p><p>Because this is a boolean 
-     * attribute whose value must be known to evaluate the query, 
-     * the attribute is mandatory.</p>
-     * 
-     * <p>Helps to trim down volume of query response by 
-     * eliminating multiple prescription dispenses for the same 
-     * prescription order.</p><p>Because this is a boolean 
-     * attribute whose value must be known to evaluate the query, 
-     * the attribute is mandatory.</p>
-     * 
-     * <p>Most Recent Dispense for each Rx Indicator</p>
-     * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not a prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription.</p><p>Allows the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple dispenses for the same 
@@ -2481,11 +4190,55 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
+     * <p>Indicates whether or not a prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription.</p><p>Allows the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
+     * 
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps to trim down volume of query response by 
+     * eliminating multiple prescription dispenses for the same 
+     * prescription order.</p><p>Because this is a boolean 
+     * attribute whose value must be known to evaluate the query, 
+     * the attribute is mandatory.</p>
+     * 
+     * <p>Indicates whether or not prescription dispenses returned 
+     * on a query should be limited to only the most recent 
+     * dispense for a prescription order.</p><p>Allows for the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
+     * 
+     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple dispenses for the same 
      * prescription.</p><p>Because this is a boolean attribute 
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Indicates whether or not a prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription.</p><p>Allows the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
      */
     public void setMostRecentDispenseForEachRxIndicatorValue(Boolean mostRecentDispenseForEachRxIndicatorValue) {
         this.mostRecentDispenseForEachRxIndicatorValue.setValue(mostRecentDispenseForEachRxIndicatorValue);
@@ -2493,16 +4246,33 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherIndicationCode</p>
+     * <p>Business Name: OtherIndicationCode</p>
      * 
-     * <p>Other Indication Code</p>
+     * <p>Other Business Name: OtherIndicationCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.OtherIndicationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * non-condition-related indication code.</p>
      * 
+     * <p>Other Business Name: OtherIndicationCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.OtherIndicationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * non-condition-related indication code.</p>
      */
     @Hl7XmlMapping({"otherIndicationCode/value"})
     public ActNonConditionIndicationCode getOtherIndicationCodeValue() {
@@ -2510,16 +4280,33 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>OtherIndicationCode</p>
+     * <p>Business Name: OtherIndicationCode</p>
      * 
-     * <p>Other Indication Code</p>
+     * <p>Other Business Name: OtherIndicationCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.OtherIndicationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * non-condition-related indication code.</p>
      * 
+     * <p>Other Business Name: OtherIndicationCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.OtherIndicationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * non-condition-related indication code.</p>
      */
     public void setOtherIndicationCodeValue(ActNonConditionIndicationCode otherIndicationCodeValue) {
         this.otherIndicationCodeValue.setValue(otherIndicationCodeValue);
@@ -2527,23 +4314,33 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationRecordId</p>
+     * <p>Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>E:Other Medication Record Id</p>
+     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.OtherMedicationRecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of medication records based on a 
+     * specific active medication record.</p>
      * 
      * <p>Identifier of the other active medication record for 
      * which detailed information is to be retrieved.</p>
      * 
+     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.OtherMedicationRecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of medication records based on a 
      * specific active medication record.</p>
-     * 
-     * <p>E:Other Medication Record Id</p>
      * 
      * <p>Identifier of the other medication record for which 
      * detailed information is to be retrieved.</p>
-     * 
-     * <p>Allows for the retrieval of medication records based on a 
-     * specific active medication record.</p>
      */
     @Hl7XmlMapping({"otherMedicationRecordId/value"})
     public Identifier getOtherMedicationRecordIdValue() {
@@ -2551,23 +4348,33 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>OtherMedicationRecordId</p>
+     * <p>Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>E:Other Medication Record Id</p>
+     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.OtherMedicationRecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of medication records based on a 
+     * specific active medication record.</p>
      * 
      * <p>Identifier of the other active medication record for 
      * which detailed information is to be retrieved.</p>
      * 
+     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.OtherMedicationRecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of medication records based on a 
      * specific active medication record.</p>
-     * 
-     * <p>E:Other Medication Record Id</p>
      * 
      * <p>Identifier of the other medication record for which 
      * detailed information is to be retrieved.</p>
-     * 
-     * <p>Allows for the retrieval of medication records based on a 
-     * specific active medication record.</p>
      */
     public void setOtherMedicationRecordIdValue(Identifier otherMedicationRecordIdValue) {
         this.otherMedicationRecordIdValue.setValue(otherMedicationRecordIdValue);
@@ -2575,41 +4382,37 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriberProviderID</p>
+     * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>D:Prescriber Provider ID</p>
+     * <p>Other Business Name: PrescriberProviderID</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Relationship: PORX_MT060270CA.PrescriberProviderID.value</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of prescriptions based on a 
      * specific prescriber.</p>
      * 
-     * <p>Prescriber Provider ID</p>
-     * 
      * <p>Identifier of the prescriber who created and/or 
      * supervised the prescriptions being retrieved.</p><p>The 
      * result set will be filtered to only include records which 
      * were either directly created by this provider, or were 
      * created 'under the supervision' of this provider.</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Other Business Name: PrescriberProviderID</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PrescriberProviderID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of prescriptions based on the 
      * specific prescribers.</p>
+     * 
+     * <p>Identifier of the prescriber who created and/or 
+     * supervised the prescriptions being retrieved.</p><p>The 
+     * result set will be filtered to only include records which 
+     * were either directly created by this provider, or were 
+     * created 'under the supervision' of this provider.</p>
      */
     @Hl7XmlMapping({"prescriberProviderID/value"})
     public Identifier getPrescriberProviderIDValue() {
@@ -2617,41 +4420,37 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriberProviderID</p>
+     * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>D:Prescriber Provider ID</p>
+     * <p>Other Business Name: PrescriberProviderID</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Relationship: PORX_MT060270CA.PrescriberProviderID.value</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of prescriptions based on a 
      * specific prescriber.</p>
      * 
-     * <p>Prescriber Provider ID</p>
-     * 
      * <p>Identifier of the prescriber who created and/or 
      * supervised the prescriptions being retrieved.</p><p>The 
      * result set will be filtered to only include records which 
      * were either directly created by this provider, or were 
      * created 'under the supervision' of this provider.</p>
      * 
-     * <p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p>
+     * <p>Other Business Name: PrescriberProviderID</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PrescriberProviderID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of prescriptions based on the 
      * specific prescribers.</p>
+     * 
+     * <p>Identifier of the prescriber who created and/or 
+     * supervised the prescriptions being retrieved.</p><p>The 
+     * result set will be filtered to only include records which 
+     * were either directly created by this provider, or were 
+     * created 'under the supervision' of this provider.</p>
      */
     public void setPrescriberProviderIDValue(Identifier prescriberProviderIDValue) {
         this.prescriberProviderIDValue.setValue(prescriberProviderIDValue);
@@ -2659,25 +4458,35 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>D:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of medication records relating 
+     * to a specific dispense record.</p>
      * 
      * <p>Identifies which prescription dispense record should be 
      * retrieved.</p>
+     * 
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record. A dispense cannot be 
      * retrieved without the identifier of the record, and the 
      * attribute is therefore mandatory.</p>
      * 
-     * <p>E:Prescription Dispense Number</p>
-     * 
      * <p>Identifies which prescription dispense record should be 
      * retrieved.</p>
-     * 
-     * <p>Allows for the retrieval of medication records relating 
-     * to a specific dispense record.</p>
      */
     @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
     public Identifier getPrescriptionDispenseNumberValue() {
@@ -2685,25 +4494,35 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>D:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of medication records relating 
+     * to a specific dispense record.</p>
      * 
      * <p>Identifies which prescription dispense record should be 
      * retrieved.</p>
+     * 
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record. A dispense cannot be 
      * retrieved without the identifier of the record, and the 
      * attribute is therefore mandatory.</p>
      * 
-     * <p>E:Prescription Dispense Number</p>
-     * 
      * <p>Identifies which prescription dispense record should be 
      * retrieved.</p>
-     * 
-     * <p>Allows for the retrieval of medication records relating 
-     * to a specific dispense record.</p>
      */
     public void setPrescriptionDispenseNumberValue(Identifier prescriptionDispenseNumberValue) {
         this.prescriptionDispenseNumberValue.setValue(prescriptionDispenseNumberValue);
@@ -2711,45 +4530,48 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>D:Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the prescription that is to be retrieved, and 
+     * is therefore mandatory.</p>
      * 
      * <p>Identifier of the prescription for which detailed 
      * information is required.</p><p>The result set will be 
      * filtered to only the specific prescription.</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.PrescriptionOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved.</p>
      * 
-     * <p>D:Prescription Order Number</p>
-     * 
      * <p>Identifier of the prescription for which detailed 
      * information is required.</p><p>The result set will be 
      * filtered to only the specific prescription.</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060080CA.PrescriptionOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved and 
      * is therefore mandatory.</p>
      * 
-     * <p>Prescription order Number</p>
-     * 
      * <p>Identifier of the prescription for which detailed 
      * information is required.</p><p>The result set will be 
      * filtered to only the specific prescription.</p>
-     * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
-     * 
-     * <p>Identifies the prescription that is to be retrieved, and 
-     * is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"prescriptionOrderNumber/value"})
     public Identifier getPrescriptionOrderNumberValue() {
@@ -2757,45 +4579,48 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>D:Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the prescription that is to be retrieved, and 
+     * is therefore mandatory.</p>
      * 
      * <p>Identifier of the prescription for which detailed 
      * information is required.</p><p>The result set will be 
      * filtered to only the specific prescription.</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060180CA.PrescriptionOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved.</p>
      * 
-     * <p>D:Prescription Order Number</p>
-     * 
      * <p>Identifier of the prescription for which detailed 
      * information is required.</p><p>The result set will be 
      * filtered to only the specific prescription.</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060080CA.PrescriptionOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved and 
      * is therefore mandatory.</p>
      * 
-     * <p>Prescription order Number</p>
-     * 
      * <p>Identifier of the prescription for which detailed 
      * information is required.</p><p>The result set will be 
      * filtered to only the specific prescription.</p>
-     * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
-     * 
-     * <p>Identifies the prescription that is to be retrieved, and 
-     * is therefore mandatory.</p>
      */
     public void setPrescriptionOrderNumberValue(Identifier prescriptionOrderNumberValue) {
         this.prescriptionOrderNumberValue.setValue(prescriptionOrderNumberValue);
@@ -2803,18 +4628,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionStatuses</p>
+     * <p>Business Name: PrescriptionStatuses</p>
      * 
-     * <p>Prescription Statuses</p>
+     * <p>Other Business Name: PrescriptionStatuses</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.PrescriptionStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient prescriptions and 
+     * dispenses based on the lifecycle state of the 
+     * prescription.</p>
      * 
      * <p>Indicates that prescriptions of a specific statuses are 
      * to be included in the result set. Specific prescription 
      * statuses are: 'active', completed', 'aborted', 
      * 'suspended'.</p>
-     * 
-     * <p>Allows for the retrieval of patient prescriptions and 
-     * dispenses based on the lifecycle state of the 
-     * prescription.</p>
      */
     @Hl7XmlMapping({"prescriptionStatus/value"})
     public List<ActStatus> getPrescriptionStatusValue() {
@@ -2823,16 +4652,33 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>SymptomCode</p>
+     * <p>Business Name: SymptomCode</p>
      * 
-     * <p>Symptom Code</p>
+     * <p>Other Business Name: SymptomCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.SymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * symptom indication code.</p>
      * 
+     * <p>Other Business Name: SymptomCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.SymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * symptom indication code.</p>
      */
     @Hl7XmlMapping({"symptomCode/value"})
     public SymptomValue getSymptomCodeValue() {
@@ -2840,16 +4686,33 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>SymptomCode</p>
+     * <p>Business Name: SymptomCode</p>
      * 
-     * <p>Symptom Code</p>
+     * <p>Other Business Name: SymptomCode</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.SymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those records pertaining to the specified 
      * symptom indication code.</p>
      * 
+     * <p>Other Business Name: SymptomCode</p>
+     * 
+     * <p>Relationship: PORX_MT060170CA.SymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * symptom indication code.</p>
      */
     public void setSymptomCodeValue(SymptomValue symptomCodeValue) {
         this.symptomCodeValue.setValue(symptomCodeValue);
@@ -2857,20 +4720,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>TreatmentTypes</p>
+     * <p>Business Name: TreatmentTypes</p>
      * 
-     * <p>Treatment Types</p>
+     * <p>Other Business Name: TreatmentTypes</p>
+     * 
+     * <p>Relationship: PORX_MT060180CA.TreatmentType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of prescriptions and dispensed 
+     * based on the intended treatment type of the prescription. 
+     * Repetition of 2 will allow for the result set to be filtered 
+     * based on 1 or two treatment types.</p>
      * 
      * <p>Indicates that the result set is to be filtered to only 
      * include those records pertaining to the specified treatment 
      * type (categories). The specific values are 
      * &quot;Continuous/Chronic&quot;, &quot;Short-Term/Acute&quot; 
      * and &quot;As-Needed/PRN&quot;.</p>
-     * 
-     * <p>Allows for the retrieval of prescriptions and dispensed 
-     * based on the intended treatment type of the prescription. 
-     * Repetition of 2 will allow for the result set to be filtered 
-     * based on 1 or two treatment types.</p>
      */
     @Hl7XmlMapping({"treatmentType/value"})
     public List<ActTherapyDurationWorkingListCode> getTreatmentTypeValue() {
@@ -2879,25 +4746,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>ProfessionalServiceCodes</p>
+     * <p>Business Name: ProfessionalServiceCodes</p>
      * 
-     * <p>Professional Service Codes</p>
+     * <p>Other Business Name: ProfessionalServiceCodes</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those records pertaining to the specified 
-     * professional service code.</p><p>The service code may refer 
-     * to a specific service or to a higher level classification 
-     * professional service within the service hierarchy.</p>
+     * <p>Relationship: 
+     * REPC_MT120001CA.ProfessionalServiceCode.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those records pertaining to the specified 
-     * professional service code.</p><p>The service code may refer 
-     * to a specific service or to a higher level classification 
-     * professional service within the service hierarchy.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of patient professional services 
      * pertaining to specific professional service or category of 
      * professional services.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * professional service code.</p><p>The service code may refer 
+     * to a specific service or to a higher level classification 
+     * professional service within the service hierarchy.</p>
      */
     @Hl7XmlMapping({"professionalServiceCode/value"})
     public List<ActProfessionalServiceCode> getProfessionalServiceCodeValue() {
@@ -2906,21 +4772,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>ServicePeriod</p>
+     * <p>Business Name: ServicePeriod</p>
      * 
-     * <p>Service Period</p>
+     * <p>Other Business Name: ServicePeriod</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.ServicePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of patient professional service 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those professional services rendered to the 
      * patient within the indicated time-period.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of patient professional service 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of patient professional service 
-     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     @Hl7XmlMapping({"servicePeriod/value"})
     public Interval<Date> getServicePeriodValue() {
@@ -2928,21 +4794,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>ServicePeriod</p>
+     * <p>Business Name: ServicePeriod</p>
      * 
-     * <p>Service Period</p>
+     * <p>Other Business Name: ServicePeriod</p>
+     * 
+     * <p>Relationship: REPC_MT120001CA.ServicePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of patient professional service 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those professional services rendered to the 
      * patient within the indicated time-period.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of patient professional service 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of patient professional service 
-     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     public void setServicePeriodValue(Interval<Date> servicePeriodValue) {
         this.servicePeriodValue.setValue(servicePeriodValue);
@@ -2950,23 +4816,23 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MeasurementEffectivePeriod</p>
+     * <p>Business Name: MeasurementEffectivePeriod</p>
      * 
-     * <p>G:Measurement Effective Period</p>
+     * <p>Other Business Name: MeasurementEffectivePeriod</p>
      * 
-     * <p>Indicates the measurement period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those patient measurement that were taken 
-     * within the specified period.</p>
+     * <p>Relationship: 
+     * REPC_MT120002CA.MeasurementEffectivePeriod.value</p>
      * 
-     * <p>Indicates the measurement period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those patient measurement that were taken 
-     * within the specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the measurement period of 
      * interest for the retrieval. Useful for constraining run-away 
      * queries.</p>
+     * 
+     * <p>Indicates the measurement period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those patient measurement that were taken 
+     * within the specified period.</p>
      */
     @Hl7XmlMapping({"measurementEffectivePeriod/value"})
     public Interval<Date> getMeasurementEffectivePeriodValue() {
@@ -2974,23 +4840,23 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MeasurementEffectivePeriod</p>
+     * <p>Business Name: MeasurementEffectivePeriod</p>
      * 
-     * <p>G:Measurement Effective Period</p>
+     * <p>Other Business Name: MeasurementEffectivePeriod</p>
      * 
-     * <p>Indicates the measurement period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those patient measurement that were taken 
-     * within the specified period.</p>
+     * <p>Relationship: 
+     * REPC_MT120002CA.MeasurementEffectivePeriod.value</p>
      * 
-     * <p>Indicates the measurement period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those patient measurement that were taken 
-     * within the specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the measurement period of 
      * interest for the retrieval. Useful for constraining run-away 
      * queries.</p>
+     * 
+     * <p>Indicates the measurement period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those patient measurement that were taken 
+     * within the specified period.</p>
      */
     public void setMeasurementEffectivePeriodValue(Interval<Date> measurementEffectivePeriodValue) {
         this.measurementEffectivePeriodValue.setValue(measurementEffectivePeriodValue);
@@ -2998,16 +4864,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MeasurementTypes</p>
+     * <p>Business Name: MeasurementTypes</p>
      * 
-     * <p>F:Measurement Types</p>
+     * <p>Other Business Name: MeasurementTypes</p>
+     * 
+     * <p>Relationship: REPC_MT120002CA.MeasurementType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the retrieval of patient measurements based on 
+     * a specific type of measurement or set of measurements.</p>
      * 
      * <p>Indicates that only patient measurements of a specific 
      * type are to be included in the result set. If not specified, 
      * all measurement types will be included.</p>
-     * 
-     * <p>Allows for the retrieval of patient measurements based on 
-     * a specific type of measurement or set of measurements.</p>
      */
     @Hl7XmlMapping({"measurementType/value"})
     public List<CommonClinicalObservationType> getMeasurementTypeValue() {
@@ -3016,17 +4886,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>G:Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the selective retrieval of allergy/intolerance 
+     * records based on the status of the record.</p>
      * 
      * <p>Indicates that the result set should be filtered to 
      * include only those allergy/intolerance records for the 
      * specified status. Valid statuses include: ACTIVE or 
      * COMPLETE.</p>
-     * 
-     * <p>Allows for the selective retrieval of allergy/intolerance 
-     * records based on the status of the record.</p>
      */
     @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
     public ActStatus getAllergyIntoleranceStatusValue() {
@@ -3034,17 +4909,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>G:Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the selective retrieval of allergy/intolerance 
+     * records based on the status of the record.</p>
      * 
      * <p>Indicates that the result set should be filtered to 
      * include only those allergy/intolerance records for the 
      * specified status. Valid statuses include: ACTIVE or 
      * COMPLETE.</p>
-     * 
-     * <p>Allows for the selective retrieval of allergy/intolerance 
-     * records based on the status of the record.</p>
      */
     public void setAllergyIntoleranceStatusValue(ActStatus allergyIntoleranceStatusValue) {
         this.allergyIntoleranceStatusValue.setValue(allergyIntoleranceStatusValue);
@@ -3052,17 +4932,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceType</p>
+     * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>H:Allergy/Intolerance Type</p>
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value indicating whether to return an allergy 
      * record or an intolerance record. The result set will be 
      * filtered to include only allergy records or intolerance 
      * records accordingly.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
      */
     @Hl7XmlMapping({"allergyIntoleranceType/value"})
     public ObservationIntoleranceType getAllergyIntoleranceTypeValue() {
@@ -3070,17 +4955,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceType</p>
+     * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>H:Allergy/Intolerance Type</p>
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value indicating whether to return an allergy 
      * record or an intolerance record. The result set will be 
      * filtered to include only allergy records or intolerance 
      * records accordingly.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
      */
     public void setAllergyIntoleranceTypeValue(ObservationIntoleranceType allergyIntoleranceTypeValue) {
         this.allergyIntoleranceTypeValue.setValue(allergyIntoleranceTypeValue);
@@ -3088,16 +4978,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceChangePeriod</p>
+     * <p>Business Name: AllergyIntoleranceChangePeriod</p>
      * 
-     * <p>F:Allergy/Intolerance Change Period</p>
+     * <p>Other Business Name: AllergyIntoleranceChangePeriod</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in retrieving incremental changes to the patient's 
+     * record.</p>
      * 
      * <p>Filters the query response to only include 
      * allergy/intolerance records which have been created or 
      * modified within the date-range specified.</p>
-     * 
-     * <p>Useful in retrieving incremental changes to the patient's 
-     * record.</p>
      */
     @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
     public Interval<Date> getAlllergyIntoleranceChangePeriodValue() {
@@ -3105,16 +5000,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceChangePeriod</p>
+     * <p>Business Name: AllergyIntoleranceChangePeriod</p>
      * 
-     * <p>F:Allergy/Intolerance Change Period</p>
+     * <p>Other Business Name: AllergyIntoleranceChangePeriod</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in retrieving incremental changes to the patient's 
+     * record.</p>
      * 
      * <p>Filters the query response to only include 
      * allergy/intolerance records which have been created or 
      * modified within the date-range specified.</p>
-     * 
-     * <p>Useful in retrieving incremental changes to the patient's 
-     * record.</p>
      */
     public void setAlllergyIntoleranceChangePeriodValue(Interval<Date> alllergyIntoleranceChangePeriodValue) {
         this.alllergyIntoleranceChangePeriodValue.setValue(alllergyIntoleranceChangePeriodValue);
@@ -3122,31 +5022,34 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>I:Reaction</p>
+     * <p>Other Business Name: ReactionType</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve only those 
+     * allergy/intolerance records for which there was a specific 
+     * type of reaction.</p>
+     * 
+     * <p>Indicates that the result set be filtered to include only 
+     * those allergy/intolerance records for which specific type of 
+     * reaction was recorded.</p><p>Reaction types include: STEVEN 
+     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value denoting a specific reaction. E.g. Code for 
      * 'rash'. The result set will be filtered to include only 
      * those allergy records or intolerance records pertaining to 
      * the specified reaction.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
-     * 
-     * <p>G:Reaction Type</p>
-     * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
-     * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
-     * 
-     * <p>Allows the requester to retrieve only those 
-     * allergy/intolerance records for which there was a specific 
-     * type of reaction.</p>
      */
     @Hl7XmlMapping({"reactionType/value"})
     public SubjectReaction getReactionTypeValue() {
@@ -3154,31 +5057,34 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Reaction</p>
+     * <p>Other Business Name: ReactionType</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve only those 
+     * allergy/intolerance records for which there was a specific 
+     * type of reaction.</p>
+     * 
+     * <p>Indicates that the result set be filtered to include only 
+     * those allergy/intolerance records for which specific type of 
+     * reaction was recorded.</p><p>Reaction types include: STEVEN 
+     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value denoting a specific reaction. E.g. Code for 
      * 'rash'. The result set will be filtered to include only 
      * those allergy records or intolerance records pertaining to 
      * the specified reaction.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
-     * 
-     * <p>G:Reaction Type</p>
-     * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
-     * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
-     * 
-     * <p>Allows the requester to retrieve only those 
-     * allergy/intolerance records for which there was a specific 
-     * type of reaction.</p>
      */
     public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
         this.reactionTypeValue.setValue(reactionTypeValue);
@@ -3186,16 +5092,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MedicalConditionChangePeriod</p>
+     * <p>Business Name: MedicalConditionChangePeriod</p>
      * 
-     * <p>G:Medical Condition Change Period</p>
+     * <p>Other Business Name: MedicalConditionChangePeriod</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000015CA.MedicalConditionChangePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in retrieving incremental changes to the patient's 
+     * record.</p>
      * 
      * <p>Filters the query response to only include medical 
      * conditions which have been created or modified within the 
      * date-range specified</p>
-     * 
-     * <p>Useful in retrieving incremental changes to the patient's 
-     * record.</p>
      */
     @Hl7XmlMapping({"medicalConditionChangePeriod/value"})
     public Interval<Date> getMedicalConditionChangePeriodValue() {
@@ -3203,16 +5114,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MedicalConditionChangePeriod</p>
+     * <p>Business Name: MedicalConditionChangePeriod</p>
      * 
-     * <p>G:Medical Condition Change Period</p>
+     * <p>Other Business Name: MedicalConditionChangePeriod</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000015CA.MedicalConditionChangePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in retrieving incremental changes to the patient's 
+     * record.</p>
      * 
      * <p>Filters the query response to only include medical 
      * conditions which have been created or modified within the 
      * date-range specified</p>
-     * 
-     * <p>Useful in retrieving incremental changes to the patient's 
-     * record.</p>
      */
     public void setMedicalConditionChangePeriodValue(Interval<Date> medicalConditionChangePeriodValue) {
         this.medicalConditionChangePeriodValue.setValue(medicalConditionChangePeriodValue);
@@ -3220,22 +5136,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MedicalConditionStatus</p>
+     * <p>Business Name: MedicalConditionStatus</p>
      * 
-     * <p>G:Medical Condition Status</p>
+     * <p>Other Business Name: MedicalConditionStatus</p>
      * 
-     * <p>Indicates that the result set should be filtered to 
-     * included only those medical condition records for the 
-     * specified status.</p><p>Valid statuses include: ACTIVE or 
-     * COMPLETE.</p>
+     * <p>Relationship: 
+     * REPC_MT000015CA.MedicalConditionStatus.value</p>
      * 
-     * <p>Indicates that the result set should be filtered to 
-     * included only those medical condition records for the 
-     * specified status.</p><p>Valid statuses include: ACTIVE or 
-     * COMPLETE.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the selective retrieval of medical condition 
      * records based on the status of the record.</p>
+     * 
+     * <p>Indicates that the result set should be filtered to 
+     * included only those medical condition records for the 
+     * specified status.</p><p>Valid statuses include: ACTIVE or 
+     * COMPLETE.</p>
      */
     @Hl7XmlMapping({"medicalConditionStatus/value"})
     public ActStatus getMedicalConditionStatusValue() {
@@ -3243,22 +5159,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MedicalConditionStatus</p>
+     * <p>Business Name: MedicalConditionStatus</p>
      * 
-     * <p>G:Medical Condition Status</p>
+     * <p>Other Business Name: MedicalConditionStatus</p>
      * 
-     * <p>Indicates that the result set should be filtered to 
-     * included only those medical condition records for the 
-     * specified status.</p><p>Valid statuses include: ACTIVE or 
-     * COMPLETE.</p>
+     * <p>Relationship: 
+     * REPC_MT000015CA.MedicalConditionStatus.value</p>
      * 
-     * <p>Indicates that the result set should be filtered to 
-     * included only those medical condition records for the 
-     * specified status.</p><p>Valid statuses include: ACTIVE or 
-     * COMPLETE.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the selective retrieval of medical condition 
      * records based on the status of the record.</p>
+     * 
+     * <p>Indicates that the result set should be filtered to 
+     * included only those medical condition records for the 
+     * specified status.</p><p>Valid statuses include: ACTIVE or 
+     * COMPLETE.</p>
      */
     public void setMedicalConditionStatusValue(ActStatus medicalConditionStatusValue) {
         this.medicalConditionStatusValue.setValue(medicalConditionStatusValue);
@@ -3266,18 +5182,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>ReactionPeriod</p>
+     * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>F:Reaction Period</p>
+     * <p>Other Business Name: ReactionPeriod</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the adverse reaction 
+     * period of interest for retrieval of adverse reaction 
+     * records. Useful to avoid run-away queries.</p>
      * 
      * <p>The period in which the recorded adverse reaction 
      * occurred or was updated. I.e. Filters the result-set to 
      * those reactions whose onset occurred within the time-range 
      * specified by this parameter.</p>
-     * 
-     * <p>Allows the requester to specify the adverse reaction 
-     * period of interest for retrieval of adverse reaction 
-     * records. Useful to avoid run-away queries.</p>
      */
     @Hl7XmlMapping({"reactionPeriod/value"})
     public Interval<Date> getReactionPeriodValue() {
@@ -3285,18 +5205,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReactionPeriod</p>
+     * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>F:Reaction Period</p>
+     * <p>Other Business Name: ReactionPeriod</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the adverse reaction 
+     * period of interest for retrieval of adverse reaction 
+     * records. Useful to avoid run-away queries.</p>
      * 
      * <p>The period in which the recorded adverse reaction 
      * occurred or was updated. I.e. Filters the result-set to 
      * those reactions whose onset occurred within the time-range 
      * specified by this parameter.</p>
-     * 
-     * <p>Allows the requester to specify the adverse reaction 
-     * period of interest for retrieval of adverse reaction 
-     * records. Useful to avoid run-away queries.</p>
      */
     public void setReactionPeriodValue(Interval<Date> reactionPeriodValue) {
         this.reactionPeriodValue.setValue(reactionPeriodValue);
@@ -3304,16 +5228,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>ConditionIdentifier</p>
+     * <p>Business Name: ConditionIdentifier</p>
      * 
-     * <p>F:Condition Identifier</p>
+     * <p>Other Business Name: ConditionIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.ConditionID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the specific condition record to retrieve and 
+     * is therefore mandatory.</p>
      * 
      * <p>Identifier of the Condition record to be retrieved. This 
      * can pertain to an allergy/intolerance or medical condition 
      * record.</p>
-     * 
-     * <p>Identifies the specific condition record to retrieve and 
-     * is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"conditionID/value"})
     public Identifier getConditionIDValue() {
@@ -3321,16 +5249,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConditionIdentifier</p>
+     * <p>Business Name: ConditionIdentifier</p>
      * 
-     * <p>F:Condition Identifier</p>
+     * <p>Other Business Name: ConditionIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.ConditionID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the specific condition record to retrieve and 
+     * is therefore mandatory.</p>
      * 
      * <p>Identifier of the Condition record to be retrieved. This 
      * can pertain to an allergy/intolerance or medical condition 
      * record.</p>
-     * 
-     * <p>Identifies the specific condition record to retrieve and 
-     * is therefore mandatory.</p>
      */
     public void setConditionIDValue(Identifier conditionIDValue) {
         this.conditionIDValue.setValue(conditionIDValue);

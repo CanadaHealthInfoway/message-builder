@@ -33,29 +33,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Diagnosis Indications</p>
- * 
- * <p>Describes diagnosis-related indications</p>
+ * <p>Business Name: Diagnosis Indications</p>
  * 
  * <p>Allows separation of conditions from symptoms from other 
  * forms of indication.</p>
+ * 
+ * <p>Describes diagnosis-related indications</p>
  */
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationCondition"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CD value = new CDImpl();
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
      * 
-     * <p>Identifies the type of condition described (diagnosis or 
-     * indication)</p>
+     * <p>Relationship: COCT_MT120402CA.ObservationCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies this measurement as a type of diagnosis and is 
      * therefore mandatory.</p>
+     * 
+     * <p>Identifies the type of condition described (diagnosis or 
+     * indication)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -63,13 +67,17 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
      * 
-     * <p>Identifies the type of condition described (diagnosis or 
-     * indication)</p>
+     * <p>Relationship: COCT_MT120402CA.ObservationCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies this measurement as a type of diagnosis and is 
      * therefore mandatory.</p>
+     * 
+     * <p>Identifies the type of condition described (diagnosis or 
+     * indication)</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
@@ -77,26 +85,22 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
 
 
     /**
-     * <p>A:Diagnosis Code</p>
+     * <p>Business Name: A:Diagnosis Code</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.ObservationCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows cross-checking the use of a therapy against its 
+     * indication. Also allows analysis of best practices, etc. 
+     * This is the attribute that actually identifies the 
+     * indication and is therefore mandatory.</p><p> <i>This 
+     * element makes use of the CD datatype because some 
+     * terminologies used for the domain require use of 
+     * modifiers.</i> </p>
      * 
      * <p>A coded form of the diagnosis that is the reason for the 
      * current action.</p>
-     * 
-     * <p>Allows cross-checking the use of a therapy against its 
-     * indication. Also allows analysis of best practices, etc. 
-     * This is the attribute that actually identifies the 
-     * indication and is therefore mandatory.</p><p> <i>This 
-     * element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p>
-     * 
-     * <p>Allows cross-checking the use of a therapy against its 
-     * indication. Also allows analysis of best practices, etc. 
-     * This is the attribute that actually identifies the 
-     * indication and is therefore mandatory.</p><p> <i>This 
-     * element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
@@ -104,26 +108,22 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
 
     /**
-     * <p>A:Diagnosis Code</p>
+     * <p>Business Name: A:Diagnosis Code</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.ObservationCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows cross-checking the use of a therapy against its 
+     * indication. Also allows analysis of best practices, etc. 
+     * This is the attribute that actually identifies the 
+     * indication and is therefore mandatory.</p><p> <i>This 
+     * element makes use of the CD datatype because some 
+     * terminologies used for the domain require use of 
+     * modifiers.</i> </p>
      * 
      * <p>A coded form of the diagnosis that is the reason for the 
      * current action.</p>
-     * 
-     * <p>Allows cross-checking the use of a therapy against its 
-     * indication. Also allows analysis of best practices, etc. 
-     * This is the attribute that actually identifies the 
-     * indication and is therefore mandatory.</p><p> <i>This 
-     * element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p>
-     * 
-     * <p>Allows cross-checking the use of a therapy against its 
-     * indication. Also allows analysis of best practices, etc. 
-     * This is the attribute that actually identifies the 
-     * indication and is therefore mandatory.</p><p> <i>This 
-     * element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p>
      */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);

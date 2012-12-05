@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.cr.prpa_mt101102ca.Ide
 
 
 /**
- * <p>PRPA_IN101205CA: Person Revise Event Accept</p>
+ * <p>Business Name: PRPA_IN101205CA: Person Revise Event 
+ * Accept</p>
+ * 
+ * <p>A person registry accepts a request to revise an existing 
+ * record and responds back to the requesting application. The 
+ * revised person record is sent in the payload.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.cr.prpa_mt101102ca.Ide
 @Hl7PartTypeMapping({"PRPA_IN101205CA"})
 public class PersonReviseEventAcceptBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedEntityBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

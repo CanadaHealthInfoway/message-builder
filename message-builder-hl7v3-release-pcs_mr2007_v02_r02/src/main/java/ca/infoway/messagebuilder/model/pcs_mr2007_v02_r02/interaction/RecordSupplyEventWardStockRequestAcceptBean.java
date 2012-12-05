@@ -29,8 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescr
 
 
 /**
- * <p>PORX_IN020220CA: Record supply event (ward stock) request 
- * accept</p>
+ * <p>Business Name: PORX_IN020220CA: Record supply event (ward 
+ * stock) request accept</p>
+ * 
+ * <p>Indicates the requested bulk supply of a medication to a 
+ * facility has been recorded.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescr
 @Hl7PartTypeMapping({"PORX_IN020220CA"})
 public class RecordSupplyEventWardStockRequestAcceptBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionDispenseResponseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

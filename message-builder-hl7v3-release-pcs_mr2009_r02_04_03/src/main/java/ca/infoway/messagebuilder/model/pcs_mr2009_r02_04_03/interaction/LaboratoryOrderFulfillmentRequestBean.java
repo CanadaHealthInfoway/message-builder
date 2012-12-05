@@ -29,7 +29,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt001000ca.
 
 
 /**
- * <p>POLB_IN111100CA: Laboratory Order Fulfillment Request</p>
+ * <p>Business Name: POLB_IN111100CA: Laboratory Order 
+ * Fulfillment Request</p>
+ * 
+ * <p>This interaction is a Order Fulfillment Request with 
+ * Receiver Responsibilities (i.e., the sending system utilizes 
+ * messages that require application-level responses). This 
+ * interaction is used when a fulfillment request is 
+ * communicated. If the receiver is the intended filler 
+ * application , it is requested that filler application 
+ * perform the order and provide a completed result that 
+ * fulfills the order; and provide a promise message with that 
+ * commitment.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +58,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt001000ca.
 @Hl7PartTypeMapping({"POLB_IN111100CA"})
 public class LaboratoryOrderFulfillmentRequestBean extends HL7Message_1Bean<TriggerEventBean<RequestChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

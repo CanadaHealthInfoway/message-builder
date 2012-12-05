@@ -29,8 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 
 
 /**
- * <p>PORX_IN011040CA: Activate device prescription request 
- * accepted</p>
+ * <p>Business Name: PORX_IN011040CA: Activate device 
+ * prescription request accepted</p>
+ * 
+ * <p>Indicates that a device prescription has been recorded 
+ * against the patient's record as requested.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 @Hl7PartTypeMapping({"PORX_IN011040CA"})
 public class ActivateDevicePrescriptionRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

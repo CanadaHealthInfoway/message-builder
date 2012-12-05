@@ -35,6 +35,11 @@ public interface RoleChoice {
     public List<PrivilegeBean> getResponsibleForPrivilege();
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RelatedTo.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RoleChoice> getRelatedToRoleChoice();
 
 }

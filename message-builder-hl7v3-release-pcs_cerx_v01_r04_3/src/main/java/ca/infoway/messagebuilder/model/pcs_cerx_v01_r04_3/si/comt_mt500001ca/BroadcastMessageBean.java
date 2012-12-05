@@ -30,31 +30,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Broadcast Message</p>
- * 
- * <p>Information being transmitted to proviers as a 'mass 
- * broadcast'</p>
+ * <p>Business Name: Broadcast Message</p>
  * 
  * <p>Allows conveying information such as stolen prescription 
  * pads, system availability information, etc.</p>
+ * 
+ * <p>Information being transmitted to proviers as a 'mass 
+ * broadcast'</p>
  */
 @Hl7PartTypeMapping({"COMT_MT500001CA.InformEvent"})
 @Hl7RootType
 public class BroadcastMessageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
 
 
     /**
-     * <p>Broadcast Message</p>
+     * <p>Business Name: Broadcast Message</p>
      * 
-     * <p>Contains the text to be displayed to the user of the 
-     * system.</p>
+     * <p>Relationship: COMT_MT500001CA.InformEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows conveying of system messages and other types of 
      * alerts. E.g. Planned outages, stolen prescription pads, 
      * etc.</p>
+     * 
+     * <p>Contains the text to be displayed to the user of the 
+     * system.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -62,14 +66,18 @@ public class BroadcastMessageBean extends MessagePartBean {
     }
 
     /**
-     * <p>Broadcast Message</p>
+     * <p>Business Name: Broadcast Message</p>
      * 
-     * <p>Contains the text to be displayed to the user of the 
-     * system.</p>
+     * <p>Relationship: COMT_MT500001CA.InformEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows conveying of system messages and other types of 
      * alerts. E.g. Planned outages, stolen prescription pads, 
      * etc.</p>
+     * 
+     * <p>Contains the text to be displayed to the user of the 
+     * system.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
 
 
 /**
- * <p>REPC_IN040100CA: Patient care composition details query</p>
+ * <p>Business Name: REPC_IN040100CA: Patient care composition 
+ * details query</p>
+ * 
+ * <p>Requests retrieval of details of an encounter, episode 
+ * and similar structures for a particular patient or group of 
+ * patients, potentially filtered by date or other 
+ * criteria.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
 @Hl7PartTypeMapping({"REPC_IN040100CA"})
 public class PatientCareCompositionDetailsQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

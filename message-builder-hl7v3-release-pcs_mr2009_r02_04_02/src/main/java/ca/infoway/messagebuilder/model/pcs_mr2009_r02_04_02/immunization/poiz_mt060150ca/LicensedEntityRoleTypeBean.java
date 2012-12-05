@@ -32,12 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT060150CA.LicensedEntityRoleType"})
 public class LicensedEntityRoleTypeBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.InformationSourceChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
 
 
     /**
-     * <p>Licensed Entity Type</p>
+     * <p>Business Name: Licensed Entity Type</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.LicensedEntityRoleType.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getCode() {
@@ -45,7 +49,11 @@ public class LicensedEntityRoleTypeBean extends MessagePartBean implements ca.in
     }
 
     /**
-     * <p>Licensed Entity Type</p>
+     * <p>Business Name: Licensed Entity Type</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.LicensedEntityRoleType.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);

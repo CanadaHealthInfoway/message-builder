@@ -55,25 +55,25 @@ import java.util.List;
 /**
  * <p>POLB_MT320000CA.ParameterList: (no business name)</p>
  * 
- * <p>Identifies the various parameters that act as filters on 
- * the records to be retrieved.</p>
- * 
  * <p>Allows the user and/or point-of-service application to 
  * constrain what EHR information to be retrieved.</p>
+ * 
+ * <p>Identifies the various parameters that act as filters on 
+ * the records to be retrieved.</p>
  * 
  * <p>POLB_MT310000CA.ParameterList: (no business name)</p>
  * 
- * <p>Identifies the various parameters that act as filters on 
- * the records to be retrieved.</p>
- * 
  * <p>Allows the user and/or point-of-service application to 
  * constrain what EHR information to be retrieved.</p>
+ * 
+ * <p>Identifies the various parameters that act as filters on 
+ * the records to be retrieved.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT310000CA.ParameterList","POLB_MT320000CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV assignedPatientLocationValue = new CVImpl();
     private BL includeHistoryIndicatorValue = new BLImpl();
     private IVL<TS, Interval<Date>> jLISReceivedDateTimeValue = new IVLImpl<TS, Interval<Date>>();
@@ -96,17 +96,22 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>AssignedPatientLocationType</p>
+     * <p>Business Name: AssignedPatientLocationType</p>
      * 
-     * <p>Assigned Patient Location Type</p>
+     * <p>Other Business Name: AssignedPatientLocationType</p>
      * 
-     * <p>Filters the set of records to be retrieved to those 
-     * patients seen at a particular location type e.g. nursing 
-     * home, nurse station, clinic department, etc.</p>
+     * <p>Relationship: 
+     * POLB_MT320000CA.AssignedPatientLocation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the retrieved records to those 
      * patients seen at a location type (nursing station, clinic 
      * department, etc).</p>
+     * 
+     * <p>Filters the set of records to be retrieved to those 
+     * patients seen at a particular location type e.g. nursing 
+     * home, nurse station, clinic department, etc.</p>
      */
     @Hl7XmlMapping({"assignedPatientLocation/value"})
     public ServiceDeliveryLocationRoleType getAssignedPatientLocationValue() {
@@ -114,17 +119,22 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>AssignedPatientLocationType</p>
+     * <p>Business Name: AssignedPatientLocationType</p>
      * 
-     * <p>Assigned Patient Location Type</p>
+     * <p>Other Business Name: AssignedPatientLocationType</p>
      * 
-     * <p>Filters the set of records to be retrieved to those 
-     * patients seen at a particular location type e.g. nursing 
-     * home, nurse station, clinic department, etc.</p>
+     * <p>Relationship: 
+     * POLB_MT320000CA.AssignedPatientLocation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the retrieved records to those 
      * patients seen at a location type (nursing station, clinic 
      * department, etc).</p>
+     * 
+     * <p>Filters the set of records to be retrieved to those 
+     * patients seen at a particular location type e.g. nursing 
+     * home, nurse station, clinic department, etc.</p>
      */
     public void setAssignedPatientLocationValue(ServiceDeliveryLocationRoleType assignedPatientLocationValue) {
         this.assignedPatientLocationValue.setValue(assignedPatientLocationValue);
@@ -132,25 +142,35 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeHistoryIndicator</p>
+     * <p>Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>Include History Indicator</p>
+     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT320000CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Historical (version) records are usable for audit, 
+     * quality assurance, etc.</p>
      * 
      * <p>Indicates whether or not to include historical records 
      * (each change to a record, revisions, state changes, each 
      * trigger event). True=include records, the default is 
      * false.</p>
      * 
+     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Historical (version) records are usable for audit, 
      * quality assurance, etc.</p>
-     * 
-     * <p>Include History Indicator</p>
      * 
      * <p>Indicates whether or not to include historical records 
      * (so, all the changes made to each return record).</p>
-     * 
-     * <p>Historical (version) records are usable for audit, 
-     * quality assurance, etc.</p>
      */
     @Hl7XmlMapping({"includeHistoryIndicator/value"})
     public Boolean getIncludeHistoryIndicatorValue() {
@@ -158,25 +178,35 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeHistoryIndicator</p>
+     * <p>Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>Include History Indicator</p>
+     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT320000CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Historical (version) records are usable for audit, 
+     * quality assurance, etc.</p>
      * 
      * <p>Indicates whether or not to include historical records 
      * (each change to a record, revisions, state changes, each 
      * trigger event). True=include records, the default is 
      * false.</p>
      * 
+     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Historical (version) records are usable for audit, 
      * quality assurance, etc.</p>
-     * 
-     * <p>Include History Indicator</p>
      * 
      * <p>Indicates whether or not to include historical records 
      * (so, all the changes made to each return record).</p>
-     * 
-     * <p>Historical (version) records are usable for audit, 
-     * quality assurance, etc.</p>
      */
     public void setIncludeHistoryIndicatorValue(Boolean includeHistoryIndicatorValue) {
         this.includeHistoryIndicatorValue.setValue(includeHistoryIndicatorValue);
@@ -184,9 +214,16 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>JLISReceivedEffectiveTimeRange</p>
+     * <p>Business Name: JLISReceivedEffectiveTimeRange</p>
      * 
-     * <p>JLIS Received Effective Time Range</p>
+     * <p>Other Business Name: JLISReceivedEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: POLB_MT320000CA.JLISReceivedDateTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the JLIS received date/time within the time boundaries 
@@ -195,9 +232,6 @@ public class ParameterListBean extends MessagePartBean {
      * be applied. If there is any overlap between the specified 
      * time-range and the JLIS received date/time, the record will 
      * be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     @Hl7XmlMapping({"jLISReceivedDateTime/value"})
     public Interval<Date> getJLISReceivedDateTimeValue() {
@@ -205,9 +239,16 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>JLISReceivedEffectiveTimeRange</p>
+     * <p>Business Name: JLISReceivedEffectiveTimeRange</p>
      * 
-     * <p>JLIS Received Effective Time Range</p>
+     * <p>Other Business Name: JLISReceivedEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: POLB_MT320000CA.JLISReceivedDateTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the JLIS received date/time within the time boundaries 
@@ -216,9 +257,6 @@ public class ParameterListBean extends MessagePartBean {
      * be applied. If there is any overlap between the specified 
      * time-range and the JLIS received date/time, the record will 
      * be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     public void setJLISReceivedDateTimeValue(Interval<Date> jLISReceivedDateTimeValue) {
         this.jLISReceivedDateTimeValue.setValue(jLISReceivedDateTimeValue);
@@ -226,7 +264,15 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Observation Availability Effective Time Range</p>
+     * <p>Other Business Name: ObservationAvailabilityTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT320000CA.ObservationAvailabilityDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the observation availability date/time for the patient 
@@ -236,10 +282,16 @@ public class ParameterListBean extends MessagePartBean {
      * overlap between the specified time-range and the order entry 
      * date/time, the record will be returned.</p>
      * 
+     * <p>Other Business Name: 
+     * ObservationAvailabilityEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.ObservationAvailabilityDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows constraining the retrieved records to those 
      * applicable at a particular time.</p>
-     * 
-     * <p>Observation Availability Time Range</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the observation availability date/time for the patient 
@@ -248,9 +300,6 @@ public class ParameterListBean extends MessagePartBean {
      * specified, no filter will be applied. If there is any 
      * overlap between the specified time-range and the order entry 
      * date/time, the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     @Hl7XmlMapping({"observationAvailabilityDateTimeRange/value"})
     public Interval<Date> getObservationAvailabilityDateTimeRangeValue() {
@@ -258,7 +307,15 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Observation Availability Effective Time Range</p>
+     * <p>Other Business Name: ObservationAvailabilityTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT320000CA.ObservationAvailabilityDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the observation availability date/time for the patient 
@@ -268,10 +325,16 @@ public class ParameterListBean extends MessagePartBean {
      * overlap between the specified time-range and the order entry 
      * date/time, the record will be returned.</p>
      * 
+     * <p>Other Business Name: 
+     * ObservationAvailabilityEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.ObservationAvailabilityDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows constraining the retrieved records to those 
      * applicable at a particular time.</p>
-     * 
-     * <p>Observation Availability Time Range</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the observation availability date/time for the patient 
@@ -280,9 +343,6 @@ public class ParameterListBean extends MessagePartBean {
      * specified, no filter will be applied. If there is any 
      * overlap between the specified time-range and the order entry 
      * date/time, the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     public void setObservationAvailabilityDateTimeRangeValue(Interval<Date> observationAvailabilityDateTimeRangeValue) {
         this.observationAvailabilityDateTimeRangeValue.setValue(observationAvailabilityDateTimeRangeValue);
@@ -290,15 +350,19 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>OrderingProviderIdentfier</p>
+     * <p>Business Name: OrderingProviderIdentfier</p>
      * 
-     * <p>Ordering Provider Identfier</p>
+     * <p>Other Business Name: OrderingProviderIdentfier</p>
      * 
-     * <p>Filters the set of records to be retrieved to those 
-     * ordered by a specific provider.</p>
+     * <p>Relationship: POLB_MT320000CA.OrderingProvider.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the retrieved records to those 
      * applicable for a particular provider.</p>
+     * 
+     * <p>Filters the set of records to be retrieved to those 
+     * ordered by a specific provider.</p>
      */
     @Hl7XmlMapping({"orderingProvider/value"})
     public Identifier getOrderingProviderValue() {
@@ -306,15 +370,19 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrderingProviderIdentfier</p>
+     * <p>Business Name: OrderingProviderIdentfier</p>
      * 
-     * <p>Ordering Provider Identfier</p>
+     * <p>Other Business Name: OrderingProviderIdentfier</p>
      * 
-     * <p>Filters the set of records to be retrieved to those 
-     * ordered by a specific provider.</p>
+     * <p>Relationship: POLB_MT320000CA.OrderingProvider.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the retrieved records to those 
      * applicable for a particular provider.</p>
+     * 
+     * <p>Filters the set of records to be retrieved to those 
+     * ordered by a specific provider.</p>
      */
     public void setOrderingProviderValue(Identifier orderingProviderValue) {
         this.orderingProviderValue.setValue(orderingProviderValue);
@@ -322,16 +390,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>ResultCopiesToIdentfier</p>
+     * <p>Business Name: ResultCopiesToIdentfier</p>
      * 
-     * <p>Result Copies To Identfier</p>
+     * <p>Other Business Name: ResultCopiesToIdentfier</p>
      * 
-     * <p>Filters the set of records to be retrieved to those 
-     * copied to an identified party.</p>
+     * <p>Relationship: POLB_MT320000CA.ResultCopiesTo.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the retrieved records to those 
      * applicable for a particular party to whom the result was 
      * copied.</p>
+     * 
+     * <p>Filters the set of records to be retrieved to those 
+     * copied to an identified party.</p>
      */
     @Hl7XmlMapping({"resultCopiesTo/value"})
     public Identifier getResultCopiesToValue() {
@@ -339,16 +411,20 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>ResultCopiesToIdentfier</p>
+     * <p>Business Name: ResultCopiesToIdentfier</p>
      * 
-     * <p>Result Copies To Identfier</p>
+     * <p>Other Business Name: ResultCopiesToIdentfier</p>
      * 
-     * <p>Filters the set of records to be retrieved to those 
-     * copied to an identified party.</p>
+     * <p>Relationship: POLB_MT320000CA.ResultCopiesTo.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the retrieved records to those 
      * applicable for a particular party to whom the result was 
      * copied.</p>
+     * 
+     * <p>Filters the set of records to be retrieved to those 
+     * copied to an identified party.</p>
      */
     public void setResultCopiesToValue(Identifier resultCopiesToValue) {
         this.resultCopiesToValue.setValue(resultCopiesToValue);
@@ -356,16 +432,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>BatteryIdentifier</p>
+     * <p>Business Name: BatteryIdentifier</p>
      * 
-     * <p>Battery Identifier</p>
+     * <p>Other Business Name: BatteryIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT310000CA.BatteryIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records by 
+     * identifier.</p>
      * 
      * <p>Contains an identifier assigned by a lab filling 
      * organization that uniquely identifies the battery event 
      * (result component) for query selection.</p>
-     * 
-     * <p>Allows constraining the retrieved records by 
-     * identifier.</p>
      */
     @Hl7XmlMapping({"batteryIdentifier/value"})
     public Identifier getBatteryIdentifierValue() {
@@ -373,16 +453,20 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>BatteryIdentifier</p>
+     * <p>Business Name: BatteryIdentifier</p>
      * 
-     * <p>Battery Identifier</p>
+     * <p>Other Business Name: BatteryIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT310000CA.BatteryIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records by 
+     * identifier.</p>
      * 
      * <p>Contains an identifier assigned by a lab filling 
      * organization that uniquely identifies the battery event 
      * (result component) for query selection.</p>
-     * 
-     * <p>Allows constraining the retrieved records by 
-     * identifier.</p>
      */
     public void setBatteryIdentifierValue(Identifier batteryIdentifierValue) {
         this.batteryIdentifierValue.setValue(batteryIdentifierValue);
@@ -390,15 +474,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeNullifiedResultsIndicator</p>
+     * <p>Business Name: IncludeNullifiedResultsIndicator</p>
      * 
-     * <p>Include Nullified Results Indicator</p>
+     * <p>Other Business Name: IncludeNullifiedResultsIndicator</p>
      * 
-     * <p>Indicates whether or not to include nullified orders. 
-     * True=include records, the default is false</p>
+     * <p>Relationship: 
+     * POLB_MT310000CA.IncludeNullifiedIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Historical (version) records including nullified records 
      * are usable for audit, quality assurance, etc.</p>
+     * 
+     * <p>Indicates whether or not to include nullified orders. 
+     * True=include records, the default is false</p>
      */
     @Hl7XmlMapping({"includeNullifiedIndicator/value"})
     public Boolean getIncludeNullifiedIndicatorValue() {
@@ -406,15 +495,20 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeNullifiedResultsIndicator</p>
+     * <p>Business Name: IncludeNullifiedResultsIndicator</p>
      * 
-     * <p>Include Nullified Results Indicator</p>
+     * <p>Other Business Name: IncludeNullifiedResultsIndicator</p>
      * 
-     * <p>Indicates whether or not to include nullified orders. 
-     * True=include records, the default is false</p>
+     * <p>Relationship: 
+     * POLB_MT310000CA.IncludeNullifiedIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Historical (version) records including nullified records 
      * are usable for audit, quality assurance, etc.</p>
+     * 
+     * <p>Indicates whether or not to include nullified orders. 
+     * True=include records, the default is false</p>
      */
     public void setIncludeNullifiedIndicatorValue(Boolean includeNullifiedIndicatorValue) {
         this.includeNullifiedIndicatorValue.setValue(includeNullifiedIndicatorValue);
@@ -422,14 +516,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>ResultCode</p>
+     * <p>Business Name: ResultCode</p>
      * 
-     * <p>Result Code</p>
+     * <p>Other Business Name: ResultCode</p>
+     * 
+     * <p>Relationship: POLB_MT310000CA.ObservationCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the specific test peformed.</p>
      * 
      * <p>The code to describe the type of lab test (analyte) 
      * performed.</p>
-     * 
-     * <p>Identifies the specific test peformed.</p>
      */
     @Hl7XmlMapping({"observationCode/value"})
     public List<ObservationResultableLabType> getObservationCodeValue() {
@@ -438,9 +536,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>ObservationEffectiveTimeRange</p>
+     * <p>Business Name: ObservationEffectiveTimeRange</p>
      * 
-     * <p>Observation Effective Time Range</p>
+     * <p>Other Business Name: ObservationEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.ObservationDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the observation or result date/time for the patient within 
@@ -449,9 +555,6 @@ public class ParameterListBean extends MessagePartBean {
      * specified, no filter will be applied. If there is any 
      * overlap between the specified time-range and the observation 
      * or result date/time, the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     @Hl7XmlMapping({"observationDateTimeRange/value"})
     public Interval<Date> getObservationDateTimeRangeValue() {
@@ -459,9 +562,17 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>ObservationEffectiveTimeRange</p>
+     * <p>Business Name: ObservationEffectiveTimeRange</p>
      * 
-     * <p>Observation Effective Time Range</p>
+     * <p>Other Business Name: ObservationEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.ObservationDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the observation or result date/time for the patient within 
@@ -470,9 +581,6 @@ public class ParameterListBean extends MessagePartBean {
      * specified, no filter will be applied. If there is any 
      * overlap between the specified time-range and the observation 
      * or result date/time, the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     public void setObservationDateTimeRangeValue(Interval<Date> observationDateTimeRangeValue) {
         this.observationDateTimeRangeValue.setValue(observationDateTimeRangeValue);
@@ -480,16 +588,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>ObservationIdentifier</p>
+     * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Observation Identifier</p>
+     * <p>Other Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT310000CA.ObservationIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records by 
+     * identifier.</p>
      * 
      * <p>Contains an identifier assigned by a lab filling 
      * organization that uniquely identifies the observation event 
      * (result component) for query selection.</p>
-     * 
-     * <p>Allows constraining the retrieved records by 
-     * identifier.</p>
      */
     @Hl7XmlMapping({"observationIdentifier/value"})
     public Identifier getObservationIdentifierValue() {
@@ -497,16 +609,20 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>ObservationIdentifier</p>
+     * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Observation Identifier</p>
+     * <p>Other Business Name: ObservationIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT310000CA.ObservationIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records by 
+     * identifier.</p>
      * 
      * <p>Contains an identifier assigned by a lab filling 
      * organization that uniquely identifies the observation event 
      * (result component) for query selection.</p>
-     * 
-     * <p>Allows constraining the retrieved records by 
-     * identifier.</p>
      */
     public void setObservationIdentifierValue(Identifier observationIdentifierValue) {
         this.observationIdentifierValue.setValue(observationIdentifierValue);
@@ -514,15 +630,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>ObservationReportIdentifier</p>
+     * <p>Business Name: ObservationReportIdentifier</p>
      * 
-     * <p>Observation Report Identifier</p>
+     * <p>Other Business Name: ObservationReportIdentifier</p>
      * 
-     * <p>Contains an identifier for the Observation Report for 
-     * query selection.</p>
+     * <p>Relationship: 
+     * POLB_MT310000CA.ObservationReportIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the retrieved records by 
      * identifier.</p>
+     * 
+     * <p>Contains an identifier for the Observation Report for 
+     * query selection.</p>
      */
     @Hl7XmlMapping({"observationReportIdentifier/value"})
     public Identifier getObservationReportIdentifierValue() {
@@ -530,15 +651,20 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>ObservationReportIdentifier</p>
+     * <p>Business Name: ObservationReportIdentifier</p>
      * 
-     * <p>Observation Report Identifier</p>
+     * <p>Other Business Name: ObservationReportIdentifier</p>
      * 
-     * <p>Contains an identifier for the Observation Report for 
-     * query selection.</p>
+     * <p>Relationship: 
+     * POLB_MT310000CA.ObservationReportIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the retrieved records by 
      * identifier.</p>
+     * 
+     * <p>Contains an identifier for the Observation Report for 
+     * query selection.</p>
      */
     public void setObservationReportIdentifierValue(Identifier observationReportIdentifierValue) {
         this.observationReportIdentifierValue.setValue(observationReportIdentifierValue);
@@ -546,14 +672,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>OrderTestCode</p>
+     * <p>Business Name: OrderTestCode</p>
      * 
-     * <p>Order Test Code</p>
+     * <p>Other Business Name: OrderTestCode</p>
+     * 
+     * <p>Relationship: POLB_MT310000CA.OrderTestCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the specific test to perform.</p>
      * 
      * <p>The code to describe the type of test requested to be 
      * performed.</p>
-     * 
-     * <p>Identifies the specific test to perform.</p>
      */
     @Hl7XmlMapping({"orderTestCode/value"})
     public List<ObservationOrderableLabType> getOrderTestCodeValue() {
@@ -562,14 +692,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientDOB</p>
+     * <p>Business Name: PatientDOB</p>
      * 
-     * <p>Patient DOB</p>
+     * <p>Other Business Name: PatientDOB</p>
      * 
-     * <p>Patient's date of birth.</p>
+     * <p>Relationship: POLB_MT310000CA.PatientDateofBirth.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to verify patient identity (a check against the 
      * patient id parameter).</p>
+     * 
+     * <p>Patient's date of birth.</p>
      */
     @Hl7XmlMapping({"patientDateofBirth/value"})
     public Date getPatientDateofBirthValue() {
@@ -577,14 +711,18 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientDOB</p>
+     * <p>Business Name: PatientDOB</p>
      * 
-     * <p>Patient DOB</p>
+     * <p>Other Business Name: PatientDOB</p>
      * 
-     * <p>Patient's date of birth.</p>
+     * <p>Relationship: POLB_MT310000CA.PatientDateofBirth.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to verify patient identity (a check against the 
      * patient id parameter).</p>
+     * 
+     * <p>Patient's date of birth.</p>
      */
     public void setPatientDateofBirthValue(Date patientDateofBirthValue) {
         this.patientDateofBirthValue.setValue(patientDateofBirthValue);
@@ -592,14 +730,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientGender</p>
+     * <p>Business Name: PatientGender</p>
      * 
-     * <p>Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
      * 
-     * <p>Administrative gender of the patient.</p>
+     * <p>Relationship: POLB_MT310000CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to verify patient identity (a check against the 
      * patient id parameter).</p>
+     * 
+     * <p>Administrative gender of the patient.</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -607,14 +749,18 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientGender</p>
+     * <p>Business Name: PatientGender</p>
      * 
-     * <p>Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
      * 
-     * <p>Administrative gender of the patient.</p>
+     * <p>Relationship: POLB_MT310000CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to verify patient identity (a check against the 
      * patient id parameter).</p>
+     * 
+     * <p>Administrative gender of the patient.</p>
      */
     public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
         this.patientGenderValue.setValue(patientGenderValue);
@@ -622,15 +768,19 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientId</p>
+     * <p>Business Name: PatientId</p>
      * 
-     * <p>Patient Id</p>
+     * <p>Other Business Name: PatientId</p>
      * 
-     * <p>A globally unique identifier for the patient whose 
-     * information is to be retrieved.</p>
+     * <p>Relationship: POLB_MT310000CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the patient whose information is to be 
      * retrieved.</p>
+     * 
+     * <p>A globally unique identifier for the patient whose 
+     * information is to be retrieved.</p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -638,15 +788,19 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientId</p>
+     * <p>Business Name: PatientId</p>
      * 
-     * <p>Patient Id</p>
+     * <p>Other Business Name: PatientId</p>
      * 
-     * <p>A globally unique identifier for the patient whose 
-     * information is to be retrieved.</p>
+     * <p>Relationship: POLB_MT310000CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the patient whose information is to be 
      * retrieved.</p>
+     * 
+     * <p>A globally unique identifier for the patient whose 
+     * information is to be retrieved.</p>
      */
     public void setPatientIDValue(Identifier patientIDValue) {
         this.patientIDValue.setValue(patientIDValue);
@@ -654,14 +808,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientName</p>
+     * <p>Business Name: PatientName</p>
      * 
-     * <p>Patient Name</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>Name for the patient.</p>
+     * <p>Relationship: POLB_MT310000CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to verify patient identity (a check against the 
      * patient id parameter).</p>
+     * 
+     * <p>Name for the patient.</p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -669,14 +827,18 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientName</p>
+     * <p>Business Name: PatientName</p>
      * 
-     * <p>Patient Name</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>Name for the patient.</p>
+     * <p>Relationship: POLB_MT310000CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to verify patient identity (a check against the 
      * patient id parameter).</p>
+     * 
+     * <p>Name for the patient.</p>
      */
     public void setPatientNameValue(PersonName patientNameValue) {
         this.patientNameValue.setValue(patientNameValue);
@@ -684,9 +846,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>SpecimenCollectionEffectiveTimeRange</p>
+     * <p>Business Name: SpecimenCollectionEffectiveTimeRange</p>
      * 
-     * <p>Specimen Collection Effective Time Range</p>
+     * <p>Other Business Name: SpecimenCollectionEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.SpecimenCollectedDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the specimen collection date/time for the patient within the 
@@ -695,9 +865,6 @@ public class ParameterListBean extends MessagePartBean {
      * no filter will be applied. If there is any overlap between 
      * the specified time-range and the specimen collection 
      * date/time, the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     @Hl7XmlMapping({"specimenCollectedDateTimeRange/value"})
     public Interval<Date> getSpecimenCollectedDateTimeRangeValue() {
@@ -705,9 +872,17 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecimenCollectionEffectiveTimeRange</p>
+     * <p>Business Name: SpecimenCollectionEffectiveTimeRange</p>
      * 
-     * <p>Specimen Collection Effective Time Range</p>
+     * <p>Other Business Name: SpecimenCollectionEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.SpecimenCollectedDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the specimen collection date/time for the patient within the 
@@ -716,9 +891,6 @@ public class ParameterListBean extends MessagePartBean {
      * no filter will be applied. If there is any overlap between 
      * the specified time-range and the specimen collection 
      * date/time, the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     public void setSpecimenCollectedDateTimeRangeValue(Interval<Date> specimenCollectedDateTimeRangeValue) {
         this.specimenCollectedDateTimeRangeValue.setValue(specimenCollectedDateTimeRangeValue);
@@ -726,9 +898,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>SpecimenReceivedEffectiveTimeRange</p>
+     * <p>Business Name: SpecimenReceivedEffectiveTimeRange</p>
      * 
-     * <p>Specimen Received Effective Time Range</p>
+     * <p>Other Business Name: SpecimenReceivedEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.SpecimenReceivedDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the specimen received date/time for the patient within the 
@@ -737,9 +917,6 @@ public class ParameterListBean extends MessagePartBean {
      * no filter will be applied. If there is any overlap between 
      * the specified time-range and the specimen received 
      * date/time, the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     @Hl7XmlMapping({"specimenReceivedDateTimeRange/value"})
     public Interval<Date> getSpecimenReceivedDateTimeRangeValue() {
@@ -747,9 +924,17 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecimenReceivedEffectiveTimeRange</p>
+     * <p>Business Name: SpecimenReceivedEffectiveTimeRange</p>
      * 
-     * <p>Specimen Received Effective Time Range</p>
+     * <p>Other Business Name: SpecimenReceivedEffectiveTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT310000CA.SpecimenReceivedDateTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * the specimen received date/time for the patient within the 
@@ -758,9 +943,6 @@ public class ParameterListBean extends MessagePartBean {
      * no filter will be applied. If there is any overlap between 
      * the specified time-range and the specimen received 
      * date/time, the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p>
      */
     public void setSpecimenReceivedDateTimeRangeValue(Interval<Date> specimenReceivedDateTimeRangeValue) {
         this.specimenReceivedDateTimeRangeValue.setValue(specimenReceivedDateTimeRangeValue);

@@ -31,13 +31,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInformation"})
 public class AccidentInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private AccidentInjuryCodingBean accidentInjuryCoding;
 
 
     /**
-     * <p>Injury coding priority</p>
+     * <p>Business Name: Injury coding priority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.AccidentInformation.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Sets of injury observations are tied together with the 
      * same sequence number</p>
@@ -50,7 +55,12 @@ public class AccidentInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Injury coding priority</p>
+     * <p>Business Name: Injury coding priority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.AccidentInformation.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Sets of injury observations are tied together with the 
      * same sequence number</p>
@@ -62,11 +72,23 @@ public class AccidentInformationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT290000CA.AccidentInformation.accidentInjuryCoding</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"accidentInjuryCoding"})
     public AccidentInjuryCodingBean getAccidentInjuryCoding() {
         return this.accidentInjuryCoding;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT290000CA.AccidentInformation.accidentInjuryCoding</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAccidentInjuryCoding(AccidentInjuryCodingBean accidentInjuryCoding) {
         this.accidentInjuryCoding = accidentInjuryCoding;
     }

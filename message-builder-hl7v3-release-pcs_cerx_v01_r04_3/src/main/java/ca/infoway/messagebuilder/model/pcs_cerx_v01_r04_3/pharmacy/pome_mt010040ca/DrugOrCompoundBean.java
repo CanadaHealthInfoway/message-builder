@@ -48,23 +48,23 @@ import java.util.Set;
 
 
 /**
- * <p>Drug or Compound</p>
+ * <p>Business Name: Drug or Compound</p>
+ * 
+ * <p>A_BillablePharmacyDispense</p>
+ * 
+ * <p>Provides a list of drugs available for 
+ * prescribing/dispensing.</p>
  * 
  * <p>A catalog of drugs (manufactured material) from which 
  * drugs may be selected for prescribing/dispensing. This 
  * includes: TC - Therapeutic Class; GD - Generic Drug; GF - 
  * Generic Formulation; MD - Manufactured Drug; and CMP - 
  * Compound</p>
- * 
- * <p>A_BillablePharmacyDispense</p>
- * 
- * <p>Provides a list of drugs available for 
- * prescribing/dispensing.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private SET<TN, TrivialName> name = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST desc = new STImpl();
@@ -77,172 +77,93 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Code</p>
+     * <p>Business Name: Drug Code</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>DrugProduct.activeIngredientId</p>
+     * 
+     * <p>DrugProduct.ActiveIngredientGroupNumber</p>
+     * 
+     * <p>DrugProduct.DIN</p>
+     * 
+     * <p>DrugProduct.StandardProductId (Mnemonic)</p>
+     * 
+     * <p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>D56(use code system to distinguish different types)</p>
+     * 
+     * <p>ZPB2.1</p>
+     * 
+     * <p>ZPB3.1</p>
+     * 
+     * <p>ZPC.1</p>
+     * 
+     * <p>ZPC1.3</p>
+     * 
+     * <p>ZPD.1</p>
+     * 
+     * <p>ZPD1.1</p>
+     * 
+     * <p>ZPD.6(scoping a specialized kind of therapeutic 
+     * equivalent)</p>
+     * 
+     * <p>MB.05.03B</p>
+     * 
+     * <p>ZPS.11</p>
+     * 
+     * <p>ZDP.3a(code system)</p>
+     * 
+     * <p>ZDU.4.1</p>
+     * 
+     * <p>ZDP.7</p>
+     * 
+     * <p>DRU.010-03(mnemonic)</p>
+     * 
+     * <p>DRU.010-04(code system)</p>
+     * 
+     * <p>DRU.010-08(mnemonic)</p>
+     * 
+     * <p>DRU.010-09(code system)</p>
+     * 
+     * <p>DRU.100-04 (mnemonic)</p>
+     * 
+     * <p>DRU.100-05 (code system)</p>
+     * 
+     * <p>Compound.488-RE (code system)</p>
+     * 
+     * <p>Compound.489-TE (mnemonic)</p>
+     * 
+     * <p>DUR/PPS.475-J9 (code system)</p>
+     * 
+     * <p>DUR/PPS.476-H6 (mnemonic)</p>
+     * 
+     * <p>Claim.436-E1 (code system)</p>
+     * 
+     * <p>Claim.407-D7 (mnemonic)</p>
+     * 
+     * <p>Claim.453-EJ (code system)</p>
+     * 
+     * <p>Claim.445-EA (mnemonic)</p>
+     * 
+     * <p>Claim.406-D6 (determined from code system)</p>
+     * 
+     * <p>RXA.5</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Used to ensure clear communication by uniquely 
+     * identifying a particular drug product when prescribing or 
+     * dispensing. This attribute is mandatory because querying by 
+     * drug code can only return drug codes.</p>
      * 
      * <p>An identifier for a type of drug. Depending on where the 
      * drug is being referenced, the drug may be identified at 
      * different levels of abstraction. E.g. Manufactured drug 
      * (including vaccines), generic formulation, generic, 
      * therapeutic class, etc.</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-
-     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
     public ClinicalDrug getCode() {
@@ -250,172 +171,93 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Code</p>
+     * <p>Business Name: Drug Code</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>DrugProduct.activeIngredientId</p>
+     * 
+     * <p>DrugProduct.ActiveIngredientGroupNumber</p>
+     * 
+     * <p>DrugProduct.DIN</p>
+     * 
+     * <p>DrugProduct.StandardProductId (Mnemonic)</p>
+     * 
+     * <p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>D56(use code system to distinguish different types)</p>
+     * 
+     * <p>ZPB2.1</p>
+     * 
+     * <p>ZPB3.1</p>
+     * 
+     * <p>ZPC.1</p>
+     * 
+     * <p>ZPC1.3</p>
+     * 
+     * <p>ZPD.1</p>
+     * 
+     * <p>ZPD1.1</p>
+     * 
+     * <p>ZPD.6(scoping a specialized kind of therapeutic 
+     * equivalent)</p>
+     * 
+     * <p>MB.05.03B</p>
+     * 
+     * <p>ZPS.11</p>
+     * 
+     * <p>ZDP.3a(code system)</p>
+     * 
+     * <p>ZDU.4.1</p>
+     * 
+     * <p>ZDP.7</p>
+     * 
+     * <p>DRU.010-03(mnemonic)</p>
+     * 
+     * <p>DRU.010-04(code system)</p>
+     * 
+     * <p>DRU.010-08(mnemonic)</p>
+     * 
+     * <p>DRU.010-09(code system)</p>
+     * 
+     * <p>DRU.100-04 (mnemonic)</p>
+     * 
+     * <p>DRU.100-05 (code system)</p>
+     * 
+     * <p>Compound.488-RE (code system)</p>
+     * 
+     * <p>Compound.489-TE (mnemonic)</p>
+     * 
+     * <p>DUR/PPS.475-J9 (code system)</p>
+     * 
+     * <p>DUR/PPS.476-H6 (mnemonic)</p>
+     * 
+     * <p>Claim.436-E1 (code system)</p>
+     * 
+     * <p>Claim.407-D7 (mnemonic)</p>
+     * 
+     * <p>Claim.453-EJ (code system)</p>
+     * 
+     * <p>Claim.445-EA (mnemonic)</p>
+     * 
+     * <p>Claim.406-D6 (determined from code system)</p>
+     * 
+     * <p>RXA.5</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Used to ensure clear communication by uniquely 
+     * identifying a particular drug product when prescribing or 
+     * dispensing. This attribute is mandatory because querying by 
+     * drug code can only return drug codes.</p>
      * 
      * <p>An identifier for a type of drug. Depending on where the 
      * drug is being referenced, the drug may be identified at 
      * different levels of abstraction. E.g. Manufactured drug 
      * (including vaccines), generic formulation, generic, 
      * therapeutic class, etc.</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)</p><p>MB.05.03B</p><p>ZPS.11</p><p>ZDP.3a(code 
-     * system)</p><p>ZDU.4.1</p><p>ZDP.7</p><p>DRU.010-03(mnemonic)</p><p>DRU.010-04(code 
-     * system)</p><p>DRU.010-08(mnemonic)</p><p>DRU.010-09(code 
-     * system)</p><p>DRU.100-04 (mnemonic)</p><p>DRU.100-05 (code 
-     * system)</p><p>Compound.488-RE (code 
-     * system)</p><p>Compound.489-TE 
-     * (mnemonic)</p><p>DUR/PPS.475-J9 (code 
-     * system)</p><p>DUR/PPS.476-H6 (mnemonic)</p><p>Claim.436-E1 
-     * (code system)</p><p>Claim.407-D7 
-     * (mnemonic)</p><p>Claim.453-EJ (code 
-     * system)</p><p>Claim.445-EA (mnemonic)</p><p>Claim.406-D6 
-     * (determined from code 
-     * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-
-     * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ClinicalDrug code) {
         this.code.setValue(code);
@@ -423,114 +265,53 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Names</p>
+     * <p>Business Name: Drug Names</p>
      * 
-     * <p>The name assigned to a drug.</p>
+     * <p>Relationship: POME_MT010040CA.Medicine.name</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>DrugProduct.Name (Search)</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>CoumpoundDrugProduct.name</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>Contraindication.interactingDrugName</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>DrugProduct.labelName(useCode=L)</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>ZPB2.2</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>ZPB3.2</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>ZPC.2</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>ZPD.2</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>ZPD1.2</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>ZPD.5</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>MB.01.03</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>Drug Name</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>ZDU.4.2</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>ZDU.6.1.1</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>DRU.010-02</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>RXA.TradeName</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>DRU.010-10-&gt;12</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>Brand Name</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>C.1a</p>
      * 
-     * <p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p>
+     * <p>Trade Name</p>
+     * 
+     * <p>Other Name</p>
      * 
      * <p>Names are used for human reference communication, to 
      * allow selection from dropdowns and for local searching. Up 
@@ -541,9 +322,7 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * drugs at any level of the drug hierarchy is supposed to have 
      * a name.</p>
      * 
-     * <p>Names are used for human reference communication, to 
-     
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>The name assigned to a drug.</p>
      */
     @Hl7XmlMapping({"name"})
     public Set<TrivialName> getName() {
@@ -552,27 +331,27 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Description</p>
+     * <p>Business Name: Description</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DrugProduct.description</p>
+     * 
+     * <p>CompoundedDrugProduct.adhocSpecification</p>
+     * 
+     * <p>DRU.010-06</p>
+     * 
+     * <p>DIN Description</p>
+     * 
+     * <p>Allows description of compound ingredients and/or recipe 
+     * in free text form.</p>
      * 
      * <p>A free form textual description of a drug. This usually 
      * is only populated for custom compounds, providing 
      * instructions on the composition and creation of the 
      * compound.</p>
-     * 
-     * <p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p>
-     * 
-     * <p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p>
-     * 
-     * <p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p>
-     * 
-     * <p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p>
-     * 
-     * <p>Allows description of compound ingredients and/or recipe 
-     * in free text form.</p>
      */
     @Hl7XmlMapping({"desc"})
     public String getDesc() {
@@ -580,27 +359,27 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Description</p>
+     * <p>Business Name: Description</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DrugProduct.description</p>
+     * 
+     * <p>CompoundedDrugProduct.adhocSpecification</p>
+     * 
+     * <p>DRU.010-06</p>
+     * 
+     * <p>DIN Description</p>
+     * 
+     * <p>Allows description of compound ingredients and/or recipe 
+     * in free text form.</p>
      * 
      * <p>A free form textual description of a drug. This usually 
      * is only populated for custom compounds, providing 
      * instructions on the composition and creation of the 
      * compound.</p>
-     * 
-     * <p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p>
-     * 
-     * <p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p>
-     * 
-     * <p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p>
-     * 
-     * <p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p>
-     * 
-     * <p>Allows description of compound ingredients and/or recipe 
-     * in free text form.</p>
      */
     public void setDesc(String desc) {
         this.desc.setValue(desc);
@@ -608,74 +387,48 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
      * 
-     * <p>Indicates the form in which the drug product must be, or 
-     * has been manufactured or custom prepared.</p>
+     * <p>Relationship: POME_MT010040CA.Medicine.formCode</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Prescription.dosageForm</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>DrugProduct.dosageForm</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>CompoundedDrugProduct.dosageForm</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>DispensedItem.dosageForm</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>D63</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>ZPC.3</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>ZPD.3</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Drug form</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>ZDP.14.1</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>ZDP.3b</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>DRU.010-05</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Compound.450-EF</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>A_BillablePharmacyDispense</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Dosage Form</p>
+     * 
+     * <p>Dosage Form</p>
      * 
      * <p>Provides a constrained vocabulary for describing dose 
      * forms. The form of the drug influences how it can be used by 
      * the patient.</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared.</p>
      */
     @Hl7XmlMapping({"formCode"})
     public OrderableDrugForm getFormCode() {
@@ -683,74 +436,48 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
      * 
-     * <p>Indicates the form in which the drug product must be, or 
-     * has been manufactured or custom prepared.</p>
+     * <p>Relationship: POME_MT010040CA.Medicine.formCode</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Prescription.dosageForm</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>DrugProduct.dosageForm</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>CompoundedDrugProduct.dosageForm</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>DispensedItem.dosageForm</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>D63</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>ZPC.3</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>ZPD.3</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Drug form</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>ZDP.14.1</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>ZDP.3b</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>DRU.010-05</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Compound.450-EF</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>A_BillablePharmacyDispense</p>
      * 
-     * <p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p>
+     * <p>Dosage Form</p>
+     * 
+     * <p>Dosage Form</p>
      * 
      * <p>Provides a constrained vocabulary for describing dose 
      * forms. The form of the drug influences how it can be used by 
      * the patient.</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared.</p>
      */
     public void setFormCode(OrderableDrugForm formCode) {
         this.formCode.setValue(formCode);
@@ -768,14 +495,18 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Regulatory Status Code</p>
+     * <p>Business Name: Regulatory Status Code</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.RegulatedProduct.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to evaluate the validity of the 
+     * medication for use in Canada.</p>
      * 
      * <p>Indicates whether the drug is approved for use in Canada 
      * or not. (active = currently approved, terminated or pending 
      * = not approved)</p>
-     * 
-     * <p>Allows providers to evaluate the validity of the 
-     * medication for use in Canada.</p>
      */
     @Hl7XmlMapping({"asRegulatedProduct/statusCode"})
     public RoleStatusNormal getAsRegulatedProductStatusCode() {
@@ -783,14 +514,18 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Regulatory Status Code</p>
+     * <p>Business Name: Regulatory Status Code</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.RegulatedProduct.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to evaluate the validity of the 
+     * medication for use in Canada.</p>
      * 
      * <p>Indicates whether the drug is approved for use in Canada 
      * or not. (active = currently approved, terminated or pending 
      * = not approved)</p>
-     * 
-     * <p>Allows providers to evaluate the validity of the 
-     * medication for use in Canada.</p>
      */
     public void setAsRegulatedProductStatusCode(RoleStatusNormal asRegulatedProductStatusCode) {
         this.asRegulatedProductStatusCode.setValue(asRegulatedProductStatusCode);

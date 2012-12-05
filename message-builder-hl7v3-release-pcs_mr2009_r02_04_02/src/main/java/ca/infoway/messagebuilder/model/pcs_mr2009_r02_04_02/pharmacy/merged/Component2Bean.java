@@ -27,26 +27,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Includes</p>
+ * <p>Business Name: Includes</p>
  * 
  * <p>PORX_MT020070CA.Component2: (no business name)</p>
  * 
+ * <p>Useful to the providers and the EHR</p>
+ * 
  * <p>Includes additional detailed information about the 
  * prescription.</p>
- * 
- * <p>Useful to the providers and the EHR</p>
  * 
  * <p>PORX_MT020060CA.Component2: (no business name)</p>
  * 
+ * <p>Useful to the providers and the EHR</p>
+ * 
  * <p>Includes additional detailed information about the 
  * prescription.</p>
  * 
- * <p>Useful to the providers and the EHR</p>
- * 
  * <p>PORX_MT060190CA.Component6: f:includes</p>
- * 
- * <p>Identifies the instructions for how the prescribed 
- * medication should be dispensed to the patient.</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
@@ -60,19 +57,60 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * over-the-counter medications), or when the patient already 
  * has sufficient supply of the medication on hand to complete 
  * the therapy.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed 
+ * medication should be dispensed to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020060CA.Component2","PORX_MT020070CA.Component2","PORX_MT060190CA.Component6"})
 public class Component2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SupplyRequestBean supplyRequest;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"supplyRequest"})
     public SupplyRequestBean getSupplyRequest() {
         return this.supplyRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSupplyRequest(SupplyRequestBean supplyRequest) {
         this.supplyRequest = supplyRequest;
     }

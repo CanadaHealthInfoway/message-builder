@@ -34,18 +34,18 @@ import java.util.List;
 
 
 /**
- * <p>Access Type</p>
- * 
- * <p>Defines the types of information permission is being 
- * granted to access.</p>
+ * <p>Business Name: Access Type</p>
  * 
  * <p>Allows discrete control over different types of 
  * information.</p>
+ * 
+ * <p>Defines the types of information permission is being 
+ * granted to access.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470000CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
@@ -61,16 +61,20 @@ public class AccessTypeBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Consent Information Types</p>
+     * <p>Business Name: B:Consent Information Types</p>
      * 
-     * <p>The type of patient information that can be accessed or 
-     * modified.</p>
+     * <p>Relationship: COCT_MT470000CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Different consents (or even keywords) may be needed to 
      * access different types of patient information (e.g. 
      * demographics, medications, allergies, lab results). 
      * Understanding the type of information the consent applies to 
      * is critical, and therefore the attribute is mandatory.</p>
+     * 
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
      */
     @Hl7XmlMapping({"subject/actDefinition/code"})
     public List<ActInformationAccessTypeCode> getSubjectActDefinitionCode() {

@@ -62,7 +62,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.BatteryPromise"})
 public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
     private II id = new IIImpl();
@@ -103,7 +103,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
 
 
     /**
-     * <p>Battery Promise Identifier</p>
+     * <p>Business Name: Battery Promise Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.BatteryPromise.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -111,7 +115,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
     /**
-     * <p>Battery Promise Identifier</p>
+     * <p>Business Name: Battery Promise Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.BatteryPromise.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -125,7 +133,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
 
 
     /**
-     * <p>Type of Battery Promise</p>
+     * <p>Business Name: Type of Battery Promise</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.BatteryPromise.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code identifying what was ordered by the lab.</p>
      */
@@ -135,7 +147,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
     /**
-     * <p>Type of Battery Promise</p>
+     * <p>Business Name: Type of Battery Promise</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.BatteryPromise.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code identifying what was ordered by the lab.</p>
      */
@@ -150,18 +166,34 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient"})
     public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
         return this.primaryInformationRecipient;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
         this.primaryInformationRecipient = primaryInformationRecipient;
     }
 
 
     /**
-     * <p>Battery Promise Status</p>
+     * <p>Business Name: Battery Promise Status</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.BatteryPromise.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -169,7 +201,11 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
     /**
-     * <p>Battery Promise Status</p>
+     * <p>Business Name: Battery Promise Status</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.BatteryPromise.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -177,7 +213,12 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
 
 
     /**
-     * <p>Battery Promise Effective Time</p>
+     * <p>Business Name: Battery Promise Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.BatteryPromise.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -185,7 +226,12 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
     /**
-     * <p>Battery Promise Effective Time</p>
+     * <p>Business Name: Battery Promise Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.BatteryPromise.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -199,7 +245,12 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
 
 
     /**
-     * <p>Battery Promise Confidentiality</p>
+     * <p>Business Name: Battery Promise Confidentiality</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.BatteryPromise.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-2)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -223,17 +274,32 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Component.promiseChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/promiseChoice"})
     public List<PromiseChoice> getComponentPromiseChoice() {
         return this.componentPromiseChoice;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

@@ -35,33 +35,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Symptom Indications</p>
+ * <p>Business Name: Symptom Indications</p>
  * 
- * <p>Code must be fixed to SYMPT if not using 
- * SNOMED</p><p>Value is mandatory if not using SNOMED</p>
+ * <p>Code must be fixed to SYMPT if not using SNOMED</p>
  * 
- * <p>Code must be fixed to SYMPT if not using 
- * SNOMED</p><p>Value is mandatory if not using SNOMED</p>
- * 
- * <p>Describes symptom-related indications</p>
+ * <p>Value is mandatory if not using SNOMED</p>
  * 
  * <p>Allows separation of conditions from symptoms from other 
  * forms of indication.</p>
+ * 
+ * <p>Describes symptom-related indications</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationSymptom"})
 public class SymptomIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private CV value = new CVImpl();
 
 
     /**
-     * <p>Symptom Type</p>
+     * <p>Business Name: Symptom Type</p>
      * 
-     * <p>Identifies the category of symptom being 
-     * communicated.</p>
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that this observation is expressing a symptom, 
      * and is therefore mandatory. It is set to CD because SNOMED 
@@ -69,6 +68,9 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
      * 
      * <p>For SNOMED, this will communicate the full symptom. For 
      * non-SNOMED this will be a fixed value of SYMPT</p>
+     * 
+     * <p>Identifies the category of symptom being 
+     * communicated.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -76,10 +78,11 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     }
 
     /**
-     * <p>Symptom Type</p>
+     * <p>Business Name: Symptom Type</p>
      * 
-     * <p>Identifies the category of symptom being 
-     * communicated.</p>
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that this observation is expressing a symptom, 
      * and is therefore mandatory. It is set to CD because SNOMED 
@@ -87,6 +90,9 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
      * 
      * <p>For SNOMED, this will communicate the full symptom. For 
      * non-SNOMED this will be a fixed value of SYMPT</p>
+     * 
+     * <p>Identifies the category of symptom being 
+     * communicated.</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
@@ -94,13 +100,17 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
 
 
     /**
-     * <p>Free Form Symptom Indication</p>
+     * <p>Business Name: Free Form Symptom Indication</p>
      * 
-     * <p>A free form description to augment the specified 
-     * symptom.</p>
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides greater flexibility in specifying 
      * indication.</p>
+     * 
+     * <p>A free form description to augment the specified 
+     * symptom.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -108,13 +118,17 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     }
 
     /**
-     * <p>Free Form Symptom Indication</p>
+     * <p>Business Name: Free Form Symptom Indication</p>
      * 
-     * <p>A free form description to augment the specified 
-     * symptom.</p>
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides greater flexibility in specifying 
      * indication.</p>
+     * 
+     * <p>A free form description to augment the specified 
+     * symptom.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -122,14 +136,18 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
 
 
     /**
-     * <p>A:Symptom Code</p>
+     * <p>Business Name: A:Symptom Code</p>
      * 
-     * <p>A coded representation of the symptom that is the reason 
-     * for the current therapy.</p>
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows cross-checking the use of a therapy against its 
      * indication. Also allows analysis of best practices, etc. The 
      * attribute is optional because it is not used for SNOMED.</p>
+     * 
+     * <p>A coded representation of the symptom that is the reason 
+     * for the current therapy.</p>
      */
     @Hl7XmlMapping({"value"})
     public SymptomValue getValue() {
@@ -137,14 +155,18 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     }
 
     /**
-     * <p>A:Symptom Code</p>
+     * <p>Business Name: A:Symptom Code</p>
      * 
-     * <p>A coded representation of the symptom that is the reason 
-     * for the current therapy.</p>
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows cross-checking the use of a therapy against its 
      * indication. Also allows analysis of best practices, etc. The 
      * attribute is optional because it is not used for SNOMED.</p>
+     * 
+     * <p>A coded representation of the symptom that is the reason 
+     * for the current therapy.</p>
      */
     public void setValue(SymptomValue value) {
         this.value.setValue(value);

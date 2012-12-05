@@ -28,7 +28,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 
 
 /**
- * <p>RCMR_IN010004CA: Update keyword request accepted</p>
+ * <p>Business Name: RCMR_IN010004CA: Update keyword request 
+ * accepted</p>
+ * 
+ * <p>Indicates that the keyword used to control patient access 
+ * to a all or a portion of the patient's record has been 
+ * successfully revised to the requested value.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -37,6 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"RCMR_IN010004CA"})
 public class UpdateKeywordRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

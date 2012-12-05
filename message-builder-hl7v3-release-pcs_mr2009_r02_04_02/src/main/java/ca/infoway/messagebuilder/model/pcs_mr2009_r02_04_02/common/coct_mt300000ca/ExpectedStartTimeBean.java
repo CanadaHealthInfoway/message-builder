@@ -41,18 +41,18 @@ import java.util.List;
 
 
 /**
- * <p>Expected Start Time</p>
- * 
- * <p>Expected start time. For methadone, this indicated when 
- * the drug is expected to be taken.</p>
+ * <p>Business Name: Expected Start Time</p>
  * 
  * <p>ID cannot be mandatory as it may not be present on a 
  * pre-determination</p>
+ * 
+ * <p>Expected start time. For methadone, this indicated when 
+ * the drug is expected to be taken.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationIntent"})
 public class ExpectedStartTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV priorityCode = new CVImpl();
@@ -62,7 +62,12 @@ public class ExpectedStartTimeBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense ID</p>
+     * <p>Business Name: Dispense ID</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.SubstanceAdministrationIntent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>filler transaction number for dispense</p>
      */
@@ -72,7 +77,12 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense ID</p>
+     * <p>Business Name: Dispense ID</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.SubstanceAdministrationIntent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>filler transaction number for dispense</p>
      */
@@ -82,14 +92,19 @@ public class ExpectedStartTimeBean extends MessagePartBean {
 
 
     /**
-     * <p>Substance Administration Time</p>
+     * <p>Business Name: Substance Administration Time</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.SubstanceAdministrationIntent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used effectiveTime for methadone only</p>
      * 
-     * <p>Substance Administration Time</p>
-     * 
      * <p>(For methadone, this indicates when the drug is expected 
      * to be taken</p>
+     * 
+     * <p>Substance Administration Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -97,14 +112,19 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Substance Administration Time</p>
+     * <p>Business Name: Substance Administration Time</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.SubstanceAdministrationIntent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used effectiveTime for methadone only</p>
      * 
-     * <p>Substance Administration Time</p>
-     * 
      * <p>(For methadone, this indicates when the drug is expected 
      * to be taken</p>
+     * 
+     * <p>Substance Administration Time</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -112,15 +132,20 @@ public class ExpectedStartTimeBean extends MessagePartBean {
 
 
     /**
-     * <p>In lieu of days supply.</p>
+     * <p>Business Name: In lieu of days supply.</p>
      * 
-     * <p>In lieu of days supply, specify PRN, UD or use NullFlavor 
-     * of UNK (unknown), else not specified.</p>
+     * <p>Relationship: 
+     * COCT_MT300000CA.SubstanceAdministrationIntent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>In lieu of days supply, specify PRN, UD or use NullFlavor 
      * of UNK (unknown), else not specified.</p>
      * 
      * <p>for PRN, UD or unknown (use NullFlavor</p>
+     * 
+     * <p>In lieu of days supply, specify PRN, UD or use NullFlavor 
+     * of UNK (unknown), else not specified.</p>
      */
     @Hl7XmlMapping({"priorityCode"})
     public x_ActPriorityPharmacy getPriorityCode() {
@@ -128,36 +153,63 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     }
 
     /**
-     * <p>In lieu of days supply.</p>
+     * <p>Business Name: In lieu of days supply.</p>
      * 
-     * <p>In lieu of days supply, specify PRN, UD or use NullFlavor 
-     * of UNK (unknown), else not specified.</p>
+     * <p>Relationship: 
+     * COCT_MT300000CA.SubstanceAdministrationIntent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>In lieu of days supply, specify PRN, UD or use NullFlavor 
      * of UNK (unknown), else not specified.</p>
      * 
      * <p>for PRN, UD or unknown (use NullFlavor</p>
+     * 
+     * <p>In lieu of days supply, specify PRN, UD or use NullFlavor 
+     * of UNK (unknown), else not specified.</p>
      */
     public void setPriorityCode(x_ActPriorityPharmacy priorityCode) {
         this.priorityCode.setValue(priorityCode);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.FulfillsOrder.substanceAdministrationOrder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationOrder"})
     public OriginalPrescriptionOrderBean getInFulfillmentOfSubstanceAdministrationOrder() {
         return this.inFulfillmentOfSubstanceAdministrationOrder;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.FulfillsOrder.substanceAdministrationOrder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInFulfillmentOfSubstanceAdministrationOrder(OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder) {
         this.inFulfillmentOfSubstanceAdministrationOrder = inFulfillmentOfSubstanceAdministrationOrder;
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Component.substitution</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/substitution"})
     public DispenseSubstitutionBean getComponentSubstitution() {
         return this.componentSubstitution;
     }
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Component.substitution</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
         this.componentSubstitution = componentSubstitution;
     }

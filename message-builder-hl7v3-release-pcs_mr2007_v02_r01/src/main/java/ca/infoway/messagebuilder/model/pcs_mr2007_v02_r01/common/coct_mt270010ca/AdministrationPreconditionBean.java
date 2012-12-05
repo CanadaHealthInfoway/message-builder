@@ -29,11 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Administration Precondition</p>
- * 
- * <p>This sets the conditions for which a specific 
- * administration of the drug may be undertaken. Example: if 
- * headache persists for 2hrs or more 'take 2 tabs.</p>
+ * <p>Business Name: Administration Precondition</p>
  * 
  * <p>Indicates that prescription is a 'PRN' (as needed) 
  * prescription and that doses to be consumed cannot be 
@@ -43,38 +39,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>To flag a prescription as PRN without specifying a 
  * condition, include the association but specify a null flavor 
  * for the Dosage Condition.</p>
+ * 
+ * <p>This sets the conditions for which a specific 
+ * administration of the drug may be undertaken. Example: if 
+ * headache persists for 2hrs or more 'take 2 tabs.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT270010CA.ActEventCriterion"})
 public class AdministrationPreconditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
 
 
     /**
-     * <p>A:Dosage Condition</p>
+     * <p>Business Name: A:Dosage Condition</p>
      * 
-     * <p>A free-form textual description of condition that must be 
-     * met before the product may be administered to/by the 
-     * patient.</p><p>Example: When pressure exceeds 150/90 - Take 
-     * 2 tabs</p>
+     * <p>Relationship: COCT_MT270010CA.ActEventCriterion.text</p>
      * 
-     * <p>A free-form textual description of condition that must be 
-     * met before the product may be administered to/by the 
-     * patient.</p><p>Example: When pressure exceeds 150/90 - Take 
-     * 2 tabs</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>RepeatPattern.prn (true when present)</p><p>ZDP.13.6 
-     * (true when present)</p><p>ZDP.13.7</p>
+     * <p>RepeatPattern.prn (true when present)</p>
      * 
-     * <p>RepeatPattern.prn (true when present)</p><p>ZDP.13.6 
-     * (true when present)</p><p>ZDP.13.7</p>
+     * <p>ZDP.13.6 (true when present)</p>
      * 
-     * <p>RepeatPattern.prn (true when present)</p><p>ZDP.13.6 
-     * (true when present)</p><p>ZDP.13.7</p>
+     * <p>ZDP.13.7</p>
      * 
      * <p>Allows un-coded specifications of conditions in which the 
      * medication should be taken.</p>
+     * 
+     * <p>A free-form textual description of condition that must be 
+     * met before the product may be administered to/by the 
+     * patient.</p><p>Example: When pressure exceeds 150/90 - Take 
+     * 2 tabs</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -82,29 +78,25 @@ public class AdministrationPreconditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Dosage Condition</p>
+     * <p>Business Name: A:Dosage Condition</p>
      * 
-     * <p>A free-form textual description of condition that must be 
-     * met before the product may be administered to/by the 
-     * patient.</p><p>Example: When pressure exceeds 150/90 - Take 
-     * 2 tabs</p>
+     * <p>Relationship: COCT_MT270010CA.ActEventCriterion.text</p>
      * 
-     * <p>A free-form textual description of condition that must be 
-     * met before the product may be administered to/by the 
-     * patient.</p><p>Example: When pressure exceeds 150/90 - Take 
-     * 2 tabs</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>RepeatPattern.prn (true when present)</p><p>ZDP.13.6 
-     * (true when present)</p><p>ZDP.13.7</p>
+     * <p>RepeatPattern.prn (true when present)</p>
      * 
-     * <p>RepeatPattern.prn (true when present)</p><p>ZDP.13.6 
-     * (true when present)</p><p>ZDP.13.7</p>
+     * <p>ZDP.13.6 (true when present)</p>
      * 
-     * <p>RepeatPattern.prn (true when present)</p><p>ZDP.13.6 
-     * (true when present)</p><p>ZDP.13.7</p>
+     * <p>ZDP.13.7</p>
      * 
      * <p>Allows un-coded specifications of conditions in which the 
      * medication should be taken.</p>
+     * 
+     * <p>A free-form textual description of condition that must be 
+     * met before the product may be administered to/by the 
+     * patient.</p><p>Example: When pressure exceeds 150/90 - Take 
+     * 2 tabs</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

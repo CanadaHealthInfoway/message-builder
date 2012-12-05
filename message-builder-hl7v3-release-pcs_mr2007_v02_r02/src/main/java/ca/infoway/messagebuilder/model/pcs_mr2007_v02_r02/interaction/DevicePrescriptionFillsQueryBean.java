@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt060080
 
 
 /**
- * <p>PORX_IN060110CA: Device prescription fills query</p>
+ * <p>Business Name: PORX_IN060110CA: Device prescription fills 
+ * query</p>
+ * 
+ * <p>Requests retrieval of basic information about all 
+ * dispenses performed against a particular device prescription 
+ * referenced by id</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt060080
 @Hl7PartTypeMapping({"PORX_IN060110CA"})
 public class DevicePrescriptionFillsQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

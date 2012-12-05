@@ -35,13 +35,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.ContactPerson"})
 public class AdministrativeContactPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PN name = new PNImpl();
     private TEL telecom = new TELImpl();
 
 
     /**
-     * <p>Contact Person Name</p>
+     * <p>Business Name: Contact Person Name</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"name"})
     public PersonName getName() {
@@ -49,7 +53,11 @@ public class AdministrativeContactPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Contact Person Name</p>
+     * <p>Business Name: Contact Person Name</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setName(PersonName name) {
         this.name.setValue(name);
@@ -57,7 +65,11 @@ public class AdministrativeContactPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>contact person telephone or email details</p>
+     * <p>Business Name: contact person telephone or email details</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -65,7 +77,11 @@ public class AdministrativeContactPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>contact person telephone or email details</p>
+     * <p>Business Name: contact person telephone or email details</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);

@@ -38,16 +38,32 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActClaim
 @Hl7PartTypeMapping({"FICR_MT400001CA.HealthDocumentAttachment","FICR_MT490102CA.HealthDocumentAttachment","FICR_MT490103CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 
 
     /**
-     * <p>AttachmentIdentifier</p>
+     * <p>Business Name: AttachmentIdentifier</p>
      * 
-     * <p>Attachment Identifier</p>
+     * <p>Other Business Name: AttachmentIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490103CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -55,9 +71,25 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AttachmentIdentifier</p>
+     * <p>Business Name: AttachmentIdentifier</p>
      * 
-     * <p>Attachment Identifier</p>
+     * <p>Other Business Name: AttachmentIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490103CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -65,11 +97,34 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>AttachmentType</p>
+     * <p>Business Name: AttachmentType</p>
      * 
-     * <p>Attachment Type</p>
+     * <p>Other Business Name: AttachmentType</p>
      * 
-     * <p>Attachment Type</p>
+     * <p>Relationship: 
+     * FICR_MT490103CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Constrains the type of attachment (document, XRAY, bit 
+     * map image, etc.) included to support a healthcare claim. 
+     * Vocabulary bound to this domain should be a specification 
+     * for the type of document (i.e. WCB First Report of Accident 
+     * - Form 8).</p>
+     * 
+     * <p>Other Business Name: AttachmentType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Constrains the type of attachment (document, XRAY, bit 
      * map image, etc.) included to support a healthcare claim. 
@@ -83,11 +138,34 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AttachmentType</p>
+     * <p>Business Name: AttachmentType</p>
      * 
-     * <p>Attachment Type</p>
+     * <p>Other Business Name: AttachmentType</p>
      * 
-     * <p>Attachment Type</p>
+     * <p>Relationship: 
+     * FICR_MT490103CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Constrains the type of attachment (document, XRAY, bit 
+     * map image, etc.) included to support a healthcare claim. 
+     * Vocabulary bound to this domain should be a specification 
+     * for the type of document (i.e. WCB First Report of Accident 
+     * - Form 8).</p>
+     * 
+     * <p>Other Business Name: AttachmentType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Constrains the type of attachment (document, XRAY, bit 
      * map image, etc.) included to support a healthcare claim. 
@@ -101,9 +179,28 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>AttachmentContent</p>
+     * <p>Business Name: AttachmentContent</p>
      * 
-     * <p>Attachment Content</p>
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.HealthDocumentAttachment.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.HealthDocumentAttachment.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.HealthDocumentAttachment.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
@@ -111,9 +208,28 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AttachmentContent</p>
+     * <p>Business Name: AttachmentContent</p>
      * 
-     * <p>Attachment Content</p>
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.HealthDocumentAttachment.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.HealthDocumentAttachment.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.HealthDocumentAttachment.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);

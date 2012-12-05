@@ -30,7 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101103ca.P
 
 
 /**
- * <p>PRPA_IN101104CA: Find Candidates Response</p>
+ * <p>Business Name: PRPA_IN101104CA: Find Candidates Response</p>
+ * 
+ * <p>This interaction returns a list of candidates from a 
+ * Person Registry that match a particular set of person 
+ * demographics. The response may also include a score 
+ * indicating the probability of match for each candidate.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -43,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101103ca.P
 @Hl7PartTypeMapping({"PRPA_IN101104CA"})
 public class FindCandidatesResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

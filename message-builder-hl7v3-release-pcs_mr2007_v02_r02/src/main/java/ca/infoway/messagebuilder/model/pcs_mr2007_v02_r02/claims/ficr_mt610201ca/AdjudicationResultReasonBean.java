@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Adjudication Result Reason</p>
+ * <p>Business Name: Adjudication Result Reason</p>
  * 
  * <p>Reason / rationale that explain the adjudication 
  * results.</p>
@@ -37,23 +37,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicationResultReason"})
 public class AdjudicationResultReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST value = new STImpl();
 
 
     /**
-     * <p>Adjudication Reason</p>
+     * <p>Business Name: Adjudication Reason</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultReason.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Domain is ActAdjudicationReason.</p><p>A subset of these 
+     * codes may be included in the COB CMET for downstream 
+     * adjudicators due to privacy concerns/legislation.</p>
      * 
      * <p>Reason / rationale that explain the adjudication 
      * results.</p>
-     * 
-     * <p>Domain is ActAdjudicationReason.</p><p>A subset of these 
-     * codes may be included in the COB CMET for downstream 
-     * adjudicators due to privacy concerns/legislation.</p>
-     * 
-     * <p>Domain is ActAdjudicationReason.</p><p>A subset of these 
-     * codes may be included in the COB CMET for downstream 
-     * adjudicators due to privacy concerns/legislation.</p>
      */
     @Hl7XmlMapping({"value"})
     public String getValue() {
@@ -61,18 +62,19 @@ public class AdjudicationResultReasonBean extends MessagePartBean implements ca.
     }
 
     /**
-     * <p>Adjudication Reason</p>
+     * <p>Business Name: Adjudication Reason</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultReason.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Domain is ActAdjudicationReason.</p><p>A subset of these 
+     * codes may be included in the COB CMET for downstream 
+     * adjudicators due to privacy concerns/legislation.</p>
      * 
      * <p>Reason / rationale that explain the adjudication 
      * results.</p>
-     * 
-     * <p>Domain is ActAdjudicationReason.</p><p>A subset of these 
-     * codes may be included in the COB CMET for downstream 
-     * adjudicators due to privacy concerns/legislation.</p>
-     * 
-     * <p>Domain is ActAdjudicationReason.</p><p>A subset of these 
-     * codes may be included in the COB CMET for downstream 
-     * adjudicators due to privacy concerns/legislation.</p>
      */
     public void setValue(String value) {
         this.value.setValue(value);

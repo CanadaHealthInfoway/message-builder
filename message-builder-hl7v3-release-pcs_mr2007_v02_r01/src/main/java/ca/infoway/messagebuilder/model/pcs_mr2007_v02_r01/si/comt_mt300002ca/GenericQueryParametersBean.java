@@ -31,36 +31,36 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"COMT_MT300002CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV patientNoteCategoryCodeValue = new CVImpl();
 
 
     /**
-     * <p>Patient Note Category Code</p>
+     * <p>Business Name: Patient Note Category Code</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p>
+     * <p>Relationship: 
+     * COMT_MT300002CA.PatientNoteCategoryCode.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of all patient notes pertaining 
      * to a specific note category.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those patient annotation pertaining to the 
+     * specified annotation category.</p><p>Valid patient note 
+     * categories include: General, Medication, Lab, DI, etc.</p>
      */
     @Hl7XmlMapping({"patientNoteCategoryCode/value"})
     public ActPatientAnnotationCode getPatientNoteCategoryCodeValue() {
@@ -68,20 +68,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Note Category Code</p>
+     * <p>Business Name: Patient Note Category Code</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p>
+     * <p>Relationship: 
+     * COMT_MT300002CA.PatientNoteCategoryCode.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of all patient notes pertaining 
      * to a specific note category.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those patient annotation pertaining to the 
+     * specified annotation category.</p><p>Valid patient note 
+     * categories include: General, Medication, Lab, DI, etc.</p>
      */
     public void setPatientNoteCategoryCodeValue(ActPatientAnnotationCode patientNoteCategoryCodeValue) {
         this.patientNoteCategoryCodeValue.setValue(patientNoteCategoryCodeValue);

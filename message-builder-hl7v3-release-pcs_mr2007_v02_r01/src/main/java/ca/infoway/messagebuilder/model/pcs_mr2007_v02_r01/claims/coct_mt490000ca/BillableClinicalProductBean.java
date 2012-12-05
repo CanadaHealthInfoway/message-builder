@@ -56,7 +56,7 @@ import java.util.List;
 @Hl7RootType
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
@@ -71,17 +71,33 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodIntentEvent getMoodCode() {
         return (x_ActMoodIntentEvent) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setMoodCode(x_ActMoodIntentEvent moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
     /**
+     * <p>Relationship: COCT_MT490000CA.BillableClinicalProduct.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>receipt number for the sale or rental</p>
      */
     @Hl7XmlMapping({"id"})
@@ -90,6 +106,10 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
     /**
+     * <p>Relationship: COCT_MT490000CA.BillableClinicalProduct.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>receipt number for the sale or rental</p>
      */
     public void setId(Identifier id) {
@@ -97,17 +117,34 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"code"})
     public x_ActFinancialProductAcquisitionCode getCode() {
         return (x_ActFinancialProductAcquisitionCode) this.code.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCode(x_ActFinancialProductAcquisitionCode code) {
         this.code.setValue(code);
     }
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>includes duration &amp; date/time of occurence or period 
      * of rental</p>
      */
@@ -117,6 +154,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>includes duration &amp; date/time of occurence or period 
      * of rental</p>
      */

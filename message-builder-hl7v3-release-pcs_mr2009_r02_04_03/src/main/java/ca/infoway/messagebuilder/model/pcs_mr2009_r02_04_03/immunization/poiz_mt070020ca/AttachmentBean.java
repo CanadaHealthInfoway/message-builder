@@ -35,13 +35,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.Attachment"})
 public class AttachmentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 
 
     /**
-     * <p>Attachment Identifier</p>
+     * <p>Business Name: Attachment Identifier</p>
+     * 
+     * <p>Relationship: POIZ_MT070020CA.Attachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -49,7 +53,11 @@ public class AttachmentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Attachment Identifier</p>
+     * <p>Business Name: Attachment Identifier</p>
+     * 
+     * <p>Relationship: POIZ_MT070020CA.Attachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -57,7 +65,11 @@ public class AttachmentBean extends MessagePartBean {
 
 
     /**
-     * <p>Attachment Content</p>
+     * <p>Business Name: Attachment Content</p>
+     * 
+     * <p>Relationship: POIZ_MT070020CA.Attachment.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
@@ -65,7 +77,11 @@ public class AttachmentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Attachment Content</p>
+     * <p>Business Name: Attachment Content</p>
+     * 
+     * <p>Relationship: POIZ_MT070020CA.Attachment.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);

@@ -35,19 +35,27 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT290000CA.PatientEncounter","COCT_MT300000CA.PatientEncounter"})
 public class PatientEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private TS effectiveTime = new TSImpl();
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>Encounter id</p>
+     * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>encounter id</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Encounter id</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -55,13 +63,21 @@ public class PatientEncounterBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>Encounter id</p>
+     * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>encounter id</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Encounter id</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -69,7 +85,21 @@ public class PatientEncounterBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.PatientEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>admit/discharge date</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.PatientEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>admit/discharge date</p>
      */
@@ -79,7 +109,21 @@ public class PatientEncounterBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.PatientEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>admit/discharge date</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.PatientEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>admit/discharge date</p>
      */

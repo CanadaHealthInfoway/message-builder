@@ -33,23 +33,28 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoice
 
 
 /**
- * <p>Adjudicator Billing Tax Account</p>
- * 
- * <p>Billable item code which identifies modifications such as 
- * a tax factor 7% Provincial Sales tax.</p>
+ * <p>Business Name: Adjudicator Billing Tax Account</p>
  * 
  * <p>Can be used to specify the appropriate GST number and 
  * other tax numbers.</p>
+ * 
+ * <p>Billable item code which identifies modifications such as 
+ * a tax factor 7% Provincial Sales tax.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorBillingTaxAccount"})
 public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
 
     /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Tax number, such as GST, PST number</p>
      */
     @Hl7XmlMapping({"id"})
@@ -58,6 +63,11 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Tax number, such as GST, PST number</p>
      */
     public void setId(Identifier id) {
@@ -66,7 +76,12 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Detail Tax Code</p>
+     * <p>Business Name: Detail Tax Code</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Billable item code which identifies modifications such as 
      * a tax factor 7% Provincial Sales tax.</p>
@@ -77,7 +92,12 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Detail Tax Code</p>
+     * <p>Business Name: Detail Tax Code</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Billable item code which identifies modifications such as 
      * a tax factor 7% Provincial Sales tax.</p>

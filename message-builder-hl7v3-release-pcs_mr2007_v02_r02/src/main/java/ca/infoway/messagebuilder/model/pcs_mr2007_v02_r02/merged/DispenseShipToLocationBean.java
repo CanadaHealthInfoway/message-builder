@@ -49,6 +49,9 @@ import java.util.Date;
  * <p>PRPM_MT303010CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
+ * <p>Roleclass required to support the identification of the 
+ * physical location where healthcare services are provided</p>
+ * 
  * <p>A role played by a place at which services may be 
  * provided. The RIM defines two specializations of service 
  * delivery location: 1. incidental service delivery location - 
@@ -72,66 +75,66 @@ import java.util.Date;
  * clinic may meet on alternate days in the same physical 
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
- * 
- * <p>Roleclass required to support the identification of the 
- * physical location where healthcare services are provided</p>
  * 
  * <p>PORX_MT060340CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT020070CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT020060CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT060010CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT060160CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT060040CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
  * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
+ * 
  * <p>PRPM_MT301010CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
+ * 
+ * <p>Roleclass required to support the identification of the 
+ * physical location where healthcare services are provided</p>
  * 
  * <p>A role played by a place at which services may be 
  * provided. The RIM defines two specializations of service 
@@ -157,22 +160,19 @@ import java.util.Date;
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
  * 
- * <p>Roleclass required to support the identification of the 
- * physical location where healthcare services are provided</p>
- * 
  * <p>PORX_MT060090CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.ServiceDeliveryLocation","PORX_MT010120CA.ServiceDeliveryLocation","PORX_MT020060CA.ServiceDeliveryLocation","PORX_MT020070CA.ServiceDeliveryLocation","PORX_MT060010CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation2","PORX_MT060090CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation2","PORX_MT060340CA.ServiceDeliveryLocation","PORX_MT060340CA.ServiceDeliveryLocation2","PRPM_MT301010CA.ServiceDeliveryLocation","PRPM_MT303010CA.ServiceDeliveryLocation"})
 public class DispenseShipToLocationBean extends MessagePartBean implements Choice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -182,15 +182,31 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>ServiceDeliveryLocationIdentifier</p>
+     * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>A unique identifier for the service delivery 
+     * location.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -198,15 +214,31 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
 
     /**
-     * <p>ServiceDeliveryLocationIdentifier</p>
+     * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>A unique identifier for the service delivery 
+     * location.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -214,15 +246,33 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>ServiceDeliveryLocationType</p>
+     * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Service Delivery Location Type</p>
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>The code identifying the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The code identifying the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"code"})
     public ServiceDeliveryLocationRoleType getCode() {
@@ -230,15 +280,33 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
 
     /**
-     * <p>ServiceDeliveryLocationType</p>
+     * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Service Delivery Location Type</p>
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>The code identifying the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The code identifying the specific service delivery 
+     * location</p>
      */
     public void setCode(ServiceDeliveryLocationRoleType code) {
         this.code.setValue(code);
@@ -246,53 +314,188 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>I:Ship-To Address</p>
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Ship To Address</p>
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Address of the specific service delivery location</p>
      * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
      * 
-     * <p>H:Prescription Ship to Address</p>
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
      * 
-     * <p>Indicates the location the dispensed device should be 
-     * shipped to, at the request of the patient or provider.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>In some cases devices need to be delivered to the patient 
      * instead of being picked up. In other cases, devices need to 
      * be shipped to the physician's office to replace stock used 
      * for the patient.</p>
      * 
-     * <p>H:Prescription Ship to Address</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
+     * <p>Indicates the location the dispensed device should be 
      * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>In some cases drugs need to be delivered to the patient 
      * instead of being picked up. In other cases, drugs need to be 
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
      * 
-     * <p>Service Delivery Location Address</p>
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Address of the specific service delivery location</p>
+     * <p>Other Business Name: ShipToAddress</p>
      * 
-     * <p>Required attribute supports the validation and 
-     * identification of the service delivery location</p>
+     * <p>Relationship: 
+     * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Service Delivery Location Address</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Address of the specific service delivery location</p>
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Address of the specific service delivery location</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases devices need to be delivered to the patient 
+     * instead of being picked up. In other cases, devices need to 
+     * be shipped to the physician's office to replace stock used 
+     * for the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed device should be 
+     * shipped to, at the request of the patient or provider.</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -300,53 +503,188 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
 
     /**
-     * <p>I:Ship-To Address</p>
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Ship To Address</p>
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Address of the specific service delivery location</p>
      * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
      * 
-     * <p>H:Prescription Ship to Address</p>
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
      * 
-     * <p>Indicates the location the dispensed device should be 
-     * shipped to, at the request of the patient or provider.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>In some cases devices need to be delivered to the patient 
      * instead of being picked up. In other cases, devices need to 
      * be shipped to the physician's office to replace stock used 
      * for the patient.</p>
      * 
-     * <p>H:Prescription Ship to Address</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
+     * <p>Indicates the location the dispensed device should be 
      * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>In some cases drugs need to be delivered to the patient 
      * instead of being picked up. In other cases, drugs need to be 
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
      * 
-     * <p>Service Delivery Location Address</p>
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Address of the specific service delivery location</p>
+     * <p>Other Business Name: ShipToAddress</p>
      * 
-     * <p>Required attribute supports the validation and 
-     * identification of the service delivery location</p>
+     * <p>Relationship: 
+     * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Service Delivery Location Address</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Address of the specific service delivery location</p>
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Address of the specific service delivery location</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases devices need to be delivered to the patient 
+     * instead of being picked up. In other cases, devices need to 
+     * be shipped to the physician's office to replace stock used 
+     * for the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed device should be 
+     * shipped to, at the request of the patient or provider.</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
@@ -354,15 +692,33 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>ServiceDeliveryLocationTelecom</p>
+     * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Service Delivery Location Telecom</p>
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>The telecom for the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The telecom for the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -370,15 +726,33 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
 
     /**
-     * <p>ServiceDeliveryLocationTelecom</p>
+     * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Service Delivery Location Telecom</p>
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>The telecom for the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The telecom for the specific service delivery 
+     * location</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
@@ -386,15 +760,33 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Service Delivery Location Effective Date</p>
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Effective date of the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -402,15 +794,33 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
 
     /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Service Delivery Location Effective Date</p>
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Effective date of the specific service delivery 
+     * location</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -418,14 +828,29 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>ServiceDeliveryLocationName</p>
+     * <p>Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Service Delivery Location Name</p>
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>The name of the service delivery location</p>
+     * <p>Relationship: PRPM_MT303010CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The name of the service delivery location</p>
+     * 
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p>
+     * 
+     * <p>The name of the service delivery location</p>
      */
     @Hl7XmlMapping({"location/name"})
     public String getLocationName() {
@@ -433,14 +858,29 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
 
     /**
-     * <p>ServiceDeliveryLocationName</p>
+     * <p>Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Service Delivery Location Name</p>
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>The name of the service delivery location</p>
+     * <p>Relationship: PRPM_MT303010CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The name of the service delivery location</p>
+     * 
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p>
+     * 
+     * <p>The name of the service delivery location</p>
      */
     public void setLocationName(String locationName) {
         this.locationName.setValue(locationName);

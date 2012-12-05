@@ -35,30 +35,30 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>QueryDefinition</p>
+ * <p>Business Name: QueryDefinition</p>
  * 
  * <p>QUQI_MT020000CA.QueryByParameter: Query definition</p>
  * 
  * <p>initialQuantityCode must be populated if and only if 
  * initialQuantity is populated</p>
  * 
- * <p>Identifies the content desired within a query.</p>
- * 
  * <p>Provides support for queries</p>
+ * 
+ * <p>Identifies the content desired within a query.</p>
  * 
  * <p>QUQI_MT120000CA.QueryByParameter: Query definition</p>
  * 
  * <p>initialQuantityCode must be populated if and only if 
  * initialQuantity is populated</p>
  * 
- * <p>Identifies the content desired within a query.</p>
- * 
  * <p>Provides support for queries</p>
+ * 
+ * <p>Identifies the content desired within a query.</p>
  */
 @Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II queryId = new IIImpl();
     private INT initialQuantity = new INTImpl();
     private CV initialQuantityCode = new CVImpl();
@@ -66,14 +66,29 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>QueryIdentifier</p>
+     * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>H:Query Identifier</p>
+     * <p>Other Business Name: QueryIdentifier</p>
      * 
-     * <p>Unique number for this particular query.</p>
+     * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
@@ -81,14 +96,29 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>QueryIdentifier</p>
+     * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>H:Query Identifier</p>
+     * <p>Other Business Name: QueryIdentifier</p>
      * 
-     * <p>Unique number for this particular query.</p>
+     * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
      */
     public void setQueryId(Identifier queryId) {
         this.queryId.setValue(queryId);
@@ -96,12 +126,14 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>QueryLimit</p>
+     * <p>Business Name: QueryLimit</p>
      * 
-     * <p>I:Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
      * 
-     * <p>The number of response item repetitions that should be 
-     * included in the initial response.</p>
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
@@ -115,10 +147,15 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>I:Query Limit</p>
-     * 
      * <p>The number of response item repetitions that should be 
      * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
@@ -127,6 +164,9 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * return all repetitions. However the recipient of a query may 
      * always choose to limit the quantity returned to be less than 
      * the number requested.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      */
     @Hl7XmlMapping({"initialQuantity"})
     public Integer getInitialQuantity() {
@@ -134,12 +174,14 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>QueryLimit</p>
+     * <p>Business Name: QueryLimit</p>
      * 
-     * <p>I:Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
      * 
-     * <p>The number of response item repetitions that should be 
-     * included in the initial response.</p>
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
@@ -153,10 +195,15 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>I:Query Limit</p>
-     * 
      * <p>The number of response item repetitions that should be 
      * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
@@ -165,27 +212,90 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * return all repetitions. However the recipient of a query may 
      * always choose to limit the quantity returned to be less than 
      * the number requested.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      */
     public void setInitialQuantity(Integer initialQuantity) {
         this.initialQuantity.setValue(initialQuantity);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"initialQuantityCode"})
     public QueryRequestLimit getInitialQuantityCode() {
         return (QueryRequestLimit) this.initialQuantityCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
         this.initialQuantityCode.setValue(initialQuantityCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"parameterList"})
     public PL getParameterList() {
         return this.parameterList;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setParameterList(PL parameterList) {
         this.parameterList = parameterList;
     }

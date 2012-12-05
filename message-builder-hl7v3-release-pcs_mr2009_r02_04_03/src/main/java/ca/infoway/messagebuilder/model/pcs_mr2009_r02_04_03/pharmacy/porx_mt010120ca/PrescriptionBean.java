@@ -54,22 +54,22 @@ import java.util.Set;
 
 
 /**
- * <p>Prescription</p>
+ * <p>Business Name: Prescription</p>
+ * 
+ * <p>This is a 'core' class of the medication model and is 
+ * important for understanding what drugs the patient is 
+ * intended to be receiving.</p>
  * 
  * <p>Information pertaining to a prescriber's authorization 
  * for a drug to be dispensed to a patient, as well as the 
  * instruction on when and how the drug is to be consumed by 
  * the patient</p>
- * 
- * <p>This is a 'core' class of the medication model and is 
- * important for understanding what drugs the patient is 
- * intended to be receiving.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.CombinedMedicationRequest"})
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -90,41 +90,28 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Prescription Number</p>
+     * <p>Business Name: A:Prescription Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Id should not be specified if the order is being sent by 
      * prescriber; Id is mandatory if the order is being sent by 
      * the DIS</p>
      * 
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
+     * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
      * the source of the order</p><p>It is created by the EHR/DIS 
      * once the prescription has passed all edits and 
      * validation.</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -132,41 +119,28 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Prescription Number</p>
+     * <p>Business Name: A:Prescription Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Id should not be specified if the order is being sent by 
      * prescriber; Id is mandatory if the order is being sent by 
      * the DIS</p>
      * 
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
+     * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
      * the source of the order</p><p>It is created by the EHR/DIS 
      * once the prescription has passed all edits and 
      * validation.</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -174,14 +148,19 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Prescription Type</p>
+     * <p>Business Name: Prescription Type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p>
      * 
      * <p>Indicates that this is a prescription for a drug as 
      * opposed to an immunization. For SNOMED, may also contain 
      * information regarding drug and route.</p>
-     * 
-     * <p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"code"})
     public SubstanceAdministrationType getCode() {
@@ -189,14 +168,19 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescription Type</p>
+     * <p>Business Name: Prescription Type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p>
      * 
      * <p>Indicates that this is a prescription for a drug as 
      * opposed to an immunization. For SNOMED, may also contain 
      * information regarding drug and route.</p>
-     * 
-     * <p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p>
      */
     public void setCode(SubstanceAdministrationType code) {
         this.code.setValue(code);
@@ -204,7 +188,16 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>Business Name: C:Prescription Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: new, 
@@ -213,10 +206,6 @@ public class PrescriptionBean extends MessagePartBean {
      * pre-determination. Use 'active' when registering a new 
      * prescription or converting a predetermination into a valid 
      * prescription.</p>
-     * 
-     * <p>Indicates what actions are allowed to be performed 
-     * against a prescription. This is a mandatory field because 
-     * every prescription needs to be in some state.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -224,7 +213,16 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>Business Name: C:Prescription Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: new, 
@@ -233,10 +231,6 @@ public class PrescriptionBean extends MessagePartBean {
      * pre-determination. Use 'active' when registering a new 
      * prescription or converting a predetermination into a valid 
      * prescription.</p>
-     * 
-     * <p>Indicates what actions are allowed to be performed 
-     * against a prescription. This is a mandatory field because 
-     * every prescription needs to be in some state.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -244,7 +238,19 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Prescription Masking Indicators</p>
+     * <p>Business Name: F:Prescription Masking Indicators</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their prescription data.</p><p>Taboo allows the provider 
+     * to request restricted access to patient or their care 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
+     * the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their prescriptions. Provides support for additional 
@@ -256,56 +262,6 @@ public class PrescriptionBean extends MessagePartBean {
      * holder) and 'T' (taboo - denotes 'Patient Access 
      * Restricted').</p><p>The default is 'normal' signifying 'Not 
      * Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions. Provides support for additional 
-     * confidentiality constraint, giving patients a level of 
-     * control over their information.</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked'); 'V' (very restricted - denotes very restricted 
-     * access as declared by the Privacy Officer of the record 
-     * holder) and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions. Provides support for additional 
-     * confidentiality constraint, giving patients a level of 
-     * control over their information.</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked'); 'V' (very restricted - denotes very restricted 
-     * access as declared by the Privacy Officer of the record 
-     * holder) and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>Taboo allows the provider 
-     * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
-     * the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>Taboo allows the provider 
-     * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
-     * the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>Taboo allows the provider 
-     * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
-     * the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>Taboo allows the provider 
-     * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
-     * the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -313,11 +269,21 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/medication"})
     public DrugProductBean getDirectTargetMedication() {
         return this.directTargetMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
         this.directTargetMedication = directTargetMedication;
     }
@@ -329,11 +295,23 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
     public PriorCombinedMedicationRequestBean getPredecessorPriorCombinedMedicationRequest() {
         return this.predecessorPriorCombinedMedicationRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPredecessorPriorCombinedMedicationRequest(PriorCombinedMedicationRequestBean predecessorPriorCombinedMedicationRequest) {
         this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
     }
@@ -345,11 +323,23 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
     }
@@ -367,27 +357,57 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component1.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponent1DosageInstruction() {
         return this.component1DosageInstruction;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component2</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component2"})
     public Component2Bean getComponent2() {
         return this.component2;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component2</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent2(Component2Bean component2) {
         this.component2 = component2;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component3</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3"})
     public IncludesBean getComponent3() {
         return this.component3;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component3</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent3(IncludesBean component3) {
         this.component3 = component3;
     }

@@ -30,8 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 
 
 /**
- * <p>REPC_IN000042CA: Patient pharmacy prof. services query 
- * response</p>
+ * <p>Business Name: REPC_IN000042CA: Patient pharmacy prof. 
+ * services query response</p>
+ * 
+ * <p>Returns detailed information about some or all 
+ * professional services (training, counseling, medication 
+ * reviews, etc.) delivered to a patient.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -44,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 @Hl7PartTypeMapping({"REPC_IN000042CA"})
 public class PatientPharmacyProfServicesQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<ProfessionalServiceBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt020020
 
 
 /**
- * <p>PORX_IN020070CA: Dispense pickup notification</p>
+ * <p>Business Name: PORX_IN020070CA: Dispense pickup 
+ * notification</p>
+ * 
+ * <p>Indicates that a previously processed prescription has 
+ * now been picked up.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt020020
 @Hl7PartTypeMapping({"PORX_IN020070CA"})
 public class DispensePickupNotificationBean extends HL7Message_1Bean<TriggerEvent_1Bean<DispensePickupBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

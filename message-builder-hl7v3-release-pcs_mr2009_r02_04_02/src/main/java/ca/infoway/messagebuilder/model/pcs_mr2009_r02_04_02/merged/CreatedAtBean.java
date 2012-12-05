@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>CreatedAt</p>
+ * <p>Business Name: CreatedAt</p>
  * 
  * <p>MFMI_MT700751CA.Location: *a1:created at</p>
  * 
@@ -38,20 +38,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * required if authorization does not cover this 
  * participation.</p>
  * 
+ * <p>Indicates where paper records may be located, and may be 
+ * important to determining authorization.</p><p>The 
+ * association is optional because in some jurisdictions this 
+ * information will be conveyed as part of the authentication 
+ * token.</p>
+ * 
  * <p>Indicates the service delivery location where the event 
  * occurred.</p>
- * 
- * <p>Indicates where paper records may be located, and may be 
- * important to determining authorization.</p><p>The 
- * association is optional because in some jurisdictions this 
- * information will be conveyed as part of the authentication 
- * token.</p>
- * 
- * <p>Indicates where paper records may be located, and may be 
- * important to determining authorization.</p><p>The 
- * association is optional because in some jurisdictions this 
- * information will be conveyed as part of the authentication 
- * token.</p>
  * 
  * <p>MFMI_MT700711CA.Location: *a1:created at</p>
  * 
@@ -60,43 +54,150 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * required if authorization does not cover this 
  * participation.</p>
  * 
+ * <p>Indicates where paper records may be located, and may be 
+ * important to determining authorization.</p><p>The 
+ * association is optional because in some jurisdictions this 
+ * information will be conveyed as part of the authentication 
+ * token.</p>
+ * 
  * <p>Indicates the service delivery location where the event 
  * occurred.</p>
- * 
- * <p>Indicates where paper records may be located, and may be 
- * important to determining authorization.</p><p>The 
- * association is optional because in some jurisdictions this 
- * information will be conveyed as part of the authentication 
- * token.</p>
- * 
- * <p>Indicates where paper records may be located, and may be 
- * important to determining authorization.</p><p>The 
- * association is optional because in some jurisdictions this 
- * information will be conveyed as part of the authentication 
- * token.</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Location","MFMI_MT700751CA.Location","PRPM_MT301010CA.Location","PRPM_MT303010CA.Location","REPC_MT500001CA.Location2","REPC_MT500002CA.Location2","REPC_MT500004CA.Location2"})
 public class CreatedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
     private INT sequenceNumber = new INTImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500002CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500004CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
     public ServiceDeliveryLocationBean getServiceDeliveryLocation() {
         return this.serviceDeliveryLocation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500002CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500004CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setServiceDeliveryLocation(ServiceDeliveryLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
     }
 
 
     /**
-     * <p>OrderOfServiceDeliveryLocations</p>
+     * <p>Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Order of Service Delivery Locations</p>
+     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows each Service Delivery Location to be sequentially 
+     * listed.</p>
+     * 
+     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
@@ -107,9 +208,22 @@ public class CreatedAtBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrderOfServiceDeliveryLocations</p>
+     * <p>Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Order of Service Delivery Locations</p>
+     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows each Service Delivery Location to be sequentially 
+     * listed.</p>
+     * 
+     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>

@@ -27,58 +27,86 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ConsentGivenTo</p>
+ * <p>Business Name: ConsentGivenTo</p>
  * 
  * <p>RCMR_MT010001CA.Receiver: *consent given to</p>
- * 
- * <p>Identifies the beneficiary of the consent as being a 
- * Provider or Service Location.</p>
  * 
  * <p>Indicates who is being authorized to receive the 
  * information, and is therefore populated.</p>
  * 
- * <p>COCT_MT470012CA.Receiver: *consent given to</p>
- * 
  * <p>Identifies the beneficiary of the consent as being a 
  * Provider or Service Location.</p>
  * 
- * <p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p>
+ * <p>COCT_MT470012CA.Receiver: *consent given to</p>
  * 
  * <p>Indicates who is receiving consent to view 
  * information.</p><p>This participation is marked as 
  * &quot;populated&quot; as receiver must be specified when 
  * keyword is involved.</p>
+ * 
+ * <p>Identifies the beneficiary of the consent as being a 
+ * Provider or Service Location.</p>
  * 
  * <p>COCT_MT470002CA.Receiver: *consent given to</p>
  * 
+ * <p>Indicates who is receiving consent to view 
+ * information.</p><p>This participation is marked as 
+ * &quot;populated&quot; as receiver must be specified when 
+ * keyword is involved.</p>
+ * 
  * <p>Identifies the beneficiary of the consent as being a 
  * Provider or Service Location.</p>
- * 
- * <p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p>
- * 
- * <p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470002CA.Receiver","COCT_MT470012CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private Recipient recipient;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recipient"})
     public Recipient getRecipient() {
         return this.recipient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecipient(Recipient recipient) {
         this.recipient = recipient;
     }

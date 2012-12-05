@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Mes
 
 
 /**
- * <p>FICR_IN404001CA: Special Authorization Additional 
- * Information Reque</p>
+ * <p>Business Name: FICR_IN404001CA: Special Authorization 
+ * Additional Information Reque</p>
+ * 
+ * <p>Indicates that the Payor requires additional information 
+ * in order to adjudicate the Special Authorization 
+ * Request.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -42,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Mes
 @Hl7PartTypeMapping({"FICR_IN404001CA"})
 public class SpecialAuthorizationAdditionalInformationRequeBean extends HL7Message_1Bean<TriggerEventBean<SpecialAuthorizationAdditionalInformationRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -39,14 +39,19 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT490102CA.RemainingLimits"})
 public class RemainingLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>Remaining Fills Permitted</p>
+     * <p>Business Name: Remaining Fills Permitted</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.RemainingLimits.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
@@ -54,7 +59,12 @@ public class RemainingLimitsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Remaining Fills Permitted</p>
+     * <p>Business Name: Remaining Fills Permitted</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.RemainingLimits.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
@@ -62,7 +72,11 @@ public class RemainingLimitsBean extends MessagePartBean {
 
 
     /**
-     * <p>Remaining Quantity Supply</p>
+     * <p>Business Name: Remaining Quantity Supply</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.RemainingLimits.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -70,7 +84,11 @@ public class RemainingLimitsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Remaining Quantity Supply</p>
+     * <p>Business Name: Remaining Quantity Supply</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.RemainingLimits.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -78,7 +96,12 @@ public class RemainingLimitsBean extends MessagePartBean {
 
 
     /**
-     * <p>Remaining Days Supply</p>
+     * <p>Business Name: Remaining Days Supply</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.RemainingLimits.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -86,7 +109,12 @@ public class RemainingLimitsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Remaining Days Supply</p>
+     * <p>Business Name: Remaining Days Supply</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.RemainingLimits.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);

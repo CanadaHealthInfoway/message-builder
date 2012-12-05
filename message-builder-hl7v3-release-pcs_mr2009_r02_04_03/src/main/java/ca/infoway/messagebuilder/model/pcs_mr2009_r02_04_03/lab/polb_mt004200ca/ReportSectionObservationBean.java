@@ -47,7 +47,7 @@ import java.util.Set;
 
 
 /**
- * <p>Report Section Observation</p>
+ * <p>Business Name: Report Section Observation</p>
  * 
  * <p>Any report sections reported at the header or report 
  * level (not specific to a specimen or diagnosis).</p>
@@ -55,7 +55,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ReportLevelObservationEvent"})
 public class ReportSectionObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -65,7 +65,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Section Identifier</p>
+     * <p>Business Name: Section Identifier</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Unique identifier for a section of the report at the 
      * ObservationReport level.</p>
@@ -76,7 +81,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Section Identifier</p>
+     * <p>Business Name: Section Identifier</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Unique identifier for a section of the report at the 
      * ObservationReport level.</p>
@@ -87,7 +97,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Report Section Observation Type</p>
+     * <p>Business Name: Report Section Observation Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Specifies the type of report section.</p>
      */
@@ -97,7 +112,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Report Section Observation Type</p>
+     * <p>Business Name: Report Section Observation Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Specifies the type of report section.</p>
      */
@@ -107,7 +127,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Note Type</p>
+     * <p>Business Name: Note Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Type of comment or note.</p>
      */
@@ -117,7 +142,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Note Type</p>
+     * <p>Business Name: Note Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Type of comment or note.</p>
      */
@@ -127,7 +157,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Report Section Observation Date/Time</p>
+     * <p>Business Name: Report Section Observation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time this report section was 
      * &quot;reported&quot;.</p>
@@ -138,7 +173,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Report Section Observation Date/Time</p>
+     * <p>Business Name: Report Section Observation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time this report section was 
      * &quot;reported&quot;.</p>
@@ -149,7 +189,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Result Masking Indicator</p>
+     * <p>Business Name: Result Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -158,7 +203,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Report Section Observation Value</p>
+     * <p>Business Name: Report Section Observation Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The report section values - usually this is text-based. 
      * If a coded value applies, values must be selected from the 
@@ -170,7 +220,12 @@ public class ReportSectionObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Report Section Observation Value</p>
+     * <p>Business Name: Report Section Observation Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ReportLevelObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The report section values - usually this is text-based. 
      * If a coded value applies, values must be selected from the 

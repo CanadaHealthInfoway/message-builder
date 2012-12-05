@@ -35,54 +35,54 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>POIZ_MT030060CA.Performer: administered by</p>
  * 
- * <p>The provider who administered the vaccine.</p>
- * 
  * <p>Needed to identify who actually administered the vaccine 
  * to the patient. If the performing provider is not specified, 
  * the author is assumed to be the performing provider. This 
  * information may not always be known. As a result, this 
  * participation is required.</p>
+ * 
+ * <p>The provider who administered the vaccine.</p>
  * 
  * <p>POIZ_MT030050CA.Performer: administered by</p>
  * 
- * <p>The provider who administered the vaccine.</p>
- * 
  * <p>Needed to identify who actually administered the vaccine 
  * to the patient. If the performing provider is not specified, 
  * the author is assumed to be the performing provider. This 
  * information may not always be known. As a result, this 
  * participation is required.</p>
+ * 
+ * <p>The provider who administered the vaccine.</p>
  * 
  * <p>POIZ_MT060150CA.Performer: administered by</p>
  * 
- * <p>The provider who administered the vaccine.</p>
- * 
  * <p>Needed to identify who actually administered the vaccine 
  * to the patient. If the performing provider is not specified, 
  * the author is assumed to be the performing provider. This 
  * information may not always be known. As a result, this 
  * participation is required.</p>
  * 
- * <p>REPC_MT210002CA.Performer: *u: referred to</p>
+ * <p>The provider who administered the vaccine.</p>
  * 
- * <p>Identifies the specific provider for which the referral 
- * is to be sent.</p>
+ * <p>REPC_MT210002CA.Performer: *u: referred to</p>
  * 
  * <p>If the referral was targeted to a specific provider then 
  * the identity of the provider must be known.</p>
+ * 
+ * <p>Identifies the specific provider for which the referral 
+ * is to be sent.</p>
  * 
  * <p>REPC_MT210003CA.Performer: *u: referred to</p>
  * 
- * <p>Identifies the specific provider for which the referral 
- * is to be sent.</p>
- * 
  * <p>If the referral was targeted to a specific provider then 
  * the identity of the provider must be known.</p>
+ * 
+ * <p>Identifies the specific provider for which the referral 
+ * is to be sent.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Performer","POIZ_MT030060CA.Performer","POIZ_MT060150CA.Performer","REPC_MT210001CA.Performer","REPC_MT210002CA.Performer","REPC_MT210003CA.Performer"})
 public class AdministeredByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV modeCode = new CVImpl();
     private CV signatureCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -90,17 +90,49 @@ public class AdministeredByBean extends MessagePartBean {
 
 
     /**
-     * <p>SigningMethod</p>
+     * <p>Business Name: SigningMethod</p>
      * 
-     * <p>Signing method</p>
+     * <p>Other Business Name: SigningMethod</p>
      * 
-     * <p>A code specifying the modality by which the original 
-     * information was presented.</p>
+     * <p>Relationship: POIZ_MT030050CA.Performer.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Used to specify whether the information was initially 
      * provided verbally, (hand-)written, or electronically. As not 
      * all implementations will need to communication this 
      * information, this attribute is optional.</p>
+     * 
+     * <p>A code specifying the modality by which the original 
+     * information was presented.</p>
+     * 
+     * <p>Other Business Name: SigningMethod</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Performer.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Used to specify whether the information was initially 
+     * provided verbally, (hand-)written, or electronically. As not 
+     * all implementations will need to communication this 
+     * information, this attribute is optional.</p>
+     * 
+     * <p>A code specifying the modality by which the original 
+     * information was presented.</p>
+     * 
+     * <p>Other Business Name: SigningMethod</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Performer.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Used to specify whether the information was initially 
+     * provided verbally, (hand-)written, or electronically. As not 
+     * all implementations will need to communication this 
+     * information, this attribute is optional.</p>
+     * 
+     * <p>A code specifying the modality by which the original 
+     * information was presented.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
@@ -108,17 +140,49 @@ public class AdministeredByBean extends MessagePartBean {
     }
 
     /**
-     * <p>SigningMethod</p>
+     * <p>Business Name: SigningMethod</p>
      * 
-     * <p>Signing method</p>
+     * <p>Other Business Name: SigningMethod</p>
      * 
-     * <p>A code specifying the modality by which the original 
-     * information was presented.</p>
+     * <p>Relationship: POIZ_MT030050CA.Performer.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Used to specify whether the information was initially 
      * provided verbally, (hand-)written, or electronically. As not 
      * all implementations will need to communication this 
      * information, this attribute is optional.</p>
+     * 
+     * <p>A code specifying the modality by which the original 
+     * information was presented.</p>
+     * 
+     * <p>Other Business Name: SigningMethod</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Performer.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Used to specify whether the information was initially 
+     * provided verbally, (hand-)written, or electronically. As not 
+     * all implementations will need to communication this 
+     * information, this attribute is optional.</p>
+     * 
+     * <p>A code specifying the modality by which the original 
+     * information was presented.</p>
+     * 
+     * <p>Other Business Name: SigningMethod</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Performer.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Used to specify whether the information was initially 
+     * provided verbally, (hand-)written, or electronically. As not 
+     * all implementations will need to communication this 
+     * information, this attribute is optional.</p>
+     * 
+     * <p>A code specifying the modality by which the original 
+     * information was presented.</p>
      */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
@@ -126,19 +190,55 @@ public class AdministeredByBean extends MessagePartBean {
 
 
     /**
-     * <p>SignatureCode</p>
+     * <p>Business Name: SignatureCode</p>
      * 
-     * <p>Signature Code</p>
+     * <p>Other Business Name: SignatureCode</p>
      * 
-     * <p>A code specifying whether and how the participant has 
-     * attested his participation through a signature and or 
-     * whether such a signature is needed.</p>
+     * <p>Relationship: POIZ_MT030050CA.Performer.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows for communicating whether a the provider has 
      * digitally signed their signature. Strong, trusted 
      * authentication of the submitting author is sufficient to 
      * remove the need for digital signatures. As a result, this 
      * attribute is optional.</p>
+     * 
+     * <p>A code specifying whether and how the participant has 
+     * attested his participation through a signature and or 
+     * whether such a signature is needed.</p>
+     * 
+     * <p>Other Business Name: SignatureCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Performer.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for communicating whether a the provider has 
+     * digitally signed their signature. Strong, trusted 
+     * authentication of the submitting author is sufficient to 
+     * remove the need for digital signatures. As a result, this 
+     * attribute is optional.</p>
+     * 
+     * <p>A code specifying whether and how the participant has 
+     * attested his participation through a signature and or 
+     * whether such a signature is needed.</p>
+     * 
+     * <p>Other Business Name: SignatureCode</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Performer.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for communicating whether a the provider has 
+     * digitally signed their signature. Strong, trusted 
+     * authentication of the submitting author is sufficient to 
+     * remove the need for digital signatures. As a result, this 
+     * attribute is optional.</p>
+     * 
+     * <p>A code specifying whether and how the participant has 
+     * attested his participation through a signature and or 
+     * whether such a signature is needed.</p>
      */
     @Hl7XmlMapping({"signatureCode"})
     public ParticipationSignature getSignatureCode() {
@@ -146,19 +246,55 @@ public class AdministeredByBean extends MessagePartBean {
     }
 
     /**
-     * <p>SignatureCode</p>
+     * <p>Business Name: SignatureCode</p>
      * 
-     * <p>Signature Code</p>
+     * <p>Other Business Name: SignatureCode</p>
      * 
-     * <p>A code specifying whether and how the participant has 
-     * attested his participation through a signature and or 
-     * whether such a signature is needed.</p>
+     * <p>Relationship: POIZ_MT030050CA.Performer.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows for communicating whether a the provider has 
      * digitally signed their signature. Strong, trusted 
      * authentication of the submitting author is sufficient to 
      * remove the need for digital signatures. As a result, this 
      * attribute is optional.</p>
+     * 
+     * <p>A code specifying whether and how the participant has 
+     * attested his participation through a signature and or 
+     * whether such a signature is needed.</p>
+     * 
+     * <p>Other Business Name: SignatureCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Performer.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for communicating whether a the provider has 
+     * digitally signed their signature. Strong, trusted 
+     * authentication of the submitting author is sufficient to 
+     * remove the need for digital signatures. As a result, this 
+     * attribute is optional.</p>
+     * 
+     * <p>A code specifying whether and how the participant has 
+     * attested his participation through a signature and or 
+     * whether such a signature is needed.</p>
+     * 
+     * <p>Other Business Name: SignatureCode</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Performer.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for communicating whether a the provider has 
+     * digitally signed their signature. Strong, trusted 
+     * authentication of the submitting author is sufficient to 
+     * remove the need for digital signatures. As a result, this 
+     * attribute is optional.</p>
+     * 
+     * <p>A code specifying whether and how the participant has 
+     * attested his participation through a signature and or 
+     * whether such a signature is needed.</p>
      */
     public void setSignatureCode(ParticipationSignature signatureCode) {
         this.signatureCode.setValue(signatureCode);
@@ -166,9 +302,18 @@ public class AdministeredByBean extends MessagePartBean {
 
 
     /**
-     * <p>DigitalSignature</p>
+     * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for recording the signature of the performing 
+     * provider. Strong, trusted authentication of the submitting 
+     * author is sufficient to remove the need for digital 
+     * signatures. As a result, this attribute is optional.</p>
      * 
      * <p>A textual or multimedia depiction of the signature by 
      * which the participant endorses his or her participation in 
@@ -176,10 +321,39 @@ public class AdministeredByBean extends MessagePartBean {
      * he or she agrees to assume the associated 
      * accountability.</p>
      * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>Allows for recording the signature of the performing 
      * provider. Strong, trusted authentication of the submitting 
      * author is sufficient to remove the need for digital 
      * signatures. As a result, this attribute is optional.</p>
+     * 
+     * <p>A textual or multimedia depiction of the signature by 
+     * which the participant endorses his or her participation in 
+     * the Act as specified in the Participation.typeCode and that 
+     * he or she agrees to assume the associated 
+     * accountability.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for recording the signature of the performing 
+     * provider. Strong, trusted authentication of the submitting 
+     * author is sufficient to remove the need for digital 
+     * signatures. As a result, this attribute is optional.</p>
+     * 
+     * <p>A textual or multimedia depiction of the signature by 
+     * which the participant endorses his or her participation in 
+     * the Act as specified in the Participation.typeCode and that 
+     * he or she agrees to assume the associated 
+     * accountability.</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
@@ -187,9 +361,18 @@ public class AdministeredByBean extends MessagePartBean {
     }
 
     /**
-     * <p>DigitalSignature</p>
+     * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for recording the signature of the performing 
+     * provider. Strong, trusted authentication of the submitting 
+     * author is sufficient to remove the need for digital 
+     * signatures. As a result, this attribute is optional.</p>
      * 
      * <p>A textual or multimedia depiction of the signature by 
      * which the participant endorses his or her participation in 
@@ -197,21 +380,124 @@ public class AdministeredByBean extends MessagePartBean {
      * he or she agrees to assume the associated 
      * accountability.</p>
      * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>Allows for recording the signature of the performing 
      * provider. Strong, trusted authentication of the submitting 
      * author is sufficient to remove the need for digital 
      * signatures. As a result, this attribute is optional.</p>
+     * 
+     * <p>A textual or multimedia depiction of the signature by 
+     * which the participant endorses his or her participation in 
+     * the Act as specified in the Participation.typeCode and that 
+     * he or she agrees to assume the associated 
+     * accountability.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for recording the signature of the performing 
+     * provider. Strong, trusted authentication of the submitting 
+     * author is sufficient to remove the need for digital 
+     * signatures. As a result, this attribute is optional.</p>
+     * 
+     * <p>A textual or multimedia depiction of the signature by 
+     * which the participant endorses his or her participation in 
+     * the Act as specified in the Participation.typeCode and that 
+     * he or she agrees to assume the associated 
+     * accountability.</p>
      */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }

@@ -33,32 +33,36 @@ import java.util.List;
 
 
 /**
- * <p>Territorial Authority</p>
- * 
- * <p>RoleClass necessary to support the Jurisdiction within 
- * which the scoping organization exists</p>
+ * <p>Business Name: Territorial Authority</p>
  * 
  * <p>Supports business requirement to provide additional 
  * information regarding the jurisdication within the scoping 
  * organization exists.</p>
+ * 
+ * <p>RoleClass necessary to support the Jurisdiction within 
+ * which the scoping organization exists</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV territoryCode = new CVImpl();
     private List<PartBean> part = new ArrayList<PartBean>();
 
 
     /**
-     * <p>Territorial Authority Type</p>
+     * <p>Business Name: Territorial Authority Type</p>
      * 
-     * <p>The code identifying the specific Territorial 
-     * Authority</p>
+     * <p>Relationship: PRPM_MT306011CA.TerritorialAuthority.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider</p>
+     * 
+     * <p>The code identifying the specific Territorial 
+     * Authority</p>
      */
     @Hl7XmlMapping({"code"})
     public RoleCode getCode() {
@@ -66,13 +70,17 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Territorial Authority Type</p>
+     * <p>Business Name: Territorial Authority Type</p>
      * 
-     * <p>The code identifying the specific Territorial 
-     * Authority</p>
+     * <p>Relationship: PRPM_MT306011CA.TerritorialAuthority.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider</p>
+     * 
+     * <p>The code identifying the specific Territorial 
+     * Authority</p>
      */
     public void setCode(RoleCode code) {
         this.code.setValue(code);
@@ -80,20 +88,21 @@ public class TerritorialAuthorityBean extends MessagePartBean {
 
 
     /**
-     * <p>Jurisdiction Type</p>
+     * <p>Business Name: Jurisdiction Type</p>
      * 
-     * <p>A character value that represents the Canadian provincial 
-     * or territorial geographical area within which the Provider 
-     * is operating.</p>
+     * <p>Relationship: PRPM_MT306011CA.Jurisdiction.code</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p><p>.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider</p><p>.</p>
      * 
      * <p>If Jurisdiction is included in the message, then 
      * Territorial Authority Type is Expected to Exist</p>
+     * 
+     * <p>A character value that represents the Canadian provincial 
+     * or territorial geographical area within which the Provider 
+     * is operating.</p>
      */
     @Hl7XmlMapping({"territory/code"})
     public PlaceEntityType getTerritoryCode() {
@@ -101,26 +110,32 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Jurisdiction Type</p>
+     * <p>Business Name: Jurisdiction Type</p>
      * 
-     * <p>A character value that represents the Canadian provincial 
-     * or territorial geographical area within which the Provider 
-     * is operating.</p>
+     * <p>Relationship: PRPM_MT306011CA.Jurisdiction.code</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p><p>.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider</p><p>.</p>
      * 
      * <p>If Jurisdiction is included in the message, then 
      * Territorial Authority Type is Expected to Exist</p>
+     * 
+     * <p>A character value that represents the Canadian provincial 
+     * or territorial geographical area within which the Provider 
+     * is operating.</p>
      */
     public void setTerritoryCode(PlaceEntityType territoryCode) {
         this.territoryCode.setValue(territoryCode);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.TerritorialAuthority.part</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
+     */
     @Hl7XmlMapping({"part"})
     public List<PartBean> getPart() {
         return this.part;

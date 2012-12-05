@@ -28,15 +28,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>POIZ_MT030060CA.PatientRole: (no business name)</p>
  * 
- * <p>Identifies the source of the immunization information as 
- * the patient.</p>
- * 
  * <p>Useful for categorizing sources of immunization 
  * information.</p>
+ * 
+ * <p>Identifies the source of the immunization information as 
+ * the patient.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.PatientRole","POIZ_MT030060CA.PatientRole","POIZ_MT060150CA.PatientRole"})
 public class PatientRoleBean extends MessagePartBean implements InformationSourceChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -33,8 +33,18 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 public interface AdjudicatedInvoiceElementChoice {
 
 
+    /**
+     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public AllowableBean getReference1Allowable();
 
+    /**
+     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReference1Allowable(AllowableBean reference1Allowable);
 
 }

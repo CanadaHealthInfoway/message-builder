@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PreviousDispenseInformation</p>
+ * <p>Business Name: PreviousDispenseInformation</p>
  * 
  * <p>PORX_MT060190CA.SupplyEventPastSummary: Previous Dispense 
  * Information</p>
@@ -40,11 +40,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>At least one of quantity and repeatNumber must be 
  * specified.</p>
  * 
- * <p>Summarizes the dispenses that have happened against the 
- * prescription to date.</p>
- * 
  * <p>Helps in understanding the status of the prescription and 
  * evaluating compliance.</p>
+ * 
+ * <p>Summarizes the dispenses that have happened against the 
+ * prescription to date.</p>
  * 
  * <p>PORX_MT060340CA.SupplyEventPastSummary: Previous Dispense 
  * Information</p>
@@ -52,11 +52,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>At least one of quantity and repeatNumber must be 
  * specified.</p>
  * 
- * <p>Summarizes the dispenses that have happened against the 
- * prescription to date.</p>
- * 
  * <p>Helps in understanding the status of the prescription and 
  * evaluating compliance.</p>
+ * 
+ * <p>Summarizes the dispenses that have happened against the 
+ * prescription to date.</p>
  * 
  * <p>PORX_MT060160CA.SupplyEventPastSummary: Previous Dispense 
  * Information</p>
@@ -64,11 +64,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>At least one of quantity and repeatNumber must be 
  * specified.</p>
  * 
- * <p>Summarizes the dispenses that have happened against the 
- * prescription to date.</p>
- * 
  * <p>Helps in understanding the status of the prescription and 
  * evaluating compliance.</p>
+ * 
+ * <p>Summarizes the dispenses that have happened against the 
+ * prescription to date.</p>
  * 
  * <p>PORX_MT030040CA.SupplyEventPastSummary: Previous Dispense 
  * Information</p>
@@ -76,55 +76,75 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>At least one of quantity and repeatNumber must be 
  * specified.</p>
  * 
- * <p>Summarizes the dispenses that have happened against the 
- * prescription to date.</p>
- * 
  * <p>Helps in understanding the status of the prescription and 
  * evaluating compliance.</p>
+ * 
+ * <p>Summarizes the dispenses that have happened against the 
+ * prescription to date.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventPastSummary","PORX_MT060160CA.SupplyEventPastSummary","PORX_MT060190CA.SupplyEventPastSummary","PORX_MT060340CA.SupplyEventPastSummary"})
 public class PreviousDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
 
 
     /**
-     * <p>Number of Fills Made Against Rx</p>
+     * <p>Other Business Name: NumberOfFillsMadeAgainstRx</p>
      * 
-     * <p>Indicates the number of dispense events performed against 
-     * the prescription to date, including trial, partial and 
-     * complete fills.</p>
+     * <p>Relationship: 
+     * PORX_MT060190CA.SupplyEventPastSummary.repeatNumber</p>
      * 
-     * <p>Useful in tracking the progress of a prescription in 
-     * prescription.</p>
-     * 
-     * <p>A:Dispensed Fills To-date</p>
-     * 
-     * <p>Indicates the number of dispense events performed against 
-     * the prescription to date, including trial, partial and 
-     * complete fills.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Useful in tracking the progress of a prescription in 
      * prescription.</p>
      * 
-     * <p>A:Number of Fills Made Against Rx</p>
-     * 
      * <p>Indicates the number of dispense events performed against 
      * the prescription to date, including trial, partial and 
      * complete fills.</p>
+     * 
+     * <p>Other Business Name: NumberOfFillsMadeAgainstRx</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyEventPastSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Useful in tracking the progress of a prescription.</p>
      * 
-     * <p>A:Number of Fill Made Against Rx</p>
+     * <p>Indicates the number of dispense events performed against 
+     * the prescription to date, including trial, partial and 
+     * complete fills.</p>
+     * 
+     * <p>Other Business Name: NumberOfFillMadeAgainstRx</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.SupplyEventPastSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in tracking the progress of a prescription in 
+     * prescription.</p>
      * 
      * <p>Indicates the number of dispense events performed against 
      * the prescription to date, including trial, partial and 
      * complete fills.</p>
      * 
+     * <p>Other Business Name: DispensedFillsToDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SupplyEventPastSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Useful in tracking the progress of a prescription in 
      * prescription.</p>
+     * 
+     * <p>Indicates the number of dispense events performed against 
+     * the prescription to date, including trial, partial and 
+     * complete fills.</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
@@ -132,40 +152,60 @@ public class PreviousDispenseInformation_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Number of Fills Made Against Rx</p>
+     * <p>Other Business Name: NumberOfFillsMadeAgainstRx</p>
      * 
-     * <p>Indicates the number of dispense events performed against 
-     * the prescription to date, including trial, partial and 
-     * complete fills.</p>
+     * <p>Relationship: 
+     * PORX_MT060190CA.SupplyEventPastSummary.repeatNumber</p>
      * 
-     * <p>Useful in tracking the progress of a prescription in 
-     * prescription.</p>
-     * 
-     * <p>A:Dispensed Fills To-date</p>
-     * 
-     * <p>Indicates the number of dispense events performed against 
-     * the prescription to date, including trial, partial and 
-     * complete fills.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Useful in tracking the progress of a prescription in 
      * prescription.</p>
      * 
-     * <p>A:Number of Fills Made Against Rx</p>
-     * 
      * <p>Indicates the number of dispense events performed against 
      * the prescription to date, including trial, partial and 
      * complete fills.</p>
+     * 
+     * <p>Other Business Name: NumberOfFillsMadeAgainstRx</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyEventPastSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Useful in tracking the progress of a prescription.</p>
      * 
-     * <p>A:Number of Fill Made Against Rx</p>
+     * <p>Indicates the number of dispense events performed against 
+     * the prescription to date, including trial, partial and 
+     * complete fills.</p>
+     * 
+     * <p>Other Business Name: NumberOfFillMadeAgainstRx</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.SupplyEventPastSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in tracking the progress of a prescription in 
+     * prescription.</p>
      * 
      * <p>Indicates the number of dispense events performed against 
      * the prescription to date, including trial, partial and 
      * complete fills.</p>
      * 
+     * <p>Other Business Name: DispensedFillsToDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SupplyEventPastSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Useful in tracking the progress of a prescription in 
      * prescription.</p>
+     * 
+     * <p>Indicates the number of dispense events performed against 
+     * the prescription to date, including trial, partial and 
+     * complete fills.</p>
      */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
@@ -173,28 +213,55 @@ public class PreviousDispenseInformation_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>B:Total Supplied Amount</p>
+     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.SupplyEventPastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for tracking the progress of a prescription.</p>
+     * 
+     * <p>Indicates the amount of medication that has been 
+     * dispensed to date.</p>
+     * 
+     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyEventPastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for tracking the progress of a prescription</p>
      * 
      * <p>Indicates the amount of the prescribed medication that 
      * has been dispensed to-date.</p>
      * 
+     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.SupplyEventPastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Useful for tracking the progress of a prescription</p>
      * 
-     * <p>B:Dispensed Quantity To-date</p>
+     * <p>Indicates the amount of the prescribed medication that 
+     * has been dispensed to-date.</p>
+     * 
+     * <p>Other Business Name: DispensedQuantityToDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SupplyEventPastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for tracking the progress of a prescription</p>
      * 
      * <p>Depending on the Dispense Aggregate Information Type, 
      * this field would contain one of Remaining Total Quantity, 
      * First Quantity Dispensed, Last Quantity Dispensed, or Total 
      * Supplied Amount.</p>
-     * 
-     * <p>Useful for tracking the progress of a prescription</p>
-     * 
-     * <p>Total Supplied Amount</p>
-     * 
-     * <p>Indicates the amount of medication that has been 
-     * dispensed to date.</p>
-     * 
-     * <p>Useful for tracking the progress of a prescription.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -202,28 +269,55 @@ public class PreviousDispenseInformation_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Total Supplied Amount</p>
+     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.SupplyEventPastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for tracking the progress of a prescription.</p>
+     * 
+     * <p>Indicates the amount of medication that has been 
+     * dispensed to date.</p>
+     * 
+     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyEventPastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for tracking the progress of a prescription</p>
      * 
      * <p>Indicates the amount of the prescribed medication that 
      * has been dispensed to-date.</p>
      * 
+     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.SupplyEventPastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Useful for tracking the progress of a prescription</p>
      * 
-     * <p>B:Dispensed Quantity To-date</p>
+     * <p>Indicates the amount of the prescribed medication that 
+     * has been dispensed to-date.</p>
+     * 
+     * <p>Other Business Name: DispensedQuantityToDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SupplyEventPastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful for tracking the progress of a prescription</p>
      * 
      * <p>Depending on the Dispense Aggregate Information Type, 
      * this field would contain one of Remaining Total Quantity, 
      * First Quantity Dispensed, Last Quantity Dispensed, or Total 
      * Supplied Amount.</p>
-     * 
-     * <p>Useful for tracking the progress of a prescription</p>
-     * 
-     * <p>Total Supplied Amount</p>
-     * 
-     * <p>Indicates the amount of medication that has been 
-     * dispensed to date.</p>
-     * 
-     * <p>Useful for tracking the progress of a prescription.</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);

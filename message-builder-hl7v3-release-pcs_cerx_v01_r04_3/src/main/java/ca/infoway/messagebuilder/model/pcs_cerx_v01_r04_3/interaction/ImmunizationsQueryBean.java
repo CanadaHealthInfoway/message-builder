@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.poiz_mt06
 
 
 /**
- * <p>POIZ_IN020010CA: Immunizations query</p>
+ * <p>Business Name: POIZ_IN020010CA: Immunizations query</p>
+ * 
+ * <p>Requests retrieval of detailed information about a 
+ * patient's immunizations, potentially filtered by time-range 
+ * of the immunization, time-range the immunization was last 
+ * updated, and/or type of immunization.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.poiz_mt06
 @Hl7PartTypeMapping({"POIZ_IN020010CA"})
 public class ImmunizationsQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

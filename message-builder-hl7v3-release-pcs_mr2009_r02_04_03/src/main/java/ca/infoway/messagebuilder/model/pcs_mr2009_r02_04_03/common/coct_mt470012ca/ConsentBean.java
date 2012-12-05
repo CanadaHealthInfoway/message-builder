@@ -45,23 +45,10 @@ import java.util.Date;
 
 
 /**
- * <p>Consent</p>
+ * <p>Business Name: Consent</p>
  * 
  * <p>One and only one of author2 (Consenter) and author1 
  * (Provider) must be specified.</p>
- * 
- * <p>Information pertaining to a patient's (or client or 
- * provider) agreement/acceptance to have his/her clinical or 
- * demographic information electronically stored and 
- * shared.</p>
- * 
- * <p>Provides authorization to record and/or view patient, 
- * client, or provider information.</p><p>Indicates the consent 
- * or keyword used to authorize access or update, including a 
- * reason for access; May also be used to override access 
- * restriction to the information ('break the glass') on a 
- * message by message basis. May be required on a Prescription 
- * Request to indicate a keyword for DUR processing.</p>
  * 
  * <p>Provides authorization to record and/or view patient, 
  * client, or provider information.</p><p>Indicates the consent 
@@ -73,12 +60,17 @@ import java.util.Date;
  * 
  * <p>The keywords will not be passed from prescriber to 
  * dispenser by the DIS.</p>
+ * 
+ * <p>Information pertaining to a patient's (or client or 
+ * provider) agreement/acceptance to have his/her clinical or 
+ * demographic information electronically stored and 
+ * shared.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470012CA.ConsentEvent"})
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -89,15 +81,19 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>Business Name: D:Consent Form Number</p>
      * 
-     * <p>A unique identifier for a specific consent for a patient, 
-     * client or provider.</p>
+     * <p>Relationship: COCT_MT470012CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Authorization.formNumber</p>
      * 
      * <p>Provides a traceable audit link between a physical 
      * consent form and its electronic record</p>
+     * 
+     * <p>A unique identifier for a specific consent for a patient, 
+     * client or provider.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -105,15 +101,19 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>Business Name: D:Consent Form Number</p>
      * 
-     * <p>A unique identifier for a specific consent for a patient, 
-     * client or provider.</p>
+     * <p>Relationship: COCT_MT470012CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Authorization.formNumber</p>
      * 
      * <p>Provides a traceable audit link between a physical 
      * consent form and its electronic record</p>
+     * 
+     * <p>A unique identifier for a specific consent for a patient, 
+     * client or provider.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -121,15 +121,19 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Business Name: C:Consent Effective and End Time</p>
      * 
-     * <p>Indicates the time that the consent will expire. 'Low' is 
-     * effective time and 'High' is end time.</p>
+     * <p>Relationship: COCT_MT470012CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Authorization.endTime (high)</p>
      * 
      * <p>Most consents are not open-ended, to ensure the patient, 
      * client, or provider retains a level of control.</p>
+     * 
+     * <p>Indicates the time that the consent will expire. 'Low' is 
+     * effective time and 'High' is end time.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -137,15 +141,19 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Business Name: C:Consent Effective and End Time</p>
      * 
-     * <p>Indicates the time that the consent will expire. 'Low' is 
-     * effective time and 'High' is end time.</p>
+     * <p>Relationship: COCT_MT470012CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Authorization.endTime (high)</p>
      * 
      * <p>Most consents are not open-ended, to ensure the patient, 
      * client, or provider retains a level of control.</p>
+     * 
+     * <p>Indicates the time that the consent will expire. 'Low' is 
+     * effective time and 'High' is end time.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -153,21 +161,23 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Consent Override Reason</p>
+     * <p>Business Name: E:Consent Override Reason</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>If author1 (provider) is specified, reason code must be 
      * specified.</p>
      * 
-     * <p>Indicates a reason for overriding a patient's (or client 
-     * or provider) consent rules.</p>
+     * <p>Authorization.reason (mnemonic)</p>
      * 
-     * <p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p>
-     * 
-     * <p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p>
+     * <p>Authorization.comment (original text)</p>
      * 
      * <p>Important for audit purposes</p>
+     * 
+     * <p>Indicates a reason for overriding a patient's (or client 
+     * or provider) consent rules.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ActConsentInformationAccessOverrideReason getReasonCode() {
@@ -175,32 +185,44 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Consent Override Reason</p>
+     * <p>Business Name: E:Consent Override Reason</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>If author1 (provider) is specified, reason code must be 
      * specified.</p>
      * 
-     * <p>Indicates a reason for overriding a patient's (or client 
-     * or provider) consent rules.</p>
+     * <p>Authorization.reason (mnemonic)</p>
      * 
-     * <p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p>
-     * 
-     * <p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p>
+     * <p>Authorization.comment (original text)</p>
      * 
      * <p>Important for audit purposes</p>
+     * 
+     * <p>Indicates a reason for overriding a patient's (or client 
+     * or provider) consent rules.</p>
      */
     public void setReasonCode(ActConsentInformationAccessOverrideReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470012CA.Subject.subjectChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject1/subjectChoice"})
     public SubjectChoice getSubject1SubjectChoice() {
         return this.subject1SubjectChoice;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470012CA.Subject.subjectChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject1SubjectChoice(SubjectChoice subject1SubjectChoice) {
         this.subject1SubjectChoice = subject1SubjectChoice;
     }
@@ -251,11 +273,21 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470012CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author2/assignedEntity"})
     public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean getAuthor2AssignedEntity() {
         return this.author2AssignedEntity;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470012CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthor2AssignedEntity(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean author2AssignedEntity) {
         this.author2AssignedEntity = author2AssignedEntity;
     }

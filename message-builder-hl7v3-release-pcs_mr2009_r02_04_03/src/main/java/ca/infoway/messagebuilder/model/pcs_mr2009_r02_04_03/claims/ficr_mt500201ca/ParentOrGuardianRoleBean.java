@@ -35,17 +35,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p></p>
+ */
 @Hl7PartTypeMapping({"FICR_MT500201CA.ParentOrGuardianRole"})
 public class ParentOrGuardianRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN relationshipHolderName = new PNImpl();
 
 
     /**
-     * <p>Id of parent</p>
+     * <p>Business Name: Id of parent</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ParentOrGuardianRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -53,7 +60,11 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Id of parent</p>
+     * <p>Business Name: Id of parent</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ParentOrGuardianRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -61,7 +72,11 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Parent or Guardian Relationship to patient</p>
+     * <p>Business Name: Parent or Guardian Relationship to patient</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ParentOrGuardianRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public PersonalRelationshipRoleType getCode() {
@@ -69,7 +84,11 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Parent or Guardian Relationship to patient</p>
+     * <p>Business Name: Parent or Guardian Relationship to patient</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ParentOrGuardianRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(PersonalRelationshipRoleType code) {
         this.code.setValue(code);
@@ -77,7 +96,11 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Name of Parent or Guardian</p>
+     * <p>Business Name: Name of Parent or Guardian</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ParentOrGuardian.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
     public PersonName getRelationshipHolderName() {
@@ -85,7 +108,11 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Name of Parent or Guardian</p>
+     * <p>Business Name: Name of Parent or Guardian</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ParentOrGuardian.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setRelationshipHolderName(PersonName relationshipHolderName) {
         this.relationshipHolderName.setValue(relationshipHolderName);

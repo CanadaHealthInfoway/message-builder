@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.ra.rcmr_mt010001ca.C
 
 
 /**
- * <p>RCMR_IN010003CA: Record consent or override request</p>
+ * <p>Business Name: RCMR_IN010003CA: Record consent or 
+ * override request</p>
+ * 
+ * <p>Requests that a consent, revocation of consent or consent 
+ * override be recorded for a particular patient.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.ra.rcmr_mt010001ca.C
 @Hl7PartTypeMapping({"RCMR_IN010003CA"})
 public class RecordConsentOrOverrideRequestBean extends HL7Message_1Bean<TriggerEventBean<ConsentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.cr.merged.Identified
 
 
 /**
- * <p>PRPA_IN101202CA: Person Create Event Accept</p>
+ * <p>Business Name: PRPA_IN101202CA: Person Create Event 
+ * Accept</p>
+ * 
+ * <p>A person registry accepts a request to add a record and 
+ * responds back to the requesting application. The payload 
+ * contains the identifier assigned to the new person 
+ * record.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.cr.merged.Identified
 @Hl7PartTypeMapping({"PRPA_IN101202CA"})
 public class PersonCreateEventAcceptBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

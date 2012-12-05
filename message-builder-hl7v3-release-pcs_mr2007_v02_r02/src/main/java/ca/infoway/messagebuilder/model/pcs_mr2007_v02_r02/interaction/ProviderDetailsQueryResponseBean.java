@@ -30,7 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt306011ca.Rol
 
 
 /**
- * <p>PRPM_IN306011CA: Provider Details Query Response</p>
+ * <p>Business Name: PRPM_IN306011CA: Provider Details Query 
+ * Response</p>
+ * 
+ * <p>This interaction is used to respond to an Provider 
+ * Details Query interaction and will contain the requested 
+ * records from the provider registry system.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -50,6 +55,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt306011ca.Rol
 @Hl7PartTypeMapping({"PRPM_IN306011CA"})
 public class ProviderDetailsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

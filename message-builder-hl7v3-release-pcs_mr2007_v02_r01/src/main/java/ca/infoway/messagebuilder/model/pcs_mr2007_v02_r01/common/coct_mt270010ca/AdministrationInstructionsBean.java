@@ -58,33 +58,29 @@ import java.util.Set;
 
 
 /**
- * <p>Administration Instructions</p>
+ * <p>Business Name: Administration Instructions</p>
  * 
  * <p>routeCode is mandatory and apporachSiteCode is required 
- * if not using SNOMED</p><p>- moodCode must be DEFN for drug 
- * definitions (such as monographs) - moodCode must be RQO for 
- * orders; - moodCode must be EVN for dispenses and recording 
- * of other medications</p>
+ * if not using SNOMED</p>
  * 
- * <p>routeCode is mandatory and apporachSiteCode is required 
- * if not using SNOMED</p><p>- moodCode must be DEFN for drug 
- * definitions (such as monographs) - moodCode must be RQO for 
- * orders; - moodCode must be EVN for dispenses and recording 
- * of other medications</p>
- * 
- * <p>This comprises all specifications necessary for the 
- * dispensed product to be administered to/by the patient in a 
- * manner as intended by the prescriber.</p>
+ * <p>- moodCode must be DEFN for drug definitions (such as 
+ * monographs) - moodCode must be RQO for orders; - moodCode 
+ * must be EVN for dispenses and recording of other 
+ * medications</p>
  * 
  * <p>Allows providers to communicate intentions and to 
  * cross-check intended and actual methods of 
  * administration.</p>
+ * 
+ * <p>This comprises all specifications necessary for the 
+ * dispensed product to be administered to/by the patient in a 
+ * manner as intended by the prescriber.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT270010CA.DosageInstruction"})
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -99,38 +95,21 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>Business Name: Dosage Usage Context</p>
      * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.moodCode</p>
      * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
-     * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
-     * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p>
      */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodDefEvnRqo getMoodCode() {
@@ -138,38 +117,21 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>Business Name: Dosage Usage Context</p>
      * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.moodCode</p>
      * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
-     * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
-     * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p>
      */
     public void setMoodCode(x_ActMoodDefEvnRqo moodCode) {
         this.moodCode.setValue(moodCode);
@@ -177,9 +139,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Type</p>
+     * <p>Business Name: Dosage Type</p>
      * 
-     * <p>Distinguishes types of dosage.</p>
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes between types of dosage administration and 
      * is therefore mandatory. Datatype is CD to allow for SNOMED 
@@ -188,6 +152,8 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * <p>For SNOMED this will pre-coordinate route, body site and 
      * potentially drug. For non-SNOMED, this will be a fixed value 
      * of DRUG.</p>
+     * 
+     * <p>Distinguishes types of dosage.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -195,9 +161,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dosage Type</p>
+     * <p>Business Name: Dosage Type</p>
      * 
-     * <p>Distinguishes types of dosage.</p>
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes between types of dosage administration and 
      * is therefore mandatory. Datatype is CD to allow for SNOMED 
@@ -206,6 +174,8 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * <p>For SNOMED this will pre-coordinate route, body site and 
      * potentially drug. For non-SNOMED, this will be a fixed value 
      * of DRUG.</p>
+     * 
+     * <p>Distinguishes types of dosage.</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
@@ -213,7 +183,19 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Business Name: C:Rendered Dosage Instruction</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses.</p><p>This 
+     * is mandatory as dosage instructions must always be available 
+     * in rendered form.</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -221,37 +203,6 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * 'Textual rendition of the structured dosage lines', plus 
      * route, dosage unit, and other pertinent administration 
      * information specified by the provider.</p>
-     * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -259,7 +210,19 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Business Name: C:Rendered Dosage Instruction</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses.</p><p>This 
+     * is mandatory as dosage instructions must always be available 
+     * in rendered form.</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -267,37 +230,6 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * 'Textual rendition of the structured dosage lines', plus 
      * route, dosage unit, and other pertinent administration 
      * information specified by the provider.</p>
-     * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -305,38 +237,18 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Administration Period</p>
+     * <p>Business Name: A:Administration Period</p>
      * 
-     * <p>The time period (begin and end dates) within which the 
-     * dispensed medication is to be completely administered to/by 
-     * the patient. May differ from date prescription was 
-     * issued.</p>
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.effectiveTime</p>
      * 
-     * <p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p>
+     * <p>Prescription.Admin istrationStartDate (Low)</p>
      * 
-     * <p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p>
+     * <p>Prescription.Admin istrationStopDate (High)</p>
      * 
-     * <p>Indicates the overall time boundaries in which the person 
-     * is expected to take the drug. Denotes the reference point 
-     * for calculating expected exhaustion date and quantity on 
-     * hand.</p><p>Facilitates compliance checking.</p><p>Note: TID 
-     * may be interpreted differently based on situation (e.g. 
-     * based on schedules of a facility).</p>
-     * 
-     * <p>Indicates the overall time boundaries in which the person 
-     * is expected to take the drug. Denotes the reference point 
-     * for calculating expected exhaustion date and quantity on 
-     * hand.</p><p>Facilitates compliance checking.</p><p>Note: TID 
-     * may be interpreted differently based on situation (e.g. 
-     * based on schedules of a facility).</p>
+     * <p>DispensedItem.expectedStartDate</p>
      * 
      * <p>Indicates the overall time boundaries in which the person 
      * is expected to take the drug. Denotes the reference point 
@@ -349,6 +261,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * specified. E.g. 100mg tid for 10 days. In that case, the 
      * start date is presumed to be the date the prescription was 
      * written</p>
+     * 
+     * <p>The time period (begin and end dates) within which the 
+     * dispensed medication is to be completely administered to/by 
+     * the patient. May differ from date prescription was 
+     * issued.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -356,38 +273,18 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Administration Period</p>
+     * <p>Business Name: A:Administration Period</p>
      * 
-     * <p>The time period (begin and end dates) within which the 
-     * dispensed medication is to be completely administered to/by 
-     * the patient. May differ from date prescription was 
-     * issued.</p>
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.effectiveTime</p>
      * 
-     * <p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p>
+     * <p>Prescription.Admin istrationStartDate (Low)</p>
      * 
-     * <p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p>
+     * <p>Prescription.Admin istrationStopDate (High)</p>
      * 
-     * <p>Indicates the overall time boundaries in which the person 
-     * is expected to take the drug. Denotes the reference point 
-     * for calculating expected exhaustion date and quantity on 
-     * hand.</p><p>Facilitates compliance checking.</p><p>Note: TID 
-     * may be interpreted differently based on situation (e.g. 
-     * based on schedules of a facility).</p>
-     * 
-     * <p>Indicates the overall time boundaries in which the person 
-     * is expected to take the drug. Denotes the reference point 
-     * for calculating expected exhaustion date and quantity on 
-     * hand.</p><p>Facilitates compliance checking.</p><p>Note: TID 
-     * may be interpreted differently based on situation (e.g. 
-     * based on schedules of a facility).</p>
+     * <p>DispensedItem.expectedStartDate</p>
      * 
      * <p>Indicates the overall time boundaries in which the person 
      * is expected to take the drug. Denotes the reference point 
@@ -400,6 +297,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * specified. E.g. 100mg tid for 10 days. In that case, the 
      * start date is presumed to be the date the prescription was 
      * written</p>
+     * 
+     * <p>The time period (begin and end dates) within which the 
+     * dispensed medication is to be completely administered to/by 
+     * the patient. May differ from date prescription was 
+     * issued.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -407,23 +309,27 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Route Code</p>
+     * <p>Business Name: A:Route Code</p>
      * 
-     * <p>This is the means by which the dispensed drug is to be 
-     * administered to the patient.</p>
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.routeCode</p>
      * 
-     * <p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p>
+     * <p>Prescription.route</p>
      * 
-     * <p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p>
+     * <p>ZDP.14.2</p>
      * 
-     * <p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p>
+     * <p>Compound.452-E8</p>
+     * 
+     * <p>RXR.1</p>
      * 
      * <p>Ensures consistency in description of routes. Provides 
      * potential for cross-checking dosage form and route. Route is 
      * an optional because it is pre-coordinated with 
      * SubstanceAdministration.code when using SNOMED.</p>
+     * 
+     * <p>This is the means by which the dispensed drug is to be 
+     * administered to the patient.</p>
      */
     @Hl7XmlMapping({"routeCode"})
     public RouteOfAdministration getRouteCode() {
@@ -431,23 +337,27 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Route Code</p>
+     * <p>Business Name: A:Route Code</p>
      * 
-     * <p>This is the means by which the dispensed drug is to be 
-     * administered to the patient.</p>
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.routeCode</p>
      * 
-     * <p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p>
+     * <p>Prescription.route</p>
      * 
-     * <p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p>
+     * <p>ZDP.14.2</p>
      * 
-     * <p>Prescription.route</p><p>ZDP.14.2</p><p>Compound.452-E8</p><p>RXR.1</p>
+     * <p>Compound.452-E8</p>
+     * 
+     * <p>RXR.1</p>
      * 
      * <p>Ensures consistency in description of routes. Provides 
      * potential for cross-checking dosage form and route. Route is 
      * an optional because it is pre-coordinated with 
      * SubstanceAdministration.code when using SNOMED.</p>
+     * 
+     * <p>This is the means by which the dispensed drug is to be 
+     * administered to the patient.</p>
      */
     public void setRouteCode(RouteOfAdministration routeCode) {
         this.routeCode.setValue(routeCode);
@@ -455,12 +365,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Administration Sites</p>
+     * <p>Business Name: Administration Sites</p>
      * 
-     * <p>A value denoting the body area where the medicine should 
-     * be administered. E.g. 'Right Elbow', 'Left Ear'. When 
-     * multiples sites are specified they should be treated as 
-     * 'AND'.</p>
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
      * 
      * <p>Allows specificity when a drug can potentially be applied 
      * to different parts of the patien's body. Multiple 
@@ -470,6 +380,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * the prescription. The attribute is optional because it can 
      * be pre-coordinated with SubstanceAdministration.code when 
      * using SNOMED.</p>
+     * 
+     * <p>A value denoting the body area where the medicine should 
+     * be administered. E.g. 'Right Elbow', 'Left Ear'. When 
+     * multiples sites are specified they should be treated as 
+     * 'AND'.</p>
      */
     @Hl7XmlMapping({"approachSiteCode"})
     public Set<HumanSubstanceAdministrationSite> getApproachSiteCode() {
@@ -478,11 +393,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Maximum Daily/Weekly Doses</p>
+     * <p>Business Name: D:Maximum Daily/Weekly Doses</p>
      * 
-     * <p>The maximum amount of the dispensed medication to be 
-     * administered to the patient in a 24-hr period (doses per 
-     * day) or in a 7 day period (doses per week).</p>
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.maxDoseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>ZPB3.5(denominator=1D)</p>
      * 
@@ -495,6 +411,10 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * constraints such as patient lifetime, menstrual cycles must 
      * be recorded using additional dosage instruction 
      * comments.</p>
+     * 
+     * <p>The maximum amount of the dispensed medication to be 
+     * administered to the patient in a 24-hr period (doses per 
+     * day) or in a 7 day period (doses per week).</p>
      */
     @Hl7XmlMapping({"maxDoseQuantity"})
     public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaxDoseQuantity() {
@@ -503,20 +423,21 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Unit</p>
+     * <p>Business Name: Dosage Unit</p>
      * 
-     * <p>Identifies how the drug is measured for 
-     * administration.</p><p>Specified when not implicit from the 
-     * drug form (e.g. puff, inhalation, drops, etc.).</p>
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.administrationUnitCode</p>
      * 
-     * <p>Identifies how the drug is measured for 
-     * administration.</p><p>Specified when not implicit from the 
-     * drug form (e.g. puff, inhalation, drops, etc.).</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Needed when the dosage unit is not expressed as part of 
      * the dose quantity (mg, mL) or implicit as part of the drug 
      * form (capsules, tablets). Examples are Puffs, Actuations, 
      * etc.</p>
+     * 
+     * <p>Identifies how the drug is measured for 
+     * administration.</p><p>Specified when not implicit from the 
+     * drug form (e.g. puff, inhalation, drops, etc.).</p>
      */
     @Hl7XmlMapping({"administrationUnitCode"})
     public AdministrableDrugForm getAdministrationUnitCode() {
@@ -524,31 +445,42 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dosage Unit</p>
+     * <p>Business Name: Dosage Unit</p>
      * 
-     * <p>Identifies how the drug is measured for 
-     * administration.</p><p>Specified when not implicit from the 
-     * drug form (e.g. puff, inhalation, drops, etc.).</p>
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.administrationUnitCode</p>
      * 
-     * <p>Identifies how the drug is measured for 
-     * administration.</p><p>Specified when not implicit from the 
-     * drug form (e.g. puff, inhalation, drops, etc.).</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Needed when the dosage unit is not expressed as part of 
      * the dose quantity (mg, mL) or implicit as part of the drug 
      * form (capsules, tablets). Examples are Puffs, Actuations, 
      * etc.</p>
+     * 
+     * <p>Identifies how the drug is measured for 
+     * administration.</p><p>Specified when not implicit from the 
+     * drug form (e.g. puff, inhalation, drops, etc.).</p>
      */
     public void setAdministrationUnitCode(AdministrableDrugForm administrationUnitCode) {
         this.administrationUnitCode.setValue(administrationUnitCode);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication1"})
     public Medication getConsumableMedication1() {
         return this.consumableMedication1;
     }
 
+    /**
+     * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsumableMedication1(Medication consumableMedication1) {
         this.consumableMedication1 = consumableMedication1;
     }
@@ -582,16 +514,34 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT270010CA.Component.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/supplementalInstruction"})
     public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
         return this.component1SupplementalInstruction;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT270010CA.Component.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
         this.component1SupplementalInstruction = component1SupplementalInstruction;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.component2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"component2"})
     public List<ConsistsOfBean> getComponent2() {
         return this.component2;

@@ -29,7 +29,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.prpm_mt309000ca.R
 
 
 /**
- * <p>PRPM_IN303011CA: Update Provider Confirmation</p>
+ * <p>Business Name: PRPM_IN303011CA: Update Provider 
+ * Confirmation</p>
+ * 
+ * <p>This interaction is used to confirm the receipt of the 
+ * Update Provider Request interaction. This interaction either 
+ * confirms processing of the request and contains the 
+ * appropriate identifiers assigned by the provider registry 
+ * system; or will indicate that the request could not be 
+ * fulfilled (with supporting reasons).</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -47,6 +55,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.prpm_mt309000ca.R
 @Hl7PartTypeMapping({"PRPM_IN303011CA"})
 public class UpdateProviderConfirmationBean extends HL7Message_1Bean<TriggerEvent_4Bean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

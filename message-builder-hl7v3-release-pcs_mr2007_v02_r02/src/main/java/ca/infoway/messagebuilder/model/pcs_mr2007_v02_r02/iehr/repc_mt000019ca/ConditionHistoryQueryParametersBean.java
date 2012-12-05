@@ -31,29 +31,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Condition History Query Parameters</p>
+ * <p>Business Name: Condition History Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000019CA.ParameterList"})
 @Hl7RootType
 public class ConditionHistoryQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II allergyIntoleranceIDValue = new IIImpl();
 
 
     /**
-     * <p>F:Allergy Intolerance Identifier</p>
+     * <p>Business Name: F:Allergy Intolerance Identifier</p>
      * 
-     * <p>Identifier of the Allergy Intolerance record to be 
-     * retrieved.</p>
+     * <p>Relationship: REPC_MT000019CA.AllergyIntoleranceID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the specific allergy intolerance record to 
      * retrieve and is therefore mandatory.</p>
+     * 
+     * <p>Identifier of the Allergy Intolerance record to be 
+     * retrieved.</p>
      */
     @Hl7XmlMapping({"allergyIntoleranceID/value"})
     public Identifier getAllergyIntoleranceIDValue() {
@@ -61,13 +65,17 @@ public class ConditionHistoryQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Allergy Intolerance Identifier</p>
+     * <p>Business Name: F:Allergy Intolerance Identifier</p>
      * 
-     * <p>Identifier of the Allergy Intolerance record to be 
-     * retrieved.</p>
+     * <p>Relationship: REPC_MT000019CA.AllergyIntoleranceID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the specific allergy intolerance record to 
      * retrieve and is therefore mandatory.</p>
+     * 
+     * <p>Identifier of the Allergy Intolerance record to be 
+     * retrieved.</p>
      */
     public void setAllergyIntoleranceIDValue(Identifier allergyIntoleranceIDValue) {
         this.allergyIntoleranceIDValue.setValue(allergyIntoleranceIDValue);

@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.cr.prpa_mt101001ca.I
 
 
 /**
- * <p>PRPA_IN101201CA: Add Person Request</p>
+ * <p>Business Name: PRPA_IN101201CA: Add Person Request</p>
+ * 
+ * <p>This interaction occurs when a new person is to be added 
+ * to a person registry.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.cr.prpa_mt101001ca.I
 @Hl7PartTypeMapping({"PRPA_IN101201CA"})
 public class AddPersonRequestBean extends HL7Message_1Bean<TriggerEvent_4Bean<IdentifiedClientBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

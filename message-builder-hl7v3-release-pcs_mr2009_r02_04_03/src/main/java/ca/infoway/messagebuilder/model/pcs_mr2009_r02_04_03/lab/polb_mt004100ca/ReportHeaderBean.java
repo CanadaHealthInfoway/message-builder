@@ -65,24 +65,24 @@ import java.util.Set;
 
 
 /**
- * <p>Report Header</p>
- * 
- * <p>Report or result header information. Contains 
- * associations to the appropriate patient, the order and/or 
- * promise which this result fulfills, and any report-level 
- * annotations.</p>
+ * <p>Business Name: Report Header</p>
  * 
  * <p>The header allows for report-level observations, the 
  * association to the patient (in this model, all results in 
  * one message pertain to one patient), and the public health 
  * reportable test indicator and one or more culture 
  * observation object complexes.</p>
+ * 
+ * <p>Report or result header information. Contains 
+ * associations to the appropriate patient, the order and/or 
+ * promise which this result fulfills, and any report-level 
+ * annotations.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.ObservationReport"})
 @Hl7RootType
 public class ReportHeaderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004999ca.ResultInstancePayloadChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt001999ca.ResultChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST title = new STImpl();
@@ -105,12 +105,16 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>A:Observation Report Identifier</p>
+     * <p>Business Name: A:Observation Report Identifier</p>
      * 
-     * <p>Unique identifier for this microbiology result.</p>
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifiers are required for revisions, 
      * corrections, and cancel transactions.</p>
+     * 
+     * <p>Unique identifier for this microbiology result.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -118,12 +122,16 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>A:Observation Report Identifier</p>
+     * <p>Business Name: A:Observation Report Identifier</p>
      * 
-     * <p>Unique identifier for this microbiology result.</p>
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifiers are required for revisions, 
      * corrections, and cancel transactions.</p>
+     * 
+     * <p>Unique identifier for this microbiology result.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -131,7 +139,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Lab Observation Report Type</p>
+     * <p>Business Name: Lab Observation Report Type</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The type of this report. This is fixed to Microbiology 
      * Sensitivity Report.</p>
@@ -142,7 +154,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>Lab Observation Report Type</p>
+     * <p>Business Name: Lab Observation Report Type</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The type of this report. This is fixed to Microbiology 
      * Sensitivity Report.</p>
@@ -153,13 +169,17 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Observation Report Title</p>
+     * <p>Business Name: Observation Report Title</p>
      * 
-     * <p>This allows the reporting lab to add a title to this 
-     * result.</p>
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.title</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A report title describes or labels the general content 
      * and/or context of the result.</p>
+     * 
+     * <p>This allows the reporting lab to add a title to this 
+     * result.</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
@@ -167,13 +187,17 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>Observation Report Title</p>
+     * <p>Business Name: Observation Report Title</p>
      * 
-     * <p>This allows the reporting lab to add a title to this 
-     * result.</p>
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.title</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A report title describes or labels the general content 
      * and/or context of the result.</p>
+     * 
+     * <p>This allows the reporting lab to add a title to this 
+     * result.</p>
      */
     public void setTitle(String title) {
         this.title.setValue(title);
@@ -181,7 +205,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Rendered Report</p>
+     * <p>Business Name: Rendered Report</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This attribute is used to send a Rendered Report (or 
      * reference to) which includes only those elements in the 
@@ -193,7 +221,11 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>Rendered Report</p>
+     * <p>Business Name: Rendered Report</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This attribute is used to send a Rendered Report (or 
      * reference to) which includes only those elements in the 
@@ -205,17 +237,22 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Observation Report Status</p>
+     * <p>Business Name: Observation Report Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ObservationReport.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * act e.g. active=in progress or not yet started, 
+     * complete=final.</p>
      * 
      * <p>The status or state of the report. The statusCode is not 
      * as fine-grained as lab reporting statuses such as 
      * preliminary. A &quot;preliminary&quot; result is a result 
      * whose statusCode=active and ProcessStep (procedure event) 
      * valued &quot;preliminary&quot;.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * act e.g. active=in progress or not yet started, 
-     * complete=final.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -223,17 +260,22 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>Observation Report Status</p>
+     * <p>Business Name: Observation Report Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ObservationReport.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * act e.g. active=in progress or not yet started, 
+     * complete=final.</p>
      * 
      * <p>The status or state of the report. The statusCode is not 
      * as fine-grained as lab reporting statuses such as 
      * preliminary. A &quot;preliminary&quot; result is a result 
      * whose statusCode=active and ProcessStep (procedure event) 
      * valued &quot;preliminary&quot;.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * act e.g. active=in progress or not yet started, 
-     * complete=final.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -241,7 +283,12 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Observation Report Date/Time</p>
+     * <p>Business Name: Observation Report Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ObservationReport.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date/time this report was &quot;released&quot;.</p>
      */
@@ -251,7 +298,12 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>Observation Report Date/Time</p>
+     * <p>Business Name: Observation Report Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ObservationReport.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date/time this report was &quot;released&quot;.</p>
      */
@@ -261,7 +313,16 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Result Masking Indicator</p>
+     * <p>Business Name: Result Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ObservationReport.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>This code allows for privacy control by patients as well 
+     * as flagged for 'not for disclosure to patient' by care 
+     * providers.</p>
      * 
      * <p>Any piece of information is potentially subject to 
      * 'masking', restricting it's availability from providers who 
@@ -270,10 +331,6 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
      * direct disclosure to patient&quot;. The values in this 
      * attribute enable the above masking to be represented and 
      * messaged.</p>
-     * 
-     * <p>This code allows for privacy control by patients as well 
-     * as flagged for 'not for disclosure to patient' by care 
-     * providers.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -303,11 +360,23 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
     public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
         return this.primaryInformationRecipientAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
         this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
@@ -341,17 +410,32 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Component8.culture</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component2/culture"})
     public List<CultureGrouperObservationBean> getComponent2Culture() {
         return this.component2Culture;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

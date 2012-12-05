@@ -35,14 +35,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.ContactParty"})
 public class AdministrativeContactsSBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AdministrativeContactPersonBean contactPerson;
 
 
     /**
-     * <p>Administrative Contact ID</p>
+     * <p>Business Name: Administrative Contact ID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Not permitted to facilitate real time processing.</p>
      */
@@ -52,7 +56,11 @@ public class AdministrativeContactsSBean extends MessagePartBean {
     }
 
     /**
-     * <p>Administrative Contact ID</p>
+     * <p>Business Name: Administrative Contact ID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Not permitted to facilitate real time processing.</p>
      */
@@ -62,7 +70,11 @@ public class AdministrativeContactsSBean extends MessagePartBean {
 
 
     /**
-     * <p>Administrative Contact Type</p>
+     * <p>Business Name: Administrative Contact Type</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Not permitted to facilitate real time processing.</p>
      */
@@ -72,7 +84,11 @@ public class AdministrativeContactsSBean extends MessagePartBean {
     }
 
     /**
-     * <p>Administrative Contact Type</p>
+     * <p>Business Name: Administrative Contact Type</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Not permitted to facilitate real time processing.</p>
      */
@@ -81,11 +97,21 @@ public class AdministrativeContactsSBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT600201CA.ContactParty.contactPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"contactPerson"})
     public AdministrativeContactPersonBean getContactPerson() {
         return this.contactPerson;
     }
 
+    /**
+     * <p>Relationship: FICR_MT600201CA.ContactParty.contactPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setContactPerson(AdministrativeContactPersonBean contactPerson) {
         this.contactPerson = contactPerson;
     }

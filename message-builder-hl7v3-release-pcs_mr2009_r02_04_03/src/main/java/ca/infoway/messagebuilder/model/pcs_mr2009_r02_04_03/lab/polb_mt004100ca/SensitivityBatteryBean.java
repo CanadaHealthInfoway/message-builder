@@ -32,7 +32,7 @@ import java.util.List;
 
 
 /**
- * <p>Sensitivity Battery</p>
+ * <p>Business Name: Sensitivity Battery</p>
  * 
  * <p>This act &quot;groups&quot; all the sensitivity tests 
  * performed on a particular isolate. The battery may be made 
@@ -42,13 +42,17 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SensitivityBattery"})
 public class SensitivityBatteryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private List<AntibioticSensitivityObservationBean> componentSensitivityObservationEvent = new ArrayList<AntibioticSensitivityObservationBean>();
 
 
     /**
-     * <p>Sensitivity Battery Type</p>
+     * <p>Business Name: Sensitivity Battery Type</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.SensitivityBattery.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Generally describes the sensitivity battery being 
      * performed, e.g. viral, microbial, etc.</p>
@@ -59,7 +63,11 @@ public class SensitivityBatteryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Sensitivity Battery Type</p>
+     * <p>Business Name: Sensitivity Battery Type</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.SensitivityBattery.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Generally describes the sensitivity battery being 
      * performed, e.g. viral, microbial, etc.</p>
@@ -69,6 +77,12 @@ public class SensitivityBatteryBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component6.sensitivityObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/sensitivityObservationEvent"})
     public List<AntibioticSensitivityObservationBean> getComponentSensitivityObservationEvent() {
         return this.componentSensitivityObservationEvent;

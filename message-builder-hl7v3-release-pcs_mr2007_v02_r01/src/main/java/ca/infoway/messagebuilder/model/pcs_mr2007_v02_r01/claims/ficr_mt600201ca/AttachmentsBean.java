@@ -30,60 +30,71 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Attachments</p>
+ * <p>Business Name: Attachments</p>
+ * 
+ * <p>If this relationship is required, it may only be 
+ * specified for the Root Invoice Element Group and is not 
+ * permitted for all other Invoice Element Groups.</p><p>Look 
+ * into what HL7 is currently doing, as well as timing. Each 
+ * SIG to revisit based on HL7's work. Want the ability to send 
+ * attachments with the invoice as well as sending it upon 
+ * request. Need to ensure that the vocab in the info codes for 
+ * inv adj response supports the needed attachments.</p>
+ * 
+ * <p>Use of attachments must be pre-approved by the NeCST 
+ * Pharmacy SIG.</p><p>RxS1: Not permitted, as attachments are 
+ * not included in this scenario.</p>
  * 
  * <p>Could be used to attach a Limited Use Form or a Consent 
  * Form.</p>
- * 
- * <p>If this relationship is required, it may only be 
- * specified for the Root Invoice Element Group and is not 
- * permitted for all other Invoice Element Groups.</p><p>Look 
- * into what HL7 is currently doing, as well as timing. Each 
- * SIG to revisit based on HL7's work. Want the ability to send 
- * attachments with the invoice as well as sending it upon 
- * request. Need to ensure that the vocab in the info codes for 
- * inv adj response supports the needed attachments.</p>
- * 
- * <p>If this relationship is required, it may only be 
- * specified for the Root Invoice Element Group and is not 
- * permitted for all other Invoice Element Groups.</p><p>Look 
- * into what HL7 is currently doing, as well as timing. Each 
- * SIG to revisit based on HL7's work. Want the ability to send 
- * attachments with the invoice as well as sending it upon 
- * request. Need to ensure that the vocab in the info codes for 
- * inv adj response supports the needed attachments.</p>
- * 
- * <p>Use of attachments must be pre-approved by the NeCST 
- * Pharmacy SIG.</p><p>RxS1: Not permitted, as attachments are 
- * not included in this scenario.</p>
- * 
- * <p>Use of attachments must be pre-approved by the NeCST 
- * Pharmacy SIG.</p><p>RxS1: Not permitted, as attachments are 
- * not included in this scenario.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementGroupAttachment"})
 public class AttachmentsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private HealthDocumentAttachmentBean healthDocumentAttachment;
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupAttachment.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ActRelationshipType getTypeCode() {
         return (ActRelationshipType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupAttachment.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"healthDocumentAttachment"})
     public HealthDocumentAttachmentBean getHealthDocumentAttachment() {
         return this.healthDocumentAttachment;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setHealthDocumentAttachment(HealthDocumentAttachmentBean healthDocumentAttachment) {
         this.healthDocumentAttachment = healthDocumentAttachment;
     }

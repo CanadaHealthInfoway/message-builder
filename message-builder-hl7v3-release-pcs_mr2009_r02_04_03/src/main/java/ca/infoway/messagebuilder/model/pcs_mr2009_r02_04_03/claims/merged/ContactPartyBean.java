@@ -45,7 +45,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.ContactParty","FICR_MT500201CA.ContactParty","FICR_MT600201CA.ContactParty"})
 public class ContactPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ContactPersonBean contactPerson;
@@ -54,9 +54,19 @@ public class ContactPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>AdministrativeContactID</p>
+     * <p>Business Name: AdministrativeContactID</p>
      * 
-     * <p>Administrative Contact ID</p>
+     * <p>Other Business Name: AdministrativeContactID</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ContactParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: AdministrativeContactID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -64,9 +74,19 @@ public class ContactPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdministrativeContactID</p>
+     * <p>Business Name: AdministrativeContactID</p>
      * 
-     * <p>Administrative Contact ID</p>
+     * <p>Other Business Name: AdministrativeContactID</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ContactParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: AdministrativeContactID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -74,9 +94,23 @@ public class ContactPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>Call Back Contact Type</p>
+     * <p>Other Business Name: AdministrativeContactType</p>
      * 
-     * <p>Administrative Contact Type</p>
+     * <p>Relationship: FICR_MT500201CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdministrativeContactType</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CallBackContactType</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public AdministrativeContactRoleType getCode() {
@@ -84,29 +118,73 @@ public class ContactPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>Call Back Contact Type</p>
+     * <p>Other Business Name: AdministrativeContactType</p>
      * 
-     * <p>Administrative Contact Type</p>
+     * <p>Relationship: FICR_MT500201CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdministrativeContactType</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CallBackContactType</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(AdministrativeContactRoleType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ContactParty.contactPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.contactPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"contactPerson"})
     public ContactPersonBean getContactPerson() {
         return this.contactPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ContactParty.contactPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactParty.contactPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setContactPerson(ContactPersonBean contactPerson) {
         this.contactPerson = contactPerson;
     }
 
 
     /**
-     * <p>CallBackContactPersonName</p>
+     * <p>Business Name: CallBackContactPersonName</p>
      * 
-     * <p>Call Back Contact Person Name</p>
+     * <p>Other Business Name: CallBackContactPersonName</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CallBackPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"contactCallBackPerson/name"})
     public PersonName getContactCallBackPersonName() {
@@ -114,9 +192,13 @@ public class ContactPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>CallBackContactPersonName</p>
+     * <p>Business Name: CallBackContactPersonName</p>
      * 
-     * <p>Call Back Contact Person Name</p>
+     * <p>Other Business Name: CallBackContactPersonName</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CallBackPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setContactCallBackPersonName(PersonName contactCallBackPersonName) {
         this.contactCallBackPersonName.setValue(contactCallBackPersonName);
@@ -124,9 +206,13 @@ public class ContactPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CallBackContactPersonTelecom</p>
+     * <p>Business Name: CallBackContactPersonTelecom</p>
      * 
-     * <p>Call Back Contact Person Telecom</p>
+     * <p>Other Business Name: CallBackContactPersonTelecom</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CallBackPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      */
     @Hl7XmlMapping({"contactCallBackPerson/telecom"})
     public Set<TelecommunicationAddress> getContactCallBackPersonTelecom() {

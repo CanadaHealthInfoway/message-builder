@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.merged.Identified
 
 
 /**
- * <p>PRPA_IN101203CA: Person Create Event Reject</p>
+ * <p>Business Name: PRPA_IN101203CA: Person Create Event 
+ * Reject</p>
+ * 
+ * <p>person registry rejects a request to add a record and 
+ * responds back to the requesting application. The reason for 
+ * the rejection is returned as a Detected Issue in the Master 
+ * File / Reg Notif. Control Act, Role Subject wrapper.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.merged.Identified
 @Hl7PartTypeMapping({"PRPA_IN101203CA"})
 public class PersonCreateEventRejectBean extends HL7Message_1Bean<TriggerEvent_4Bean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

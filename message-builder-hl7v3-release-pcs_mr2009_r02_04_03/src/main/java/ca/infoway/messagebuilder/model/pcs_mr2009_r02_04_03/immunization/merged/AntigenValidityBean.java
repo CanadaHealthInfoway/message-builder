@@ -32,67 +32,122 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActAntig
 
 
 /**
- * <p>AntigenValidity</p>
+ * <p>Business Name: AntigenValidity</p>
  * 
  * <p>POIZ_MT030050CA.AntigenValidity: Antigen Validity</p>
  * 
- * <p>Indicates whether an antigen administered to a patient is 
- * considered valid according to an immunization schedule.</p>
- * 
  * <p>Allows for an immunization registry to tell providers 
  * that a particular antigen administration was or was not a 
  * valid administration.</p>
+ * 
+ * <p>Indicates whether an antigen administered to a patient is 
+ * considered valid according to an immunization schedule.</p>
  * 
  * <p>POIZ_MT061150CA.AntigenValidity: Antigen Validity</p>
  * 
- * <p>Indicates whether an antigen administered to a patient is 
- * considered valid according to an immunization schedule.</p>
- * 
  * <p>Allows for an immunization registry to tell providers 
  * that a particular antigen administration was or was not a 
  * valid administration.</p>
+ * 
+ * <p>Indicates whether an antigen administered to a patient is 
+ * considered valid according to an immunization schedule.</p>
  * 
  * <p>POIZ_MT030060CA.AntigenValidity: Antigen Validity</p>
  * 
- * <p>Indicates whether an antigen administered to a patient is 
- * considered valid according to an immunization schedule.</p>
- * 
  * <p>Allows for an immunization registry to tell providers 
  * that a particular antigen administration was or was not a 
  * valid administration.</p>
+ * 
+ * <p>Indicates whether an antigen administered to a patient is 
+ * considered valid according to an immunization schedule.</p>
  * 
  * <p>POIZ_MT060150CA.AntigenValidity: Antigen Validity</p>
  * 
- * <p>Indicates whether an antigen administered to a patient is 
- * considered valid according to an immunization schedule.</p>
- * 
  * <p>Allows for an immunization registry to tell providers 
  * that a particular antigen administration was or was not a 
  * valid administration.</p>
+ * 
+ * <p>Indicates whether an antigen administered to a patient is 
+ * considered valid according to an immunization schedule.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AntigenValidity","POIZ_MT030060CA.AntigenValidity","POIZ_MT060150CA.AntigenValidity","POIZ_MT061150CA.AntigenValidity"})
 public class AntigenValidityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV reasonCode = new CVImpl();
     private BL value = new BLImpl();
 
 
     /**
-     * <p>InvalidAntigenReasonCode</p>
+     * <p>Business Name: InvalidAntigenReasonCode</p>
      * 
-     * <p>Invalid Antigen Reason Code</p>
+     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.AntigenValidity.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>reasonCode only populated if value is 
      * &quot;false&quot;</p>
-     * 
-     * <p>A coded value to describe why an antigen is considered to 
-     * be invalid.</p>
      * 
      * <p>Provides additional context around an antigen's 
      * invalidity. This is not expected to be present when an 
      * antigen is valid and as such is considered a required 
      * attribute.</p>
+     * 
+     * <p>A coded value to describe why an antigen is considered to 
+     * be invalid.</p>
+     * 
+     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AntigenValidity.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>reasonCode only populated if value is 
+     * &quot;false&quot;</p>
+     * 
+     * <p>Provides additional context around an antigen's 
+     * invalidity. This is not expected to be present when an 
+     * antigen is valid and as such is considered a required 
+     * attribute.</p>
+     * 
+     * <p>A coded value to describe why an antigen is considered to 
+     * be invalid.</p>
+     * 
+     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.AntigenValidity.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>reasonCode only populated if value is 
+     * &quot;false&quot;</p>
+     * 
+     * <p>Provides additional context around an antigen's 
+     * invalidity. This is not expected to be present when an 
+     * antigen is valid and as such is considered a required 
+     * attribute.</p>
+     * 
+     * <p>A coded value to describe why an antigen is considered to 
+     * be invalid.</p>
+     * 
+     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AntigenValidity.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>reasonCode only populated if value is 
+     * &quot;false&quot;</p>
+     * 
+     * <p>Provides additional context around an antigen's 
+     * invalidity. This is not expected to be present when an 
+     * antigen is valid and as such is considered a required 
+     * attribute.</p>
+     * 
+     * <p>A coded value to describe why an antigen is considered to 
+     * be invalid.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ActAntigenInvalidReason getReasonCode() {
@@ -100,20 +155,75 @@ public class AntigenValidityBean extends MessagePartBean {
     }
 
     /**
-     * <p>InvalidAntigenReasonCode</p>
+     * <p>Business Name: InvalidAntigenReasonCode</p>
      * 
-     * <p>Invalid Antigen Reason Code</p>
+     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.AntigenValidity.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>reasonCode only populated if value is 
      * &quot;false&quot;</p>
-     * 
-     * <p>A coded value to describe why an antigen is considered to 
-     * be invalid.</p>
      * 
      * <p>Provides additional context around an antigen's 
      * invalidity. This is not expected to be present when an 
      * antigen is valid and as such is considered a required 
      * attribute.</p>
+     * 
+     * <p>A coded value to describe why an antigen is considered to 
+     * be invalid.</p>
+     * 
+     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AntigenValidity.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>reasonCode only populated if value is 
+     * &quot;false&quot;</p>
+     * 
+     * <p>Provides additional context around an antigen's 
+     * invalidity. This is not expected to be present when an 
+     * antigen is valid and as such is considered a required 
+     * attribute.</p>
+     * 
+     * <p>A coded value to describe why an antigen is considered to 
+     * be invalid.</p>
+     * 
+     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.AntigenValidity.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>reasonCode only populated if value is 
+     * &quot;false&quot;</p>
+     * 
+     * <p>Provides additional context around an antigen's 
+     * invalidity. This is not expected to be present when an 
+     * antigen is valid and as such is considered a required 
+     * attribute.</p>
+     * 
+     * <p>A coded value to describe why an antigen is considered to 
+     * be invalid.</p>
+     * 
+     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AntigenValidity.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>reasonCode only populated if value is 
+     * &quot;false&quot;</p>
+     * 
+     * <p>Provides additional context around an antigen's 
+     * invalidity. This is not expected to be present when an 
+     * antigen is valid and as such is considered a required 
+     * attribute.</p>
+     * 
+     * <p>A coded value to describe why an antigen is considered to 
+     * be invalid.</p>
      */
     public void setReasonCode(ActAntigenInvalidReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
@@ -121,16 +231,59 @@ public class AntigenValidityBean extends MessagePartBean {
 
 
     /**
-     * <p>AntigenValidityIndicator</p>
+     * <p>Business Name: AntigenValidityIndicator</p>
      * 
-     * <p>Antigen Validity Indicator</p>
+     * <p>Other Business Name: AntigenValidityIndicator</p>
      * 
-     * <p>Represents the validity (i.e. valid/not valid) of a 
-     * particular administration of an antigen.</p>
+     * <p>Relationship: POIZ_MT030050CA.AntigenValidity.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for an immunization registry to tell providers 
      * that a particular antigen administration was or was not a 
      * valid administration.</p>
+     * 
+     * <p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p>
+     * 
+     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AntigenValidity.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to tell providers 
+     * that a particular antigen administration was or was not a 
+     * valid administration.</p>
+     * 
+     * <p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p>
+     * 
+     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.AntigenValidity.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to tell providers 
+     * that a particular antigen administration was or was not a 
+     * valid administration.</p>
+     * 
+     * <p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p>
+     * 
+     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AntigenValidity.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to tell providers 
+     * that a particular antigen administration was or was not a 
+     * valid administration.</p>
+     * 
+     * <p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p>
      */
     @Hl7XmlMapping({"value"})
     public Boolean getValue() {
@@ -138,16 +291,59 @@ public class AntigenValidityBean extends MessagePartBean {
     }
 
     /**
-     * <p>AntigenValidityIndicator</p>
+     * <p>Business Name: AntigenValidityIndicator</p>
      * 
-     * <p>Antigen Validity Indicator</p>
+     * <p>Other Business Name: AntigenValidityIndicator</p>
      * 
-     * <p>Represents the validity (i.e. valid/not valid) of a 
-     * particular administration of an antigen.</p>
+     * <p>Relationship: POIZ_MT030050CA.AntigenValidity.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for an immunization registry to tell providers 
      * that a particular antigen administration was or was not a 
      * valid administration.</p>
+     * 
+     * <p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p>
+     * 
+     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AntigenValidity.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to tell providers 
+     * that a particular antigen administration was or was not a 
+     * valid administration.</p>
+     * 
+     * <p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p>
+     * 
+     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.AntigenValidity.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to tell providers 
+     * that a particular antigen administration was or was not a 
+     * valid administration.</p>
+     * 
+     * <p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p>
+     * 
+     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AntigenValidity.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to tell providers 
+     * that a particular antigen administration was or was not a 
+     * valid administration.</p>
+     * 
+     * <p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p>
      */
     public void setValue(Boolean value) {
         this.value.setValue(value);

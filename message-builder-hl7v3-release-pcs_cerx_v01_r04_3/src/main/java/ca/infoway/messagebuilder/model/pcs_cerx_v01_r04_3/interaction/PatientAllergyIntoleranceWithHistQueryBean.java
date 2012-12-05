@@ -29,8 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 
 
 /**
- * <p>REPC_IN000017CA: Patient allergy/intolerance with hist. 
- * query</p>
+ * <p>Business Name: REPC_IN000017CA: Patient 
+ * allergy/intolerance with hist. query</p>
+ * 
+ * <p>Requests retrieval of the history of a particular allergy 
+ * or intolerance record identified by patient id and allergy 
+ * or intolerance record id, including changes to severity, 
+ * status, annotations, etc.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -41,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 @Hl7PartTypeMapping({"REPC_IN000017CA"})
 public class PatientAllergyIntoleranceWithHistQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

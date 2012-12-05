@@ -38,37 +38,37 @@ import java.util.Date;
 /**
  * <p>REPC_MT000010CA.ControlActEvent: Amendment Summary</p>
  * 
+ * <p> <i>Provides context information about the record.</i> 
+ * </p>
+ * 
  * <p> <i>Identifies information about the most recent change 
  * to the Health Condition including when it was made, by whom 
  * and why.</i> </p>
- * 
- * <p> <i>Provides context information about the record.</i> 
- * </p>
  * 
  * <p>REPC_MT000007CA.ControlActEvent: Amendment Summary</p>
  * 
+ * <p> <i>Provides context information about the record.</i> 
+ * </p>
+ * 
  * <p> <i>Identifies information about the most recent change 
  * to the Health Condition including when it was made, by whom 
  * and why.</i> </p>
- * 
- * <p> <i>Provides context information about the record.</i> 
- * </p>
  * 
  * <p>REPC_MT000009CA.ControlActEvent: Allergy/Intolerance 
  * Status Changes</p>
  * 
- * <p>This records the history of changes that have been made 
- * to the allergy/intolerance, including why the changes were 
- * made, who made them and when.</p>
- * 
  * <p>Provides a record of a patient's allergy changes, 
  * providing deeper clinical understanding, particularly of 
  * past clinical decisions.</p>
+ * 
+ * <p>This records the history of changes that have been made 
+ * to the allergy/intolerance, including why the changes were 
+ * made, who made them and when.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000007CA.ControlActEvent","REPC_MT000009CA.ControlActEvent","REPC_MT000010CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV reasonCode = new CVImpl();
     private ChangedByBean author;
     private CV code = new CVImpl();
@@ -77,30 +77,31 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>Other Business Name: AmendReason</p>
      * 
-     * <p>Denotes the reason the allergy/intolerance was 
-     * changed.</p>
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
-     * <p>Ensures consistent terminology in capturing and 
-     * interpreting reasons for change. Allows CWE because not all 
-     * reasons will correspond to a pre-defined code.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>B:Amend Reason</p>
+     * <p> <i>Understanding the reason for the most recent 
+     * amendment provides context for the current state of the 
+     * record.</i> </p><p> <i> <i>The element uses CWE to allow for 
+     * the capture of Amend Reason concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </i> </p>
      * 
      * <p> <i>This indicates the reason for most recent amendment 
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p> <i>Understanding the reason for the most recent 
-     * amendment provides context for the current state of the 
-     * record.</i> </p><p> <i> <i>The element uses CWE to allow for 
-     * the capture of Amend Reason concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </i> </p>
+     * <p>Other Business Name: AmendReason</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Understanding the reason for the most recent 
      * amendment provides context for the current state of the 
@@ -111,6 +112,23 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * values outweighs the penalties of capturing some information 
      * that will not be amenable to searching or categorizing.</i> 
      * </i> </p>
+     * 
+     * <p> <i>This indicates the reason for most recent amendment 
+     * to the record as indicated by the person who made the 
+     * change.</i> </p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Denotes the reason the allergy/intolerance was 
+     * changed.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -118,30 +136,31 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>Other Business Name: AmendReason</p>
      * 
-     * <p>Denotes the reason the allergy/intolerance was 
-     * changed.</p>
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
-     * <p>Ensures consistent terminology in capturing and 
-     * interpreting reasons for change. Allows CWE because not all 
-     * reasons will correspond to a pre-defined code.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>B:Amend Reason</p>
+     * <p> <i>Understanding the reason for the most recent 
+     * amendment provides context for the current state of the 
+     * record.</i> </p><p> <i> <i>The element uses CWE to allow for 
+     * the capture of Amend Reason concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </i> </p>
      * 
      * <p> <i>This indicates the reason for most recent amendment 
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p> <i>Understanding the reason for the most recent 
-     * amendment provides context for the current state of the 
-     * record.</i> </p><p> <i> <i>The element uses CWE to allow for 
-     * the capture of Amend Reason concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </i> </p>
+     * <p>Other Business Name: AmendReason</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Understanding the reason for the most recent 
      * amendment provides context for the current state of the 
@@ -152,33 +171,92 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * values outweighs the penalties of capturing some information 
      * that will not be amenable to searching or categorizing.</i> 
      * </i> </p>
+     * 
+     * <p> <i>This indicates the reason for most recent amendment 
+     * to the record as indicated by the person who made the 
+     * change.</i> </p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Denotes the reason the allergy/intolerance was 
+     * changed.</p>
      */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public ChangedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 
 
     /**
-     * <p>AllergyIntoleranceStatusChangeType</p>
+     * <p>Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>Other Business Name: AllergyIntoleranceStatusChangeType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
      * 
      * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
      * Complete.</p>
-     * 
-     * <p>This attribute is mandatory to ensure that change types 
-     * are distinguishable.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -186,16 +264,20 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceStatusChangeType</p>
+     * <p>Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>Other Business Name: AllergyIntoleranceStatusChangeType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
      * 
      * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
      * Complete.</p>
-     * 
-     * <p>This attribute is mandatory to ensure that change types 
-     * are distinguishable.</p>
      */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
@@ -203,16 +285,23 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceStatusChangeEffectiveDate</p>
+     * <p>Business Name: 
+     * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * <p>Other Business Name: 
+     * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
-     * <p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p>
+     * <p>Relationship: 
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows applications to sort and filter by time. The date 
      * on which a change is effective should always be known and 
      * thus is mandatory.</p>
+     * 
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -220,27 +309,50 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceStatusChangeEffectiveDate</p>
+     * <p>Business Name: 
+     * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * <p>Other Business Name: 
+     * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
-     * <p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p>
+     * <p>Relationship: 
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows applications to sort and filter by time. The date 
      * on which a change is effective should always be known and 
      * thus is mandatory.</p>
+     * 
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }

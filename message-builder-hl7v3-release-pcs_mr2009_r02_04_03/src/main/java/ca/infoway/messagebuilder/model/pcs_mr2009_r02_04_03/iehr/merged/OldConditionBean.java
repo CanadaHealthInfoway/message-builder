@@ -32,20 +32,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000003CA.OldCondition","REPC_MT000007CA.OldCondition","REPC_MT000010CA.OldCondition"})
 public class OldConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>ReplacesRecordIds</p>
+     * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>H:Replaces Record Ids</p>
+     * <p>Other Business Name: ReplacesRecordIds</p>
      * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Relationship: REPC_MT000003CA.OldCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Used in circumstances where information initially 
      * captured about an event is erroneous, incomplete or not 
@@ -56,6 +54,56 @@ public class OldConditionBean extends MessagePartBean {
      * also be used to reference multiple records in the case where 
      * the same event has been accidentally captured more than 
      * once.</i> </p>
+     * 
+     * <p> <i>Used to identify any records that are 
+     * &quot;superseded&quot; by the current record. This will 
+     * cause the referenced records to be marked as 
+     * &quot;obsolete&quot; with a reference pointing to this 
+     * record.</i> </p>
+     * 
+     * <p>Other Business Name: ReplacesRecordIds</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.OldCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where information initially 
+     * captured about an event is erroneous, incomplete or not 
+     * captured at the desired level of detail and the change 
+     * cannot be made by retracting the original record. (E.g. Too 
+     * much time has elapsed, change is being made by a provider 
+     * other than the original author of the vent record, etc.) May 
+     * also be used to reference multiple records in the case where 
+     * the same event has been accidentally captured more than 
+     * once.</i> </p>
+     * 
+     * <p> <i>Used to identify any records that are 
+     * &quot;superseded&quot; by the current record. This will 
+     * cause the referenced records to be marked as 
+     * &quot;obsolete&quot; with a reference pointing to this 
+     * record.</i> </p>
+     * 
+     * <p>Other Business Name: ReplacesRecordIds</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.OldCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where information initially 
+     * captured about an event is erroneous, incomplete or not 
+     * captured at the desired level of detail and the change 
+     * cannot be made by retracting the original record. (E.g. Too 
+     * much time has elapsed, change is being made by a provider 
+     * other than the original author of the vent record, etc.) May 
+     * also be used to reference multiple records in the case where 
+     * the same event has been accidentally captured more than 
+     * once.</i> </p>
+     * 
+     * <p> <i>Used to identify any records that are 
+     * &quot;superseded&quot; by the current record. This will 
+     * cause the referenced records to be marked as 
+     * &quot;obsolete&quot; with a reference pointing to this 
+     * record.</i> </p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -63,15 +111,13 @@ public class OldConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReplacesRecordIds</p>
+     * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>H:Replaces Record Ids</p>
+     * <p>Other Business Name: ReplacesRecordIds</p>
      * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Relationship: REPC_MT000003CA.OldCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Used in circumstances where information initially 
      * captured about an event is erroneous, incomplete or not 
@@ -82,6 +128,56 @@ public class OldConditionBean extends MessagePartBean {
      * also be used to reference multiple records in the case where 
      * the same event has been accidentally captured more than 
      * once.</i> </p>
+     * 
+     * <p> <i>Used to identify any records that are 
+     * &quot;superseded&quot; by the current record. This will 
+     * cause the referenced records to be marked as 
+     * &quot;obsolete&quot; with a reference pointing to this 
+     * record.</i> </p>
+     * 
+     * <p>Other Business Name: ReplacesRecordIds</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.OldCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where information initially 
+     * captured about an event is erroneous, incomplete or not 
+     * captured at the desired level of detail and the change 
+     * cannot be made by retracting the original record. (E.g. Too 
+     * much time has elapsed, change is being made by a provider 
+     * other than the original author of the vent record, etc.) May 
+     * also be used to reference multiple records in the case where 
+     * the same event has been accidentally captured more than 
+     * once.</i> </p>
+     * 
+     * <p> <i>Used to identify any records that are 
+     * &quot;superseded&quot; by the current record. This will 
+     * cause the referenced records to be marked as 
+     * &quot;obsolete&quot; with a reference pointing to this 
+     * record.</i> </p>
+     * 
+     * <p>Other Business Name: ReplacesRecordIds</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.OldCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where information initially 
+     * captured about an event is erroneous, incomplete or not 
+     * captured at the desired level of detail and the change 
+     * cannot be made by retracting the original record. (E.g. Too 
+     * much time has elapsed, change is being made by a provider 
+     * other than the original author of the vent record, etc.) May 
+     * also be used to reference multiple records in the case where 
+     * the same event has been accidentally captured more than 
+     * once.</i> </p>
+     * 
+     * <p> <i>Used to identify any records that are 
+     * &quot;superseded&quot; by the current record. This will 
+     * cause the referenced records to be marked as 
+     * &quot;obsolete&quot; with a reference pointing to this 
+     * record.</i> </p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

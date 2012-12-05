@@ -36,69 +36,54 @@ import java.util.List;
 
 
 /**
- * <p>Service Location</p>
- * 
- * <p>An identification of a service location (or facility) 
- * that can be found in the service delivery location. E.g. 
- * Pharmacy, Medical Clinic, Hospital</p>
+ * <p>Business Name: Service Location</p>
  * 
  * <p>Used for tracking service delivery responsibility, to 
  * provide contact information for follow-up and for 
  * statistical analysis. Also important for indicating where 
  * paper records can be located.</p>
+ * 
+ * <p>An identification of a service location (or facility) 
+ * that can be found in the service delivery location. E.g. 
+ * Pharmacy, Medical Clinic, Hospital</p>
  */
 @Hl7PartTypeMapping({"COCT_MT240002CA.ServiceDeliveryLocation"})
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST locationName = new STImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
 
 
     /**
-     * <p>C:Service Location Identifier</p>
+     * <p>Business Name: C:Service Location Identifier</p>
+     * 
+     * <p>Relationship: COCT_MT240002CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -106,47 +91,32 @@ public class ServiceLocationBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Service Location Identifier</p>
+     * <p>Business Name: C:Service Location Identifier</p>
+     * 
+     * <p>Relationship: COCT_MT240002CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -154,21 +124,22 @@ public class ServiceLocationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Service Location Name</p>
+     * <p>Business Name: B:Service Location Name</p>
      * 
-     * <p>The name assigned to the service location.</p>
+     * <p>Relationship: COCT_MT240002CA.Place.name</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>PVD.070</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication, and for cross-checking of 
      * location Id and is therefore mandatory</p>
+     * 
+     * <p>The name assigned to the service location.</p>
      */
     @Hl7XmlMapping({"location/name"})
     public String getLocationName() {
@@ -176,27 +147,33 @@ public class ServiceLocationBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Service Location Name</p>
+     * <p>Business Name: B:Service Location Name</p>
      * 
-     * <p>The name assigned to the service location.</p>
+     * <p>Relationship: COCT_MT240002CA.Place.name</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>PVD.070</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication, and for cross-checking of 
      * location Id and is therefore mandatory</p>
+     * 
+     * <p>The name assigned to the service location.</p>
      */
     public void setLocationName(String locationName) {
         this.locationName.setValue(locationName);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT240002CA.Subject.position</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/position"})
     public List<GeographicCoordinatesBean> getSubjectOfPosition() {
         return this.subjectOfPosition;

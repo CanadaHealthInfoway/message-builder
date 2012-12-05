@@ -41,20 +41,20 @@ import java.util.Set;
 
 
 /**
- * <p>Invoice Identifier</p>
+ * <p>Business Name: Invoice Identifier</p>
+ * 
+ * <p>Details of the claim for which payment is being 
+ * requested.</p>
  * 
  * <p>Set of Identifiers that uniquely identify the Invoice. 
  * Could reference an Invoice Number with associated 
  * indentifers</p>
- * 
- * <p>Details of the claim for which payment is being 
- * requested.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.PaymentRequest"})
 @Hl7RootType
 public class InvoiceIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private MO amt = new MOImpl();
     private AdministrativeContactsSBean primaryPerformerContactParty;
@@ -65,95 +65,29 @@ public class InvoiceIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Invoice Identifier</p>
+     * <p>Business Name: Invoice Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PaymentRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Invoice Identifier: Used for management of payment 
+     * request objects by adjudicators to help with traceability of 
+     * messages to their applications. This does not need to be 
+     * surfaced to the provider. Can also be used to detect 
+     * duplicate invoices.</p><p>There are some situations where 
+     * more than 1 identifier for this object can be included in a 
+     * message.</p><p>For example:</p><p>1. unique invoice 
+     * identifier, independent of adjudicator recipient.</p><p>2. 
+     * sequential invoice identifier by 
+     * adjudicator.</p><p>Obligation on adjudicator is to return 
+     * and communicate about this item with all identifiers (i.e. 
+     * identifier 1. and 2.). At present, there are no messages 
+     * where this occurs (Jun 04)</p>
      * 
      * <p>Set of Identifiers that uniquely identify the Invoice. 
      * Could reference an Invoice Number with associated 
      * indentifers</p>
-     * 
-     * <p>Invoice Identifier: Used for management of payment 
-     * request objects by adjudicators to help with traceability of 
-     * messages to their applications. This does not need to be 
-     * surfaced to the provider. Can also be used to detect 
-     * duplicate invoices.</p><p>There are some situations where 
-     * more than 1 identifier for this object can be included in a 
-     * message.</p><p>For example:</p><p>1. unique invoice 
-     * identifier, independent of adjudicator recipient.</p><p>2. 
-     * sequential invoice identifier by 
-     * adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.). At present, there are no messages 
-     * where this occurs (Jun 04)</p>
-     * 
-     * <p>Invoice Identifier: Used for management of payment 
-     * request objects by adjudicators to help with traceability of 
-     * messages to their applications. This does not need to be 
-     * surfaced to the provider. Can also be used to detect 
-     * duplicate invoices.</p><p>There are some situations where 
-     * more than 1 identifier for this object can be included in a 
-     * message.</p><p>For example:</p><p>1. unique invoice 
-     * identifier, independent of adjudicator recipient.</p><p>2. 
-     * sequential invoice identifier by 
-     * adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.). At present, there are no messages 
-     * where this occurs (Jun 04)</p>
-     * 
-     * <p>Invoice Identifier: Used for management of payment 
-     * request objects by adjudicators to help with traceability of 
-     * messages to their applications. This does not need to be 
-     * surfaced to the provider. Can also be used to detect 
-     * duplicate invoices.</p><p>There are some situations where 
-     * more than 1 identifier for this object can be included in a 
-     * message.</p><p>For example:</p><p>1. unique invoice 
-     * identifier, independent of adjudicator recipient.</p><p>2. 
-     * sequential invoice identifier by 
-     * adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.). At present, there are no messages 
-     * where this occurs (Jun 04)</p>
-     * 
-     * <p>Invoice Identifier: Used for management of payment 
-     * request objects by adjudicators to help with traceability of 
-     * messages to their applications. This does not need to be 
-     * surfaced to the provider. Can also be used to detect 
-     * duplicate invoices.</p><p>There are some situations where 
-     * more than 1 identifier for this object can be included in a 
-     * message.</p><p>For example:</p><p>1. unique invoice 
-     * identifier, independent of adjudicator recipient.</p><p>2. 
-     * sequential invoice identifier by 
-     * adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.). At present, there are no messages 
-     * where this occurs (Jun 04)</p>
-     * 
-     * <p>Invoice Identifier: Used for management of payment 
-     * request objects by adjudicators to help with traceability of 
-     * messages to their applications. This does not need to be 
-     * surfaced to the provider. Can also be used to detect 
-     * duplicate invoices.</p><p>There are some situations where 
-     * more than 1 identifier for this object can be included in a 
-     * message.</p><p>For example:</p><p>1. unique invoice 
-     * identifier, independent of adjudicator recipient.</p><p>2. 
-     * sequential invoice identifier by 
-     * adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.). At present, there are no messages 
-     * where this occurs (Jun 04)</p>
-     * 
-     * <p>Invoice Identifier: Used for management of payment 
-     * request objects by adjudicators to help with traceability of 
-     * messages to their applications. This does not need to be 
-     * surfaced to the provider. Can also be used to detect 
-     * duplicate invoices.</p><p>There are some situations where 
-     * more than 1 identifier for this object can be included in a 
-     * message.</p><p>For example:</p><p>1. unique invoice 
-     * identifier, independent of adjudicator recipient.</p><p>2. 
-     * sequential invoice identifier by 
-     * adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.). At present, there are no messages 
-     * where this occurs (Jun 04)</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -162,11 +96,11 @@ public class InvoiceIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Total Billed Amount</p>
+     * <p>Business Name: Total Billed Amount</p>
      * 
-     * <p>OID (object identifier) + unique number generated by the 
-     * pharmacy software for the complete invoice.</p><p>Must not 
-     * be the same identifier as the InvoiceElementGroup.id.</p>
+     * <p>Relationship: FICR_MT600201CA.PaymentRequest.amt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>OID (object identifier) + unique number generated by the 
      * pharmacy software for the complete invoice.</p><p>Must not 
@@ -178,11 +112,11 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>Total Billed Amount</p>
+     * <p>Business Name: Total Billed Amount</p>
      * 
-     * <p>OID (object identifier) + unique number generated by the 
-     * pharmacy software for the complete invoice.</p><p>Must not 
-     * be the same identifier as the InvoiceElementGroup.id.</p>
+     * <p>Relationship: FICR_MT600201CA.PaymentRequest.amt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>OID (object identifier) + unique number generated by the 
      * pharmacy software for the complete invoice.</p><p>Must not 
@@ -193,42 +127,86 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.PaymentRequestAttention.contactParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"primaryPerformer/contactParty"})
     public AdministrativeContactsSBean getPrimaryPerformerContactParty() {
         return this.primaryPerformerContactParty;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.PaymentRequestAttention.contactParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPrimaryPerformerContactParty(AdministrativeContactsSBean primaryPerformerContactParty) {
         this.primaryPerformerContactParty = primaryPerformerContactParty;
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT600201CA.PaymentRequestPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
         return this.creditAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT600201CA.PaymentRequestPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT600201CA.PaymentRequestPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT600201CA.PaymentRequestPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.PertinentInformation.providerBillingTaxAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
     public List<TaxAccountOfProviderBean> getPertinentInformationProviderBillingTaxAccount() {
         return this.pertinentInformationProviderBillingTaxAccount;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.PaymentRequestReason.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"reasonOf/invoiceElementChoice"})
     public List<InvoiceElementChoice> getReasonOfInvoiceElementChoice() {
         return this.reasonOfInvoiceElementChoice;

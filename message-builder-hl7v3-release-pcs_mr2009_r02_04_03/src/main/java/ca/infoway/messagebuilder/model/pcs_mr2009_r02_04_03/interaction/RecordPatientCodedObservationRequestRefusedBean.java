@@ -28,8 +28,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>REPC_IN000066CA: Record patient coded observation request 
- * refused</p>
+ * <p>Business Name: REPC_IN000066CA: Record patient coded 
+ * observation request refused</p>
+ * 
+ * <p>Indicates that the request to record the specified coded 
+ * observation (for example: APGAR score, symptom, blood type, 
+ * smoker, etc.) in the patient's record has been refused.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -38,6 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"REPC_IN000066CA"})
 public class RecordPatientCodedObservationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -32,18 +32,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.PersonalRelationshipCode"})
 public class PersonalRelationshipCodeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV value = new CVImpl();
 
 
     /**
-     * <p>Client Next of Kin</p>
+     * <p>Business Name: Client Next of Kin</p>
      * 
-     * <p>A code further specifying the kind of Role such as 
-     * Mother, Father, Natural Parent or Step Parent</p>
+     * <p>Relationship: 
+     * PRPA_MT101103CA.PersonalRelationshipCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Mandatory attribute that supports understanding the 
      * relationship between the client and the ParentClient</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
      */
     @Hl7XmlMapping({"value"})
     public QueryParameterValue getValue() {
@@ -51,13 +56,18 @@ public class PersonalRelationshipCodeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Next of Kin</p>
+     * <p>Business Name: Client Next of Kin</p>
      * 
-     * <p>A code further specifying the kind of Role such as 
-     * Mother, Father, Natural Parent or Step Parent</p>
+     * <p>Relationship: 
+     * PRPA_MT101103CA.PersonalRelationshipCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Mandatory attribute that supports understanding the 
      * relationship between the client and the ParentClient</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
      */
     public void setValue(QueryParameterValue value) {
         this.value.setValue(value);

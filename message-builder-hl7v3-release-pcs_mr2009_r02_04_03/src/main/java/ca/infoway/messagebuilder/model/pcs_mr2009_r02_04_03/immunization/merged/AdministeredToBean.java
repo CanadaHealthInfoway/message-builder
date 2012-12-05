@@ -28,42 +28,104 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patien
 
 
 /**
- * <p>AdministeredTo</p>
+ * <p>Business Name: AdministeredTo</p>
  * 
  * <p>POIZ_MT030060CA.Subject10: (no business name)</p>
- * 
- * <p>Indicates the patient who was immunized.</p>
  * 
  * <p>Essential for linking the immunization to the patient's 
  * record, and is therefore mandatory.</p>
  * 
+ * <p>Indicates the patient who was immunized.</p>
+ * 
  * <p>POIZ_MT070020CA.Subject: administered to</p>
+ * 
+ * <p>Essential for linking the immunization to the patient's 
+ * record, and is therefore mandatory.</p>
  * 
  * <p>Indicates the patient who is scheduled to be 
  * immunized.</p>
  * 
- * <p>Essential for linking the immunization to the patient's 
- * record, and is therefore mandatory.</p>
- * 
  * <p>POIZ_MT061150CA.Subject10: *administered to</p>
  * 
- * <p>Indicates the patient who was immunized.</p>
- * 
  * <p>Essential for linking the immunization to the patient's 
  * record, and is therefore mandatory.</p>
+ * 
+ * <p>Indicates the patient who was immunized.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Subject10","POIZ_MT030060CA.Subject10","POIZ_MT060150CA.Subject10","POIZ_MT061150CA.Subject10","POIZ_MT070020CA.Subject"})
 public class AdministeredToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private Patient_2Bean patient;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT070020CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"patient"})
     public Patient_2Bean getPatient() {
         return this.patient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT070020CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPatient(Patient_2Bean patient) {
         this.patient = patient;
     }

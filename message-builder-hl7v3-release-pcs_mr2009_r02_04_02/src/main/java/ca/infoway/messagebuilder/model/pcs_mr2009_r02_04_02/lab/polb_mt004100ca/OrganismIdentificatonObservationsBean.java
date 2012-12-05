@@ -42,7 +42,7 @@ import java.util.List;
 
 
 /**
- * <p>Organism Identificaton Observations</p>
+ * <p>Business Name: Organism Identificaton Observations</p>
  * 
  * <p>Describes the observation associated with the 
  * identification of the organism.</p>
@@ -50,7 +50,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.OrganismIdentificationEvent"})
 public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -60,7 +60,12 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Organism Identification Type</p>
+     * <p>Business Name: Organism Identification Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of organism identification observation 
      * and is bound to the LOINC code domain (e.g. 612-2).</p>
@@ -71,7 +76,12 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Organism Identification Type</p>
+     * <p>Business Name: Organism Identification Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of organism identification observation 
      * and is bound to the LOINC code domain (e.g. 612-2).</p>
@@ -82,7 +92,12 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Organsim Identification Observation Status</p>
+     * <p>Business Name: Organsim Identification Observation Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the organism identification 
      * observation.</p>
@@ -93,7 +108,12 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Organsim Identification Observation Status</p>
+     * <p>Business Name: Organsim Identification Observation Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the organism identification 
      * observation.</p>
@@ -104,7 +124,12 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Organism Observation Effective Time</p>
+     * <p>Business Name: Organism Observation Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective time of the Organism Observation.</p>
      */
@@ -114,7 +139,12 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Organism Observation Effective Time</p>
+     * <p>Business Name: Organism Observation Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective time of the Organism Observation.</p>
      */
@@ -123,11 +153,23 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"specimen"})
     public IsolateParticipationBean getSpecimen() {
         return this.specimen;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSpecimen(IsolateParticipationBean specimen) {
         this.specimen = specimen;
     }

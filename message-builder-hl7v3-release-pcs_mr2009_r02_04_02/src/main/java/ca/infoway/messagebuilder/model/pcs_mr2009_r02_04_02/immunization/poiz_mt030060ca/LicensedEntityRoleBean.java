@@ -30,21 +30,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Identifies the source of the immunization information as 
- * someone who is a provider.</p>
- * 
  * <p>Needed for categorizing sources of immunization 
  * information. As a result, this attribute is required.</p>
+ * 
+ * <p>Identifies the source of the immunization information as 
+ * someone who is a provider.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030060CA.LicensedEntityRole"})
 public class LicensedEntityRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.InformationSourceChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
 
 
     /**
-     * <p>Licensed Entity Type</p>
+     * <p>Business Name: Licensed Entity Type</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.LicensedEntityRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getCode() {
@@ -52,7 +56,11 @@ public class LicensedEntityRoleBean extends MessagePartBean implements ca.infowa
     }
 
     /**
-     * <p>Licensed Entity Type</p>
+     * <p>Business Name: Licensed Entity Type</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.LicensedEntityRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);

@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>PORX_IN010840CA: Abort prescription request</p>
+ * <p>Business Name: PORX_IN010840CA: Abort prescription 
+ * request</p>
+ * 
+ * <p>Requests that the specified prescription be aborted 
+ * (further dispensing or administrative must cease).</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"PORX_IN010840CA"})
 public class AbortPrescriptionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

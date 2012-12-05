@@ -30,86 +30,140 @@ import java.util.List;
 
 
 /**
- * <p>ParticipantGroupings</p>
+ * <p>Business Name: ParticipantGroupings</p>
  * 
  * <p>REPC_MT500002CA.PatientCareProvisionEventPortion: 
  * Participant Groupings</p>
  * 
  * <p>May only be used when Care Composition Type is Encounter 
- * or a specialization of Encounter</p><p>All participant 
- * identifiers must correspond to either patient identifiers or 
- * performer identifiers</p>
+ * or a specialization of Encounter</p>
  * 
- * <p>May only be used when Care Composition Type is Encounter 
- * or a specialization of Encounter</p><p>All participant 
- * identifiers must correspond to either patient identifiers or 
- * performer identifiers</p>
- * 
- * <p>Identifies a 'portion' of the encounter performed at a 
- * single location.</p>
+ * <p>All participant identifiers must correspond to either 
+ * patient identifiers or performer identifiers</p>
  * 
  * <p>Allows tracking what participants were present at each 
  * location within the encounter. This information provides 
  * context for the events within the encounter.</p>
+ * 
+ * <p>Identifies a 'portion' of the encounter performed at a 
+ * single location.</p>
  * 
  * <p>REPC_MT500001CA.PatientCareProvisionEventPortion: 
  * Participant Groupings</p>
  * 
  * <p>May only be used when Care Composition Type is Encounter 
- * or a specialization of Encounter</p><p>All participant 
- * identifiers must correspond to either patient identifiers or 
- * performer identifiers</p>
+ * or a specialization of Encounter</p>
  * 
- * <p>May only be used when Care Composition Type is Encounter 
- * or a specialization of Encounter</p><p>All participant 
- * identifiers must correspond to either patient identifiers or 
- * performer identifiers</p>
- * 
- * <p>Identifies a 'portion' of the encounter performed at a 
- * single location.</p>
+ * <p>All participant identifiers must correspond to either 
+ * patient identifiers or performer identifiers</p>
  * 
  * <p>Allows tracking what participants were present at each 
  * location within the encounter. This information provides 
  * context for the events within the encounter.</p>
+ * 
+ * <p>Identifies a 'portion' of the encounter performed at a 
+ * single location.</p>
  * 
  * <p>REPC_MT500004CA.PatientCareProvisionEventPortion: 
  * Participant Groupings</p>
  * 
  * <p>May only be used when Care Composition Type is Encounter 
- * or a specialization of Encounter</p><p>All participant 
- * identifiers must correspond to either patient identifiers or 
- * performer identifiers</p>
+ * or a specialization of Encounter</p>
  * 
- * <p>May only be used when Care Composition Type is Encounter 
- * or a specialization of Encounter</p><p>All participant 
- * identifiers must correspond to either patient identifiers or 
- * performer identifiers</p>
- * 
- * <p>Identifies a 'portion' of the encounter performed at a 
- * single location.</p>
+ * <p>All participant identifiers must correspond to either 
+ * patient identifiers or performer identifiers</p>
  * 
  * <p>Allows tracking what participants were present at each 
  * location within the encounter. This information provides 
  * context for the events within the encounter.</p>
+ * 
+ * <p>Identifies a 'portion' of the encounter performed at a 
+ * single location.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT500001CA.PatientCareProvisionEventPortion","REPC_MT500002CA.PatientCareProvisionEventPortion","REPC_MT500004CA.PatientCareProvisionEventPortion"})
 public class ParticipantGroupingsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CreatedAtBean location;
     private List<HasBean> participant = new ArrayList<HasBean>();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500002CA.PatientCareProvisionEventPortion.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEventPortion.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500004CA.PatientCareProvisionEventPortion.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500002CA.PatientCareProvisionEventPortion.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEventPortion.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500004CA.PatientCareProvisionEventPortion.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500002CA.PatientCareProvisionEventPortion.participant</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-200)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEventPortion.participant</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-200)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500004CA.PatientCareProvisionEventPortion.participant</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-200)</p>
+     */
     @Hl7XmlMapping({"participant"})
     public List<HasBean> getParticipant() {
         return this.participant;

@@ -30,28 +30,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
+ * <p>Supplies contextual information about the source of the 
+ * immunization report.</p>
+ * 
  * <p>Identifies the source of the immunization information as 
  * someone who has a personal relationship with the 
  * patient.</p>
- * 
- * <p>Supplies contextual information about the source of the 
- * immunization report.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030060CA.PersonalRelationshipRole"})
 public class PersonalRelationshipRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.merged.InformationSourceChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
 
 
     /**
-     * <p>Personal Relationship Type</p>
+     * <p>Business Name: Personal Relationship Type</p>
      * 
-     * <p>Describes the personal relationship between the 
-     * information source and the patient.</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.PersonalRelationshipRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Useful for categorizing sources of immunization 
      * information. As a result, this attribute is populated.</p>
+     * 
+     * <p>Describes the personal relationship between the 
+     * information source and the patient.</p>
      */
     @Hl7XmlMapping({"code"})
     public PersonalRelationshipRoleType getCode() {
@@ -59,13 +64,18 @@ public class PersonalRelationshipRoleBean extends MessagePartBean implements ca.
     }
 
     /**
-     * <p>Personal Relationship Type</p>
+     * <p>Business Name: Personal Relationship Type</p>
      * 
-     * <p>Describes the personal relationship between the 
-     * information source and the patient.</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.PersonalRelationshipRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Useful for categorizing sources of immunization 
      * information. As a result, this attribute is populated.</p>
+     * 
+     * <p>Describes the personal relationship between the 
+     * information source and the patient.</p>
      */
     public void setCode(PersonalRelationshipRoleType code) {
         this.code.setValue(code);

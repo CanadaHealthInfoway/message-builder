@@ -43,38 +43,29 @@ import java.util.Date;
 
 
 /**
- * <p>Consent</p>
+ * <p>Business Name: Consent</p>
  * 
  * <p>If code is INFA, then InformDefinition must be present, 
- * otherwise it must be absent</p><p>One and only one of 
- * author1 (Consenter) and author2 (Provider) must be 
- * specified</p><p>If author2 (provider) is specified, 
- * reasonCode must be specified</p>
+ * otherwise it must be absent</p>
  * 
- * <p>If code is INFA, then InformDefinition must be present, 
- * otherwise it must be absent</p><p>One and only one of 
- * author1 (Consenter) and author2 (Provider) must be 
- * specified</p><p>If author2 (provider) is specified, 
- * reasonCode must be specified</p>
+ * <p>One and only one of author1 (Consenter) and author2 
+ * (Provider) must be specified</p>
  * 
- * <p>If code is INFA, then InformDefinition must be present, 
- * otherwise it must be absent</p><p>One and only one of 
- * author1 (Consenter) and author2 (Provider) must be 
- * specified</p><p>If author2 (provider) is specified, 
- * reasonCode must be specified</p>
+ * <p>If author2 (provider) is specified, reasonCode must be 
+ * specified</p>
+ * 
+ * <p>Provides authorization to record and/or view patient 
+ * information.</p>
  * 
  * <p>Information pertaining to a patient's 
  * agreement/acceptance to have his/her clinical information 
  * electronically stored and shared.</p>
- * 
- * <p>Provides authorization to record and/or view patient 
- * information.</p>
  */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.ConsentEvent"})
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -86,13 +77,17 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>Business Name: D:Consent Form Number</p>
      * 
-     * <p>A unique identifier for a specific consent for a 
-     * patient.</p>
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides a traceable audit link between a physical 
      * consent form and its electronic record</p>
+     * 
+     * <p>A unique identifier for a specific consent for a 
+     * patient.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -100,13 +95,17 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>Business Name: D:Consent Form Number</p>
      * 
-     * <p>A unique identifier for a specific consent for a 
-     * patient.</p>
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides a traceable audit link between a physical 
      * consent form and its electronic record</p>
+     * 
+     * <p>A unique identifier for a specific consent for a 
+     * patient.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -114,13 +113,17 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Consent Type</p>
+     * <p>Business Name: A:Consent Type</p>
      * 
-     * <p>Indicates the type of consent being given: Information 
-     * access or Information maintenance.</p>
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes what type of consent is being dealt with 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the type of consent being given: Information 
+     * access or Information maintenance.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActConsentType getCode() {
@@ -128,13 +131,17 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Consent Type</p>
+     * <p>Business Name: A:Consent Type</p>
      * 
-     * <p>Indicates the type of consent being given: Information 
-     * access or Information maintenance.</p>
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes what type of consent is being dealt with 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the type of consent being given: Information 
+     * access or Information maintenance.</p>
      */
     public void setCode(ActConsentType code) {
         this.code.setValue(code);
@@ -142,28 +149,24 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Consent Refused Indicator</p>
+     * <p>Business Name: B:Consent Refused Indicator</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Must be either not present or non-null.</p>
      * 
+     * <p>Primarily applies for global &quot;participation&quot; 
+     * consent, when there is a need to track whether the patient 
+     * has consented, not consented, or has not recorded a 
+     * decision.</p><p>Because not all jurisdictions will track 
+     * &quot;participation&quot; consent, this attribute is 
+     * optional. In jurisdictions where it is supported, the 
+     * element must always be valued as either true or false.</p>
+     * 
      * <p>If true, indicates that consent has explicitly *not* been 
      * given.</p>
-     * 
-     * <p>Primarily applies for global &quot;participation&quot; 
-     * consent, when there is a need to track whether the patient 
-     * has consented, not consented, or has not recorded a 
-     * decision.</p><p>Because not all jurisdictions will track 
-     * &quot;participation&quot; consent, this attribute is 
-     * optional. In jurisdictions where it is supported, the 
-     * element must always be valued as either true or false.</p>
-     * 
-     * <p>Primarily applies for global &quot;participation&quot; 
-     * consent, when there is a need to track whether the patient 
-     * has consented, not consented, or has not recorded a 
-     * decision.</p><p>Because not all jurisdictions will track 
-     * &quot;participation&quot; consent, this attribute is 
-     * optional. In jurisdictions where it is supported, the 
-     * element must always be valued as either true or false.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -171,28 +174,24 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Consent Refused Indicator</p>
+     * <p>Business Name: B:Consent Refused Indicator</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Must be either not present or non-null.</p>
      * 
+     * <p>Primarily applies for global &quot;participation&quot; 
+     * consent, when there is a need to track whether the patient 
+     * has consented, not consented, or has not recorded a 
+     * decision.</p><p>Because not all jurisdictions will track 
+     * &quot;participation&quot; consent, this attribute is 
+     * optional. In jurisdictions where it is supported, the 
+     * element must always be valued as either true or false.</p>
+     * 
      * <p>If true, indicates that consent has explicitly *not* been 
      * given.</p>
-     * 
-     * <p>Primarily applies for global &quot;participation&quot; 
-     * consent, when there is a need to track whether the patient 
-     * has consented, not consented, or has not recorded a 
-     * decision.</p><p>Because not all jurisdictions will track 
-     * &quot;participation&quot; consent, this attribute is 
-     * optional. In jurisdictions where it is supported, the 
-     * element must always be valued as either true or false.</p>
-     * 
-     * <p>Primarily applies for global &quot;participation&quot; 
-     * consent, when there is a need to track whether the patient 
-     * has consented, not consented, or has not recorded a 
-     * decision.</p><p>Because not all jurisdictions will track 
-     * &quot;participation&quot; consent, this attribute is 
-     * optional. In jurisdictions where it is supported, the 
-     * element must always be valued as either true or false.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -200,13 +199,17 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Business Name: C:Consent Effective and End Time</p>
      * 
-     * <p>Indicates the time that the consent will expire. 'Low' is 
-     * effective time and 'High' is end time.</p>
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Most consents are not open-ended, to ensure the patient 
      * retains a level of control</p>
+     * 
+     * <p>Indicates the time that the consent will expire. 'Low' is 
+     * effective time and 'High' is end time.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -214,13 +217,17 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Business Name: C:Consent Effective and End Time</p>
      * 
-     * <p>Indicates the time that the consent will expire. 'Low' is 
-     * effective time and 'High' is end time.</p>
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Most consents are not open-ended, to ensure the patient 
      * retains a level of control</p>
+     * 
+     * <p>Indicates the time that the consent will expire. 'Low' is 
+     * effective time and 'High' is end time.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -228,12 +235,16 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Consent Override Reason</p>
+     * <p>Business Name: E:Consent Override Reason</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Important for audit purposes</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules or accessing information without consent.</p>
-     * 
-     * <p>Important for audit purposes</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ActConsentInformationAccessReason getReasonCode() {
@@ -241,23 +252,37 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Consent Override Reason</p>
+     * <p>Business Name: E:Consent Override Reason</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Important for audit purposes</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules or accessing information without consent.</p>
-     * 
-     * <p>Important for audit purposes</p>
      */
     public void setReasonCode(ActConsentInformationAccessReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
 
 
+    /**
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author1"})
     public ConsentedToByBean getAuthor1() {
         return this.author1;
     }
 
+    /**
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor1(ConsentedToByBean author1) {
         this.author1 = author1;
     }
@@ -273,11 +298,23 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * RCMR_MT010001CA.Component.permissionToInform</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/permissionToInform"})
     public InformationAccessBean getComponentPermissionToInform() {
         return this.componentPermissionToInform;
     }
 
+    /**
+     * <p>Relationship: 
+     * RCMR_MT010001CA.Component.permissionToInform</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentPermissionToInform(InformationAccessBean componentPermissionToInform) {
         this.componentPermissionToInform = componentPermissionToInform;
     }

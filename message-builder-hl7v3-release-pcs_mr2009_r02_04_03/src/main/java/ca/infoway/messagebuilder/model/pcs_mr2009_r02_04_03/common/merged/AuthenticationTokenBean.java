@@ -32,257 +32,433 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>AuthenticationToken</p>
+ * <p>Business Name: AuthenticationToken</p>
  * 
  * <p>MCAI_MT700222CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
  * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * dataEntryLocation must not be specified)</p>
  * 
- * <p>If specified, then the concepts covered by the token must 
- * not be specified (i.e. at least one participation of author, 
- * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
+ * <p>Only one of Id or Text must be specified.</p>
  * 
  * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
  * 
  * <p>MFMI_MT700711CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
  * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * dataEntryLocation must not be specified)</p>
  * 
- * <p>If specified, then the concepts covered by the token must 
- * not be specified (i.e. at least one participation of author, 
- * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
+ * <p>Only one of Id or Text must be specified.</p>
  * 
  * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
  * 
  * <p>MFMI_MT700751CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
  * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * dataEntryLocation must not be specified)</p>
  * 
- * <p>If specified, then the concepts covered by the token must 
- * not be specified (i.e. at least one participation of author, 
- * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
+ * <p>Only one of Id or Text must be specified.</p>
  * 
  * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
  * 
  * <p>MCAI_MT700212CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
  * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * dataEntryLocation must not be specified)</p>
  * 
- * <p>If specified, then the concepts covered by the token must 
- * not be specified (i.e. at least one participation of author, 
- * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
+ * <p>Only one of Id or Text must be specified.</p>
  * 
  * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
  * 
  * <p>MCAI_MT700220CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
  * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * dataEntryLocation must not be specified)</p>
  * 
- * <p>If specified, then the concepts covered by the token must 
- * not be specified (i.e. at least one participation of author, 
- * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
+ * <p>Only one of Id or Text must be specified.</p>
  * 
  * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
  * 
  * <p>QUQI_MT020002CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
  * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * dataEntryLocation must not be specified)</p>
  * 
- * <p>If specified, then the concepts covered by the token must 
- * not be specified (i.e. at least one participation of author, 
- * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
+ * <p>Only one of Id or Text must be specified.</p>
  * 
  * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
  * 
  * <p>MCAI_MT700211CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
  * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * dataEntryLocation must not be specified)</p>
  * 
- * <p>If specified, then the concepts covered by the token must 
- * not be specified (i.e. at least one participation of author, 
- * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
- * 
- * <p>Conveys an authentication token associated with the 
- * event.</p><p>The token may represent one or all of the 
- * following concepts: author, dataEnterer, responsibleParty, 
- * location and dataEntryLocation.</p>
+ * <p>Only one of Id or Text must be specified.</p>
  * 
  * <p>Conveys information related to the individuals and/or 
  * locations involved with the action in situations where the 
  * authentication happens on a one-time basis rather than on a 
  * per-message basis.</p>
  * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
+ * 
  * <p>MCAI_MT700210CA.AuthorizationToken: Authentication Token</p>
  * 
  * <p>If specified, then the concepts covered by the token must 
  * not be specified (i.e. at least one participation of author, 
  * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * dataEntryLocation must not be specified)</p>
  * 
- * <p>If specified, then the concepts covered by the token must 
- * not be specified (i.e. at least one participation of author, 
- * dataEnterer, responsibleParty, location and 
- * dataEntryLocation must not be specified)</p><p>Only one of 
- * Id or Text must be specified.</p>
+ * <p>Only one of Id or Text must be specified.</p>
+ * 
+ * <p>Conveys information related to the individuals and/or 
+ * locations involved with the action in situations where the 
+ * authentication happens on a one-time basis rather than on a 
+ * per-message basis.</p>
  * 
  * <p>Conveys an authentication token associated with the 
  * event.</p><p>The token may represent one or all of the 
  * following concepts: author, dataEnterer, responsibleParty, 
  * location and dataEntryLocation.</p>
-
+ * 
+ * <p>MCAI_MT700221CA.AuthorizationToken: Authentication Token</p>
+ * 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p>
+ * 
+ * <p>Only one of Id or Text must be specified.</p>
+ * 
+ * <p>Conveys information related to the individuals and/or 
+ * locations involved with the action in situations where the 
+ * authentication happens on a one-time basis rather than on a 
+ * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
+ * 
+ * <p>MCAI_MT700230CA.AuthorizationToken: Authentication Token</p>
+ * 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p>
+ * 
+ * <p>Only one of Id or Text must be specified.</p>
+ * 
+ * <p>Conveys information related to the individuals and/or 
+ * locations involved with the action in situations where the 
+ * authentication happens on a one-time basis rather than on a 
+ * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
+ * 
+ * <p>MCAI_MT700231CA.AuthorizationToken: Authentication Token</p>
+ * 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p>
+ * 
+ * <p>Only one of Id or Text must be specified.</p>
+ * 
+ * <p>Conveys information related to the individuals and/or 
+ * locations involved with the action in situations where the 
+ * authentication happens on a one-time basis rather than on a 
+ * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
+ * 
+ * <p>MCAI_MT700232CA.AuthorizationToken: Authentication Token</p>
+ * 
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p>
+ * 
+ * <p>Only one of Id or Text must be specified.</p>
+ * 
+ * <p>Conveys information related to the individuals and/or 
+ * locations involved with the action in situations where the 
+ * authentication happens on a one-time basis rather than on a 
+ * per-message basis.</p>
+ * 
+ * <p>Conveys an authentication token associated with the 
+ * event.</p><p>The token may represent one or all of the 
+ * following concepts: author, dataEnterer, responsibleParty, 
+ * location and dataEntryLocation.</p>
+ * 
+ * <p>QUQI_MT020000CA.AuthorizationToken: Authentication Token</p>
+ * 
+ * <p>If specified, then the concepts covered by the to
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorizationToken","MCAI_MT700211CA.AuthorizationToken","MCAI_MT700212CA.AuthorizationToken","MCAI_MT700220CA.AuthorizationToken","MCAI_MT700221CA.AuthorizationToken","MCAI_MT700222CA.AuthorizationToken","MCAI_MT700230CA.AuthorizationToken","MCAI_MT700231CA.AuthorizationToken","MCAI_MT700232CA.AuthorizationToken","MFMI_MT700711CA.AuthorizationToken","MFMI_MT700751CA.AuthorizationToken","QUQI_MT020000CA.AuthorizationToken","QUQI_MT020002CA.AuthorizationToken"})
 public class AuthenticationTokenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST text = new STImpl();
 
 
     /**
-     * <p>AuthorizationTokenAsId</p>
+     * <p>Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Authorization Token as Id</p>
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>An authorization token expressed as a GUID.</p><p>The 
-     * Authorization token may represent the concepts of author, 
-     * data enterer, supervisor (responsible party), responsible 
-     * location and/or data entry location.</p>
+     * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.id</p>
      * 
-     * <p>An authorization token expressed as a GUID.</p><p>The 
-     * Authorization token may represent the concepts of author, 
-     * data enterer, supervisor (responsible party), responsible 
-     * location and/or data entry location.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -290,22 +466,189 @@ public class AuthenticationTokenBean extends MessagePartBean {
     }
 
     /**
-     * <p>AuthorizationTokenAsId</p>
+     * <p>Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Authorization Token as Id</p>
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>An authorization token expressed as a GUID.</p><p>The 
-     * Authorization token may represent the concepts of author, 
-     * data enterer, supervisor (responsible party), responsible 
-     * location and/or data entry location.</p>
+     * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.id</p>
      * 
-     * <p>An authorization token expressed as a GUID.</p><p>The 
-     * Authorization token may represent the concepts of author, 
-     * data enterer, supervisor (responsible party), responsible 
-     * location and/or data entry location.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p>
+     * 
+     * <p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -313,22 +656,189 @@ public class AuthenticationTokenBean extends MessagePartBean {
 
 
     /**
-     * <p>AuthorizationToken</p>
+     * <p>Business Name: AuthorizationToken</p>
      * 
-     * <p>Authorization Token</p>
+     * <p>Other Business Name: AuthorizationToken</p>
      * 
-     * <p>An authentication token expressed as a non-GUID 
-     * string.</p><p>The Authorization token may represent the 
-     * concepts of author, data enterer, supervisor (responsible 
-     * party), responsible location and/or data entry location.</p>
+     * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.text</p>
      * 
-     * <p>An authentication token expressed as a non-GUID 
-     * string.</p><p>The Authorization token may represent the 
-     * concepts of author, data enterer, supervisor (responsible 
-     * party), responsible location and/or data entry location.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -336,22 +846,189 @@ public class AuthenticationTokenBean extends MessagePartBean {
     }
 
     /**
-     * <p>AuthorizationToken</p>
+     * <p>Business Name: AuthorizationToken</p>
      * 
-     * <p>Authorization Token</p>
+     * <p>Other Business Name: AuthorizationToken</p>
      * 
-     * <p>An authentication token expressed as a non-GUID 
-     * string.</p><p>The Authorization token may represent the 
-     * concepts of author, data enterer, supervisor (responsible 
-     * party), responsible location and/or data entry location.</p>
+     * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.text</p>
      * 
-     * <p>An authentication token expressed as a non-GUID 
-     * string.</p><p>The Authorization token may represent the 
-     * concepts of author, data enterer, supervisor (responsible 
-     * party), responsible location and/or data entry location.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
+     * 
+     * <p>Other Business Name: AuthorizationToken</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p>
+     * 
+     * <p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

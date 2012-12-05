@@ -32,142 +32,313 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>CareCompositions</p>
+ * <p>Business Name: CareCompositions</p>
  * 
  * <p>QUQI_MT020000CA.Component: Care Compositions</p>
  * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
  * of the patient's record.</p>
+ * 
+ * <p>A care composition is a record, which summarizes the 
+ * events that happened during care including who is 
+ * responsible for the care provided.</p><p>Examples include 
+ * encounters, health condition (episode)-based collections and 
+ * general care-based collections such as &quot;gynecological 
+ * care&quot;.</p>
  * 
  * <p>MCAI_MT700211CA.Component: Care Compositions</p>
  * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
  * of the patient's record.</p>
+ * 
+ * <p>A care composition is a record, which summarizes the 
+ * events that happened during care including who is 
+ * responsible for the care provided.</p><p>Examples include 
+ * encounters, health condition (episode)-based collections and 
+ * general care-based collections such as &quot;gynecological 
+ * care&quot;.</p>
  * 
  * <p>MCAI_MT700210CA.Component: Care Compositions</p>
  * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
  * of the patient's record.</p>
+ * 
+ * <p>A care composition is a record, which summarizes the 
+ * events that happened during care including who is 
+ * responsible for the care provided.</p><p>Examples include 
+ * encounters, health condition (episode)-based collections and 
+ * general care-based collections such as &quot;gynecological 
+ * care&quot;.</p>
  * 
  * <p>QUQI_MT120006CA.Component: Care Compositions</p>
  * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
  * of the patient's record.</p>
+ * 
+ * <p>A care composition is a record, which summarizes the 
+ * events that happened during care including who is 
+ * responsible for the care provided.</p><p>Examples include 
+ * encounters, health condition (episode)-based collections and 
+ * general care-based collections such as &quot;gynecological 
+ * care&quot;.</p>
  * 
  * <p>MCAI_MT700212CA.Component: Care Compositions</p>
  * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
- * <p>A care composition is a record, which summarizes the 
- * events that happened during care including who is 
- * responsible for the care provided.</p><p>Examples include 
- * encounters, health condition (episode)-based collections and 
- * general care-based collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
  * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
  * of the patient's record.</p>
+ * 
+ * <p>A care composition is a record, which summarizes the 
+ * events that happened during care including who is 
+ * responsible for the care provided.</p><p>Examples include 
+ * encounters, health condition (episode)-based collections and 
+ * general care-based collections such as &quot;gynecological 
+ * care&quot;.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Component","MCAI_MT700211CA.Component","MCAI_MT700212CA.Component","QUQI_MT020000CA.Component","QUQI_MT120006CA.Component"})
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private BL contextConductionInd = new BLImpl();
     private ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ActRelationshipType getTypeCode() {
         return (ActRelationshipType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700212CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700212CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700212CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"patientCareProvisionEvent"})
     public ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt011001ca.CareCompositionsBean getPatientCareProvisionEvent() {
         return this.patientCareProvisionEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700212CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent) {
         this.patientCareProvisionEvent = patientCareProvisionEvent;
     }

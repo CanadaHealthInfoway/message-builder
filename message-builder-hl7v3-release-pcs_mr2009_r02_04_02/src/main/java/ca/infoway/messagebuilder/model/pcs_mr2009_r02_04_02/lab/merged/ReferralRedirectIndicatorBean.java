@@ -30,11 +30,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Referral
 
 
 /**
- * <p>ReferralRedirectIndicator</p>
+ * <p>Business Name: ReferralRedirectIndicator</p>
  * 
  * <p>POLB_MT001000CA.ReferralRedirectIndicator: Referral 
  * Redirect Indicator</p>
  * 
+ * <p>OLIS needs a flag at the ObservationRequest level test 
+ * request to identify a &quot;reference&quot; test request 
+ * because this limits the visibility of the test request in 
+ * OLIS to the laboratory sector (i.e., practitioners and 
+ * hospitals can't retrieve reference test requests).</p>
+ * 
  * <p>This referral redirect flag object is present and the 
  * code is set to &quot;referral&quot; when the order is a 
  * referral order (an order from labA to labB, labA will report 
@@ -42,16 +48,16 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Referral
  * a redirect order (an order from labA to labB, labB will 
  * report the results to ordering provider), or this object is 
  * absent from orders requested by providers.</p>
- * 
- * <p>OLIS needs a flag at the ObservationRequest level test 
- * request to identify a &quot;reference&quot; test request 
- * because this limits the visibility of the test request in 
- * OLIS to the laboratory sector (i.e., practitioners and 
- * hospitals can't retrieve reference test requests).</p>
  * 
  * <p>POLB_MT001001CA.ReferralRedirectIndicator: Referral 
  * Redirect Indicator</p>
  * 
+ * <p>OLIS needs a flag at the ObservationRequest level test 
+ * request to identify a &quot;reference&quot; test request 
+ * because this limits the visibility of the test request in 
+ * OLIS to the laboratory sector (i.e., practitioners and 
+ * hospitals can't retrieve reference test requests).</p>
+ * 
  * <p>This referral redirect flag object is present and the 
  * code is set to &quot;referral&quot; when the order is a 
  * referral order (an order from labA to labB, labA will report 
@@ -59,16 +65,16 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Referral
  * a redirect order (an order from labA to labB, labB will 
  * report the results to ordering provider), or this object is 
  * absent from orders requested by providers.</p>
- * 
- * <p>OLIS needs a flag at the ObservationRequest level test 
- * request to identify a &quot;reference&quot; test request 
- * because this limits the visibility of the test request in 
- * OLIS to the laboratory sector (i.e., practitioners and 
- * hospitals can't retrieve reference test requests).</p>
  * 
  * <p>POLB_MT001999CA.ReferralRedirectIndicator: Referral 
  * Redirect Indicator</p>
  * 
+ * <p>OLIS needs a flag at the ObservationRequest level test 
+ * request to identify a &quot;reference&quot; test request 
+ * because this limits the visibility of the test request in 
+ * OLIS to the laboratory sector (i.e., practitioners and 
+ * hospitals can't retrieve reference test requests).</p>
+ * 
  * <p>This referral redirect flag object is present and the 
  * code is set to &quot;referral&quot; when the order is a 
  * referral order (an order from labA to labB, labA will report 
@@ -76,16 +82,16 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Referral
  * a redirect order (an order from labA to labB, labB will 
  * report the results to ordering provider), or this object is 
  * absent from orders requested by providers.</p>
- * 
- * <p>OLIS needs a flag at the ObservationRequest level test 
- * request to identify a &quot;reference&quot; test request 
- * because this limits the visibility of the test request in 
- * OLIS to the laboratory sector (i.e., practitioners and 
- * hospitals can't retrieve reference test requests).</p>
  * 
  * <p>POLB_MT001010CA.ReferralRedirectIndicator: Referral 
  * Redirect Indicator</p>
  * 
+ * <p>OLIS needs a flag at the ObservationRequest level test 
+ * request to identify a &quot;reference&quot; test request 
+ * because this limits the visibility of the test request in 
+ * OLIS to the laboratory sector (i.e., practitioners and 
+ * hospitals can't retrieve reference test requests).</p>
+ * 
  * <p>This referral redirect flag object is present and the 
  * code is set to &quot;referral&quot; when the order is a 
  * referral order (an order from labA to labB, labA will report 
@@ -93,24 +99,53 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Referral
  * a redirect order (an order from labA to labB, labB will 
  * report the results to ordering provider), or this object is 
  * absent from orders requested by providers.</p>
- * 
- * <p>OLIS needs a flag at the ObservationRequest level test 
- * request to identify a &quot;reference&quot; test request 
- * because this limits the visibility of the test request in 
- * OLIS to the laboratory sector (i.e., practitioners and 
- * hospitals can't retrieve reference test requests).</p>
  */
 @Hl7PartTypeMapping({"POLB_MT001000CA.ReferralRedirectIndicator","POLB_MT001001CA.ReferralRedirectIndicator","POLB_MT001010CA.ReferralRedirectIndicator","POLB_MT001999CA.ReferralRedirectIndicator"})
 public class ReferralRedirectIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
 
 
     /**
-     * <p>ReferralRedirectIndicator</p>
+     * <p>Business Name: ReferralRedirectIndicator</p>
      * 
-     * <p>O:Referral Redirect Indicator</p>
+     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.ReferralRedirectIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Describes this act event as a referral or redirect 
+     * indicator act.</p>
+     * 
+     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001001CA.ReferralRedirectIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Describes this act event as a referral or redirect 
+     * indicator act.</p>
+     * 
+     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001010CA.ReferralRedirectIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Describes this act event as a referral or redirect 
+     * indicator act.</p>
+     * 
+     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001999CA.ReferralRedirectIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Describes this act event as a referral or redirect 
      * indicator act.</p>
@@ -121,9 +156,44 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReferralRedirectIndicator</p>
+     * <p>Business Name: ReferralRedirectIndicator</p>
      * 
-     * <p>O:Referral Redirect Indicator</p>
+     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.ReferralRedirectIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Describes this act event as a referral or redirect 
+     * indicator act.</p>
+     * 
+     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001001CA.ReferralRedirectIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Describes this act event as a referral or redirect 
+     * indicator act.</p>
+     * 
+     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001010CA.ReferralRedirectIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Describes this act event as a referral or redirect 
+     * indicator act.</p>
+     * 
+     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001999CA.ReferralRedirectIndicator.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Describes this act event as a referral or redirect 
      * indicator act.</p>

@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>PORX_IN010120CA: Revise assigned dispense responsibility 
- * req. ref.</p>
+ * <p>Business Name: PORX_IN010120CA: Revise assigned dispense 
+ * responsibility req. ref.</p>
+ * 
+ * <p>Indicates that the request to change the facility 
+ * responsible for fulfilling the dispense portion of a 
+ * prescription has been refused.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"PORX_IN010120CA"})
 public class ReviseAssignedDispenseResponsibilityReqRefBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -28,8 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 
 
 /**
- * <p>REPC_IN000053CA: Record patient basic observation request 
- * refused</p>
+ * <p>Business Name: REPC_IN000053CA: Record patient basic 
+ * observation request refused</p>
+ * 
+ * <p>Indicates that the request to record the specified 
+ * observation in the patient's record has been refused.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -38,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 @Hl7PartTypeMapping({"REPC_IN000053CA"})
 public class RecordPatientBasicObservationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

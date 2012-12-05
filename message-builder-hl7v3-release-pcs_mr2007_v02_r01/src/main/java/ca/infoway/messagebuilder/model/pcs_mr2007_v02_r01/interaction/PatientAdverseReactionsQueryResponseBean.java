@@ -30,7 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.GenericQueryPar
 
 
 /**
- * <p>REPC_IN000002CA: Patient adverse reactions query response</p>
+ * <p>Business Name: REPC_IN000002CA: Patient adverse reactions 
+ * query response</p>
+ * 
+ * <p>Returns information about the current status of one or 
+ * more adverse reactions for a patient.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -43,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.GenericQueryPar
 @Hl7PartTypeMapping({"REPC_IN000002CA"})
 public class PatientAdverseReactionsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<ReportedReactionBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

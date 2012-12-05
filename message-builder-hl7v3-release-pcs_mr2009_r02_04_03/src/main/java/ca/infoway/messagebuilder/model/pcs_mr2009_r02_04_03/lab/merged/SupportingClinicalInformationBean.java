@@ -32,55 +32,55 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.Supporti
 
 
 /**
- * <p>SupportingClinicalInformation</p>
+ * <p>Business Name: SupportingClinicalInformation</p>
  * 
  * <p>POLB_MT001001CA.SupportingClinicalObservationEvent: 
  * Supporting Clinical Information</p>
  * 
+ * <p>Supporting Information is frequently relevant when 
+ * performing healthcare services on/for a patient.</p>
+ * 
  * <p>Enables the sending of supporting clinical information 
  * either as categorized (e.g. Travel History), text (e.g. 
  * visited Asia in the last six months) OR provide specific 
  * questions (e.g. Date of last menstrual period?) with textual 
  * answers.</p>
- * 
- * <p>Supporting Information is frequently relevant when 
- * performing healthcare services on/for a patient.</p>
  * 
  * <p>POLB_MT001000CA.SupportingClinicalObservationEvent: 
  * Supporting Clinical Information</p>
  * 
+ * <p>Supporting Information is frequently relevant when 
+ * performing healthcare services on/for a patient.</p>
+ * 
  * <p>Enables the sending of supporting clinical information 
  * either as categorized (e.g. Travel History), text (e.g. 
  * visited Asia in the last six months) OR provide specific 
  * questions (e.g. Date of last menstrual period?) with textual 
  * answers.</p>
- * 
- * <p>Supporting Information is frequently relevant when 
- * performing healthcare services on/for a patient.</p>
  * 
  * <p>POLB_MT001010CA.SupportingClinicalObservationEvent: 
  * Supporting Clinical Information</p>
  * 
+ * <p>Supporting Information is frequently relevant when 
+ * performing healthcare services on/for a patient.</p>
+ * 
  * <p>Enables the sending of supporting clinical information 
  * either as categorized (e.g. Travel History), text (e.g. 
  * visited Asia in the last six months) OR provide specific 
  * questions (e.g. Date of last menstrual period?) with textual 
  * answers.</p>
- * 
- * <p>Supporting Information is frequently relevant when 
- * performing healthcare services on/for a patient.</p>
  * 
  * <p>POLB_MT001999CA.SupportingClinicalObservationEvent: 
  * Supporting Clinical Information</p>
  * 
+ * <p>Supporting Information is frequently relevant when 
+ * performing healthcare services on/for a patient.</p>
+ * 
  * <p>Enables the sending of supporting clinical information 
  * either as categorized (e.g. Travel History), text (e.g. 
  * visited Asia in the last six months) OR provide specific 
  * questions (e.g. Date of last menstrual period?) with textual 
  * answers.</p>
- * 
- * <p>Supporting Information is frequently relevant when 
- * performing healthcare services on/for a patient.</p>
  * 
  * <p>POLB_MT004100CA.SupportingClinicalObservationEvent1: 
  * Supporting Clinical Information</p>
@@ -98,36 +98,95 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.Supporti
  * <p>POLB_MT004000CA.SupportingClinicalObservationEvent: 
  * Supporting Clinical Information</p>
  * 
- * <p>The supporting observation event contains information 
- * which is pertinent to the result.</p>
- * 
  * <p>Includes data relevant to the result or result 
  * processing.</p>
+ * 
+ * <p>The supporting observation event contains information 
+ * which is pertinent to the result.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT001000CA.SupportingClinicalObservationEvent","POLB_MT001001CA.SupportingClinicalObservationEvent","POLB_MT001010CA.SupportingClinicalObservationEvent","POLB_MT001999CA.SupportingClinicalObservationEvent","POLB_MT002000CA.SupportingClinicalObservationEvent","POLB_MT004000CA.SupportingClinicalObservationEvent","POLB_MT004100CA.SupportingClinicalObservationEvent1","POLB_MT004100CA.SupportingClinicalObservationEvent2","POLB_MT004200CA.SupportingClinicalObservationEvent1"})
 public class SupportingClinicalInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ANY<Object> value = new ANYImpl<Object>();
 
 
     /**
-     * <p>SupportingClinicalObservationCode</p>
+     * <p>Business Name: SupportingClinicalObservationCode</p>
      * 
-     * <p>L:Supporting Clinical Observation Code</p>
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
      * 
-     * <p>Describes the type of supporting clinical 
-     * information.</p>
+     * <p>Relationship: 
+     * POLB_MT002000CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to include that clinical information pertinent to 
      * the performance of the requested test(s).</p>
      * 
-     * <p>Supporting Clinical Observation Code</p>
+     * <p>Describes the type of supporting clinical 
+     * information.</p>
      * 
-     * <p>Code used describe this act to communicate information at 
-     * the report level (as opposed to at the culture, isolate, or 
-     * sensitivity level). This includes drugs taken.</p>
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001001CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to include that clinical information pertinent to 
+     * the performance of the requested test(s).</p>
+     * 
+     * <p>Describes the type of supporting clinical 
+     * information.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001010CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to include that clinical information pertinent to 
+     * the performance of the requested test(s).</p>
+     * 
+     * <p>Describes the type of supporting clinical 
+     * information.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001999CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to include that clinical information pertinent to 
+     * the performance of the requested test(s).</p>
+     * 
+     * <p>Describes the type of supporting clinical 
+     * information.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SupportingClinicalObservationEvent2.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SupportingClinicalObservationEvent1.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>When a coded value applies, values must be selected from 
      * the SupportingClinicalInformationValue Concept Domain.</p>
@@ -135,20 +194,32 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Used to describe the type of information in this 
      * observation event.</p>
      * 
-     * <p>Supporting Clinical Observation Code</p>
+     * <p>Code used describe this act to communicate information at 
+     * the report level (as opposed to at the culture, isolate, or 
+     * sensitivity level). This includes drugs taken.</p>
      * 
-     * <p>The type of supporting information being communicated 
-     * with this result.</p>
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
      * 
-     * <p>Supporting Clinical Observation Code</p>
+     * <p>Relationship: 
+     * POLB_MT004200CA.SupportingClinicalObservationEvent1.code</p>
      * 
-     * <p>Code used to describe this observation as supporting 
-     * clinical information.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to describe the type of information in this 
      * observation event.</p>
      * 
-     * <p>Supporting Clinical Observation Code</p>
+     * <p>Code used to describe this observation as supporting 
+     * clinical information.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The type of supporting information being communicated 
+     * with this result.</p>
      */
     @Hl7XmlMapping({"code"})
     public SupportingClinicalInformationCode getCode() {
@@ -156,21 +227,80 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>SupportingClinicalObservationCode</p>
+     * <p>Business Name: SupportingClinicalObservationCode</p>
      * 
-     * <p>L:Supporting Clinical Observation Code</p>
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
      * 
-     * <p>Describes the type of supporting clinical 
-     * information.</p>
+     * <p>Relationship: 
+     * POLB_MT002000CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to include that clinical information pertinent to 
      * the performance of the requested test(s).</p>
      * 
-     * <p>Supporting Clinical Observation Code</p>
+     * <p>Describes the type of supporting clinical 
+     * information.</p>
      * 
-     * <p>Code used describe this act to communicate information at 
-     * the report level (as opposed to at the culture, isolate, or 
-     * sensitivity level). This includes drugs taken.</p>
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001001CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to include that clinical information pertinent to 
+     * the performance of the requested test(s).</p>
+     * 
+     * <p>Describes the type of supporting clinical 
+     * information.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001010CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to include that clinical information pertinent to 
+     * the performance of the requested test(s).</p>
+     * 
+     * <p>Describes the type of supporting clinical 
+     * information.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001999CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to include that clinical information pertinent to 
+     * the performance of the requested test(s).</p>
+     * 
+     * <p>Describes the type of supporting clinical 
+     * information.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SupportingClinicalObservationEvent2.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SupportingClinicalObservationEvent1.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>When a coded value applies, values must be selected from 
      * the SupportingClinicalInformationValue Concept Domain.</p>
@@ -178,20 +308,32 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Used to describe the type of information in this 
      * observation event.</p>
      * 
-     * <p>Supporting Clinical Observation Code</p>
+     * <p>Code used describe this act to communicate information at 
+     * the report level (as opposed to at the culture, isolate, or 
+     * sensitivity level). This includes drugs taken.</p>
      * 
-     * <p>The type of supporting information being communicated 
-     * with this result.</p>
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
      * 
-     * <p>Supporting Clinical Observation Code</p>
+     * <p>Relationship: 
+     * POLB_MT004200CA.SupportingClinicalObservationEvent1.code</p>
      * 
-     * <p>Code used to describe this observation as supporting 
-     * clinical information.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to describe the type of information in this 
      * observation event.</p>
      * 
-     * <p>Supporting Clinical Observation Code</p>
+     * <p>Code used to describe this observation as supporting 
+     * clinical information.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.SupportingClinicalObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The type of supporting information being communicated 
+     * with this result.</p>
      */
     public void setCode(SupportingClinicalInformationCode code) {
         this.code.setValue(code);
@@ -199,22 +341,88 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>SupportingClinicalObservationValue</p>
+     * <p>Business Name: SupportingClinicalObservationValue</p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
      * 
-     * <p>The supporting information value (itself). If a coded 
-     * value applies, the value must be selected from the 
+     * <p>Relationship: 
+     * POLB_MT002000CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>If a coded value applies, the value must be selected from 
+     * the SupportingClinicalInformationValue Concept Domain.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The supporting clinical information. Could be coded 
+     * information or text-based. When a coded value applies, the 
+     * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>M:Supporting Clinical Observation Value</p>
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001001CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The supporting clinical information. Could be coded 
      * information or text-based. If a coded value applies, the 
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001010CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The supporting clinical information. Could be coded 
+     * information or text-based. If a coded value applies, values 
+     * must be selected from the SupportingClinicalInformationValue 
+     * Concept Domain.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001999CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The supporting clinical information. Could be coded 
+     * information or text-based. If a coded value applies, the 
+     * value must be selected from the 
+     * SupportingClinicalInformationValue Concept Domain.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SupportingClinicalObservationEvent2.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The value of the observation to be communicated at the 
+     * culture level. When a coded value applies, values must be 
+     * selected from the SupportingClinicalInformationValue Concept 
+     * Domain.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SupportingClinicalObservationEvent1.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The value is mandatory as this is the information to 
+     * communication (categorized or described by the code 
+     * attribute).</p>
      * 
      * <p>The value of the observation to be communicated at the 
      * report level (as opposed to at the culture, isolate, or 
@@ -222,46 +430,32 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * a coded value applies, values must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SupportingClinicalObservationEvent1.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>The value is mandatory as this is the information to 
      * communication (categorized or described by the code 
      * attribute).</p>
-     * 
-     * <p>M:Supporting Clinical Observation Value</p>
-     * 
-     * <p>The supporting clinical information. Could be coded 
-     * information or text-based. When a coded value applies, the 
-     * value must be selected from the 
-     * SupportingClinicalInformationValue Concept Domain.</p>
-     * 
-     * <p>Supporting Clinical Observation Value</p>
      * 
      * <p>The value of the supporting clinical observation to be 
      * communicated at the report level. If a coded value applies, 
      * values must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>The value is mandatory as this is the information to 
-     * communication (categorized or described by the code 
-     * attribute).</p>
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
+     * <p>Relationship: 
+     * POLB_MT004000CA.SupportingClinicalObservationEvent.value</p>
      * 
-     * <p>If a coded value applies, the value must be selected from 
-     * the SupportingClinicalInformationValue Concept Domain.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
-     * 
-     * <p>The value of the observation to be communicated at the 
-     * culture level. When a coded value applies, values must be 
-     * selected from the SupportingClinicalInformationValue Concept 
-     * Domain.</p>
-     * 
-     * <p>M:Supporting Clinical Observation Value</p>
-     * 
-     * <p>The supporting clinical information. Could be coded 
-     * information or text-based. If a coded value applies, values 
-     * must be selected from the SupportingClinicalInformationValue 
-     * Concept Domain.</p>
+     * <p>The supporting information value (itself). If a coded 
+     * value applies, the value must be selected from the 
+     * SupportingClinicalInformationValue Concept Domain.</p>
      */
     @Hl7XmlMapping({"value"})
     public Object getValue() {
@@ -269,22 +463,88 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>SupportingClinicalObservationValue</p>
+     * <p>Business Name: SupportingClinicalObservationValue</p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
      * 
-     * <p>The supporting information value (itself). If a coded 
-     * value applies, the value must be selected from the 
+     * <p>Relationship: 
+     * POLB_MT002000CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>If a coded value applies, the value must be selected from 
+     * the SupportingClinicalInformationValue Concept Domain.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The supporting clinical information. Could be coded 
+     * information or text-based. When a coded value applies, the 
+     * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>M:Supporting Clinical Observation Value</p>
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001001CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The supporting clinical information. Could be coded 
      * information or text-based. If a coded value applies, the 
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001010CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The supporting clinical information. Could be coded 
+     * information or text-based. If a coded value applies, values 
+     * must be selected from the SupportingClinicalInformationValue 
+     * Concept Domain.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001999CA.SupportingClinicalObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The supporting clinical information. Could be coded 
+     * information or text-based. If a coded value applies, the 
+     * value must be selected from the 
+     * SupportingClinicalInformationValue Concept Domain.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SupportingClinicalObservationEvent2.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The value of the observation to be communicated at the 
+     * culture level. When a coded value applies, values must be 
+     * selected from the SupportingClinicalInformationValue Concept 
+     * Domain.</p>
+     * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SupportingClinicalObservationEvent1.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The value is mandatory as this is the information to 
+     * communication (categorized or described by the code 
+     * attribute).</p>
      * 
      * <p>The value of the observation to be communicated at the 
      * report level (as opposed to at the culture, isolate, or 
@@ -292,46 +552,32 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * a coded value applies, values must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SupportingClinicalObservationEvent1.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>The value is mandatory as this is the information to 
      * communication (categorized or described by the code 
      * attribute).</p>
-     * 
-     * <p>M:Supporting Clinical Observation Value</p>
-     * 
-     * <p>The supporting clinical information. Could be coded 
-     * information or text-based. When a coded value applies, the 
-     * value must be selected from the 
-     * SupportingClinicalInformationValue Concept Domain.</p>
-     * 
-     * <p>Supporting Clinical Observation Value</p>
      * 
      * <p>The value of the supporting clinical observation to be 
      * communicated at the report level. If a coded value applies, 
      * values must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>The value is mandatory as this is the information to 
-     * communication (categorized or described by the code 
-     * attribute).</p>
+     * <p>Other Business Name: SupportingClinicalObservationValue</p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
+     * <p>Relationship: 
+     * POLB_MT004000CA.SupportingClinicalObservationEvent.value</p>
      * 
-     * <p>If a coded value applies, the value must be selected from 
-     * the SupportingClinicalInformationValue Concept Domain.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Supporting Clinical Observation Value</p>
-     * 
-     * <p>The value of the observation to be communicated at the 
-     * culture level. When a coded value applies, values must be 
-     * selected from the SupportingClinicalInformationValue Concept 
-     * Domain.</p>
-     * 
-     * <p>M:Supporting Clinical Observation Value</p>
-     * 
-     * <p>The supporting clinical information. Could be coded 
-     * information or text-based. If a coded value applies, values 
-     * must be selected from the SupportingClinicalInformationValue 
-     * Concept Domain.</p>
+     * <p>The supporting information value (itself). If a coded 
+     * value applies, the value must be selected from the 
+     * SupportingClinicalInformationValue Concept Domain.</p>
      */
     public void setValue(Object value) {
         this.value.setValue(value);

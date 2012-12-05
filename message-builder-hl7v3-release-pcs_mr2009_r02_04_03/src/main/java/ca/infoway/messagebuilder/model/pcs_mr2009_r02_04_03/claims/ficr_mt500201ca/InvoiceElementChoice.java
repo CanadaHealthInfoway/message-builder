@@ -37,6 +37,12 @@ import java.util.List;
 public interface InvoiceElementChoice {
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementReason.billableActChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<A_BillableActChoice> getReasonOfBillableActChoice();
 
 }

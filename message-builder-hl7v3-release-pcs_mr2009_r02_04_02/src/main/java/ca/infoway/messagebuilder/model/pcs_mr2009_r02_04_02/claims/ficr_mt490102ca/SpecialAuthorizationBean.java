@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;
@@ -55,7 +55,12 @@ public class SpecialAuthorizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Special Authorization Status</p>
+     * <p>Business Name: Special Authorization Status</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -63,7 +68,12 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Special Authorization Status</p>
+     * <p>Business Name: Special Authorization Status</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -71,7 +81,12 @@ public class SpecialAuthorizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Special Authorization Effective Date</p>
+     * <p>Business Name: Special Authorization Effective Date</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -79,18 +94,33 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Special Authorization Effective Date</p>
+     * <p>Business Name: Special Authorization Effective Date</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedEntity"})
     public HealthcareOrganizationBean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorAssignedEntity(HealthcareOrganizationBean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
@@ -102,21 +132,41 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"coverage/policyOrAccount"})
     public PolicyOrAccountBean getCoveragePolicyOrAccount() {
         return this.coveragePolicyOrAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCoveragePolicyOrAccount(PolicyOrAccountBean coveragePolicyOrAccount) {
         this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Limitation2.remainingLimits</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"limitation1/remainingLimits"})
     public RemainingLimitsBean getLimitation1RemainingLimits() {
         return this.limitation1RemainingLimits;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Limitation2.remainingLimits</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLimitation1RemainingLimits(RemainingLimitsBean limitation1RemainingLimits) {
         this.limitation1RemainingLimits = limitation1RemainingLimits;
     }

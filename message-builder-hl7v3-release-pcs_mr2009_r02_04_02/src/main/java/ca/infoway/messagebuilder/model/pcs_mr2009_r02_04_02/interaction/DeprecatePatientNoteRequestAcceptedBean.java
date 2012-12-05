@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>COMT_IN300102CA: Deprecate patient note request accepted</p>
+ * <p>Business Name: COMT_IN300102CA: Deprecate patient note 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the specified patient annotation has been 
+ * successfully marked as no longer applicable.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"COMT_IN300102CA"})
 public class DeprecatePatientNoteRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

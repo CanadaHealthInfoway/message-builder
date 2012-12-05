@@ -32,24 +32,29 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.Observat
 
 
 /**
- * <p>Reference Range Criteria</p>
+ * <p>Business Name: Reference Range Criteria</p>
+ * 
+ * <p>Used for reference range criteria.</p>
  * 
  * <p>ObservationEventCriterion allows for the identification 
  * of the parameters applied to the quoted interpretation range 
  * such as &quot;sex&quot;, &quot;age&quot;, etc.</p>
- * 
- * <p>Used for reference range criteria.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationEventCriterion"})
 public class ReferenceRangeCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ST value = new STImpl();
 
 
     /**
-     * <p>Reference Range Criteria Type</p>
+     * <p>Business Name: Reference Range Criteria Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The coded reference range criteria type.</p>
      */
@@ -59,7 +64,12 @@ public class ReferenceRangeCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>Reference Range Criteria Type</p>
+     * <p>Business Name: Reference Range Criteria Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The coded reference range criteria type.</p>
      */
@@ -69,7 +79,12 @@ public class ReferenceRangeCriteriaBean extends MessagePartBean {
 
 
     /**
-     * <p>Reference Range Criteria Value</p>
+     * <p>Business Name: Reference Range Criteria Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEventCriterion.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The reference range criteria value.</p>
      */
@@ -79,7 +94,12 @@ public class ReferenceRangeCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>Reference Range Criteria Value</p>
+     * <p>Business Name: Reference Range Criteria Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEventCriterion.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The reference range criteria value.</p>
      */

@@ -46,15 +46,25 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActBilli
 @Hl7PartTypeMapping({"FICR_MT500201CA.FinancialContract","FICR_MT600201CA.FinancialContract"})
 public class FinancialContractBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
 
     /**
-     * <p>FinancialContractID</p>
+     * <p>Business Name: FinancialContractID</p>
      * 
-     * <p>Financial Contract ID</p>
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.FinancialContract.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -62,9 +72,19 @@ public class FinancialContractBean extends MessagePartBean {
     }
 
     /**
-     * <p>FinancialContractID</p>
+     * <p>Business Name: FinancialContractID</p>
      * 
-     * <p>Financial Contract ID</p>
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.FinancialContract.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -72,9 +92,19 @@ public class FinancialContractBean extends MessagePartBean {
 
 
     /**
-     * <p>BillingArrangementType</p>
+     * <p>Business Name: BillingArrangementType</p>
      * 
-     * <p>Billing Arrangement Type</p>
+     * <p>Other Business Name: BillingArrangementType</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: BillingArrangementType</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.FinancialContract.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActBillingArrangementType getCode() {
@@ -82,9 +112,19 @@ public class FinancialContractBean extends MessagePartBean {
     }
 
     /**
-     * <p>BillingArrangementType</p>
+     * <p>Business Name: BillingArrangementType</p>
      * 
-     * <p>Billing Arrangement Type</p>
+     * <p>Other Business Name: BillingArrangementType</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: BillingArrangementType</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.FinancialContract.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActBillingArrangementType code) {
         this.code.setValue(code);

@@ -28,7 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 
 
 /**
- * <p>PORX_IN010740CA: Prescription renewal request refused</p>
+ * <p>Business Name: PORX_IN010740CA: Prescription renewal 
+ * request refused</p>
+ * 
+ * <p>Indicates that the request for the issuance of a 
+ * prescription has been refused.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -37,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"PORX_IN010740CA"})
 public class PrescriptionRenewalRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

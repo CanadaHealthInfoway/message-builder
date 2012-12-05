@@ -30,7 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.cr.prpa_mt101101ca.Par
 
 
 /**
- * <p>PRPA_IN101106CA: Find Associated Indentifiers Response</p>
+ * <p>Business Name: PRPA_IN101106CA: Find Associated 
+ * Indentifiers Response</p>
+ * 
+ * <p>This interaction returns a set of identifiers associated 
+ * with a particular person identifier in a Person 
+ * Registry.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -43,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.cr.prpa_mt101101ca.Par
 @Hl7PartTypeMapping({"PRPA_IN101106CA"})
 public class FindAssociatedIndentifiersResponseBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedPersonBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

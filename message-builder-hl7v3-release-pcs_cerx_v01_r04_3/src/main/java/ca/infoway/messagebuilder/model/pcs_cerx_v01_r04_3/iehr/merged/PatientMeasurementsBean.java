@@ -59,21 +59,16 @@ import java.util.List;
  * 
  * <p>Measurement Type with a nullFlavor value must have 
  * SubObservations Measurement Type without a nullFlavor value 
- * must not have SubObservations.</p><p>Annotation is only 
- * permitted if Annotation Indicator is not present and vice 
- * versa</p>
+ * must not have SubObservations.</p>
  * 
- * <p>Measurement Type with a nullFlavor value must have 
- * SubObservations Measurement Type without a nullFlavor value 
- * must not have SubObservations.</p><p>Annotation is only 
- * permitted if Annotation Indicator is not present and vice 
- * versa</p>
- * 
- * <p>This comprises a single point-in-time measurement made 
- * about a patient.</p>
+ * <p>Annotation is only permitted if Annotation Indicator is 
+ * not present and vice versa</p>
  * 
  * <p>Allows pertinent patient measurements to be recorded for 
  * clinical purposes.</p>
+ * 
+ * <p>This comprises a single point-in-time measurement made 
+ * about a patient.</p>
  * 
  * <p>REPC_MT000018CA.CommonObservationEvent: Patient 
  * Measurements</p>
@@ -82,17 +77,17 @@ import java.util.List;
  * SubObservations Measurement Type without a nullFlavor value 
  * must not have SubObservations.</p>
  * 
- * <p>This comprises a single point-in-time measurement made 
- * about a patient.</p>
- * 
  * <p>Allows pertinent patient measurements to be recorded for 
  * clinical purposes.</p>
+ * 
+ * <p>This comprises a single point-in-time measurement made 
+ * about a patient.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000018CA.CommonObservationEvent","REPC_MT100002CA.CommonObservationEvent"})
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -108,16 +103,20 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>ObservationMeasurementId</p>
+     * <p>Business Name: ObservationMeasurementId</p>
      * 
-     * <p>E:Observation Measurement Id</p>
+     * <p>Other Business Name: ObservationMeasurementId</p>
      * 
-     * <p>Unique identifier assigned to a record of observation 
-     * measurement.</p>
+     * <p>Relationship: REPC_MT100002CA.CommonObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows observation measurement record to be directly 
      * accessed for &quot;undo's&quot;, and thus the attribute is 
      * mandatory.</p>
+     * 
+     * <p>Unique identifier assigned to a record of observation 
+     * measurement.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -125,16 +124,20 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ObservationMeasurementId</p>
+     * <p>Business Name: ObservationMeasurementId</p>
      * 
-     * <p>E:Observation Measurement Id</p>
+     * <p>Other Business Name: ObservationMeasurementId</p>
      * 
-     * <p>Unique identifier assigned to a record of observation 
-     * measurement.</p>
+     * <p>Relationship: REPC_MT100002CA.CommonObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows observation measurement record to be directly 
      * accessed for &quot;undo's&quot;, and thus the attribute is 
      * mandatory.</p>
+     * 
+     * <p>Unique identifier assigned to a record of observation 
+     * measurement.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -142,29 +145,34 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>MeasurementType</p>
+     * <p>Business Name: MeasurementType</p>
      * 
-     * <p>A:MeasurementType</p>
+     * <p>Other Business Name: MeasurementType</p>
      * 
-     * <p>Identification of the type of measurement/observation 
-     * that was made about the patient. Observation types include: 
-     * height, weight, blood pressure, body mass, etc</p>
+     * <p>Relationship: REPC_MT100002CA.CommonObservationEvent.code</p>
      * 
-     * <p>Distinguishes what kind of information is being 
-     * specified.</p><p>The attribute is CD to support SNOMED</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes what kind of information is being 
-     * specified.</p><p>The attribute is CD to support SNOMED</p>
-     * 
-     * <p>A:Measurement Type</p>
+     * specified. Code is mandatory to ensure that observations are 
+     * distinguishable. The attribute is CD to support SNOMED.</p>
      * 
      * <p>Identification of the type of measurement/observation 
      * that was made about the patient. Observation types include: 
      * height, weight, blood pressure, body mass, etc.</p>
      * 
+     * <p>Other Business Name: MeasurementType</p>
+     * 
+     * <p>Relationship: REPC_MT000018CA.CommonObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Distinguishes what kind of information is being 
-     * specified. Code is mandatory to ensure that observations are 
-     * distinguishable. The attribute is CD to support SNOMED.</p>
+     * specified.</p><p>The attribute is CD to support SNOMED</p>
+     * 
+     * <p>Identification of the type of measurement/observation 
+     * that was made about the patient. Observation types include: 
+     * height, weight, blood pressure, body mass, etc</p>
      */
     @Hl7XmlMapping({"code"})
     public CommonClinicalObservationType getCode() {
@@ -172,29 +180,34 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>MeasurementType</p>
+     * <p>Business Name: MeasurementType</p>
      * 
-     * <p>A:MeasurementType</p>
+     * <p>Other Business Name: MeasurementType</p>
      * 
-     * <p>Identification of the type of measurement/observation 
-     * that was made about the patient. Observation types include: 
-     * height, weight, blood pressure, body mass, etc</p>
+     * <p>Relationship: REPC_MT100002CA.CommonObservationEvent.code</p>
      * 
-     * <p>Distinguishes what kind of information is being 
-     * specified.</p><p>The attribute is CD to support SNOMED</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes what kind of information is being 
-     * specified.</p><p>The attribute is CD to support SNOMED</p>
-     * 
-     * <p>A:Measurement Type</p>
+     * specified. Code is mandatory to ensure that observations are 
+     * distinguishable. The attribute is CD to support SNOMED.</p>
      * 
      * <p>Identification of the type of measurement/observation 
      * that was made about the patient. Observation types include: 
      * height, weight, blood pressure, body mass, etc.</p>
      * 
+     * <p>Other Business Name: MeasurementType</p>
+     * 
+     * <p>Relationship: REPC_MT000018CA.CommonObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Distinguishes what kind of information is being 
-     * specified. Code is mandatory to ensure that observations are 
-     * distinguishable. The attribute is CD to support SNOMED.</p>
+     * specified.</p><p>The attribute is CD to support SNOMED</p>
+     * 
+     * <p>Identification of the type of measurement/observation 
+     * that was made about the patient. Observation types include: 
+     * height, weight, blood pressure, body mass, etc</p>
      */
     public void setCode(CommonClinicalObservationType code) {
         this.code.setValue(code);
@@ -202,12 +215,30 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Observation Timestamp</p>
+     * <p>Other Business Name: ObservationMeasurementTimestamp</p>
      * 
-     * <p>The dateand time at which the observation applies. E.g., 
-     * if blood was drawn two days ago and White Blood Count (WBC) 
-     * was done today, then WBC observation date should reflect the 
-     * date of two days ago.</p>
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows providers to evaluate currency of the information. 
+     * Because the date of observation/measurement determines the 
+     * relevance of the information, this attribute is defined as 
+     * 'populated'. Also allows tracking of observations over 
+     * time.</p>
+     * 
+     * <p>The date to which the observation applies. E.g., if blood 
+     * was drawn two days ago and White Blood Count (WBC) was done 
+     * today, then WBC observation date should reflect the date of 
+     * two days ago.</p>
+     * 
+     * <p>Other Business Name: ObservationTimestamp</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000018CA.CommonObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
      * NCPDP:Clinical.495-H1</p>
@@ -218,18 +249,10 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 'populated'. Also allows tracking of observations over 
      * time.</p>
      * 
-     * <p>C:Observation Measurement Timestamp</p>
-     * 
-     * <p>The date to which the observation applies. E.g., if blood 
-     * was drawn two days ago and White Blood Count (WBC) was done 
-     * today, then WBC observation date should reflect the date of 
-     * two days ago.</p>
-     * 
-     * <p>Allows providers to evaluate currency of the information. 
-     * Because the date of observation/measurement determines the 
-     * relevance of the information, this attribute is defined as 
-     * 'populated'. Also allows tracking of observations over 
-     * time.</p>
+     * <p>The dateand time at which the observation applies. E.g., 
+     * if blood was drawn two days ago and White Blood Count (WBC) 
+     * was done today, then WBC observation date should reflect the 
+     * date of two days ago.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -237,12 +260,30 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Observation Timestamp</p>
+     * <p>Other Business Name: ObservationMeasurementTimestamp</p>
      * 
-     * <p>The dateand time at which the observation applies. E.g., 
-     * if blood was drawn two days ago and White Blood Count (WBC) 
-     * was done today, then WBC observation date should reflect the 
-     * date of two days ago.</p>
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows providers to evaluate currency of the information. 
+     * Because the date of observation/measurement determines the 
+     * relevance of the information, this attribute is defined as 
+     * 'populated'. Also allows tracking of observations over 
+     * time.</p>
+     * 
+     * <p>The date to which the observation applies. E.g., if blood 
+     * was drawn two days ago and White Blood Count (WBC) was done 
+     * today, then WBC observation date should reflect the date of 
+     * two days ago.</p>
+     * 
+     * <p>Other Business Name: ObservationTimestamp</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000018CA.CommonObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
      * NCPDP:Clinical.495-H1</p>
@@ -253,18 +294,10 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 'populated'. Also allows tracking of observations over 
      * time.</p>
      * 
-     * <p>C:Observation Measurement Timestamp</p>
-     * 
-     * <p>The date to which the observation applies. E.g., if blood 
-     * was drawn two days ago and White Blood Count (WBC) was done 
-     * today, then WBC observation date should reflect the date of 
-     * two days ago.</p>
-     * 
-     * <p>Allows providers to evaluate currency of the information. 
-     * Because the date of observation/measurement determines the 
-     * relevance of the information, this attribute is defined as 
-     * 'populated'. Also allows tracking of observations over 
-     * time.</p>
+     * <p>The dateand time at which the observation applies. E.g., 
+     * if blood was drawn two days ago and White Blood Count (WBC) 
+     * was done today, then WBC observation date should reflect the 
+     * date of two days ago.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -272,9 +305,18 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>CommonObservationMaskingIndicator</p>
+     * <p>Business Name: CommonObservationMaskingIndicator</p>
      * 
-     * <p>D:Common Observation Masking Indicator</p>
+     * <p>Other Business Name: CommonObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their common observation data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their common observations. Provides support for 
@@ -284,13 +326,24 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 'Masked'). The default is 'NORMAL' signifying 'Not 
      * Masked'.</p>
      * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their common observation data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Other Business Name: CommonObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000018CA.CommonObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows the patient to have discrete control over access 
      * to their common observation data.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their common observations. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -298,9 +351,18 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>CommonObservationMaskingIndicator</p>
+     * <p>Business Name: CommonObservationMaskingIndicator</p>
      * 
-     * <p>D:Common Observation Masking Indicator</p>
+     * <p>Other Business Name: CommonObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their common observation data.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their common observations. Provides support for 
@@ -310,13 +372,24 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 'Masked'). The default is 'NORMAL' signifying 'Not 
      * Masked'.</p>
      * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their common observation data.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Other Business Name: CommonObservationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000018CA.CommonObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows the patient to have discrete control over access 
      * to their common observation data.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their common observations. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Valid values are: 
+     * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
+     * 'Masked'). The default is 'NORMAL' signifying 'Not 
+     * Masked'.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -324,30 +397,28 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>ObservationMeasurementValue</p>
+     * <p>Business Name: ObservationMeasurementValue</p>
      * 
-     * <p>B:Observation Measurement Value</p>
+     * <p>Other Business Name: ObservationMeasurementValue</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides standard representation of the measurement. May 
+     * be used in calculations.</p>
      * 
      * <p>The amount (quantity and unit) that has been recorded for 
      * the specific type of observation. E.g. height in 
      * centimeters, weight in kilograms, etc. Valid observation</p>
      * 
-     * <p>Provides standard representation of the measurement. May 
-     * be used in calculations.</p>
+     * <p>Other Business Name: ObservationMeasurementValue</p>
      * 
-     * <p>B:Observation Measurement Value</p>
+     * <p>Relationship: 
+     * REPC_MT000018CA.CommonObservationEvent.value</p>
      * 
-     * <p>The amount (quantity and unit) that has been recorded for 
-     * the specific type of observation. E.g. height in 
-     * centimeters, weight in kilograms, etc.</p><p>Valid 
-     * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
-     * 1/min, etc</p>
-     * 
-     * <p>The amount (quantity and unit) that has been recorded for 
-     * the specific type of observation. E.g. height in 
-     * centimeters, weight in kilograms, etc.</p><p>Valid 
-     * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
-     * 1/min, etc</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>OBS.010-02 (value) eScript:OBS.010-03 (unit) 
      * NCPDP:Clinical.595-H4 (value) NCPDP:Clinical.495-H3 
@@ -355,6 +426,12 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>Provides standard representation of the measurement. May 
      * be used in calculations.</p>
+     * 
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in 
+     * centimeters, weight in kilograms, etc.</p><p>Valid 
+     * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
+     * 1/min, etc</p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {
@@ -362,30 +439,28 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ObservationMeasurementValue</p>
+     * <p>Business Name: ObservationMeasurementValue</p>
      * 
-     * <p>B:Observation Measurement Value</p>
+     * <p>Other Business Name: ObservationMeasurementValue</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides standard representation of the measurement. May 
+     * be used in calculations.</p>
      * 
      * <p>The amount (quantity and unit) that has been recorded for 
      * the specific type of observation. E.g. height in 
      * centimeters, weight in kilograms, etc. Valid observation</p>
      * 
-     * <p>Provides standard representation of the measurement. May 
-     * be used in calculations.</p>
+     * <p>Other Business Name: ObservationMeasurementValue</p>
      * 
-     * <p>B:Observation Measurement Value</p>
+     * <p>Relationship: 
+     * REPC_MT000018CA.CommonObservationEvent.value</p>
      * 
-     * <p>The amount (quantity and unit) that has been recorded for 
-     * the specific type of observation. E.g. height in 
-     * centimeters, weight in kilograms, etc.</p><p>Valid 
-     * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
-     * 1/min, etc</p>
-     * 
-     * <p>The amount (quantity and unit) that has been recorded for 
-     * the specific type of observation. E.g. height in 
-     * centimeters, weight in kilograms, etc.</p><p>Valid 
-     * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
-     * 1/min, etc</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>OBS.010-02 (value) eScript:OBS.010-03 (unit) 
      * NCPDP:Clinical.595-H4 (value) NCPDP:Clinical.495-H3 
@@ -393,68 +468,192 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>Provides standard representation of the measurement. May 
      * be used in calculations.</p>
+     * 
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in 
+     * centimeters, weight in kilograms, etc.</p><p>Valid 
+     * observation unit types are: kg, cm, mmHg, mmol/mL, L/min, C, 
+     * 1/min, etc</p>
      */
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100002CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000018CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100002CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000018CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.Component.subObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000018CA.Component.subObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/subObservationEvent"})
     public List<ComponentMeasurementsBean> getComponentSubObservationEvent() {
         return this.componentSubObservationEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.Subject2.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.Subject2.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100002CA.Subject.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000018CA.Subject.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation","subjectOf2/annotation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="REPC_MT000018CA.Subject"),
@@ -465,6 +664,19 @@ public class PatientMeasurementsBean extends MessagePartBean {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100002CA.Subject.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000018CA.Subject.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

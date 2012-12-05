@@ -33,38 +33,36 @@ import java.math.BigDecimal;
 
 
 /**
- * <p>Coordinate Axis</p>
+ * <p>Business Name: Coordinate Axis</p>
+ * 
+ * <p>Defines the position of the location</p>
  * 
  * <p>Describes the postion of the location along a specific 
  * axis.</p>
- * 
- * <p>Defines the position of the location</p>
  */
 @Hl7PartTypeMapping({"COCT_MT960002CA.PositionCoordinate"})
 public class CoordinateAxisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 
 
     /**
-     * <p>Coordinate Axis Type</p>
+     * <p>Business Name: Coordinate Axis Type</p>
      * 
-     * <p>Identifies the individual coordinate in the coordinate 
-     * system inclusive of any transformations or 
-     * projections.</p><p>Examples of corordinate types are: 
-     * meridian, range, township, longitude, latitude, lot, block, 
-     * etc.</p>
+     * <p>Relationship: COCT_MT960002CA.PositionCoordinate.code</p>
      * 
-     * <p>Identifies the individual coordinate in the coordinate 
-     * system inclusive of any transformations or 
-     * projections.</p><p>Examples of corordinate types are: 
-     * meridian, range, township, longitude, latitude, lot, block, 
-     * etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Acts as the &quot;name&quot; in the name-value pair that 
      * expresses a coordinate and is therefore mandatory</p>
+     * 
+     * <p>Identifies the individual coordinate in the coordinate 
+     * system inclusive of any transformations or 
+     * projections.</p><p>Examples of corordinate types are: 
+     * meridian, range, township, longitude, latitude, lot, block, 
+     * etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationCoordinateAxisType getCode() {
@@ -72,22 +70,20 @@ public class CoordinateAxisBean extends MessagePartBean {
     }
 
     /**
-     * <p>Coordinate Axis Type</p>
+     * <p>Business Name: Coordinate Axis Type</p>
      * 
-     * <p>Identifies the individual coordinate in the coordinate 
-     * system inclusive of any transformations or 
-     * projections.</p><p>Examples of corordinate types are: 
-     * meridian, range, township, longitude, latitude, lot, block, 
-     * etc.</p>
+     * <p>Relationship: COCT_MT960002CA.PositionCoordinate.code</p>
      * 
-     * <p>Identifies the individual coordinate in the coordinate 
-     * system inclusive of any transformations or 
-     * projections.</p><p>Examples of corordinate types are: 
-     * meridian, range, township, longitude, latitude, lot, block, 
-     * etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Acts as the &quot;name&quot; in the name-value pair that 
      * expresses a coordinate and is therefore mandatory</p>
+     * 
+     * <p>Identifies the individual coordinate in the coordinate 
+     * system inclusive of any transformations or 
+     * projections.</p><p>Examples of corordinate types are: 
+     * meridian, range, township, longitude, latitude, lot, block, 
+     * etc.</p>
      */
     public void setCode(ObservationCoordinateAxisType code) {
         this.code.setValue(code);
@@ -95,15 +91,19 @@ public class CoordinateAxisBean extends MessagePartBean {
 
 
     /**
-     * <p>Coordinate Axis Value</p>
+     * <p>Business Name: Coordinate Axis Value</p>
      * 
-     * <p>Denotes the individual coordinate value as a a physical 
-     * quantity. For example, lot number, range number, latitude, 
-     * etc.</p>
+     * <p>Relationship: COCT_MT960002CA.PositionCoordinate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Actually expresses the location along the axis. Because 
      * unknown axis positions can simply be omitted, this attribute 
      * is mandatory.</p>
+     * 
+     * <p>Denotes the individual coordinate value as a a physical 
+     * quantity. For example, lot number, range number, latitude, 
+     * etc.</p>
      */
     @Hl7XmlMapping({"value"})
     public BigDecimal getValue() {
@@ -111,15 +111,19 @@ public class CoordinateAxisBean extends MessagePartBean {
     }
 
     /**
-     * <p>Coordinate Axis Value</p>
+     * <p>Business Name: Coordinate Axis Value</p>
      * 
-     * <p>Denotes the individual coordinate value as a a physical 
-     * quantity. For example, lot number, range number, latitude, 
-     * etc.</p>
+     * <p>Relationship: COCT_MT960002CA.PositionCoordinate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Actually expresses the location along the axis. Because 
      * unknown axis positions can simply be omitted, this attribute 
      * is mandatory.</p>
+     * 
+     * <p>Denotes the individual coordinate value as a a physical 
+     * quantity. For example, lot number, range number, latitude, 
+     * etc.</p>
      */
     public void setValue(BigDecimal value) {
         this.value.setValue(value);

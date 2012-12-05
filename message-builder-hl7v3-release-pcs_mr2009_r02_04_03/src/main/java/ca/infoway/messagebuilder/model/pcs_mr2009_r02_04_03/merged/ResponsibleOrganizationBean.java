@@ -43,49 +43,49 @@ import java.util.Set;
 /**
  * <p>COCT_MT090102CA.Organization: Responsible organization</p>
  * 
- * <p>Identifies the organization or group on whose behalf the 
- * action is performed.</p>
- * 
  * <p>Used for determining responsibility and potentially 
  * confirming permissions.</p>
+ * 
+ * <p>Identifies the organization or group on whose behalf the 
+ * action is performed.</p>
  * 
  * <p>COCT_MT090502CA.Organization: Responsible organization</p>
  * 
- * <p>Identifies the organization or group on whose behalf the 
- * action is performed.</p>
- * 
  * <p>Used for determining responsibility and potentially 
  * confirming permissions.</p>
+ * 
+ * <p>Identifies the organization or group on whose behalf the 
+ * action is performed.</p>
  * 
  * <p>COCT_MT080100CA.Organization: Specimen Scoping 
  * Organization</p>
  * 
- * <p>Identifies the organization or group assigning the 
- * associated specimen identifier.</p>
- * 
  * <p>To identify or name the specimen identifier scoping 
  * organization.</p>
  * 
- * <p>COCT_MT090508CA.Organization: Responsible organization</p>
+ * <p>Identifies the organization or group assigning the 
+ * associated specimen identifier.</p>
  * 
- * <p>Identifies the organization on whose behalf the action is 
- * performed.</p>
+ * <p>COCT_MT090508CA.Organization: Responsible organization</p>
  * 
  * <p>Used for determining responsibility and potentially 
  * confirming permissions.</p>
+ * 
+ * <p>Identifies the organization on whose behalf the action is 
+ * performed.</p>
  * 
  * <p>COCT_MT090108CA.Organization: Responsible organization</p>
  * 
- * <p>Identifies the organization on whose behalf the action is 
- * performed.</p>
- * 
  * <p>Used for determining responsibility and potentially 
  * confirming permissions.</p>
+ * 
+ * <p>Identifies the organization on whose behalf the action is 
+ * performed.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT080100CA.Organization","COCT_MT090102CA.Organization","COCT_MT090108CA.Organization","COCT_MT090502CA.Organization","COCT_MT090508CA.Organization","COCT_MT260010CA.Organization","COCT_MT260020CA.Organization","COCT_MT260030CA.Organization","PORX_MT010110CA.Organization","PORX_MT010120CA.Organization","PORX_MT060040CA.Organization","PORX_MT060340CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST name = new STImpl();
     private II id = new IIImpl();
     private CV assignedOrganizationCode = new CVImpl();
@@ -93,66 +93,141 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Payor Name</p>
+     * <p>Other Business Name: OrganizationName</p>
      * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension</p>
+     * <p>Relationship: COCT_MT090102CA.Organization.name</p>
      * 
-     * <p>Mandatory for display purposes.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Payor Name</p>
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
      * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension.</p>
+     * <p>Identifies the name of the organization</p>
      * 
-     * <p>Mandatory for display purposes.</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>C:Knowledgebase Vendor Name</p>
+     * <p>Relationship: COCT_MT260030CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
      * 
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension</p>
+     * 
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows a knowledgebase vendor to be referenced by 
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
      * 
-     * <p>H: Organization Name</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Relationship: COCT_MT260020CA.Organization.name</p>
      * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>C:Knowledgebase Vendor Name</p>
+     * <p>Other Business Name: PayorName</p>
      * 
-     * <p>E: Organization Name</p>
+     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
      * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Mandatory for display purposes.</p>
      * 
-     * <p>G: Organization Name</p>
-     * 
-     * <p>Identifies the name of the organization</p>
-     * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Organization Name</p>
-     * 
-     * <p>Identifies the name of the organization</p>
-     * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -160,66 +235,141 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Payor Name</p>
+     * <p>Other Business Name: OrganizationName</p>
      * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension</p>
+     * <p>Relationship: COCT_MT090102CA.Organization.name</p>
      * 
-     * <p>Mandatory for display purposes.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Payor Name</p>
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
      * 
-     * <p>The name of the organization responsible for issuing the 
-     * coverage extension.</p>
+     * <p>Identifies the name of the organization</p>
      * 
-     * <p>Mandatory for display purposes.</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>C:Knowledgebase Vendor Name</p>
+     * <p>Relationship: COCT_MT260030CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
      * 
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension</p>
+     * 
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows a knowledgebase vendor to be referenced by 
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
      * 
-     * <p>H: Organization Name</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Relationship: COCT_MT260020CA.Organization.name</p>
      * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>C:Knowledgebase Vendor Name</p>
+     * <p>Other Business Name: PayorName</p>
      * 
-     * <p>E: Organization Name</p>
+     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
      * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Mandatory for display purposes.</p>
      * 
-     * <p>G: Organization Name</p>
-     * 
-     * <p>Identifies the name of the organization</p>
-     * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Organization Name</p>
-     * 
-     * <p>Identifies the name of the organization</p>
-     * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
      */
     public void setName(String name) {
         this.name.setValue(name);
@@ -227,43 +377,72 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>E: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
      * 
-     * <p>A unique identifier for the organization</p>
+     * <p>Relationship: COCT_MT090102CA.Organization.id</p>
      * 
-     * <p>Allows the organization to be referenced when determining 
-     * privileges and for drill-downs to retrieve additional 
-     * information. Because of its importance, the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Organization Identifier</p>
-     * 
-     * <p>A unique identifier for the organization</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>D: Organization identifier</p>
-     * 
      * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>F: Organization identifier</p>
-     * 
      * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -271,43 +450,72 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>E: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
      * 
-     * <p>A unique identifier for the organization</p>
+     * <p>Relationship: COCT_MT090102CA.Organization.id</p>
      * 
-     * <p>Allows the organization to be referenced when determining 
-     * privileges and for drill-downs to retrieve additional 
-     * information. Because of its importance, the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Organization Identifier</p>
-     * 
-     * <p>A unique identifier for the organization</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>D: Organization identifier</p>
-     * 
      * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>F: Organization identifier</p>
-     * 
      * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -315,15 +523,19 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>F: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
      * 
-     * <p>Identifies the type of organization on whose behalf the 
-     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
+     * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides context to the action and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      */
     @Hl7XmlMapping({"assignedOrganization/code"})
     public HealthcareOrganizationRoleType getAssignedOrganizationCode() {
@@ -331,15 +543,19 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>F: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
      * 
-     * <p>Identifies the type of organization on whose behalf the 
-     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
+     * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides context to the action and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      */
     public void setAssignedOrganizationCode(HealthcareOrganizationRoleType assignedOrganizationCode) {
         this.assignedOrganizationCode.setValue(assignedOrganizationCode);
@@ -347,16 +563,21 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationPhoneAndEmails</p>
+     * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>H: Organization Phone and Emails</p>
+     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Identifies contact information for the responsible 
-     * organization.</p>
+     * <p>Relationship: 
+     * COCT_MT090508CA.AssignedOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>This is the most commonly used contact information and is 
      * returned to avoid unnecessary queries against the client 
      * registry.</p>
+     * 
+     * <p>Identifies contact information for the responsible 
+     * organization.</p>
      */
     @Hl7XmlMapping({"assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getAssignedOrganizationTelecom() {

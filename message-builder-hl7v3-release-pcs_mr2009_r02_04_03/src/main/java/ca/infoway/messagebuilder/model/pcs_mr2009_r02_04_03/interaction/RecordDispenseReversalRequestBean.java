@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 
 
 /**
- * <p>PORX_IN020370CA: Record dispense reversal request</p>
+ * <p>Business Name: PORX_IN020370CA: Record dispense reversal 
+ * request</p>
+ * 
+ * <p>Requests that a previously submitted dispense be marked 
+ * as reversed. The medication has been disposed of without 
+ * having been picked up nor consumed by the patient.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 @Hl7PartTypeMapping({"PORX_IN020370CA"})
 public class RecordDispenseReversalRequestBean extends HL7Message_1Bean<TriggerEventBean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

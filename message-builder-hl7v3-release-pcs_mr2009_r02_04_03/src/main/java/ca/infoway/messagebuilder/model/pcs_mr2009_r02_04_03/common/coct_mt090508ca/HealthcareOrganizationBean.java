@@ -29,22 +29,22 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ResponsibleOr
 
 
 /**
- * <p>Healthcare Organization</p>
- * 
- * <p>The organization under whose authority the associated 
- * (linked by a participation) action is performed</p>
+ * <p>Business Name: Healthcare Organization</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up.</p>
  * 
  * <p>All attributes other than the various identifiers are 
  * expected to be retrieved from the provider registry.</p>
+ * 
+ * <p>The organization under whose authority the associated 
+ * (linked by a participation) action is performed</p>
  */
 @Hl7PartTypeMapping({"COCT_MT090508CA.AssignedEntity"})
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ResponsibleOrganizationBean representedOrganization;
 
 

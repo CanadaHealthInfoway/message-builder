@@ -32,63 +32,161 @@ import java.util.List;
  * <p>MFMI_MT700717CA.RegistrationEvent: Registration 
  * Notification</p>
  * 
+ * <p>The RegistrationProcess act is the focal act of the 
+ * message and therefore is mandatory</p>
+ * 
  * <p>This class contains information relevant to the 
  * registration of the payload item(s) into the Master File or 
  * Registry. This message is a notification of the 
  * registration.</p>
  * 
+ * <p>MFMI_MT700746CA.RegistrationEvent: Registration Event</p>
+ * 
  * <p>The RegistrationProcess act is the focal act of the 
  * message and therefore is mandatory</p>
- * 
- * <p>MFMI_MT700746CA.RegistrationEvent: Registration Event</p>
  * 
  * <p>This class contains information relevant to the 
  * registration of the payload item(s) into the Master File or 
  * Registry. This message is a response to a request to 
  * register (therefore, the mood is an event).</p>
- * 
- * <p>The RegistrationProcess act is the focal act of the 
- * message and therefore is mandatory</p>
  * 
  * <p>MFMI_MT700726CA.RegistrationEvent: Registration Event</p>
  * 
+ * <p>The RegistrationProcess act is the focal act of the 
+ * message and therefore is mandatory</p>
+ * 
  * <p>This class contains information relevant to the 
  * registration of the payload item(s) into the Master File or 
  * Registry. This message is a response to a request to 
  * register (therefore, the mood is an event).</p>
- * 
- * <p>The RegistrationProcess act is the focal act of the 
- * message and therefore is mandatory</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700717CA.RegistrationEvent","MFMI_MT700726CA.RegistrationEvent","MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<PriorRegistrationEventBean> replacementOfPriorRegistration = new ArrayList<PriorRegistrationEventBean>();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700717CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public RegisteredItemBean<RR> getSubject() {
         return this.subject;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700717CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject(RegisteredItemBean<RR> subject) {
         this.subject = subject;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700717CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"custodian/assignedDevice"})
     public EHRRepositoryBean getCustodianAssignedDevice() {
         return this.custodianAssignedDevice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700717CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCustodianAssignedDevice(EHRRepositoryBean custodianAssignedDevice) {
         this.custodianAssignedDevice = custodianAssignedDevice;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700717CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"replacementOf/priorRegistration"})
     public List<PriorRegistrationEventBean> getReplacementOfPriorRegistration() {
         return this.replacementOfPriorRegistration;

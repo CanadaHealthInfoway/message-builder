@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>POIZ_IN010030CA: Record immunization request accepted</p>
+ * <p>Business Name: POIZ_IN010030CA: Record immunization 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the requested immunization information has 
+ * been successfully added to the patient's record.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"POIZ_IN010030CA"})
 public class RecordImmunizationRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.GenericQueryPar
 
 
 /**
- * <p>REPC_IN000001CA: Patient adverse reactions query</p>
+ * <p>Business Name: REPC_IN000001CA: Patient adverse reactions 
+ * query</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.GenericQueryPar
 @Hl7PartTypeMapping({"REPC_IN000001CA"})
 public class PatientAdverseReactionsQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -30,7 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt060210
 
 
 /**
- * <p>PORX_IN060460CA: Other medication detail query response</p>
+ * <p>Business Name: PORX_IN060460CA: Other medication detail 
+ * query response</p>
+ * 
+ * <p>Returns detailed information about a single 
+ * &quot;&quot;other medication&quot;&quot; record, referenced 
+ * by identifier.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -43,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt060210
 @Hl7PartTypeMapping({"PORX_IN060460CA"})
 public class OtherMedicationDetailQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<OtherMedicationBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

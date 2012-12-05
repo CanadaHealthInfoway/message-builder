@@ -40,19 +40,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatorRole","QUCR_MT830201CA.AdjudicatorRole"})
 public class AdjudicatorIdBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private AdjudicatorPersonBean playingAdjudicatorPerson;
     private II directAuthorityInsuranceCarrierRoleId = new IIImpl();
 
 
     /**
-     * <p>Adjudicator ID</p>
+     * <p>Other Business Name: AdjudicatorID</p>
+     * 
+     * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Set of identifiers that uniquely identify the adjudicator 
      * of the invoice.</p>
      * 
-     * <p>Adjudicator Id</p>
+     * <p>Other Business Name: AdjudicatorId</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -60,32 +68,60 @@ public class AdjudicatorIdBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudicator ID</p>
+     * <p>Other Business Name: AdjudicatorID</p>
+     * 
+     * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Set of identifiers that uniquely identify the adjudicator 
      * of the invoice.</p>
      * 
-     * <p>Adjudicator Id</p>
+     * <p>Other Business Name: AdjudicatorId</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.AdjudicatorRole.playingAdjudicatorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"playingAdjudicatorPerson"})
     public AdjudicatorPersonBean getPlayingAdjudicatorPerson() {
         return this.playingAdjudicatorPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.AdjudicatorRole.playingAdjudicatorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPlayingAdjudicatorPerson(AdjudicatorPersonBean playingAdjudicatorPerson) {
         this.playingAdjudicatorPerson = playingAdjudicatorPerson;
     }
 
 
     /**
-     * <p>AdjudicatorInsuranceCarrierID</p>
+     * <p>Business Name: AdjudicatorInsuranceCarrierID</p>
      * 
-     * <p>Adjudicator Insurance Carrier ID</p>
+     * <p>Other Business Name: AdjudicatorInsuranceCarrierID</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.InsuranceCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"directAuthority/insuranceCarrierRole/id"})
     public Identifier getDirectAuthorityInsuranceCarrierRoleId() {
@@ -93,9 +129,13 @@ public class AdjudicatorIdBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdjudicatorInsuranceCarrierID</p>
+     * <p>Business Name: AdjudicatorInsuranceCarrierID</p>
      * 
-     * <p>Adjudicator Insurance Carrier ID</p>
+     * <p>Other Business Name: AdjudicatorInsuranceCarrierID</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.InsuranceCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setDirectAuthorityInsuranceCarrierRoleId(Identifier directAuthorityInsuranceCarrierRoleId) {
         this.directAuthorityInsuranceCarrierRoleId.setValue(directAuthorityInsuranceCarrierRoleId);

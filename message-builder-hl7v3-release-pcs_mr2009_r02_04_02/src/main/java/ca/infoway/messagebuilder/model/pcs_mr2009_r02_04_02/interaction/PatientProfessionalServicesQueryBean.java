@@ -29,7 +29,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt610004ca
 
 
 /**
- * <p>REPC_IN000041CA: Patient professional services query</p>
+ * <p>Business Name: REPC_IN000041CA: Patient professional 
+ * services query</p>
+ * 
+ * <p>Requests retrieval of all professional services provided 
+ * to a patient, potentially filtered by the provider who 
+ * delivered the service, the type of service provided, the 
+ * time-range in which the service was provided, and/or the 
+ * time-range in which information about the service was last 
+ * updated (via adding an annotation).</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt610004ca
 @Hl7PartTypeMapping({"REPC_IN000041CA"})
 public class PatientProfessionalServicesQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

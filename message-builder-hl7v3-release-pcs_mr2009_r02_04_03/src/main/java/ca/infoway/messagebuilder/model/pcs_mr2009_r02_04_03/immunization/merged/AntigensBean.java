@@ -32,54 +32,79 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Antigens</p>
+ * <p>Business Name: Antigens</p>
  * 
  * <p>POIZ_MT030060CA.Antigens: Antigens</p>
  * 
+ * <p>Important for expressing antigen validity and counts.</p>
+ * 
  * <p>A list of antigens that may or be present in a vaccine 
  * administered to a patient.</p>
- * 
- * <p>Important for expressing antigen validity and counts.</p>
  * 
  * <p>POIZ_MT030050CA.Antigens: Antigens</p>
  * 
+ * <p>Important for expressing antigen validity and counts.</p>
+ * 
  * <p>A list of antigens that may or be present in a vaccine 
  * administered to a patient.</p>
- * 
- * <p>Important for expressing antigen validity and counts.</p>
  * 
  * <p>POIZ_MT060150CA.Antigens: Antigens</p>
  * 
+ * <p>Important for expressing antigen validity and counts.</p>
+ * 
  * <p>A list of antigens that may or be present in a vaccine 
  * administered to a patient.</p>
- * 
- * <p>Important for expressing antigen validity and counts.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Antigens","POIZ_MT030060CA.Antigens","POIZ_MT060150CA.Antigens"})
 public class AntigensBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private HealthChartBean asHealthChart;
 
 
     /**
-     * <p>AntigenCode</p>
+     * <p>Business Name: AntigenCode</p>
      * 
-     * <p>Antigen Code</p>
+     * <p>Other Business Name: AntigenCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Antigens.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
      * 
      * <p>The unique code used to identify the antigen.</p>
      * 
-     * <p>Allows un-ambiguous identification of the ingredients of 
-     * a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as specific class 
-     * of ingredients in vaccines.</p>
+     * <p>Other Business Name: AntigenCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Antigens.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
      * allows for the identification of antigens as specific class 
      * of ingredients in vaccines.</p>
+     * 
+     * <p>The unique code used to identify the antigen.</p>
+     * 
+     * <p>Other Business Name: AntigenCode</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Antigens.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
+     * 
+     * <p>The unique code used to identify the antigen.</p>
      */
     @Hl7XmlMapping({"code"})
     public ClinicalDrug getCode() {
@@ -87,21 +112,46 @@ public class AntigensBean extends MessagePartBean {
     }
 
     /**
-     * <p>AntigenCode</p>
+     * <p>Business Name: AntigenCode</p>
      * 
-     * <p>Antigen Code</p>
+     * <p>Other Business Name: AntigenCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Antigens.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
      * 
      * <p>The unique code used to identify the antigen.</p>
      * 
-     * <p>Allows un-ambiguous identification of the ingredients of 
-     * a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as specific class 
-     * of ingredients in vaccines.</p>
+     * <p>Other Business Name: AntigenCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Antigens.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
      * allows for the identification of antigens as specific class 
      * of ingredients in vaccines.</p>
+     * 
+     * <p>The unique code used to identify the antigen.</p>
+     * 
+     * <p>Other Business Name: AntigenCode</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Antigens.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
+     * 
+     * <p>The unique code used to identify the antigen.</p>
      */
     public void setCode(ClinicalDrug code) {
         this.code.setValue(code);
@@ -109,14 +159,40 @@ public class AntigensBean extends MessagePartBean {
 
 
     /**
-     * <p>AntigenName</p>
+     * <p>Business Name: AntigenName</p>
      * 
-     * <p>Antigen Name</p>
+     * <p>Other Business Name: AntigenName</p>
      * 
-     * <p>The name of the antigen contained within a vaccine.</p>
+     * <p>Relationship: POIZ_MT030060CA.Antigens.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used for communication between and display to 
      * providers.</p>
+     * 
+     * <p>The name of the antigen contained within a vaccine.</p>
+     * 
+     * <p>Other Business Name: AntigenName</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Antigens.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the antigen contained within a vaccine.</p>
+     * 
+     * <p>Other Business Name: AntigenName</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Antigens.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the antigen contained within a vaccine.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -124,25 +200,89 @@ public class AntigensBean extends MessagePartBean {
     }
 
     /**
-     * <p>AntigenName</p>
+     * <p>Business Name: AntigenName</p>
      * 
-     * <p>Antigen Name</p>
+     * <p>Other Business Name: AntigenName</p>
      * 
-     * <p>The name of the antigen contained within a vaccine.</p>
+     * <p>Relationship: POIZ_MT030060CA.Antigens.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used for communication between and display to 
      * providers.</p>
+     * 
+     * <p>The name of the antigen contained within a vaccine.</p>
+     * 
+     * <p>Other Business Name: AntigenName</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Antigens.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the antigen contained within a vaccine.</p>
+     * 
+     * <p>Other Business Name: AntigenName</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Antigens.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the antigen contained within a vaccine.</p>
      */
     public void setName(String name) {
         this.name.setValue(name);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Antigens.asHealthChart</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Antigens.asHealthChart</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Antigens.asHealthChart</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"asHealthChart"})
     public HealthChartBean getAsHealthChart() {
         return this.asHealthChart;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Antigens.asHealthChart</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Antigens.asHealthChart</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Antigens.asHealthChart</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAsHealthChart(HealthChartBean asHealthChart) {
         this.asHealthChart = asHealthChart;
     }

@@ -35,11 +35,18 @@ import java.util.List;
 
 
 /**
- * <p>ActDefinitionOrEventName</p>
+ * <p>Business Name: ActDefinitionOrEventName</p>
  * 
  * <p>PRPM_MT309000CA.ActDefinitionOrEvent: Act Definition or 
  * Event Name</p>
  * 
+ * <p>Acts are the pivot of the RIM; all domain information and 
+ * processes are represented primarily in Acts. Any profession 
+ * or business, including healthcare, is primarily constituted 
+ * of intentional and occasionally non-intentional actions, 
+ * performed and recorded by responsible actors. An 
+ * Act-instance is a record of such an action.</p>
+ * 
  * <p>A record of something that is being done, has been done, 
  * can be done, or is intended or requested to be done. Acts 
  * connect to Entities in their Roles through Participations 
@@ -51,17 +58,17 @@ import java.util.List;
  * distinguishes between Acts that are meant as factual 
  * records, vs. records of intended or ordered services, and 
  * the other modalities in which act can appear.</p>
- * 
- * <p>Acts are the pivot of the RIM; all domain information and 
- * processes are represented primarily in Acts. Any profession 
- * or business, including healthcare, is primarily constituted 
- * of intentional and occasionally non-intentional actions, 
- * performed and recorded by responsible actors. An 
- * Act-instance is a record of such an action.</p>
  * 
  * <p>PRPM_MT306011CA.ActDefinitionOrEvent: Act Definition or 
  * Event Name</p>
  * 
+ * <p>Acts are the pivot of the RIM; all domain information and 
+ * processes are represented primarily in Acts. Any profession 
+ * or business, including healthcare, is primarily constituted 
+ * of intentional and occasionally non-intentional actions, 
+ * performed and recorded by responsible actors. An 
+ * Act-instance is a record of such an action.</p>
+ * 
  * <p>A record of something that is being done, has been done, 
  * can be done, or is intended or requested to be done. Acts 
  * connect to Entities in their Roles through Participations 
@@ -73,32 +80,44 @@ import java.util.List;
  * distinguishes between Acts that are meant as factual 
  * records, vs. records of intended or ordered services, and 
  * the other modalities in which act can appear.</p>
- * 
- * <p>Acts are the pivot of the RIM; all domain information and 
- * processes are represented primarily in Acts. Any profession 
- * or business, including healthcare, is primarily constituted 
- * of intentional and occasionally non-intentional actions, 
- * performed and recorded by responsible actors. An 
- * Act-instance is a record of such an action.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ActDefinitionOrEvent","PRPM_MT309000CA.ActDefinitionOrEvent"})
 public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<LocationBean> location = new ArrayList<LocationBean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();
 
 
     /**
-     * <p>ActDefinitionOrEventNameEffectiveTime</p>
+     * <p>Business Name: ActDefinitionOrEventNameEffectiveTime</p>
      * 
-     * <p>Act Definition or Event Name Effective Time</p>
+     * <p>Other Business Name: 
+     * ActDefinitionOrEventNameEffectiveTime</p>
      * 
-     * <p>Effective Time with regard to the act involved</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ActDefinitionOrEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute indicating effective time of this 
      * act</p>
+     * 
+     * <p>Effective Time with regard to the act involved</p>
+     * 
+     * <p>Other Business Name: 
+     * ActDefinitionOrEventNameEffectiveTime</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.ActDefinitionOrEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute indicating effective time of this 
+     * act</p>
+     * 
+     * <p>Effective Time with regard to the act involved</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -106,26 +125,67 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>ActDefinitionOrEventNameEffectiveTime</p>
+     * <p>Business Name: ActDefinitionOrEventNameEffectiveTime</p>
      * 
-     * <p>Act Definition or Event Name Effective Time</p>
+     * <p>Other Business Name: 
+     * ActDefinitionOrEventNameEffectiveTime</p>
      * 
-     * <p>Effective Time with regard to the act involved</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ActDefinitionOrEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute indicating effective time of this 
      * act</p>
+     * 
+     * <p>Effective Time with regard to the act involved</p>
+     * 
+     * <p>Other Business Name: 
+     * ActDefinitionOrEventNameEffectiveTime</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.ActDefinitionOrEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute indicating effective time of this 
+     * act</p>
+     * 
+     * <p>Effective Time with regard to the act involved</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ActDefinitionOrEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.ActDefinitionOrEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-25)</p>
+     */
     @Hl7XmlMapping({"location"})
     public List<LocationBean> getLocation() {
         return this.location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.ActDefinitionOrEvent.sequel</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     */
     @Hl7XmlMapping({"sequel"})
     public List<SequelToBean> getSequel() {
         return this.sequel;

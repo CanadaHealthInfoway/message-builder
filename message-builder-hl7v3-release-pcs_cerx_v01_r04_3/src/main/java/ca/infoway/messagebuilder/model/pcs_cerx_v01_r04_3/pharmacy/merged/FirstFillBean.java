@@ -35,54 +35,72 @@ import java.util.Date;
 
 
 /**
- * <p>FirstFill</p>
+ * <p>Business Name: FirstFill</p>
  * 
  * <p>PORX_MT060160CA.InitialSupplyRequest: First Fill</p>
- * 
- * <p>Special instructions regarding the very first supply of 
- * medication to a patient.</p>
  * 
  * <p>Allows a different amount to be dispensed on an initial 
  * fill, either as a trial or to synchronize refill dates 
  * across multiple patient prescriptions</p>
  * 
- * <p>PORX_MT010120CA.InitialSupplyRequest: First Fill</p>
- * 
  * <p>Special instructions regarding the very first supply of 
  * medication to a patient.</p>
+ * 
+ * <p>PORX_MT010120CA.InitialSupplyRequest: First Fill</p>
  * 
  * <p>Allows a different amount to be dispensed on an initial 
  * fill, either as a trial or to synchronize refill dates 
  * across multiple patient prescriptions.</p>
  * 
- * <p>PORX_MT060340CA.InitialSupplyRequest: First Fill</p>
- * 
  * <p>Special instructions regarding the very first supply of 
  * medication to a patient.</p>
+ * 
+ * <p>PORX_MT060340CA.InitialSupplyRequest: First Fill</p>
  * 
  * <p>Allows a different amount to be dispensed on an initial 
  * fill, either as a trial or to synchronize refill dates 
  * across multiple patient prescriptions</p>
+ * 
+ * <p>Special instructions regarding the very first supply of 
+ * medication to a patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.InitialSupplyRequest","PORX_MT060160CA.InitialSupplyRequest","PORX_MT060340CA.InitialSupplyRequest"})
 public class FirstFillBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>FirstFillExpiryDate</p>
+     * <p>Business Name: FirstFillExpiryDate</p>
      * 
-     * <p>First Fill Expiry Date</p>
+     * <p>Other Business Name: FirstFillExpiryDate</p>
      * 
-     * <p>The last date before which an initial dispense can be 
-     * made against the prescription. If an initial fill has not 
-     * been made against the prescription in this time-period, then 
-     * the prescription is no longer deemed valid and it may not be 
-     * dispensed.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.InitialSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some jurisdictions have distinct stale-date periods for 
+     * the initial fill of a prescription from the overall 
+     * dispensing of the prescription. E.g. &quot;The first fill 
+     * must be made within 1 year, all fills must be complete 
+     * within 1.5 years&quot;. (This attribute would be used for 
+     * the &quot;1 year&quot;.)</p>
+     * 
+     * <p>The date before which an initial dispense can be made 
+     * against the prescription. If an initial fill has not been 
+     * made against the prescription in this time-period, it may 
+     * not be dispensed.</p>
+     * 
+     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.InitialSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Some jurisdictions have distinct stale-date periods for 
      * the initial fill of a prescription from the overall 
@@ -91,12 +109,18 @@ public class FirstFillBean extends MessagePartBean {
      * within 1.5 years&quot;. (This attribute would be used for 
      * the &quot;1 year&quot;).</p>
      * 
-     * <p>First Fill Expiry Date</p>
+     * <p>The last date before which an initial dispense can be 
+     * made against the prescription. If an initial fill has not 
+     * been made against the prescription in this time-period, then 
+     * the prescription is no longer deemed valid and it may not be 
+     * dispensed.</p>
      * 
-     * <p>The date before which an initial dispense can be made 
-     * against the prescription. If an initial fill has not been 
-     * made against the prescription in this time-period, it may 
-     * not be dispensed.</p>
+     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.InitialSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Some jurisdictions have distinct stale-date periods for 
      * the initial fill of a prescription from the overall 
@@ -104,19 +128,10 @@ public class FirstFillBean extends MessagePartBean {
      * made within 1 year, all fills must be complete within 1.5 
      * years'. (This attribute would be used for the '1 year'.)</p>
      * 
-     * <p>First Fill Expiry Date</p>
-     * 
      * <p>The date before which an initial dispense can be made 
      * against the prescription. If an initial fill has not been 
      * made against the prescription in this time-period, it may 
      * not be dispensed.</p>
-     * 
-     * <p>Some jurisdictions have distinct stale-date periods for 
-     * the initial fill of a prescription from the overall 
-     * dispensing of the prescription. E.g. &quot;The first fill 
-     * must be made within 1 year, all fills must be complete 
-     * within 1.5 years&quot;. (This attribute would be used for 
-     * the &quot;1 year&quot;.)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -124,15 +139,33 @@ public class FirstFillBean extends MessagePartBean {
     }
 
     /**
-     * <p>FirstFillExpiryDate</p>
+     * <p>Business Name: FirstFillExpiryDate</p>
      * 
-     * <p>First Fill Expiry Date</p>
+     * <p>Other Business Name: FirstFillExpiryDate</p>
      * 
-     * <p>The last date before which an initial dispense can be 
-     * made against the prescription. If an initial fill has not 
-     * been made against the prescription in this time-period, then 
-     * the prescription is no longer deemed valid and it may not be 
-     * dispensed.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.InitialSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some jurisdictions have distinct stale-date periods for 
+     * the initial fill of a prescription from the overall 
+     * dispensing of the prescription. E.g. &quot;The first fill 
+     * must be made within 1 year, all fills must be complete 
+     * within 1.5 years&quot;. (This attribute would be used for 
+     * the &quot;1 year&quot;.)</p>
+     * 
+     * <p>The date before which an initial dispense can be made 
+     * against the prescription. If an initial fill has not been 
+     * made against the prescription in this time-period, it may 
+     * not be dispensed.</p>
+     * 
+     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.InitialSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Some jurisdictions have distinct stale-date periods for 
      * the initial fill of a prescription from the overall 
@@ -141,12 +174,18 @@ public class FirstFillBean extends MessagePartBean {
      * within 1.5 years&quot;. (This attribute would be used for 
      * the &quot;1 year&quot;).</p>
      * 
-     * <p>First Fill Expiry Date</p>
+     * <p>The last date before which an initial dispense can be 
+     * made against the prescription. If an initial fill has not 
+     * been made against the prescription in this time-period, then 
+     * the prescription is no longer deemed valid and it may not be 
+     * dispensed.</p>
      * 
-     * <p>The date before which an initial dispense can be made 
-     * against the prescription. If an initial fill has not been 
-     * made against the prescription in this time-period, it may 
-     * not be dispensed.</p>
+     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.InitialSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Some jurisdictions have distinct stale-date periods for 
      * the initial fill of a prescription from the overall 
@@ -154,19 +193,10 @@ public class FirstFillBean extends MessagePartBean {
      * made within 1 year, all fills must be complete within 1.5 
      * years'. (This attribute would be used for the '1 year'.)</p>
      * 
-     * <p>First Fill Expiry Date</p>
-     * 
      * <p>The date before which an initial dispense can be made 
      * against the prescription. If an initial fill has not been 
      * made against the prescription in this time-period, it may 
      * not be dispensed.</p>
-     * 
-     * <p>Some jurisdictions have distinct stale-date periods for 
-     * the initial fill of a prescription from the overall 
-     * dispensing of the prescription. E.g. &quot;The first fill 
-     * must be made within 1 year, all fills must be complete 
-     * within 1.5 years&quot;. (This attribute would be used for 
-     * the &quot;1 year&quot;.)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -174,17 +204,52 @@ public class FirstFillBean extends MessagePartBean {
 
 
     /**
-     * <p>FirstFillQuantity</p>
+     * <p>Business Name: FirstFillQuantity</p>
      * 
-     * <p>First Fill Quantity</p>
+     * <p>Other Business Name: FirstFillQuantity</p>
      * 
-     * <p>The quantity of medication to be dispensed the first time 
-     * the prescription is dispensed against.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.InitialSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Prescription.coordinatingAmount</p>
      * 
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
+     * 
+     * <p>The quantity of medication to be dispensed the first time 
+     * the prescription is dispensed against.</p>
+     * 
+     * <p>Other Business Name: FirstFillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.InitialSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Prescription.coordinatingAmount</p>
+     * 
+     * <p>Allows a limited quantity to be dispensed for a trial or 
+     * for a synchronizing dose.</p>
+     * 
+     * <p>The quantity of medication to be dispensed the first time 
+     * the prescription is dispensed against.</p>
+     * 
+     * <p>Other Business Name: FirstFillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.InitialSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Prescription.coordinatingAmount</p>
+     * 
+     * <p>Allows a limited quantity to be dispensed for a trial or 
+     * for a synchronizing dose.</p>
+     * 
+     * <p>The quantity of medication to be dispensed the first time 
+     * the prescription is dispensed against.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -192,17 +257,52 @@ public class FirstFillBean extends MessagePartBean {
     }
 
     /**
-     * <p>FirstFillQuantity</p>
+     * <p>Business Name: FirstFillQuantity</p>
      * 
-     * <p>First Fill Quantity</p>
+     * <p>Other Business Name: FirstFillQuantity</p>
      * 
-     * <p>The quantity of medication to be dispensed the first time 
-     * the prescription is dispensed against.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.InitialSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Prescription.coordinatingAmount</p>
      * 
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
+     * 
+     * <p>The quantity of medication to be dispensed the first time 
+     * the prescription is dispensed against.</p>
+     * 
+     * <p>Other Business Name: FirstFillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.InitialSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Prescription.coordinatingAmount</p>
+     * 
+     * <p>Allows a limited quantity to be dispensed for a trial or 
+     * for a synchronizing dose.</p>
+     * 
+     * <p>The quantity of medication to be dispensed the first time 
+     * the prescription is dispensed against.</p>
+     * 
+     * <p>Other Business Name: FirstFillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.InitialSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Prescription.coordinatingAmount</p>
+     * 
+     * <p>Allows a limited quantity to be dispensed for a trial or 
+     * for a synchronizing dose.</p>
+     * 
+     * <p>The quantity of medication to be dispensed the first time 
+     * the prescription is dispensed against.</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -210,17 +310,52 @@ public class FirstFillBean extends MessagePartBean {
 
 
     /**
-     * <p>FirstFillDaysSupply</p>
+     * <p>Business Name: FirstFillDaysSupply</p>
      * 
-     * <p>First Fill Days Supply</p>
+     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.InitialSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used when the prescriber cannot or does not wish to 
+     * calculate the quantity necessary to last for the trial or 
+     * synchronization time.</p>
      * 
      * <p>The number of days that the first fill is expected to 
      * last, if the patient is compliant with the dispensing of the 
      * first fill and with administration of the prescription.</p>
      * 
+     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.InitialSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Used when the prescriber cannot or does not wish to 
      * calculate the quantity necessary to last for the trial or 
      * synchronization time.</p>
+     * 
+     * <p>The number of days that the first fill is expected to 
+     * last, if the patient is compliant with the dispensing of the 
+     * first fill and with administration of the prescription.</p>
+     * 
+     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.InitialSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used when the prescriber cannot or does not wish to 
+     * calculate the quantity necessary to last for the trial or 
+     * synchronization time.</p>
+     * 
+     * <p>The number of days that the first fill is expected to 
+     * last, if the patient is compliant with the dispensing of the 
+     * first fill and with administration of the prescription.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -228,17 +363,52 @@ public class FirstFillBean extends MessagePartBean {
     }
 
     /**
-     * <p>FirstFillDaysSupply</p>
+     * <p>Business Name: FirstFillDaysSupply</p>
      * 
-     * <p>First Fill Days Supply</p>
+     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.InitialSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used when the prescriber cannot or does not wish to 
+     * calculate the quantity necessary to last for the trial or 
+     * synchronization time.</p>
      * 
      * <p>The number of days that the first fill is expected to 
      * last, if the patient is compliant with the dispensing of the 
      * first fill and with administration of the prescription.</p>
      * 
+     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.InitialSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Used when the prescriber cannot or does not wish to 
      * calculate the quantity necessary to last for the trial or 
      * synchronization time.</p>
+     * 
+     * <p>The number of days that the first fill is expected to 
+     * last, if the patient is compliant with the dispensing of the 
+     * first fill and with administration of the prescription.</p>
+     * 
+     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.InitialSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used when the prescriber cannot or does not wish to 
+     * calculate the quantity necessary to last for the trial or 
+     * synchronization time.</p>
+     * 
+     * <p>The number of days that the first fill is expected to 
+     * last, if the patient is compliant with the dispensing of the 
+     * first fill and with administration of the prescription.</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);

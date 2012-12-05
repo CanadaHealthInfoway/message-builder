@@ -29,37 +29,67 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationOrder"})
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PresriberRoleBean authorPresriberRole;
     private DispenseSubstitutionBean component1Substitution;
     private OriginalPrescriptionBean component2SupplyOrder;
 
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Prescriber.presriberRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author/presriberRole"})
     public PresriberRoleBean getAuthorPresriberRole() {
         return this.authorPresriberRole;
     }
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Prescriber.presriberRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorPresriberRole(PresriberRoleBean authorPresriberRole) {
         this.authorPresriberRole = authorPresriberRole;
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Component2.substitution</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/substitution"})
     public DispenseSubstitutionBean getComponent1Substitution() {
         return this.component1Substitution;
     }
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Component2.substitution</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
         this.component1Substitution = component1Substitution;
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.ComponentOrder.supplyOrder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/supplyOrder"})
     public OriginalPrescriptionBean getComponent2SupplyOrder() {
         return this.component2SupplyOrder;
     }
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.ComponentOrder.supplyOrder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2SupplyOrder(OriginalPrescriptionBean component2SupplyOrder) {
         this.component2SupplyOrder = component2SupplyOrder;
     }

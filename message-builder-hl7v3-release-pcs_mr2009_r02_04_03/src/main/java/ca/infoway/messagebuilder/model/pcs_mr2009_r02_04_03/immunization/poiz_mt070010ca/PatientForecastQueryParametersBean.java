@@ -40,18 +40,18 @@ import java.util.Date;
 
 
 /**
- * <p>Patient Forecast Query Parameters</p>
+ * <p>Business Name: Patient Forecast Query Parameters</p>
+ * 
+ * <p>Root class for query.</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT070010CA.ParameterList"})
 @Hl7RootType
 public class PatientForecastQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS patientBirthDateValue = new TSImpl();
     private CV patientGenderValue = new CVImpl();
     private II patientIDValue = new IIImpl();
@@ -59,13 +59,17 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Birth Date</p>
+     * <p>Business Name: Patient Birth Date</p>
      * 
-     * <p>Indicates the date on which the patient was born.</p>
+     * <p>Relationship: POIZ_MT070010CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Use to confirm identity of the patient for the query. 
      * Full dates must be specified. As a result, this attribute is 
      * required.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDateValue() {
@@ -73,13 +77,17 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Birth Date</p>
+     * <p>Business Name: Patient Birth Date</p>
      * 
-     * <p>Indicates the date on which the patient was born.</p>
+     * <p>Relationship: POIZ_MT070010CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Use to confirm identity of the patient for the query. 
      * Full dates must be specified. As a result, this attribute is 
      * required.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
      */
     public void setPatientBirthDateValue(Date patientBirthDateValue) {
         this.patientBirthDateValue.setValue(patientBirthDateValue);
@@ -87,12 +95,16 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: POIZ_MT070010CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the 
      * query. As a result, this attribute is required.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -100,12 +112,16 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: POIZ_MT070010CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the 
      * query. As a result, this attribute is required.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
         this.patientGenderValue.setValue(patientGenderValue);
@@ -113,16 +129,20 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Identifier</p>
+     * <p>Business Name: Patient Identifier</p>
+     * 
+     * <p>Relationship: POIZ_MT070010CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient ID. This is the 
+     * key parameter and must always be present. As a result, this 
+     * attribute is mandatory.</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient forecast query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient ID. This is the 
-     * key parameter and must always be present. As a result, this 
-     * attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -130,16 +150,20 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Identifier</p>
+     * <p>Business Name: Patient Identifier</p>
+     * 
+     * <p>Relationship: POIZ_MT070010CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient ID. This is the 
+     * key parameter and must always be present. As a result, this 
+     * attribute is mandatory.</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient forecast query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient ID. This is the 
-     * key parameter and must always be present. As a result, this 
-     * attribute is mandatory.</p>
      */
     public void setPatientIDValue(Identifier patientIDValue) {
         this.patientIDValue.setValue(patientIDValue);
@@ -147,13 +171,17 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Name</p>
+     * <p>Business Name: Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * forecast query.</p>
+     * <p>Relationship: POIZ_MT070010CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This information is used to confirm the patient id. As a 
      * result, this attribute is required.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * forecast query.</p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -161,13 +189,17 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Name</p>
+     * <p>Business Name: Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * forecast query.</p>
+     * <p>Relationship: POIZ_MT070010CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This information is used to confirm the patient id. As a 
      * result, this attribute is required.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * forecast query.</p>
      */
     public void setPatientNameValue(PersonName patientNameValue) {
         this.patientNameValue.setValue(patientNameValue);

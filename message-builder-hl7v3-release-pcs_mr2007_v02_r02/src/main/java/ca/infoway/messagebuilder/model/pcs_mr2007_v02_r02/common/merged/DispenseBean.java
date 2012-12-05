@@ -42,30 +42,30 @@ import java.util.Date;
 
 
 /**
- * <p>Dispense</p>
+ * <p>Business Name: Dispense</p>
  * 
  * <p>COCT_MT260010CA.SupplyEvent: Dispense</p>
  * 
- * <p>Indicates a particular dispense event that resulted in 
- * the issue.</p>
- * 
  * <p>Used when the issue pertains to the supply of the drug 
  * rather than the drug itself. E.g. Duplicate pharmacy, refill 
  * too soon, etc.</p>
+ * 
+ * <p>Indicates a particular dispense event that resulted in 
+ * the issue.</p>
  * 
  * <p>COCT_MT260020CA.SupplyEvent: Dispense</p>
  * 
- * <p>Indicates a particular dispense event that resulted in 
- * the issue.</p>
- * 
  * <p>Used when the issue pertains to the supply of the drug 
  * rather than the drug itself. E.g. Duplicate pharmacy, refill 
  * too soon, etc.</p>
+ * 
+ * <p>Indicates a particular dispense event that resulted in 
+ * the issue.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -75,25 +75,33 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p>
      * 
      * <p>Unique identifier of the dispensed event that triggered 
      * the issue.</p>
      * 
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
      * their issue management decision.</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
      * 
      * <p>Unique identifier of the dispense event that triggered 
      * the issue.</p>
-     * 
-     * <p>Allows provider to drill down and retrieve additional 
-     * information about the dispense event for consideration in 
-     * their issue management decision.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -101,25 +109,33 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p>
      * 
      * <p>Unique identifier of the dispensed event that triggered 
      * the issue.</p>
      * 
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
      * their issue management decision.</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
      * 
      * <p>Unique identifier of the dispense event that triggered 
      * the issue.</p>
-     * 
-     * <p>Allows provider to drill down and retrieve additional 
-     * information about the dispense event for consideration in 
-     * their issue management decision.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -127,9 +143,18 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>DispenseStatus</p>
+     * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>B:Dispense Status</p>
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
@@ -137,10 +162,22 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * it indicates that the medication has been delivered to the 
      * patient.</p>
      * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Important in understanding what medication the patient 
      * actually has on hand, thus the attribute is mandatory. May 
      * also influence the ability of a different pharmacy to 
      * dispense the medication.</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -148,9 +185,18 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
     /**
-     * <p>DispenseStatus</p>
+     * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>B:Dispense Status</p>
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
@@ -158,10 +204,22 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * it indicates that the medication has been delivered to the 
      * patient.</p>
      * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Important in understanding what medication the patient 
      * actually has on hand, thus the attribute is mandatory. May 
      * also influence the ability of a different pharmacy to 
      * dispense the medication.</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -169,47 +227,46 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>DispensedDate</p>
+     * <p>Business Name: DispensedDate</p>
      * 
-     * <p>B:Dispensed Date</p>
+     * <p>Other Business Name: DispensedDate</p>
      * 
-     * <p>The date and time on which the product was dispensed to 
-     * the patient.</p>
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>ZDU.4.5</p>
      * 
      * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
-     * as a dispense record may not exist without processing 
-     * date.</p>
-     * 
-     * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
-     * as a dispense record may not exist without processing 
-     * date.</p>
+     * issues.</p><p>Attribute is marked as 'populated' as a 
+     * dispense record may not exist without processing date.</p>
      * 
      * <p>Applications should specify a null flavor of &quot;Not 
      * Applicable&quot; for dispenses that have not yet been picked 
      * up.</p>
-     * 
-     * <p>B:Dispensed Date</p>
      * 
      * <p>The date and time on which the product was issued to the 
      * patient.</p>
      * 
+     * <p>Other Business Name: DispensedDate</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>ZDU.4.5</p>
      * 
      * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as 'populated' as a 
-     * dispense record may not exist without processing date.</p>
-     * 
-     * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as 'populated' as a 
-     * dispense record may not exist without processing date.</p>
+     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
+     * as a dispense record may not exist without processing 
+     * date.</p>
      * 
      * <p>Applications should specify a null flavor of &quot;Not 
      * Applicable&quot; for dispenses that have not yet been picked 
      * up.</p>
+     * 
+     * <p>The date and time on which the product was dispensed to 
+     * the patient.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -217,47 +274,46 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
     /**
-     * <p>DispensedDate</p>
+     * <p>Business Name: DispensedDate</p>
      * 
-     * <p>B:Dispensed Date</p>
+     * <p>Other Business Name: DispensedDate</p>
      * 
-     * <p>The date and time on which the product was dispensed to 
-     * the patient.</p>
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>ZDU.4.5</p>
      * 
      * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
-     * as a dispense record may not exist without processing 
-     * date.</p>
-     * 
-     * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
-     * as a dispense record may not exist without processing 
-     * date.</p>
+     * issues.</p><p>Attribute is marked as 'populated' as a 
+     * dispense record may not exist without processing date.</p>
      * 
      * <p>Applications should specify a null flavor of &quot;Not 
      * Applicable&quot; for dispenses that have not yet been picked 
      * up.</p>
-     * 
-     * <p>B:Dispensed Date</p>
      * 
      * <p>The date and time on which the product was issued to the 
      * patient.</p>
      * 
+     * <p>Other Business Name: DispensedDate</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>ZDU.4.5</p>
      * 
      * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as 'populated' as a 
-     * dispense record may not exist without processing date.</p>
-     * 
-     * <p>Allows evaluation of 'refill too soon' and similar 
-     * issues.</p><p>Attribute is marked as 'populated' as a 
-     * dispense record may not exist without processing date.</p>
+     * issues.</p><p>Attribute is marked as &quot;populated&quot; 
+     * as a dispense record may not exist without processing 
+     * date.</p>
      * 
      * <p>Applications should specify a null flavor of &quot;Not 
      * Applicable&quot; for dispenses that have not yet been picked 
      * up.</p>
+     * 
+     * <p>The date and time on which the product was dispensed to 
+     * the patient.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -265,33 +321,35 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>C:Dispense Masked Indicator</p>
+     * <p>Other Business Name: DispenseMaskingIndicator</p>
      * 
-     * <p>An indication of sensitivity surrounding the implicated 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p>
+     * <p>Relationship: 
+     * COCT_MT260010CA.SupplyEvent.confidentialityCode</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug.</p><p>The attribute is optional because not all 
-     * systems will support masking.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug.</p><p>The attribute is optional because not all 
-     * systems will support masking.</p>
-     * 
-     * <p>C:Dispense Masking Indicator</p>
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * <p>Other Business Name: DispenseMaskedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.SupplyEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -299,54 +357,108 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
     /**
-     * <p>C:Dispense Masked Indicator</p>
+     * <p>Other Business Name: DispenseMaskingIndicator</p>
      * 
-     * <p>An indication of sensitivity surrounding the implicated 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p>
+     * <p>Relationship: 
+     * COCT_MT260010CA.SupplyEvent.confidentialityCode</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug.</p><p>The attribute is optional because not all 
-     * systems will support masking.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug.</p><p>The attribute is optional because not all 
-     * systems will support masking.</p>
-     * 
-     * <p>C:Dispense Masking Indicator</p>
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * <p>Other Business Name: DispenseMaskedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.SupplyEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * of the drug.</p><p>The attribute is optional because not all 
+     * systems will support masking.</p>
+     * 
+     * <p>An indication of sensitivity surrounding the implicated 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"product"})
     public DispensedBean getProduct() {
         return this.product;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProduct(DispensedBean product) {
         this.product = product;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }

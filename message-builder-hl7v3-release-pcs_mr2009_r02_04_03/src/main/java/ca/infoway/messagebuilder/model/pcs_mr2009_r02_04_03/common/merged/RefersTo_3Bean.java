@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>RefersTo</p>
+ * <p>Business Name: RefersTo</p>
  * 
  * <p>MFMI_MT700717CA.Subject2: f:refers to</p>
  * 
@@ -37,20 +37,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * null-&gt;active), this must be true otherwise it must be 
  * false.</p>
  * 
- * <p>Indicates the item(s) being acted upon by this trigger 
- * event.</p><p>Will be mandatory in wrappers with payload 
- * messages, otherwise not present.</p>
- * 
- * <p>Indicates the item(s) being acted upon by this trigger 
- * event.</p><p>Will be mandatory in wrappers with payload 
- * messages, otherwise not present.</p>
- * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
  * 
  * <p>If there are multiple subject items, the changes to all 
  * of them must be either accepted or rejected as a single 
  * action. I.e. One trigger event = 1 unit of work.</p>
+ * 
+ * <p>Indicates the item(s) being acted upon by this trigger 
+ * event.</p><p>Will be mandatory in wrappers with payload 
+ * messages, otherwise not present.</p>
  * 
  * <p>MFMI_MT700726CA.Subject2: f:refers to</p>
  * 
@@ -58,33 +54,39 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * null-&gt;active), this must be true otherwise it must be 
  * false.</p>
  * 
- * <p>Indicates the item(s) being acted upon by this trigger 
- * event.</p><p>Will be mandatory in wrappers with payload 
- * messages, otherwise not present.</p>
- * 
- * <p>Indicates the item(s) being acted upon by this trigger 
- * event.</p><p>Will be mandatory in wrappers with payload 
- * messages, otherwise not present.</p>
- * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
  * 
  * <p>If there are multiple subject items, the changes to all 
  * of them must be either accepted or rejected as a single 
  * action. I.e. One trigger event = 1 unit of work.</p>
+ * 
+ * <p>Indicates the item(s) being acted upon by this trigger 
+ * event.</p><p>Will be mandatory in wrappers with payload 
+ * messages, otherwise not present.</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700717CA.Subject2","MFMI_MT700726CA.Subject2"})
 public class RefersTo_3Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL contextConductionInd = new BLImpl();
     private RegistrationEventBean<RR> registrationEvent;
 
 
     /**
-     * <p>CascadeResponsibilityIndicator</p>
+     * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700717CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Cascading of trigger event objects allows different 
+     * messages to employ consistent and common 
+     * objects.</p><p>Attribute is mandatory to ensure that 
+     * cascading will be specified one way or another.</p>
      * 
      * <p>Indicates whether or not objects of the trigger event are 
      * to be cascaded to the payload.</p><p>If true, associations 
@@ -99,43 +101,17 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * request and add to any subject(s) (issues) already present 
      * in the payload).</p>
      * 
-     * <p>Indicates whether or not objects of the trigger event are 
-     * to be cascaded to the payload.</p><p>If true, associations 
-     * in the parent act are conducted across the ActRelationship 
-     * to the message payload (act). Conduction for each 
-     * association is specifically indicated by each associations' 
-     * contextControlCode value.</p><p>In other words, if the 
-     * &quot;subject&quot; act relationship has 
-     * contextConductionInd=true; THEN the subjectOf association is 
-     * carried (to the regsitrationRequest act) according to the 
-     * subjectOf.contextControlCode (AP = propogate to the reg 
-     * request and add to any subject(s) (issues) already present 
-     * in the payload).</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Indicates whether or not objects of the trigger event are 
-     * to be cascaded to the payload.</p><p>If true, associations 
-     * in the parent act are conducted across the ActRelationship 
-     * to the message payload (act). Conduction for each 
-     * association is specifically indicated by each associations' 
-     * contextControlCode value.</p><p>In other words, if the 
-     * &quot;subject&quot; act relationship has 
-     * contextConductionInd=true; THEN the subjectOf association is 
-     * carried (to the regsitrationRequest act) according to the 
-     * subjectOf.contextControlCode (AP = propogate to the reg 
-     * request and add to any subject(s) (issues) already present 
-     * in the payload).</p>
+     * <p>Relationship: 
+     * MFMI_MT700726CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
      * objects.</p><p>Attribute is mandatory to ensure that 
      * cascading will be specified one way or another.</p>
-     * 
-     * <p>Cascading of trigger event objects allows different 
-     * messages to employ consistent and common 
-     * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p>
-     * 
-     * <p>Cascade Responsibility Indicator</p>
      * 
      * <p>Indicates whether or not objects of the trigger event are 
      * to be cascaded to the payload.</p><p>If true, associations 
@@ -149,42 +125,6 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * subjectOf.contextControlCode (AP = propogate to the reg 
      * event and add to any subject(s) (issues) already 
      * present).</p>
-     * 
-     * <p>Indicates whether or not objects of the trigger event are 
-     * to be cascaded to the payload.</p><p>If true, associations 
-     * in the parent act are conducted across the ActRelationship 
-     * to the message payload (act). Conduction for each 
-     * association is specifically indicated by each associations' 
-     * contextControlCode value.</p><p>In other words, if the 
-     * &quot;subject&quot; act relationship has 
-     * contextConductionInd=true; THEN the subjectOf association is 
-     * carried (to the regsitrationEvent act) according to the 
-     * subjectOf.contextControlCode (AP = propogate to the reg 
-     * event and add to any subject(s) (issues) already 
-     * present).</p>
-     * 
-     * <p>Indicates whether or not objects of the trigger event are 
-     * to be cascaded to the payload.</p><p>If true, associations 
-     * in the parent act are conducted across the ActRelationship 
-     * to the message payload (act). Conduction for each 
-     * association is specifically indicated by each associations' 
-     * contextControlCode value.</p><p>In other words, if the 
-     * &quot;subject&quot; act relationship has 
-     * contextConductionInd=true; THEN the subjectOf association is 
-     * carried (to the regsitrationEvent act) according to the 
-     * subjectOf.contextControlCode (AP = propogate to the reg 
-     * event and add to any subject(s) (issues) already 
-     * present).</p>
-     * 
-     * <p>Cascading of trigger event objects allows different 
-     * messages to employ consistent and common 
-     * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p>
-     * 
-     * <p>Cascading of trigger event objects allows different 
-     * messages to employ consistent and common 
-     * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p>
      */
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
@@ -192,9 +132,19 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>CascadeResponsibilityIndicator</p>
+     * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700717CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Cascading of trigger event objects allows different 
+     * messages to employ consistent and common 
+     * objects.</p><p>Attribute is mandatory to ensure that 
+     * cascading will be specified one way or another.</p>
      * 
      * <p>Indicates whether or not objects of the trigger event are 
      * to be cascaded to the payload.</p><p>If true, associations 
@@ -209,43 +159,17 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * request and add to any subject(s) (issues) already present 
      * in the payload).</p>
      * 
-     * <p>Indicates whether or not objects of the trigger event are 
-     * to be cascaded to the payload.</p><p>If true, associations 
-     * in the parent act are conducted across the ActRelationship 
-     * to the message payload (act). Conduction for each 
-     * association is specifically indicated by each associations' 
-     * contextControlCode value.</p><p>In other words, if the 
-     * &quot;subject&quot; act relationship has 
-     * contextConductionInd=true; THEN the subjectOf association is 
-     * carried (to the regsitrationRequest act) according to the 
-     * subjectOf.contextControlCode (AP = propogate to the reg 
-     * request and add to any subject(s) (issues) already present 
-     * in the payload).</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Indicates whether or not objects of the trigger event are 
-     * to be cascaded to the payload.</p><p>If true, associations 
-     * in the parent act are conducted across the ActRelationship 
-     * to the message payload (act). Conduction for each 
-     * association is specifically indicated by each associations' 
-     * contextControlCode value.</p><p>In other words, if the 
-     * &quot;subject&quot; act relationship has 
-     * contextConductionInd=true; THEN the subjectOf association is 
-     * carried (to the regsitrationRequest act) according to the 
-     * subjectOf.contextControlCode (AP = propogate to the reg 
-     * request and add to any subject(s) (issues) already present 
-     * in the payload).</p>
+     * <p>Relationship: 
+     * MFMI_MT700726CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
      * objects.</p><p>Attribute is mandatory to ensure that 
      * cascading will be specified one way or another.</p>
-     * 
-     * <p>Cascading of trigger event objects allows different 
-     * messages to employ consistent and common 
-     * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p>
-     * 
-     * <p>Cascade Responsibility Indicator</p>
      * 
      * <p>Indicates whether or not objects of the trigger event are 
      * to be cascaded to the payload.</p><p>If true, associations 
@@ -259,53 +183,43 @@ public class RefersTo_3Bean<RR> extends MessagePartBean {
      * subjectOf.contextControlCode (AP = propogate to the reg 
      * event and add to any subject(s) (issues) already 
      * present).</p>
-     * 
-     * <p>Indicates whether or not objects of the trigger event are 
-     * to be cascaded to the payload.</p><p>If true, associations 
-     * in the parent act are conducted across the ActRelationship 
-     * to the message payload (act). Conduction for each 
-     * association is specifically indicated by each associations' 
-     * contextControlCode value.</p><p>In other words, if the 
-     * &quot;subject&quot; act relationship has 
-     * contextConductionInd=true; THEN the subjectOf association is 
-     * carried (to the regsitrationEvent act) according to the 
-     * subjectOf.contextControlCode (AP = propogate to the reg 
-     * event and add to any subject(s) (issues) already 
-     * present).</p>
-     * 
-     * <p>Indicates whether or not objects of the trigger event are 
-     * to be cascaded to the payload.</p><p>If true, associations 
-     * in the parent act are conducted across the ActRelationship 
-     * to the message payload (act). Conduction for each 
-     * association is specifically indicated by each associations' 
-     * contextControlCode value.</p><p>In other words, if the 
-     * &quot;subject&quot; act relationship has 
-     * contextConductionInd=true; THEN the subjectOf association is 
-     * carried (to the regsitrationEvent act) according to the 
-     * subjectOf.contextControlCode (AP = propogate to the reg 
-     * event and add to any subject(s) (issues) already 
-     * present).</p>
-     * 
-     * <p>Cascading of trigger event objects allows different 
-     * messages to employ consistent and common 
-     * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p>
-     * 
-     * <p>Cascading of trigger event objects allows different 
-     * messages to employ consistent and common 
-     * objects.</p><p>Attribute is mandatory to ensure that 
-     * cascading will be specified one way or another.</p>
      */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700717CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"registrationEvent"})
     public RegistrationEventBean<RR> getRegistrationEvent() {
         return this.registrationEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700717CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setRegistrationEvent(RegistrationEventBean<RR> registrationEvent) {
         this.registrationEvent = registrationEvent;
     }

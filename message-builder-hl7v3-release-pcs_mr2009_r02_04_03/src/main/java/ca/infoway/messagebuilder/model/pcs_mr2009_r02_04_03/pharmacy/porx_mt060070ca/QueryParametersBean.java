@@ -46,18 +46,18 @@ import java.util.List;
 
 
 /**
- * <p>Query Parameters</p>
+ * <p>Business Name: Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060070CA.ParameterList"})
 @Hl7RootType
 public class QueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDValue = new ArrayList<II>();
     private List<CV> careCompositionTypeValue = new ArrayList<CV>();
@@ -68,7 +68,15 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Amended in Time Range</p>
+     * <p>Business Name: Amended in Time Range</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -76,14 +84,6 @@ public class QueryParametersBean extends MessagePartBean {
      * etc.) within the indicated time-period. This will commonly 
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
     public Interval<Date> getAmendedInTimeRangeValue() {
@@ -91,7 +91,15 @@ public class QueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Amended in Time Range</p>
+     * <p>Business Name: Amended in Time Range</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -99,14 +107,6 @@ public class QueryParametersBean extends MessagePartBean {
      * etc.) within the indicated time-period. This will commonly 
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     public void setAmendedInTimeRangeValue(Interval<Date> amendedInTimeRangeValue) {
         this.amendedInTimeRangeValue.setValue(amendedInTimeRangeValue);
@@ -114,30 +114,24 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Care Composition IDs</p>
+     * <p>Business Name: Care Composition IDs</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Relationship: PORX_MT060070CA.CareCompositionID.value</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
     public List<Identifier> getCareCompositionIDValue() {
@@ -146,16 +140,20 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Care Composition Types</p>
+     * <p>Business Name: Care Composition Types</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p>
+     * <p>Relationship: PORX_MT060070CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with a 
      * particular type of encounter, episode or care event. 
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypeValue() {
@@ -164,7 +162,17 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -172,12 +180,6 @@ public class QueryParametersBean extends MessagePartBean {
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
-     * 
-     * <p>By filtering returned records to include only those which 
-     * have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCodeValue() {
@@ -185,7 +187,17 @@ public class QueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060070CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -193,12 +205,6 @@ public class QueryParametersBean extends MessagePartBean {
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
-     * 
-     * <p>By filtering returned records to include only those which 
-     * have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p>
      */
     public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
         this.issueFilterCodeValue.setValue(issueFilterCodeValue);
@@ -206,7 +212,18 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent By Device Indicator</p>
+     * <p>Business Name: Most Recent By Device Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060070CA.MostRecentByDeviceIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all devices that the 
+     * patient is using.</p><p>Because this is a boolean attribute 
+     * whose value must be known to evaluate the query, the 
+     * attribute is mandatory.</p>
      * 
      * <p>Indicates whether or not the records are to be retrieved 
      * based on the most recent by Device Code. If true, only the 
@@ -214,18 +231,6 @@ public class QueryParametersBean extends MessagePartBean {
      * type will be returned. The default is 'FALSE' indicating 
      * that retrieval of prescription or dispense records should 
      * not be limited to one per device type.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
     public Boolean getMostRecentByDeviceIndicatorValue() {
@@ -233,7 +238,18 @@ public class QueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Most Recent By Device Indicator</p>
+     * <p>Business Name: Most Recent By Device Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060070CA.MostRecentByDeviceIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all devices that the 
+     * patient is using.</p><p>Because this is a boolean attribute 
+     * whose value must be known to evaluate the query, the 
+     * attribute is mandatory.</p>
      * 
      * <p>Indicates whether or not the records are to be retrieved 
      * based on the most recent by Device Code. If true, only the 
@@ -241,18 +257,6 @@ public class QueryParametersBean extends MessagePartBean {
      * type will be returned. The default is 'FALSE' indicating 
      * that retrieval of prescription or dispense records should 
      * not be limited to one per device type.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p>
      */
     public void setMostRecentByDeviceIndicatorValue(Boolean mostRecentByDeviceIndicatorValue) {
         this.mostRecentByDeviceIndicatorValue.setValue(mostRecentByDeviceIndicatorValue);
@@ -260,24 +264,21 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Rx Dispenser Indicators</p>
+     * <p>Business Name: Rx Dispenser Indicators</p>
      * 
-     * <p>A coded value indicating the dispensing (fill) status of 
-     * the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p>
+     * <p>Relationship: PORX_MT060070CA.RxDispenseIndicator.value</p>
      * 
-     * <p>A coded value indicating the dispensing (fill) status of 
-     * the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of prescriptions to be retrieved 
      * based on the fill status of the prescription.</p>
+     * 
+     * <p>A coded value indicating the dispensing (fill) status of 
+     * the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
     public List<PrescriptionDispenseFilterCode> getRxDispenseIndicatorValue() {
@@ -286,19 +287,11 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Usage Effective Period</p>
+     * <p>Business Name: Usage Effective Period</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * device records (device order and device dispense) for which 
-     * the patient was deemed to be using the device within the 
-     * specified period.</p>
+     * <p>Relationship: PORX_MT060070CA.UsageEffectivePeriod.value</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * device records (device order and device dispense) for which 
-     * the patient was deemed to be using the device within the 
-     * specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the usage period of 
      * interest for the retrieval. Useful for constraining run-away 
@@ -307,6 +300,12 @@ public class QueryParametersBean extends MessagePartBean {
      * <p>The determination for applicability for inclusion in the 
      * query response should be considered to be the 'Pick up date 
      * plus the days supply'</p>
+     * 
+     * <p>Indicates the usage period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * device records (device order and device dispense) for which 
+     * the patient was deemed to be using the device within the 
+     * specified period.</p>
      */
     @Hl7XmlMapping({"usageEffectivePeriod/value"})
     public Interval<Date> getUsageEffectivePeriodValue() {
@@ -314,19 +313,11 @@ public class QueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Usage Effective Period</p>
+     * <p>Business Name: Usage Effective Period</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * device records (device order and device dispense) for which 
-     * the patient was deemed to be using the device within the 
-     * specified period.</p>
+     * <p>Relationship: PORX_MT060070CA.UsageEffectivePeriod.value</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * device records (device order and device dispense) for which 
-     * the patient was deemed to be using the device within the 
-     * specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the usage period of 
      * interest for the retrieval. Useful for constraining run-away 
@@ -335,6 +326,12 @@ public class QueryParametersBean extends MessagePartBean {
      * <p>The determination for applicability for inclusion in the 
      * query response should be considered to be the 'Pick up date 
      * plus the days supply'</p>
+     * 
+     * <p>Indicates the usage period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * device records (device order and device dispense) for which 
+     * the patient was deemed to be using the device within the 
+     * specified period.</p>
      */
     public void setUsageEffectivePeriodValue(Interval<Date> usageEffectivePeriodValue) {
         this.usageEffectivePeriodValue.setValue(usageEffectivePeriodValue);

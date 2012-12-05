@@ -33,59 +33,93 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PriorTestRequest</p>
+ * <p>Business Name: PriorTestRequest</p>
  * 
  * <p>POLB_MT001999CA.PriorActRequest: Prior Test Request</p>
+ * 
+ * <p>This is used primarily for Order referrals.</p>
  * 
  * <p>Must contain a value assigned by the order-placing 
  * organization that uniquely identifies this test request 
  * among all test requests in the receiving application.</p>
- * 
- * <p>This is used primarily for Order referrals.</p>
  * 
  * <p>POLB_MT001010CA.PriorActRequest: Prior Test Request</p>
  * 
  * <p>The classCode shall carry one of ACT, BATTERY or OBS 
  * according to the parent order classCode.</p>
  * 
+ * <p>This is used primarily for Order referrals.</p>
+ * 
  * <p>Must contain a value assigned by the order-placing 
  * organization that uniquely identifies this test request 
  * among all test requests in the receiving application.</p>
- * 
- * <p>This is used primarily for Order referrals.</p>
  * 
  * <p>POLB_MT001001CA.PriorActRequest: Prior Test Request</p>
  * 
  * <p>The classCode shall carry one of ACT, BATTERY or OBS 
  * according to the parent order classCode.</p>
  * 
+ * <p>This is used primarily for Order referrals.</p>
+ * 
  * <p>Must contain a value assigned by the order-placing 
  * organization that uniquely identifies this test request 
  * among all test requests in the receiving application.</p>
- * 
- * <p>This is used primarily for Order referrals.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT001000CA.PriorActRequest","POLB_MT001001CA.PriorActRequest","POLB_MT001010CA.PriorActRequest","POLB_MT001999CA.PriorActRequest"})
 public class PriorTestRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
 
 
     /**
-     * <p>PriorTestIdentifier</p>
+     * <p>Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Prior Test Identifier</p>
+     * <p>Other Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Uniquely identifies this test request among all test 
-     * requests in the receiving application.</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PriorTestIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used for order referrals. This attribute communicates the 
      * identifier of the original test request (target) from which 
      * the (source) referral request originated.</p>
      * 
-     * <p>Prior Test Identifier</p>
+     * <p>Uniquely identifies this test request among all test 
+     * requests in the receiving application.</p>
+     * 
+     * <p>Other Business Name: PriorTestIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals. This attribute communicates the 
+     * identifier of the original test request (target) from which 
+     * the (source) referral request originated.</p>
+     * 
+     * <p>Uniquely identifies this test request among all test 
+     * requests in the receiving application.</p>
+     * 
+     * <p>Other Business Name: PriorTestIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals. This attribute communicates the 
+     * identifier of the original test request (target) from which 
+     * the (source) referral request originated.</p>
+     * 
+     * <p>Uniquely identifies this test request among all test 
+     * requests in the receiving application.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -93,18 +127,52 @@ public class PriorTestRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>PriorTestIdentifier</p>
+     * <p>Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Prior Test Identifier</p>
+     * <p>Other Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Uniquely identifies this test request among all test 
-     * requests in the receiving application.</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PriorTestIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used for order referrals. This attribute communicates the 
      * identifier of the original test request (target) from which 
      * the (source) referral request originated.</p>
      * 
-     * <p>Prior Test Identifier</p>
+     * <p>Uniquely identifies this test request among all test 
+     * requests in the receiving application.</p>
+     * 
+     * <p>Other Business Name: PriorTestIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals. This attribute communicates the 
+     * identifier of the original test request (target) from which 
+     * the (source) referral request originated.</p>
+     * 
+     * <p>Uniquely identifies this test request among all test 
+     * requests in the receiving application.</p>
+     * 
+     * <p>Other Business Name: PriorTestIdentifier</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals. This attribute communicates the 
+     * identifier of the original test request (target) from which 
+     * the (source) referral request originated.</p>
+     * 
+     * <p>Uniquely identifies this test request among all test 
+     * requests in the receiving application.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -112,15 +180,43 @@ public class PriorTestRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>PriorTestStatus</p>
+     * <p>Business Name: PriorTestStatus</p>
      * 
-     * <p>Prior Test Status</p>
+     * <p>Other Business Name: PriorTestStatus</p>
      * 
-     * <p>Prior Test Status</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PriorTestStatus</p>
+     * 
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals.</p>
      * 
      * <p>The status of the prior test request.</p>
      * 
+     * <p>Other Business Name: PriorTestStatus</p>
+     * 
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Used for order referrals.</p>
+     * 
+     * <p>The status of the prior test request.</p>
+     * 
+     * <p>Other Business Name: PriorTestStatus</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals.</p>
+     * 
+     * <p>The status of the prior test request.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -128,15 +224,43 @@ public class PriorTestRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>PriorTestStatus</p>
+     * <p>Business Name: PriorTestStatus</p>
      * 
-     * <p>Prior Test Status</p>
+     * <p>Other Business Name: PriorTestStatus</p>
      * 
-     * <p>Prior Test Status</p>
+     * <p>Relationship: POLB_MT001000CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PriorTestStatus</p>
+     * 
+     * <p>Relationship: POLB_MT001999CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals.</p>
      * 
      * <p>The status of the prior test request.</p>
      * 
+     * <p>Other Business Name: PriorTestStatus</p>
+     * 
+     * <p>Relationship: POLB_MT001001CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Used for order referrals.</p>
+     * 
+     * <p>The status of the prior test request.</p>
+     * 
+     * <p>Other Business Name: PriorTestStatus</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.PriorActRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for order referrals.</p>
+     * 
+     * <p>The status of the prior test request.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);

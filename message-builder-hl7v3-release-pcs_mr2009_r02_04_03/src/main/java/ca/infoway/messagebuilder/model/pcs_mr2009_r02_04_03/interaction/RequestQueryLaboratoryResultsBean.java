@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.Parameter
 
 
 /**
- * <p>POLB_IN354000CA: Request Query Laboratory Results</p>
+ * <p>Business Name: POLB_IN354000CA: Request Query Laboratory 
+ * Results</p>
+ * 
+ * <p>This interaction is used to query lab results from a lab 
+ * system.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.Parameter
 @Hl7PartTypeMapping({"POLB_IN354000CA"})
 public class RequestQueryLaboratoryResultsBean extends HL7Message_1Bean<TriggerEvent_5Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

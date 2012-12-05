@@ -36,7 +36,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
     private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
@@ -45,7 +45,11 @@ public class AdjudicationResultBean extends MessagePartBean {
 
 
     /**
-     * <p>Adjudication Results Adjudication Code</p>
+     * <p>Business Name: Adjudication Results Adjudication Code</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.AdjudicationResult.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActAdjudicationType getCode() {
@@ -53,13 +57,22 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudication Results Adjudication Code</p>
+     * <p>Business Name: Adjudication Results Adjudication Code</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.AdjudicationResult.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(ActAdjudicationType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.AdjudicationResult.trigger</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"trigger"})
     public List<Trigger1Bean> getTrigger() {
         return this.trigger;
@@ -72,6 +85,12 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.PertinentInformation1.adjudicationCodeChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
     public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
         return this.pertinentInformationAdjudicationCodeChoice;

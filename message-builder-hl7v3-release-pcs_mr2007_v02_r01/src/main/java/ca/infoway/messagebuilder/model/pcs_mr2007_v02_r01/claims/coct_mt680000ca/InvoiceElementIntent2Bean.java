@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActInvoice
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent2"})
 public class InvoiceElementIntent2Bean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
@@ -56,6 +56,10 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
 
 
     /**
+     * <p>Relationship: COCT_MT680000CA.InvoiceElementIntent2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>(Product/Service Code e.g. Office Visit ,Taxes, Markup, 
      * Dispense, including Product/Service Code Modifier e.g. 
      * northern isolation, off hours specialty, on call</p>
@@ -66,6 +70,10 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
     }
 
     /**
+     * <p>Relationship: COCT_MT680000CA.InvoiceElementIntent2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>(Product/Service Code e.g. Office Visit ,Taxes, Markup, 
      * Dispense, including Product/Service Code Modifier e.g. 
      * northern isolation, off hours specialty, on call</p>
@@ -76,6 +84,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>e.g. 3 {boxes}</p>
      */
     @Hl7XmlMapping({"unitQuantity"})
@@ -84,6 +97,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>e.g. 3 {boxes}</p>
      */
     public void setUnitQuantity(PhysicalQuantity unitQuantity) {
@@ -92,6 +110,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>e.g. $50 CAD/ 1 {box}</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
@@ -100,6 +123,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>e.g. $50 CAD/ 1 {box}</p>
      */
     public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
@@ -108,6 +136,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>(= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
      */
@@ -117,6 +150,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>(= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
      */
@@ -126,6 +164,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
      */
@@ -135,6 +178,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
      */

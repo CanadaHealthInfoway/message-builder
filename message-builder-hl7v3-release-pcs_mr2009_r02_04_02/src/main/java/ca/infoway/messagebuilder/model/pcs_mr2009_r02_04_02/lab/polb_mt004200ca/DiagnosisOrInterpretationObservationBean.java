@@ -64,7 +64,7 @@ import java.util.Set;
 
 
 /**
- * <p>Diagnosis or Interpretation Observation</p>
+ * <p>Business Name: Diagnosis or Interpretation Observation</p>
  * 
  * <p>The observation for communicating pathologists 
  * interpretations regarding a specimen. All observations which 
@@ -77,7 +77,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.SectionLevelObservationEvent"})
 public class DiagnosisOrInterpretationObservationBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
@@ -114,12 +114,17 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
 
 
     /**
-     * <p>Section Identifier</p>
+     * <p>Business Name: Section Identifier</p>
      * 
-     * <p>Unique to identify this section of the report.</p>
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>A unique identifier is mandatory for all updates to any 
      * object.</p>
+     * 
+     * <p>Unique to identify this section of the report.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -134,7 +139,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
 
 
     /**
-     * <p>Section Type</p>
+     * <p>Business Name: Section Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of diagnostic observation. For 
      * cytology, LOINC codes are used for this attribute and also 
@@ -149,7 +159,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
     /**
-     * <p>Section Type</p>
+     * <p>Business Name: Section Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of diagnostic observation. For 
      * cytology, LOINC codes are used for this attribute and also 
@@ -163,11 +178,23 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
     public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
         return this.primaryInformationRecipientAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
         this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
@@ -180,7 +207,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
 
 
     /**
-     * <p>Section Text</p>
+     * <p>Business Name: Section Text</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used when the value attribute is not text-based (coded, 
      * for instance) and additional text information is required to 
@@ -192,7 +224,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
     /**
-     * <p>Section Text</p>
+     * <p>Business Name: Section Text</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used when the value attribute is not text-based (coded, 
      * for instance) and additional text information is required to 
@@ -214,7 +251,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
 
 
     /**
-     * <p>Observation Status</p>
+     * <p>Business Name: Observation Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Status associated with the Section Level Observation.</p>
      */
@@ -224,7 +266,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
     /**
-     * <p>Observation Status</p>
+     * <p>Business Name: Observation Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Status associated with the Section Level Observation.</p>
      */
@@ -234,7 +281,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
 
 
     /**
-     * <p>Section Reported Date/Time</p>
+     * <p>Business Name: Section Reported Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time this section was reported/released for 
      * reporting.</p>
@@ -245,7 +297,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
     /**
-     * <p>Section Reported Date/Time</p>
+     * <p>Business Name: Section Reported Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time this section was reported/released for 
      * reporting.</p>
@@ -268,7 +325,16 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
 
 
     /**
-     * <p>Result Masking Indicator</p>
+     * <p>Business Name: Result Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>This code allows for privacy control by patients as well 
+     * as flagged for 'not for disclosure to patient' by care 
+     * providers.</p>
      * 
      * <p>Any piece of information is potentially subject to 
      * 'masking', restricting it's availability from providers who 
@@ -277,10 +343,6 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
      * direct disclosure to patient&quot;. The values in this 
      * attribute enable the above masking to be represented and 
      * messaged.</p>
-     * 
-     * <p>This code allows for privacy control by patients as well 
-     * as flagged for 'not for disclosure to patient' by care 
-     * providers.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -299,7 +361,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
 
 
     /**
-     * <p>Section Value</p>
+     * <p>Business Name: Section Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The value or pathologist's interpretation for the Section 
      * Type provided in SectionLevelObservationEvent.code. If a 
@@ -312,7 +379,12 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
     /**
-     * <p>Section Value</p>
+     * <p>Business Name: Section Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.SectionLevelObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The value or pathologist's interpretation for the Section 
      * Type provided in SectionLevelObservationEvent.code. If a 
@@ -324,23 +396,45 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Component4.reportLevelObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/reportLevelObservationEvent"})
     public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent() {
         return this.component3ReportLevelObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Component1.observationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component4/observationChoice"})
     public List<ObservationChoice> getComponent4ObservationChoice() {
         return this.component4ObservationChoice;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

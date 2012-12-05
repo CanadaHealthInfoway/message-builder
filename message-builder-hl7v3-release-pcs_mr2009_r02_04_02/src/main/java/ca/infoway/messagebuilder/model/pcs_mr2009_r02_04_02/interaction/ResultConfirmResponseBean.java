@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>POLB_IN134000CA: Result Confirm Response</p>
+ * <p>Business Name: POLB_IN134000CA: Result Confirm Response</p>
+ * 
+ * <p>This is a successful response to a request to record a 
+ * result.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"POLB_IN134000CA"})
 public class ResultConfirmResponseBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

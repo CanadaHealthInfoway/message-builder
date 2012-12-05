@@ -36,49 +36,49 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt300000
 /**
  * <p>POME_MT010100CA.Content: dispensed in</p>
  * 
- * <p>Information about how the dispensed drug is or should be 
- * contained</p>
- * 
  * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
  * such as compliance packaging.</p>
+ * 
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
  * 
  * <p>COCT_MT220200CA.Content: drug dispensed in</p>
  * 
  * <p>Must specify at least one of Drug Package Quantity and 
  * Drug Container Type.</p>
  * 
- * <p>Information about how the dispensed drug is or should be 
- * contained</p>
- * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
  * such as compliance packaging.</p>
  * 
- * <p>POME_MT010040CA.Content: dispensed in</p>
- * 
  * <p>Information about how the dispensed drug is or should be 
  * contained</p>
+ * 
+ * <p>POME_MT010040CA.Content: dispensed in</p>
  * 
  * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
  * such as compliance packaging.</p>
+ * 
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
  * 
  * <p>COCT_MT220210CA.Content: drug dispensed in</p>
  * 
  * <p>Must specify at least one of Drug Package Quantity and 
  * Drug Container Type.</p>
  * 
- * <p>Information about how the dispensed drug is or should be 
- * contained</p>
- * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
  * such as compliance packaging.</p>
+ * 
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
  * 
  * <p>COCT_MT300000CA.Content: Package Contents</p>
  * 
@@ -89,77 +89,140 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt300000
  * <p>Must specify at least one of Drug Package Quantity and 
  * Drug Container Type</p>
  * 
- * <p>Information about how the dispensed drug is or should be 
- * contained</p>
- * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
  * such as compliance packaging.</p>
+ * 
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
  * 
  * <p>COCT_MT220100CA.Content: dispensed in</p>
  * 
  * <p>Must specify at least one of Drug Package Quantity and 
  * Drug Container Type</p>
  * 
- * <p>Information about how the dispensed drug is or should be 
- * contained</p>
- * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>May influence prescribing quantities, and also allows 
  * conveying instructions with respect to special packaging 
  * such as compliance packaging.</p>
+ * 
+ * <p>Information about how the dispensed drug is or should be 
+ * contained</p>
  */
 @Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","COCT_MT300000CA.Content","POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ quantity = new PQImpl();
     private CV containerPackagedMedicineFormCode = new CVImpl();
     private DrugFormBean containedManufacturedMaterialKind;
 
 
     /**
-     * <p>Package Quantity</p>
+     * <p>Other Business Name: DrugPackageQuantity</p>
      * 
-     * <p>The quantity of the medication dosage form contained in 
-     * the package given or to be given to the patient.</p>
+     * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
      * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>B:Drug Package Quantity</p>
+     * <p>ZDP.10.2.2</p>
      * 
-     * <p>The quantity of the medication dosage form contained in 
-     * the package given or to be given to the patient.</p>
-     * 
-     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
-     * 
-     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * <p>ZDP.9.2.2</p>
      * 
      * <p>Sometimes ordering and dispensing is by package rather 
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>F:Drug Package Quantity</p>
-     * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * <p>Other Business Name: PackageQuantity</p>
      * 
-     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * <p>Relationship: POME_MT010100CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sometimes ordering and dispensing is by package rather 
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Package Size</p>
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Other Business Name: PackageQuantity</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Other Business Name: PackageSize</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>package size</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -167,44 +230,107 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>Package Quantity</p>
+     * <p>Other Business Name: DrugPackageQuantity</p>
      * 
-     * <p>The quantity of the medication dosage form contained in 
-     * the package given or to be given to the patient.</p>
+     * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
      * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>B:Drug Package Quantity</p>
+     * <p>ZDP.10.2.2</p>
      * 
-     * <p>The quantity of the medication dosage form contained in 
-     * the package given or to be given to the patient.</p>
-     * 
-     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
-     * 
-     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * <p>ZDP.9.2.2</p>
      * 
      * <p>Sometimes ordering and dispensing is by package rather 
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>F:Drug Package Quantity</p>
-     * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * <p>Other Business Name: PackageQuantity</p>
      * 
-     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * <p>Relationship: POME_MT010100CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sometimes ordering and dispensing is by package rather 
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Package Size</p>
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Other Business Name: PackageQuantity</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Other Business Name: PackageSize</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>package size</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZDP.10.2.2</p>
+     * 
+     * <p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -212,55 +338,89 @@ public class DispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Container Type</p>
+     * <p>Other Business Name: DrugContainerType</p>
      * 
-     * <p>A coded value denoting a specific kind of a container. 
-     * Used to identify a requirement for a particular type of 
-     * compliance packaging</p>
+     * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
-     * <p>Many insurance plans require that a prescriber 
-     * specifically authorize the use of compliance packaging 
-     * before it will be covered by the plan.</p>
-     * 
-     * <p>Drug Container Type</p>
-     * 
-     * <p>A coded value denoting a specific kind of a container. 
-     * Used to identify a requirement for a particular type of 
-     * compliance packaging</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>A:Drug Container Type</p>
-     * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
+     * 
+     * <p>Other Business Name: ContainerType</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>E:Drug Container Type</p>
-     * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
+     * 
+     * <p>Other Business Name: ContainerType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>H:Container Type</p>
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
      */
     @Hl7XmlMapping({"containerPackagedMedicine/formCode"})
     public CompliancePackageEntityType getContainerPackagedMedicineFormCode() {
@@ -268,66 +428,116 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>Container Type</p>
+     * <p>Other Business Name: DrugContainerType</p>
      * 
-     * <p>A coded value denoting a specific kind of a container. 
-     * Used to identify a requirement for a particular type of 
-     * compliance packaging</p>
+     * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
-     * <p>Many insurance plans require that a prescriber 
-     * specifically authorize the use of compliance packaging 
-     * before it will be covered by the plan.</p>
-     * 
-     * <p>Drug Container Type</p>
-     * 
-     * <p>A coded value denoting a specific kind of a container. 
-     * Used to identify a requirement for a particular type of 
-     * compliance packaging</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>A:Drug Container Type</p>
-     * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
+     * 
+     * <p>Other Business Name: ContainerType</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>E:Drug Container Type</p>
-     * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
+     * 
+     * <p>Other Business Name: ContainerType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>H:Container Type</p>
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Many insurance plans require that a prescriber 
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
      */
     public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
         this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"containedManufacturedMaterialKind"})
     public DrugFormBean getContainedManufacturedMaterialKind() {
         return this.containedManufacturedMaterialKind;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setContainedManufacturedMaterialKind(DrugFormBean containedManufacturedMaterialKind) {
         this.containedManufacturedMaterialKind = containedManufacturedMaterialKind;
     }

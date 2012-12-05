@@ -32,15 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.PriorDeviceRequest"})
 public class PriorDeviceRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>B:Previous Prescription Order Number</p>
+     * <p>Business Name: B:Previous Prescription Order Number</p>
      * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
+     * <p>Relationship: PORX_MT010110CA.PriorDeviceRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>New or Repeat (if present, then Repeat)</p>
      * 
@@ -49,10 +50,8 @@ public class PriorDeviceRequestBean extends MessagePartBean {
      * tracking a therapy across multiple renewal 
      * prescriptions.</p>
      * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -60,10 +59,11 @@ public class PriorDeviceRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Previous Prescription Order Number</p>
+     * <p>Business Name: B:Previous Prescription Order Number</p>
      * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
+     * <p>Relationship: PORX_MT010110CA.PriorDeviceRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>New or Repeat (if present, then Repeat)</p>
      * 
@@ -72,10 +72,8 @@ public class PriorDeviceRequestBean extends MessagePartBean {
      * tracking a therapy across multiple renewal 
      * prescriptions.</p>
      * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

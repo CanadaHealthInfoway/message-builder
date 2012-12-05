@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 
 
 /**
- * <p>FICR_IN620102CA: Invoice Nullify Request, Rx</p>
+ * <p>Business Name: FICR_IN620102CA: Invoice Nullify Request, 
+ * Rx</p>
+ * 
+ * <p>The sender sends an Invoice Nullify Request message to 
+ * request the nullification of a previously submitted Invoice 
+ * Adjudication Request for Pharmacy services and/or 
+ * products.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 @Hl7PartTypeMapping({"FICR_IN620102CA"})
 public class InvoiceNullifyRequestRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<SubmittedInvoiceGroupBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

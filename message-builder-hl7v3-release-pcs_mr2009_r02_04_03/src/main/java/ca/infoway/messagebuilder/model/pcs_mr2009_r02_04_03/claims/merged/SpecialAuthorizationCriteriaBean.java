@@ -34,16 +34,28 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActSuppo
 @Hl7PartTypeMapping({"FICR_MT400001CA.SpecialAuthorizationCriteria","FICR_MT490103CA.SpecialAuthorizationCriteria"})
 public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private ST value = new STImpl();
 
 
     /**
-     * <p>GeneralSupportingInformationType</p>
+     * <p>Business Name: GeneralSupportingInformationType</p>
      * 
-     * <p>General Supporting Information Type</p>
+     * <p>Other Business Name: GeneralSupportingInformationType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationCriteria.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: GeneralSupportingInformationType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.SpecialAuthorizationCriteria.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActSupportingInformationCode getCode() {
@@ -51,9 +63,21 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>GeneralSupportingInformationType</p>
+     * <p>Business Name: GeneralSupportingInformationType</p>
      * 
-     * <p>General Supporting Information Type</p>
+     * <p>Other Business Name: GeneralSupportingInformationType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationCriteria.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: GeneralSupportingInformationType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.SpecialAuthorizationCriteria.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActSupportingInformationCode code) {
         this.code.setValue(code);
@@ -61,9 +85,19 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
 
     /**
-     * <p>General Supporting Information Text</p>
+     * <p>Other Business Name: GeneralSupportingInformationText</p>
      * 
-     * <p>Special Authorization Criteria Text</p>
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationCriteria.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationCriteriaText</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.SpecialAuthorizationCriteria.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -71,9 +105,19 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>General Supporting Information Text</p>
+     * <p>Other Business Name: GeneralSupportingInformationText</p>
      * 
-     * <p>Special Authorization Criteria Text</p>
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationCriteria.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationCriteriaText</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.SpecialAuthorizationCriteria.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -81,9 +125,21 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
 
     /**
-     * <p>GeneralSupportingInformationValue</p>
+     * <p>Business Name: GeneralSupportingInformationValue</p>
      * 
-     * <p>General Supporting Information Value</p>
+     * <p>Other Business Name: GeneralSupportingInformationValue</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationCriteria.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: GeneralSupportingInformationValue</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.SpecialAuthorizationCriteria.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"value"})
     public String getValue() {
@@ -91,9 +147,21 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>GeneralSupportingInformationValue</p>
+     * <p>Business Name: GeneralSupportingInformationValue</p>
      * 
-     * <p>General Supporting Information Value</p>
+     * <p>Other Business Name: GeneralSupportingInformationValue</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationCriteria.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: GeneralSupportingInformationValue</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.SpecialAuthorizationCriteria.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setValue(String value) {
         this.value.setValue(value);

@@ -30,8 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt420002ca
 
 
 /**
- * <p>REPC_IN000068CA: Patient coded observations query 
- * response</p>
+ * <p>Business Name: REPC_IN000068CA: Patient coded 
+ * observations query response</p>
+ * 
+ * <p>Returns one or more coded observations associated with a 
+ * patient.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -44,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt420002ca
 @Hl7PartTypeMapping({"REPC_IN000068CA"})
 public class PatientCodedObservationsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<CodedObservationBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

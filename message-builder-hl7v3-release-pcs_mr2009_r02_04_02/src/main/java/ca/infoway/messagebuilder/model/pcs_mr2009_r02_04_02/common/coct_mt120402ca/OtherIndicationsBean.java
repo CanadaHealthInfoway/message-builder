@@ -32,29 +32,30 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Other indications</p>
+ * <p>Business Name: Other indications</p>
  * 
  * <p>Must have at least one of code or text</p>
  * 
- * <p>Describes indications that are not diagnosis or 
- * symptom-related (e.g. contrast agents)</p>
- * 
  * <p>Allows separation of conditions from symptoms from other 
  * forms of indication.</p>
+ * 
+ * <p>Describes indications that are not diagnosis or 
+ * symptom-related (e.g. contrast agents)</p>
  */
 @Hl7PartTypeMapping({"COCT_MT120402CA.OtherIndication"})
 public class OtherIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
 
     /**
-     * <p>Other Indication</p>
+     * <p>Business Name: Other Indication</p>
      * 
-     * <p>A code indicating some other action which is the reason 
-     * for a therapy.</p>
+     * <p>Relationship: COCT_MT120402CA.OtherIndication.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>EPHS: vocab proposal needed for simple concepts of i) 
      * sign or symptom related to investigation disease ii) sign or 
@@ -65,6 +66,9 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * <p>Allows for coded representation of a non-condition based 
      * indication such as administration of a contrast agent for a 
      * lab test.</p>
+     * 
+     * <p>A code indicating some other action which is the reason 
+     * for a therapy.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActNonConditionIndicationCode getCode() {
@@ -72,10 +76,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     }
 
     /**
-     * <p>Other Indication</p>
+     * <p>Business Name: Other Indication</p>
      * 
-     * <p>A code indicating some other action which is the reason 
-     * for a therapy.</p>
+     * <p>Relationship: COCT_MT120402CA.OtherIndication.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>EPHS: vocab proposal needed for simple concepts of i) 
      * sign or symptom related to investigation disease ii) sign or 
@@ -86,6 +91,9 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * <p>Allows for coded representation of a non-condition based 
      * indication such as administration of a contrast agent for a 
      * lab test.</p>
+     * 
+     * <p>A code indicating some other action which is the reason 
+     * for a therapy.</p>
      */
     public void setCode(ActNonConditionIndicationCode code) {
         this.code.setValue(code);
@@ -93,14 +101,18 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
 
 
     /**
-     * <p>Other indication ad-hoc description</p>
+     * <p>Business Name: Other indication ad-hoc description</p>
      * 
-     * <p>A textual description of an indication not meant to be 
-     * either diagnosis or symptom.</p>
+     * <p>Relationship: COCT_MT120402CA.OtherIndication.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides ability to describe indication without labeling 
      * it a diagnosis or symptom. Attribute as free form text is 
      * the only information allowed.</p>
+     * 
+     * <p>A textual description of an indication not meant to be 
+     * either diagnosis or symptom.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -108,14 +120,18 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     }
 
     /**
-     * <p>Other indication ad-hoc description</p>
+     * <p>Business Name: Other indication ad-hoc description</p>
      * 
-     * <p>A textual description of an indication not meant to be 
-     * either diagnosis or symptom.</p>
+     * <p>Relationship: COCT_MT120402CA.OtherIndication.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides ability to describe indication without labeling 
      * it a diagnosis or symptom. Attribute as free form text is 
      * the only information allowed.</p>
+     * 
+     * <p>A textual description of an indication not meant to be 
+     * either diagnosis or symptom.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

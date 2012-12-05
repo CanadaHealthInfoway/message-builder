@@ -40,12 +40,16 @@ import java.util.Set;
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> holderPayorRoleId = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
-     * <p>Payor identifier</p>
+     * <p>Business Name: Payor identifier</p>
+     * 
+     * <p>Relationship: COCT_MT110101CA.PayorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      * 
      * <p>assigned by adjudicator</p>
      */

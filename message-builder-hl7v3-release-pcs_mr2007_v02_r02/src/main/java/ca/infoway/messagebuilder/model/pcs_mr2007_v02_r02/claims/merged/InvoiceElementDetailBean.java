@@ -63,7 +63,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoice
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail","FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicatedInvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca.AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
@@ -74,47 +74,77 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     private II id = new IIImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"outcomeOf"})
     public AdjudicatedResultOutcomeBean getOutcomeOf() {
         return this.outcomeOf;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
         this.outcomeOf = outcomeOf;
     }
 
 
     /**
-     * <p>Adjudicated Product/Service Code</p>
+     * <p>Other Business Name: ProductServiceCode</p>
      * 
-     * <p>The product or service code adjudicated. I.e. Office 
-     * visit, taxes, markup</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.code</p>
      * 
-     * <p>For Adjudication Results: code must match to the 
-     * corresponding invoice element that was 
-     * submitted.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActPoductServiceBillableItemCode).</p>
-     * 
-     * <p>For Adjudication Results: code must match to the 
-     * corresponding invoice element that was 
-     * submitted.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActPoductServiceBillableItemCode).</p>
-     * 
-     * <p>For Adjudication Results: code must match to the 
-     * corresponding invoice element that was 
-     * submitted.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActPoductServiceBillableItemCode).</p>
-     * 
-     * <p>For Adjudication Results: code must match to the 
-     * corresponding invoice element that was 
-     * submitted.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActPoductServiceBillableItemCode).</p>
-     * 
-     * <p>Product/service Code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Product/Service Code e.g. Office Visit ,Taxes, Markup, 
      * Dispense, including Product/Service Code Modifier e.g. 
      * northern isolation, off hours specialty, on call</p>
+     * 
+     * <p>Other Business Name: AdjudicatedProductServiceCode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Adjudication Results: code must match to the 
+     * corresponding invoice element that was 
+     * submitted.</p><p>Modifiers for the codes are taken from the 
+     * same domain (i.e ActPoductServiceBillableItemCode).</p>
+     * 
+     * <p>For Adjudication Results: code must match to the 
+     * corresponding invoice element that was 
+     * submitted.</p><p>Modifiers for the codes are taken from the 
+     * same domain (i.e ActPoductServiceBillableItemCode).</p>
+     * 
+     * <p>The product or service code adjudicated. I.e. Office 
+     * visit, taxes, markup</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceDetailCode getCode() {
@@ -122,36 +152,36 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Adjudicated Product/Service Code</p>
+     * <p>Other Business Name: ProductServiceCode</p>
      * 
-     * <p>The product or service code adjudicated. I.e. Office 
-     * visit, taxes, markup</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.code</p>
      * 
-     * <p>For Adjudication Results: code must match to the 
-     * corresponding invoice element that was 
-     * submitted.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActPoductServiceBillableItemCode).</p>
-     * 
-     * <p>For Adjudication Results: code must match to the 
-     * corresponding invoice element that was 
-     * submitted.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActPoductServiceBillableItemCode).</p>
-     * 
-     * <p>For Adjudication Results: code must match to the 
-     * corresponding invoice element that was 
-     * submitted.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActPoductServiceBillableItemCode).</p>
-     * 
-     * <p>For Adjudication Results: code must match to the 
-     * corresponding invoice element that was 
-     * submitted.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActPoductServiceBillableItemCode).</p>
-     * 
-     * <p>Product/service Code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Product/Service Code e.g. Office Visit ,Taxes, Markup, 
      * Dispense, including Product/Service Code Modifier e.g. 
      * northern isolation, off hours specialty, on call</p>
+     * 
+     * <p>Other Business Name: AdjudicatedProductServiceCode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Adjudication Results: code must match to the 
+     * corresponding invoice element that was 
+     * submitted.</p><p>Modifiers for the codes are taken from the 
+     * same domain (i.e ActPoductServiceBillableItemCode).</p>
+     * 
+     * <p>For Adjudication Results: code must match to the 
+     * corresponding invoice element that was 
+     * submitted.</p><p>Modifiers for the codes are taken from the 
+     * same domain (i.e ActPoductServiceBillableItemCode).</p>
+     * 
+     * <p>The product or service code adjudicated. I.e. Office 
+     * visit, taxes, markup</p>
      */
     public void setCode(ActInvoiceDetailCode code) {
         this.code.setValue(code);
@@ -159,11 +189,21 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Quantity per Unit</p>
+     * <p>Other Business Name: QuantityPerUnit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>e.g. 3 {boxes}</p>
      * 
-     * <p>Adjudicated Unit Quantity</p>
+     * <p>Other Business Name: AdjudicatedUnitQuantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The number of instances of the product or service 
      * adjudicated. I.e. 4 hours, 4 mg, 4 boxes, 15 each of a 
@@ -175,11 +215,21 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Quantity per Unit</p>
+     * <p>Other Business Name: QuantityPerUnit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>e.g. 3 {boxes}</p>
      * 
-     * <p>Adjudicated Unit Quantity</p>
+     * <p>Other Business Name: AdjudicatedUnitQuantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The number of instances of the product or service 
      * adjudicated. I.e. 4 hours, 4 mg, 4 boxes, 15 each of a 
@@ -191,17 +241,27 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Adjudicated Unit Price</p>
+     * <p>Other Business Name: PricePerUnit</p>
      * 
-     * <p>The monetary cost per unit of the product or service 
-     * adjudicated. I.e.. $0.20/mg, $250/day, $50</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>e.g. $50 CAD/ 1 {box}</p>
+     * 
+     * <p>Other Business Name: AdjudicatedUnitPrice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The monetary cost per unit of the product or service. 
      * I.e.. $0.20/mg, $250/day, $50</p>
      * 
-     * <p>Price Per Unit</p>
-     * 
-     * <p>e.g. $50 CAD/ 1 {box}</p>
+     * <p>The monetary cost per unit of the product or service 
+     * adjudicated. I.e.. $0.20/mg, $250/day, $50</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
     public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
@@ -209,17 +269,27 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Adjudicated Unit Price</p>
+     * <p>Other Business Name: PricePerUnit</p>
      * 
-     * <p>The monetary cost per unit of the product or service 
-     * adjudicated. I.e.. $0.20/mg, $250/day, $50</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>e.g. $50 CAD/ 1 {box}</p>
+     * 
+     * <p>Other Business Name: AdjudicatedUnitPrice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The monetary cost per unit of the product or service. 
      * I.e.. $0.20/mg, $250/day, $50</p>
      * 
-     * <p>Price Per Unit</p>
-     * 
-     * <p>e.g. $50 CAD/ 1 {box}</p>
+     * <p>The monetary cost per unit of the product or service 
+     * adjudicated. I.e.. $0.20/mg, $250/day, $50</p>
      */
     public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
         this.unitPriceAmt.setValue(unitPriceAmt);
@@ -227,19 +297,29 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Adjudicated Invoice Line Amount</p>
+     * <p>Other Business Name: InvoiceElementAmountBilled</p>
      * 
-     * <p>The amount adjudicated for the invoice line product or 
-     * service. This is the value of the Adjudicated Unit Quantity 
-     * * Ajdudicated Unit Price.</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
+     * E.g. $150 CAD</p>
+     * 
+     * <p>Other Business Name: AdjudicatedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount billed for the Invoice Line product or 
      * service.</p>
      * 
-     * <p>Invoice Element Amount billed</p>
-     * 
-     * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
-     * E.g. $150 CAD</p>
+     * <p>The amount adjudicated for the invoice line product or 
+     * service. This is the value of the Adjudicated Unit Quantity 
+     * * Ajdudicated Unit Price.</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -247,19 +327,29 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Adjudicated Invoice Line Amount</p>
+     * <p>Other Business Name: InvoiceElementAmountBilled</p>
      * 
-     * <p>The amount adjudicated for the invoice line product or 
-     * service. This is the value of the Adjudicated Unit Quantity 
-     * * Ajdudicated Unit Price.</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
+     * E.g. $150 CAD</p>
+     * 
+     * <p>Other Business Name: AdjudicatedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount billed for the Invoice Line product or 
      * service.</p>
      * 
-     * <p>Invoice Element Amount billed</p>
-     * 
-     * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
-     * E.g. $150 CAD</p>
+     * <p>The amount adjudicated for the invoice line product or 
+     * service. This is the value of the Adjudicated Unit Quantity 
+     * * Ajdudicated Unit Price.</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
@@ -267,14 +357,24 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * <p>Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
      * 
-     * <p>Percentage of Tax applied to unitPriceAmt</p>
+     * <p>Other Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Factor numbers are used for taxes. They represent the 
      * percentage of tax applied to unitPriceAmt.</p>
@@ -285,14 +385,24 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * <p>Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
      * 
-     * <p>Percentage of Tax applied to unitPriceAmt</p>
+     * <p>Other Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Factor numbers are used for taxes. They represent the 
      * percentage of tax applied to unitPriceAmt.</p>
@@ -302,30 +412,39 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reference1/allowable"})
     public AllowableAmountBean getReference1Allowable() {
         return this.reference1Allowable;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReference1Allowable(AllowableAmountBean reference1Allowable) {
         this.reference1Allowable = reference1Allowable;
     }
 
 
     /**
-     * <p>AdjudicatedInvoiceElementIdentifier</p>
+     * <p>Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
-     * <p>Adjudicated Invoice Element Identifier</p>
+     * <p>Other Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
-     * <p>Set of identifiers that uniquely identify the invoice 
-     * element adjudicated.</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.id</p>
      * 
-     * <p>The Root Adjudicated Invoice Element Group reflects the 
-     * EOB Identifier.</p><p>For Invoice (COB): An idenitifier may 
-     * need to be generated by the submitting application in the 
-     * situation where previous adjudication results are received 
-     * manually or do not match the level of detail required for 
-     * the downstream adjudicator.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Root Adjudicated Invoice Element Group reflects the 
      * EOB Identifier.</p><p>For Invoice (COB): An idenitifier may 
@@ -339,6 +458,9 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * where previous adjudication results are received manually or 
      * do not match the level of detail required for the downstream 
      * adjudicator.</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the invoice 
+     * element adjudicated.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -346,19 +468,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>AdjudicatedInvoiceElementIdentifier</p>
+     * <p>Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
-     * <p>Adjudicated Invoice Element Identifier</p>
+     * <p>Other Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
-     * <p>Set of identifiers that uniquely identify the invoice 
-     * element adjudicated.</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.id</p>
      * 
-     * <p>The Root Adjudicated Invoice Element Group reflects the 
-     * EOB Identifier.</p><p>For Invoice (COB): An idenitifier may 
-     * need to be generated by the submitting application in the 
-     * situation where previous adjudication results are received 
-     * manually or do not match the level of detail required for 
-     * the downstream adjudicator.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Root Adjudicated Invoice Element Group reflects the 
      * EOB Identifier.</p><p>For Invoice (COB): An idenitifier may 
@@ -372,6 +489,9 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * where previous adjudication results are received manually or 
      * do not match the level of detail required for the downstream 
      * adjudicator.</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the invoice 
+     * element adjudicated.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.porx_mt020070
 
 
 /**
- * <p>PORX_IN020190CA: Record dispense processing request</p>
+ * <p>Business Name: PORX_IN020190CA: Record dispense 
+ * processing request</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.porx_mt020070
 @Hl7PartTypeMapping({"PORX_IN020190CA"})
 public class RecordDispenseProcessingRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionDispenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

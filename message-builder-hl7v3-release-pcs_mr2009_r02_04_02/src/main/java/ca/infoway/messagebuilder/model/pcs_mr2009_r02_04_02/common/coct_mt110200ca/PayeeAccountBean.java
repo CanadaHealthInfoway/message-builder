@@ -39,7 +39,7 @@ import java.util.Date;
 
 
 /**
- * <p>Payee Account</p>
+ * <p>Business Name: Payee Account</p>
  * 
  * <p>Payee Bank account, transit number, credit card, etc. for 
  * payment.</p>
@@ -48,7 +48,7 @@ import java.util.Date;
 @Hl7RootType
 public class PayeeAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST title = new STImpl();
@@ -57,13 +57,17 @@ public class PayeeAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Account ID</p>
+     * <p>Business Name: Account ID</p>
      * 
-     * <p>Bank Account, transit number, credit card, etc.</p>
+     * <p>Relationship: COCT_MT110200CA.Account.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Bank account information can be used to indicate where 
      * the Payer is instructed to direct deposit for a Payee who is 
      * not already known to the Payer.</p>
+     * 
+     * <p>Bank Account, transit number, credit card, etc.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -71,13 +75,17 @@ public class PayeeAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Account ID</p>
+     * <p>Business Name: Account ID</p>
      * 
-     * <p>Bank Account, transit number, credit card, etc.</p>
+     * <p>Relationship: COCT_MT110200CA.Account.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Bank account information can be used to indicate where 
      * the Payer is instructed to direct deposit for a Payee who is 
      * not already known to the Payer.</p>
+     * 
+     * <p>Bank Account, transit number, credit card, etc.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -85,7 +93,11 @@ public class PayeeAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Type of Account</p>
+     * <p>Business Name: Type of Account</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.Account.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActAccountCode getCode() {
@@ -93,7 +105,11 @@ public class PayeeAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Type of Account</p>
+     * <p>Business Name: Type of Account</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.Account.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setCode(ActAccountCode code) {
         this.code.setValue(code);
@@ -101,7 +117,11 @@ public class PayeeAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>name on credit card</p>
+     * <p>Business Name: name on credit card</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.Account.title</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
@@ -109,7 +129,11 @@ public class PayeeAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>name on credit card</p>
+     * <p>Business Name: name on credit card</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.Account.title</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setTitle(String title) {
         this.title.setValue(title);
@@ -117,7 +141,11 @@ public class PayeeAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>expiry date on credit card</p>
+     * <p>Business Name: expiry date on credit card</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.Account.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -125,18 +153,32 @@ public class PayeeAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>expiry date on credit card</p>
+     * <p>Business Name: expiry date on credit card</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.Account.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT110200CA.Holder.payeeRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"holder/payeeRole"})
     public PayeeRoleBean getHolderPayeeRole() {
         return this.holderPayeeRole;
     }
 
+    /**
+     * <p>Relationship: COCT_MT110200CA.Holder.payeeRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setHolderPayeeRole(PayeeRoleBean holderPayeeRole) {
         this.holderPayeeRole = holderPayeeRole;
     }

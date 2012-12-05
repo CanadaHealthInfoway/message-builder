@@ -28,8 +28,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 
 
 /**
- * <p>REPC_IN000053CA: Record patient measurement obs. request 
- * refused</p>
+ * <p>Business Name: REPC_IN000053CA: Record patient 
+ * measurement obs. request refused</p>
+ * 
+ * <p>Indicates that the request to record the specified 
+ * measurement observation (for example are: height, weight, 
+ * blood-pressure, temperature) in the patient's record has 
+ * been refused.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -38,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"REPC_IN000053CA"})
 public class RecordPatientMeasurementObsRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

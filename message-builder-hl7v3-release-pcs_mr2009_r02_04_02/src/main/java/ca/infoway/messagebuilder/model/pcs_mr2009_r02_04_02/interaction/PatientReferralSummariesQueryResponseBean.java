@@ -30,8 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210004ca
 
 
 /**
- * <p>REPC_IN000085CA: Patient referral summaries query 
- * response</p>
+ * <p>Business Name: REPC_IN000085CA: Patient referral 
+ * summaries query response</p>
+ * 
+ * <p>Returns a list of of referrals for a particular patient, 
+ * potentially filtered by time or other criteria.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -44,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210004ca
 @Hl7PartTypeMapping({"REPC_IN000085CA"})
 public class PatientReferralSummariesQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ReferralBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceElementGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
@@ -51,16 +51,20 @@ public class InvoiceElementGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Invoice Group ID</p>
+     * <p>Business Name: Invoice Group ID</p>
      * 
-     * <p>Set of identifiers that uniquely identify the Invoice 
-     * Grouping.</p>
+     * <p>Relationship: FICR_MT630000CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Invoice Grouping Identifier: There are some situations 
      * where more than 1 identifier for this object can be included 
      * in a message.</p>
      * 
      * <p>May include data centre and sequence numbers</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the Invoice 
+     * Grouping.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -68,16 +72,20 @@ public class InvoiceElementGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Invoice Group ID</p>
+     * <p>Business Name: Invoice Group ID</p>
      * 
-     * <p>Set of identifiers that uniquely identify the Invoice 
-     * Grouping.</p>
+     * <p>Relationship: FICR_MT630000CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Invoice Grouping Identifier: There are some situations 
      * where more than 1 identifier for this object can be included 
      * in a message.</p>
      * 
      * <p>May include data centre and sequence numbers</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the Invoice 
+     * Grouping.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -85,66 +93,28 @@ public class InvoiceElementGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Invoice Type</p>
+     * <p>Business Name: Invoice Type</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.InvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Invoice Type is the indication to the payor as to the 
+     * content rules to apply when processing and adjudicating the 
+     * invoice. Basically, the structure of the invoice grouping. 
+     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
+     * Dispense, Rx Compound</p><p>This is used to indicate the 
+     * type of Invoice Grouping.</p><p>Information on constraints 
+     * for the Invoice Type will be found in the NeCST Message 
+     * Specifications. Each Benefit Group will indicate which 
+     * Invoice Types will be supported by that Benefit 
+     * Group.</p><p>Invoice Types will not generate unique and 
+     * distinct XML schemas that can tested independent of each 
+     * other. They must be tested together within an Message 
+     * Type.</p>
      * 
      * <p>Invoice Type - Health Care Services/Goods, Rx Dispense, 
      * Rx compound, Preferred Accom.</p>
-     * 
-     * <p>Invoice Type is the indication to the payor as to the 
-     * content rules to apply when processing and adjudicating the 
-     * invoice. Basically, the structure of the invoice grouping. 
-     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
-     * Dispense, Rx Compound</p><p>This is used to indicate the 
-     * type of Invoice Grouping.</p><p>Information on constraints 
-     * for the Invoice Type will be found in the NeCST Message 
-     * Specifications. Each Benefit Group will indicate which 
-     * Invoice Types will be supported by that Benefit 
-     * Group.</p><p>Invoice Types will not generate unique and 
-     * distinct XML schemas that can tested independent of each 
-     * other. They must be tested together within an Message 
-     * Type.</p>
-     * 
-     * <p>Invoice Type is the indication to the payor as to the 
-     * content rules to apply when processing and adjudicating the 
-     * invoice. Basically, the structure of the invoice grouping. 
-     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
-     * Dispense, Rx Compound</p><p>This is used to indicate the 
-     * type of Invoice Grouping.</p><p>Information on constraints 
-     * for the Invoice Type will be found in the NeCST Message 
-     * Specifications. Each Benefit Group will indicate which 
-     * Invoice Types will be supported by that Benefit 
-     * Group.</p><p>Invoice Types will not generate unique and 
-     * distinct XML schemas that can tested independent of each 
-     * other. They must be tested together within an Message 
-     * Type.</p>
-     * 
-     * <p>Invoice Type is the indication to the payor as to the 
-     * content rules to apply when processing and adjudicating the 
-     * invoice. Basically, the structure of the invoice grouping. 
-     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
-     * Dispense, Rx Compound</p><p>This is used to indicate the 
-     * type of Invoice Grouping.</p><p>Information on constraints 
-     * for the Invoice Type will be found in the NeCST Message 
-     * Specifications. Each Benefit Group will indicate which 
-     * Invoice Types will be supported by that Benefit 
-     * Group.</p><p>Invoice Types will not generate unique and 
-     * distinct XML schemas that can tested independent of each 
-     * other. They must be tested together within an Message 
-     * Type.</p>
-     * 
-     * <p>Invoice Type is the indication to the payor as to the 
-     * content rules to apply when processing and adjudicating the 
-     * invoice. Basically, the structure of the invoice grouping. 
-     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
-     * Dispense, Rx Compound</p><p>This is used to indicate the 
-     * type of Invoice Grouping.</p><p>Information on constraints 
-     * for the Invoice Type will be found in the NeCST Message 
-     * Specifications. Each Benefit Group will indicate which 
-     * Invoice Types will be supported by that Benefit 
-     * Group.</p><p>Invoice Types will not generate unique and 
-     * distinct XML schemas that can tested independent of each 
-     * other. They must be tested together within an Message 
-     * Type.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceGroupCode getCode() {
@@ -152,66 +122,28 @@ public class InvoiceElementGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Invoice Type</p>
+     * <p>Business Name: Invoice Type</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.InvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Invoice Type is the indication to the payor as to the 
+     * content rules to apply when processing and adjudicating the 
+     * invoice. Basically, the structure of the invoice grouping. 
+     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
+     * Dispense, Rx Compound</p><p>This is used to indicate the 
+     * type of Invoice Grouping.</p><p>Information on constraints 
+     * for the Invoice Type will be found in the NeCST Message 
+     * Specifications. Each Benefit Group will indicate which 
+     * Invoice Types will be supported by that Benefit 
+     * Group.</p><p>Invoice Types will not generate unique and 
+     * distinct XML schemas that can tested independent of each 
+     * other. They must be tested together within an Message 
+     * Type.</p>
      * 
      * <p>Invoice Type - Health Care Services/Goods, Rx Dispense, 
      * Rx compound, Preferred Accom.</p>
-     * 
-     * <p>Invoice Type is the indication to the payor as to the 
-     * content rules to apply when processing and adjudicating the 
-     * invoice. Basically, the structure of the invoice grouping. 
-     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
-     * Dispense, Rx Compound</p><p>This is used to indicate the 
-     * type of Invoice Grouping.</p><p>Information on constraints 
-     * for the Invoice Type will be found in the NeCST Message 
-     * Specifications. Each Benefit Group will indicate which 
-     * Invoice Types will be supported by that Benefit 
-     * Group.</p><p>Invoice Types will not generate unique and 
-     * distinct XML schemas that can tested independent of each 
-     * other. They must be tested together within an Message 
-     * Type.</p>
-     * 
-     * <p>Invoice Type is the indication to the payor as to the 
-     * content rules to apply when processing and adjudicating the 
-     * invoice. Basically, the structure of the invoice grouping. 
-     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
-     * Dispense, Rx Compound</p><p>This is used to indicate the 
-     * type of Invoice Grouping.</p><p>Information on constraints 
-     * for the Invoice Type will be found in the NeCST Message 
-     * Specifications. Each Benefit Group will indicate which 
-     * Invoice Types will be supported by that Benefit 
-     * Group.</p><p>Invoice Types will not generate unique and 
-     * distinct XML schemas that can tested independent of each 
-     * other. They must be tested together within an Message 
-     * Type.</p>
-     * 
-     * <p>Invoice Type is the indication to the payor as to the 
-     * content rules to apply when processing and adjudicating the 
-     * invoice. Basically, the structure of the invoice grouping. 
-     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
-     * Dispense, Rx Compound</p><p>This is used to indicate the 
-     * type of Invoice Grouping.</p><p>Information on constraints 
-     * for the Invoice Type will be found in the NeCST Message 
-     * Specifications. Each Benefit Group will indicate which 
-     * Invoice Types will be supported by that Benefit 
-     * Group.</p><p>Invoice Types will not generate unique and 
-     * distinct XML schemas that can tested independent of each 
-     * other. They must be tested together within an Message 
-     * Type.</p>
-     * 
-     * <p>Invoice Type is the indication to the payor as to the 
-     * content rules to apply when processing and adjudicating the 
-     * invoice. Basically, the structure of the invoice grouping. 
-     * Ie. Clinical Product, Clinical Service, Preferred Accom, Rx 
-     * Dispense, Rx Compound</p><p>This is used to indicate the 
-     * type of Invoice Grouping.</p><p>Information on constraints 
-     * for the Invoice Type will be found in the NeCST Message 
-     * Specifications. Each Benefit Group will indicate which 
-     * Invoice Types will be supported by that Benefit 
-     * Group.</p><p>Invoice Types will not generate unique and 
-     * distinct XML schemas that can tested independent of each 
-     * other. They must be tested together within an Message 
-     * Type.</p>
      */
     public void setCode(ActInvoiceGroupCode code) {
         this.code.setValue(code);
@@ -219,10 +151,11 @@ public class InvoiceElementGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Invoice Sub-total</p>
+     * <p>Business Name: Invoice Sub-total</p>
      * 
-     * <p>Invoice Sub-total - Identifies the total monetary amount 
-     * billed for the invoice element.</p>
+     * <p>Relationship: FICR_MT630000CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the sum of the Submitted Invoice Line 
      * amounts.</p>
@@ -232,10 +165,8 @@ public class InvoiceElementGroupBean extends MessagePartBean {
      * cancelled.</p><p>Attribute cannot be mandatory as it may not 
      * be present for a Coverage Extension Request.</p>
      * 
-     * <p>For Cancel Request: This would serve as a cross-check for 
-     * the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p>
+     * <p>Invoice Sub-total - Identifies the total monetary amount 
+     * billed for the invoice element.</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -243,10 +174,11 @@ public class InvoiceElementGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Invoice Sub-total</p>
+     * <p>Business Name: Invoice Sub-total</p>
      * 
-     * <p>Invoice Sub-total - Identifies the total monetary amount 
-     * billed for the invoice element.</p>
+     * <p>Relationship: FICR_MT630000CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the sum of the Submitted Invoice Line 
      * amounts.</p>
@@ -256,10 +188,8 @@ public class InvoiceElementGroupBean extends MessagePartBean {
      * cancelled.</p><p>Attribute cannot be mandatory as it may not 
      * be present for a Coverage Extension Request.</p>
      * 
-     * <p>For Cancel Request: This would serve as a cross-check for 
-     * the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p>
+     * <p>Invoice Sub-total - Identifies the total monetary amount 
+     * billed for the invoice element.</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);

@@ -43,18 +43,18 @@ import java.util.Set;
 
 
 /**
- * <p>Immunization Query Parameters</p>
+ * <p>Business Name: Immunization Query Parameters</p>
+ * 
+ * <p>Root class for query.</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT060140CA.ParameterList"})
 @Hl7RootType
 public class ImmunizationQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II immunizationEventIDValue = new IIImpl();
     private TS patientBirthDateValue = new TSImpl();
     private CV patientGenderValue = new CVImpl();
@@ -63,12 +63,16 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Immunization Event ID</p>
+     * <p>Business Name: A:Immunization Event ID</p>
      * 
-     * <p>Specifies the identifier of the immunization event</p>
+     * <p>Relationship: POIZ_MT060140CA.ImmunizationEventID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for filtering of queries by immuniation event ID. 
      * As a result, this attribute is mandatory.</p>
+     * 
+     * <p>Specifies the identifier of the immunization event</p>
      */
     @Hl7XmlMapping({"immunizationEventID/value"})
     public Identifier getImmunizationEventIDValue() {
@@ -76,12 +80,16 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Immunization Event ID</p>
+     * <p>Business Name: A:Immunization Event ID</p>
      * 
-     * <p>Specifies the identifier of the immunization event</p>
+     * <p>Relationship: POIZ_MT060140CA.ImmunizationEventID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for filtering of queries by immuniation event ID. 
      * As a result, this attribute is mandatory.</p>
+     * 
+     * <p>Specifies the identifier of the immunization event</p>
      */
     public void setImmunizationEventIDValue(Identifier immunizationEventIDValue) {
         this.immunizationEventIDValue.setValue(immunizationEventIDValue);
@@ -89,12 +97,16 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Patient Birth Date</p>
+     * <p>Business Name: E:Patient Birth Date</p>
      * 
-     * <p>Indicates the date on which the patient was born.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Use to confirm identity of the patient for the query. As 
      * a result, this attribute is required.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDateValue() {
@@ -102,12 +114,16 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Patient Birth Date</p>
+     * <p>Business Name: E:Patient Birth Date</p>
      * 
-     * <p>Indicates the date on which the patient was born.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Use to confirm identity of the patient for the query. As 
      * a result, this attribute is required.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
      */
     public void setPatientBirthDateValue(Date patientBirthDateValue) {
         this.patientBirthDateValue.setValue(patientBirthDateValue);
@@ -115,12 +131,16 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Patient Gender</p>
+     * <p>Business Name: D:Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the 
      * query. As a result, this attribute is required.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -128,12 +148,16 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Patient Gender</p>
+     * <p>Business Name: D:Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the 
      * query. As a result, this attribute is required.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
         this.patientGenderValue.setValue(patientGenderValue);
@@ -141,16 +165,20 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Patient Identifiers</p>
+     * <p>Business Name: B:Patient Identifiers</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
+     * 
+     * <p>Allows filtering of result set by patient ID. This 
+     * information is used to verify the record. As a result, this 
+     * attribute is required.</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient immunization query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient ID. This 
-     * information is used to verify the record. As a result, this 
-     * attribute is required.</p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Set<Identifier> getPatientIDValue() {
@@ -159,17 +187,11 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * immunization query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * immunization query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This 
      * information is used to verify the record. As a result, this 
@@ -178,6 +200,11 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
      * <p>Names are messaged as iterations of the PN datatype, with 
      * specific name parts identified as a type declaration in 
      * addition to the text string.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * immunization query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -185,17 +212,11 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * immunization query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * immunization query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This 
      * information is used to verify the record. As a result, this 
@@ -204,6 +225,11 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
      * <p>Names are messaged as iterations of the PN datatype, with 
      * specific name parts identified as a type declaration in 
      * addition to the text string.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * immunization query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
      */
     public void setPatientNameValue(PersonName patientNameValue) {
         this.patientNameValue.setValue(patientNameValue);

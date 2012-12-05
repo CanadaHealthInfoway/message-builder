@@ -29,7 +29,16 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt002000ca.
 
 
 /**
- * <p>POLB_IN122102CA: Laboratory Promise Revision</p>
+ * <p>Business Name: POLB_IN122102CA: Laboratory Promise 
+ * Revision</p>
+ * 
+ * <p>This interaction is a Promise Revision Response. This 
+ * interaction is used when a filler communicates a response to 
+ * revise an order fulfillment request. This is the fillers 
+ * promise to fulfill the order. There is an expectation that 
+ * once the filler issues the promise revision response, the 
+ * filler will fulfill the order with a subsequent result 
+ * complete interaction.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +56,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt002000ca.
 @Hl7PartTypeMapping({"POLB_IN122102CA"})
 public class LaboratoryPromiseRevisionBean extends HL7Message_1Bean<TriggerEventBean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

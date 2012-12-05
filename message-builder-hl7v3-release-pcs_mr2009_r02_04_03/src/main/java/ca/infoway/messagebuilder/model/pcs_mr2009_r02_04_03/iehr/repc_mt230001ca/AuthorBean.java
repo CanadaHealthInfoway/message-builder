@@ -39,14 +39,18 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Author"})
 public class AuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private CE signatureCode = new CEImpl();
     private ActingPerson actingPerson;
 
 
     /**
-     * <p>X: Authored Datetime</p>
+     * <p>Business Name: X: Authored Datetime</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -54,7 +58,11 @@ public class AuthorBean extends MessagePartBean {
     }
 
     /**
-     * <p>X: Authored Datetime</p>
+     * <p>Business Name: X: Authored Datetime</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -62,7 +70,11 @@ public class AuthorBean extends MessagePartBean {
 
 
     /**
-     * <p>K: Attested Indicator</p>
+     * <p>Business Name: K: Attested Indicator</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"signatureCode"})
     public ParticipationSignature getSignatureCode() {
@@ -70,18 +82,32 @@ public class AuthorBean extends MessagePartBean {
     }
 
     /**
-     * <p>K: Attested Indicator</p>
+     * <p>Business Name: K: Attested Indicator</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setSignatureCode(ParticipationSignature signatureCode) {
         this.signatureCode.setValue(signatureCode);
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT230001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"actingPerson"})
     public ActingPerson getActingPerson() {
         return this.actingPerson;
     }
 
+    /**
+     * <p>Relationship: REPC_MT230001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setActingPerson(ActingPerson actingPerson) {
         this.actingPerson = actingPerson;
     }

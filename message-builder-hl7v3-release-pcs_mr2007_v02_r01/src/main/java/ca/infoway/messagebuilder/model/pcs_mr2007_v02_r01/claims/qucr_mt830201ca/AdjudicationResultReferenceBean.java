@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.InvoiceT
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResultReference"})
 public class AdjudicationResultReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private InvoiceTypeBean invoiceElementGroup;
 
 

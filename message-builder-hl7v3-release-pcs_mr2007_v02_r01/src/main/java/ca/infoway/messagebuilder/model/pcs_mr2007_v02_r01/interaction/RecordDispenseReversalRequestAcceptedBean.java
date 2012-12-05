@@ -29,8 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 /**
- * <p>PORX_IN020380CA: Record dispense reversal request 
- * accepted</p>
+ * <p>Business Name: PORX_IN020380CA: Record dispense reversal 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the reversal of the prescription has been 
+ * recorded as requested</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 @Hl7PartTypeMapping({"PORX_IN020380CA"})
 public class RecordDispenseReversalRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

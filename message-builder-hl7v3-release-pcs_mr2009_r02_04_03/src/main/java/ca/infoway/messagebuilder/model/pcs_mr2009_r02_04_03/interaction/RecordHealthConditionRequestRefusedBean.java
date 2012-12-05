@@ -28,7 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>REPC_IN000030CA: Record health condition request refused</p>
+ * <p>Business Name: REPC_IN000030CA: Record health condition 
+ * request refused</p>
+ * 
+ * <p>Indicates that the request to add the specified health 
+ * condition to the patient record has been refused.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -37,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"REPC_IN000030CA"})
 public class RecordHealthConditionRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

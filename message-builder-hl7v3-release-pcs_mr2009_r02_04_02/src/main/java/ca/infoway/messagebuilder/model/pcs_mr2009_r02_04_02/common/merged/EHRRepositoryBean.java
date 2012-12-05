@@ -35,23 +35,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>COCT_MT090310CA.AssignedDevice: EHR Repository</p>
  * 
+ * <p>Provides context about the record and its management.</p>
+ * 
  * <p>Identification of the EHR infostructure responsible for 
  * the storage and management of the record.</p>
  * 
- * <p>Provides context about the record and its management.</p>
- * 
  * <p>COCT_MT090302CA.AssignedDevice: Application</p>
+ * 
+ * <p>Allows an application to be uniquely identified.</p>
  * 
  * <p>A reference to a system/application related to healthcare 
  * information.</p>
- * 
- * <p>Allows an application to be uniquely identified.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT090302CA.AssignedDevice","COCT_MT090310CA.AssignedDevice"})
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST assignedRepositoryName = new STImpl();
     private ST representedRepositoryJurisdictionName = new STImpl();
@@ -59,48 +59,40 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Repository Identifier</p>
+     * <p>Other Business Name: RepositoryIdentifier</p>
      * 
-     * <p>A unique identifier for the EHR repository.</p>
+     * <p>Relationship: COCT_MT090310CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows repositories to be uniquely identified for linking 
      * or grouping purposes and is therefore mandatory.</p>
      * 
-     * <p>C:Application Id</p>
+     * <p>A unique identifier for the EHR repository.</p>
+     * 
+     * <p>Other Business Name: ApplicationId</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>To uniquely identify an 
+     * application/system.</p><p>Attribute is mandatory to allow 
+     * for distinguishing different applications/systems.</p>
      * 
      * <p>Unique identifier of an application or a system.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>To uniquely identify an 
-     * application/system.</p><p>Attribute is mandatory to allow 
-     * for distinguishing different applications/systems.</p>
-     * 
-     * <p>To uniquely identify an 
-     * application/system.</p><p>Attribute is mandatory to allow 
-     * for distinguishing different applications/systems.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -108,48 +100,40 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>Repository Identifier</p>
+     * <p>Other Business Name: RepositoryIdentifier</p>
      * 
-     * <p>A unique identifier for the EHR repository.</p>
+     * <p>Relationship: COCT_MT090310CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows repositories to be uniquely identified for linking 
      * or grouping purposes and is therefore mandatory.</p>
      * 
-     * <p>C:Application Id</p>
+     * <p>A unique identifier for the EHR repository.</p>
+     * 
+     * <p>Other Business Name: ApplicationId</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>To uniquely identify an 
+     * application/system.</p><p>Attribute is mandatory to allow 
+     * for distinguishing different applications/systems.</p>
      * 
      * <p>Unique identifier of an application or a system.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>To uniquely identify an 
-     * application/system.</p><p>Attribute is mandatory to allow 
-     * for distinguishing different applications/systems.</p>
-     * 
-     * <p>To uniquely identify an 
-     * application/system.</p><p>Attribute is mandatory to allow 
-     * for distinguishing different applications/systems.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -157,16 +141,20 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>RepositoryName</p>
+     * <p>Business Name: RepositoryName</p>
      * 
-     * <p>Repository Name</p>
+     * <p>Other Business Name: RepositoryName</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.Repository.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable name for the repository and is 
+     * therefore mandatory</p>
      * 
      * <p>The name of the repository which is responsible for 
      * maintaining the record. E.g. &quot;Ontario Health 
      * Respository #3&quot;</p>
-     * 
-     * <p>Provides a human-readable name for the repository and is 
-     * therefore mandatory</p>
      */
     @Hl7XmlMapping({"assignedRepository/name"})
     public String getAssignedRepositoryName() {
@@ -174,16 +162,20 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>RepositoryName</p>
+     * <p>Business Name: RepositoryName</p>
      * 
-     * <p>Repository Name</p>
+     * <p>Other Business Name: RepositoryName</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.Repository.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable name for the repository and is 
+     * therefore mandatory</p>
      * 
      * <p>The name of the repository which is responsible for 
      * maintaining the record. E.g. &quot;Ontario Health 
      * Respository #3&quot;</p>
-     * 
-     * <p>Provides a human-readable name for the repository and is 
-     * therefore mandatory</p>
      */
     public void setAssignedRepositoryName(String assignedRepositoryName) {
         this.assignedRepositoryName.setValue(assignedRepositoryName);
@@ -191,15 +183,19 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>RepositoryJurisdictionName</p>
+     * <p>Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>Repository Jurisdiction Name</p>
+     * <p>Other Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>The name of the jurisdiction that is responsible for the 
-     * EHR infostructure that contains and manages the record.</p>
+     * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Establishes business context for determining 
      * custodianship, and is therefore mandatory.</p>
+     * 
+     * <p>The name of the jurisdiction that is responsible for the 
+     * EHR infostructure that contains and manages the record.</p>
      */
     @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
     public String getRepresentedRepositoryJurisdictionName() {
@@ -207,15 +203,19 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>RepositoryJurisdictionName</p>
+     * <p>Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>Repository Jurisdiction Name</p>
+     * <p>Other Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>The name of the jurisdiction that is responsible for the 
-     * EHR infostructure that contains and manages the record.</p>
+     * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Establishes business context for determining 
      * custodianship, and is therefore mandatory.</p>
+     * 
+     * <p>The name of the jurisdiction that is responsible for the 
+     * EHR infostructure that contains and manages the record.</p>
      */
     public void setRepresentedRepositoryJurisdictionName(String representedRepositoryJurisdictionName) {
         this.representedRepositoryJurisdictionName.setValue(representedRepositoryJurisdictionName);
@@ -223,23 +223,25 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>ApplicationName</p>
+     * <p>Business Name: ApplicationName</p>
      * 
-     * <p>B: Application Name</p>
+     * <p>Other Business Name: ApplicationName</p>
      * 
-     * <p>The name assigned to the application/system.</p>
+     * <p>Relationship: 
+     * COCT_MT090302CA.Device.manufacturerModelName</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>PVD.070</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication. The name of the application 
      * must be known and is therefore marked as 'mandatory'.</p>
+     * 
+     * <p>The name assigned to the application/system.</p>
      */
     @Hl7XmlMapping({"assignedDevice/manufacturerModelName"})
     public String getAssignedDeviceManufacturerModelName() {
@@ -247,23 +249,25 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>ApplicationName</p>
+     * <p>Business Name: ApplicationName</p>
      * 
-     * <p>B: Application Name</p>
+     * <p>Other Business Name: ApplicationName</p>
      * 
-     * <p>The name assigned to the application/system.</p>
+     * <p>Relationship: 
+     * COCT_MT090302CA.Device.manufacturerModelName</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>PVD.070</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication. The name of the application 
      * must be known and is therefore marked as 'mandatory'.</p>
+     * 
+     * <p>The name assigned to the application/system.</p>
      */
     public void setAssignedDeviceManufacturerModelName(String assignedDeviceManufacturerModelName) {
         this.assignedDeviceManufacturerModelName.setValue(assignedDeviceManufacturerModelName);

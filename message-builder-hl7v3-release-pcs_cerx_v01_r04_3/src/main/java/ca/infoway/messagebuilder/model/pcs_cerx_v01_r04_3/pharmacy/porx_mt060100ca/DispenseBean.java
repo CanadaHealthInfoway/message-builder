@@ -45,20 +45,20 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Supply
 
 
 /**
- * <p>Dispense</p>
- * 
- * <p>Describes the issuing of a drug in response to an 
- * authorizing prescription.</p>
+ * <p>Business Name: Dispense</p>
  * 
  * <p>This is a 'core' class of the medication model and is 
  * important for understanding what drugs the patient is 
  * actually receiving.</p>
+ * 
+ * <p>Describes the issuing of a drug in response to an 
+ * authorizing prescription.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060100CA.MedicationDispense"})
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -73,22 +73,20 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Business Name: A:Prescription Dispense Number</p>
      * 
-     * <p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a prescription dispense by the EHR/DIS 
-     * irrespective of the source of the supply event</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p>
+     * <p>Relationship: PORX_MT060100CA.MedicationDispense.id</p>
      * 
-     * <p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a prescription dispense by the EHR/DIS 
-     * irrespective of the source of the supply event</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows dispense events to be uniquely referenced and is 
      * therefore mandatory.</p>
+     * 
+     * <p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a prescription dispense by the EHR/DIS 
+     * irrespective of the source of the supply event</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -96,22 +94,20 @@ public class DispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Business Name: A:Prescription Dispense Number</p>
      * 
-     * <p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a prescription dispense by the EHR/DIS 
-     * irrespective of the source of the supply event</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p>
+     * <p>Relationship: PORX_MT060100CA.MedicationDispense.id</p>
      * 
-     * <p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a prescription dispense by the EHR/DIS 
-     * irrespective of the source of the supply event</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows dispense events to be uniquely referenced and is 
      * therefore mandatory.</p>
+     * 
+     * <p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a prescription dispense by the EHR/DIS 
+     * irrespective of the source of the supply event</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -119,14 +115,19 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Dispense Status</p>
+     * <p>Business Name: C:Dispense Status</p>
      * 
-     * <p>Indicates whether the dispense has been picked up 
-     * ('complete') or has just been processed ('active').</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates how far along the process the dispense event 
      * is. It should always be known and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether the dispense has been picked up 
+     * ('complete') or has just been processed ('active').</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -134,14 +135,19 @@ public class DispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Dispense Status</p>
+     * <p>Business Name: C:Dispense Status</p>
      * 
-     * <p>Indicates whether the dispense has been picked up 
-     * ('complete') or has just been processed ('active').</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates how far along the process the dispense event 
      * is. It should always be known and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether the dispense has been picked up 
+     * ('complete') or has just been processed ('active').</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -149,47 +155,24 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Business Name: E:Prescription Masking Indicator</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.MedicationDispense.confidentialityCode</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows the patient to have discrete control over access 
      * to their medication data.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their medication data.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -197,68 +180,67 @@ public class DispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Business Name: E:Prescription Masking Indicator</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.MedicationDispense.confidentialityCode</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows the patient to have discrete control over access 
      * to their medication data.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their medication data.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060100CA.Performer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedPerson"})
     public ProviderBean getPerformerAssignedPerson() {
         return this.performerAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060100CA.Performer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
         this.performerAssignedPerson = performerAssignedPerson;
     }
@@ -285,29 +267,12 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Business Name: Rendered Dosage Instruction</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.AdministrationInstructions.text</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
@@ -321,6 +286,13 @@ public class DispenseBean extends MessagePartBean {
      * space allocated, a string such as &quot;Complex dose&quot; 
      * or &quot;Scaling dose&quot; or something similar should be 
      * sent. Dosage instructions should never be truncated.</p>
+     * 
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
      */
     @Hl7XmlMapping({"component2/administrationInstructions/text"})
     public String getComponent2AdministrationInstructionsText() {
@@ -328,29 +300,12 @@ public class DispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Business Name: Rendered Dosage Instruction</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.AdministrationInstructions.text</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
@@ -364,6 +319,13 @@ public class DispenseBean extends MessagePartBean {
      * space allocated, a string such as &quot;Complex dose&quot; 
      * or &quot;Scaling dose&quot; or something similar should be 
      * sent. Dosage instructions should never be truncated.</p>
+     * 
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
      */
     public void setComponent2AdministrationInstructionsText(String component2AdministrationInstructionsText) {
         this.component2AdministrationInstructionsText.setValue(component2AdministrationInstructionsText);
@@ -380,21 +342,45 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.Subject4.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
         return this.subjectOf1DetectedIssueIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.Subject4.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
         this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }

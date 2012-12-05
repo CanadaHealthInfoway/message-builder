@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
 
 
 /**
- * <p>COMT_IN700001CA: Add issue management request</p>
+ * <p>Business Name: COMT_IN700001CA: Add issue management 
+ * request</p>
+ * 
+ * <p>Requests that the specified issue be updated to include 
+ * the identified management(s).</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
 @Hl7PartTypeMapping({"COMT_IN700001CA"})
 public class AddIssueManagementRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<IssuesBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

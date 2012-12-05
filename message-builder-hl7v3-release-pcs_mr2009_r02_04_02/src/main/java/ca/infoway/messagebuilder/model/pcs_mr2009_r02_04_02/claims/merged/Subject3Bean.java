@@ -31,15 +31,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.Subject3","FICR_MT400003CA.Subject","FICR_MT400003CA.Subject3","FICR_MT400004CA.Subject","FICR_MT400004CA.Subject3","FICR_MT490101CA.Subject3","FICR_MT490102CA.Subject3","FICR_MT490102CA.Subject4"})
 public class Subject3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL negationInd = new BLImpl();
     private SpecialAuthorizationChoice specialAuthorizationChoice;
 
 
     /**
-     * <p>IncludesExcludesProduct</p>
+     * <p>Business Name: IncludesExcludesProduct</p>
      * 
-     * <p>Includes / Excludes Product</p>
+     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Subject.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Subject.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Subject4.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -47,20 +63,150 @@ public class Subject3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludesExcludesProduct</p>
+     * <p>Business Name: IncludesExcludesProduct</p>
      * 
-     * <p>Includes / Excludes Product</p>
+     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Subject.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Subject.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Subject4.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.Subject.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.Subject.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.Subject4.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"specialAuthorizationChoice"})
     public SpecialAuthorizationChoice getSpecialAuthorizationChoice() {
         return this.specialAuthorizationChoice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.Subject.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.Subject.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.Subject4.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.Subject3.specialAuthorizationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSpecialAuthorizationChoice(SpecialAuthorizationChoice specialAuthorizationChoice) {
         this.specialAuthorizationChoice = specialAuthorizationChoice;
     }

@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInsuran
 
 
 /**
- * <p>Financial contract Policy/Account</p>
+ * <p>Business Name: Financial contract Policy/Account</p>
  * 
  * <p>Account or policy used for determining elibility in 
  * adjudication process.</p>
@@ -41,13 +41,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInsuran
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private II authorCarrierRoleId = new IIImpl();
 
 
     /**
-     * <p>policy/account code</p>
+     * <p>Business Name: policy/account code</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code Set denoting policy type</p>
      */
@@ -57,7 +61,11 @@ public class FinancialContractPolicyAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>policy/account code</p>
+     * <p>Business Name: policy/account code</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code Set denoting policy type</p>
      */
@@ -67,7 +75,11 @@ public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Carrier Role Id</p>
+     * <p>Business Name: Carrier Role Id</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author/carrierRole/id"})
     public Identifier getAuthorCarrierRoleId() {
@@ -75,7 +87,11 @@ public class FinancialContractPolicyAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Carrier Role Id</p>
+     * <p>Business Name: Carrier Role Id</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
         this.authorCarrierRoleId.setValue(authorCarrierRoleId);

@@ -37,10 +37,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
  * 
  * <p>POLB_MT004000CA.Receiver: Electronic Receiver</p>
  * 
+ * <p>Distribution List</p>
+ * 
  * <p>These are the persons or organizations identifed on the 
  * Distribution List.</p>
- * 
- * <p>Distribution List</p>
  * 
  * <p>POLB_MT004100CA.Receiver: (no business name)</p>
  * 
@@ -54,26 +54,126 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
 @Hl7PartTypeMapping({"POLB_MT002000CA.Receiver","POLB_MT004000CA.Receiver","POLB_MT004100CA.Receiver","POLB_MT004200CA.Receiver"})
 public class ElectronicResultReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS contextControlCode = new CSImpl();
     private RoleChoice roleChoice;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Receiver.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Receiver.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Receiver.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Receiver.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Receiver.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Receiver.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Receiver.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Receiver.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Receiver.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Receiver.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Receiver.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Receiver.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"roleChoice"})
     public RoleChoice getRoleChoice() {
         return this.roleChoice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Receiver.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Receiver.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Receiver.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Receiver.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;
     }

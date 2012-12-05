@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Allowable Amount</p>
+ * <p>Business Name: Allowable Amount</p>
  * 
  * <p>Amount of payment allowed under the policy rules; 
  * eligible amount.</p>
@@ -38,11 +38,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.Allowable"})
 public class AllowableAmountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private MO netAmt = new MOImpl();
 
 
     /**
+     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allowable or eligibile amount, as per fee schedule</p>
      */
     @Hl7XmlMapping({"netAmt"})
@@ -51,6 +55,10 @@ public class AllowableAmountBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allowable or eligibile amount, as per fee schedule</p>
      */
     public void setNetAmt(Money netAmt) {

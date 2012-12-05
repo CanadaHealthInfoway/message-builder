@@ -27,36 +27,62 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Includes</p>
+ * <p>Business Name: Includes</p>
  * 
  * <p>PORX_MT060060CA.Component6: f:includes</p>
  * 
- * <p>Identifies the instructions for how the prescribed device 
- * should be dispensed to the patient.</p>
- * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p>
  * 
  * <p>PORX_MT060040CA.Component6: f:includes</p>
  * 
- * <p>Identifies the instructions for how the prescribed device 
- * should be dispensed to the patient.</p>
- * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060040CA.Component6","PORX_MT060060CA.Component6"})
 public class Component6Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DispenseInstructionsBean supplyRequest;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"supplyRequest"})
     public DispenseInstructionsBean getSupplyRequest() {
         return this.supplyRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSupplyRequest(DispenseInstructionsBean supplyRequest) {
         this.supplyRequest = supplyRequest;
     }

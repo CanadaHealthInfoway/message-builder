@@ -30,70 +30,122 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PriorRegistrationEvent</p>
+ * <p>Business Name: PriorRegistrationEvent</p>
  * 
  * <p>MFMI_MT700711CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
  * <p>Used to associate (replace) a current registration with a 
  * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  * 
  * <p>MFMI_MT700717CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
  * <p>Used to associate (replace) a current registration with a 
  * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  * 
  * <p>MFMI_MT700746CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
  * <p>Used to associate (replace) a current registration with a 
  * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  * 
  * <p>MFMI_MT700726CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
  * <p>Used to associate (replace) a current registration with a 
  * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  * 
  * <p>MFMI_MT700716CA.PriorRegistration: Prior Registration 
  * Event</p>
  * 
- * <p>This class describes the registration of a client, 
- * provider, location, etc. in the past.</p>
- * 
  * <p>Used to associate (replace) a current registration with a 
  * regsitration already received (supports merges).</p>
+ * 
+ * <p>This class describes the registration of a client, 
+ * provider, location, etc. in the past.</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegistration","MFMI_MT700716CA.PriorRegistration","MFMI_MT700717CA.PriorRegistration","MFMI_MT700726CA.PriorRegistration","MFMI_MT700746CA.PriorRegistration"})
 public class PriorRegistrationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II subjectPriorRegisteredRoleId = new IIImpl();
 
 
     /**
-     * <p>PriorRegisteredRoleIds</p>
+     * <p>Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Prior Registered Role Ids</p>
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
      * 
      * <p>Identifies &quot;duplicate&quot; records of the 
      * registered item that have been superseded by this 
      * record.</p>
      * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700717CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
      */
     @Hl7XmlMapping({"subject/priorRegisteredRole/id"})
     public Identifier getSubjectPriorRegisteredRoleId() {
@@ -101,15 +153,67 @@ public class PriorRegistrationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>PriorRegisteredRoleIds</p>
+     * <p>Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Prior Registered Role Ids</p>
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
      * 
      * <p>Identifies &quot;duplicate&quot; records of the 
      * registered item that have been superseded by this 
      * record.</p>
      * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700717CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
      */
     public void setSubjectPriorRegisteredRoleId(Identifier subjectPriorRegisteredRoleId) {
         this.subjectPriorRegisteredRoleId.setValue(subjectPriorRegisteredRoleId);

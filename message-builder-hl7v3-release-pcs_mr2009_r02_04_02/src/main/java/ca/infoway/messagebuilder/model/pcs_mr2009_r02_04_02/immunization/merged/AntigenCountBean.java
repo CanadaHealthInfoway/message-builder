@@ -29,45 +29,71 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>AntigenCount</p>
+ * <p>Business Name: AntigenCount</p>
  * 
  * <p>POIZ_MT030050CA.AntigenCount: Antigen Count</p>
  * 
- * <p>Represents the asserted antigen count.</p>
- * 
  * <p>Allows for an immunization registry to communicate the 
  * current antigen count value.</p>
+ * 
+ * <p>Represents the asserted antigen count.</p>
  * 
  * <p>POIZ_MT060150CA.AntigenCount: Antigen Count</p>
  * 
- * <p>Represents the asserted antigen count.</p>
- * 
  * <p>Allows for an immunization registry to communicate the 
  * current antigen count value.</p>
+ * 
+ * <p>Represents the asserted antigen count.</p>
  * 
  * <p>POIZ_MT030060CA.AntigenCount: Antigen Count</p>
  * 
- * <p>Represents the asserted antigen count.</p>
- * 
  * <p>Allows for an immunization registry to communicate the 
  * current antigen count value.</p>
+ * 
+ * <p>Represents the asserted antigen count.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AntigenCount","POIZ_MT030060CA.AntigenCount","POIZ_MT060150CA.AntigenCount"})
 public class AntigenCountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT value = new INTImpl();
 
 
     /**
-     * <p>AntigenCountValue</p>
+     * <p>Business Name: AntigenCountValue</p>
      * 
-     * <p>Antigen Count Value</p>
+     * <p>Other Business Name: AntigenCountValue</p>
      * 
-     * <p>Represents the asserted antigen count.</p>
+     * <p>Relationship: POIZ_MT030050CA.AntigenCount.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for an immunization registry to communicate the 
      * current antigen count value.</p>
+     * 
+     * <p>Represents the asserted antigen count.</p>
+     * 
+     * <p>Other Business Name: AntigenCountValue</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AntigenCount.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to communicate the 
+     * current antigen count value.</p>
+     * 
+     * <p>Represents the asserted antigen count.</p>
+     * 
+     * <p>Other Business Name: AntigenCountValue</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AntigenCount.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to communicate the 
+     * current antigen count value.</p>
+     * 
+     * <p>Represents the asserted antigen count.</p>
      */
     @Hl7XmlMapping({"value"})
     public Integer getValue() {
@@ -75,14 +101,40 @@ public class AntigenCountBean extends MessagePartBean {
     }
 
     /**
-     * <p>AntigenCountValue</p>
+     * <p>Business Name: AntigenCountValue</p>
      * 
-     * <p>Antigen Count Value</p>
+     * <p>Other Business Name: AntigenCountValue</p>
      * 
-     * <p>Represents the asserted antigen count.</p>
+     * <p>Relationship: POIZ_MT030050CA.AntigenCount.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for an immunization registry to communicate the 
      * current antigen count value.</p>
+     * 
+     * <p>Represents the asserted antigen count.</p>
+     * 
+     * <p>Other Business Name: AntigenCountValue</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AntigenCount.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to communicate the 
+     * current antigen count value.</p>
+     * 
+     * <p>Represents the asserted antigen count.</p>
+     * 
+     * <p>Other Business Name: AntigenCountValue</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AntigenCount.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for an immunization registry to communicate the 
+     * current antigen count value.</p>
+     * 
+     * <p>Represents the asserted antigen count.</p>
      */
     public void setValue(Integer value) {
         this.value.setValue(value);

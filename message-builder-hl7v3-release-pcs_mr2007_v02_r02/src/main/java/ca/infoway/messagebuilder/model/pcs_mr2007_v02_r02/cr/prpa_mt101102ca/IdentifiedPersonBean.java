@@ -67,7 +67,10 @@ import java.util.Set;
 
 
 /**
- * <p>Identified Person</p>
+ * <p>Business Name: Identified Person</p>
+ * 
+ * <p>Provides the message entry point required to add a person 
+ * to the Client Registry</p>
  * 
  * <p>The IdentifiedEntity class is the entry point to the 
  * R-MIM and contains one or more identifiers (for example an 
@@ -76,15 +79,12 @@ import java.util.Set;
  * in the Client Registry. The statusCode is set to 
  * &quot;active&quot;. The beginning of the effectiveTime is 
  * when the record was added to the registry.</p>
- * 
- * <p>Provides the message entry point required to add a person 
- * to the Client Registry</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101102CA.IdentifiedEntity"})
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -105,18 +105,22 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
      * 
-     * <p>This identification attribute supports capture of a 
-     * healthcare identifier specific to the client. This 
-     * identifier may be assigned jurisdictionally or by care 
-     * facility.</p>
+     * <p>Relationship: PRPA_MT101102CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-100)</p>
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client.</p>
      * 
      * <p>At least 1 client identifier must be present in the 
      * message</p>
+     * 
+     * <p>This identification attribute supports capture of a 
+     * healthcare identifier specific to the client. This 
+     * identifier may be assigned jurisdictionally or by care 
+     * facility.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -125,12 +129,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
      * 
-     * <p>Indicates the status of the Client role (e.g. Active)</p>
+     * <p>Relationship: PRPA_MT101102CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Indicates the status of the Client role (e.g. Active)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public RoleStatus getStatusCode() {
@@ -138,12 +146,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
      * 
-     * <p>Indicates the status of the Client role (e.g. Active)</p>
+     * <p>Relationship: PRPA_MT101102CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Indicates the status of the Client role (e.g. Active)</p>
      */
     public void setStatusCode(RoleStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -151,12 +163,17 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
      * 
-     * <p>Indicates the effective time of the Client role</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Indicates the effective time of the Client role</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -164,12 +181,17 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
      * 
-     * <p>Indicates the effective time of the Client role</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Indicates the effective time of the Client role</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -177,15 +199,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
      * 
-     * <p>x_NormalRestrictedTabooConfidentialityKind</p><p>A code 
-     * that controls the disclosure of information about this 
-     * patient encounter.</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.IdentifiedEntity.confidentialityCode</p>
      * 
-     * <p>x_NormalRestrictedTabooConfidentialityKind</p><p>A code 
-     * that controls the disclosure of information about this 
-     * patient encounter.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the business requirement to 
      * provide restricted access where required</p>
@@ -203,6 +222,10 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * to patient and or next of kin. There may be professional 
      * policy and or legislative guidelines about when/if records 
      * may be flagged as not for direct disclosure.</p>
+     * 
+     * <p>x_NormalRestrictedTabooConfidentialityKind</p><p>A code 
+     * that controls the disclosure of information about this 
+     * patient encounter.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_NormalRestrictedTabooConfidentialityKind getConfidentialityCode() {
@@ -210,15 +233,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
      * 
-     * <p>x_NormalRestrictedTabooConfidentialityKind</p><p>A code 
-     * that controls the disclosure of information about this 
-     * patient encounter.</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.IdentifiedEntity.confidentialityCode</p>
      * 
-     * <p>x_NormalRestrictedTabooConfidentialityKind</p><p>A code 
-     * that controls the disclosure of information about this 
-     * patient encounter.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the business requirement to 
      * provide restricted access where required</p>
@@ -236,6 +256,10 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * to patient and or next of kin. There may be professional 
      * policy and or legislative guidelines about when/if records 
      * may be flagged as not for direct disclosure.</p>
+     * 
+     * <p>x_NormalRestrictedTabooConfidentialityKind</p><p>A code 
+     * that controls the disclosure of information about this 
+     * patient encounter.</p>
      */
     public void setConfidentialityCode(x_NormalRestrictedTabooConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -243,12 +267,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Name</p>
+     * <p>Business Name: Client Name</p>
      * 
-     * <p>Name(s) for the Client</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Name(s) for the Client</p>
      */
     @Hl7XmlMapping({"identifiedPerson/name"})
     public List<PersonName> getIdentifiedPersonName() {
@@ -257,12 +285,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Telecom</p>
+     * <p>Business Name: Client Telecom</p>
      * 
-     * <p>Provides information about telecom</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Provides information about telecom</p>
      */
     @Hl7XmlMapping({"identifiedPerson/telecom"})
     public List<TelecommunicationAddress> getIdentifiedPersonTelecom() {
@@ -271,15 +303,20 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
      * typically restricted to Male (M), Female (F) or 
      * Undifferentiated (U)</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * client</p>
      */
     @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
     public AdministrativeGender getIdentifiedPersonAdministrativeGenderCode() {
@@ -287,15 +324,20 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
      * typically restricted to Male (M), Female (F) or 
      * Undifferentiated (U)</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * client</p>
      */
     public void setIdentifiedPersonAdministrativeGenderCode(AdministrativeGender identifiedPersonAdministrativeGenderCode) {
         this.identifiedPersonAdministrativeGenderCode.setValue(identifiedPersonAdministrativeGenderCode);
@@ -303,12 +345,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
      * 
-     * <p>Date of birth of the Client</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Date of birth of the Client</p>
      */
     @Hl7XmlMapping({"identifiedPerson/birthTime"})
     public Date getIdentifiedPersonBirthTime() {
@@ -316,12 +362,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
      * 
-     * <p>Date of birth of the Client</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Date of birth of the Client</p>
      */
     public void setIdentifiedPersonBirthTime(Date identifiedPersonBirthTime) {
         this.identifiedPersonBirthTime.setValue(identifiedPersonBirthTime);
@@ -329,12 +379,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Deceased Indicator</p>
+     * <p>Business Name: Client Deceased Indicator</p>
      * 
-     * <p>An indication that the client is deceased.</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>An indication that the client is deceased.</p>
      */
     @Hl7XmlMapping({"identifiedPerson/deceasedInd"})
     public Boolean getIdentifiedPersonDeceasedInd() {
@@ -342,12 +396,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Deceased Indicator</p>
+     * <p>Business Name: Client Deceased Indicator</p>
      * 
-     * <p>An indication that the client is deceased.</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>An indication that the client is deceased.</p>
      */
     public void setIdentifiedPersonDeceasedInd(Boolean identifiedPersonDeceasedInd) {
         this.identifiedPersonDeceasedInd.setValue(identifiedPersonDeceasedInd);
@@ -355,14 +413,18 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Deceased Date</p>
+     * <p>Business Name: Client Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>deceasedTime only present if deceasedInd is = TRUE</p>
      * 
-     * <p>The date and time that a client's death occurred.</p>
-     * 
      * <p>Required attribute supports verification of death from 
      * official source such as Vital Statistics.</p>
+     * 
+     * <p>The date and time that a client's death occurred.</p>
      */
     @Hl7XmlMapping({"identifiedPerson/deceasedTime"})
     public Date getIdentifiedPersonDeceasedTime() {
@@ -370,14 +432,18 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Deceased Date</p>
+     * <p>Business Name: Client Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>deceasedTime only present if deceasedInd is = TRUE</p>
      * 
-     * <p>The date and time that a client's death occurred.</p>
-     * 
      * <p>Required attribute supports verification of death from 
      * official source such as Vital Statistics.</p>
+     * 
+     * <p>The date and time that a client's death occurred.</p>
      */
     public void setIdentifiedPersonDeceasedTime(Date identifiedPersonDeceasedTime) {
         this.identifiedPersonDeceasedTime.setValue(identifiedPersonDeceasedTime);
@@ -385,13 +451,17 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
      * 
-     * <p>An indication as to whether the client is part of a 
-     * multiple birth.</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>An indication as to whether the client is part of a 
+     * multiple birth.</p>
      */
     @Hl7XmlMapping({"identifiedPerson/multipleBirthInd"})
     public Boolean getIdentifiedPersonMultipleBirthInd() {
@@ -399,13 +469,17 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
      * 
-     * <p>An indication as to whether the client is part of a 
-     * multiple birth.</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>An indication as to whether the client is part of a 
+     * multiple birth.</p>
      */
     public void setIdentifiedPersonMultipleBirthInd(Boolean identifiedPersonMultipleBirthInd) {
         this.identifiedPersonMultipleBirthInd.setValue(identifiedPersonMultipleBirthInd);
@@ -413,13 +487,18 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
      * 
-     * <p>The order in which this client was born if part of a 
-     * multiple birth.</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>The order in which this client was born if part of a 
+     * multiple birth.</p>
      */
     @Hl7XmlMapping({"identifiedPerson/multipleBirthOrderNumber"})
     public Integer getIdentifiedPersonMultipleBirthOrderNumber() {
@@ -427,13 +506,18 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
      * 
-     * <p>The order in which this client was born if part of a 
-     * multiple birth.</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>The order in which this client was born if part of a 
+     * multiple birth.</p>
      */
     public void setIdentifiedPersonMultipleBirthOrderNumber(Integer identifiedPersonMultipleBirthOrderNumber) {
         this.identifiedPersonMultipleBirthOrderNumber.setValue(identifiedPersonMultipleBirthOrderNumber);
@@ -441,12 +525,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Address</p>
+     * <p>Business Name: Client Address</p>
      * 
-     * <p>Address(es) of the Client</p>
+     * <p>Relationship: PRPA_MT101102CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Address(es) of the Client</p>
      */
     @Hl7XmlMapping({"identifiedPerson/addr"})
     public List<PostalAddress> getIdentifiedPersonAddr() {
@@ -454,6 +542,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101102CA.Person.asOtherIDs</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
     public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
         return this.identifiedPersonAsOtherIDs;

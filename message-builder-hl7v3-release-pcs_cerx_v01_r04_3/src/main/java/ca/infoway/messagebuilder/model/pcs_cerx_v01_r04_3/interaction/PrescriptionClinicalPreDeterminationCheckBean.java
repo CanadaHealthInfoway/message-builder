@@ -29,8 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt010120
 
 
 /**
- * <p>PORX_IN010420CA: Prescription clinical pre-determination 
- * check</p>
+ * <p>Business Name: PORX_IN010420CA: Prescription clinical 
+ * pre-determination check</p>
+ * 
+ * <p>Requests the specified medication prescription proposal 
+ * be reviewed, and any detected issues be identified.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -42,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt010120
 @Hl7PartTypeMapping({"PORX_IN010420CA"})
 public class PrescriptionClinicalPreDeterminationCheckBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

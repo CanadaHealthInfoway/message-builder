@@ -39,50 +39,50 @@ import java.util.Date;
 
 
 /**
- * <p>AllergyTests</p>
+ * <p>Business Name: AllergyTests</p>
  * 
  * <p>REPC_MT000005CA.AllergyTestEvent: Allergy Tests</p>
  * 
- * <p>Indicates the specific allergy test that supports the 
- * recording of the allergy/intolerance.</p>
- * 
  * <p>Provides evidence for recording the 
  * allergy/intolerance.</p>
+ * 
+ * <p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p>
  * 
  * <p>REPC_MT000001CA.AllergyTestEvent: Allergy Tests</p>
  * 
  * <p>At least one of Id or Value must be specified.</p>
  * 
- * <p>Indicates the specific allergy test that supports the 
- * recording of the allergy/intolerance.</p>
- * 
  * <p>Provides evidence for recording the 
  * allergy/intolerance.</p>
+ * 
+ * <p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p>
  * 
  * <p>REPC_MT000013CA.AllergyTestEvent: Allergy Tests</p>
  * 
  * <p>At least one of Id or Value must be specified</p>
  * 
- * <p>Indicates the specific allergy test that supports the 
- * recording of the allergy/intolerance.</p>
- * 
  * <p>Provides evidence for recording the 
  * allergy/intolerance.</p>
+ * 
+ * <p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p>
  * 
  * <p>REPC_MT000009CA.AllergyTestEvent: Allergy Tests</p>
  * 
  * <p>At least one of Id or Value must be specified.</p>
  * 
- * <p>Indicates the specific allergy test that supports the 
- * recording of the allergy/intolerance.</p>
- * 
  * <p>Provides evidence for recording the 
  * allergy/intolerance.</p>
+ * 
+ * <p>Indicates the specific allergy test that supports the 
+ * recording of the allergy/intolerance.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -90,15 +90,55 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>AllergyTestRecordId</p>
+     * <p>Business Name: AllergyTestRecordId</p>
      * 
-     * <p>B:Allergy Test Record Id</p>
+     * <p>Other Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows an allergy/intolerance test record to be directly 
+     * referenced.</p>
      * 
      * <p>An identifier for a specific instance of an 
      * allergy/intolerance test.</p>
      * 
+     * <p>Other Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows an allergy/intolerance test record to be directly 
      * referenced.</p>
+     * 
+     * <p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows an allergy/intolerance test record to be directly 
+     * referenced.</p>
+     * 
+     * <p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows an allergy/intolerance test record to be directly 
+     * referenced.</p>
+     * 
+     * <p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -106,15 +146,55 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>AllergyTestRecordId</p>
+     * <p>Business Name: AllergyTestRecordId</p>
      * 
-     * <p>B:Allergy Test Record Id</p>
+     * <p>Other Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows an allergy/intolerance test record to be directly 
+     * referenced.</p>
      * 
      * <p>An identifier for a specific instance of an 
      * allergy/intolerance test.</p>
      * 
+     * <p>Other Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows an allergy/intolerance test record to be directly 
      * referenced.</p>
+     * 
+     * <p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows an allergy/intolerance test record to be directly 
+     * referenced.</p>
+     * 
+     * <p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows an allergy/intolerance test record to be directly 
+     * referenced.</p>
+     * 
+     * <p>An identifier for a specific instance of an 
+     * allergy/intolerance test.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -122,27 +202,61 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>AllergyTestType</p>
+     * <p>Business Name: AllergyTestType</p>
      * 
-     * <p>A:Allergy Test Type</p>
+     * <p>Other Business Name: AllergyTestType</p>
      * 
-     * <p>A coded value denoting the type of allergy test 
-     * conducted.</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
-     * <p>Allows different kinds of allergy/intolerance tests to be 
-     * distinguishable and is therefore mandatory. It uses the CD 
-     * type to support SNOMED post-coordination.</p>
-     * 
-     * <p>A:Allergy Test Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>At least one of Id or Value must be specified.</p>
      * 
+     * <p>Allows different kinds of allergy/intolerance tests to be 
+     * distinguishable and is therefore mandatory. It uses the CD 
+     * type to support SNOMED post-coordination.</p>
+     * 
      * <p>A coded value denoting the type of allergy test 
      * conducted.</p>
+     * 
+     * <p>Other Business Name: AllergyTestType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows different kinds of allergy/intolerance tests to be 
      * distinguishable and is therefore mandatory. It uses the CD 
      * type to support SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting the type of allergy test 
+     * conducted.</p>
+     * 
+     * <p>Other Business Name: AllergyTestType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows different kinds of allergy/intolerance tests to be 
+     * distinguishable and is therefore mandatory. It uses the CD 
+     * type to support SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting the type of allergy test 
+     * conducted.</p>
+     * 
+     * <p>Other Business Name: AllergyTestType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows different kinds of allergy/intolerance tests to be 
+     * distinguishable and is therefore mandatory. It uses the CD 
+     * type to support SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting the type of allergy test 
+     * conducted.</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationAllergyTestType getCode() {
@@ -150,27 +264,61 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>AllergyTestType</p>
+     * <p>Business Name: AllergyTestType</p>
      * 
-     * <p>A:Allergy Test Type</p>
+     * <p>Other Business Name: AllergyTestType</p>
      * 
-     * <p>A coded value denoting the type of allergy test 
-     * conducted.</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
-     * <p>Allows different kinds of allergy/intolerance tests to be 
-     * distinguishable and is therefore mandatory. It uses the CD 
-     * type to support SNOMED post-coordination.</p>
-     * 
-     * <p>A:Allergy Test Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>At least one of Id or Value must be specified.</p>
      * 
+     * <p>Allows different kinds of allergy/intolerance tests to be 
+     * distinguishable and is therefore mandatory. It uses the CD 
+     * type to support SNOMED post-coordination.</p>
+     * 
      * <p>A coded value denoting the type of allergy test 
      * conducted.</p>
+     * 
+     * <p>Other Business Name: AllergyTestType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows different kinds of allergy/intolerance tests to be 
      * distinguishable and is therefore mandatory. It uses the CD 
      * type to support SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting the type of allergy test 
+     * conducted.</p>
+     * 
+     * <p>Other Business Name: AllergyTestType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows different kinds of allergy/intolerance tests to be 
+     * distinguishable and is therefore mandatory. It uses the CD 
+     * type to support SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting the type of allergy test 
+     * conducted.</p>
+     * 
+     * <p>Other Business Name: AllergyTestType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows different kinds of allergy/intolerance tests to be 
+     * distinguishable and is therefore mandatory. It uses the CD 
+     * type to support SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting the type of allergy test 
+     * conducted.</p>
      */
     public void setCode(ObservationAllergyTestType code) {
         this.code.setValue(code);
@@ -178,14 +326,55 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>AllergyTestDate</p>
+     * <p>Business Name: AllergyTestDate</p>
      * 
-     * <p>D:Allergy Test Date</p>
+     * <p>Other Business Name: AllergyTestDate</p>
      * 
-     * <p>The date on which the allergy test was performed.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows providers to evaluate the currency of the 
      * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
+     * 
+     * <p>Other Business Name: AllergyTestDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows providers to evaluate the currency of the 
+     * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
+     * 
+     * <p>Other Business Name: AllergyTestDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows providers to evaluate the currency of the 
+     * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
+     * 
+     * <p>Other Business Name: AllergyTestDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows providers to evaluate the currency of the 
+     * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -193,14 +382,55 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>AllergyTestDate</p>
+     * <p>Business Name: AllergyTestDate</p>
      * 
-     * <p>D:Allergy Test Date</p>
+     * <p>Other Business Name: AllergyTestDate</p>
      * 
-     * <p>The date on which the allergy test was performed.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows providers to evaluate the currency of the 
      * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
+     * 
+     * <p>Other Business Name: AllergyTestDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows providers to evaluate the currency of the 
+     * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
+     * 
+     * <p>Other Business Name: AllergyTestDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows providers to evaluate the currency of the 
+     * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
+     * 
+     * <p>Other Business Name: AllergyTestDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.AllergyTestEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows providers to evaluate the currency of the 
+     * test.</p>
+     * 
+     * <p>The date on which the allergy test was performed.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -208,31 +438,71 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>AllergyTestResult</p>
+     * <p>Business Name: AllergyTestResult</p>
      * 
-     * <p>C:Allergy Test Result</p>
+     * <p>Other Business Name: AllergyTestResult</p>
      * 
-     * <p>Value is required if not using SNOMED</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
-     * <p>A code indicating result of the allergy test.</p>
-     * 
-     * <p>Allows other providers to evaluate the test. There is no 
-     * point in associating an allergy test with unknown results 
-     * with an allergy or intolerance however the element is 
-     * optional because this information may be post-coordinated in 
-     * the 'code' attribute using SNOMED.</p>
-     * 
-     * <p>C:Allergy Test Result</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Value is mandatory if not using SNOMED</p>
      * 
+     * <p>Allows other providers to evaluate the test. There is no 
+     * point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p>
+     * 
      * <p>A code indicating result of the allergy test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestResult</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
      * 
      * <p>Allows other providers to evaluate the test. There is no 
      * point in associating an allergy test with unknown results 
      * with an allergy or intolerance however the element is 
      * optional because this information may be post-coordinated in 
      * the 'code' attribute using SNOMED.</p>
+     * 
+     * <p>A code indicating result of the allergy test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestResult</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
+     * 
+     * <p>Allows other providers to evaluate the test. There is no 
+     * point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p>
+     * 
+     * <p>A code indicating result of the allergy test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestResult</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
+     * 
+     * <p>Allows other providers to evaluate the test. There is no 
+     * point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p>
+     * 
+     * <p>A code indicating result of the allergy test.</p>
      */
     @Hl7XmlMapping({"value"})
     public AllergyTestValue getValue() {
@@ -240,31 +510,71 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>AllergyTestResult</p>
+     * <p>Business Name: AllergyTestResult</p>
      * 
-     * <p>C:Allergy Test Result</p>
+     * <p>Other Business Name: AllergyTestResult</p>
      * 
-     * <p>Value is required if not using SNOMED</p>
+     * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
-     * <p>A code indicating result of the allergy test.</p>
-     * 
-     * <p>Allows other providers to evaluate the test. There is no 
-     * point in associating an allergy test with unknown results 
-     * with an allergy or intolerance however the element is 
-     * optional because this information may be post-coordinated in 
-     * the 'code' attribute using SNOMED.</p>
-     * 
-     * <p>C:Allergy Test Result</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Value is mandatory if not using SNOMED</p>
      * 
+     * <p>Allows other providers to evaluate the test. There is no 
+     * point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p>
+     * 
      * <p>A code indicating result of the allergy test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestResult</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
      * 
      * <p>Allows other providers to evaluate the test. There is no 
      * point in associating an allergy test with unknown results 
      * with an allergy or intolerance however the element is 
      * optional because this information may be post-coordinated in 
      * the 'code' attribute using SNOMED.</p>
+     * 
+     * <p>A code indicating result of the allergy test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestResult</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
+     * 
+     * <p>Allows other providers to evaluate the test. There is no 
+     * point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p>
+     * 
+     * <p>A code indicating result of the allergy test.</p>
+     * 
+     * <p>Other Business Name: AllergyTestResult</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
+     * 
+     * <p>Allows other providers to evaluate the test. There is no 
+     * point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p>
+     * 
+     * <p>A code indicating result of the allergy test.</p>
      */
     public void setValue(AllergyTestValue value) {
         this.value.setValue(value);

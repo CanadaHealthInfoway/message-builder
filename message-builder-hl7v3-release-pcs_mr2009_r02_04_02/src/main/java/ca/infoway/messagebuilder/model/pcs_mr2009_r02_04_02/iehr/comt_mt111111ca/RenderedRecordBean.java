@@ -33,32 +33,36 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActEvent
 
 
 /**
- * <p>Rendered Record</p>
- * 
- * <p>Conveys a portion of the patient's record as rendered 
- * content.</p>
+ * <p>Business Name: Rendered Record</p>
  * 
  * <p>Allows simple applications which do not yet support all 
  * of the discrete messaging specifications to still access 
  * data within the EHR.</p>
+ * 
+ * <p>Conveys a portion of the patient's record as rendered 
+ * content.</p>
  */
 @Hl7PartTypeMapping({"COMT_MT111111CA.RenderedContent"})
 public class RenderedRecordBean extends MessagePartBean implements Summary {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 
 
     /**
-     * <p>Rendered Content Type</p>
+     * <p>Business Name: Rendered Content Type</p>
      * 
-     * <p>Identifies the type of content contained within the 
-     * rendered document portion of this class.</p>
+     * <p>Relationship: COMT_MT111111CA.RenderedContent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what type of data has been returned. This 
      * attribute is mandatory because type of data returned must be 
      * known for presentation and consumption.</p>
+     * 
+     * <p>Identifies the type of content contained within the 
+     * rendered document portion of this class.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActEventCategoryWorkingListCode getCode() {
@@ -66,14 +70,18 @@ public class RenderedRecordBean extends MessagePartBean implements Summary {
     }
 
     /**
-     * <p>Rendered Content Type</p>
+     * <p>Business Name: Rendered Content Type</p>
      * 
-     * <p>Identifies the type of content contained within the 
-     * rendered document portion of this class.</p>
+     * <p>Relationship: COMT_MT111111CA.RenderedContent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what type of data has been returned. This 
      * attribute is mandatory because type of data returned must be 
      * known for presentation and consumption.</p>
+     * 
+     * <p>Identifies the type of content contained within the 
+     * rendered document portion of this class.</p>
      */
     public void setCode(ActEventCategoryWorkingListCode code) {
         this.code.setValue(code);
@@ -81,16 +89,20 @@ public class RenderedRecordBean extends MessagePartBean implements Summary {
 
 
     /**
-     * <p>Rendered Content</p>
+     * <p>Business Name: Rendered Content</p>
      * 
-     * <p>Contains a rendered view of a particular portion of the 
-     * patients records. E.g. Allergy List, Problem List, Drug 
-     * List, etc.</p>
+     * <p>Relationship: COMT_MT111111CA.RenderedContent.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a human-readable view of a portion of a 
      * patient's record when the PoS application may not be capable 
      * of handling the discrete data. This attribute is mandatory 
      * because the rendered content must be known.</p>
+     * 
+     * <p>Contains a rendered view of a particular portion of the 
+     * patients records. E.g. Allergy List, Problem List, Drug 
+     * List, etc.</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
@@ -98,16 +110,20 @@ public class RenderedRecordBean extends MessagePartBean implements Summary {
     }
 
     /**
-     * <p>Rendered Content</p>
+     * <p>Business Name: Rendered Content</p>
      * 
-     * <p>Contains a rendered view of a particular portion of the 
-     * patients records. E.g. Allergy List, Problem List, Drug 
-     * List, etc.</p>
+     * <p>Relationship: COMT_MT111111CA.RenderedContent.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a human-readable view of a portion of a 
      * patient's record when the PoS application may not be capable 
      * of handling the discrete data. This attribute is mandatory 
      * because the rendered content must be known.</p>
+     * 
+     * <p>Contains a rendered view of a particular portion of the 
+     * patients records. E.g. Allergy List, Problem List, Drug 
+     * List, etc.</p>
      */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);

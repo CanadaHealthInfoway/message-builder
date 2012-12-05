@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.QueryDefin
 
 
 /**
- * <p>PRPA_IN202305CA: Locations summary query</p>
+ * <p>Business Name: PRPA_IN202305CA: Locations summary query</p>
+ * 
+ * <p>Requests retrieval for matching Service Delivery 
+ * Locations based on search criteria.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.QueryDefin
 @Hl7PartTypeMapping({"PRPA_IN202305CA"})
 public class LocationsSummaryQueryBean extends HL7Message_1Bean<TriggerEventBean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

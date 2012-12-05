@@ -44,7 +44,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Consent","POIZ_MT030060CA.Consent","POIZ_MT060150CA.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private BL negationInd = new BLImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -54,9 +54,25 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentID</p>
+     * <p>Business Name: ConsentID</p>
      * 
-     * <p>Consent ID</p>
+     * <p>Other Business Name: ConsentID</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Consent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: ConsentID</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Consent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: ConsentID</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -64,9 +80,25 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentID</p>
+     * <p>Business Name: ConsentID</p>
      * 
-     * <p>Consent ID</p>
+     * <p>Other Business Name: ConsentID</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Consent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: ConsentID</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Consent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: ConsentID</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -74,9 +106,25 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentWitheldIndicator</p>
+     * <p>Business Name: ConsentWitheldIndicator</p>
      * 
-     * <p>Consent witheld indicator</p>
+     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Consent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Consent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -84,9 +132,25 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentWitheldIndicator</p>
+     * <p>Business Name: ConsentWitheldIndicator</p>
      * 
-     * <p>Consent witheld indicator</p>
+     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Consent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Consent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -94,9 +158,25 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentEffectiveAndEndTime</p>
+     * <p>Business Name: ConsentEffectiveAndEndTime</p>
      * 
-     * <p>Consent Effective and End Time</p>
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Consent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Consent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -104,36 +184,104 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentEffectiveAndEndTime</p>
+     * <p>Business Name: ConsentEffectiveAndEndTime</p>
      * 
-     * <p>Consent Effective and End Time</p>
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Consent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Consent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Consent.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Consent.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Consent.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Consent.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
     }
 
 
     /**
-     * <p>ConsentMethod</p>
+     * <p>Business Name: ConsentMethod</p>
      * 
-     * <p>Consent Method</p>
+     * <p>Other Business Name: ConsentMethod</p>
      * 
-     * <p>Describes the method in which consent was given.</p>
+     * <p>Relationship: POIZ_MT060150CA.ResponsibleParty2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentMethod</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.ResponsibleParty2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentMethod</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.ResponsibleParty2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for explicit communication of how consent was 
      * given (e.g. verbal, written, etc.)</p>
      * 
-     * <p>Consent Method</p>
+     * <p>Describes the method in which consent was given.</p>
      */
     @Hl7XmlMapping({"responsibleParty/modeCode"})
     public ParticipationMode getResponsiblePartyModeCode() {
@@ -141,27 +289,79 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentMethod</p>
+     * <p>Business Name: ConsentMethod</p>
      * 
-     * <p>Consent Method</p>
+     * <p>Other Business Name: ConsentMethod</p>
      * 
-     * <p>Describes the method in which consent was given.</p>
+     * <p>Relationship: POIZ_MT060150CA.ResponsibleParty2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentMethod</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.ResponsibleParty2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentMethod</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.ResponsibleParty2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for explicit communication of how consent was 
      * given (e.g. verbal, written, etc.)</p>
      * 
-     * <p>Consent Method</p>
+     * <p>Describes the method in which consent was given.</p>
      */
     public void setResponsiblePartyModeCode(ParticipationMode responsiblePartyModeCode) {
         this.responsiblePartyModeCode.setValue(responsiblePartyModeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.ResponsibleParty2.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.ResponsibleParty2.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.ResponsibleParty2.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/consenter"})
     public Consenter getResponsiblePartyConsenter() {
         return this.responsiblePartyConsenter;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.ResponsibleParty2.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.ResponsibleParty2.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.ResponsibleParty2.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyConsenter(Consenter responsiblePartyConsenter) {
         this.responsiblePartyConsenter = responsiblePartyConsenter;
     }

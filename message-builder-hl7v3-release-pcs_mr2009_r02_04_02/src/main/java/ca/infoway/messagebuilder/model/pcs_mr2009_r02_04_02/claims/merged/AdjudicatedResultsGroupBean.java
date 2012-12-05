@@ -51,37 +51,19 @@ import java.util.List;
 
 
 /**
- * <p>AdjudicatedResultsGroup</p>
+ * <p>Business Name: AdjudicatedResultsGroup</p>
  * 
  * <p>QUCR_MT810201CA.AdjudResultsGroup: Adjudicated Results 
  * Group</p>
  * 
+ * <p>Associations to the right are used for breaking 
+ * down</p><p>a Payment Advice (e.g. provider, sending appl) 
+ * or</p><p>a Statement of Financial Activity (e.g. payee, 
+ * payor).</p><p>Only 1 association can be specified per 
+ * instance of this act.</p>
+ * 
  * <p>Group of Results adjudicated and identified and included 
  * in these results.</p>
- * 
- * <p>Associations to the right are used for breaking 
- * down</p><p>a Payment Advice (e.g. provider, sending appl) 
- * or</p><p>a Statement of Financial Activity (e.g. payee, 
- * payor).</p><p>Only 1 association can be specified per 
- * instance of this act.</p>
- * 
- * <p>Associations to the right are used for breaking 
- * down</p><p>a Payment Advice (e.g. provider, sending appl) 
- * or</p><p>a Statement of Financial Activity (e.g. payee, 
- * payor).</p><p>Only 1 association can be specified per 
- * instance of this act.</p>
- * 
- * <p>Associations to the right are used for breaking 
- * down</p><p>a Payment Advice (e.g. provider, sending appl) 
- * or</p><p>a Statement of Financial Activity (e.g. payee, 
- * payor).</p><p>Only 1 association can be specified per 
- * instance of this act.</p>
- * 
- * <p>Associations to the right are used for breaking 
- * down</p><p>a Payment Advice (e.g. provider, sending appl) 
- * or</p><p>a Statement of Financial Activity (e.g. payee, 
- * payor).</p><p>Only 1 association can be specified per 
- * instance of this act.</p>
  * 
  * <p>FICR_MT630000CA.AdjudResultsGroup: Adjudicated Results 
  * Group</p>
@@ -96,7 +78,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -113,13 +95,13 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>AdjudicatedResultsGroupID</p>
+     * <p>Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Adjudicated Results Group ID</p>
+     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Adjudicated Results Group ID</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.id</p>
      * 
-     * <p>ID of Results Group</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>If specified on a Payment Advice Summary, can be used to 
      * request additional detail with a Payment Advice Query 
@@ -128,6 +110,14 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>(If specified on a Payment Advice Summary, can be used to 
      * request additional detail with a Payment Advice Query 
      * message</p>
+     * 
+     * <p>ID of Results Group</p>
+     * 
+     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -135,13 +125,13 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdjudicatedResultsGroupID</p>
+     * <p>Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Adjudicated Results Group ID</p>
+     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Adjudicated Results Group ID</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.id</p>
      * 
-     * <p>ID of Results Group</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>If specified on a Payment Advice Summary, can be used to 
      * request additional detail with a Payment Advice Query 
@@ -150,6 +140,14 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>(If specified on a Payment Advice Summary, can be used to 
      * request additional detail with a Payment Advice Query 
      * message</p>
+     * 
+     * <p>ID of Results Group</p>
+     * 
+     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -157,11 +155,11 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Type of Summary</p>
+     * <p>Other Business Name: TypeOfSummary</p>
      * 
-     * <p>Type of summary</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.code</p>
      * 
-     * <p>Type of summary</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This code describes the breakdown of the financial 
      * activity.</p>
@@ -178,7 +176,21 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * Code also specifies the type of adjustment for a payment 
      * advice (e.g. CFWD - carry forward adjustment).</p>
      * 
-     * <p>-For Payment Advice: For Vision Care payment advices, 
+     * <p>Type of summary</p>
+     * 
+     * <p>Other Business Name: TypeOfSummary</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: BreakdownOfFinancialActivity</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Payment Advice: For Vision Care payment advices, 
      * RETRO adjustments will always include references to the EOBs 
      * that made up the retroactive adjustment.</p><p>For Payment 
      * Advice: For Pharmacy payment advices, RETRO adjustments will 
@@ -189,60 +201,10 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * currently supported in Pharmacy.</p><p>For Payment Advice: 
      * Code also specifies the type of adjustment for a payment 
      * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>-For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>Breakdown of Financial Activity</p>
      * 
      * <p>This code describes the breakdown of the financial 
      * activity and defines the 'categorization; Only really 
      * relevant for summaries.</p>
-     * 
-     * <p>For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceAdjudicationPaymentSummaryType getCode() {
@@ -250,11 +212,11 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Type of Summary</p>
+     * <p>Other Business Name: TypeOfSummary</p>
      * 
-     * <p>Type of summary</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.code</p>
      * 
-     * <p>Type of summary</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This code describes the breakdown of the financial 
      * activity.</p>
@@ -271,7 +233,21 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * Code also specifies the type of adjustment for a payment 
      * advice (e.g. CFWD - carry forward adjustment).</p>
      * 
-     * <p>-For Payment Advice: For Vision Care payment advices, 
+     * <p>Type of summary</p>
+     * 
+     * <p>Other Business Name: TypeOfSummary</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: BreakdownOfFinancialActivity</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Payment Advice: For Vision Care payment advices, 
      * RETRO adjustments will always include references to the EOBs 
      * that made up the retroactive adjustment.</p><p>For Payment 
      * Advice: For Pharmacy payment advices, RETRO adjustments will 
@@ -282,60 +258,10 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * currently supported in Pharmacy.</p><p>For Payment Advice: 
      * Code also specifies the type of adjustment for a payment 
      * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>-For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>Breakdown of Financial Activity</p>
      * 
      * <p>This code describes the breakdown of the financial 
      * activity and defines the 'categorization; Only really 
      * relevant for summaries.</p>
-     * 
-     * <p>For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
      */
     public void setCode(ActInvoiceAdjudicationPaymentSummaryType code) {
         this.code.setValue(code);
@@ -343,21 +269,36 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Time period for the payment</p>
+     * <p>Other Business Name: TimePeriodForThePayment</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Time period for the payment or summary period.</p>
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
      * 
-     * <p>Summary Period Date Range</p>
+     * <p>Other Business Name: SummaryPeriodDateRange</p>
      * 
-     * <p>Time period for the payment</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Time period for the payment or summary period.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: TimePeriodForThePayment</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
+     * 
+     * <p>Time period for the payment or summary period.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -365,21 +306,36 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Time period for the payment</p>
+     * <p>Other Business Name: TimePeriodForThePayment</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Time period for the payment or summary period.</p>
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
      * 
-     * <p>Summary Period Date Range</p>
+     * <p>Other Business Name: SummaryPeriodDateRange</p>
      * 
-     * <p>Time period for the payment</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Time period for the payment or summary period.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: TimePeriodForThePayment</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
+     * 
+     * <p>Time period for the payment or summary period.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -387,25 +343,14 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Summary Period Amt</p>
+     * <p>Other Business Name: SummaryPeriodAmt</p>
      * 
-     * <p>Summary Period Amt - Grand total of all SOFA observations 
-     * contained in this summary</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.netAmt</p>
      * 
-     * <p>On SOFA Summary, this could be used to specify the amount 
-     * that will be included in the Payment Advice. In this 
-     * situation, it should equal the net effect of all 
-     * AdjudResultsGroupSummaryData elements that would appear in 
-     * the Payment Advice.</p>
-     * 
-     * <p>Summary Period Amount</p>
-     * 
-     * <p>Summary Period Amt</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The AdjudResultsGroup.netAmt must equal the sum of all 
      * immediate children AdjudResultsGroup.netAmt</p>
-     * 
-     * <p>Summary Period Amt</p>
      * 
      * <p>Can also indicate time period over which the clawback 
      * and/or retro adjustment applies</p>
@@ -415,6 +360,29 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * situation, it should equal the net effect of all 
      * AdjudResultsGroupSummaryData elements that would appear in 
      * the Payment Advice.</p>
+     * 
+     * <p>Summary Period Amt</p>
+     * 
+     * <p>Other Business Name: SummaryPeriodAmount</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>On SOFA Summary, this could be used to specify the amount 
+     * that will be included in the Payment Advice. In this 
+     * situation, it should equal the net effect of all 
+     * AdjudResultsGroupSummaryData elements that would appear in 
+     * the Payment Advice.</p>
+     * 
+     * <p>Summary Period Amt - Grand total of all SOFA observations 
+     * contained in this summary</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -422,25 +390,14 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Summary Period Amt</p>
+     * <p>Other Business Name: SummaryPeriodAmt</p>
      * 
-     * <p>Summary Period Amt - Grand total of all SOFA observations 
-     * contained in this summary</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.netAmt</p>
      * 
-     * <p>On SOFA Summary, this could be used to specify the amount 
-     * that will be included in the Payment Advice. In this 
-     * situation, it should equal the net effect of all 
-     * AdjudResultsGroupSummaryData elements that would appear in 
-     * the Payment Advice.</p>
-     * 
-     * <p>Summary Period Amount</p>
-     * 
-     * <p>Summary Period Amt</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The AdjudResultsGroup.netAmt must equal the sum of all 
      * immediate children AdjudResultsGroup.netAmt</p>
-     * 
-     * <p>Summary Period Amt</p>
      * 
      * <p>Can also indicate time period over which the clawback 
      * and/or retro adjustment applies</p>
@@ -450,88 +407,253 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * situation, it should equal the net effect of all 
      * AdjudResultsGroupSummaryData elements that would appear in 
      * the Payment Advice.</p>
+     * 
+     * <p>Summary Period Amt</p>
+     * 
+     * <p>Other Business Name: SummaryPeriodAmount</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>On SOFA Summary, this could be used to specify the amount 
+     * that will be included in the Payment Advice. In this 
+     * situation, it should equal the net effect of all 
+     * AdjudResultsGroupSummaryData elements that would appear in 
+     * the Payment Advice.</p>
+     * 
+     * <p>Summary Period Amt - Grand total of all SOFA observations 
+     * contained in this summary</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Device.adjudResultsSendingAppRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
     public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
         return this.deviceAdjudResultsSendingAppRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Device.adjudResultsSendingAppRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
         this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Performer.adjudResultsProviderRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
     public ProviderIDBean getPerformerAdjudResultsProviderRole() {
         return this.performerAdjudResultsProviderRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Performer.adjudResultsProviderRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
         this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Author.adjudResultsCarrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author/adjudResultsCarrierRole"})
     public CarrierOrThirdPartyAdministratorBean getAuthorAdjudResultsCarrierRole() {
         return this.authorAdjudResultsCarrierRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Author.adjudResultsCarrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorAdjudResultsCarrierRole(CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole) {
         this.authorAdjudResultsCarrierRole = authorAdjudResultsCarrierRole;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
     public ServiceLocationBean getLocationServiceDeliveryLocation() {
         return this.locationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupRef.adjudResultsFinancialContract</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
     public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
         return this.referenceAdjudResultsFinancialContract;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupRef.adjudResultsFinancialContract</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
         this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"summary/adjudResultsGroupSummaryData"})
     public List<SummaryDetailsBean> getSummaryAdjudResultsGroupSummaryData() {
         return this.summaryAdjudResultsGroupSummaryData;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
         return this.creditAccount;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupComponent.adjudResultsGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/adjudResultsGroup"})
     public List<AdjudicatedResultsGroupBean> getComponentAdjudResultsGroup() {
         return this.componentAdjudResultsGroup;

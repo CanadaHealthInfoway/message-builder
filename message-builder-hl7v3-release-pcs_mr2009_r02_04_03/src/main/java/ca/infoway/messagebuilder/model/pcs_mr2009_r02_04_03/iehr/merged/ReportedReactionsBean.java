@@ -48,24 +48,21 @@ import java.util.Date;
 /**
  * <p>REPC_MT000012CA.CausalityAssessment: Reaction Assessments</p>
  * 
- * <p>This is a recording of the exposures and causality 
- * assessment deemed to be related to the reaction.</p>
- * 
  * <p>Indicates both the product and how related they are 
  * determined to be to the reaction.</p>
+ * 
+ * <p>This is a recording of the exposures and causality 
+ * assessment deemed to be related to the reaction.</p>
  * 
  * <p>REPC_MT000006CA.CausalityAssessment: Reaction Assessments</p>
  * 
- * <p>This is a recording of the exposures and causality 
- * assessment deemed to be related to the reaction.</p>
- * 
  * <p>Indicates both the product and how related they are 
  * determined to be to the reaction.</p>
  * 
- * <p>REPC_MT000013CA.CausalityAssessment: Reported Reactions</p>
+ * <p>This is a recording of the exposures and causality 
+ * assessment deemed to be related to the reaction.</p>
  * 
- * <p>This is a recording of a patient reaction that is 
- * believed to be associated with the allergy/intolerance.</p>
+ * <p>REPC_MT000013CA.CausalityAssessment: Reported Reactions</p>
  * 
  * <p>Helps providers to distinguish between proper allergies 
  * and intolerances. Allows the provider recording the allergy 
@@ -74,14 +71,14 @@ import java.util.Date;
  * be triggered by administering a substance. (E.g. If a given 
  * drug typically causes nausea in the patient, an additional 
  * medication may be co-prescribed to manage the nausea.)</p>
+ * 
+ * <p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p>
  * 
  * <p>REPC_MT000005CA.ObservationEvent: Reported Reactions</p>
  * 
  * <p>At least one of Id or Value must be specified.</p>
  * 
- * <p>This is a recording of a patient reaction that is 
- * believed to be associated with the allergy/intolerance.</p>
- * 
  * <p>Helps providers to distinguish between proper allergies 
  * and intolerances. Allows the provider recording the allergy 
  * to assign appropriate severity to the allergy. May give 
@@ -90,18 +87,18 @@ import java.util.Date;
  * drug typically causes nausea in the patient, an additional 
  * medication may be co-prescribed to manage the nausea.)</p>
  * 
- * <p>REPC_MT000002CA.CausalityAssessment: Reaction Assessments</p>
+ * <p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p>
  * 
- * <p>This is a recording of the exposures and causality 
- * assessment deemed to be related to the reaction.</p>
+ * <p>REPC_MT000002CA.CausalityAssessment: Reaction Assessments</p>
  * 
  * <p>Indicates both the product and how related they are 
  * determined to be to the reaction.</p>
  * 
- * <p>REPC_MT000001CA.CausalityAssessment: Reported Reactions</p>
+ * <p>This is a recording of the exposures and causality 
+ * assessment deemed to be related to the reaction.</p>
  * 
- * <p>This is a recording of a patient reaction that is 
- * believed to be associated with the allergy/intolerance.</p>
+ * <p>REPC_MT000001CA.CausalityAssessment: Reported Reactions</p>
  * 
  * <p>Helps providers to distinguish between proper allergies 
  * and intolerances. Allows the provider recording the allergy 
@@ -110,12 +107,12 @@ import java.util.Date;
  * be triggered by administering a substance. (E.g. If a given 
  * drug typically causes nausea in the patient, an additional 
  * medication may be co-prescribed to manage the nausea.)</p>
+ * 
+ * <p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p>
  * 
  * <p>REPC_MT000009CA.CausalityAssessment: Reported Reactions</p>
  * 
- * <p>This is a recording of a patient reaction that is 
- * believed to be associated with the allergy/intolerance.</p>
- * 
  * <p>Helps providers to distinguish between proper allergies 
  * and intolerances. Allows the provider recording the allergy 
  * to assign appropriate severity to the allergy. May give 
@@ -123,12 +120,12 @@ import java.util.Date;
  * be triggered by administering a substance. (E.g. If a given 
  * drug typically causes nausea in the patient, an additional 
  * medication may be co-prescribed to manage the nausea.)</p>
+ * 
+ * <p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p>
  * 
  * <p>REPC_MT000005CA.CausalityAssessment: Reported Reactions</p>
  * 
- * <p>This is a recording of a patient reaction that is 
- * believed to be associated with the allergy/intolerance.</p>
- * 
  * <p>Helps providers to distinguish between proper allergies 
  * and intolerances. Allows the provider recording the allergy 
  * to assign appropriate severity to the allergy. May give 
@@ -136,11 +133,14 @@ import java.util.Date;
  * be triggered by administering a substance. (E.g. If a given 
  * drug typically causes nausea in the patient, an additional 
  * medication may be co-prescribed to manage the nausea.)</p>
+ * 
+ * <p>This is a recording of a patient reaction that is 
+ * believed to be associated with the allergy/intolerance.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.CausalityAssessment","REPC_MT000001CA.ObservationEvent","REPC_MT000002CA.CausalityAssessment","REPC_MT000005CA.CausalityAssessment","REPC_MT000005CA.ObservationEvent","REPC_MT000006CA.CausalityAssessment","REPC_MT000009CA.CausalityAssessment","REPC_MT000009CA.ObservationEvent","REPC_MT000012CA.CausalityAssessment","REPC_MT000013CA.CausalityAssessment","REPC_MT000013CA.ObservationEvent"})
 public class ReportedReactionsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
     private ExposuresBean startsAfterStartOfExposureEvent;
@@ -153,24 +153,13 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Other Business Name: AssessmentType</p>
      * 
-     * <p>Code must be fixed to DX if not using SNOMED</p>
+     * <p>Relationship: REPC_MT000006CA.CausalityAssessment.code</p>
      * 
-     * <p>Indicates the type of diagnosis being captured.</p>
-     * 
-     * <p>Indicates that the observation is actually a diagnosis 
-     * and is therefore mandatory. The datatype is CD to support 
-     * SNOMED post-coordination.</p>
-     * 
-     * <p>If using SNOMED, this will contain the diagnosis. 
-     * Otherwise it will be a fixed value of 'DX'.</p>
-     * 
-     * <p>Assessment Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code is fixed to RXNASSESS if not using SNOMED</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
      * 
      * <p>Communicates the relatedness assessment of the exposure 
      * to the reaction and is therefore mandatory. For SNOMED this 
@@ -180,11 +169,68 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSESS.</p>
      * 
-     * <p>Assessment Type</p>
+     * <p>Indicates the type of assessment being made</p>
      * 
-     * <p>Code is fixed to RXNASSESS if not using SNOMED</p>
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
      * 
      * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to RXNASSESS if not using SNOMED</p>
      * 
      * <p>Communicates the relatedness assessment of the exposure 
      * to the reaction and is therefore mandatory. For SNOMED this 
@@ -194,13 +240,105 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSES.</p>
      * 
-     * <p>Diagnosis Type</p>
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED.</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If code is SNOMED, value is not permitted, otherwise it 
      * is mandatory and code must be DX</p>
      * 
-     * <p>Indicates the type of diagnosis being captured.</p>
-     * 
      * <p>Indicates that the observation is actually a diagnosis 
      * and is therefore mandatory. The datatype is CD to support 
      * SNOMED post-coordination.</p>
@@ -208,46 +346,7 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
      * 
-     * <p>Diagnosis Type</p>
-     * 
-     * <p>Code is fixed to DX if not using SNOMED</p>
-     * 
      * <p>Indicates the type of diagnosis being captured.</p>
-     * 
-     * <p>Indicates that the observation is actually a diagnosis 
-     * and is therefore mandatory. The datatype is CD to support 
-     * SNOMED post-coordination.</p>
-     * 
-     * <p>If using SNOMED, this will contain the diagnosis. 
-     * Otherwise it will be a fixed value of 'DX'.</p>
-     * 
-     * <p>Assessment Type</p>
-     * 
-     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment code. 
-     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
-     * 
-     * <p>Assessment Type</p>
-     * 
-     * <p>Code must be fixed to RXNASSESS if not using SNOMED.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment code. 
-     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActDiagnosisCode getCode() {
@@ -255,24 +354,13 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Other Business Name: AssessmentType</p>
      * 
-     * <p>Code must be fixed to DX if not using SNOMED</p>
+     * <p>Relationship: REPC_MT000006CA.CausalityAssessment.code</p>
      * 
-     * <p>Indicates the type of diagnosis being captured.</p>
-     * 
-     * <p>Indicates that the observation is actually a diagnosis 
-     * and is therefore mandatory. The datatype is CD to support 
-     * SNOMED post-coordination.</p>
-     * 
-     * <p>If using SNOMED, this will contain the diagnosis. 
-     * Otherwise it will be a fixed value of 'DX'.</p>
-     * 
-     * <p>Assessment Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code is fixed to RXNASSESS if not using SNOMED</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
      * 
      * <p>Communicates the relatedness assessment of the exposure 
      * to the reaction and is therefore mandatory. For SNOMED this 
@@ -282,11 +370,68 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSESS.</p>
      * 
-     * <p>Assessment Type</p>
+     * <p>Indicates the type of assessment being made</p>
      * 
-     * <p>Code is fixed to RXNASSESS if not using SNOMED</p>
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
      * 
      * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to RXNASSESS if not using SNOMED</p>
      * 
      * <p>Communicates the relatedness assessment of the exposure 
      * to the reaction and is therefore mandatory. For SNOMED this 
@@ -296,13 +441,105 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSES.</p>
      * 
-     * <p>Diagnosis Type</p>
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED.</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Other Business Name: AssessmentType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.CausalityAssessment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
+     * 
+     * <p>Communicates the relatedness assessment of the exposure 
+     * to the reaction and is therefore mandatory. For SNOMED this 
+     * will communicate the full assessment. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>For SNOMED this will include the actual assessment code. 
+     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
+     * 
+     * <p>Indicates the type of assessment being made</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If code is SNOMED, value is not permitted, otherwise it 
      * is mandatory and code must be DX</p>
      * 
-     * <p>Indicates the type of diagnosis being captured.</p>
-     * 
      * <p>Indicates that the observation is actually a diagnosis 
      * and is therefore mandatory. The datatype is CD to support 
      * SNOMED post-coordination.</p>
@@ -310,46 +547,7 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
      * 
-     * <p>Diagnosis Type</p>
-     * 
-     * <p>Code is fixed to DX if not using SNOMED</p>
-     * 
      * <p>Indicates the type of diagnosis being captured.</p>
-     * 
-     * <p>Indicates that the observation is actually a diagnosis 
-     * and is therefore mandatory. The datatype is CD to support 
-     * SNOMED post-coordination.</p>
-     * 
-     * <p>If using SNOMED, this will contain the diagnosis. 
-     * Otherwise it will be a fixed value of 'DX'.</p>
-     * 
-     * <p>Assessment Type</p>
-     * 
-     * <p>Code must be fixed to RXNASSESS if not using SNOMED</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment code. 
-     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
-     * 
-     * <p>Assessment Type</p>
-     * 
-     * <p>Code must be fixed to RXNASSESS if not using SNOMED.</p>
-     * 
-     * <p>Indicates the type of assessment being made</p>
-     * 
-     * <p>Communicates the relatedness assessment of the exposure 
-     * to the reaction and is therefore mandatory. For SNOMED this 
-     * will communicate the full assessment. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p>
-     * 
-     * <p>For SNOMED this will include the actual assessment code. 
-     * For non-SNOMED, this should be fixed to RXNASSESS.</p>
      */
     public void setCode(ActDiagnosisCode code) {
         this.code.setValue(code);
@@ -357,13 +555,14 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>Relatedness Assessment</p>
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Value is mandatory and fixed to RELATED if not using 
-     * SNOMED.</p>
-     * 
-     * <p>Indicates whether the reaction is deemed to be related to 
-     * the exposure.</p>
+     * SNOMED</p>
      * 
      * <p>Creates the link between the exposure and the reaction. 
      * Because the details of the assessment will be communicated 
@@ -374,12 +573,37 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>B:Reaction</p>
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
      * 
-     * <p>Value is required if not using SNOMED</p>
+     * <p>Other Business Name: RelatednessAssessment</p>
      * 
-     * <p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p>
+     * <p>Relationship: REPC_MT000012CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED</p>
+     * 
+     * <p>Creates the link between the exposure and the reaction. 
+     * Because the details of the assessment will be communicated 
+     * in the 'code' attribute for SNOMED, this element is 
+     * optional.</p>
+     * 
+     * <p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p>
+     * 
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value must be mandatory if not using SNOMED</p>
      * 
      * <p>Ensures consistency in tracking and categorizing the 
      * reaction type. Helps ensure that only proper allergies are 
@@ -388,13 +612,59 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Relatedness Assessment</p>
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED</p>
+     * 
+     * <p>Creates the link between the exposure and the reaction. 
+     * Because the details of the assessment will be communicated 
+     * in the 'code' attribute for SNOMED, this element is 
+     * optional.</p>
+     * 
+     * <p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p>
+     * 
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
+     * 
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>value is mandatory and fixed to RELATED if not using 
      * SNOMED</p>
      * 
+     * <p>Creates the link between the exposure and the reaction. 
+     * Because the details of the assessment will be communicated 
+     * in the 'code' attribute for SNOMED, this element is 
+     * optional.</p>
+     * 
+     * <p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p>
+     * 
      * <p>Indicates whether the reaction is deemed to be related to 
      * the exposure.</p>
+     * 
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED.</p>
      * 
      * <p>Creates the link between the exposure and the reaction. 
      * Because the details of the assessment will be communicated 
@@ -405,12 +675,37 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>B:Reaction</p>
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
      * 
-     * <p>Value must be mandatory if not using SNOMED</p>
+     * <p>Other Business Name: RelatednessAssessment</p>
      * 
-     * <p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p>
+     * <p>Relationship: REPC_MT000009CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED</p>
+     * 
+     * <p>Creates the link between the exposure and the reaction. 
+     * Because the details of the assessment will be communicated 
+     * in the 'code' attribute for SNOMED, this element is 
+     * optional.</p>
+     * 
+     * <p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p>
+     * 
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
      * 
      * <p>Ensures consistency in tracking and categorizing the 
      * reaction type. Helps ensure that only proper allergies are 
@@ -419,13 +714,17 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Relatedness Assessment</p>
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Value is mandatory and fixed to RELATED if not using 
      * SNOMED</p>
-     * 
-     * <p>Indicates whether the reaction is deemed to be related to 
-     * the exposure.</p>
      * 
      * <p>Creates the link between the exposure and the reaction. 
      * Because the details of the assessment will be communicated 
@@ -435,6 +734,45 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>This attribute will not be populated if using SNOMED. 
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
+     * 
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
      */
     @Hl7XmlMapping({"value"})
     public SubjectReaction getValue() {
@@ -442,13 +780,14 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>Relatedness Assessment</p>
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Value is mandatory and fixed to RELATED if not using 
-     * SNOMED.</p>
-     * 
-     * <p>Indicates whether the reaction is deemed to be related to 
-     * the exposure.</p>
+     * SNOMED</p>
      * 
      * <p>Creates the link between the exposure and the reaction. 
      * Because the details of the assessment will be communicated 
@@ -459,12 +798,37 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>B:Reaction</p>
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
      * 
-     * <p>Value is required if not using SNOMED</p>
+     * <p>Other Business Name: RelatednessAssessment</p>
      * 
-     * <p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p>
+     * <p>Relationship: REPC_MT000012CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED</p>
+     * 
+     * <p>Creates the link between the exposure and the reaction. 
+     * Because the details of the assessment will be communicated 
+     * in the 'code' attribute for SNOMED, this element is 
+     * optional.</p>
+     * 
+     * <p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p>
+     * 
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value must be mandatory if not using SNOMED</p>
      * 
      * <p>Ensures consistency in tracking and categorizing the 
      * reaction type. Helps ensure that only proper allergies are 
@@ -473,13 +837,59 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Relatedness Assessment</p>
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED</p>
+     * 
+     * <p>Creates the link between the exposure and the reaction. 
+     * Because the details of the assessment will be communicated 
+     * in the 'code' attribute for SNOMED, this element is 
+     * optional.</p>
+     * 
+     * <p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p>
+     * 
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
+     * 
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>value is mandatory and fixed to RELATED if not using 
      * SNOMED</p>
      * 
+     * <p>Creates the link between the exposure and the reaction. 
+     * Because the details of the assessment will be communicated 
+     * in the 'code' attribute for SNOMED, this element is 
+     * optional.</p>
+     * 
+     * <p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p>
+     * 
      * <p>Indicates whether the reaction is deemed to be related to 
      * the exposure.</p>
+     * 
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED.</p>
      * 
      * <p>Creates the link between the exposure and the reaction. 
      * Because the details of the assessment will be communicated 
@@ -490,12 +900,37 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>B:Reaction</p>
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
      * 
-     * <p>Value must be mandatory if not using SNOMED</p>
+     * <p>Other Business Name: RelatednessAssessment</p>
      * 
-     * <p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p>
+     * <p>Relationship: REPC_MT000009CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED</p>
+     * 
+     * <p>Creates the link between the exposure and the reaction. 
+     * Because the details of the assessment will be communicated 
+     * in the 'code' attribute for SNOMED, this element is 
+     * optional.</p>
+     * 
+     * <p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p>
+     * 
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
      * 
      * <p>Ensures consistency in tracking and categorizing the 
      * reaction type. Helps ensure that only proper allergies are 
@@ -504,13 +939,17 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Relatedness Assessment</p>
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: RelatednessAssessment</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.CausalityAssessment.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Value is mandatory and fixed to RELATED if not using 
      * SNOMED</p>
-     * 
-     * <p>Indicates whether the reaction is deemed to be related to 
-     * the exposure.</p>
      * 
      * <p>Creates the link between the exposure and the reaction. 
      * Because the details of the assessment will be communicated 
@@ -520,42 +959,271 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>This attribute will not be populated if using SNOMED. 
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
+     * 
+     * <p>Indicates whether the reaction is deemed to be related to 
+     * the exposure.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Value is required if not using SNOMED</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
      */
     public void setValue(SubjectReaction value) {
         this.value.setValue(value);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000012CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
     public ExposuresBean getStartsAfterStartOfExposureEvent() {
         return this.startsAfterStartOfExposureEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000012CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.StartsAfterStartOf.exposureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setStartsAfterStartOfExposureEvent(ExposuresBean startsAfterStartOfExposureEvent) {
         this.startsAfterStartOfExposureEvent = startsAfterStartOfExposureEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Subject6.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject6.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Subject6.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Subject6.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/observationEvent"})
     public ReportedReactionsBean getSubjectObservationEvent() {
         return this.subjectObservationEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Subject6.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject6.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Subject6.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Subject6.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectObservationEvent(ReportedReactionsBean subjectObservationEvent) {
         this.subjectObservationEvent = subjectObservationEvent;
     }
 
 
     /**
-     * <p>ReactionRecordId</p>
+     * <p>Business Name: ReactionRecordId</p>
      * 
-     * <p>C:Reaction Record Id</p>
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
      * 
      * <p>An identifier assigned to the record of the adverse 
      * reaction.</p>
      * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows for direct referencing of an adverse reaction 
      * record which was previously recorded.</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -563,15 +1231,55 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>ReactionRecordId</p>
+     * <p>Business Name: ReactionRecordId</p>
      * 
-     * <p>C:Reaction Record Id</p>
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
      * 
      * <p>An identifier assigned to the record of the adverse 
      * reaction.</p>
      * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows for direct referencing of an adverse reaction 
      * record which was previously recorded.</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -579,97 +1287,84 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>NoReactionOccurred</p>
+     * <p>Business Name: NoReactionOccurred</p>
      * 
-     * <p>D:No reaction occurred</p>
+     * <p>Other Business Name: NoReactionOccurred</p>
      * 
-     * <p>Indicates that there was no adverse reaction when the 
-     * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.ObservationEvent.negationInd</p>
      * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * reaction occurred or not, this attribute is mandatory.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * reaction occurred or not, this attribute is mandatory.</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     * 
-     * <p>Indicates that there was no adverse reaction when the 
-     * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * record reflects a reaction that did or did not occur, this 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * record reflects a reaction that did or did not occur, this 
-     * attribute is mandatory.</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     * 
-     * <p>Indicates if there was an there was no adverse reaction 
-     * when the patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows providers to confirm or eliminate specific agents 
      * as being the cause for the allergy/intolerance. E.g. If a 
      * reaction is recorded for Tylenol 3, but no reaction is 
      * recorded for regular Tylenol or for coffee, this suggests 
      * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>D:No reaction occurred</p>
+     * attribute is mandatory because it is essential to know 
+     * whether the reaction occurred or not.</p>
      * 
      * <p>Indicates if there was an adverse reaction when the 
      * patient was exposed to the agent to which an 
      * allergy/intolerance has been recorded.</p>
      * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * attribute is mandatory because it is essential to know 
-     * whether the reaction occurred or not.</p>
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows providers to confirm or eliminate specific agents 
      * as being the cause for the allergy/intolerance. E.g. If a 
      * reaction is recorded for Tylenol 3, but no reaction is 
      * recorded for regular Tylenol or for coffee, this suggests 
      * that the likely cause of the allergy is Codeine.</p><p>The 
-     * attribute is mandatory because it is essential to know 
-     * whether the reaction occurred or not.</p>
+     * element is mandatory because it is essential to know for a 
+     * given record whether the reaction occurred or not.</p>
+     * 
+     * <p>Indicates if there was an there was no adverse reaction 
+     * when the patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * record reflects a reaction that did or did not occur, this 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Indicates that there was no adverse reaction when the 
+     * patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * reaction occurred or not, this attribute is mandatory.</p>
+     * 
+     * <p>Indicates that there was no adverse reaction when the 
+     * patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -677,97 +1372,84 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>NoReactionOccurred</p>
+     * <p>Business Name: NoReactionOccurred</p>
      * 
-     * <p>D:No reaction occurred</p>
+     * <p>Other Business Name: NoReactionOccurred</p>
      * 
-     * <p>Indicates that there was no adverse reaction when the 
-     * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.ObservationEvent.negationInd</p>
      * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * reaction occurred or not, this attribute is mandatory.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * reaction occurred or not, this attribute is mandatory.</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     * 
-     * <p>Indicates that there was no adverse reaction when the 
-     * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * record reflects a reaction that did or did not occur, this 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * record reflects a reaction that did or did not occur, this 
-     * attribute is mandatory.</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     * 
-     * <p>Indicates if there was an there was no adverse reaction 
-     * when the patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows providers to confirm or eliminate specific agents 
      * as being the cause for the allergy/intolerance. E.g. If a 
      * reaction is recorded for Tylenol 3, but no reaction is 
      * recorded for regular Tylenol or for coffee, this suggests 
      * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>D:No reaction occurred</p>
+     * attribute is mandatory because it is essential to know 
+     * whether the reaction occurred or not.</p>
      * 
      * <p>Indicates if there was an adverse reaction when the 
      * patient was exposed to the agent to which an 
      * allergy/intolerance has been recorded.</p>
      * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * attribute is mandatory because it is essential to know 
-     * whether the reaction occurred or not.</p>
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows providers to confirm or eliminate specific agents 
      * as being the cause for the allergy/intolerance. E.g. If a 
      * reaction is recorded for Tylenol 3, but no reaction is 
      * recorded for regular Tylenol or for coffee, this suggests 
      * that the likely cause of the allergy is Codeine.</p><p>The 
-     * attribute is mandatory because it is essential to know 
-     * whether the reaction occurred or not.</p>
+     * element is mandatory because it is essential to know for a 
+     * given record whether the reaction occurred or not.</p>
+     * 
+     * <p>Indicates if there was an there was no adverse reaction 
+     * when the patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * record reflects a reaction that did or did not occur, this 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Indicates that there was no adverse reaction when the 
+     * patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * reaction occurred or not, this attribute is mandatory.</p>
+     * 
+     * <p>Indicates that there was no adverse reaction when the 
+     * patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -775,14 +1457,51 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>Description</p>
+     * <p>Business Name: Description</p>
      * 
-     * <p>G:Description</p>
+     * <p>Other Business Name: Description</p>
      * 
-     * <p>A free form description of the reaction.</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -790,14 +1509,51 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>Description</p>
+     * <p>Business Name: Description</p>
      * 
-     * <p>G:Description</p>
+     * <p>Other Business Name: Description</p>
      * 
-     * <p>A free form description of the reaction.</p>
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -805,15 +1561,59 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>ReactionOnsetDate</p>
+     * <p>Business Name: ReactionOnsetDate</p>
      * 
-     * <p>F:Reaction Onset Date</p>
+     * <p>Other Business Name: ReactionOnsetDate</p>
      * 
-     * <p>The date on which the reaction occurrence began.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when evidence of the condition first appeared. 
      * May also provide information on the duration of the 
      * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -821,26 +1621,120 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
     /**
-     * <p>ReactionOnsetDate</p>
+     * <p>Business Name: ReactionOnsetDate</p>
      * 
-     * <p>F:Reaction Onset Date</p>
+     * <p>Other Business Name: ReactionOnsetDate</p>
      * 
-     * <p>The date on which the reaction occurrence began.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when evidence of the condition first appeared. 
      * May also provide information on the duration of the 
      * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
         return this.subjectOfSeverityObservation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
         this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }

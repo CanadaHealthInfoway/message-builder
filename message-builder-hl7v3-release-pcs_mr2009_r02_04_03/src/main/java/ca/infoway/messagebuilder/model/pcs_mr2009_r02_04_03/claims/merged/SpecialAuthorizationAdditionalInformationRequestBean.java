@@ -36,16 +36,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST text = new STImpl();
     private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;
 
 
     /**
-     * <p>AdditionalInformationRequestID</p>
+     * <p>Business Name: AdditionalInformationRequestID</p>
      * 
-     * <p>Additional Information Request ID</p>
+     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -53,9 +72,28 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     }
 
     /**
-     * <p>AdditionalInformationRequestID</p>
+     * <p>Business Name: AdditionalInformationRequestID</p>
      * 
-     * <p>Additional Information Request ID</p>
+     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -63,9 +101,28 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
 
 
     /**
-     * <p>AdditionalInformationQuestion</p>
+     * <p>Business Name: AdditionalInformationQuestion</p>
      * 
-     * <p>Additional Information Question</p>
+     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -73,20 +130,55 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     }
 
     /**
-     * <p>AdditionalInformationQuestion</p>
+     * <p>Business Name: AdditionalInformationQuestion</p>
      * 
-     * <p>Additional Information Question</p>
+     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490003CA.Reference.specialAuthorizationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"reference/specialAuthorizationRequest"})
     public SpecialAuthorizationRequestBean getReferenceSpecialAuthorizationRequest() {
         return this.referenceSpecialAuthorizationRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490003CA.Reference.specialAuthorizationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setReferenceSpecialAuthorizationRequest(SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest) {
         this.referenceSpecialAuthorizationRequest = referenceSpecialAuthorizationRequest;
     }

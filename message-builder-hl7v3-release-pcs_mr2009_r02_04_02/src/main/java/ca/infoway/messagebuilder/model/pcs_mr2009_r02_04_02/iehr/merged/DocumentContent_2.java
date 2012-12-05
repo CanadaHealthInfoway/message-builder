@@ -30,6 +30,25 @@ import java.util.List;
 public interface DocumentContent_2 {
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     public List<BecauseOfBean> getReason();
 
 }

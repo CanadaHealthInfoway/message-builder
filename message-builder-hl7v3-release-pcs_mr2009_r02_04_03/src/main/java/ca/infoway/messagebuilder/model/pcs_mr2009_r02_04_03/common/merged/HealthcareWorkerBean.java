@@ -46,10 +46,6 @@ import java.util.List;
 /**
  * <p>COCT_MT090108CA.AssignedEntity: Healthcare Worker</p>
  * 
- * <p>The person organization assigned to carry out the 
- * associated (linked by a participation) action and/or the 
- * organization under whose authority they are acting.</p>
- * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up. The CMET supports both licensed providers as well 
  * as non-licensed providers such as technicians, 
@@ -58,19 +54,23 @@ import java.util.List;
  * <p>All attributes other than the various identifiers are 
  * expected to be retrieved from the provider registry.</p>
  * 
- * <p>COCT_MT090502CA.AssignedEntity: Healthcare Organization</p>
+ * <p>The person organization assigned to carry out the 
+ * associated (linked by a participation) action and/or the 
+ * organization under whose authority they are acting.</p>
  * 
- * <p>The organization under whose authority the associated 
- * action (linked by a participation) was performed.</p>
+ * <p>COCT_MT090502CA.AssignedEntity: Healthcare Organization</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up.</p>
+ * 
+ * <p>The organization under whose authority the associated 
+ * action (linked by a participation) was performed.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT090108CA.AssignedEntity","COCT_MT090502CA.AssignedEntity"})
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice, ActingPerson, AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Recipient, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RoleChoice, EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<II> id = new ArrayList<II>();
     private CV code = new CVImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -79,15 +79,19 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerIdentifier</p>
+     * <p>Business Name: HealthcareWorkerIdentifier</p>
      * 
-     * <p>A:Healthcare Worker Identifier</p>
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
      * 
-     * <p>Unique identifier the person involved in the action.</p>
+     * <p>Relationship: COCT_MT090108CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      * 
      * <p>Allows unique identification of the person which can be 
      * critical for authentication, permissions, drill-down and 
      * traceability and is therefore mandatory.</p>
+     * 
+     * <p>Unique identifier the person involved in the action.</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -96,17 +100,21 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerType</p>
+     * <p>Business Name: HealthcareWorkerType</p>
      * 
-     * <p>B: Healthcare Worker Type</p>
+     * <p>Other Business Name: HealthcareWorkerType</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the &quot;kind&quot; of healthcare participant, 
      * such as &quot;physician&quot;, &quot;dentist&quot;, 
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
-     * 
-     * <p>Provides context around the actions of the participant 
-     * and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"code"})
     public AssignedRoleType getCode() {
@@ -114,17 +122,21 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>HealthcareWorkerType</p>
+     * <p>Business Name: HealthcareWorkerType</p>
      * 
-     * <p>B: Healthcare Worker Type</p>
+     * <p>Other Business Name: HealthcareWorkerType</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the &quot;kind&quot; of healthcare participant, 
      * such as &quot;physician&quot;, &quot;dentist&quot;, 
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
-     * 
-     * <p>Provides context around the actions of the participant 
-     * and is therefore mandatory.</p>
      */
     public void setCode(AssignedRoleType code) {
         this.code.setValue(code);
@@ -132,16 +144,20 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerPhoneAndEmails</p>
+     * <p>Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>E: Healthcare Worker Phone and Emails</p>
+     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>Indicates phone and/or e-mail addresses at which the 
-     * healthcare worker can be reached.</p>
+     * <p>Relationship: COCT_MT090108CA.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>This is the most commonly used piece of contact 
      * information and is returned here to avoid unnecessary 
      * queries of the provider registry.</p>
+     * 
+     * <p>Indicates phone and/or e-mail addresses at which the 
+     * healthcare worker can be reached.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -149,21 +165,67 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedPerson"})
     public ActingPersonBean getAssignedPerson() {
         return this.assignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedPerson(ActingPersonBean assignedPerson) {
         this.assignedPerson = assignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090502CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"representedOrganization"})
     public ResponsibleOrganizationBean getRepresentedOrganization() {
         return this.representedOrganization;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090502CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setRepresentedOrganization(ResponsibleOrganizationBean representedOrganization) {
         this.representedOrganization = representedOrganization;
     }

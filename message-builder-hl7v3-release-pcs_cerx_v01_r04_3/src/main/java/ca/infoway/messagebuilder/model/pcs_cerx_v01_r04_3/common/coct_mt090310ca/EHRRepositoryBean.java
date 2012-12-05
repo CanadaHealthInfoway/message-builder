@@ -33,32 +33,36 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>EHR Repository</p>
+ * <p>Business Name: EHR Repository</p>
+ * 
+ * <p>Provides context about the record and its management.</p>
  * 
  * <p>Identification of the EHR infostructure responsible for 
  * the storage and management of the record</p>
- * 
- * <p>Provides context about the record and its management.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT090310CA.AssignedDevice"})
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST assignedRepositoryLocationName = new STImpl();
     private TEL assignedRepositoryLocationTelecom = new TELImpl();
     private ST representedRepositoryJurisdictionName = new STImpl();
 
 
     /**
-     * <p>Repository Name</p>
+     * <p>Business Name: Repository Name</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryLocation.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable name for the repository and is 
+     * therefore mandatory</p>
      * 
      * <p>The name of the repository which is responsible for 
      * maintaining the record. E.g. &quot;Ontario Health 
      * Respository #3&quot;</p>
-     * 
-     * <p>Provides a human-readable name for the repository and is 
-     * therefore mandatory</p>
      */
     @Hl7XmlMapping({"assignedRepositoryLocation/name"})
     public String getAssignedRepositoryLocationName() {
@@ -66,14 +70,18 @@ public class EHRRepositoryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Repository Name</p>
+     * <p>Business Name: Repository Name</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryLocation.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable name for the repository and is 
+     * therefore mandatory</p>
      * 
      * <p>The name of the repository which is responsible for 
      * maintaining the record. E.g. &quot;Ontario Health 
      * Respository #3&quot;</p>
-     * 
-     * <p>Provides a human-readable name for the repository and is 
-     * therefore mandatory</p>
      */
     public void setAssignedRepositoryLocationName(String assignedRepositoryLocationName) {
         this.assignedRepositoryLocationName.setValue(assignedRepositoryLocationName);
@@ -81,13 +89,17 @@ public class EHRRepositoryBean extends MessagePartBean {
 
 
     /**
-     * <p>Repository URL</p>
+     * <p>Business Name: Repository URL</p>
      * 
-     * <p>Identification of the electronic address for reaching the 
-     * repository where the event is stored.</p>
+     * <p>Relationship: COCT_MT090310CA.RepositoryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows direct access to the repository and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identification of the electronic address for reaching the 
+     * repository where the event is stored.</p>
      */
     @Hl7XmlMapping({"assignedRepositoryLocation/telecom"})
     public TelecommunicationAddress getAssignedRepositoryLocationTelecom() {
@@ -95,13 +107,17 @@ public class EHRRepositoryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Repository URL</p>
+     * <p>Business Name: Repository URL</p>
      * 
-     * <p>Identification of the electronic address for reaching the 
-     * repository where the event is stored.</p>
+     * <p>Relationship: COCT_MT090310CA.RepositoryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows direct access to the repository and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identification of the electronic address for reaching the 
+     * repository where the event is stored.</p>
      */
     public void setAssignedRepositoryLocationTelecom(TelecommunicationAddress assignedRepositoryLocationTelecom) {
         this.assignedRepositoryLocationTelecom.setValue(assignedRepositoryLocationTelecom);
@@ -109,13 +125,17 @@ public class EHRRepositoryBean extends MessagePartBean {
 
 
     /**
-     * <p>Repository Jurisdiction Name</p>
+     * <p>Business Name: Repository Jurisdiction Name</p>
      * 
-     * <p>The name of the jurisdiction that is responsible for the 
-     * EHR infostructure that contains and manages the record.</p>
+     * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Establishes business context for determining 
      * custodianship, and is therefore mandatory.</p>
+     * 
+     * <p>The name of the jurisdiction that is responsible for the 
+     * EHR infostructure that contains and manages the record.</p>
      */
     @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
     public String getRepresentedRepositoryJurisdictionName() {
@@ -123,13 +143,17 @@ public class EHRRepositoryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Repository Jurisdiction Name</p>
+     * <p>Business Name: Repository Jurisdiction Name</p>
      * 
-     * <p>The name of the jurisdiction that is responsible for the 
-     * EHR infostructure that contains and manages the record.</p>
+     * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Establishes business context for determining 
      * custodianship, and is therefore mandatory.</p>
+     * 
+     * <p>The name of the jurisdiction that is responsible for the 
+     * EHR infostructure that contains and manages the record.</p>
      */
     public void setRepresentedRepositoryJurisdictionName(String representedRepositoryJurisdictionName) {
         this.representedRepositoryJurisdictionName.setValue(representedRepositoryJurisdictionName);

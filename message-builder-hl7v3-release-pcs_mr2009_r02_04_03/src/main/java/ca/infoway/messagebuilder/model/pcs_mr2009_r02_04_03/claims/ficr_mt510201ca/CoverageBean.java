@@ -38,13 +38,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Coverage"})
 public class CoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private PolicyOrAccountBean policyOrAccount;
 
 
     /**
-     * <p>COB sequence as adjudicated.</p>
+     * <p>Business Name: COB sequence as adjudicated.</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.Coverage.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
@@ -52,18 +56,32 @@ public class CoverageBean extends MessagePartBean {
     }
 
     /**
-     * <p>COB sequence as adjudicated.</p>
+     * <p>Business Name: COB sequence as adjudicated.</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.Coverage.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Coverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"policyOrAccount"})
     public PolicyOrAccountBean getPolicyOrAccount() {
         return this.policyOrAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Coverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPolicyOrAccount(PolicyOrAccountBean policyOrAccount) {
         this.policyOrAccount = policyOrAccount;
     }

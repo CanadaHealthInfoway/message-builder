@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>PORX_IN010070CA: Record refusal to dispense request 
- * accepted</p>
+ * <p>Business Name: PORX_IN010070CA: Record refusal to 
+ * dispense request accepted</p>
+ * 
+ * <p>Indicates that the requested &quot;&quot;refusal to 
+ * fill&quot;&quot; note has been recorded against the 
+ * identified prescription.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"PORX_IN010070CA"})
 public class RecordRefusalToDispenseRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

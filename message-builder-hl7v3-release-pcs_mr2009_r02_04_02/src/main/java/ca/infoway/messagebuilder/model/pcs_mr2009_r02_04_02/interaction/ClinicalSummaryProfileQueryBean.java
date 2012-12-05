@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
 
 
 /**
- * <p>COMT_IN100000CA: Clinical summary/profile query</p>
+ * <p>Business Name: COMT_IN100000CA: Clinical summary/profile 
+ * query</p>
+ * 
+ * <p>Requests retrieval for matching 'summary' versions of 
+ * clinical data based on search criteria.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
 @Hl7PartTypeMapping({"COMT_IN100000CA"})
 public class ClinicalSummaryProfileQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

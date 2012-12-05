@@ -30,19 +30,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Business Arrangement</p>
+ * <p>Business Name: Business Arrangement</p>
  * 
  * <p>Business arrangement for payment purposes.</p>
  */
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsFinancialContract"})
 public class BusinessArrangementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>Business Arrangement ID</p>
+     * <p>Business Name: Business Arrangement ID</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Business arrangement identifier</p>
      */
@@ -52,7 +57,12 @@ public class BusinessArrangementBean extends MessagePartBean {
     }
 
     /**
-     * <p>Business Arrangement ID</p>
+     * <p>Business Name: Business Arrangement ID</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Business arrangement identifier</p>
      */

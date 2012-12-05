@@ -30,7 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.poiz_mt
 
 
 /**
- * <p>POIZ_IN020020CA: Immunizations query response</p>
+ * <p>Business Name: POIZ_IN020020CA: Immunizations query 
+ * response</p>
+ * 
+ * <p>Returns detailed information about a patient's 
+ * immunizations.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -43,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.poiz_mt
 @Hl7PartTypeMapping({"POIZ_IN020020CA"})
 public class ImmunizationsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ImmunizationsBean,ImmunizationQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -46,15 +46,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActAdjud
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResultRequiredAct","FICR_MT610201CA.AdjudicationResultRequiredAct"})
 public class AdjudicationResultRequiredActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private FormRoleBean directTargetFormRole;
 
 
     /**
-     * <p>RequiredActionType</p>
+     * <p>Business Name: RequiredActionType</p>
      * 
-     * <p>Required Action Type</p>
+     * <p>Other Business Name: RequiredActionType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.AdjudicationResultRequiredAct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RequiredActionType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultRequiredAct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActAdjudicationResultActionType getCode() {
@@ -62,20 +74,46 @@ public class AdjudicationResultRequiredActBean extends MessagePartBean {
     }
 
     /**
-     * <p>RequiredActionType</p>
+     * <p>Business Name: RequiredActionType</p>
      * 
-     * <p>Required Action Type</p>
+     * <p>Other Business Name: RequiredActionType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.AdjudicationResultRequiredAct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RequiredActionType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultRequiredAct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActAdjudicationResultActionType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.DirectTarget.formRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/formRole"})
     public FormRoleBean getDirectTargetFormRole() {
         return this.directTargetFormRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.DirectTarget.formRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectTargetFormRole(FormRoleBean directTargetFormRole) {
         this.directTargetFormRole = directTargetFormRole;
     }

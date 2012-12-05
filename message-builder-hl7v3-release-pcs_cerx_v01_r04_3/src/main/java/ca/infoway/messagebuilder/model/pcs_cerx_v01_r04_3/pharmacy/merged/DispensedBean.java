@@ -28,44 +28,62 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca
 
 
 /**
- * <p>Dispensed</p>
+ * <p>Business Name: Dispensed</p>
  * 
  * <p>PORX_MT980020CA.Product: *a:dispensed</p>
  * 
+ * <p>Important information for issue management.</p><p>The 
+ * association is only marked as 'populated' because it may be 
+ * masked.</p>
+ * 
  * <p>Indicates the implicated drug that was dispensed.</p>
- * 
- * <p>Important information for issue management.</p><p>The 
- * association is only marked as 'populated' because it may be 
- * masked.</p>
- * 
- * <p>Important information for issue management.</p><p>The 
- * association is only marked as 'populated' because it may be 
- * masked.</p>
  * 
  * <p>PORX_MT980010CA.Product: *a:dispensed</p>
  * 
+ * <p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p>
+ * 
  * <p>Indicates the drug that was dispensed</p>
- * 
- * <p>Important information for issue management.</p><p>The 
- * association is marked as populated because it may be 
- * masked.</p>
- * 
- * <p>Important information for issue management.</p><p>The 
- * association is marked as populated because it may be 
- * masked.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.Product","PORX_MT980020CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DrugProductBean medication;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"medication"})
     public DrugProductBean getMedication() {
         return this.medication;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setMedication(DrugProductBean medication) {
         this.medication = medication;
     }

@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInsur
 @Hl7PartTypeMapping({"FICR_MT490102CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CoveredPartyBean beneficiaryCoveredParty;
@@ -46,7 +46,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Policy Identifier</p>
+     * <p>Business Name: Policy Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -54,7 +58,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Policy Identifier</p>
+     * <p>Business Name: Policy Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -62,7 +70,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Policy Type</p>
+     * <p>Business Name: Policy Type</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInsurancePolicyType getCode() {
@@ -70,7 +82,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Policy Type</p>
+     * <p>Business Name: Policy Type</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInsurancePolicyType code) {
         this.code.setValue(code);
@@ -98,7 +114,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Carrier Identifier</p>
+     * <p>Business Name: Carrier Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author/underwriter/id"})
     public Identifier getAuthorUnderwriterId() {
@@ -106,7 +126,11 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Carrier Identifier</p>
+     * <p>Business Name: Carrier Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAuthorUnderwriterId(Identifier authorUnderwriterId) {
         this.authorUnderwriterId.setValue(authorUnderwriterId);

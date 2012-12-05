@@ -30,27 +30,65 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice;
 /**
  * <p>POIZ_MT030060CA.Reason: (no business name)</p>
  * 
- * <p>Information about the reason why an immunization event 
- * did or did not occur.</p>
- * 
  * <p>Needed for explicit declaration of the reasons behind a 
  * vaccine administration - or why a vaccine was not 
  * administered. This information may not always be known, but 
  * is expected in most circumstances. As a result, this 
  * association is populated.</p>
+ * 
+ * <p>Information about the reason why an immunization event 
+ * did or did not occur.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Reason","POIZ_MT030060CA.Reason","POIZ_MT060150CA.Reason"})
 public class ReasonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private Choice choice;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Reason.choice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Reason.choice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Reason.choice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"choice"})
     public Choice getChoice() {
         return this.choice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Reason.choice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Reason.choice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Reason.choice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setChoice(Choice choice) {
         this.choice = choice;
     }

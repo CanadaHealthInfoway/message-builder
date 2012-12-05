@@ -39,14 +39,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Payee Person</p>
+ * <p>Business Name: Payee Person</p>
  * 
  * <p>Person receiving payment from Payor</p>
  */
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PayeeRelationshipRoleBean asRole;
     private PN name = new PNImpl();
     private AD addr = new ADImpl();
@@ -55,18 +55,32 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     private BL payeeLanguagePreferenceInd = new BLImpl();
 
 
+    /**
+     * <p>Relationship: COCT_MT110200CA.PayeeChoice.asRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"asRole"})
     public PayeeRelationshipRoleBean getAsRole() {
         return this.asRole;
     }
 
+    /**
+     * <p>Relationship: COCT_MT110200CA.PayeeChoice.asRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAsRole(PayeeRelationshipRoleBean asRole) {
         this.asRole = asRole;
     }
 
 
     /**
-     * <p>payee name</p>
+     * <p>Business Name: payee name</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeePerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>name of person who is the payee</p>
      */
@@ -76,7 +90,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
 
     /**
-     * <p>payee name</p>
+     * <p>Business Name: payee name</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeePerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>name of person who is the payee</p>
      */
@@ -86,7 +104,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
 
     /**
-     * <p>payee address</p>
+     * <p>Business Name: payee address</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeePerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -94,7 +116,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
 
     /**
-     * <p>payee address</p>
+     * <p>Business Name: payee address</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeePerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
@@ -102,7 +128,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
 
     /**
-     * <p>Payee Person Language</p>
+     * <p>Business Name: Payee Person Language</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeLanguage.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"payeeLanguage/languageCode"})
     public HumanLanguage getPayeeLanguageLanguageCode() {
@@ -110,7 +140,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
 
     /**
-     * <p>Payee Person Language</p>
+     * <p>Business Name: Payee Person Language</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeLanguage.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setPayeeLanguageLanguageCode(HumanLanguage payeeLanguageLanguageCode) {
         this.payeeLanguageLanguageCode.setValue(payeeLanguageLanguageCode);
@@ -118,7 +152,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
 
     /**
-     * <p>Language of Communication</p>
+     * <p>Business Name: Language of Communication</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeLanguage.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A value presenting the method of expression of the 
      * language.</p>
@@ -129,7 +167,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
 
     /**
-     * <p>Language of Communication</p>
+     * <p>Business Name: Language of Communication</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeLanguage.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A value presenting the method of expression of the 
      * language.</p>
@@ -140,7 +182,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
 
     /**
-     * <p>Preferred Language Indicator</p>
+     * <p>Business Name: Preferred Language Indicator</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeLanguage.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"payeeLanguage/preferenceInd"})
     public Boolean getPayeeLanguagePreferenceInd() {
@@ -148,7 +194,11 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
 
     /**
-     * <p>Preferred Language Indicator</p>
+     * <p>Business Name: Preferred Language Indicator</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeLanguage.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setPayeeLanguagePreferenceInd(Boolean payeeLanguagePreferenceInd) {
         this.payeeLanguagePreferenceInd.setValue(payeeLanguagePreferenceInd);

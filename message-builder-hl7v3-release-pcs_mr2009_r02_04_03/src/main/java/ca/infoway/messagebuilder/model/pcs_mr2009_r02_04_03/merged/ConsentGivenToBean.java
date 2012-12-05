@@ -27,66 +27,130 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ConsentGivenTo</p>
+ * <p>Business Name: ConsentGivenTo</p>
  * 
  * <p>RCMR_MT010001CA.Receiver: *consent given to</p>
- * 
- * <p>Identifies the beneficiary of the consent as being a 
- * Provider or Service Location.</p>
  * 
  * <p>Indicates who is being authorized to receive the 
  * information, and is therefore populated.</p>
  * 
- * <p>COCT_MT470012CA.Receiver: *consent given to</p>
- * 
  * <p>Identifies the beneficiary of the consent as being a 
  * Provider or Service Location.</p>
  * 
- * <p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p>
+ * <p>COCT_MT470012CA.Receiver: *consent given to</p>
  * 
  * <p>Indicates who is receiving consent to view 
  * information.</p><p>This participation is marked as 
  * &quot;populated&quot; as receiver must be specified when 
  * keyword is involved.</p>
+ * 
+ * <p>Identifies the beneficiary of the consent as being a 
+ * Provider or Service Location.</p>
  * 
  * <p>COCT_MT470002CA.Receiver: *consent given to</p>
  * 
+ * <p>Indicates who is receiving consent to view 
+ * information.</p><p>This participation is marked as 
+ * &quot;populated&quot; as receiver must be specified when 
+ * keyword is involved.</p>
+ * 
  * <p>Identifies the beneficiary of the consent as being a 
  * Provider or Service Location.</p>
  * 
- * <p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p>
- * 
- * <p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p>
- * 
  * <p>POIZ_MT030060CA.Receiver: (no business name)</p>
- * 
- * <p>Identifies the beneficiary of the consent.</p>
  * 
  * <p>Indicates who is receiving consent to administer the 
  * vaccine. This information may not always be known. As a 
  * result, this association is required.</p>
+ * 
+ * <p>Identifies the beneficiary of the consent.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470002CA.Receiver","COCT_MT470012CA.Receiver","POIZ_MT030050CA.Receiver","POIZ_MT030060CA.Receiver","POIZ_MT060150CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private Recipient recipient;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recipient"})
     public Recipient getRecipient() {
         return this.recipient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecipient(Recipient recipient) {
         this.recipient = recipient;
     }

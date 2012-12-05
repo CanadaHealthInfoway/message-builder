@@ -52,7 +52,7 @@ import java.util.Set;
 @Hl7RootType
 public class DocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -66,7 +66,11 @@ public class DocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>B: Document Category</p>
+     * <p>Business Name: B: Document Category</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ReferralDocumentType getCode() {
@@ -74,7 +78,11 @@ public class DocumentBean extends MessagePartBean {
     }
 
     /**
-     * <p>B: Document Category</p>
+     * <p>Business Name: B: Document Category</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ReferralDocumentType code) {
         this.code.setValue(code);
@@ -82,7 +90,11 @@ public class DocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>J: Document Title</p>
+     * <p>Business Name: J: Document Title</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Document.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
@@ -90,7 +102,11 @@ public class DocumentBean extends MessagePartBean {
     }
 
     /**
-     * <p>J: Document Title</p>
+     * <p>Business Name: J: Document Title</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Document.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setTitle(String title) {
         this.title.setValue(title);
@@ -98,7 +114,12 @@ public class DocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>E: Document Masking Indicators</p>
+     * <p>Business Name: E: Document Masking Indicators</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.Document.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -106,11 +127,23 @@ public class DocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT210001CA.ResponsibleParty.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
     public ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT210001CA.ResponsibleParty.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setResponsiblePartyActingPerson(ActingPerson responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
@@ -159,11 +192,21 @@ public class DocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.Component3.section</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/structuredBody/component/section"})
     public SectionBean getComponentStructuredBodyComponentSection() {
         return this.componentStructuredBodyComponentSection;
     }
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.Component3.section</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
         this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }

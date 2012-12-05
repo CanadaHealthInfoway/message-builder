@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>PORX_IN040090CA: Update other medication request refused</p>
+ * <p>Business Name: PORX_IN040090CA: Update other medication 
+ * request refused</p>
+ * 
+ * <p>Indicates that the request to update information about an 
+ * existing medication record has been refused.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"PORX_IN040090CA"})
 public class UpdateOtherMedicationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

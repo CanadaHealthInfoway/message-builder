@@ -38,18 +38,18 @@ import java.util.Set;
 
 
 /**
- * <p>Organization</p>
- * 
- * <p>The scoping organization for the specified role class</p>
+ * <p>Business Name: Organization</p>
  * 
  * <p>Supports the requirement to supply additional information 
  * regarding the assigning Organization of the specified 
  * RoleClass</p>
+ * 
+ * <p>The scoping organization for the specified role class</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST name = new STImpl();
     private SET<AD, PostalAddress> addr = new SETImpl<AD, PostalAddress>(ADImpl.class);
@@ -57,14 +57,18 @@ public class OrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Organization Id</p>
+     * <p>Business Name: Organization Id</p>
      * 
-     * <p>Unique identifier for the organization that assigned the 
-     * specified roleClass identifier.</p>
+     * <p>Relationship: PRPM_MT306011CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the scoping organization assigning the id 
      * to the specified roleClass</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * specified roleClass identifier.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -72,14 +76,18 @@ public class OrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Organization Id</p>
+     * <p>Business Name: Organization Id</p>
      * 
-     * <p>Unique identifier for the organization that assigned the 
-     * specified roleClass identifier.</p>
+     * <p>Relationship: PRPM_MT306011CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the scoping organization assigning the id 
      * to the specified roleClass</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * specified roleClass identifier.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -87,29 +95,21 @@ public class OrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Name(s</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Name(s</p>
      * 
-     * <p>1. Organization that is responsible for registering the 
-     * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a providers functional 
-     * role.</p><p>3. Organization that grants the qualifications 
-     * or expertise.</p>
+     * <p>Relationship: PRPM_MT306011CA.Organization.name</p>
      * 
-     * <p>1. Organization that is responsible for registering the 
-     * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a providers functional 
-     * role.</p><p>3. Organization that grants the qualifications 
-     * or expertise.</p>
-     * 
-     * <p>1. Organization that is responsible for registering the 
-     * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a providers functional 
-     * role.</p><p>3. Organization that grants the qualifications 
-     * or expertise.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the healthcare provider</p>
+     * 
+     * <p>1. Organization that is responsible for registering the 
+     * provider for a specific healthcare provider role.</p><p>2. 
+     * Organization associated with a providers functional 
+     * role.</p><p>3. Organization that grants the qualifications 
+     * or expertise.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -117,29 +117,21 @@ public class OrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Name(s</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Name(s</p>
      * 
-     * <p>1. Organization that is responsible for registering the 
-     * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a providers functional 
-     * role.</p><p>3. Organization that grants the qualifications 
-     * or expertise.</p>
+     * <p>Relationship: PRPM_MT306011CA.Organization.name</p>
      * 
-     * <p>1. Organization that is responsible for registering the 
-     * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a providers functional 
-     * role.</p><p>3. Organization that grants the qualifications 
-     * or expertise.</p>
-     * 
-     * <p>1. Organization that is responsible for registering the 
-     * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a providers functional 
-     * role.</p><p>3. Organization that grants the qualifications 
-     * or expertise.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the healthcare provider</p>
+     * 
+     * <p>1. Organization that is responsible for registering the 
+     * provider for a specific healthcare provider role.</p><p>2. 
+     * Organization associated with a providers functional 
+     * role.</p><p>3. Organization that grants the qualifications 
+     * or expertise.</p>
      */
     public void setName(String name) {
         this.name.setValue(name);
@@ -147,27 +139,19 @@ public class OrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Address(es</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Address(es</p>
      * 
-     * <p>Address for any of the supported roles</p><p>1. Issuing 
-     * Oganization</p><p>2. Representing Organization</p><p>3. 
-     * Qualification Granting Organization</p>
+     * <p>Relationship: PRPM_MT306011CA.Organization.addr</p>
      * 
-     * <p>Address for any of the supported roles</p><p>1. Issuing 
-     * Oganization</p><p>2. Representing Organization</p><p>3. 
-     * Qualification Granting Organization</p>
-     * 
-     * <p>Address for any of the supported roles</p><p>1. Issuing 
-     * Oganization</p><p>2. Representing Organization</p><p>3. 
-     * Qualification Granting Organization</p>
-     * 
-     * <p>Address for any of the supported roles</p><p>1. Issuing 
-     * Oganization</p><p>2. Representing Organization</p><p>3. 
-     * Qualification Granting Organization</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the healthcare provider</p>
+     * 
+     * <p>Address for any of the supported roles</p><p>1. Issuing 
+     * Oganization</p><p>2. Representing Organization</p><p>3. 
+     * Qualification Granting Organization</p>
      */
     @Hl7XmlMapping({"addr"})
     public Set<PostalAddress> getAddr() {
@@ -175,11 +159,23 @@ public class OrganizationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Organization.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"territorialAuthority"})
     public TerritorialAuthorityBean getTerritorialAuthority() {
         return this.territorialAuthority;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Organization.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
         this.territorialAuthority = territorialAuthority;
     }

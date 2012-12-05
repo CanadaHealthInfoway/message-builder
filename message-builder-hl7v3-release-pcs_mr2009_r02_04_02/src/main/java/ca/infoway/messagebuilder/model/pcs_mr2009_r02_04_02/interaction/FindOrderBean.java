@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt330000ca.
 
 
 /**
- * <p>POLB_IN351000CA: Find Order</p>
+ * <p>Business Name: POLB_IN351000CA: Find Order</p>
+ * 
+ * <p>This interaction is used to query lab orders from a 
+ * JLIS.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt330000ca.
 @Hl7PartTypeMapping({"POLB_IN351000CA"})
 public class FindOrderBean extends HL7Message_1Bean<TriggerEvent_5Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

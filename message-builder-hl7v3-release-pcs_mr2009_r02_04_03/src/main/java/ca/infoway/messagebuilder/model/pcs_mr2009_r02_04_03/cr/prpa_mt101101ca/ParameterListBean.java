@@ -40,18 +40,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II clientIDBusValue = new IIImpl();
     private II clientIDPubValue = new IIImpl();
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
      * 
-     * <p>This identification attribute supports capture of a 
-     * healthcare identifier specific to the client. This 
-     * identifier may be assigned jurisdictionally or by care 
-     * facility.</p>
+     * <p>Relationship: PRPA_MT101101CA.ClientIDBus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client and is a public identifier. E.G. Internal Business 
@@ -62,10 +61,10 @@ public class ParameterListBean extends MessagePartBean {
      * non mandatory requirements either a Public or Business 
      * Identifier must be supplied to support this Query.</p>
      * 
-     * <p>At least 1 client identifier must be present in the 
-     * message</p><p>Text constraint exists on the model to support 
-     * non mandatory requirements either a Public or Business 
-     * Identifier must be supplied to support this Query.</p>
+     * <p>This identification attribute supports capture of a 
+     * healthcare identifier specific to the client. This 
+     * identifier may be assigned jurisdictionally or by care 
+     * facility.</p>
      */
     @Hl7XmlMapping({"clientIDBus/value"})
     public Identifier getClientIDBusValue() {
@@ -73,12 +72,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
      * 
-     * <p>This identification attribute supports capture of a 
-     * healthcare identifier specific to the client. This 
-     * identifier may be assigned jurisdictionally or by care 
-     * facility.</p>
+     * <p>Relationship: PRPA_MT101101CA.ClientIDBus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client and is a public identifier. E.G. Internal Business 
@@ -89,10 +87,10 @@ public class ParameterListBean extends MessagePartBean {
      * non mandatory requirements either a Public or Business 
      * Identifier must be supplied to support this Query.</p>
      * 
-     * <p>At least 1 client identifier must be present in the 
-     * message</p><p>Text constraint exists on the model to support 
-     * non mandatory requirements either a Public or Business 
-     * Identifier must be supplied to support this Query.</p>
+     * <p>This identification attribute supports capture of a 
+     * healthcare identifier specific to the client. This 
+     * identifier may be assigned jurisdictionally or by care 
+     * facility.</p>
      */
     public void setClientIDBusValue(Identifier clientIDBusValue) {
         this.clientIDBusValue.setValue(clientIDBusValue);
@@ -100,12 +98,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
      * 
-     * <p>This identification attribute supports capture of a 
-     * healthcare identifier specific to the client. This 
-     * identifier may be assigned jurisdictionally or by care 
-     * facility.</p>
+     * <p>Relationship: PRPA_MT101101CA.ClientIDPub.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client and is a public identifier. E.G. Provincial Health 
@@ -116,10 +113,10 @@ public class ParameterListBean extends MessagePartBean {
      * non mandatory requirements either a Public or Business 
      * Identifier must be supplied to support this Query.</p>
      * 
-     * <p>At least 1 client identifier must be present in the 
-     * message</p><p>Text constraint exists on the model to support 
-     * non mandatory requirements either a Public or Business 
-     * Identifier must be supplied to support this Query.</p>
+     * <p>This identification attribute supports capture of a 
+     * healthcare identifier specific to the client. This 
+     * identifier may be assigned jurisdictionally or by care 
+     * facility.</p>
      */
     @Hl7XmlMapping({"clientIDPub/value"})
     public Identifier getClientIDPubValue() {
@@ -127,12 +124,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
      * 
-     * <p>This identification attribute supports capture of a 
-     * healthcare identifier specific to the client. This 
-     * identifier may be assigned jurisdictionally or by care 
-     * facility.</p>
+     * <p>Relationship: PRPA_MT101101CA.ClientIDPub.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client and is a public identifier. E.G. Provincial Health 
@@ -143,10 +139,10 @@ public class ParameterListBean extends MessagePartBean {
      * non mandatory requirements either a Public or Business 
      * Identifier must be supplied to support this Query.</p>
      * 
-     * <p>At least 1 client identifier must be present in the 
-     * message</p><p>Text constraint exists on the model to support 
-     * non mandatory requirements either a Public or Business 
-     * Identifier must be supplied to support this Query.</p>
+     * <p>This identification attribute supports capture of a 
+     * healthcare identifier specific to the client. This 
+     * identifier may be assigned jurisdictionally or by care 
+     * facility.</p>
      */
     public void setClientIDPubValue(Identifier clientIDPubValue) {
         this.clientIDPubValue.setValue(clientIDPubValue);

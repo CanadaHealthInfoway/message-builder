@@ -35,140 +35,140 @@ import java.util.Date;
 
 
 /**
- * <p>CreatedBy</p>
+ * <p>Business Name: CreatedBy</p>
  * 
  * <p>MCAI_MT700211CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MFMI_MT700751CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MCAI_MT700212CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MCAI_MT700220CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MCAI_MT700210CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MCAI_MT700230CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MFMI_MT700711CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MCAI_MT700221CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MCAI_MT700222CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>QUQI_MT020002CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MCAI_MT700232CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>QUQI_MT020000CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  * 
  * <p>MCAI_MT700231CA.Author: a:*created by</p>
  * 
- * <p>Indicates the person responsible for the event that 
- * caused this message.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
  * <p>Choice of Patient CMET is as follows:</p>
+ * 
+ * <p>Indicates the person responsible for the event that 
+ * caused this message.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Author","MCAI_MT700211CA.Author","MCAI_MT700212CA.Author","MCAI_MT700220CA.Author","MCAI_MT700221CA.Author","MCAI_MT700222CA.Author","MCAI_MT700230CA.Author","MCAI_MT700231CA.Author","MCAI_MT700232CA.Author","MFMI_MT700711CA.Author","MFMI_MT700751CA.Author","QUQI_MT020000CA.Author","QUQI_MT020002CA.Author"})
 public class CreatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -176,28 +176,228 @@ public class CreatedByBean extends MessagePartBean {
 
 
     /**
-     * <p>TimeOfCreation</p>
+     * <p>Business Name: TimeOfCreation</p>
      * 
-     * <p>D:Time of Creation</p>
+     * <p>Other Business Name: TimeOfCreation</p>
      * 
-     * <p>The time the person responsible for the event made the 
-     * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * decides today to put a prescription on hold starting next 
-     * Tuesday, the time of creation would be today and the change 
-     * effective period would be next Tuesday.)</p><p>This date can 
-     * be back-dated.</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.time</p>
      * 
-     * <p>The time the person responsible for the event made the 
-     * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * decides today to put a prescription on hold starting next 
-     * Tuesday, the time of creation would be today and the change 
-     * effective period would be next Tuesday.)</p><p>This date can 
-     * be back-dated.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The time a change is made is a critical piece of audit 
      * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700222CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -205,28 +405,228 @@ public class CreatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>TimeOfCreation</p>
+     * <p>Business Name: TimeOfCreation</p>
      * 
-     * <p>D:Time of Creation</p>
+     * <p>Other Business Name: TimeOfCreation</p>
      * 
-     * <p>The time the person responsible for the event made the 
-     * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * decides today to put a prescription on hold starting next 
-     * Tuesday, the time of creation would be today and the change 
-     * effective period would be next Tuesday.)</p><p>This date can 
-     * be back-dated.</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.time</p>
      * 
-     * <p>The time the person responsible for the event made the 
-     * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * decides today to put a prescription on hold starting next 
-     * Tuesday, the time of creation would be today and the change 
-     * effective period would be next Tuesday.)</p><p>This date can 
-     * be back-dated.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The time a change is made is a critical piece of audit 
      * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700222CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -234,15 +634,163 @@ public class CreatedByBean extends MessagePartBean {
 
 
     /**
-     * <p>InformationReceivedMethod</p>
+     * <p>Business Name: InformationReceivedMethod</p>
      * 
-     * <p>F:Information Received Method</p>
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
      * 
      * <p>Indicates how the person who recorded the event became 
      * aware of it.. E.g. Verbal, written, fax, etc.</p>
      * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>May have ramifications for the audit trail and 
      * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700222CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
@@ -250,15 +798,163 @@ public class CreatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>InformationReceivedMethod</p>
+     * <p>Business Name: InformationReceivedMethod</p>
      * 
-     * <p>F:Information Received Method</p>
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
      * 
      * <p>Indicates how the person who recorded the event became 
      * aware of it.. E.g. Verbal, written, fax, etc.</p>
      * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>May have ramifications for the audit trail and 
      * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700222CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
      */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
@@ -266,17 +962,189 @@ public class CreatedByBean extends MessagePartBean {
 
 
     /**
-     * <p>DigitalSignature</p>
+     * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>G:Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
      * 
-     * <p>Indicates the formal digital signature of the message 
-     * content.</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Digital signatures may be needed for authentication of 
      * message content. The attribute is marked as optional because 
      * it is not yet clear whether there is a use-case for this, or 
      * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700222CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
@@ -284,28 +1152,358 @@ public class CreatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>DigitalSignature</p>
+     * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>G:Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
      * 
-     * <p>Indicates the formal digital signature of the message 
-     * content.</p>
+     * <p>Relationship: MCAI_MT700211CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Digital signatures may be needed for authentication of 
      * message content. The attribute is marked as optional because 
      * it is not yet clear whether there is a use-case for this, or 
      * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700222CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
      */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700222CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"authorPerson"})
     public AuthorPerson getAuthorPerson() {
         return this.authorPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700230CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700222CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700232CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorPerson(AuthorPerson authorPerson) {
         this.authorPerson = authorPerson;
     }

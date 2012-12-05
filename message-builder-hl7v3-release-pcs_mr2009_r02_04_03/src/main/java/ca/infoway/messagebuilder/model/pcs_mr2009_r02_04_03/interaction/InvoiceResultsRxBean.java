@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>FICR_IN610102CA: Invoice Results, Rx</p>
+ * <p>Business Name: FICR_IN610102CA: Invoice Results, Rx</p>
+ * 
+ * <p>The sender sends an Invoice Adjudication Results message 
+ * containing the completed results of an Invoice Adjudication 
+ * Request for Pharmacy services and/or products.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN610102CA"})
 public class InvoiceResultsRxBean extends HL7Message_1Bean<TriggerEvent_2Bean<PaymentIntentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

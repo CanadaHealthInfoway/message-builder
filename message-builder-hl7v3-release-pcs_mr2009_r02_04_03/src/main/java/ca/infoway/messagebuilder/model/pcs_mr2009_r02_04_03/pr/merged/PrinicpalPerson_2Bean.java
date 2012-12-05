@@ -52,30 +52,30 @@ import java.util.Set;
 
 
 /**
- * <p>PrinicpalPerson</p>
+ * <p>Business Name: PrinicpalPerson</p>
  * 
  * <p>PRPM_MT306051CA.PrincipalPerson: Prinicpal Person</p>
  * 
+ * <p>Provides additional information about the person playing 
+ * the role of Healthcare Provider</p>
+ * 
  * <p>Identification of playing entity is required (0..1) to 
  * support the case in which information directly related to 
  * the playing party is not needed.</p>
- * 
- * <p>Provides additional information about the person playing 
- * the role of Healthcare Provider</p>
  * 
  * <p>PRPM_MT306011CA.PrincipalPerson: Prinicpal Person</p>
  * 
+ * <p>Provides additional information about the person playing 
+ * the role of Healthcare Provider</p>
+ * 
  * <p>Identification of playing entity is required (0..1) to 
  * support the case in which information directly related to 
  * the playing party is not needed.</p>
- * 
- * <p>Provides additional information about the person playing 
- * the role of Healthcare Provider</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.PrincipalPerson","PRPM_MT306051CA.PrincipalPerson"})
 public class PrinicpalPerson_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV administrativeGenderCode = new CVImpl();
@@ -87,16 +87,33 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonAggregateIdentifier</p>
+     * <p>Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Principal Person Aggregate Identifier</p>
+     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.PrincipalPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      * 
      * <p>A unique identifier for the person who may play various 
      * healthcare provider roles. This identifier is specific to 
      * the person not their roles.</p>
      * 
+     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.PrincipalPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>A unique identifier for the person who may play various 
+     * healthcare provider roles. This identifier is specific to 
+     * the person not their roles.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -105,12 +122,25 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonName</p>
+     * <p>Business Name: PrincipalPersonName</p>
      * 
-     * <p>Principal Person Name</p>
+     * <p>Other Business Name: PrincipalPersonName</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.PrincipalPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
      * 
      * <p>The persons name independent of any role they may 
      * play.</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonName</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.PrincipalPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
@@ -118,13 +148,8 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Name Must Exist.</p>
      * 
-     * <p>Principal Person Name</p>
-     * 
      * <p>The persons name independent of any role they may 
      * play.</p>
-     * 
-     * <p>Required attribute supports the identification of the 
-     * healthcare provider</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -133,17 +158,22 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonGender</p>
+     * <p>Business Name: PrincipalPersonGender</p>
      * 
-     * <p>Principal Person Gender</p>
+     * <p>Other Business Name: PrincipalPersonGender</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.PrincipalPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
      * <p>If Principal Person is included in the message, then 
      * Person Gender is Expected to Exist.</p>
+     * 
+     * <p>The principal persons gender.</p>
      */
     @Hl7XmlMapping({"administrativeGenderCode"})
     public AdministrativeGender getAdministrativeGenderCode() {
@@ -151,17 +181,22 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonGender</p>
+     * <p>Business Name: PrincipalPersonGender</p>
      * 
-     * <p>Principal Person Gender</p>
+     * <p>Other Business Name: PrincipalPersonGender</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.PrincipalPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
      * <p>If Principal Person is included in the message, then 
      * Person Gender is Expected to Exist.</p>
+     * 
+     * <p>The principal persons gender.</p>
      */
     public void setAdministrativeGenderCode(AdministrativeGender administrativeGenderCode) {
         this.administrativeGenderCode.setValue(administrativeGenderCode);
@@ -169,17 +204,21 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonDateOfBirth</p>
+     * <p>Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Principal Person Date of Birth</p>
+     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>Relationship: PRPM_MT306011CA.PrincipalPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
      * <p>If Principal Person is included in the message, then 
      * Prinicpal Person Date of Birth is Expected to Exist.</p>
+     * 
+     * <p>The principal persons date of birth.</p>
      */
     @Hl7XmlMapping({"birthTime"})
     public Date getBirthTime() {
@@ -187,17 +226,21 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonDateOfBirth</p>
+     * <p>Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Principal Person Date of Birth</p>
+     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>Relationship: PRPM_MT306011CA.PrincipalPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
      * <p>If Principal Person is included in the message, then 
      * Prinicpal Person Date of Birth is Expected to Exist.</p>
+     * 
+     * <p>The principal persons date of birth.</p>
      */
     public void setBirthTime(Date birthTime) {
         this.birthTime.setValue(birthTime);
@@ -205,14 +248,18 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonDeceasedIndicator</p>
+     * <p>Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Principal Person Deceased Indicator</p>
+     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>An indication that the principal person is deceased.</p>
+     * <p>Relationship: PRPM_MT306011CA.PrincipalPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>An indication that the principal person is deceased.</p>
      */
     @Hl7XmlMapping({"deceasedInd"})
     public Boolean getDeceasedInd() {
@@ -220,14 +267,18 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonDeceasedIndicator</p>
+     * <p>Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Principal Person Deceased Indicator</p>
+     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>An indication that the principal person is deceased.</p>
+     * <p>Relationship: PRPM_MT306011CA.PrincipalPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>An indication that the principal person is deceased.</p>
      */
     public void setDeceasedInd(Boolean deceasedInd) {
         this.deceasedInd.setValue(deceasedInd);
@@ -235,22 +286,22 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonDeceasedDate</p>
+     * <p>Business Name: PrincipalPersonDeceasedDate</p>
      * 
-     * <p>Principal Person Deceased Date</p>
+     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.PrincipalPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Attribute supports verification of death from official 
+     * source such as Vital Statistics.</p><p>Optional attribute in 
+     * order to meet jurisdictional legislation which does not 
+     * allow the sharing of this information.</p>
      * 
      * <p>The date and time that a healthcare provider's death 
      * occurred.</p>
-     * 
-     * <p>Attribute supports verification of death from official 
-     * source such as Vital Statistics.</p><p>Optional attribute in 
-     * order to meet jurisdictional legislation which does not 
-     * allow the sharing of this information.</p>
-     * 
-     * <p>Attribute supports verification of death from official 
-     * source such as Vital Statistics.</p><p>Optional attribute in 
-     * order to meet jurisdictional legislation which does not 
-     * allow the sharing of this information.</p>
      */
     @Hl7XmlMapping({"deceasedTime"})
     public Date getDeceasedTime() {
@@ -258,22 +309,22 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonDeceasedDate</p>
+     * <p>Business Name: PrincipalPersonDeceasedDate</p>
      * 
-     * <p>Principal Person Deceased Date</p>
+     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.PrincipalPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Attribute supports verification of death from official 
+     * source such as Vital Statistics.</p><p>Optional attribute in 
+     * order to meet jurisdictional legislation which does not 
+     * allow the sharing of this information.</p>
      * 
      * <p>The date and time that a healthcare provider's death 
      * occurred.</p>
-     * 
-     * <p>Attribute supports verification of death from official 
-     * source such as Vital Statistics.</p><p>Optional attribute in 
-     * order to meet jurisdictional legislation which does not 
-     * allow the sharing of this information.</p>
-     * 
-     * <p>Attribute supports verification of death from official 
-     * source such as Vital Statistics.</p><p>Optional attribute in 
-     * order to meet jurisdictional legislation which does not 
-     * allow the sharing of this information.</p>
      */
     public void setDeceasedTime(Date deceasedTime) {
         this.deceasedTime.setValue(deceasedTime);
@@ -281,17 +332,21 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>BirthplaceAddress</p>
+     * <p>Business Name: BirthplaceAddress</p>
      * 
-     * <p>Birthplace Address</p>
+     * <p>Other Business Name: BirthplaceAddress</p>
      * 
-     * <p>Principal person's address at time of birth</p>
+     * <p>Relationship: PRPM_MT306011CA.Birthplace.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
      * <p>If Birthplace is included in the message, then Address is 
      * Expected to Exist.</p>
+     * 
+     * <p>Principal person's address at time of birth</p>
      */
     @Hl7XmlMapping({"birthplace/addr"})
     public PostalAddress getBirthplaceAddr() {
@@ -299,23 +354,35 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>BirthplaceAddress</p>
+     * <p>Business Name: BirthplaceAddress</p>
      * 
-     * <p>Birthplace Address</p>
+     * <p>Other Business Name: BirthplaceAddress</p>
      * 
-     * <p>Principal person's address at time of birth</p>
+     * <p>Relationship: PRPM_MT306011CA.Birthplace.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
      * <p>If Birthplace is included in the message, then Address is 
      * Expected to Exist.</p>
+     * 
+     * <p>Principal person's address at time of birth</p>
      */
     public void setBirthplaceAddr(PostalAddress birthplaceAddr) {
         this.birthplaceAddr.setValue(birthplaceAddr);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.PrincipalPerson.languageCommunication</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"languageCommunication"})
     public List<LanguageCommunicationBean> getLanguageCommunication() {
         return this.languageCommunication;

@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 /**
- * <p>REPC_IN000021CA: Update allergy/intolerance request 
- * accepted</p>
+ * <p>Business Name: REPC_IN000021CA: Update 
+ * allergy/intolerance request accepted</p>
+ * 
+ * <p>Indicates that the status, severity and/or other 
+ * information about the requested allergy or intolerance 
+ * record has been updated.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 @Hl7PartTypeMapping({"REPC_IN000021CA"})
 public class UpdateAllergyIntoleranceRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

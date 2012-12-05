@@ -30,43 +30,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>AllergyIntoleranceSeverityLevel</p>
+ * <p>Business Name: AllergyIntoleranceSeverityLevel</p>
  * 
  * <p>REPC_MT000002CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p>This is a ranking/ an assertion of the seriouness of the 
- * diagnosed/reported medical condition.</p>
- * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
  * <p>REPC_MT000009CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p>This is a ranking/ an assertion of the seriouness of the 
- * diagnosed/reported medical condition.</p>
- * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
  * <p>REPC_MT000001CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p>This is a ranking/ an assertion of the seriouness of the 
- * diagnosed/reported medical condition.</p>
- * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
  * <p>REPC_MT000006CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p>This is a ranking/ an assertion of the seriouness of the 
- * diagnosed/reported medical condition.</p>
- * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
  * <p>REPC_MT000013CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
@@ -74,76 +74,45 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates both the product and how related they are 
  * determined to be to the reaction.</p>
  * 
- * <p>This is a ranking/ an assertion of the seriouness of the 
- * diagnosed/reported medical condition.</p>
- * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
  * <p>REPC_MT000012CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p>This is a ranking/ an assertion of the seriouness of the 
- * diagnosed/reported medical condition.</p>
- * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  * 
  * <p>REPC_MT000005CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
- * <p>This is a ranking/ an assertion of the seriouness of the 
- * diagnosed/reported medical condition.</p>
- * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>This is a ranking/ an assertion of the seriouness of the 
+ * diagnosed/reported medical condition.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.SeverityObservation","REPC_MT000002CA.SeverityObservation","REPC_MT000005CA.SeverityObservation","REPC_MT000006CA.SeverityObservation","REPC_MT000009CA.SeverityObservation","REPC_MT000012CA.SeverityObservation","REPC_MT000013CA.SeverityObservation"})
 public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV value = new CVImpl();
 
 
     /**
-     * <p>SeverityLevel</p>
+     * <p>Business Name: SeverityLevel</p>
      * 
-     * <p>C:Severity Level</p>
+     * <p>Other Business Name: SeverityLevel</p>
      * 
-     * <p>Indicates the gravity of the allergy, intolerance or 
-     * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
+     * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
      * 
-     * <p>AllergyIntolerance.severity</p>
-     * 
-     * <p>Allows for sorting of reactions. May influence whether 
-     * contraindications must be managed.</p><p>Because SNOMED 
-     * pre-coordinates severity into code, this association is 
-     * optional</p>
-     * 
-     * <p>Allows for sorting of reactions. May influence whether 
-     * contraindications must be managed.</p><p>Because SNOMED 
-     * pre-coordinates severity into code, this association is 
-     * optional</p>
-     * 
-     * <p>C:Severity Level</p>
-     * 
-     * <p>Indicates the gravity of the allergy, intolerance or 
-     * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
-     * 
-     * <p>AllergyIntolerance.severity</p>
-     * 
-     * <p>Allows for sorting of allergy records. May influence 
-     * whether contraindications must be managed. Because this 
-     * concept is pre-coordinated with code for SNOMED, the 
-     * association is optional.</p>
-     * 
-     * <p>C:Severity Level</p>
-     * 
-     * <p>Indicates the gravity of the allergy, intolerance or 
-     * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>AllergyIntolerance.severity</p>
      * 
@@ -152,42 +121,32 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates this concept into code, the association is 
      * optional</p>
      * 
-     * <p>C:Severity Level</p>
-     * 
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>AllergyIntolerance.severity</p>
+     * <p>Other Business Name: SeverityLevel</p>
      * 
-     * <p>Allows for sorting of reactions. May influence whether 
-     * contraindications must be managed. Because SNOMED 
-     * pre-coordinates this concept with code, the association is 
-     * optional.</p>
+     * <p>Relationship: REPC_MT000009CA.SeverityObservation.value</p>
      * 
-     * <p>C:Severity Level</p>
-     * 
-     * <p>Indicates the gravity of the allergy, intolerance or 
-     * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>AllergyIntolerance.severity</p>
      * 
      * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed.</p><p>Because 
-     * SNOMED pre-coordinates severity into code, this association 
-     * is optional</p>
-     * 
-     * <p>Allows for sorting of allergy records. May influence 
-     * whether contraindications must be managed.</p><p>Because 
-     * SNOMED pre-coordinates severity into code, this association 
-     * is optional</p>
-     * 
-     * <p>C:Severity Level</p>
+     * SNOMED handles this concept by pre-coordinating it into 
+     * code, this association is optional.</p>
      * 
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
+     * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>AllergyIntolerance.severity</p>
      * 
@@ -196,23 +155,77 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates severity into 'code', the attribute is 
      * optional.</p>
      * 
-     * <p>C:Severity Level</p>
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of reactions. May influence whether 
+     * contraindications must be managed. Because SNOMED 
+     * pre-coordinates this concept with code, the association is 
+     * optional.</p>
      * 
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>AllergyIntolerance.severity</p>
      * 
      * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed.</p><p>Because 
-     * SNOMED handles this concept by pre-coordinating it into 
-     * code, this association is optional.</p>
+     * SNOMED pre-coordinates severity into code, this association 
+     * is optional</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of reactions. May influence whether 
+     * contraindications must be managed.</p><p>Because SNOMED 
+     * pre-coordinates severity into code, this association is 
+     * optional</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
      * 
      * <p>Allows for sorting of allergy records. May influence 
-     * whether contraindications must be managed.</p><p>Because 
-     * SNOMED handles this concept by pre-coordinating it into 
-     * code, this association is optional.</p>
+     * whether contraindications must be managed. Because this 
+     * concept is pre-coordinated with code for SNOMED, the 
+     * association is optional.</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
      */
     @Hl7XmlMapping({"value"})
     public SeverityObservation getValue() {
@@ -220,44 +233,13 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
     }
 
     /**
-     * <p>SeverityLevel</p>
+     * <p>Business Name: SeverityLevel</p>
      * 
-     * <p>C:Severity Level</p>
+     * <p>Other Business Name: SeverityLevel</p>
      * 
-     * <p>Indicates the gravity of the allergy, intolerance or 
-     * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
+     * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
      * 
-     * <p>AllergyIntolerance.severity</p>
-     * 
-     * <p>Allows for sorting of reactions. May influence whether 
-     * contraindications must be managed.</p><p>Because SNOMED 
-     * pre-coordinates severity into code, this association is 
-     * optional</p>
-     * 
-     * <p>Allows for sorting of reactions. May influence whether 
-     * contraindications must be managed.</p><p>Because SNOMED 
-     * pre-coordinates severity into code, this association is 
-     * optional</p>
-     * 
-     * <p>C:Severity Level</p>
-     * 
-     * <p>Indicates the gravity of the allergy, intolerance or 
-     * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
-     * 
-     * <p>AllergyIntolerance.severity</p>
-     * 
-     * <p>Allows for sorting of allergy records. May influence 
-     * whether contraindications must be managed. Because this 
-     * concept is pre-coordinated with code for SNOMED, the 
-     * association is optional.</p>
-     * 
-     * <p>C:Severity Level</p>
-     * 
-     * <p>Indicates the gravity of the allergy, intolerance or 
-     * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>AllergyIntolerance.severity</p>
      * 
@@ -266,42 +248,32 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates this concept into code, the association is 
      * optional</p>
      * 
-     * <p>C:Severity Level</p>
-     * 
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>AllergyIntolerance.severity</p>
+     * <p>Other Business Name: SeverityLevel</p>
      * 
-     * <p>Allows for sorting of reactions. May influence whether 
-     * contraindications must be managed. Because SNOMED 
-     * pre-coordinates this concept with code, the association is 
-     * optional.</p>
+     * <p>Relationship: REPC_MT000009CA.SeverityObservation.value</p>
      * 
-     * <p>C:Severity Level</p>
-     * 
-     * <p>Indicates the gravity of the allergy, intolerance or 
-     * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>AllergyIntolerance.severity</p>
      * 
      * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed.</p><p>Because 
-     * SNOMED pre-coordinates severity into code, this association 
-     * is optional</p>
-     * 
-     * <p>Allows for sorting of allergy records. May influence 
-     * whether contraindications must be managed.</p><p>Because 
-     * SNOMED pre-coordinates severity into code, this association 
-     * is optional</p>
-     * 
-     * <p>C:Severity Level</p>
+     * SNOMED handles this concept by pre-coordinating it into 
+     * code, this association is optional.</p>
      * 
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
+     * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>AllergyIntolerance.severity</p>
      * 
@@ -310,23 +282,77 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates severity into 'code', the attribute is 
      * optional.</p>
      * 
-     * <p>C:Severity Level</p>
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of reactions. May influence whether 
+     * contraindications must be managed. Because SNOMED 
+     * pre-coordinates this concept with code, the association is 
+     * optional.</p>
      * 
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>AllergyIntolerance.severity</p>
      * 
      * <p>Allows for sorting of allergy records. May influence 
      * whether contraindications must be managed.</p><p>Because 
-     * SNOMED handles this concept by pre-coordinating it into 
-     * code, this association is optional.</p>
+     * SNOMED pre-coordinates severity into code, this association 
+     * is optional</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
+     * 
+     * <p>Allows for sorting of reactions. May influence whether 
+     * contraindications must be managed.</p><p>Because SNOMED 
+     * pre-coordinates severity into code, this association is 
+     * optional</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: SeverityLevel</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>AllergyIntolerance.severity</p>
      * 
      * <p>Allows for sorting of allergy records. May influence 
-     * whether contraindications must be managed.</p><p>Because 
-     * SNOMED handles this concept by pre-coordinating it into 
-     * code, this association is optional.</p>
+     * whether contraindications must be managed. Because this 
+     * concept is pre-coordinated with code for SNOMED, the 
+     * association is optional.</p>
+     * 
+     * <p>Indicates the gravity of the allergy, intolerance or 
+     * reaction in terms of its actual or potential impact on the 
+     * patient.</p>
      */
     public void setValue(SeverityObservation value) {
         this.value.setValue(value);

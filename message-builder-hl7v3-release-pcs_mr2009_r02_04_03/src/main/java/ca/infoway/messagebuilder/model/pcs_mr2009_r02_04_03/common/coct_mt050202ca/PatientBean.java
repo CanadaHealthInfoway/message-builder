@@ -35,11 +35,7 @@ import java.util.Set;
 
 
 /**
- * <p>Patient</p>
- * 
- * <p>A person who is receiving or may receive healthcare 
- * services and has personal attributes (e.g. name, birth 
- * date).</p>
+ * <p>Business Name: Patient</p>
  * 
  * <p>Information used to identify the patient and confirm 
  * their identity against the client registry.</p>
@@ -47,150 +43,56 @@ import java.util.Set;
  * <p>Only the identifier attribute is intended to be 
  * persisted, with the remaining attributes confirmed against 
  * the provider registry.</p>
+ * 
+ * <p>A person who is receiving or may receive healthcare 
+ * services and has personal attributes (e.g. name, birth 
+ * date).</p>
  */
 @Hl7PartTypeMapping({"COCT_MT050202CA.Patient"})
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Patient {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private ActingPersonBean patientPerson;
 
 
     /**
-     * <p>A:Patient Identifier</p>
+     * <p>Business Name: A:Patient Identifier</p>
      * 
-     * <p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p>
+     * <p>Relationship: COCT_MT050202CA.Patient.id</p>
      * 
-     * <p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1-3)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>C39 (Extension)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PTT.050.01 (Extension)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PTT.050.02 (Root)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>A.1</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PID.2</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Patient.332-CY (Extension)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Patient.331-CX (Root)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Claim.330-CW</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Health Card Number</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PID.2</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PID.4</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>ZDU.2</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>ZKW.3</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Jurisdiction (Root)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Person.PHN (Extension)</p>
      * 
      * <p>Allows a patient to be referred to unambiguously. Because 
      * this is the principal mechanism for identifying patients to 
@@ -201,6 +103,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * use case to support communication of a local and 
      * jurisdictional identifier along with the national 
      * identifier.</p>
+     * 
+     * <p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {

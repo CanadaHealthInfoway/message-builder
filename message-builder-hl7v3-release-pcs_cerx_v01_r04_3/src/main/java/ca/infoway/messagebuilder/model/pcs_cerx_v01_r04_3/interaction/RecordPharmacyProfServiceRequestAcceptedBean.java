@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>REPC_IN000045CA: Record pharmacy prof. service request 
- * accepted</p>
+ * <p>Business Name: REPC_IN000045CA: Record pharmacy prof. 
+ * service request accepted</p>
+ * 
+ * <p>Indicates that a record of a professional service 
+ * (training, counseling, medication reviews, etc.) which has 
+ * been delivered to a patient has been successfully added.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"REPC_IN000045CA"})
 public class RecordPharmacyProfServiceRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -35,15 +35,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.ContactPerson","FICR_MT600201CA.ContactPerson"})
 public class ContactPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PN name = new PNImpl();
     private TEL telecom = new TELImpl();
 
 
     /**
-     * <p>ContactPersonName</p>
+     * <p>Business Name: ContactPersonName</p>
      * 
-     * <p>Contact Person Name</p>
+     * <p>Other Business Name: ContactPersonName</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ContactPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ContactPersonName</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"name"})
     public PersonName getName() {
@@ -51,9 +61,19 @@ public class ContactPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>ContactPersonName</p>
+     * <p>Business Name: ContactPersonName</p>
      * 
-     * <p>Contact Person Name</p>
+     * <p>Other Business Name: ContactPersonName</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ContactPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ContactPersonName</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setName(PersonName name) {
         this.name.setValue(name);
@@ -61,9 +81,19 @@ public class ContactPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
-     * <p>contact person telephone or email details</p>
+     * <p>Other Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ContactPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -71,9 +101,19 @@ public class ContactPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
-     * <p>contact person telephone or email details</p>
+     * <p>Other Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.ContactPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);

@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt500001ca
 
 
 /**
- * <p>REPC_IN000070CA: Record care composition request</p>
+ * <p>Business Name: REPC_IN000070CA: Record care composition 
+ * request</p>
+ * 
+ * <p>Seeks to add a record of an encounter, episode or similar 
+ * structure for a particular patient or group of patients.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt500001ca
 @Hl7PartTypeMapping({"REPC_IN000070CA"})
 public class RecordCareCompositionRequestBean extends HL7Message_1Bean<TriggerEventBean<CareCompositionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

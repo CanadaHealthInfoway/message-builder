@@ -33,33 +33,37 @@ import java.util.List;
 
 
 /**
- * <p>Geographic Coordinates</p>
- * 
- * <p>Allows the capturing of a physical location according to 
- * a particular coordinate system, such as GPS, legal 
- * designation (lot, block, plan), range-meridian, etc.</p>
+ * <p>Business Name: Geographic Coordinates</p>
  * 
  * <p>Some locations cannot be described by postal addresses. 
  * Also, geographic coordinates allow calculation of distances 
  * and proximity</p>
+ * 
+ * <p>Allows the capturing of a physical location according to 
+ * a particular coordinate system, such as GPS, legal 
+ * designation (lot, block, plan), range-meridian, etc.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT960002CA.Position"})
 @Hl7RootType
 public class GeographicCoordinatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private List<CoordinateAxisBean> componentPositionCoordinate = new ArrayList<CoordinateAxisBean>();
 
 
     /**
-     * <p>Coordinate System</p>
+     * <p>Business Name: Coordinate System</p>
      * 
-     * <p>Identifies the coordinate system inclusive of any 
-     * transformation projections.</p>
+     * <p>Relationship: COCT_MT960002CA.Position.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Essential for interpretting the specified coordinates and 
      * therefore mandatory</p>
+     * 
+     * <p>Identifies the coordinate system inclusive of any 
+     * transformation projections.</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationCoordinateSystemType getCode() {
@@ -67,19 +71,29 @@ public class GeographicCoordinatesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Coordinate System</p>
+     * <p>Business Name: Coordinate System</p>
      * 
-     * <p>Identifies the coordinate system inclusive of any 
-     * transformation projections.</p>
+     * <p>Relationship: COCT_MT960002CA.Position.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Essential for interpretting the specified coordinates and 
      * therefore mandatory</p>
+     * 
+     * <p>Identifies the coordinate system inclusive of any 
+     * transformation projections.</p>
      */
     public void setCode(ObservationCoordinateSystemType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT960002CA.Component1.positionCoordinate</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/positionCoordinate"})
     public List<CoordinateAxisBean> getComponentPositionCoordinate() {
         return this.componentPositionCoordinate;

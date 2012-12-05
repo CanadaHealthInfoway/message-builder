@@ -43,7 +43,7 @@ import java.util.List;
 
 
 /**
- * <p>Specimen Role</p>
+ * <p>Business Name: Specimen Role</p>
  * 
  * <p>The specimen role represents the information regarding a 
  * material collected from a patient to serve as a specimen for 
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private CV specimenMaterialCode = new CVImpl();
@@ -65,45 +65,47 @@ public class SpecimenRoleBean extends MessagePartBean {
     private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
 
 
+    /**
+     * <p>Relationship: COCT_MT080100CA.Specimen.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public RoleClass getClassCode() {
         return (RoleClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT080100CA.Specimen.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
     /**
-     * <p>A:Specimen Identifier</p>
+     * <p>Business Name: A:Specimen Identifier</p>
      * 
-     * <p>A unique identifier for the specimen. Frequently the 
-     * accession number which often uniquely identifies the 
-     * specimen is used as the unique specimen identifier in 
-     * communications. However, accessioning may group multiple 
-     * specimens (identified) under one accession number. 
-     * Therefore, it is recommended that this be truly the specimen 
-     * identifier and not the accession number.</p><p>For a 
-     * referral, this attribute should be Required so it is 
-     * reflected back in the result. If Lab A has collected and or 
-     * done something to the specimen, then the identifier would be 
-     * sent.</p>
+     * <p>Relationship: COCT_MT080100CA.Specimen.id</p>
      * 
-     * <p>A unique identifier for the specimen. Frequently the 
-     * accession number which often uniquely identifies the 
-     * specimen is used as the unique specimen identifier in 
-     * communications. However, accessioning may group multiple 
-     * specimens (identified) under one accession number. 
-     * Therefore, it is recommended that this be truly the specimen 
-     * identifier and not the accession number.</p><p>For a 
-     * referral, this attribute should be Required so it is 
-     * reflected back in the result. If Lab A has collected and or 
-     * done something to the specimen, then the identifier would be 
-     * sent.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique specimen identifier is necessary for specimen 
      * tracking and management.</p>
+     * 
+     * <p>A unique identifier for the specimen. Frequently the 
+     * accession number which often uniquely identifies the 
+     * specimen is used as the unique specimen identifier in 
+     * communications. However, accessioning may group multiple 
+     * specimens (identified) under one accession number. 
+     * Therefore, it is recommended that this be truly the specimen 
+     * identifier and not the accession number.</p><p>For a 
+     * referral, this attribute should be Required so it is 
+     * reflected back in the result. If Lab A has collected and or 
+     * done something to the specimen, then the identifier would be 
+     * sent.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -111,34 +113,26 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Specimen Identifier</p>
+     * <p>Business Name: A:Specimen Identifier</p>
      * 
-     * <p>A unique identifier for the specimen. Frequently the 
-     * accession number which often uniquely identifies the 
-     * specimen is used as the unique specimen identifier in 
-     * communications. However, accessioning may group multiple 
-     * specimens (identified) under one accession number. 
-     * Therefore, it is recommended that this be truly the specimen 
-     * identifier and not the accession number.</p><p>For a 
-     * referral, this attribute should be Required so it is 
-     * reflected back in the result. If Lab A has collected and or 
-     * done something to the specimen, then the identifier would be 
-     * sent.</p>
+     * <p>Relationship: COCT_MT080100CA.Specimen.id</p>
      * 
-     * <p>A unique identifier for the specimen. Frequently the 
-     * accession number which often uniquely identifies the 
-     * specimen is used as the unique specimen identifier in 
-     * communications. However, accessioning may group multiple 
-     * specimens (identified) under one accession number. 
-     * Therefore, it is recommended that this be truly the specimen 
-     * identifier and not the accession number.</p><p>For a 
-     * referral, this attribute should be Required so it is 
-     * reflected back in the result. If Lab A has collected and or 
-     * done something to the specimen, then the identifier would be 
-     * sent.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique specimen identifier is necessary for specimen 
      * tracking and management.</p>
+     * 
+     * <p>A unique identifier for the specimen. Frequently the 
+     * accession number which often uniquely identifies the 
+     * specimen is used as the unique specimen identifier in 
+     * communications. However, accessioning may group multiple 
+     * specimens (identified) under one accession number. 
+     * Therefore, it is recommended that this be truly the specimen 
+     * identifier and not the accession number.</p><p>For a 
+     * referral, this attribute should be Required so it is 
+     * reflected back in the result. If Lab A has collected and or 
+     * done something to the specimen, then the identifier would be 
+     * sent.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -146,13 +140,17 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>V:Specimen Code</p>
+     * <p>Business Name: V:Specimen Code</p>
      * 
-     * <p>The code of the specimen material collected e.g. skin, 
-     * blood, etc.</p>
+     * <p>Relationship: COCT_MT080100CA.Material.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The specimen code differentiates testing types, methods, 
      * and resulting processing of specimen material.</p>
+     * 
+     * <p>The code of the specimen material collected e.g. skin, 
+     * blood, etc.</p>
      */
     @Hl7XmlMapping({"specimenMaterial/code"})
     public SpecimenTypeCode getSpecimenMaterialCode() {
@@ -160,13 +158,17 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>V:Specimen Code</p>
+     * <p>Business Name: V:Specimen Code</p>
      * 
-     * <p>The code of the specimen material collected e.g. skin, 
-     * blood, etc.</p>
+     * <p>Relationship: COCT_MT080100CA.Material.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The specimen code differentiates testing types, methods, 
      * and resulting processing of specimen material.</p>
+     * 
+     * <p>The code of the specimen material collected e.g. skin, 
+     * blood, etc.</p>
      */
     public void setSpecimenMaterialCode(SpecimenTypeCode specimenMaterialCode) {
         this.specimenMaterialCode.setValue(specimenMaterialCode);
@@ -174,13 +176,17 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>W:Specimen Text</p>
+     * <p>Business Name: W:Specimen Text</p>
      * 
-     * <p>Any descriptive specimen information not sufficiently 
-     * communicated by the code attribute.</p>
+     * <p>Relationship: COCT_MT080100CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used when information is not able to be coded or 
      * represented using the available other attributes.</p>
+     * 
+     * <p>Any descriptive specimen information not sufficiently 
+     * communicated by the code attribute.</p>
      */
     @Hl7XmlMapping({"specimenMaterial/desc"})
     public String getSpecimenMaterialDesc() {
@@ -188,13 +194,17 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>W:Specimen Text</p>
+     * <p>Business Name: W:Specimen Text</p>
      * 
-     * <p>Any descriptive specimen information not sufficiently 
-     * communicated by the code attribute.</p>
+     * <p>Relationship: COCT_MT080100CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used when information is not able to be coded or 
      * represented using the available other attributes.</p>
+     * 
+     * <p>Any descriptive specimen information not sufficiently 
+     * communicated by the code attribute.</p>
      */
     public void setSpecimenMaterialDesc(String specimenMaterialDesc) {
         this.specimenMaterialDesc.setValue(specimenMaterialDesc);
@@ -208,13 +218,17 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Y:Specimen Container Risk</p>
+     * <p>Business Name: Y:Specimen Container Risk</p>
      * 
-     * <p>Describes any risk to the handlers of this container 
-     * (containing a specimen).</p>
+     * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to document container risks to those who handle the 
      * container.</p>
+     * 
+     * <p>Describes any risk to the handlers of this container 
+     * (containing a specimen).</p>
      */
     @Hl7XmlMapping({"specimenMaterial/asContent/container/riskCode"})
     public EntityRisk getSpecimenMaterialAsContentContainerRiskCode() {
@@ -222,36 +236,64 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Y:Specimen Container Risk</p>
+     * <p>Business Name: Y:Specimen Container Risk</p>
      * 
-     * <p>Describes any risk to the handlers of this container 
-     * (containing a specimen).</p>
+     * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to document container risks to those who handle the 
      * container.</p>
+     * 
+     * <p>Describes any risk to the handlers of this container 
+     * (containing a specimen).</p>
      */
     public void setSpecimenMaterialAsContentContainerRiskCode(EntityRisk specimenMaterialAsContentContainerRiskCode) {
         this.specimenMaterialAsContentContainerRiskCode.setValue(specimenMaterialAsContentContainerRiskCode);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Subject3.transportationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/transportationEvent"})
     public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
         return this.subjectOf1TransportationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Subject4.specimenObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
     public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
         return this.subjectOf2SpecimenObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"productOf/specimenCollectionProcedureEvent"})
     public SpecimenCollectionProcedureBean getProductOfSpecimenCollectionProcedureEvent() {
         return this.productOfSpecimenCollectionProcedureEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
         this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
     }

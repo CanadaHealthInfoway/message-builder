@@ -45,7 +45,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST desc = new STImpl();
     private IVL<TS, Interval<Date>> asWarrantorEffectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -56,6 +56,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedMaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Code for manufactured material</p>
      */
     @Hl7XmlMapping({"code"})
@@ -64,6 +69,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedMaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Code for manufactured material</p>
      */
     public void setCode(MaterialEntityClassType code) {
@@ -72,6 +82,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedMaterialKind.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>box, blister pack, compliance packaging, etc. HC-PCS?</p>
      */
     @Hl7XmlMapping({"desc"})
@@ -80,6 +95,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedMaterialKind.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>box, blister pack, compliance packaging, etc. HC-PCS?</p>
      */
     public void setDesc(String desc) {
@@ -88,6 +108,10 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: COCT_MT490000CA.Warrantor.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>time of warranty</p>
      */
     @Hl7XmlMapping({"asWarrantor/effectiveTime"})
@@ -96,6 +120,10 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: COCT_MT490000CA.Warrantor.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>time of warranty</p>
      */
     public void setAsWarrantorEffectiveTime(Interval<Date> asWarrantorEffectiveTime) {
@@ -104,6 +132,10 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: COCT_MT490000CA.WarrantorOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Organization that holds warranty</p>
      */
     @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
@@ -112,6 +144,10 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: COCT_MT490000CA.WarrantorOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Organization that holds warranty</p>
      */
     public void setAsWarrantorWarrantingWarrantorOrganizationName(String asWarrantorWarrantingWarrantorOrganizationName) {
@@ -120,6 +156,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.WarrantorOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Organization telephone number</p>
      */
     @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/telecom"})
@@ -128,6 +169,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.WarrantorOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Organization telephone number</p>
      */
     public void setAsWarrantorWarrantingWarrantorOrganizationTelecom(TelecommunicationAddress asWarrantorWarrantingWarrantorOrganizationTelecom) {
@@ -136,6 +182,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ContentPackagedProduct.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>number of items in the package</p>
      */
     @Hl7XmlMapping({"contentPackagedProduct/quantity"})
@@ -144,6 +195,11 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ContentPackagedProduct.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>number of items in the package</p>
      */
     public void setContentPackagedProductQuantity(PhysicalQuantity contentPackagedProductQuantity) {
@@ -151,11 +207,23 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ContentPackagedProduct.containedManufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"contentPackagedProduct/containedManufacturedMaterialKind"})
     public ManufacturedMaterialKindBean getContentPackagedProductContainedManufacturedMaterialKind() {
         return this.contentPackagedProductContainedManufacturedMaterialKind;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ContentPackagedProduct.containedManufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setContentPackagedProductContainedManufacturedMaterialKind(ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind) {
         this.contentPackagedProductContainedManufacturedMaterialKind = contentPackagedProductContainedManufacturedMaterialKind;
     }

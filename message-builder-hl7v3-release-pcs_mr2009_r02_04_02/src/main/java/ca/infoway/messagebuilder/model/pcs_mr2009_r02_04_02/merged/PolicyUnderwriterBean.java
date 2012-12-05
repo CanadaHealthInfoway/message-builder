@@ -32,25 +32,73 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyUnderwriter","FICR_MT500201CA.PolicyUnderwriter","FICR_MT600201CA.PolicyUnderwriter","FICR_MT610201CA.PolicyUnderwriter"})
 public class PolicyUnderwriterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CarrierRoleBean carrierRole;
     private II carrierRoleId = new IIImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"carrierRole"})
     public CarrierRoleBean getCarrierRole() {
         return this.carrierRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCarrierRole(CarrierRoleBean carrierRole) {
         this.carrierRole = carrierRole;
     }
 
 
     /**
-     * <p>CarrierRoleId</p>
+     * <p>Business Name: CarrierRoleId</p>
      * 
-     * <p>Carrier Role Id</p>
+     * <p>Other Business Name: CarrierRoleId</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"carrierRole/id"})
     public Identifier getCarrierRoleId() {
@@ -58,9 +106,13 @@ public class PolicyUnderwriterBean extends MessagePartBean {
     }
 
     /**
-     * <p>CarrierRoleId</p>
+     * <p>Business Name: CarrierRoleId</p>
      * 
-     * <p>Carrier Role Id</p>
+     * <p>Other Business Name: CarrierRoleId</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCarrierRoleId(Identifier carrierRoleId) {
         this.carrierRoleId.setValue(carrierRoleId);

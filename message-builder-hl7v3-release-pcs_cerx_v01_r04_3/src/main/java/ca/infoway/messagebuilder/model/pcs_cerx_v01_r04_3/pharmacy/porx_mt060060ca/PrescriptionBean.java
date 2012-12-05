@@ -53,22 +53,22 @@ import java.util.List;
 
 
 /**
- * <p>Prescription</p>
+ * <p>Business Name: Prescription</p>
+ * 
+ * <p>This is a 'core' class of the medication model and is 
+ * important for understanding what devices the patient is 
+ * intended to be receiving.</p>
  * 
  * <p>Information pertaining to a Prescriber's authorization 
  * for a device to be dispensed to a patient, as well as the 
  * instruction on when and how the device is to be used by the 
  * patient.</p>
- * 
- * <p>This is a 'core' class of the medication model and is 
- * important for understanding what devices the patient is 
- * intended to be receiving.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060060CA.DevicePrescription"})
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Prescription_1 {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -91,146 +91,55 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>A:Prescription Order Number</p>
+     * <p>Business Name: A:Prescription Order Number</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.DevicePrescription.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription.prescriptionNumber</p>
+     * 
+     * <p>Prescription.prescriptionExternalKey</p>
+     * 
+     * <p>D53(ID for the prescription assigned by pharmacy)</p>
+     * 
+     * <p>D55(ID for the dispense event)</p>
+     * 
+     * <p>D99.01</p>
+     * 
+     * <p>X0101(id for prescription)</p>
+     * 
+     * <p>ZDP.5</p>
+     * 
+     * <p>ZDP.6</p>
+     * 
+     * <p>ZDP.22</p>
+     * 
+     * <p>ZRV.5</p>
+     * 
+     * <p>DRU.080-01(extension)</p>
+     * 
+     * <p>DRU.080-02(route)</p>
+     * 
+     * <p>Claim.455-EM (route)</p>
+     * 
+     * <p>Claim.402-D2 (extension)</p>
+     * 
+     * <p>Claim.456-EN</p>
+     * 
+     * <p>Claim.454-EK</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
      * the source of the order</p><p>It is created by the EHR/DIS 
      * once the prescription has passed all edits and 
      * validation.</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * number is mandatory to allow every prescription record to be 
-     * uniquely identified.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * number is mandatory to allow every prescription record to be 
-     * uniquely identified.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -238,146 +147,55 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>A:Prescription Order Number</p>
+     * <p>Business Name: A:Prescription Order Number</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.DevicePrescription.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription.prescriptionNumber</p>
+     * 
+     * <p>Prescription.prescriptionExternalKey</p>
+     * 
+     * <p>D53(ID for the prescription assigned by pharmacy)</p>
+     * 
+     * <p>D55(ID for the dispense event)</p>
+     * 
+     * <p>D99.01</p>
+     * 
+     * <p>X0101(id for prescription)</p>
+     * 
+     * <p>ZDP.5</p>
+     * 
+     * <p>ZDP.6</p>
+     * 
+     * <p>ZDP.22</p>
+     * 
+     * <p>ZRV.5</p>
+     * 
+     * <p>DRU.080-01(extension)</p>
+     * 
+     * <p>DRU.080-02(route)</p>
+     * 
+     * <p>Claim.455-EM (route)</p>
+     * 
+     * <p>Claim.402-D2 (extension)</p>
+     * 
+     * <p>Claim.456-EN</p>
+     * 
+     * <p>Claim.454-EK</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
      * the source of the order</p><p>It is created by the EHR/DIS 
      * once the prescription has passed all edits and 
      * validation.</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * number is mandatory to allow every prescription record to be 
-     * uniquely identified.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * number is mandatory to allow every prescription record to be 
-     * uniquely identified.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -385,32 +203,28 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>Business Name: C:Prescription Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.DevicePrescription.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription.state (cannot distinguish between 'Filled' 
+     * and 'Unfilled', must look at amounts dispensed to 
+     * distniguish between those; and also cannot distinguish 
+     * modified, need to look at event history).</p>
+     * 
+     * <p>Prescription Status</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription.</p><p>This is a mandatory field 
+     * because every prescription needs to be in some state.</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: NEW, 
      * ACTIVE, SUSPENDED, ABORTED, COMPLETED, OBSOLETE and 
      * NULLIFIED.</p>
-     * 
-     * <p>Prescription.state (cannot distinguish between 'Filled' 
-     * and 'Unfilled', must look at amounts dispensed to 
-     * distniguish between those; and also cannot distinguish 
-     * modified, need to look at event history).</p><p>Prescription 
-     * Status</p>
-     * 
-     * <p>Prescription.state (cannot distinguish between 'Filled' 
-     * and 'Unfilled', must look at amounts dispensed to 
-     * distniguish between those; and also cannot distinguish 
-     * modified, need to look at event history).</p><p>Prescription 
-     * Status</p>
-     * 
-     * <p>Indicates what actions are allowed to be performed 
-     * against a prescription.</p><p>This is a mandatory field 
-     * because every prescription needs to be in some state.</p>
-     * 
-     * <p>Indicates what actions are allowed to be performed 
-     * against a prescription.</p><p>This is a mandatory field 
-     * because every prescription needs to be in some state.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -418,32 +232,28 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>Business Name: C:Prescription Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.DevicePrescription.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription.state (cannot distinguish between 'Filled' 
+     * and 'Unfilled', must look at amounts dispensed to 
+     * distniguish between those; and also cannot distinguish 
+     * modified, need to look at event history).</p>
+     * 
+     * <p>Prescription Status</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription.</p><p>This is a mandatory field 
+     * because every prescription needs to be in some state.</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: NEW, 
      * ACTIVE, SUSPENDED, ABORTED, COMPLETED, OBSOLETE and 
      * NULLIFIED.</p>
-     * 
-     * <p>Prescription.state (cannot distinguish between 'Filled' 
-     * and 'Unfilled', must look at amounts dispensed to 
-     * distniguish between those; and also cannot distinguish 
-     * modified, need to look at event history).</p><p>Prescription 
-     * Status</p>
-     * 
-     * <p>Prescription.state (cannot distinguish between 'Filled' 
-     * and 'Unfilled', must look at amounts dispensed to 
-     * distniguish between those; and also cannot distinguish 
-     * modified, need to look at event history).</p><p>Prescription 
-     * Status</p>
-     * 
-     * <p>Indicates what actions are allowed to be performed 
-     * against a prescription.</p><p>This is a mandatory field 
-     * because every prescription needs to be in some state.</p>
-     * 
-     * <p>Indicates what actions are allowed to be performed 
-     * against a prescription.</p><p>This is a mandatory field 
-     * because every prescription needs to be in some state.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -451,39 +261,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>F:Prescription Masking Indicator</p>
+     * <p>Business Name: F:Prescription Masking Indicator</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Relationship: 
+     * PORX_MT060060CA.DevicePrescription.confidentialityCode</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Prescription.masked</p>
      * 
@@ -491,9 +274,13 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * to their prescription data.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -501,39 +288,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>F:Prescription Masking Indicator</p>
+     * <p>Business Name: F:Prescription Masking Indicator</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Relationship: 
+     * PORX_MT060060CA.DevicePrescription.confidentialityCode</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Prescription.masked</p>
      * 
@@ -541,20 +301,36 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * to their prescription data.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060060CA.DirectTarget.manufacturedProduct</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/manufacturedProduct"})
     public DeviceProductBean getDirectTargetManufacturedProduct() {
         return this.directTargetManufacturedProduct;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060060CA.DirectTarget.manufacturedProduct</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
         this.directTargetManufacturedProduct = directTargetManufacturedProduct;
     }
@@ -570,11 +346,23 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060060CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060060CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -596,21 +384,43 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060060CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060060CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060060CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"derivedFrom/sourceDispense"})
     public Boolean getDerivedFromSourceDispense() {
         return this.derivedFromSourceDispense.getValue();
     }
 
+    /**
+     * <p>Relationship: PORX_MT060060CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
         this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
     }
@@ -676,21 +486,43 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060060CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: PORX_MT060060CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060060CA.Subject2.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
     public Boolean getSubjectOf2DetectedIssueIndicator() {
         return this.subjectOf2DetectedIssueIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060060CA.Subject2.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
         this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
     }

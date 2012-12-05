@@ -46,7 +46,7 @@ import java.util.Date;
 
 
 /**
- * <p>Pharmacy Dispense</p>
+ * <p>Business Name: Pharmacy Dispense</p>
  * 
  * <p>Patient classes are not referenced in the billable acts, 
  * as they are noted in the parent model (e.g. Invoice message) 
@@ -56,7 +56,7 @@ import java.util.Date;
 @Hl7RootType
 public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -70,18 +70,32 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     private PatientEncounterBean componentOfPatientEncounter;
 
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodIntentEvent getMoodCode() {
         return (x_ActMoodIntentEvent) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setMoodCode(x_ActMoodIntentEvent moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
     /**
-     * <p>Type of Dispense</p>
+     * <p>Business Name: Type of Dispense</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>partial fill/trial/completion of trial, etc.</p>
      */
@@ -91,7 +105,11 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Type of Dispense</p>
+     * <p>Business Name: Type of Dispense</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>partial fill/trial/completion of trial, etc.</p>
      */
@@ -101,15 +119,19 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Dispense Time</p>
+     * <p>Business Name: Dispense Time</p>
      * 
-     * <p>Dispense Time</p>
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date and Time to support multiple dispense per day of the 
      * same product. E.g. methadone</p>
      * 
      * <p>Must support hour/minute to handle multi-dispense/day of 
      * same product - e.g. methadone</p>
+     * 
+     * <p>Dispense Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -117,15 +139,19 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Dispense Time</p>
+     * <p>Business Name: Dispense Time</p>
      * 
-     * <p>Dispense Time</p>
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date and Time to support multiple dispense per day of the 
      * same product. E.g. methadone</p>
      * 
      * <p>Must support hour/minute to handle multi-dispense/day of 
      * same product - e.g. methadone</p>
+     * 
+     * <p>Dispense Time</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -133,12 +159,16 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Total Dispensed</p>
+     * <p>Business Name: Total Dispensed</p>
      * 
-     * <p>Generally defaults to 'quantity billed'</p>
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Either Total Dispensed or Dispensed Days Supply must be 
      * specified for billing.</p>
+     * 
+     * <p>Generally defaults to 'quantity billed'</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -146,12 +176,16 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Total Dispensed</p>
+     * <p>Business Name: Total Dispensed</p>
      * 
-     * <p>Generally defaults to 'quantity billed'</p>
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Either Total Dispensed or Dispensed Days Supply must be 
      * specified for billing.</p>
+     * 
+     * <p>Generally defaults to 'quantity billed'</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -159,7 +193,11 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Dispensed Days Supply</p>
+     * <p>Business Name: Dispensed Days Supply</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Either Total Dispensed or Dispensed Days Supply must be 
      * specified for billing.</p>
@@ -170,7 +208,11 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Dispensed Days Supply</p>
+     * <p>Business Name: Dispensed Days Supply</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Either Total Dispensed or Dispensed Days Supply must be 
      * specified for billing.</p>
@@ -190,11 +232,23 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.ResponsibleProvider.pharmacistRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/pharmacistRole"})
     public PharmacistRoleBean getPerformerPharmacistRole() {
         return this.performerPharmacistRole;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.ResponsibleProvider.pharmacistRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerPharmacistRole(PharmacistRoleBean performerPharmacistRole) {
         this.performerPharmacistRole = performerPharmacistRole;
     }
@@ -220,11 +274,23 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.SupplyEvent.pertinentInformation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation"})
     public DispenseInstructionsBean getPertinentInformation() {
         return this.pertinentInformation;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.SupplyEvent.pertinentInformation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation(DispenseInstructionsBean pertinentInformation) {
         this.pertinentInformation = pertinentInformation;
     }

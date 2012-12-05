@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt002000ca.
 
 
 /**
- * <p>POLB_IN222300CA: Laboratory Promise Cancel</p>
+ * <p>Business Name: POLB_IN222300CA: Laboratory Promise Cancel</p>
+ * 
+ * <p>This interaction is a Promise Cancel without Receiver 
+ * Responsibilities (i.e., the sending system utilizes messages 
+ * that require application-level responses). This interaction 
+ * is used when a promise cancel is communicated.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +52,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt002000ca.
 @Hl7PartTypeMapping({"POLB_IN222300CA"})
 public class LaboratoryPromiseCancelBean extends HL7Message_1Bean<TriggerEventBean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

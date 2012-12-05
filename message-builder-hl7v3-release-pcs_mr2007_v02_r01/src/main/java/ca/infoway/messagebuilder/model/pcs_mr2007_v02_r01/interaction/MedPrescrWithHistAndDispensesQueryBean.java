@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.GenericQueryPar
 
 
 /**
- * <p>PORX_IN060170CA: Med. prescr. with hist. and dispenses 
- * query</p>
+ * <p>Business Name: PORX_IN060170CA: Med. prescr. with hist. 
+ * and dispenses query</p>
+ * 
+ * <p>Requests retrieval of detailed information about a single 
+ * identified medication prescription, including history of 
+ * changes and all fulfilling dispense events</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.GenericQueryPar
 @Hl7PartTypeMapping({"PORX_IN060170CA"})
 public class MedPrescrWithHistAndDispensesQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

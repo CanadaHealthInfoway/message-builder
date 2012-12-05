@@ -45,23 +45,23 @@ import java.util.Set;
  * <p>PORX_MT060280CA.ParameterList: Drug Prescription Detail 
  * Query Parameters</p>
  * 
+ * <p>Root class for query definition.</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition.</p>
  * 
  * <p>PORX_MT060360CA.ParameterList: Generic Query Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060280CA.ParameterList","PORX_MT060360CA.ParameterList"})
 @Hl7RootType
 public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<II> careCompositionIDValue = new ArrayList<II>();
     private List<CV> careCompositionTypeValue = new ArrayList<CV>();
     private BL includeEventHistoryIndicatorValue = new BLImpl();
@@ -73,32 +73,26 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionIDs</p>
+     * <p>Business Name: CareCompositionIDs</p>
      * 
-     * <p>Care Composition IDs</p>
+     * <p>Other Business Name: CareCompositionIDs</p>
      * 
-     * <p>Desc: Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Relationship: PORX_MT060280CA.CareCompositionID.value</p>
      * 
-     * <p>Desc: Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
+     * 
+     * <p>Desc: Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
     public List<Identifier> getCareCompositionIDValue() {
@@ -107,18 +101,22 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionTypes</p>
+     * <p>Business Name: CareCompositionTypes</p>
      * 
-     * <p>Care Composition Types</p>
+     * <p>Other Business Name: CareCompositionTypes</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p>
+     * <p>Relationship: PORX_MT060280CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with a 
      * particular type of encounter, episode or care event. 
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypeValue() {
@@ -127,29 +125,24 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is always either 'TRUE' or 'FALSE' it is 
      * mandatory.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is always either 'TRUE' or 'FALSE' it is 
-     * mandatory.</p>
+     * <p>Indicates whether or not history of selected medication 
+     * records are to be returned along with the detailed 
+     * information.</p><p>&quot;Pending&quot; changes will be 
+     * returned regardless of the setting of this flag.</p>
      */
     @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
     public Boolean getIncludeEventHistoryIndicatorValue() {
@@ -157,29 +150,24 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is always either 'TRUE' or 'FALSE' it is 
      * mandatory.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is always either 'TRUE' or 'FALSE' it is 
-     * mandatory.</p>
+     * <p>Indicates whether or not history of selected medication 
+     * records are to be returned along with the detailed 
+     * information.</p><p>&quot;Pending&quot; changes will be 
+     * returned regardless of the setting of this flag.</p>
      */
     public void setIncludeEventHistoryIndicatorValue(Boolean includeEventHistoryIndicatorValue) {
         this.includeEventHistoryIndicatorValue.setValue(includeEventHistoryIndicatorValue);
@@ -187,42 +175,41 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Indicates whether or not Issues (detected and/or managed) 
-     * attached to the prescription dispense record to be returned 
-     * along with the detailed information.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
+     * in the retrieval of medication detail profile 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * in the retrieval of patient medication data.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescription dispense record to be returned 
+     * along with the detailed information.</p>
      */
     @Hl7XmlMapping({"includeIssuesIndicator/value"})
     public Boolean getIncludeIssuesIndicatorValue() {
@@ -230,42 +217,41 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Indicates whether or not Issues (detected and/or managed) 
-     * attached to the prescription dispense record to be returned 
-     * along with the detailed information.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
+     * in the retrieval of medication detail profile 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * in the retrieval of patient medication data.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescription dispense record to be returned 
+     * along with the detailed information.</p>
      */
     public void setIncludeIssuesIndicatorValue(Boolean includeIssuesIndicatorValue) {
         this.includeIssuesIndicatorValue.setValue(includeIssuesIndicatorValue);
@@ -273,43 +259,39 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medication 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the selected 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
+     * the retrieval of information for medication detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * prescription dispense record are to be returned along with 
      * the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
     public Boolean getIncludeNotesIndicatorValue() {
@@ -317,43 +299,39 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medication 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the selected 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
+     * the retrieval of information for medication detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * prescription dispense record are to be returned along with 
      * the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
         this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
@@ -361,26 +339,25 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
      * prescription order and/or prescription dispense are to be 
      * returned along with the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"includePendingChangesIndicator/value"})
     public Boolean getIncludePendingChangesIndicatorValue() {
@@ -388,26 +365,25 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
      * prescription order and/or prescription dispense are to be 
      * returned along with the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     public void setIncludePendingChangesIndicatorValue(Boolean includePendingChangesIndicatorValue) {
         this.includePendingChangesIndicatorValue.setValue(includePendingChangesIndicatorValue);
@@ -415,20 +391,21 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Prescription order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved, and 
      * is therefore mandatory.</p>
+     * 
+     * <p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p>
      */
     @Hl7XmlMapping({"prescriptionOrderNumber/value"})
     public Set<Identifier> getPrescriptionOrderNumberValue() {
@@ -437,17 +414,22 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>D:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Identifies which prescription dispense record should be 
-     * retrieved.</p>
+     * <p>Relationship: 
+     * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record. A dispense cannot be 
      * retrieved without the identifier of the record, and the 
      * attribute is therefore mandatory.</p>
+     * 
+     * <p>Identifies which prescription dispense record should be 
+     * retrieved.</p>
      */
     @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
     public Identifier getPrescriptionDispenseNumberValue() {
@@ -455,17 +437,22 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>D:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Identifies which prescription dispense record should be 
-     * retrieved.</p>
+     * <p>Relationship: 
+     * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record. A dispense cannot be 
      * retrieved without the identifier of the record, and the 
      * attribute is therefore mandatory.</p>
+     * 
+     * <p>Identifies which prescription dispense record should be 
+     * retrieved.</p>
      */
     public void setPrescriptionDispenseNumberValue(Identifier prescriptionDispenseNumberValue) {
         this.prescriptionDispenseNumberValue.setValue(prescriptionDispenseNumberValue);

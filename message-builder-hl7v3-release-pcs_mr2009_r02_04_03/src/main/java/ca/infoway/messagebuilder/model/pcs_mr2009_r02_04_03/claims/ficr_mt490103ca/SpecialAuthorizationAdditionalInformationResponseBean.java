@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST text = new STImpl();
     private SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
@@ -50,7 +50,12 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
 
 
     /**
-     * <p>Additional Information Response ID</p>
+     * <p>Business Name: Additional Information Response ID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationResponse.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -58,7 +63,12 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
     }
 
     /**
-     * <p>Additional Information Response ID</p>
+     * <p>Business Name: Additional Information Response ID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationResponse.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -66,7 +76,12 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
 
 
     /**
-     * <p>Additional Information Answer</p>
+     * <p>Business Name: Additional Information Answer</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationResponse.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -74,7 +89,12 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
     }
 
     /**
-     * <p>Additional Information Answer</p>
+     * <p>Business Name: Additional Information Answer</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationResponse.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

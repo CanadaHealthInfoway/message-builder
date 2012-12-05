@@ -37,16 +37,26 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.Adjudi
 @Hl7PartTypeMapping({"FICR_MT510201CA.Trigger1"})
 public class Trigger1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL negationInd = new BLImpl();
     private AdjudicationResultRequiredActBean adjudicationResultRequiredAct;
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Trigger1.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
         return this.negationInd.getValue();
     }
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Trigger1.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
     }

@@ -37,7 +37,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private DocumentContent component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
@@ -45,7 +45,11 @@ public class SectionBean extends MessagePartBean {
 
 
     /**
-     * <p>M: Document Overview Content</p>
+     * <p>Business Name: M: Document Overview Content</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Section.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
@@ -53,18 +57,32 @@ public class SectionBean extends MessagePartBean {
     }
 
     /**
-     * <p>M: Document Overview Content</p>
+     * <p>Business Name: M: Document Overview Content</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Section.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/documentContent"})
     public DocumentContent getComponent1DocumentContent() {
         return this.component1DocumentContent;
     }
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1DocumentContent(DocumentContent component1DocumentContent) {
         this.component1DocumentContent = component1DocumentContent;
     }

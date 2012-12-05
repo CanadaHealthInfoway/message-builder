@@ -60,32 +60,32 @@ import java.util.List;
  * <p>REPC_MT000016CA.ParameterList: Adverse Reactions Query 
  * Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
  * 
- * <p>Root class for query definition</p>
- * 
  * <p>REPC_MT000008CA.ParameterList: Query Definition</p>
- * 
- * <p>Identifies the various parameters that act as filters on 
- * the records to be retrieved.</p>
  * 
  * <p>Allows the user and/or the point-of-service application 
  * to constrain what EHR information they wish to retrieve.</p>
+ * 
+ * <p>Identifies the various parameters that act as filters on 
+ * the records to be retrieved.</p>
  * 
  * <p>REPC_MT500006CA.ParameterList: Query Definition</p>
  * 
- * <p>Identifies the various parameters that act as filters on 
- * the records to be retrieved.</p>
- * 
  * <p>Allows the user and/or the point-of-service application 
  * to constrain what EHR information they wish to retrieve.</p>
+ * 
+ * <p>Identifies the various parameters that act as filters on 
+ * the records to be retrieved.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000008CA.ParameterList","REPC_MT000016CA.ParameterList","REPC_MT500006CA.ParameterList"})
 @Hl7RootType
 public class QueryDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<II> careCompositionIDValue = new ArrayList<II>();
     private List<CV> careCompositionTypeValue = new ArrayList<CV>();
     private BL includeNotesIndicatorValue = new BLImpl();
@@ -114,32 +114,26 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionIDs</p>
+     * <p>Business Name: CareCompositionIDs</p>
      * 
-     * <p>Care Composition IDs</p>
+     * <p>Other Business Name: CareCompositionIDs</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Relationship: REPC_MT000016CA.CareCompositionID.value</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
     public List<Identifier> getCareCompositionIDValue() {
@@ -148,39 +142,40 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionTypes</p>
+     * <p>Business Name: CareCompositionTypes</p>
      * 
-     * <p>S: Care Composition Types</p>
+     * <p>Other Business Name: CareCompositionTypes</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p>
      * 
      * <p>Filters the records retrieved to only include those 
      * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p><p> 
-     * <i>Query results should include those with an match of this 
-     * code, as well those matching any specializations of the 
-     * coded parameter.</i> </p>
+     * or care event. If unspecified, no filter is applied.</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p><p> 
-     * <i>Query results should include those with an match of this 
-     * code, as well those matching any specializations of the 
-     * coded parameter.</i> </p>
+     * <p>Other Business Name: CareCompositionTypes</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with a 
      * particular type of encounter, episode or care event. E.g. 
      * Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
      * 
-     * <p>Care Composition Types</p>
-     * 
      * <p>Filters the records retrieved to only include those 
      * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p>
-     * 
-     * <p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p>
+     * or care event. If unspecified, no filter is applied.</p><p> 
+     * <i>Query results should include those with an match of this 
+     * code, as well those matching any specializations of the 
+     * coded parameter.</i> </p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypeValue() {
@@ -189,37 +184,39 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for adverse reactions 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the adverse 
      * reactions records are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Relationship: REPC_MT500006CA.IncludeNotesIndicator.value</p>
      * 
-     * <p>F: Include Notes Indicator</p>
-     * 
-     * <p>If true, indicates that notes should be included when 
-     * retrieving the record(s). If false, notes will not be 
-     * returned.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering whether supplemental comments should be 
      * retrieved or not. Some uses of the record do not require 
      * having the supplemental information available. The attribute 
      * is mandatory because it must be known whether notes are to 
      * be returned or not.</p>
+     * 
+     * <p>If true, indicates that notes should be included when 
+     * retrieving the record(s). If false, notes will not be 
+     * returned.</p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
     public Boolean getIncludeNotesIndicatorValue() {
@@ -227,37 +224,39 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for adverse reactions 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the adverse 
      * reactions records are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Relationship: REPC_MT500006CA.IncludeNotesIndicator.value</p>
      * 
-     * <p>F: Include Notes Indicator</p>
-     * 
-     * <p>If true, indicates that notes should be included when 
-     * retrieving the record(s). If false, notes will not be 
-     * returned.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering whether supplemental comments should be 
      * retrieved or not. Some uses of the record do not require 
      * having the supplemental information available. The attribute 
      * is mandatory because it must be known whether notes are to 
      * be returned or not.</p>
+     * 
+     * <p>If true, indicates that notes should be included when 
+     * retrieving the record(s). If false, notes will not be 
+     * returned.</p>
      */
     public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
         this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
@@ -265,18 +264,22 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>ReactionPeriod</p>
+     * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>F:Reaction Period</p>
+     * <p>Other Business Name: ReactionPeriod</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the adverse reaction 
+     * period of interest for retrieval of adverse reaction 
+     * records. Useful to avoid run-away queries.</p>
      * 
      * <p>The period in which the recorded adverse reaction 
      * occurred or was updated. I.e. Filters the result-set to 
      * those reactions whose onset occurred within the time-range 
      * specified by this parameter.</p>
-     * 
-     * <p>Allows the requester to specify the adverse reaction 
-     * period of interest for retrieval of adverse reaction 
-     * records. Useful to avoid run-away queries.</p>
      */
     @Hl7XmlMapping({"reactionPeriod/value"})
     public Interval<Date> getReactionPeriodValue() {
@@ -284,18 +287,22 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReactionPeriod</p>
+     * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>F:Reaction Period</p>
+     * <p>Other Business Name: ReactionPeriod</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the adverse reaction 
+     * period of interest for retrieval of adverse reaction 
+     * records. Useful to avoid run-away queries.</p>
      * 
      * <p>The period in which the recorded adverse reaction 
      * occurred or was updated. I.e. Filters the result-set to 
      * those reactions whose onset occurred within the time-range 
      * specified by this parameter.</p>
-     * 
-     * <p>Allows the requester to specify the adverse reaction 
-     * period of interest for retrieval of adverse reaction 
-     * records. Useful to avoid run-away queries.</p>
      */
     public void setReactionPeriodValue(Interval<Date> reactionPeriodValue) {
         this.reactionPeriodValue.setValue(reactionPeriodValue);
@@ -303,23 +310,22 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>ReactionType</p>
+     * <p>Business Name: ReactionType</p>
      * 
-     * <p>G:Reaction Type</p>
+     * <p>Other Business Name: ReactionType</p>
      * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
+     * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
      * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to retrieve only those 
      * allergy/intolerance records for which there was a specific 
      * type of reaction.</p>
+     * 
+     * <p>Indicates that the result set be filtered to include only 
+     * those allergy/intolerance records for which specific type of 
+     * reaction was recorded.</p><p>Reaction types include: STEVEN 
+     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
      */
     @Hl7XmlMapping({"reactionType/value"})
     public SubjectReaction getReactionTypeValue() {
@@ -327,23 +333,22 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReactionType</p>
+     * <p>Business Name: ReactionType</p>
      * 
-     * <p>G:Reaction Type</p>
+     * <p>Other Business Name: ReactionType</p>
      * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
+     * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
      * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to retrieve only those 
      * allergy/intolerance records for which there was a specific 
      * type of reaction.</p>
+     * 
+     * <p>Indicates that the result set be filtered to include only 
+     * those allergy/intolerance records for which specific type of 
+     * reaction was recorded.</p><p>Reaction types include: STEVEN 
+     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
      */
     public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
         this.reactionTypeValue.setValue(reactionTypeValue);
@@ -351,16 +356,20 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>UpdatedSinceDateTime</p>
+     * <p>Business Name: UpdatedSinceDateTime</p>
      * 
-     * <p>K: Updated Since DateTime</p>
+     * <p>Other Business Name: UpdatedSinceDateTime</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.AmendedSinceDateTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful to retrieve information &quot;since you last 
+     * checked&quot;.</p>
      * 
      * <p>Filters the records retrieved to only include those which 
      * have been created or revised since the specified date and 
      * time. If unspecified, no filter is applied.</p>
-     * 
-     * <p>Useful to retrieve information &quot;since you last 
-     * checked&quot;.</p>
      */
     @Hl7XmlMapping({"amendedSinceDateTime/value"})
     public Date getAmendedSinceDateTimeValue() {
@@ -368,16 +377,20 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>UpdatedSinceDateTime</p>
+     * <p>Business Name: UpdatedSinceDateTime</p>
      * 
-     * <p>K: Updated Since DateTime</p>
+     * <p>Other Business Name: UpdatedSinceDateTime</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.AmendedSinceDateTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful to retrieve information &quot;since you last 
+     * checked&quot;.</p>
      * 
      * <p>Filters the records retrieved to only include those which 
      * have been created or revised since the specified date and 
      * time. If unspecified, no filter is applied.</p>
-     * 
-     * <p>Useful to retrieve information &quot;since you last 
-     * checked&quot;.</p>
      */
     public void setAmendedSinceDateTimeValue(Date amendedSinceDateTimeValue) {
         this.amendedSinceDateTimeValue.setValue(amendedSinceDateTimeValue);
@@ -385,32 +398,26 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionIds</p>
+     * <p>Business Name: CareCompositionIds</p>
      * 
-     * <p>R: Care Composition Ids</p>
+     * <p>Other Business Name: CareCompositionIds</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Relationship: REPC_MT000008CA.CareCompositionId.value</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
      */
     @Hl7XmlMapping({"careCompositionId/value"})
     public List<Identifier> getCareCompositionIdValue() {
@@ -419,33 +426,27 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>DiscreteRecordTypes</p>
+     * <p>Business Name: DiscreteRecordTypes</p>
      * 
-     * <p>X: Discrete Record Types</p>
+     * <p>Other Business Name: DiscreteRecordTypes</p>
      * 
-     * <p>Identifies which types of records (allergies, drugs, lab 
-     * results, referrals, etc.) should be returned in discrete 
-     * form. It is possible for a given type of information to be 
-     * returned in both discrete and document form. If not 
-     * specified, default is all data will be returned discretely. 
-     * To retrieve no discrete data, use a null flavor of 
-     * &quot;NA&quot;.</p><p> <i>Query results should include those 
-     * with an match of this code, as well those matching any 
-     * specializations of the coded parameter.</i> </p>
+     * <p>Relationship: REPC_MT000008CA.DiscreteRecordTypes.value</p>
      * 
-     * <p>Identifies which types of records (allergies, drugs, lab 
-     * results, referrals, etc.) should be returned in discrete 
-     * form. It is possible for a given type of information to be 
-     * returned in both discrete and document form. If not 
-     * specified, default is all data will be returned discretely. 
-     * To retrieve no discrete data, use a null flavor of 
-     * &quot;NA&quot;.</p><p> <i>Query results should include those 
-     * with an match of this code, as well those matching any 
-     * specializations of the coded parameter.</i> </p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of the clinical summary to only include 
      * types of information required by the application and/or 
      * which it is capable of supporting.</p>
+     * 
+     * <p>Identifies which types of records (allergies, drugs, lab 
+     * results, referrals, etc.) should be returned in discrete 
+     * form. It is possible for a given type of information to be 
+     * returned in both discrete and document form. If not 
+     * specified, default is all data will be returned discretely. 
+     * To retrieve no discrete data, use a null flavor of 
+     * &quot;NA&quot;.</p><p> <i>Query results should include those 
+     * with an match of this code, as well those matching any 
+     * specializations of the coded parameter.</i> </p>
      */
     @Hl7XmlMapping({"discreteRecordTypes/value"})
     public List<ActEventCategoryWorkingListCode> getDiscreteRecordTypesValue() {
@@ -454,35 +455,28 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>DocumentRecordTypes</p>
+     * <p>Business Name: DocumentRecordTypes</p>
      * 
-     * <p>Y: Document Record Types</p>
+     * <p>Other Business Name: DocumentRecordTypes</p>
      * 
-     * <p>Identifies which types of records (allergies, drugs, lab 
-     * results, referrals, etc.) should be returned in rendered 
-     * document form. It is possible for a given type of 
-     * information to be returned in both discrete and document 
-     * form. If not specified, default is all data will be returned 
-     * in document form. To retrieve no rendered data, use a null 
-     * flavor of &quot;NA&quot;</p><p> <i>Query results should 
-     * include those with an match of this code, as well those 
-     * matching any specializations of the coded parameter.</i> 
-     * </p>
+     * <p>Relationship: REPC_MT000008CA.DocumentRecordTypes.value</p>
      * 
-     * <p>Identifies which types of records (allergies, drugs, lab 
-     * results, referrals, etc.) should be returned in rendered 
-     * document form. It is possible for a given type of 
-     * information to be returned in both discrete and document 
-     * form. If not specified, default is all data will be returned 
-     * in document form. To retrieve no rendered data, use a null 
-     * flavor of &quot;NA&quot;</p><p> <i>Query results should 
-     * include those with an match of this code, as well those 
-     * matching any specializations of the coded parameter.</i> 
-     * </p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows returning discrete data rendered into document 
      * form for applications not capable of displaying data 
      * retrieved in discrete form.</p>
+     * 
+     * <p>Identifies which types of records (allergies, drugs, lab 
+     * results, referrals, etc.) should be returned in rendered 
+     * document form. It is possible for a given type of 
+     * information to be returned in both discrete and document 
+     * form. If not specified, default is all data will be returned 
+     * in document form. To retrieve no rendered data, use a null 
+     * flavor of &quot;NA&quot;</p><p> <i>Query results should 
+     * include those with an match of this code, as well those 
+     * matching any specializations of the coded parameter.</i> 
+     * </p>
      */
     @Hl7XmlMapping({"documentRecordTypes/value"})
     public List<ActEventCategoryWorkingListCode> getDocumentRecordTypesValue() {
@@ -491,16 +485,20 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>EHRRepositoryId</p>
+     * <p>Business Name: EHRRepositoryId</p>
      * 
-     * <p>Q: EHR Repository Id</p>
+     * <p>Other Business Name: EHRRepositoryId</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.EHRRepositoryId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Primarily intended to allow filtering an initial search 
+     * to a local EHR repository for performance reasons.</p>
      * 
      * <p>Filters the records retrieved to only include those 
      * records from a specific EHR repository. If unspecified, all 
      * &quot;connected&quot; EHR repositories will be searched.</p>
-     * 
-     * <p>Primarily intended to allow filtering an initial search 
-     * to a local EHR repository for performance reasons.</p>
      */
     @Hl7XmlMapping({"eHRRepositoryId/value"})
     public Identifier getEHRRepositoryIdValue() {
@@ -508,16 +506,20 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>EHRRepositoryId</p>
+     * <p>Business Name: EHRRepositoryId</p>
      * 
-     * <p>Q: EHR Repository Id</p>
+     * <p>Other Business Name: EHRRepositoryId</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.EHRRepositoryId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Primarily intended to allow filtering an initial search 
+     * to a local EHR repository for performance reasons.</p>
      * 
      * <p>Filters the records retrieved to only include those 
      * records from a specific EHR repository. If unspecified, all 
      * &quot;connected&quot; EHR repositories will be searched.</p>
-     * 
-     * <p>Primarily intended to allow filtering an initial search 
-     * to a local EHR repository for performance reasons.</p>
      */
     public void setEHRRepositoryIdValue(Identifier eHRRepositoryIdValue) {
         this.eHRRepositoryIdValue.setValue(eHRRepositoryIdValue);
@@ -525,9 +527,19 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>EffectiveDateRange</p>
+     * <p>Business Name: EffectiveDateRange</p>
      * 
-     * <p>J: Effective Date Range</p>
+     * <p>Other Business Name: EffectiveDateRange</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.EffectiveTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable on a particular date. Useful in retrieving those 
+     * records &quot;currently in effect&quot; as well as 
+     * retrieving views of what information was in effect at some 
+     * point in the past.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * occurred or were effective for the patient within the date 
@@ -536,12 +548,6 @@ public class QueryDefinitionBean extends MessagePartBean {
      * filter will be applied. If there is any overlap between the 
      * specified date-range and the effective date of the record, 
      * the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable on a particular date. Useful in retrieving those 
-     * records &quot;currently in effect&quot; as well as 
-     * retrieving views of what information was in effect at some 
-     * point in the past.</p>
      */
     @Hl7XmlMapping({"effectiveTimeRange/value"})
     public Interval<Date> getEffectiveTimeRangeValue() {
@@ -549,9 +555,19 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>EffectiveDateRange</p>
+     * <p>Business Name: EffectiveDateRange</p>
      * 
-     * <p>J: Effective Date Range</p>
+     * <p>Other Business Name: EffectiveDateRange</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.EffectiveTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows constraining the retrieved records to those 
+     * applicable on a particular date. Useful in retrieving those 
+     * records &quot;currently in effect&quot; as well as 
+     * retrieving views of what information was in effect at some 
+     * point in the past.</p>
      * 
      * <p>Filters the set of records to be retrieved to those which 
      * occurred or were effective for the patient within the date 
@@ -560,12 +576,6 @@ public class QueryDefinitionBean extends MessagePartBean {
      * filter will be applied. If there is any overlap between the 
      * specified date-range and the effective date of the record, 
      * the record will be returned.</p>
-     * 
-     * <p>Allows constraining the retrieved records to those 
-     * applicable on a particular date. Useful in retrieving those 
-     * records &quot;currently in effect&quot; as well as 
-     * retrieving views of what information was in effect at some 
-     * point in the past.</p>
      */
     public void setEffectiveTimeRangeValue(Interval<Date> effectiveTimeRangeValue) {
         this.effectiveTimeRangeValue.setValue(effectiveTimeRangeValue);
@@ -573,9 +583,16 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>EventLocationId</p>
+     * <p>Business Name: EventLocationId</p>
      * 
-     * <p>O: Event Location Id</p>
+     * <p>Other Business Name: EventLocationId</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.EventLocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving those records associated with a 
+     * particular facility.</p>
      * 
      * <p>Filters the records retrieved to only include those 
      * records which are officially associated with and/or were 
@@ -585,9 +602,6 @@ public class QueryDefinitionBean extends MessagePartBean {
      * Records associated with &quot;sub-locations&quot; (e.g. 
      * departments, wards) will be returned when searching by the 
      * larger location (e.g. hospital).</p>
-     * 
-     * <p>Allows retrieving those records associated with a 
-     * particular facility.</p>
      */
     @Hl7XmlMapping({"eventLocationId/value"})
     public Identifier getEventLocationIdValue() {
@@ -595,9 +609,16 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>EventLocationId</p>
+     * <p>Business Name: EventLocationId</p>
      * 
-     * <p>O: Event Location Id</p>
+     * <p>Other Business Name: EventLocationId</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.EventLocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving those records associated with a 
+     * particular facility.</p>
      * 
      * <p>Filters the records retrieved to only include those 
      * records which are officially associated with and/or were 
@@ -607,9 +628,6 @@ public class QueryDefinitionBean extends MessagePartBean {
      * Records associated with &quot;sub-locations&quot; (e.g. 
      * departments, wards) will be returned when searching by the 
      * larger location (e.g. hospital).</p>
-     * 
-     * <p>Allows retrieving those records associated with a 
-     * particular facility.</p>
      */
     public void setEventLocationIdValue(Identifier eventLocationIdValue) {
         this.eventLocationIdValue.setValue(eventLocationIdValue);
@@ -617,33 +635,27 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>EventLocationType</p>
+     * <p>Business Name: EventLocationType</p>
      * 
-     * <p>P: Event Location Type</p>
+     * <p>Other Business Name: EventLocationType</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * records which are officially associated with and/or were 
-     * performed by facilities with the specified type. I.e. It 
-     * will return records where either the &quot;Service 
-     * Location&quot; or the &quot;Record Location&quot; has the 
-     * specified location type.</p><p> <i>Query results should 
-     * include those with an match of this code, as well those 
-     * matching any specializations of the coded parameter.</i> 
-     * </p>
+     * <p>Relationship: REPC_MT000008CA.EventLocationType.value</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * records which are officially associated with and/or were 
-     * performed by facilities with the specified type. I.e. It 
-     * will return records where either the &quot;Service 
-     * Location&quot; or the &quot;Record Location&quot; has the 
-     * specified location type.</p><p> <i>Query results should 
-     * include those with an match of this code, as well those 
-     * matching any specializations of the coded parameter.</i> 
-     * </p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving those records associated with a 
      * particular kind of facility. E.g. Hospital, clinic, 
      * pharmacy, patient residence, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * records which are officially associated with and/or were 
+     * performed by facilities with the specified type. I.e. It 
+     * will return records where either the &quot;Service 
+     * Location&quot; or the &quot;Record Location&quot; has the 
+     * specified location type.</p><p> <i>Query results should 
+     * include those with an match of this code, as well those 
+     * matching any specializations of the coded parameter.</i> 
+     * </p>
      */
     @Hl7XmlMapping({"eventLocationType/value"})
     public ServiceDeliveryLocationRoleType getEventLocationTypeValue() {
@@ -651,33 +663,27 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>EventLocationType</p>
+     * <p>Business Name: EventLocationType</p>
      * 
-     * <p>P: Event Location Type</p>
+     * <p>Other Business Name: EventLocationType</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * records which are officially associated with and/or were 
-     * performed by facilities with the specified type. I.e. It 
-     * will return records where either the &quot;Service 
-     * Location&quot; or the &quot;Record Location&quot; has the 
-     * specified location type.</p><p> <i>Query results should 
-     * include those with an match of this code, as well those 
-     * matching any specializations of the coded parameter.</i> 
-     * </p>
+     * <p>Relationship: REPC_MT000008CA.EventLocationType.value</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * records which are officially associated with and/or were 
-     * performed by facilities with the specified type. I.e. It 
-     * will return records where either the &quot;Service 
-     * Location&quot; or the &quot;Record Location&quot; has the 
-     * specified location type.</p><p> <i>Query results should 
-     * include those with an match of this code, as well those 
-     * matching any specializations of the coded parameter.</i> 
-     * </p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving those records associated with a 
      * particular kind of facility. E.g. Hospital, clinic, 
      * pharmacy, patient residence, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * records which are officially associated with and/or were 
+     * performed by facilities with the specified type. I.e. It 
+     * will return records where either the &quot;Service 
+     * Location&quot; or the &quot;Record Location&quot; has the 
+     * specified location type.</p><p> <i>Query results should 
+     * include those with an match of this code, as well those 
+     * matching any specializations of the coded parameter.</i> 
+     * </p>
      */
     public void setEventLocationTypeValue(ServiceDeliveryLocationRoleType eventLocationTypeValue) {
         this.eventLocationTypeValue.setValue(eventLocationTypeValue);
@@ -685,14 +691,13 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>FilterTemplateId</p>
+     * <p>Business Name: FilterTemplateId</p>
      * 
-     * <p>W: Filter Template Id</p>
+     * <p>Other Business Name: FilterTemplateId</p>
      * 
-     * <p>Indicates that the returned results are to be filtered 
-     * according to the specified template. If not specified, no 
-     * filter is applied. The specific types of templates available 
-     * are undefined and may vary by jurisdiction.</p>
+     * <p>Relationship: REPC_MT000008CA.FilterTemplateId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the application of complex filtering rules such as 
      * &quot;All information relevant to diabetes management&quot; 
@@ -702,6 +707,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * tests of a particular type, drugs of one of 5 types, etc. In 
      * some cases, the template may influence how document views of 
      * different information types are rendered.</p>
+     * 
+     * <p>Indicates that the returned results are to be filtered 
+     * according to the specified template. If not specified, no 
+     * filter is applied. The specific types of templates available 
+     * are undefined and may vary by jurisdiction.</p>
      */
     @Hl7XmlMapping({"filterTemplateId/value"})
     public Identifier getFilterTemplateIdValue() {
@@ -709,14 +719,13 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>FilterTemplateId</p>
+     * <p>Business Name: FilterTemplateId</p>
      * 
-     * <p>W: Filter Template Id</p>
+     * <p>Other Business Name: FilterTemplateId</p>
      * 
-     * <p>Indicates that the returned results are to be filtered 
-     * according to the specified template. If not specified, no 
-     * filter is applied. The specific types of templates available 
-     * are undefined and may vary by jurisdiction.</p>
+     * <p>Relationship: REPC_MT000008CA.FilterTemplateId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the application of complex filtering rules such as 
      * &quot;All information relevant to diabetes management&quot; 
@@ -726,6 +735,11 @@ public class QueryDefinitionBean extends MessagePartBean {
      * tests of a particular type, drugs of one of 5 types, etc. In 
      * some cases, the template may influence how document views of 
      * different information types are rendered.</p>
+     * 
+     * <p>Indicates that the returned results are to be filtered 
+     * according to the specified template. If not specified, no 
+     * filter is applied. The specific types of templates available 
+     * are undefined and may vary by jurisdiction.</p>
      */
     public void setFilterTemplateIdValue(Identifier filterTemplateIdValue) {
         this.filterTemplateIdValue.setValue(filterTemplateIdValue);
@@ -733,9 +747,20 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>HealthConditions</p>
+     * <p>Business Name: HealthConditions</p>
      * 
-     * <p>T: Health Conditions</p>
+     * <p>Other Business Name: HealthConditions</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.HealthCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with a 
+     * particular health condition or problem.</p><p> <i>This 
+     * element makes use of the CD datatype to allow for use of the 
+     * SNOMED code system that in some circumstances requires the 
+     * use of post-coordination. Post-coordination is only 
+     * supported by the CD datatype.</i> </p>
      * 
      * <p>Filters the records retrieved to only include those 
      * associated with the specified health condition (e.g. has 
@@ -754,38 +779,6 @@ public class QueryDefinitionBean extends MessagePartBean {
      * should include those with an match of this code, as well 
      * those matching any specializations of the coded 
      * parameter.</i> </p>
-     * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified health condition (e.g. has 
-     * indication, discharge diagnosis, condition type, etc. 
-     * Specifically, any record having an &quot;indication&quot; 
-     * which matches the specified code, any Care composition or 
-     * Discharge-Care Summary with a discharge disposition which 
-     * matches the specified code, or any Coded Observation which 
-     * matches the specified code and any Health Condition which 
-     * matches the specified code). If there are episodes 
-     * associated with the condition, the query will also return 
-     * records associated with that episode. (I.e. Any record tied 
-     * to an episode with an associated health condition has an 
-     * implicit relationship to that health condition.) If 
-     * unspecified, no filter is applied.</p><p> <i>Query results 
-     * should include those with an match of this code, as well 
-     * those matching any specializations of the coded 
-     * parameter.</i> </p>
-     * 
-     * <p>Allows retrieving all records associated with a 
-     * particular health condition or problem.</p><p> <i>This 
-     * element makes use of the CD datatype to allow for use of the 
-     * SNOMED code system that in some circumstances requires the 
-     * use of post-coordination. Post-coordination is only 
-     * supported by the CD datatype.</i> </p>
-     * 
-     * <p>Allows retrieving all records associated with a 
-     * particular health condition or problem.</p><p> <i>This 
-     * element makes use of the CD datatype to allow for use of the 
-     * SNOMED code system that in some circumstances requires the 
-     * use of post-coordination. Post-coordination is only 
-     * supported by the CD datatype.</i> </p>
      */
     @Hl7XmlMapping({"healthCondition/value"})
     public List<ActHealthConditionType> getHealthConditionValue() {
@@ -794,9 +787,20 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>Indication</p>
+     * <p>Business Name: Indication</p>
      * 
-     * <p>U: Indication</p>
+     * <p>Other Business Name: Indication</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.Indication.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with a 
+     * particular indication.</p><p> <i>This element makes use of 
+     * the CD datatype to allow for use of the SNOMED code system 
+     * that in some circumstances requires the use of 
+     * post-coordination. Post-coordination is only supported by 
+     * the CD datatype.</i> </p>
      * 
      * <p>Filters the records retrieved to only include those where 
      * the &quot;indication&quot; (reason) for the record was the 
@@ -806,29 +810,6 @@ public class QueryDefinitionBean extends MessagePartBean {
      * on discharge diagnosis, part of related episode, etc.) It 
      * also allows searching on indications such as prophylaxis, 
      * surgery prep, etc.</p>
-     * 
-     * <p>Filters the records retrieved to only include those where 
-     * the &quot;indication&quot; (reason) for the record was the 
-     * specified code.</p><p>This is distinct from the Health 
-     * Condition query parameter in that it will only return 
-     * records with an explicit indication match (it will not match 
-     * on discharge diagnosis, part of related episode, etc.) It 
-     * also allows searching on indications such as prophylaxis, 
-     * surgery prep, etc.</p>
-     * 
-     * <p>Allows retrieving all records associated with a 
-     * particular indication.</p><p> <i>This element makes use of 
-     * the CD datatype to allow for use of the SNOMED code system 
-     * that in some circumstances requires the use of 
-     * post-coordination. Post-coordination is only supported by 
-     * the CD datatype.</i> </p>
-     * 
-     * <p>Allows retrieving all records associated with a 
-     * particular indication.</p><p> <i>This element makes use of 
-     * the CD datatype to allow for use of the SNOMED code system 
-     * that in some circumstances requires the use of 
-     * post-coordination. Post-coordination is only supported by 
-     * the CD datatype.</i> </p>
      */
     @Hl7XmlMapping({"indication/value"})
     public ActIndicationType getIndicationValue() {
@@ -836,9 +817,20 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Indication</p>
+     * <p>Business Name: Indication</p>
      * 
-     * <p>U: Indication</p>
+     * <p>Other Business Name: Indication</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.Indication.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with a 
+     * particular indication.</p><p> <i>This element makes use of 
+     * the CD datatype to allow for use of the SNOMED code system 
+     * that in some circumstances requires the use of 
+     * post-coordination. Post-coordination is only supported by 
+     * the CD datatype.</i> </p>
      * 
      * <p>Filters the records retrieved to only include those where 
      * the &quot;indication&quot; (reason) for the record was the 
@@ -848,29 +840,6 @@ public class QueryDefinitionBean extends MessagePartBean {
      * on discharge diagnosis, part of related episode, etc.) It 
      * also allows searching on indications such as prophylaxis, 
      * surgery prep, etc.</p>
-     * 
-     * <p>Filters the records retrieved to only include those where 
-     * the &quot;indication&quot; (reason) for the record was the 
-     * specified code.</p><p>This is distinct from the Health 
-     * Condition query parameter in that it will only return 
-     * records with an explicit indication match (it will not match 
-     * on discharge diagnosis, part of related episode, etc.) It 
-     * also allows searching on indications such as prophylaxis, 
-     * surgery prep, etc.</p>
-     * 
-     * <p>Allows retrieving all records associated with a 
-     * particular indication.</p><p> <i>This element makes use of 
-     * the CD datatype to allow for use of the SNOMED code system 
-     * that in some circumstances requires the use of 
-     * post-coordination. Post-coordination is only supported by 
-     * the CD datatype.</i> </p>
-     * 
-     * <p>Allows retrieving all records associated with a 
-     * particular indication.</p><p> <i>This element makes use of 
-     * the CD datatype to allow for use of the SNOMED code system 
-     * that in some circumstances requires the use of 
-     * post-coordination. Post-coordination is only supported by 
-     * the CD datatype.</i> </p>
      */
     public void setIndicationValue(ActIndicationType indicationValue) {
         this.indicationValue.setValue(indicationValue);
@@ -878,21 +847,26 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>MostRecentByTypeIndicator</p>
+     * <p>Business Name: MostRecentByTypeIndicator</p>
      * 
-     * <p>V: Most Recent By Type Indicator</p>
+     * <p>Other Business Name: MostRecentByTypeIndicator</p>
      * 
-     * <p>If true, indicates that only the most recent records of a 
-     * given type or category should be retrieved. I.e. If there 
-     * are 10 records of the same kind, only the most recent one 
-     * would be returned. If false, all occurrences will be 
-     * returned.</p>
+     * <p>Relationship: 
+     * REPC_MT000008CA.MostRecentByTypeIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a mechanism of getting a quick overview of the 
      * types of events that have occurred without needing to look 
      * at all occurrences. The attribute is mandatory because it 
      * must be known whether to return the most recent or all 
      * records.</p>
+     * 
+     * <p>If true, indicates that only the most recent records of a 
+     * given type or category should be retrieved. I.e. If there 
+     * are 10 records of the same kind, only the most recent one 
+     * would be returned. If false, all occurrences will be 
+     * returned.</p>
      */
     @Hl7XmlMapping({"mostRecentByTypeIndicator/value"})
     public Boolean getMostRecentByTypeIndicatorValue() {
@@ -900,21 +874,26 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>MostRecentByTypeIndicator</p>
+     * <p>Business Name: MostRecentByTypeIndicator</p>
      * 
-     * <p>V: Most Recent By Type Indicator</p>
+     * <p>Other Business Name: MostRecentByTypeIndicator</p>
      * 
-     * <p>If true, indicates that only the most recent records of a 
-     * given type or category should be retrieved. I.e. If there 
-     * are 10 records of the same kind, only the most recent one 
-     * would be returned. If false, all occurrences will be 
-     * returned.</p>
+     * <p>Relationship: 
+     * REPC_MT000008CA.MostRecentByTypeIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a mechanism of getting a quick overview of the 
      * types of events that have occurred without needing to look 
      * at all occurrences. The attribute is mandatory because it 
      * must be known whether to return the most recent or all 
      * records.</p>
+     * 
+     * <p>If true, indicates that only the most recent records of a 
+     * given type or category should be retrieved. I.e. If there 
+     * are 10 records of the same kind, only the most recent one 
+     * would be returned. If false, all occurrences will be 
+     * returned.</p>
      */
     public void setMostRecentByTypeIndicatorValue(Boolean mostRecentByTypeIndicatorValue) {
         this.mostRecentByTypeIndicatorValue.setValue(mostRecentByTypeIndicatorValue);
@@ -922,25 +901,39 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>ProtocolIds</p>
+     * <p>Business Name: ProtocolIds</p>
      * 
-     * <p>ZI: Protocol Ids</p>
+     * <p>Other Business Name: ProtocolIds</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.ProtocolId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving records associated with a particular 
+     * protocol. Useful in clinical studies and other 
+     * research.</p><p>The element is optional because support for 
+     * protocols is not deemed a necessity for many healthcare 
+     * providers.</p>
      * 
      * <p>Filters the records retrieved to only include those 
      * associated with the specified protocols. If unspecified, no 
      * filter is applied.</p>
      * 
-     * <p>Allows retrieving records associated with a particular 
-     * protocol. Useful in clinical studies and other 
-     * research.</p><p>The element is optional because support for 
-     * protocols is not deemed a necessity for many healthcare 
-     * providers.</p>
+     * <p>Other Business Name: ProtocolIds</p>
+     * 
+     * <p>Relationship: REPC_MT500006CA.ProtocolId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving records associated with a particular 
      * protocol. Useful in clinical studies and other 
      * research.</p><p>The element is optional because support for 
      * protocols is not deemed a necessity for many healthcare 
      * providers.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified protocols. If unspecified, no 
+     * filter is applied.</p>
      */
     @Hl7XmlMapping({"protocolId/value"})
     public List<Identifier> getProtocolIdValue() {
@@ -949,17 +942,21 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>RecordStatuses</p>
+     * <p>Business Name: RecordStatuses</p>
      * 
-     * <p>I: Record Statuses</p>
+     * <p>Other Business Name: RecordStatuses</p>
      * 
-     * <p>Filters the set of records to be retrieved to only 
-     * include those with the identified status(s). If no values 
-     * are specified, no filter will be applied.</p>
+     * <p>Relationship: REPC_MT000008CA.RecordStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows constraining the status of records to be 
      * retrieved. Multiple repetitions are present to allow 
      * selection of multiple statuses with a single query.</p>
+     * 
+     * <p>Filters the set of records to be retrieved to only 
+     * include those with the identified status(s). If no values 
+     * are specified, no filter will be applied.</p>
      */
     @Hl7XmlMapping({"recordStatus/value"})
     public List<ActStatus> getRecordStatusValue() {
@@ -968,9 +965,13 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>RecordTypes</p>
+     * <p>Business Name: RecordTypes</p>
      * 
-     * <p>H:Record Types</p>
+     * <p>Other Business Name: RecordTypes</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.RecordType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The following are the valid concept domains / value-sets 
      * for the abstract CanadianEHRRecordDetailType domain: - 
@@ -984,24 +985,6 @@ public class QueryDefinitionBean extends MessagePartBean {
      * (Professional Service Types) - Act DiagnosisCode (Health 
      * Condition Types)</p>
      * 
-     * <p>Filters the type(s) or category(ies) of the records to be 
-     * retrieved. The query will return both those records whose 
-     * type exactly matches, as well as those whose types are 
-     * subsets of the specified parameter. If no Types are 
-     * specified, no restriction will be placed on the types to be 
-     * returned.</p><p> <i>Query results should include those with 
-     * an match of this code, as well those matching any 
-     * specializations of the coded parameter.</i> </p>
-     * 
-     * <p>Filters the type(s) or category(ies) of the records to be 
-     * retrieved. The query will return both those records whose 
-     * type exactly matches, as well as those whose types are 
-     * subsets of the specified parameter. If no Types are 
-     * specified, no restriction will be placed on the types to be 
-     * returned.</p><p> <i>Query results should include those with 
-     * an match of this code, as well those matching any 
-     * specializations of the coded parameter.</i> </p>
-     * 
      * <p>Allows constraining the type of records to be retrieved. 
      * Multiple repetitions are present to allow selection of 
      * multiple types with a single query.</p><p> <i>This element 
@@ -1010,13 +993,14 @@ public class QueryDefinitionBean extends MessagePartBean {
      * post-coordination. Post-coordination is only supported by 
      * the CD datatype.</i> </p>
      * 
-     * <p>Allows constraining the type of records to be retrieved. 
-     * Multiple repetitions are present to allow selection of 
-     * multiple types with a single query.</p><p> <i>This element 
-     * makes use of the CD datatype to allow for use of the SNOMED 
-     * code system that in some circumstances requires the use of 
-     * post-coordination. Post-coordination is only supported by 
-     * the CD datatype.</i> </p>
+     * <p>Filters the type(s) or category(ies) of the records to be 
+     * retrieved. The query will return both those records whose 
+     * type exactly matches, as well as those whose types are 
+     * subsets of the specified parameter. If no Types are 
+     * specified, no restriction will be placed on the types to be 
+     * returned.</p><p> <i>Query results should include those with 
+     * an match of this code, as well those matching any 
+     * specializations of the coded parameter.</i> </p>
      */
     @Hl7XmlMapping({"recordType/value"})
     public List<CanadianEHRRecordDetailType> getRecordTypeValue() {
@@ -1025,16 +1009,20 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>RequestingProviderId</p>
+     * <p>Business Name: RequestingProviderId</p>
      * 
-     * <p>N: Requesting Provider Id</p>
+     * <p>Other Business Name: RequestingProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.RequestingProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a provider to see the results of any requests they 
+     * may have made.</p>
      * 
      * <p>Filters the records retrieved to only include those whose 
      * creation/performance were requested by the identified 
      * provider. If unspecified, no filter is applied.</p>
-     * 
-     * <p>Allows a provider to see the results of any requests they 
-     * may have made.</p>
      */
     @Hl7XmlMapping({"requestingProviderId/value"})
     public Identifier getRequestingProviderIdValue() {
@@ -1042,16 +1030,20 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>RequestingProviderId</p>
+     * <p>Business Name: RequestingProviderId</p>
      * 
-     * <p>N: Requesting Provider Id</p>
+     * <p>Other Business Name: RequestingProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.RequestingProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a provider to see the results of any requests they 
+     * may have made.</p>
      * 
      * <p>Filters the records retrieved to only include those whose 
      * creation/performance were requested by the identified 
      * provider. If unspecified, no filter is applied.</p>
-     * 
-     * <p>Allows a provider to see the results of any requests they 
-     * may have made.</p>
      */
     public void setRequestingProviderIdValue(Identifier requestingProviderIdValue) {
         this.requestingProviderIdValue.setValue(requestingProviderIdValue);
@@ -1059,16 +1051,20 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>ResponsibleProviderId</p>
+     * <p>Business Name: ResponsibleProviderId</p>
      * 
-     * <p>L: Responsible Provider Id</p>
+     * <p>Other Business Name: ResponsibleProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.ResponsibleProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving those records in which a particular 
+     * provider has a vested interest.</p>
      * 
      * <p>Filters the records retrieved to only include those where 
      * the identified provider was the author, supervisor or 
      * performer. If unspecified, no filter is applied.</p>
-     * 
-     * <p>Allows retrieving those records in which a particular 
-     * provider has a vested interest.</p>
      */
     @Hl7XmlMapping({"responsibleProviderId/value"})
     public Identifier getResponsibleProviderIdValue() {
@@ -1076,16 +1072,20 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>ResponsibleProviderId</p>
+     * <p>Business Name: ResponsibleProviderId</p>
      * 
-     * <p>L: Responsible Provider Id</p>
+     * <p>Other Business Name: ResponsibleProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT000008CA.ResponsibleProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving those records in which a particular 
+     * provider has a vested interest.</p>
      * 
      * <p>Filters the records retrieved to only include those where 
      * the identified provider was the author, supervisor or 
      * performer. If unspecified, no filter is applied.</p>
-     * 
-     * <p>Allows retrieving those records in which a particular 
-     * provider has a vested interest.</p>
      */
     public void setResponsibleProviderIdValue(Identifier responsibleProviderIdValue) {
         this.responsibleProviderIdValue.setValue(responsibleProviderIdValue);
@@ -1093,26 +1093,24 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>ResponsibleProviderType</p>
+     * <p>Business Name: ResponsibleProviderType</p>
      * 
-     * <p>M: Responsible Provider Type</p>
+     * <p>Other Business Name: ResponsibleProviderType</p>
      * 
-     * <p>Filters the records retrieved to only include those where 
-     * the author, supervisor or performer was of the specified 
-     * provider type. If unspecified, no filter is applied.</p><p> 
-     * <i>Query results should include those with an match of this 
-     * code, as well those matching any specializations of the 
-     * coded parameter.</i> </p>
+     * <p>Relationship: 
+     * REPC_MT000008CA.ResponsibleProviderType.value</p>
      * 
-     * <p>Filters the records retrieved to only include those where 
-     * the author, supervisor or performer was of the specified 
-     * provider type. If unspecified, no filter is applied.</p><p> 
-     * <i>Query results should include those with an match of this 
-     * code, as well those matching any specializations of the 
-     * coded parameter.</i> </p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving those records in which a particular 
      * kind of provider has a vested interest.</p>
+     * 
+     * <p>Filters the records retrieved to only include those where 
+     * the author, supervisor or performer was of the specified 
+     * provider type. If unspecified, no filter is applied.</p><p> 
+     * <i>Query results should include those with an match of this 
+     * code, as well those matching any specializations of the 
+     * coded parameter.</i> </p>
      */
     @Hl7XmlMapping({"responsibleProviderType/value"})
     public HealthcareProviderRoleType getResponsibleProviderTypeValue() {
@@ -1120,26 +1118,24 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>ResponsibleProviderType</p>
+     * <p>Business Name: ResponsibleProviderType</p>
      * 
-     * <p>M: Responsible Provider Type</p>
+     * <p>Other Business Name: ResponsibleProviderType</p>
      * 
-     * <p>Filters the records retrieved to only include those where 
-     * the author, supervisor or performer was of the specified 
-     * provider type. If unspecified, no filter is applied.</p><p> 
-     * <i>Query results should include those with an match of this 
-     * code, as well those matching any specializations of the 
-     * coded parameter.</i> </p>
+     * <p>Relationship: 
+     * REPC_MT000008CA.ResponsibleProviderType.value</p>
      * 
-     * <p>Filters the records retrieved to only include those where 
-     * the author, supervisor or performer was of the specified 
-     * provider type. If unspecified, no filter is applied.</p><p> 
-     * <i>Query results should include those with an match of this 
-     * code, as well those matching any specializations of the 
-     * coded parameter.</i> </p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving those records in which a particular 
      * kind of provider has a vested interest.</p>
+     * 
+     * <p>Filters the records retrieved to only include those where 
+     * the author, supervisor or performer was of the specified 
+     * provider type. If unspecified, no filter is applied.</p><p> 
+     * <i>Query results should include those with an match of this 
+     * code, as well those matching any specializations of the 
+     * coded parameter.</i> </p>
      */
     public void setResponsibleProviderTypeValue(HealthcareProviderRoleType responsibleProviderTypeValue) {
         this.responsibleProviderTypeValue.setValue(responsibleProviderTypeValue);
@@ -1147,19 +1143,24 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeHistoryIndicator</p>
+     * <p>Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>G: Include History Indicator</p>
+     * <p>Other Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>If true, indicates that historical versions of the 
-     * record(s) should be included. If false, only the current 
-     * version will be returned.</p>
+     * <p>Relationship: 
+     * REPC_MT500006CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows a user to filter whether historical information is 
      * needed. Retrieving historical information will be needed in 
      * some circumstances, but it makes sense to constrain. The 
      * attribute is mandatory because it must be known whether 
      * history is to be returned or not.</p>
+     * 
+     * <p>If true, indicates that historical versions of the 
+     * record(s) should be included. If false, only the current 
+     * version will be returned.</p>
      */
     @Hl7XmlMapping({"includeHistoryIndicator/value"})
     public Boolean getIncludeHistoryIndicatorValue() {
@@ -1167,19 +1168,24 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeHistoryIndicator</p>
+     * <p>Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>G: Include History Indicator</p>
+     * <p>Other Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>If true, indicates that historical versions of the 
-     * record(s) should be included. If false, only the current 
-     * version will be returned.</p>
+     * <p>Relationship: 
+     * REPC_MT500006CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows a user to filter whether historical information is 
      * needed. Retrieving historical information will be needed in 
      * some circumstances, but it makes sense to constrain. The 
      * attribute is mandatory because it must be known whether 
      * history is to be returned or not.</p>
+     * 
+     * <p>If true, indicates that historical versions of the 
+     * record(s) should be included. If false, only the current 
+     * version will be returned.</p>
      */
     public void setIncludeHistoryIndicatorValue(Boolean includeHistoryIndicatorValue) {
         this.includeHistoryIndicatorValue.setValue(includeHistoryIndicatorValue);
@@ -1187,33 +1193,23 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>RecordIds</p>
+     * <p>Business Name: RecordIds</p>
      * 
-     * <p>E: Record Ids</p>
+     * <p>Other Business Name: RecordIds</p>
+     * 
+     * <p>Relationship: REPC_MT500006CA.RecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Specifically identifies the record to be 
+     * returned.</p><p>Because the primary purpose of the query is 
+     * to retrieve identified records, the element is 
+     * mandatory.</p><p>Multiple repetitions are allowed to support 
+     * multiple detail records as part of one query for efficiency 
+     * reasons.</p>
      * 
      * <p>A globally unique identifier assigned by the EHR to the 
      * record (or records) to be retrieved.</p>
-     * 
-     * <p>Specifically identifies the record to be 
-     * returned.</p><p>Because the primary purpose of the query is 
-     * to retrieve identified records, the element is 
-     * mandatory.</p><p>Multiple repetitions are allowed to support 
-     * multiple detail records as part of one query for efficiency 
-     * reasons.</p>
-     * 
-     * <p>Specifically identifies the record to be 
-     * returned.</p><p>Because the primary purpose of the query is 
-     * to retrieve identified records, the element is 
-     * mandatory.</p><p>Multiple repetitions are allowed to support 
-     * multiple detail records as part of one query for efficiency 
-     * reasons.</p>
-     * 
-     * <p>Specifically identifies the record to be 
-     * returned.</p><p>Because the primary purpose of the query is 
-     * to retrieve identified records, the element is 
-     * mandatory.</p><p>Multiple repetitions are allowed to support 
-     * multiple detail records as part of one query for efficiency 
-     * reasons.</p>
      */
     @Hl7XmlMapping({"recordId/value"})
     public List<Identifier> getRecordIdValue() {

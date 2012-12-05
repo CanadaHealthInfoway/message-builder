@@ -34,24 +34,25 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Substanc
 @Hl7PartTypeMapping({"PORX_MT060190CA.AdministrationInstructions"})
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
 
 
     /**
-     * <p>Medication type</p>
+     * <p>Business Name: Medication type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.AdministrationInstructions.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in providing the context of the rendered dosage 
+     * instruction.</p><p>For this reason the attribute is 
+     * Mandatory.</p>
      * 
      * <p>Differentiates the type of medication e.g. drug, 
      * vaccine</p>
-     * 
-     * <p>Important in providing the context of the rendered dosage 
-     * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
-     * 
-     * <p>Important in providing the context of the rendered dosage 
-     * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
      */
     @Hl7XmlMapping({"code"})
     public SubstanceAdministrationType getCode() {
@@ -59,18 +60,19 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Medication type</p>
+     * <p>Business Name: Medication type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.AdministrationInstructions.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in providing the context of the rendered dosage 
+     * instruction.</p><p>For this reason the attribute is 
+     * Mandatory.</p>
      * 
      * <p>Differentiates the type of medication e.g. drug, 
      * vaccine</p>
-     * 
-     * <p>Important in providing the context of the rendered dosage 
-     * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
-     * 
-     * <p>Important in providing the context of the rendered dosage 
-     * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
      */
     public void setCode(SubstanceAdministrationType code) {
         this.code.setValue(code);
@@ -78,22 +80,21 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Business Name: Rendered Dosage Instruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the prescriber to verify the structured dosage 
+     * instruction.</p><p>Attribute is marked as 
+     * &quot;mandatory&quot; as the rendition of the dosage 
+     * instruction must always be made available to the 
+     * prescriber.</p>
      * 
      * <p>A textual rendition of structured (or non-structure) 
      * original dosage instruction specified by the prescriber.</p>
-     * 
-     * <p>Allows the prescriber to verify the structured dosage 
-     * instruction.</p><p>Attribute is marked as 
-     * &quot;mandatory&quot; as the rendition of the dosage 
-     * instruction must always be made available to the 
-     * prescriber.</p>
-     * 
-     * <p>Allows the prescriber to verify the structured dosage 
-     * instruction.</p><p>Attribute is marked as 
-     * &quot;mandatory&quot; as the rendition of the dosage 
-     * instruction must always be made available to the 
-     * prescriber.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -101,22 +102,21 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Business Name: Rendered Dosage Instruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the prescriber to verify the structured dosage 
+     * instruction.</p><p>Attribute is marked as 
+     * &quot;mandatory&quot; as the rendition of the dosage 
+     * instruction must always be made available to the 
+     * prescriber.</p>
      * 
      * <p>A textual rendition of structured (or non-structure) 
      * original dosage instruction specified by the prescriber.</p>
-     * 
-     * <p>Allows the prescriber to verify the structured dosage 
-     * instruction.</p><p>Attribute is marked as 
-     * &quot;mandatory&quot; as the rendition of the dosage 
-     * instruction must always be made available to the 
-     * prescriber.</p>
-     * 
-     * <p>Allows the prescriber to verify the structured dosage 
-     * instruction.</p><p>Attribute is marked as 
-     * &quot;mandatory&quot; as the rendition of the dosage 
-     * instruction must always be made available to the 
-     * prescriber.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

@@ -34,16 +34,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MothersMaidenName"})
 public class MothersMaidenNameBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PN value = new PNImpl();
     private ST semanticsText = new STImpl();
 
 
     /**
-     * <p>Mother's Maiden Name</p>
+     * <p>Business Name: Mother's Maiden Name</p>
      * 
-     * <p>This query parameter is the maiden name of the focal 
-     * person's mother.</p>
+     * <p>Relationship: PRPA_MT101103CA.MothersMaidenName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>It is included as a parameter because it is a common 
      * attribute for confirming the identity of persons in some 
@@ -55,6 +56,9 @@ public class MothersMaidenNameBean extends MessagePartBean {
      * EntityNamePartQualifier of &quot;birth&quot; for the person 
      * who is the player in a PersonalRelationship of type of 
      * &quot;mother&quot; to the focal person.</p>
+     * 
+     * <p>This query parameter is the maiden name of the focal 
+     * person's mother.</p>
      */
     @Hl7XmlMapping({"value"})
     public PersonName getValue() {
@@ -62,10 +66,11 @@ public class MothersMaidenNameBean extends MessagePartBean {
     }
 
     /**
-     * <p>Mother's Maiden Name</p>
+     * <p>Business Name: Mother's Maiden Name</p>
      * 
-     * <p>This query parameter is the maiden name of the focal 
-     * person's mother.</p>
+     * <p>Relationship: PRPA_MT101103CA.MothersMaidenName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>It is included as a parameter because it is a common 
      * attribute for confirming the identity of persons in some 
@@ -77,17 +82,32 @@ public class MothersMaidenNameBean extends MessagePartBean {
      * EntityNamePartQualifier of &quot;birth&quot; for the person 
      * who is the player in a PersonalRelationship of type of 
      * &quot;mother&quot; to the focal person.</p>
+     * 
+     * <p>This query parameter is the maiden name of the focal 
+     * person's mother.</p>
      */
     public void setValue(PersonName value) {
         this.value.setValue(value);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.MothersMaidenName.semanticsText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"semanticsText"})
     public String getSemanticsText() {
         return this.semanticsText.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.MothersMaidenName.semanticsText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSemanticsText(String semanticsText) {
         this.semanticsText.setValue(semanticsText);
     }

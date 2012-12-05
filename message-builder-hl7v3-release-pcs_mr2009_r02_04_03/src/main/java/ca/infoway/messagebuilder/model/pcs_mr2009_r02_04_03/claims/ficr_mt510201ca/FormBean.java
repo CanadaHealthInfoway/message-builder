@@ -32,12 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Form"})
 public class FormBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TEL telecom = new TELImpl();
 
 
     /**
-     * <p>URL for location for form</p>
+     * <p>Business Name: URL for location for form</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.Form.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -45,7 +49,11 @@ public class FormBean extends MessagePartBean {
     }
 
     /**
-     * <p>URL for location for form</p>
+     * <p>Business Name: URL for location for form</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.Form.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);

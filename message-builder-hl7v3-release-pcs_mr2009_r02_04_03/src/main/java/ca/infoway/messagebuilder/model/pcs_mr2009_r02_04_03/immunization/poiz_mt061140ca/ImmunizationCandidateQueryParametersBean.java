@@ -48,18 +48,18 @@ import java.util.List;
 
 
 /**
- * <p>Immunization Candidate Query Parameters</p>
+ * <p>Business Name: Immunization Candidate Query Parameters</p>
+ * 
+ * <p>Root class for the query.</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for the query.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT061140CA.ParameterList"})
 @Hl7RootType
 public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> immunizationPeriodValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> patientBirthDateValue = new IVLImpl<TS, Interval<Date>>();
     private CV patientGenderValue = new CVImpl();
@@ -71,22 +71,21 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Immunization Period</p>
+     * <p>Business Name: G:Immunization Period</p>
+     * 
+     * <p>Relationship: POIZ_MT061140CA.ImmunizationPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval of immunization records.</p><p>Useful for 
+     * constraining run-away queries. As a result, this parameter 
+     * is required.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred within the 
      * indicated time-period. This will commonly be used to 
      * retrieve 'all immunizations since xxx'.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries. As a result, this parameter 
-     * is required.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries. As a result, this parameter 
-     * is required.</p>
      */
     @Hl7XmlMapping({"immunizationPeriod/value"})
     public Interval<Date> getImmunizationPeriodValue() {
@@ -94,22 +93,21 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Immunization Period</p>
+     * <p>Business Name: G:Immunization Period</p>
+     * 
+     * <p>Relationship: POIZ_MT061140CA.ImmunizationPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval of immunization records.</p><p>Useful for 
+     * constraining run-away queries. As a result, this parameter 
+     * is required.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred within the 
      * indicated time-period. This will commonly be used to 
      * retrieve 'all immunizations since xxx'.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries. As a result, this parameter 
-     * is required.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries. As a result, this parameter 
-     * is required.</p>
      */
     public void setImmunizationPeriodValue(Interval<Date> immunizationPeriodValue) {
         this.immunizationPeriodValue.setValue(immunizationPeriodValue);
@@ -117,12 +115,16 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Patient Birth Date Range</p>
+     * <p>Business Name: D:Patient Birth Date Range</p>
      * 
-     * <p>Indicates the range of on which the patient was born.</p>
+     * <p>Relationship: POIZ_MT061140CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Use to confirm identity of the patient for the query. As 
      * a result, this parameter is required.</p>
+     * 
+     * <p>Indicates the range of on which the patient was born.</p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Interval<Date> getPatientBirthDateValue() {
@@ -130,12 +132,16 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Patient Birth Date Range</p>
+     * <p>Business Name: D:Patient Birth Date Range</p>
      * 
-     * <p>Indicates the range of on which the patient was born.</p>
+     * <p>Relationship: POIZ_MT061140CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Use to confirm identity of the patient for the query. As 
      * a result, this parameter is required.</p>
+     * 
+     * <p>Indicates the range of on which the patient was born.</p>
      */
     public void setPatientBirthDateValue(Interval<Date> patientBirthDateValue) {
         this.patientBirthDateValue.setValue(patientBirthDateValue);
@@ -143,12 +149,16 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Gender</p>
+     * <p>Business Name: C:Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: POIZ_MT061140CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the 
      * query. As a result, this parameter is required.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -156,18 +166,27 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Gender</p>
+     * <p>Business Name: C:Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: POIZ_MT061140CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the 
      * query. As a result, this parameter is required.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
         this.patientGenderValue.setValue(patientGenderValue);
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT061140CA.ParameterList.patientID</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10000)</p>
+     */
     @Hl7XmlMapping({"patientID"})
     public List<PatientIDBean> getPatientID() {
         return this.patientID;
@@ -175,17 +194,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Patient Name</p>
+     * <p>Business Name: B:Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the 
-     * immunization candidate query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Relationship: POIZ_MT061140CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the 
-     * immunization candidate query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. As a 
      * result, this parameter is required.</p>
@@ -193,6 +206,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * <p>names are messaged as iterations of the PN datatype, with 
      * specific name parts identified as a type declaration in 
      * addition to the text string.</p>
+     * 
+     * <p>The name of the patient who is the subject of the 
+     * immunization candidate query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -200,17 +218,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Patient Name</p>
+     * <p>Business Name: B:Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the 
-     * immunization candidate query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Relationship: POIZ_MT061140CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the 
-     * immunization candidate query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. As a 
      * result, this parameter is required.</p>
@@ -218,6 +230,11 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
      * <p>names are messaged as iterations of the PN datatype, with 
      * specific name parts identified as a type declaration in 
      * addition to the text string.</p>
+     * 
+     * <p>The name of the patient who is the subject of the 
+     * immunization candidate query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p>
      */
     public void setPatientNameValue(PersonName patientNameValue) {
         this.patientNameValue.setValue(patientNameValue);
@@ -225,21 +242,20 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>I:Postal Code</p>
+     * <p>Business Name: I:Postal Code</p>
+     * 
+     * <p>Relationship: POIZ_MT061140CA.PostalCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the postal code area of 
+     * interest for the retrieval of immunization 
+     * records.</p><p>Useful for constraining run-away queries. As 
+     * a result, this parameter is required.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred within a 
      * specified postal code area</p>
-     * 
-     * <p>Allows the requester to specify the postal code area of 
-     * interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p>
-     * 
-     * <p>Allows the requester to specify the postal code area of 
-     * interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p>
      */
     @Hl7XmlMapping({"postalCode/value"})
     public String getPostalCodeValue() {
@@ -247,21 +263,20 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Postal Code</p>
+     * <p>Business Name: I:Postal Code</p>
+     * 
+     * <p>Relationship: POIZ_MT061140CA.PostalCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the postal code area of 
+     * interest for the retrieval of immunization 
+     * records.</p><p>Useful for constraining run-away queries. As 
+     * a result, this parameter is required.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred within a 
      * specified postal code area</p>
-     * 
-     * <p>Allows the requester to specify the postal code area of 
-     * interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p>
-     * 
-     * <p>Allows the requester to specify the postal code area of 
-     * interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p>
      */
     public void setPostalCodeValue(String postalCodeValue) {
         this.postalCodeValue.setValue(postalCodeValue);
@@ -269,21 +284,21 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>H:Service Delivery Locations</p>
+     * <p>Business Name: H:Service Delivery Locations</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT061140CA.ServiceDeliveryLocation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the service delivery 
+     * location of interest for the retrieval of immunization 
+     * records.</p><p>Useful for constraining run-away queries. As 
+     * a result, this parameter is required.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred at an 
      * identified service delivery location</p>
-     * 
-     * <p>Allows the requester to specify the service delivery 
-     * location of interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p>
-     * 
-     * <p>Allows the requester to specify the service delivery 
-     * location of interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocation/value"})
     public List<Identifier> getServiceDeliveryLocationValue() {
@@ -292,21 +307,20 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Vaccine Code</p>
+     * <p>Business Name: E:Vaccine Code</p>
      * 
-     * <p>A coded value indicating a specific vaccine to be used in 
-     * searching for patient immunization record.</p><p>The result 
-     * set will be filtered to only include immunization records 
-     * involving the specific vaccine code</p>
+     * <p>Relationship: POIZ_MT061140CA.VaccineCode.value</p>
      * 
-     * <p>A coded value indicating a specific vaccine to be used in 
-     * searching for patient immunization record.</p><p>The result 
-     * set will be filtered to only include immunization records 
-     * involving the specific vaccine code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of immunization records to be 
      * retrieved based on the vaccine code used in the 
      * immunization. As a result, this parameter is required.</p>
+     * 
+     * <p>A coded value indicating a specific vaccine to be used in 
+     * searching for patient immunization record.</p><p>The result 
+     * set will be filtered to only include immunization records 
+     * involving the specific vaccine code</p>
      */
     @Hl7XmlMapping({"vaccineCode/value"})
     public ClinicalDrug getVaccineCodeValue() {
@@ -314,21 +328,20 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Vaccine Code</p>
+     * <p>Business Name: E:Vaccine Code</p>
      * 
-     * <p>A coded value indicating a specific vaccine to be used in 
-     * searching for patient immunization record.</p><p>The result 
-     * set will be filtered to only include immunization records 
-     * involving the specific vaccine code</p>
+     * <p>Relationship: POIZ_MT061140CA.VaccineCode.value</p>
      * 
-     * <p>A coded value indicating a specific vaccine to be used in 
-     * searching for patient immunization record.</p><p>The result 
-     * set will be filtered to only include immunization records 
-     * involving the specific vaccine code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of immunization records to be 
      * retrieved based on the vaccine code used in the 
      * immunization. As a result, this parameter is required.</p>
+     * 
+     * <p>A coded value indicating a specific vaccine to be used in 
+     * searching for patient immunization record.</p><p>The result 
+     * set will be filtered to only include immunization records 
+     * involving the specific vaccine code</p>
      */
     public void setVaccineCodeValue(ClinicalDrug vaccineCodeValue) {
         this.vaccineCodeValue.setValue(vaccineCodeValue);

@@ -69,7 +69,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001000CA.ObservationRequest"})
 public class ObservationRequestBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private Patient_1Bean recordTargetPatient;
     private II id = new IIImpl();
@@ -111,14 +111,18 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
 
 
     /**
-     * <p>F:Test Identifier</p>
+     * <p>Business Name: F:Test Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.ObservationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to uniquely identify this test. Necessary for order 
+     * revisions and cancellations.</p>
      * 
      * <p>Must contain a value assigned by the order-placing 
      * organization that uniquely identifies this test request 
      * among all test requests in the receiving application.</p>
-     * 
-     * <p>Used to uniquely identify this test. Necessary for order 
-     * revisions and cancellations.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -126,25 +130,39 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
     /**
-     * <p>F:Test Identifier</p>
+     * <p>Business Name: F:Test Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.ObservationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to uniquely identify this test. Necessary for order 
+     * revisions and cancellations.</p>
      * 
      * <p>Must contain a value assigned by the order-placing 
      * organization that uniquely identifies this test request 
      * among all test requests in the receiving application.</p>
-     * 
-     * <p>Used to uniquely identify this test. Necessary for order 
-     * revisions and cancellations.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedEntity"})
     public HealthcareOrganizationBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }
@@ -157,15 +175,19 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
 
 
     /**
-     * <p>G:Test Code</p>
+     * <p>Business Name: G:Test Code</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.ObservationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Specifies the requested test to be performed.</p>
      * 
      * <p>LOINC code for the ordered test The value set bound to 
      * this attribute is a list of LOINC codes pulled from the 
      * pan-Canadian Laboratory Observation Code Database (pCLOCD). 
      * Only those records flagged as orderable or &quot;both&quot; 
      * in the pCLOCD can be used.</p>
-     * 
-     * <p>Specifies the requested test to be performed.</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationOrderableLabType getCode() {
@@ -173,15 +195,19 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
     /**
-     * <p>G:Test Code</p>
+     * <p>Business Name: G:Test Code</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.ObservationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Specifies the requested test to be performed.</p>
      * 
      * <p>LOINC code for the ordered test The value set bound to 
      * this attribute is a list of LOINC codes pulled from the 
      * pan-Canadian Laboratory Observation Code Database (pCLOCD). 
      * Only those records flagged as orderable or &quot;both&quot; 
      * in the pCLOCD can be used.</p>
-     * 
-     * <p>Specifies the requested test to be performed.</p>
      */
     public void setCode(ObservationOrderableLabType code) {
         this.code.setValue(code);
@@ -195,17 +221,22 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
 
 
     /**
-     * <p>I:Test Status</p>
+     * <p>Business Name: I:Test Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.ObservationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * test e.g. active=in progress or not yet started, 
+     * complete=resulted and/or reported.</p>
      * 
      * <p>The statusCode represents the &quot;state&quot; of the 
      * act e.g. active=in progress or not yet started, 
      * complete=resulted and/or result reported. It is up to the 
      * order placer to determine when, upon receipt of one or more 
      * results which fulfill this order, the order is complete.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * test e.g. active=in progress or not yet started, 
-     * complete=resulted and/or reported.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -213,17 +244,22 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
     /**
-     * <p>I:Test Status</p>
+     * <p>Business Name: I:Test Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.ObservationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * test e.g. active=in progress or not yet started, 
+     * complete=resulted and/or reported.</p>
      * 
      * <p>The statusCode represents the &quot;state&quot; of the 
      * act e.g. active=in progress or not yet started, 
      * complete=resulted and/or result reported. It is up to the 
      * order placer to determine when, upon receipt of one or more 
      * results which fulfill this order, the order is complete.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * test e.g. active=in progress or not yet started, 
-     * complete=resulted and/or reported.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -231,16 +267,21 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
 
 
     /**
-     * <p>H:Test Request Time Specification</p>
+     * <p>Business Name: H:Test Request Time Specification</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.ObservationRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-9)</p>
+     * 
+     * <p>Would be used to communicate that an Order is for a 
+     * future date.</p>
      * 
      * <p>The time specification for when this test is requested to 
      * be performed or occur or when the changes to the request 
      * took effect or are supposed to take effect. This time 
      * specification includes support for complex, repeating 
      * orders.</p>
-     * 
-     * <p>Would be used to communicate that an Order is for a 
-     * future date.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public List<GeneralTimingSpecification> getEffectiveTime() {
@@ -255,9 +296,12 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
 
 
     /**
-     * <p>L:Test Request Availability Time</p>
+     * <p>Business Name: L:Test Request Availability Time</p>
      * 
-     * <p>The date/time when this order is available.</p>
+     * <p>Relationship: 
+     * POLB_MT001000CA.ObservationRequest.availabilityTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>OLIS needs to be able to communicate the timestamp that 
      * it assigns to an ObservationRequest (test request) when the 
@@ -265,6 +309,8 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * information is added or revised. 
      * ObservationRequest.availabilityTime has been determined to 
      * be the most appropriate field.</p>
+     * 
+     * <p>The date/time when this order is available.</p>
      */
     @Hl7XmlMapping({"availabilityTime"})
     public Date getAvailabilityTime() {
@@ -272,9 +318,12 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
     /**
-     * <p>L:Test Request Availability Time</p>
+     * <p>Business Name: L:Test Request Availability Time</p>
      * 
-     * <p>The date/time when this order is available.</p>
+     * <p>Relationship: 
+     * POLB_MT001000CA.ObservationRequest.availabilityTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>OLIS needs to be able to communicate the timestamp that 
      * it assigns to an ObservationRequest (test request) when the 
@@ -282,6 +331,8 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * information is added or revised. 
      * ObservationRequest.availabilityTime has been determined to 
      * be the most appropriate field.</p>
+     * 
+     * <p>The date/time when this order is available.</p>
      */
     public void setAvailabilityTime(Date availabilityTime) {
         this.availabilityTime.setValue(availabilityTime);
@@ -309,12 +360,17 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
 
 
     /**
-     * <p>J:Test Priority Code</p>
+     * <p>Business Name: J:Test Priority Code</p>
      * 
-     * <p>Priority code associated with a specific test.</p>
+     * <p>Relationship: 
+     * POLB_MT001000CA.ObservationRequest.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Communicates requested test priority (e.g. routine, stat, 
      * etc.)</p>
+     * 
+     * <p>Priority code associated with a specific test.</p>
      */
     @Hl7XmlMapping({"priorityCode"})
     public ActPriority getPriorityCode() {
@@ -322,12 +378,17 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
     /**
-     * <p>J:Test Priority Code</p>
+     * <p>Business Name: J:Test Priority Code</p>
      * 
-     * <p>Priority code associated with a specific test.</p>
+     * <p>Relationship: 
+     * POLB_MT001000CA.ObservationRequest.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Communicates requested test priority (e.g. routine, stat, 
      * etc.)</p>
+     * 
+     * <p>Priority code associated with a specific test.</p>
      */
     public void setPriorityCode(ActPriority priorityCode) {
         this.priorityCode.setValue(priorityCode);
@@ -335,7 +396,16 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
 
 
     /**
-     * <p>K:Test Masking Indicator</p>
+     * <p>Business Name: K:Test Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.ObservationRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>This code allows for privacy control by patients as well 
+     * as flagged for 'not for disclosure to patient' by care 
+     * providers.</p>
      * 
      * <p>Any piece of information is potentially subject to 
      * 'masking', restricting it's availability from providers who 
@@ -344,10 +414,6 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
      * direct disclosure to patient&quot;. The values in this 
      * attribute enable the above masking to be represented and 
      * messaged.</p>
-     * 
-     * <p>This code allows for privacy control by patients as well 
-     * as flagged for 'not for disclosure to patient' by care 
-     * providers.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -391,6 +457,11 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Component5.requestChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component4/requestChoice"})
     public List<RequestChoice> getComponent4RequestChoice() {
         return this.component4RequestChoice;

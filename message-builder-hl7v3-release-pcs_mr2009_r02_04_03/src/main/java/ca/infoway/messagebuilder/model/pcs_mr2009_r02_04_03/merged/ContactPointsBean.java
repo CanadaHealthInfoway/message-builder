@@ -39,63 +39,97 @@ import java.util.Set;
 
 
 /**
- * <p>ContactPoints</p>
+ * <p>Business Name: ContactPoints</p>
  * 
  * <p>PRPA_MT202302CA.ContactParty: Contact Points</p>
  * 
  * <p>At least one of addr or telecom must be supplied.</p>
  * 
- * <p>Administrative contacts within a location, allowing for 
- * communication with various departments or areas.</p>
- * 
  * <p>One of the most common reasons for looking up a service 
  * delivery location is to find contact information for the 
  * location.</p>
+ * 
+ * <p>Administrative contacts within a location, allowing for 
+ * communication with various departments or areas.</p>
  * 
  * <p>PRPA_MT202301CA.ContactParty: Contact Points</p>
  * 
  * <p>At least one of addr or telecom must be supplied.</p>
  * 
- * <p>Administrative contacts within a location, allowing for 
- * communication with various departments or areas.</p>
- * 
  * <p>One of the most common reasons for looking up a service 
  * delivery location is to find contact information for the 
  * location.</p>
+ * 
+ * <p>Administrative contacts within a location, allowing for 
+ * communication with various departments or areas.</p>
  * 
  * <p>PRPA_MT202303CA.ContactParty: Contact Points</p>
  * 
  * <p>At least one of addr or telecom must be supplied.</p>
  * 
- * <p>Administrative contacts within a location, allowing for 
- * communication with various departments or areas.</p>
- * 
  * <p>One of the most common reasons for looking up a service 
  * delivery location is to find contact information for the 
  * location.</p>
+ * 
+ * <p>Administrative contacts within a location, allowing for 
+ * communication with various departments or areas.</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ContactParty","PRPA_MT202302CA.ContactParty","PRPA_MT202303CA.ContactParty"})
 public class ContactPointsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
-     * <p>ContactType</p>
+     * <p>Business Name: ContactType</p>
      * 
-     * <p>A: Contact Type</p>
+     * <p>Other Business Name: ContactType</p>
      * 
-     * <p>Identifies the general purpose for which this contact 
-     * information is appropriate. E.g. Admitting, billing, 
-     * after-hours, etc.</p>
+     * <p>Relationship: PRPA_MT202302CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps the user to know which set of contact information 
      * should be used in a particular circumstance. This is a key 
      * differentiator of each contact point, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the general purpose for which this contact 
+     * information is appropriate. E.g. Admitting, billing, 
+     * after-hours, etc.</p>
+     * 
+     * <p>Other Business Name: ContactType</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps the user to know which set of contact information 
+     * should be used in a particular circumstance. This is a key 
+     * differentiator of each contact point, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Identifies the general purpose for which this contact 
+     * information is appropriate. E.g. Admitting, billing, 
+     * after-hours, etc.</p>
+     * 
+     * <p>Other Business Name: ContactType</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps the user to know which set of contact information 
+     * should be used in a particular circumstance. This is a key 
+     * differentiator of each contact point, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Identifies the general purpose for which this contact 
+     * information is appropriate. E.g. Admitting, billing, 
+     * after-hours, etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public AdministrativeContactRoleType getCode() {
@@ -103,18 +137,52 @@ public class ContactPointsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ContactType</p>
+     * <p>Business Name: ContactType</p>
      * 
-     * <p>A: Contact Type</p>
+     * <p>Other Business Name: ContactType</p>
      * 
-     * <p>Identifies the general purpose for which this contact 
-     * information is appropriate. E.g. Admitting, billing, 
-     * after-hours, etc.</p>
+     * <p>Relationship: PRPA_MT202302CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps the user to know which set of contact information 
      * should be used in a particular circumstance. This is a key 
      * differentiator of each contact point, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the general purpose for which this contact 
+     * information is appropriate. E.g. Admitting, billing, 
+     * after-hours, etc.</p>
+     * 
+     * <p>Other Business Name: ContactType</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps the user to know which set of contact information 
+     * should be used in a particular circumstance. This is a key 
+     * differentiator of each contact point, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Identifies the general purpose for which this contact 
+     * information is appropriate. E.g. Admitting, billing, 
+     * after-hours, etc.</p>
+     * 
+     * <p>Other Business Name: ContactType</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.ContactParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps the user to know which set of contact information 
+     * should be used in a particular circumstance. This is a key 
+     * differentiator of each contact point, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Identifies the general purpose for which this contact 
+     * information is appropriate. E.g. Admitting, billing, 
+     * after-hours, etc.</p>
      */
     public void setCode(AdministrativeContactRoleType code) {
         this.code.setValue(code);
@@ -122,14 +190,40 @@ public class ContactPointsBean extends MessagePartBean {
 
 
     /**
-     * <p>ContactAddress</p>
+     * <p>Business Name: ContactAddress</p>
      * 
-     * <p>B: Contact Address</p>
+     * <p>Other Business Name: ContactAddress</p>
      * 
-     * <p>Provides a mailing address for the location</p>
+     * <p>Relationship: PRPA_MT202302CA.ContactParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used when communicating by post. Physical addresses may 
      * also be used for courier-type deliveries.</p>
+     * 
+     * <p>Provides a mailing address for the location</p>
+     * 
+     * <p>Other Business Name: ContactAddress</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.ContactParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used when communicating by post. Physical addresses may 
+     * also be used for courier-type deliveries.</p>
+     * 
+     * <p>Provides a mailing address for the location</p>
+     * 
+     * <p>Other Business Name: ContactAddress</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.ContactParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used when communicating by post. Physical addresses may 
+     * also be used for courier-type deliveries.</p>
+     * 
+     * <p>Provides a mailing address for the location</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -137,14 +231,40 @@ public class ContactPointsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ContactAddress</p>
+     * <p>Business Name: ContactAddress</p>
      * 
-     * <p>B: Contact Address</p>
+     * <p>Other Business Name: ContactAddress</p>
      * 
-     * <p>Provides a mailing address for the location</p>
+     * <p>Relationship: PRPA_MT202302CA.ContactParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used when communicating by post. Physical addresses may 
      * also be used for courier-type deliveries.</p>
+     * 
+     * <p>Provides a mailing address for the location</p>
+     * 
+     * <p>Other Business Name: ContactAddress</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.ContactParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used when communicating by post. Physical addresses may 
+     * also be used for courier-type deliveries.</p>
+     * 
+     * <p>Provides a mailing address for the location</p>
+     * 
+     * <p>Other Business Name: ContactAddress</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.ContactParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used when communicating by post. Physical addresses may 
+     * also be used for courier-type deliveries.</p>
+     * 
+     * <p>Provides a mailing address for the location</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
@@ -152,14 +272,40 @@ public class ContactPointsBean extends MessagePartBean {
 
 
     /**
-     * <p>ContactPhoneNumberAndEmails</p>
+     * <p>Business Name: ContactPhoneNumberAndEmails</p>
      * 
-     * <p>C: Contact Phone Number and Emails</p>
+     * <p>Other Business Name: ContactPhoneNumberAndEmails</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.ContactParty.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-3)</p>
+     * 
+     * <p>Used for more immediate contact requirements</p>
      * 
      * <p>Information used to communicate with the location by 
      * phone, fax or e-mail.</p>
      * 
+     * <p>Other Business Name: ContactPhoneNumberAndEmails</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.ContactParty.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-3)</p>
+     * 
      * <p>Used for more immediate contact requirements</p>
+     * 
+     * <p>Information used to communicate with the location by 
+     * phone, fax or e-mail.</p>
+     * 
+     * <p>Other Business Name: ContactPhoneNumberAndEmails</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.ContactParty.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-3)</p>
+     * 
+     * <p>Used for more immediate contact requirements</p>
+     * 
+     * <p>Information used to communicate with the location by 
+     * phone, fax or e-mail.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getTelecom() {

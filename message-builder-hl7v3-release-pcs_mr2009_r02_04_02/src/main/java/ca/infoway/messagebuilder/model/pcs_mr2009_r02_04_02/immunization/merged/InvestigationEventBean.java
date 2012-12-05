@@ -38,52 +38,52 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>InvestigationEvent</p>
+ * <p>Business Name: InvestigationEvent</p>
  * 
  * <p>POIZ_MT060150CA.InvestigationEvent: Investigation Event</p>
  * 
- * <p>Provides information about an adverse event report 
- * associated with the immunization event.</p>
- * 
  * <p>Provides additional information about the immunization 
  * event by indicating an adverse event is associated and also 
  * provides a mechanism for communicating information about the 
  * report that was filed.</p>
+ * 
+ * <p>Provides information about an adverse event report 
+ * associated with the immunization event.</p>
  * 
  * <p>POIZ_MT030060CA.InvestigationEvent: Investigation Event</p>
  * 
- * <p>Provides information about an adverse event report 
- * associated with the immunization event.</p>
- * 
  * <p>Provides additional information about the immunization 
  * event by indicating an adverse event is associated and also 
  * provides a mechanism for communicating information about the 
  * report that was filed.</p>
+ * 
+ * <p>Provides information about an adverse event report 
+ * associated with the immunization event.</p>
  * 
  * <p>POIZ_MT061150CA.InvestigationEvent: Investigation Event</p>
  * 
- * <p>Provides information about an adverse event report 
- * associated with the immunization event.</p>
- * 
  * <p>Provides additional information about the immunization 
  * event by indicating an adverse event is associated and also 
  * provides a mechanism for communicating information about the 
  * report that was filed.</p>
+ * 
+ * <p>Provides information about an adverse event report 
+ * associated with the immunization event.</p>
  * 
  * <p>POIZ_MT030050CA.InvestigationEvent: Investigation Event</p>
  * 
- * <p>Provides information about an adverse event report 
- * associated with the immunization event.</p>
- * 
  * <p>Provides additional information about the immunization 
  * event by indicating an adverse event is associated and also 
  * provides a mechanism for communicating information about the 
  * report that was filed.</p>
+ * 
+ * <p>Provides information about an adverse event report 
+ * associated with the immunization event.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InvestigationEvent","POIZ_MT030060CA.InvestigationEvent","POIZ_MT060150CA.InvestigationEvent","POIZ_MT061150CA.InvestigationEvent"})
 public class InvestigationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST text = new STImpl();
@@ -91,17 +91,63 @@ public class InvestigationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>AdverseEventReportID</p>
+     * <p>Business Name: AdverseEventReportID</p>
      * 
-     * <p>Adverse Event Report ID</p>
+     * <p>Other Business Name: AdverseEventReportID</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Provides reference to the Adverse Event Report in the 
+     * case that follow up is needed. However, this ID may not 
+     * always be known.</p>
      * 
      * <p>Identifier associated with the Adverse Event Report. An 
      * example would be the unique episode number assigned to the 
      * Report of Adverse Events Following Immunization (AEFI).</p>
      * 
+     * <p>Other Business Name: AdverseEventReportID</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Provides reference to the Adverse Event Report in the 
      * case that follow up is needed. However, this ID may not 
      * always be known.</p>
+     * 
+     * <p>Identifier associated with the Adverse Event Report. An 
+     * example would be the unique episode number assigned to the 
+     * Report of Adverse Events Following Immunization (AEFI).</p>
+     * 
+     * <p>Other Business Name: AdverseEventReportID</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Provides reference to the Adverse Event Report in the 
+     * case that follow up is needed. However, this ID may not 
+     * always be known.</p>
+     * 
+     * <p>Identifier associated with the Adverse Event Report. An 
+     * example would be the unique episode number assigned to the 
+     * Report of Adverse Events Following Immunization (AEFI).</p>
+     * 
+     * <p>Other Business Name: AdverseEventReportID</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Provides reference to the Adverse Event Report in the 
+     * case that follow up is needed. However, this ID may not 
+     * always be known.</p>
+     * 
+     * <p>Identifier associated with the Adverse Event Report. An 
+     * example would be the unique episode number assigned to the 
+     * Report of Adverse Events Following Immunization (AEFI).</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -109,17 +155,63 @@ public class InvestigationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdverseEventReportID</p>
+     * <p>Business Name: AdverseEventReportID</p>
      * 
-     * <p>Adverse Event Report ID</p>
+     * <p>Other Business Name: AdverseEventReportID</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Provides reference to the Adverse Event Report in the 
+     * case that follow up is needed. However, this ID may not 
+     * always be known.</p>
      * 
      * <p>Identifier associated with the Adverse Event Report. An 
      * example would be the unique episode number assigned to the 
      * Report of Adverse Events Following Immunization (AEFI).</p>
      * 
+     * <p>Other Business Name: AdverseEventReportID</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Provides reference to the Adverse Event Report in the 
      * case that follow up is needed. However, this ID may not 
      * always be known.</p>
+     * 
+     * <p>Identifier associated with the Adverse Event Report. An 
+     * example would be the unique episode number assigned to the 
+     * Report of Adverse Events Following Immunization (AEFI).</p>
+     * 
+     * <p>Other Business Name: AdverseEventReportID</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Provides reference to the Adverse Event Report in the 
+     * case that follow up is needed. However, this ID may not 
+     * always be known.</p>
+     * 
+     * <p>Identifier associated with the Adverse Event Report. An 
+     * example would be the unique episode number assigned to the 
+     * Report of Adverse Events Following Immunization (AEFI).</p>
+     * 
+     * <p>Other Business Name: AdverseEventReportID</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Provides reference to the Adverse Event Report in the 
+     * case that follow up is needed. However, this ID may not 
+     * always be known.</p>
+     * 
+     * <p>Identifier associated with the Adverse Event Report. An 
+     * example would be the unique episode number assigned to the 
+     * Report of Adverse Events Following Immunization (AEFI).</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -127,14 +219,51 @@ public class InvestigationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>ReportType</p>
+     * <p>Business Name: ReportType</p>
      * 
-     * <p>Report Type</p>
+     * <p>Other Business Name: ReportType</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a mechanism to categorizing the report.</p>
      * 
      * <p>A coded value that indicates the type of report that was 
      * filed.</p>
      * 
+     * <p>Other Business Name: ReportType</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides a mechanism to categorizing the report.</p>
+     * 
+     * <p>A coded value that indicates the type of report that was 
+     * filed.</p>
+     * 
+     * <p>Other Business Name: ReportType</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a mechanism to categorizing the report.</p>
+     * 
+     * <p>A coded value that indicates the type of report that was 
+     * filed.</p>
+     * 
+     * <p>Other Business Name: ReportType</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a mechanism to categorizing the report.</p>
+     * 
+     * <p>A coded value that indicates the type of report that was 
+     * filed.</p>
      */
     @Hl7XmlMapping({"code"})
     public IndividualCaseSafetyReportType getCode() {
@@ -142,14 +271,51 @@ public class InvestigationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReportType</p>
+     * <p>Business Name: ReportType</p>
      * 
-     * <p>Report Type</p>
+     * <p>Other Business Name: ReportType</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a mechanism to categorizing the report.</p>
      * 
      * <p>A coded value that indicates the type of report that was 
      * filed.</p>
      * 
+     * <p>Other Business Name: ReportType</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides a mechanism to categorizing the report.</p>
+     * 
+     * <p>A coded value that indicates the type of report that was 
+     * filed.</p>
+     * 
+     * <p>Other Business Name: ReportType</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a mechanism to categorizing the report.</p>
+     * 
+     * <p>A coded value that indicates the type of report that was 
+     * filed.</p>
+     * 
+     * <p>Other Business Name: ReportType</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a mechanism to categorizing the report.</p>
+     * 
+     * <p>A coded value that indicates the type of report that was 
+     * filed.</p>
      */
     public void setCode(IndividualCaseSafetyReportType code) {
         this.code.setValue(code);
@@ -157,32 +323,57 @@ public class InvestigationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Adverse Event Text</p>
+     * <p>Other Business Name: AdverseEventReportText</p>
      * 
-     * <p>Textual description of the Adverse Event Following 
-     * Immunization reported</p>
+     * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.text</p>
      * 
-     * <p>Provides information about the adverse event in addition 
-     * to an indication that an adverse event occurred - 
-     * information that would not otherwise be known.</p>
-     * 
-     * <p>Adverse Event ReportText</p>
-     * 
-     * <p>Textual description of the Adverse Event Following 
-     * Immunization reported</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides information about the adverse event in addition 
      * to an indication that an adverse event occurred - 
      * information that would not otherwise be known.</p>
      * 
-     * <p>Adverse Event Text</p>
+     * <p>Textual description of the Adverse Event Following 
+     * Immunization reported</p>
+     * 
+     * <p>Other Business Name: AdverseEventText</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides information about the adverse event in addition 
+     * to an indication that an adverse event occurred - 
+     * information that would not otherwise be known.</p>
      * 
      * <p>Textual description of the Adverse Event Following 
      * Immunization reported</p>
+     * 
+     * <p>Other Business Name: AdverseEventText</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides information about the adverse event in addition 
+     * to an indication that an adverse event occurred - 
+     * information that would not otherwise be known.</p>
+     * 
+     * <p>Textual description of the Adverse Event Following 
+     * Immunization reported</p>
+     * 
+     * <p>Other Business Name: AdverseEventText</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides information about the adverse event in addition 
      * to an indication that an adverse event occurred - 
      * information that would not otherwise be known</p>
+     * 
+     * <p>Textual description of the Adverse Event Following 
+     * Immunization reported</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -190,32 +381,57 @@ public class InvestigationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adverse Event Text</p>
+     * <p>Other Business Name: AdverseEventReportText</p>
      * 
-     * <p>Textual description of the Adverse Event Following 
-     * Immunization reported</p>
+     * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.text</p>
      * 
-     * <p>Provides information about the adverse event in addition 
-     * to an indication that an adverse event occurred - 
-     * information that would not otherwise be known.</p>
-     * 
-     * <p>Adverse Event ReportText</p>
-     * 
-     * <p>Textual description of the Adverse Event Following 
-     * Immunization reported</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides information about the adverse event in addition 
      * to an indication that an adverse event occurred - 
      * information that would not otherwise be known.</p>
      * 
-     * <p>Adverse Event Text</p>
+     * <p>Textual description of the Adverse Event Following 
+     * Immunization reported</p>
+     * 
+     * <p>Other Business Name: AdverseEventText</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides information about the adverse event in addition 
+     * to an indication that an adverse event occurred - 
+     * information that would not otherwise be known.</p>
      * 
      * <p>Textual description of the Adverse Event Following 
      * Immunization reported</p>
+     * 
+     * <p>Other Business Name: AdverseEventText</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides information about the adverse event in addition 
+     * to an indication that an adverse event occurred - 
+     * information that would not otherwise be known.</p>
+     * 
+     * <p>Textual description of the Adverse Event Following 
+     * Immunization reported</p>
+     * 
+     * <p>Other Business Name: AdverseEventText</p>
+     * 
+     * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides information about the adverse event in addition 
      * to an indication that an adverse event occurred - 
      * information that would not otherwise be known</p>
+     * 
+     * <p>Textual description of the Adverse Event Following 
+     * Immunization reported</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -223,17 +439,67 @@ public class InvestigationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>ReportStatus</p>
+     * <p>Business Name: ReportStatus</p>
      * 
-     * <p>Report Status</p>
+     * <p>Other Business Name: ReportStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InvestigationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides additional context to the receiver as to the 
+     * state of the referenced report. As a result, this attribute 
+     * is mandatory.</p>
      * 
      * <p>Code indicating the operative status of the business 
      * process, which in this case is an Adverse Event Report. 
      * Status examples: active, completed, etc.</p>
      * 
+     * <p>Other Business Name: ReportStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InvestigationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides additional context to the receiver as to the 
      * state of the referenced report. As a result, this attribute 
      * is mandatory.</p>
+     * 
+     * <p>Code indicating the operative status of the business 
+     * process, which in this case is an Adverse Event Report. 
+     * Status examples: active, completed, etc.</p>
+     * 
+     * <p>Other Business Name: ReportStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InvestigationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides additional context to the receiver as to the 
+     * state of the referenced report. As a result, this attribute 
+     * is mandatory.</p>
+     * 
+     * <p>Code indicating the operative status of the business 
+     * process, which in this case is an Adverse Event Report. 
+     * Status examples: active, completed, etc.</p>
+     * 
+     * <p>Other Business Name: ReportStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT061150CA.InvestigationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides additional context to the receiver as to the 
+     * state of the referenced report. As a result, this attribute 
+     * is mandatory.</p>
+     * 
+     * <p>Code indicating the operative status of the business 
+     * process, which in this case is an Adverse Event Report. 
+     * Status examples: active, completed, etc.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -241,17 +507,67 @@ public class InvestigationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReportStatus</p>
+     * <p>Business Name: ReportStatus</p>
      * 
-     * <p>Report Status</p>
+     * <p>Other Business Name: ReportStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InvestigationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides additional context to the receiver as to the 
+     * state of the referenced report. As a result, this attribute 
+     * is mandatory.</p>
      * 
      * <p>Code indicating the operative status of the business 
      * process, which in this case is an Adverse Event Report. 
      * Status examples: active, completed, etc.</p>
      * 
+     * <p>Other Business Name: ReportStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InvestigationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides additional context to the receiver as to the 
      * state of the referenced report. As a result, this attribute 
      * is mandatory.</p>
+     * 
+     * <p>Code indicating the operative status of the business 
+     * process, which in this case is an Adverse Event Report. 
+     * Status examples: active, completed, etc.</p>
+     * 
+     * <p>Other Business Name: ReportStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InvestigationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides additional context to the receiver as to the 
+     * state of the referenced report. As a result, this attribute 
+     * is mandatory.</p>
+     * 
+     * <p>Code indicating the operative status of the business 
+     * process, which in this case is an Adverse Event Report. 
+     * Status examples: active, completed, etc.</p>
+     * 
+     * <p>Other Business Name: ReportStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT061150CA.InvestigationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides additional context to the receiver as to the 
+     * state of the referenced report. As a result, this attribute 
+     * is mandatory.</p>
+     * 
+     * <p>Code indicating the operative status of the business 
+     * process, which in this case is an Adverse Event Report. 
+     * Status examples: active, completed, etc.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);

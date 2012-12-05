@@ -45,6 +45,11 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public List<RecipientChoice> getInformationRecipientRecipientChoice();
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Verifier.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<HealthcareWorkerBean> getVerifierAssignedEntity();
 
 
@@ -71,14 +76,29 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey);
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component5.requestChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RequestChoice> getComponent4RequestChoice();
 
 
     public List<IncludesBean> getSubjectOf1();
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Subject2.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public VersionInformationBean getSubjectOf2ControlActEvent();
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Subject2.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent);
 
 

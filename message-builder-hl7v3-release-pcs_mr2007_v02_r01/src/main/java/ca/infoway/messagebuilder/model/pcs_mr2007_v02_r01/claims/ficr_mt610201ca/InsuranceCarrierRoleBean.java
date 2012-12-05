@@ -30,21 +30,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Insurance Carrier Role</p>
+ * <p>Business Name: Insurance Carrier Role</p>
  * 
  * <p>Adjudicator Carrier id</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.InsuranceCarrierRole"})
 public class InsuranceCarrierRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>Adjudicator Insurance Carrier ID</p>
+     * <p>Relationship: FICR_MT610201CA.InsuranceCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>As identified by the Adjudicator</p>
+     * 
+     * <p>Adjudicator Insurance Carrier ID</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -52,9 +56,13 @@ public class InsuranceCarrierRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudicator Insurance Carrier ID</p>
+     * <p>Relationship: FICR_MT610201CA.InsuranceCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>As identified by the Adjudicator</p>
+     * 
+     * <p>Adjudicator Insurance Carrier ID</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

@@ -35,26 +35,46 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActInsuran
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private II authorCarrierRoleId = new IIImpl();
 
 
+    /**
+     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"code"})
     public ActInsurancePolicyCode getCode() {
         return (ActInsurancePolicyCode) this.code.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCode(ActInsurancePolicyCode code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/carrierRole/id"})
     public Identifier getAuthorCarrierRoleId() {
         return this.authorCarrierRoleId.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
         this.authorCarrierRoleId.setValue(authorCarrierRoleId);
     }

@@ -41,37 +41,31 @@ import java.util.Date;
  * <p>PORX_MT060160CA.SupplyRequestItem: Dispense Instruction 
  * Details</p>
  * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the 
+ * patient.</p><p>Allows dispensing instructions to be given at 
+ * specific dispensable drug level for an overall prescribed 
+ * drug.</p>
+ * 
  * <p>Specification of how the prescribed medication is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the 
- * patient.</p><p>Allows dispensing instructions to be given at 
- * specific dispensable drug level for an overall prescribed 
- * drug.</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the 
- * patient.</p><p>Allows dispensing instructions to be given at 
- * specific dispensable drug level for an overall prescribed 
- * drug.</p>
- * 
  * <p>PORX_MT060340CA.SupplyRequestItem: Extended Dispense 
  * Instructions</p>
+ * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
  * 
  * <p>Specification of the overall use duration of the 
  * prescrbed medication and/or overall quantity to be 
  * dispensed.</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequestItem","PORX_MT060340CA.SupplyRequestItem"})
 public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -80,21 +74,31 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>TotalPrescribedQuantity</p>
+     * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyRequestItem.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total quantity.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total quantity.</p>
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SupplyRequestItem.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sets upper limit for medication to be dispensed. Can be 
      * used to verify the intention of the prescriber with respect 
@@ -102,6 +106,11 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p><p>Narcotics 
      * must always be specified as a total quantity.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -109,21 +118,31 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>TotalPrescribedQuantity</p>
+     * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyRequestItem.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total quantity.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total quantity.</p>
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SupplyRequestItem.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sets upper limit for medication to be dispensed. Can be 
      * used to verify the intention of the prescriber with respect 
@@ -131,6 +150,11 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p><p>Narcotics 
      * must always be specified as a total quantity.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -138,13 +162,14 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>TotalDaysSupply</p>
+     * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>A:Total Days Supply</p>
+     * <p>Other Business Name: TotalDaysSupply</p>
      * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.SupplyRequestItem.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to specify a total authorization as a duration 
      * rather than a quantity with refills. E.g. dispense 30 at a 
@@ -153,6 +178,29 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * the quantity prescribed. This attribute is mandatory because 
      * the prescriber (in discussion with the patient) has a better 
      * understanding of the days supply needed by the patient.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
+     * 
+     * <p>Other Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyRequestItem.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed. This attribute is mandatory because 
+     * the prescriber (in discussion with the patient) has a better 
+     * understanding of the days supply needed by the patient.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -160,13 +208,14 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>TotalDaysSupply</p>
+     * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>A:Total Days Supply</p>
+     * <p>Other Business Name: TotalDaysSupply</p>
      * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.SupplyRequestItem.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to specify a total authorization as a duration 
      * rather than a quantity with refills. E.g. dispense 30 at a 
@@ -175,22 +224,86 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
      * the quantity prescribed. This attribute is mandatory because 
      * the prescriber (in discussion with the patient) has a better 
      * understanding of the days supply needed by the patient.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
+     * 
+     * <p>Other Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SupplyRequestItem.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed. This attribute is mandatory because 
+     * the prescriber (in discussion with the patient) has a better 
+     * understanding of the days supply needed by the patient.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component7.initialSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component7.initialSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
@@ -201,11 +314,41 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
         return this.component2InitialSupplyRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component7.initialSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component7.initialSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),
@@ -216,6 +359,21 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
         return this.component1SubsequentSupplyRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
         this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
     }

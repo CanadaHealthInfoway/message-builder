@@ -48,15 +48,25 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInvoi
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatorBillingTaxAccount","FICR_MT610201CA.AdjudicatorBillingTaxAccount"})
 public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
 
     /**
-     * <p>Tax account number</p>
+     * <p>Other Business Name: TaxAcctNo</p>
      * 
-     * <p>Tax Acct. No.</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: TaxAccountNumber</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.AdjudicatorBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -64,9 +74,19 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Tax account number</p>
+     * <p>Other Business Name: TaxAcctNo</p>
      * 
-     * <p>Tax Acct. No.</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: TaxAccountNumber</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.AdjudicatorBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -74,9 +94,19 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Adjudicator Billing Tax Account</p>
+     * <p>Other Business Name: DetailTaxCode</p>
      * 
-     * <p>Detail Tax Code</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdjudicatorBillingTaxAccount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.AdjudicatorBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceDetailTaxType getCode() {
@@ -84,9 +114,19 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudicator Billing Tax Account</p>
+     * <p>Other Business Name: DetailTaxCode</p>
      * 
-     * <p>Detail Tax Code</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AdjudicatorBillingTaxAccount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.AdjudicatorBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceDetailTaxType code) {
         this.code.setValue(code);

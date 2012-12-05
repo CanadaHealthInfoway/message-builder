@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 
 
 /**
- * <p>POLB_IN134001CA: Laboratory Result Reject Response</p>
+ * <p>Business Name: POLB_IN134001CA: Laboratory Result Reject 
+ * Response</p>
+ * 
+ * <p>This interaction is a Result Reject Response. This is 
+ * used by the receiver to reject a result</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 @Hl7PartTypeMapping({"POLB_IN134001CA"})
 public class LaboratoryResultRejectResponseBean extends HL7Message_1Bean<TriggerEvent_2Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

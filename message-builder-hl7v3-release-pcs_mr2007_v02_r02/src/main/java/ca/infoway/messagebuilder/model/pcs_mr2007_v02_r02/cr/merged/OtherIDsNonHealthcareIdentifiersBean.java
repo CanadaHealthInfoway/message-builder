@@ -35,56 +35,56 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>OtherIDsNonHealthcareIdentifiers</p>
+ * <p>Business Name: OtherIDsNonHealthcareIdentifiers</p>
  * 
  * <p>PRPA_MT101104CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
+ * <p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p>
+ * 
  * <p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
  * organization can be sent in the E_Organization Entity 
  * Class</p>
- * 
- * <p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p>
  * 
  * <p>PRPA_MT101002CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
+ * <p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p>
+ * 
  * <p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
  * organization can be sent in the E_Organization Entity 
  * Class</p>
- * 
- * <p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p>
  * 
  * <p>PRPA_MT101106CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
+ * <p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p>
+ * 
  * <p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
  * organization can be sent in the E_Organization Entity 
  * Class</p>
- * 
- * <p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p>
  * 
  * <p>PRPA_MT101001CA.OtherIDs: Other IDs Non Healthcare 
  * Identifiers</p>
  * 
+ * <p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p>
+ * 
  * <p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
  * organization can be sent in the E_Organization Entity 
  * Class</p>
- * 
- * <p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101001CA.OtherIDs","PRPA_MT101002CA.OtherIDs","PRPA_MT101104CA.OtherIDs","PRPA_MT101106CA.OtherIDs"})
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningIdOrganizationId = new IIImpl();
@@ -92,23 +92,55 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcareIdentification</p>
+     * <p>Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>NonHealthcare Identification</p>
+     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      * 
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
+     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the identification of the 
      * client</p>
-     * 
-     * <p>NonHealthcare Identification</p>
      * 
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Passport, SIN, DND, DIAND, Drivers License)</p>
      * 
+     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Drivers License, RCMP, DND, Social Insurance Number)</p>
+     * 
+     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Passport, SIN, DND, DIAND, Drivers License)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -116,23 +148,55 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
 
     /**
-     * <p>NonHealthcareIdentification</p>
+     * <p>Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>NonHealthcare Identification</p>
+     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
      * 
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
+     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the identification of the 
      * client</p>
-     * 
-     * <p>NonHealthcare Identification</p>
      * 
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Passport, SIN, DND, DIAND, Drivers License)</p>
      * 
+     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Drivers License, RCMP, DND, Social Insurance Number)</p>
+     * 
+     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>Other non-healthcare identifiers for the Client (e.g. 
+     * Passport, SIN, DND, DIAND, Drivers License)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -140,16 +204,59 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcareIdentificationCode</p>
+     * <p>Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>NonHealthcare Identification Code</p>
+     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      * 
      * <p>A pan Canadian code further specifying the kind of Role 
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
+     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
+     * 
+     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
+     * 
+     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
      */
     @Hl7XmlMapping({"code"})
     public OtherIDsRoleCode getCode() {
@@ -157,16 +264,59 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
 
     /**
-     * <p>NonHealthcareIdentificationCode</p>
+     * <p>Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>NonHealthcare Identification Code</p>
+     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      * 
      * <p>A pan Canadian code further specifying the kind of Role 
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
+     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
+     * 
+     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
+     * 
+     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
+     * 
+     * <p>A pan Canadian code further specifying the kind of Role 
+     * such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p>
      */
     public void setCode(OtherIDsRoleCode code) {
         this.code.setValue(code);
@@ -174,15 +324,55 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcareOrganizationIdentifier</p>
+     * <p>Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>NonHealthcare Organization Identifier</p>
+     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
      * 
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
+     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the identification of the 
      * organization assigning the identifier to the client</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * non-healthcare identifier for the client.</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * non-healthcare identifier for the client.</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * non-healthcare identifier for the client.</p>
      */
     @Hl7XmlMapping({"assigningIdOrganization/id"})
     public Identifier getAssigningIdOrganizationId() {
@@ -190,15 +380,55 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
 
     /**
-     * <p>NonHealthcareOrganizationIdentifier</p>
+     * <p>Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>NonHealthcare Organization Identifier</p>
+     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
      * 
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
+     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the identification of the 
      * organization assigning the identifier to the client</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * non-healthcare identifier for the client.</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * non-healthcare identifier for the client.</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>Unique identifier for the organization that assigned the 
+     * non-healthcare identifier for the client.</p>
      */
     public void setAssigningIdOrganizationId(Identifier assigningIdOrganizationId) {
         this.assigningIdOrganizationId.setValue(assigningIdOrganizationId);
@@ -206,14 +436,51 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcareOrganizationName</p>
+     * <p>Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>NonHealthcare Organization Name</p>
+     * <p>Other Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>A name for the non-healthcare organization</p>
+     * <p>Relationship: PRPA_MT101104CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
      */
     @Hl7XmlMapping({"assigningIdOrganization/name"})
     public String getAssigningIdOrganizationName() {
@@ -221,14 +488,51 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
 
     /**
-     * <p>NonHealthcareOrganizationName</p>
+     * <p>Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>NonHealthcare Organization Name</p>
+     * <p>Other Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>A name for the non-healthcare organization</p>
+     * <p>Relationship: PRPA_MT101104CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
+     * 
+     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p>
+     * 
+     * <p>A name for the non-healthcare organization</p>
      */
     public void setAssigningIdOrganizationName(String assigningIdOrganizationName) {
         this.assigningIdOrganizationName.setValue(assigningIdOrganizationName);

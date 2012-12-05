@@ -50,20 +50,16 @@ import java.util.Set;
  * <p>Player association must be present if and only if id is 
  * present</p>
  * 
- * <p>Identifies the service provider or type of service 
- * provider who is being requested to deliver services to the 
- * patient.</p>
- * 
  * <p>Represents a key piece of information about the referral. 
  * Included because the referral may be routed to a different 
  * person than that intended to actually deliver the 
  * service.</p>
  * 
- * <p>POIZ_MT030060CA.AssignedEntity: Healthcare Worker</p>
+ * <p>Identifies the service provider or type of service 
+ * provider who is being requested to deliver services to the 
+ * patient.</p>
  * 
- * <p>The person organization assigned to carry out the 
- * associated (linked by a participation) action and/or the 
- * organization under whose authority they are acting.</p>
+ * <p>POIZ_MT030060CA.AssignedEntity: Healthcare Worker</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up. The CMET supports both licensed providers as well 
@@ -72,13 +68,13 @@ import java.util.Set;
  * 
  * <p>All attributes other than the various identifiers are 
  * expected to be retrieved from the provider registry.</p>
+ * 
+ * <p>The person organization assigned to carry out the 
+ * associated (linked by a participation) action and/or the 
+ * organization under whose authority they are acting.</p>
  * 
  * <p>POIZ_MT030050CA.AssignedEntity: Healthcare Worker</p>
  * 
- * <p>The person organization assigned to carry out the 
- * associated (linked by a participation) action and/or the 
- * organization under whose authority they are acting.</p>
- * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up. The CMET supports both licensed providers as well 
  * as non-licensed providers such as technicians, 
@@ -86,26 +82,26 @@ import java.util.Set;
  * 
  * <p>All attributes other than the various identifiers are 
  * expected to be retrieved from the provider registry.</p>
+ * 
+ * <p>The person organization assigned to carry out the 
+ * associated (linked by a participation) action and/or the 
+ * organization under whose authority they are acting.</p>
  * 
  * <p>REPC_MT210002CA.AssignedEntity: Provider</p>
  * 
  * <p>Player association must be present if and only if id is 
  * present</p>
  * 
- * <p>Identifies the service provider or type of service 
- * provider who is being requested to deliver services to the 
- * patient.</p>
- * 
  * <p>Represents a key piece of information about the referral. 
  * Included because the referral may be routed to a different 
  * person than that intended to actually deliver the 
  * service.</p>
  * 
- * <p>POIZ_MT060150CA.AssignedEntity: Healthcare Worker</p>
+ * <p>Identifies the service provider or type of service 
+ * provider who is being requested to deliver services to the 
+ * patient.</p>
  * 
- * <p>The person organization assigned to carry out the 
- * associated (linked by a participation) action and/or the 
- * organization under whose authority they are acting.</p>
+ * <p>POIZ_MT060150CA.AssignedEntity: Healthcare Worker</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up. The CMET supports both licensed providers as well 
@@ -114,11 +110,15 @@ import java.util.Set;
  * 
  * <p>All attributes other than the various identifiers are 
  * expected to be retrieved from the provider registry.</p>
+ * 
+ * <p>The person organization assigned to carry out the 
+ * associated (linked by a participation) action and/or the 
+ * organization under whose authority they are acting.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AssignedEntity","POIZ_MT030060CA.AssignedEntity","POIZ_MT060150CA.AssignedEntity","REPC_MT210001CA.AssignedEntity","REPC_MT210002CA.AssignedEntity","REPC_MT210003CA.AssignedEntity"})
 public class HealthcareWorkerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN assignedProviderName = new PNImpl();
@@ -131,25 +131,43 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Healthcare Worker Identifier</p>
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
      * 
-     * <p>Unique identifier the person involved in the action.</p>
+     * <p>Relationship: POIZ_MT030050CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows unique identification of the person which can be 
      * critical for authentication, permissions, drill-down and 
      * traceability. However the ID may not always be known and is 
      * therefore is populated.</p>
      * 
-     * <p>F: Provider Id</p>
+     * <p>Unique identifier the person involved in the action.</p>
      * 
-     * <p>A unique provider identifier such as the MINC #; (a 
-     * unique lifetime identifier for physicians in Canada). Other 
-     * health care professions such as nursing and dietitians have 
-     * similar identifiers. For those providers (such as family 
-     * members, friends, neighbors and others who are part of the 
-     * patient's informal support network will not have 
-     * identifiers) the system will assign identifiers for the 
-     * purpose of linking information within the message.</p>
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows unique identification of the person which can be 
+     * critical for authentication, permissions, drill-down and 
+     * traceability. However the ID may not always be known and is 
+     * therefore is populated.</p>
+     * 
+     * <p>Unique identifier the person involved in the action.</p>
+     * 
+     * <p>Other Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>For non-professional providers and others who do not have 
      * unique provider numbers, applications must create 'internal' 
@@ -160,7 +178,51 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * information in a provider registry, and therefore will be 
      * required in the absence of a provider name.</p>
      * 
-     * <p>F: Provider Id</p>
+     * <p>A unique provider identifier such as the MINC #; (a 
+     * unique lifetime identifier for physicians in Canada). Other 
+     * health care professions such as nursing and dietitians have 
+     * similar identifiers. For those providers (such as family 
+     * members, friends, neighbors and others who are part of the 
+     * patient's informal support network will not have 
+     * identifiers) the system will assign identifiers for the 
+     * purpose of linking information within the message.</p>
+     * 
+     * <p>Other Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>For non-professional providers and others who do not have 
+     * unique provider numbers, applications must create 'internal' 
+     * identifiers to allow referencing of the provider within the 
+     * message.</p>
+     * 
+     * <p>An identifier is the best way of kinking a provider to 
+     * information in a provider registry, and therefore will be 
+     * required in the absence of a provider name.</p>
+     * 
+     * <p>A unique provider identifier such as the MINC #; (a 
+     * unique lifetime identifier for physicians in Canada). Other 
+     * health care professions such as nursing and dietitians have 
+     * similar identifiers. For those providers (such as family 
+     * members, friends, neighbors and others who are part of the 
+     * patient's informal support network will not have 
+     * identifiers) the system will assign identifiers for the 
+     * purpose of linking information within the message.</p>
+     * 
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows unique identification of the person which can be 
+     * critical for authentication, permissions, drill-down and 
+     * traceability. However the ID may not always be known and is 
+     * therefore is populated.</p>
+     * 
+     * <p>Unique identifier the person involved in the action.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -168,25 +230,43 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Healthcare Worker Identifier</p>
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
      * 
-     * <p>Unique identifier the person involved in the action.</p>
+     * <p>Relationship: POIZ_MT030050CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows unique identification of the person which can be 
      * critical for authentication, permissions, drill-down and 
      * traceability. However the ID may not always be known and is 
      * therefore is populated.</p>
      * 
-     * <p>F: Provider Id</p>
+     * <p>Unique identifier the person involved in the action.</p>
      * 
-     * <p>A unique provider identifier such as the MINC #; (a 
-     * unique lifetime identifier for physicians in Canada). Other 
-     * health care professions such as nursing and dietitians have 
-     * similar identifiers. For those providers (such as family 
-     * members, friends, neighbors and others who are part of the 
-     * patient's informal support network will not have 
-     * identifiers) the system will assign identifiers for the 
-     * purpose of linking information within the message.</p>
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows unique identification of the person which can be 
+     * critical for authentication, permissions, drill-down and 
+     * traceability. However the ID may not always be known and is 
+     * therefore is populated.</p>
+     * 
+     * <p>Unique identifier the person involved in the action.</p>
+     * 
+     * <p>Other Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>For non-professional providers and others who do not have 
      * unique provider numbers, applications must create 'internal' 
@@ -197,7 +277,51 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * information in a provider registry, and therefore will be 
      * required in the absence of a provider name.</p>
      * 
-     * <p>F: Provider Id</p>
+     * <p>A unique provider identifier such as the MINC #; (a 
+     * unique lifetime identifier for physicians in Canada). Other 
+     * health care professions such as nursing and dietitians have 
+     * similar identifiers. For those providers (such as family 
+     * members, friends, neighbors and others who are part of the 
+     * patient's informal support network will not have 
+     * identifiers) the system will assign identifiers for the 
+     * purpose of linking information within the message.</p>
+     * 
+     * <p>Other Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>For non-professional providers and others who do not have 
+     * unique provider numbers, applications must create 'internal' 
+     * identifiers to allow referencing of the provider within the 
+     * message.</p>
+     * 
+     * <p>An identifier is the best way of kinking a provider to 
+     * information in a provider registry, and therefore will be 
+     * required in the absence of a provider name.</p>
+     * 
+     * <p>A unique provider identifier such as the MINC #; (a 
+     * unique lifetime identifier for physicians in Canada). Other 
+     * health care professions such as nursing and dietitians have 
+     * similar identifiers. For those providers (such as family 
+     * members, friends, neighbors and others who are part of the 
+     * patient's informal support network will not have 
+     * identifiers) the system will assign identifiers for the 
+     * purpose of linking information within the message.</p>
+     * 
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows unique identification of the person which can be 
+     * critical for authentication, permissions, drill-down and 
+     * traceability. However the ID may not always be known and is 
+     * therefore is populated.</p>
+     * 
+     * <p>Unique identifier the person involved in the action.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -205,25 +329,77 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>G: Provider Type</p>
+     * <p>Other Business Name: HealthcareWorkerType</p>
      * 
-     * <p>B: Healthcare Worker Type</p>
+     * <p>Relationship: POIZ_MT030050CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the &quot;kind&quot; of healthcare participant, 
      * such as &quot;physician&quot;, &quot;dentist&quot;, 
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
      * 
+     * <p>Other Business Name: HealthcareWorkerType</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides context around the actions of the participant 
      * and is therefore mandatory.</p>
      * 
-     * <p>G: Provider Type</p>
+     * <p>Indicates the &quot;kind&quot; of healthcare participant, 
+     * such as &quot;physician&quot;, &quot;dentist&quot;, 
+     * &quot;lab technician&quot;, &quot;receptionist&quot;, 
+     * etc.</p>
      * 
-     * <p>Indicates the medical discipline of the provider.</p>
+     * <p>Other Business Name: ProviderType</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ProviderType</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides important context to understanding information 
      * recorded by a provider and work intended to be performed by 
      * the provider.</p>
+     * 
+     * <p>Indicates the medical discipline of the provider.</p>
+     * 
+     * <p>Other Business Name: ProviderType</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides important context to understanding information 
+     * recorded by a provider and work intended to be performed by 
+     * the provider.</p>
+     * 
+     * <p>Indicates the medical discipline of the provider.</p>
+     * 
+     * <p>Other Business Name: HealthcareWorkerType</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the &quot;kind&quot; of healthcare participant, 
+     * such as &quot;physician&quot;, &quot;dentist&quot;, 
+     * &quot;lab technician&quot;, &quot;receptionist&quot;, 
+     * etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getCode() {
@@ -231,25 +407,77 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>G: Provider Type</p>
+     * <p>Other Business Name: HealthcareWorkerType</p>
      * 
-     * <p>B: Healthcare Worker Type</p>
+     * <p>Relationship: POIZ_MT030050CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the &quot;kind&quot; of healthcare participant, 
      * such as &quot;physician&quot;, &quot;dentist&quot;, 
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
      * 
+     * <p>Other Business Name: HealthcareWorkerType</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides context around the actions of the participant 
      * and is therefore mandatory.</p>
      * 
-     * <p>G: Provider Type</p>
+     * <p>Indicates the &quot;kind&quot; of healthcare participant, 
+     * such as &quot;physician&quot;, &quot;dentist&quot;, 
+     * &quot;lab technician&quot;, &quot;receptionist&quot;, 
+     * etc.</p>
      * 
-     * <p>Indicates the medical discipline of the provider.</p>
+     * <p>Other Business Name: ProviderType</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ProviderType</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides important context to understanding information 
      * recorded by a provider and work intended to be performed by 
      * the provider.</p>
+     * 
+     * <p>Indicates the medical discipline of the provider.</p>
+     * 
+     * <p>Other Business Name: ProviderType</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides important context to understanding information 
+     * recorded by a provider and work intended to be performed by 
+     * the provider.</p>
+     * 
+     * <p>Indicates the medical discipline of the provider.</p>
+     * 
+     * <p>Other Business Name: HealthcareWorkerType</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the &quot;kind&quot; of healthcare participant, 
+     * such as &quot;physician&quot;, &quot;dentist&quot;, 
+     * &quot;lab technician&quot;, &quot;receptionist&quot;, 
+     * etc.</p>
      */
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);
@@ -257,18 +485,39 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderName</p>
+     * <p>Business Name: ProviderName</p>
      * 
-     * <p>C: Provider Name</p>
+     * <p>Other Business Name: ProviderName</p>
      * 
-     * <p>The label by which a provider is known and communicated 
-     * with.</p>
+     * <p>Relationship: REPC_MT210001CA.Provider.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ProviderName</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Provider.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Common way to identify and communicate with a service 
      * provider in a &quot;human readable&quot; and understood 
      * format.</p>
      * 
-     * <p>C: Provider Name</p>
+     * <p>The label by which a provider is known and communicated 
+     * with.</p>
+     * 
+     * <p>Other Business Name: ProviderName</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Provider.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Common way to identify and communicate with a service 
+     * provider in a &quot;human readable&quot; and understood 
+     * format.</p>
+     * 
+     * <p>The label by which a provider is known and communicated 
+     * with.</p>
      */
     @Hl7XmlMapping({"assignedProvider/name"})
     public PersonName getAssignedProviderName() {
@@ -276,18 +525,39 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>ProviderName</p>
+     * <p>Business Name: ProviderName</p>
      * 
-     * <p>C: Provider Name</p>
+     * <p>Other Business Name: ProviderName</p>
      * 
-     * <p>The label by which a provider is known and communicated 
-     * with.</p>
+     * <p>Relationship: REPC_MT210001CA.Provider.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ProviderName</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Provider.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Common way to identify and communicate with a service 
      * provider in a &quot;human readable&quot; and understood 
      * format.</p>
      * 
-     * <p>C: Provider Name</p>
+     * <p>The label by which a provider is known and communicated 
+     * with.</p>
+     * 
+     * <p>Other Business Name: ProviderName</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Provider.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Common way to identify and communicate with a service 
+     * provider in a &quot;human readable&quot; and understood 
+     * format.</p>
+     * 
+     * <p>The label by which a provider is known and communicated 
+     * with.</p>
      */
     public void setAssignedProviderName(PersonName assignedProviderName) {
         this.assignedProviderName.setValue(assignedProviderName);
@@ -295,16 +565,46 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>HealthcareWorkerPhoneAndEmails</p>
+     * <p>Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>E: Healthcare Worker Phone and Emails</p>
+     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>Indicates phone and/or e-mail addresses at which the 
-     * healthcare worker can be reached.</p>
+     * <p>Relationship: POIZ_MT030050CA.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>This is the most commonly used piece of contact 
      * information and is returned here to avoid unnecessary 
      * queries of the provider registry.</p>
+     * 
+     * <p>Indicates phone and/or e-mail addresses at which the 
+     * healthcare worker can be reached.</p>
+     * 
+     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>This is the most commonly used piece of contact 
+     * information and is returned here to avoid unnecessary 
+     * queries of the provider registry.</p>
+     * 
+     * <p>Indicates phone and/or e-mail addresses at which the 
+     * healthcare worker can be reached.</p>
+     * 
+     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>This is the most commonly used piece of contact 
+     * information and is returned here to avoid unnecessary 
+     * queries of the provider registry.</p>
+     * 
+     * <p>Indicates phone and/or e-mail addresses at which the 
+     * healthcare worker can be reached.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getTelecom() {
@@ -312,27 +612,101 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedPerson"})
     public ActingPersonBean getAssignedPerson() {
         return this.assignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedPerson(ActingPersonBean assignedPerson) {
         this.assignedPerson = assignedPerson;
     }
 
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>F: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
      * 
-     * <p>A unique identifier for the organization</p>
+     * <p>Relationship: POIZ_MT030050CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
     @Hl7XmlMapping({"representedOrganization/id"})
     public Identifier getRepresentedOrganizationId() {
@@ -340,16 +714,46 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>F: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
      * 
-     * <p>A unique identifier for the organization</p>
+     * <p>Relationship: POIZ_MT030050CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
     public void setRepresentedOrganizationId(Identifier representedOrganizationId) {
         this.representedOrganizationId.setValue(representedOrganizationId);
@@ -357,15 +761,43 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>H: Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
      * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Relationship: POIZ_MT030050CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
      */
     @Hl7XmlMapping({"representedOrganization/name"})
     public String getRepresentedOrganizationName() {
@@ -373,15 +805,43 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>H: Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
      * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Relationship: POIZ_MT030050CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
      */
     public void setRepresentedOrganizationName(String representedOrganizationName) {
         this.representedOrganizationName.setValue(representedOrganizationName);
@@ -389,15 +849,43 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>G: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context to the action and is therefore 
+     * mandatory.</p>
      * 
      * <p>Identifies the type of organization on whose behalf the 
      * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      * 
+     * <p>Other Business Name: OrganizationType</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides context to the action and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
+     * 
+     * <p>Other Business Name: OrganizationType</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context to the action and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
     public HealthcareOrganizationRoleType getRepresentedOrganizationAssignedOrganizationCode() {
@@ -405,15 +893,43 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>G: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context to the action and is therefore 
+     * mandatory.</p>
      * 
      * <p>Identifies the type of organization on whose behalf the 
      * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      * 
+     * <p>Other Business Name: OrganizationType</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides context to the action and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
+     * 
+     * <p>Other Business Name: OrganizationType</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context to the action and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      */
     public void setRepresentedOrganizationAssignedOrganizationCode(HealthcareOrganizationRoleType representedOrganizationAssignedOrganizationCode) {
         this.representedOrganizationAssignedOrganizationCode.setValue(representedOrganizationAssignedOrganizationCode);
@@ -421,16 +937,49 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationPhoneAndEmails</p>
+     * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>I: Organization Phone and Emails</p>
+     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Identifies contact information for the responsible 
-     * organization.</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.AssignedOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>This is the most commonly used contact information and is 
      * returned to avoid unnecessary queries against the client 
      * registry.</p>
+     * 
+     * <p>Identifies contact information for the responsible 
+     * organization.</p>
+     * 
+     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.AssignedOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>This is the most commonly used contact information and is 
+     * returned to avoid unnecessary queries against the client 
+     * registry.</p>
+     * 
+     * <p>Identifies contact information for the responsible 
+     * organization.</p>
+     * 
+     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.AssignedOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>This is the most commonly used contact information and is 
+     * returned to avoid unnecessary queries against the client 
+     * registry.</p>
+     * 
+     * <p>Identifies contact information for the responsible 
+     * organization.</p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getRepresentedOrganizationAssignedOrganizationTelecom() {

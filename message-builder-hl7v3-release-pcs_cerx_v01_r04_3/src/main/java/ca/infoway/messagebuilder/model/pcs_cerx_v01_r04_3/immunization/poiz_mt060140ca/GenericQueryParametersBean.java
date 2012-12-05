@@ -48,18 +48,18 @@ import java.util.Date;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT060140CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> immunizationPeriodValue = new IVLImpl<TS, Interval<Date>>();
     private BL includeIssuesIndicatorValue = new BLImpl();
     private BL includeNotesIndicatorValue = new BLImpl();
@@ -74,20 +74,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Immunization Period</p>
+     * <p>Business Name: G:Immunization Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.ImmunizationPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval of immunization records.</p><p>Useful for 
+     * constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred within the 
      * indicated time-period. This will commonly be used to 
      * retrieve 'all immunizations since xxx'.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
      */
     @Hl7XmlMapping({"immunizationPeriod/value"})
     public Interval<Date> getImmunizationPeriodValue() {
@@ -95,20 +95,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Immunization Period</p>
+     * <p>Business Name: G:Immunization Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.ImmunizationPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval of immunization records.</p><p>Useful for 
+     * constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred within the 
      * indicated time-period. This will commonly be used to 
      * retrieve 'all immunizations since xxx'.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
      */
     public void setImmunizationPeriodValue(Interval<Date> immunizationPeriodValue) {
         this.immunizationPeriodValue.setValue(immunizationPeriodValue);
@@ -116,23 +116,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Include Issues Indicator</p>
+     * <p>Business Name: Include Issues Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060140CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including issues 
+     * in the retrieval of information for immunization 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not issues attached to the 
      * immunization record are to be returned along with the 
      * detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of information for immunization 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of information for immunization 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"includeIssuesIndicator/value"})
     public Boolean getIncludeIssuesIndicatorValue() {
@@ -140,23 +139,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Include Issues Indicator</p>
+     * <p>Business Name: Include Issues Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060140CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including issues 
+     * in the retrieval of information for immunization 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not issues attached to the 
      * immunization record are to be returned along with the 
      * detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of information for immunization 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of information for immunization 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     public void setIncludeIssuesIndicatorValue(Boolean includeIssuesIndicatorValue) {
         this.includeIssuesIndicatorValue.setValue(includeIssuesIndicatorValue);
@@ -164,16 +162,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Include Notes Indicator</p>
+     * <p>Business Name: Include Notes Indicator</p>
      * 
-     * <p>Indicates whether or not notes attached to the 
-     * immunization record are to be returned along with the 
-     * detailed information.</p>
+     * <p>Relationship: POIZ_MT060140CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including notes in 
      * the retrieval of information for immunization data. The 
      * value of this parameter must be known to return a response, 
      * so it is marked as mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the 
+     * immunization record are to be returned along with the 
+     * detailed information.</p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
     public Boolean getIncludeNotesIndicatorValue() {
@@ -181,16 +183,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Include Notes Indicator</p>
+     * <p>Business Name: Include Notes Indicator</p>
      * 
-     * <p>Indicates whether or not notes attached to the 
-     * immunization record are to be returned along with the 
-     * detailed information.</p>
+     * <p>Relationship: POIZ_MT060140CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including notes in 
      * the retrieval of information for immunization data. The 
      * value of this parameter must be known to return a response, 
      * so it is marked as mandatory.</p>
+     * 
+     * <p>Indicates whether or not notes attached to the 
+     * immunization record are to be returned along with the 
+     * detailed information.</p>
      */
     public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
         this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
@@ -198,20 +204,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>H:Next Planned Dose Period</p>
+     * <p>Business Name: H:Next Planned Dose Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.NextPlannedDosePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval of immunization records.</p><p>Useful for 
+     * constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunization records for which the next 
      * planned dose date falls within the indicated 
      * time-period.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
      */
     @Hl7XmlMapping({"nextPlannedDosePeriod/value"})
     public Interval<Date> getNextPlannedDosePeriodValue() {
@@ -219,20 +225,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>H:Next Planned Dose Period</p>
+     * <p>Business Name: H:Next Planned Dose Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.NextPlannedDosePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval of immunization records.</p><p>Useful for 
+     * constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunization records for which the next 
      * planned dose date falls within the indicated 
      * time-period.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
      */
     public void setNextPlannedDosePeriodValue(Interval<Date> nextPlannedDosePeriodValue) {
         this.nextPlannedDosePeriodValue.setValue(nextPlannedDosePeriodValue);
@@ -240,12 +246,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Patient Birth Date</p>
+     * <p>Business Name: D:Patient Birth Date</p>
      * 
-     * <p>Indicates the date on whic the patient was born.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Use to confirm identity of the patient for the query and 
      * is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on whic the patient was born.</p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDateValue() {
@@ -253,12 +263,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Patient Birth Date</p>
+     * <p>Business Name: D:Patient Birth Date</p>
      * 
-     * <p>Indicates the date on whic the patient was born.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Use to confirm identity of the patient for the query and 
      * is therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on whic the patient was born.</p>
      */
     public void setPatientBirthDateValue(Date patientBirthDateValue) {
         this.patientBirthDateValue.setValue(patientBirthDateValue);
@@ -266,12 +280,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Gender</p>
+     * <p>Business Name: C:Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -279,12 +297,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Gender</p>
+     * <p>Business Name: C:Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
         this.patientGenderValue.setValue(patientGenderValue);
@@ -292,16 +314,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>Business Name: B:Patient ID</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient immunization query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient Id. This is a 
-     * mandatory field because a patient must be specified for the 
-     * query to be valid</p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -309,16 +335,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>Business Name: B:Patient ID</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient immunization query. Filter the result set to include 
      * only those records pertaining to the patient with this 
      * Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient Id. This is a 
-     * mandatory field because a patient must be specified for the 
-     * query to be valid</p>
      */
     public void setPatientIDValue(Identifier patientIDValue) {
         this.patientIDValue.setValue(patientIDValue);
@@ -326,21 +356,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * immunization query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * immunization query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * immunization query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -348,21 +377,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * immunization query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Relationship: POIZ_MT060140CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the patient 
-     * immunization query.</p><p>Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the patient 
+     * immunization query.</p><p>Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * name.</p>
      */
     public void setPatientNameValue(PersonName patientNameValue) {
         this.patientNameValue.setValue(patientNameValue);
@@ -370,19 +398,19 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>I:Renewal Period</p>
+     * <p>Business Name: I:Renewal Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.RenewalPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval of immunization records.</p><p>Useful for 
+     * constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunization records for which the 
      * renewal date falls within the indicated time-period.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
      */
     @Hl7XmlMapping({"renewalPeriod/value"})
     public Interval<Date> getRenewalPeriodValue() {
@@ -390,19 +418,19 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Renewal Period</p>
+     * <p>Business Name: I:Renewal Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.RenewalPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the period of interest 
+     * for the retrieval of immunization records.</p><p>Useful for 
+     * constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunization records for which the 
      * renewal date falls within the indicated time-period.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the period of interest 
-     * for the retrieval of immunization records.</p><p>Useful for 
-     * constraining run-away queries.</p>
      */
     public void setRenewalPeriodValue(Interval<Date> renewalPeriodValue) {
         this.renewalPeriodValue.setValue(renewalPeriodValue);
@@ -410,21 +438,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Vaccine Code</p>
+     * <p>Business Name: E:Vaccine Code</p>
      * 
-     * <p>A coded value indicating a specific vaccine to be used in 
-     * searching for patient immunization record.</p><p>The result 
-     * set will be filtered to only include immunization records 
-     * involving the specific vaccine code</p>
+     * <p>Relationship: POIZ_MT060140CA.VaccineCode.value</p>
      * 
-     * <p>A coded value indicating a specific vaccine to be used in 
-     * searching for patient immunization record.</p><p>The result 
-     * set will be filtered to only include immunization records 
-     * involving the specific vaccine code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of immunization records to be 
      * retrieved based on the vaccine code used in the 
      * immunization.</p>
+     * 
+     * <p>A coded value indicating a specific vaccine to be used in 
+     * searching for patient immunization record.</p><p>The result 
+     * set will be filtered to only include immunization records 
+     * involving the specific vaccine code</p>
      */
     @Hl7XmlMapping({"vaccineCode/value"})
     public VaccineEntityType getVaccineCodeValue() {
@@ -432,21 +459,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Vaccine Code</p>
+     * <p>Business Name: E:Vaccine Code</p>
      * 
-     * <p>A coded value indicating a specific vaccine to be used in 
-     * searching for patient immunization record.</p><p>The result 
-     * set will be filtered to only include immunization records 
-     * involving the specific vaccine code</p>
+     * <p>Relationship: POIZ_MT060140CA.VaccineCode.value</p>
      * 
-     * <p>A coded value indicating a specific vaccine to be used in 
-     * searching for patient immunization record.</p><p>The result 
-     * set will be filtered to only include immunization records 
-     * involving the specific vaccine code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of immunization records to be 
      * retrieved based on the vaccine code used in the 
      * immunization.</p>
+     * 
+     * <p>A coded value indicating a specific vaccine to be used in 
+     * searching for patient immunization record.</p><p>The result 
+     * set will be filtered to only include immunization records 
+     * involving the specific vaccine code</p>
      */
     public void setVaccineCodeValue(VaccineEntityType vaccineCodeValue) {
         this.vaccineCodeValue.setValue(vaccineCodeValue);
@@ -454,22 +480,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Vaccine Dose Number</p>
+     * <p>Business Name: F:Vaccine Dose Number</p>
      * 
-     * <p>A number representing the vaccine booster order that must 
-     * be used in searching for patient immunization 
-     * record.</p><p>The result set will be filtered to only 
-     * include immunization records pertaining to specific booster 
-     * number.</p>
+     * <p>Relationship: POIZ_MT060140CA.VaccineDoseNumber.value</p>
      * 
-     * <p>A number representing the vaccine booster order that must 
-     * be used in searching for patient immunization 
-     * record.</p><p>The result set will be filtered to only 
-     * include immunization records pertaining to specific booster 
-     * number.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of immunization records to be 
      * retrieved based on the sequence of the vaccine booster.</p>
+     * 
+     * <p>A number representing the vaccine booster order that must 
+     * be used in searching for patient immunization 
+     * record.</p><p>The result set will be filtered to only 
+     * include immunization records pertaining to specific booster 
+     * number.</p>
      */
     @Hl7XmlMapping({"vaccineDoseNumber/value"})
     public Integer getVaccineDoseNumberValue() {
@@ -477,22 +501,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Vaccine Dose Number</p>
+     * <p>Business Name: F:Vaccine Dose Number</p>
      * 
-     * <p>A number representing the vaccine booster order that must 
-     * be used in searching for patient immunization 
-     * record.</p><p>The result set will be filtered to only 
-     * include immunization records pertaining to specific booster 
-     * number.</p>
+     * <p>Relationship: POIZ_MT060140CA.VaccineDoseNumber.value</p>
      * 
-     * <p>A number representing the vaccine booster order that must 
-     * be used in searching for patient immunization 
-     * record.</p><p>The result set will be filtered to only 
-     * include immunization records pertaining to specific booster 
-     * number.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for finer sub-set of immunization records to be 
      * retrieved based on the sequence of the vaccine booster.</p>
+     * 
+     * <p>A number representing the vaccine booster order that must 
+     * be used in searching for patient immunization 
+     * record.</p><p>The result set will be filtered to only 
+     * include immunization records pertaining to specific booster 
+     * number.</p>
      */
     public void setVaccineDoseNumberValue(Integer vaccineDoseNumberValue) {
         this.vaccineDoseNumberValue.setValue(vaccineDoseNumberValue);

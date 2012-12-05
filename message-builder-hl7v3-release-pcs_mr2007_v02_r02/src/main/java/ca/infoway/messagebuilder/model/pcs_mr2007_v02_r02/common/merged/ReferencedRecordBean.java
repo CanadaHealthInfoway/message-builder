@@ -34,50 +34,58 @@ import java.util.Set;
 
 
 /**
- * <p>ReferencedRecord</p>
+ * <p>Business Name: ReferencedRecord</p>
  * 
  * <p>COMT_MT001101CA.ActRequest: Referenced Record</p>
  * 
+ * <p>As a request, refers to the event to be acted upon or 
+ * which has been acted upon.</p><p>As a response, may be used 
+ * to indicate the identifier assigned to a created object.</p>
+ * 
  * <p>References an existing event record by identifier.</p>
- * 
- * <p>As a request, refers to the event to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
- * 
- * <p>As a request, refers to the event to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
  * 
  * <p>COMT_MT001103CA.ActEvent: Referenced Record</p>
  * 
+ * <p>As a request, refers to the event to be acted upon or 
+ * which has been acted upon.</p><p>As a response, may be used 
+ * to indicate the identifier assigned to a created object.</p>
+ * 
  * <p>References an existing event record by identifier.</p>
- * 
- * <p>As a request, refers to the event to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
- * 
- * <p>As a request, refers to the event to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
  */
 @Hl7PartTypeMapping({"COMT_MT001101CA.ActRequest","COMT_MT001103CA.ActEvent"})
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
-     * <p>RecordIds</p>
+     * <p>Business Name: RecordIds</p>
      * 
-     * <p>Record Ids</p>
+     * <p>Other Business Name: RecordIds</p>
+     * 
+     * <p>Relationship: COMT_MT001101CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
+     * <p>Allows the event record to be uniquely referenced and is 
+     * therefore mandatory.</p>
      * 
      * <p>The identifier assigned by the central system (EHR) to 
      * the Event record being referred to.</p>
      * 
+     * <p>Other Business Name: RecordIds</p>
+     * 
+     * <p>Relationship: COMT_MT001103CA.ActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
      * <p>Allows the event record to be uniquely referenced and is 
      * therefore mandatory.</p>
+     * 
+     * <p>The identifier assigned by the central system (EHR) to 
+     * the Event record being referred to.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {

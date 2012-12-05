@@ -55,7 +55,7 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterList_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
     private II adjudResultsGroupIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();
@@ -69,9 +69,23 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>AdjudicationDate</p>
+     * <p>Business Name: AdjudicationDate</p>
      * 
-     * <p>Adjudication Date</p>
+     * <p>Other Business Name: AdjudicationDate</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT800201CA.AdjudResultsGroupAuthorTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Date of the Adjudication</p>
+     * 
+     * <p>Other Business Name: AdjudicationDate</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT820201CA.AdjudResultsGroupAuthorTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date of the Adjudication</p>
      */
@@ -81,9 +95,23 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AdjudicationDate</p>
+     * <p>Business Name: AdjudicationDate</p>
      * 
-     * <p>Adjudication Date</p>
+     * <p>Other Business Name: AdjudicationDate</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT800201CA.AdjudResultsGroupAuthorTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Date of the Adjudication</p>
+     * 
+     * <p>Other Business Name: AdjudicationDate</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT820201CA.AdjudResultsGroupAuthorTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date of the Adjudication</p>
      */
@@ -93,9 +121,22 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>AdjudicatedResultsGroupID</p>
+     * <p>Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Adjudicated Results Group ID</p>
+     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.AdjudResultsGroupId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique Id assigned by Adjudicator to this Group of 
+     * results</p>
+     * 
+     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.AdjudResultsGroupId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique Id assigned by Adjudicator to this Group of 
      * results</p>
@@ -106,9 +147,22 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AdjudicatedResultsGroupID</p>
+     * <p>Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Adjudicated Results Group ID</p>
+     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.AdjudResultsGroupId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique Id assigned by Adjudicator to this Group of 
+     * results</p>
+     * 
+     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.AdjudResultsGroupId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique Id assigned by Adjudicator to this Group of 
      * results</p>
@@ -119,9 +173,22 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>FinancialContractID</p>
+     * <p>Business Name: FinancialContractID</p>
      * 
-     * <p>Financial Contract ID</p>
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.FinancialContractId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ID number of payment arrangements for adjudicated 
+     * invoices.</p>
+     * 
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.FinancialContractId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ID number of payment arrangements for adjudicated 
      * invoices.</p>
@@ -132,9 +199,22 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>FinancialContractID</p>
+     * <p>Business Name: FinancialContractID</p>
      * 
-     * <p>Financial Contract ID</p>
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.FinancialContractId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ID number of payment arrangements for adjudicated 
+     * invoices.</p>
+     * 
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.FinancialContractId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ID number of payment arrangements for adjudicated 
      * invoices.</p>
@@ -145,9 +225,23 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>InsuranceCarrierID</p>
+     * <p>Business Name: InsuranceCarrierID</p>
      * 
-     * <p>Insurance Carrier ID</p>
+     * <p>Other Business Name: InsuranceCarrierID</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT800201CA.InsuranceCarrierRoleId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Business ID for Insurance Carrier</p>
+     * 
+     * <p>Other Business Name: InsuranceCarrierID</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT820201CA.InsuranceCarrierRoleId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Business ID for Insurance Carrier</p>
      */
@@ -157,9 +251,23 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>InsuranceCarrierID</p>
+     * <p>Business Name: InsuranceCarrierID</p>
      * 
-     * <p>Insurance Carrier ID</p>
+     * <p>Other Business Name: InsuranceCarrierID</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT800201CA.InsuranceCarrierRoleId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Business ID for Insurance Carrier</p>
+     * 
+     * <p>Other Business Name: InsuranceCarrierID</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT820201CA.InsuranceCarrierRoleId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Business ID for Insurance Carrier</p>
      */
@@ -169,9 +277,21 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>LocationIDNumber</p>
+     * <p>Business Name: LocationIDNumber</p>
      * 
-     * <p>Location ID Number</p>
+     * <p>Other Business Name: LocationIDNumber</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.LocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique ID for location (OID)</p>
+     * 
+     * <p>Other Business Name: LocationIDNumber</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.LocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique ID for location (OID)</p>
      */
@@ -181,9 +301,21 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>LocationIDNumber</p>
+     * <p>Business Name: LocationIDNumber</p>
      * 
-     * <p>Location ID Number</p>
+     * <p>Other Business Name: LocationIDNumber</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.LocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique ID for location (OID)</p>
+     * 
+     * <p>Other Business Name: LocationIDNumber</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.LocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique ID for location (OID)</p>
      */
@@ -193,9 +325,23 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PayeeID</p>
+     * <p>Business Name: PayeeID</p>
      * 
-     * <p>Payee ID</p>
+     * <p>Other Business Name: PayeeID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.PayeeId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ID for person or organisation that received payment for 
+     * the previously adjudicated and or paid services being 
+     * queried.</p>
+     * 
+     * <p>Other Business Name: PayeeID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.PayeeId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ID for person or organisation that received payment for 
      * the previously adjudicated and or paid services being 
@@ -207,9 +353,23 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PayeeID</p>
+     * <p>Business Name: PayeeID</p>
      * 
-     * <p>Payee ID</p>
+     * <p>Other Business Name: PayeeID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.PayeeId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ID for person or organisation that received payment for 
+     * the previously adjudicated and or paid services being 
+     * queried.</p>
+     * 
+     * <p>Other Business Name: PayeeID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.PayeeId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ID for person or organisation that received payment for 
      * the previously adjudicated and or paid services being 
@@ -221,9 +381,22 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PayorID</p>
+     * <p>Business Name: PayorID</p>
      * 
-     * <p>Payor ID</p>
+     * <p>Other Business Name: PayorID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.PayorId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ID number of the organisation responsible for the payment 
+     * of adjudicated Invoice elements.</p>
+     * 
+     * <p>Other Business Name: PayorID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.PayorId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ID number of the organisation responsible for the payment 
      * of adjudicated Invoice elements.</p>
@@ -234,9 +407,22 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PayorID</p>
+     * <p>Business Name: PayorID</p>
      * 
-     * <p>Payor ID</p>
+     * <p>Other Business Name: PayorID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.PayorId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ID number of the organisation responsible for the payment 
+     * of adjudicated Invoice elements.</p>
+     * 
+     * <p>Other Business Name: PayorID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.PayorId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ID number of the organisation responsible for the payment 
      * of adjudicated Invoice elements.</p>
@@ -247,9 +433,22 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderID</p>
+     * <p>Business Name: ProviderID</p>
      * 
-     * <p>Provider ID</p>
+     * <p>Other Business Name: ProviderID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.ProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ID of provider:professional license no., jurisdictional 
+     * PHN. eg. Professional registry no.</p>
+     * 
+     * <p>Other Business Name: ProviderID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.ProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ID of provider:professional license no., jurisdictional 
      * PHN. eg. Professional registry no.</p>
@@ -260,9 +459,22 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>ProviderID</p>
+     * <p>Business Name: ProviderID</p>
      * 
-     * <p>Provider ID</p>
+     * <p>Other Business Name: ProviderID</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.ProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ID of provider:professional license no., jurisdictional 
+     * PHN. eg. Professional registry no.</p>
+     * 
+     * <p>Other Business Name: ProviderID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.ProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ID of provider:professional license no., jurisdictional 
      * PHN. eg. Professional registry no.</p>
@@ -273,9 +485,21 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationIDNumber</p>
+     * <p>Business Name: SendingApplicationIDNumber</p>
      * 
-     * <p>Sending application ID number</p>
+     * <p>Other Business Name: SendingApplicationIDNumber</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.SendingApplicationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique ID number of sending application device (OID)</p>
+     * 
+     * <p>Other Business Name: SendingApplicationIDNumber</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.SendingApplicationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique ID number of sending application device (OID)</p>
      */
@@ -285,9 +509,21 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingApplicationIDNumber</p>
+     * <p>Business Name: SendingApplicationIDNumber</p>
      * 
-     * <p>Sending application ID number</p>
+     * <p>Other Business Name: SendingApplicationIDNumber</p>
+     * 
+     * <p>Relationship: QUCR_MT800201CA.SendingApplicationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique ID number of sending application device (OID)</p>
+     * 
+     * <p>Other Business Name: SendingApplicationIDNumber</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.SendingApplicationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique ID number of sending application device (OID)</p>
      */
@@ -297,9 +533,14 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>InvoiceElementGroupCode</p>
+     * <p>Business Name: InvoiceElementGroupCode</p>
      * 
-     * <p>Invoice element Group Code</p>
+     * <p>Other Business Name: InvoiceElementGroupCode</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT820201CA.InvoiceElementGroupCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code indicating a grouping of invoice elements and 
      * details.</p>
@@ -310,9 +551,14 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>InvoiceElementGroupCode</p>
+     * <p>Business Name: InvoiceElementGroupCode</p>
      * 
-     * <p>Invoice element Group Code</p>
+     * <p>Other Business Name: InvoiceElementGroupCode</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT820201CA.InvoiceElementGroupCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code indicating a grouping of invoice elements and 
      * details.</p>

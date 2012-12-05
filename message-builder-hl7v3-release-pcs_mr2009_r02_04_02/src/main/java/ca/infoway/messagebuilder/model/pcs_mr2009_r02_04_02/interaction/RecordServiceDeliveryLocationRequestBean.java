@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.prpa_mt202301ca.L
 
 
 /**
- * <p>PRPA_IN202311CA: Record service delivery location request</p>
+ * <p>Business Name: PRPA_IN202311CA: Record service delivery 
+ * location request</p>
+ * 
+ * <p>Seeks to add a new service delivery location to the 
+ * registry.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.prpa_mt202301ca.L
 @Hl7PartTypeMapping({"PRPA_IN202311CA"})
 public class RecordServiceDeliveryLocationRequestBean extends HL7Message_1Bean<TriggerEvent_3Bean<LocationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -32,14 +32,26 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.SpecialAuthorizationRequestCrossReference","FICR_MT490102CA.SpecialAuthorizationRequestCrossReference"})
 public class SpecialAuthorizationRequestCrossReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>CrossReferenceID</p>
+     * <p>Business Name: CrossReferenceID</p>
      * 
-     * <p>Cross Reference ID</p>
+     * <p>Other Business Name: CrossReferenceID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequestCrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CrossReferenceID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.SpecialAuthorizationRequestCrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -47,9 +59,21 @@ public class SpecialAuthorizationRequestCrossReferenceBean extends MessagePartBe
     }
 
     /**
-     * <p>CrossReferenceID</p>
+     * <p>Business Name: CrossReferenceID</p>
      * 
-     * <p>Cross Reference ID</p>
+     * <p>Other Business Name: CrossReferenceID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequestCrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CrossReferenceID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.SpecialAuthorizationRequestCrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

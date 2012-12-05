@@ -48,7 +48,10 @@ import java.util.Set;
 
 
 /**
- * <p>Identified Person</p>
+ * <p>Business Name: Identified Person</p>
+ * 
+ * <p>Provides the message entry point required to add a person 
+ * to the Client Registry</p>
  * 
  * <p>The IdentifiedEntity class is the entry point to the 
  * R-MIM and contains one or more identifiers (for example an 
@@ -57,15 +60,12 @@ import java.util.Set;
  * in the Client Registry. The statusCode is set to 
  * &quot;active&quot;. The beginning of the effectiveTime is 
  * when the record was added to the registry.</p>
- * 
- * <p>Provides the message entry point required to add a person 
- * to the Client Registry</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101106CA.IdentifiedEntity"})
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -75,18 +75,22 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
      * 
-     * <p>This identification attribute supports capture of a 
-     * healthcare identifier specific to the client. This 
-     * identifier may be assigned jurisdictionally or by care 
-     * facility.</p>
+     * <p>Relationship: PRPA_MT101106CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-100)</p>
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client.</p>
      * 
      * <p>At least 1 client identifier must be present in the 
      * message</p>
+     * 
+     * <p>This identification attribute supports capture of a 
+     * healthcare identifier specific to the client. This 
+     * identifier may be assigned jurisdictionally or by care 
+     * facility.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -95,12 +99,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
      * 
-     * <p>Indicates the status of the Client role (e.g. Active)</p>
+     * <p>Relationship: PRPA_MT101106CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Indicates the status of the Client role (e.g. Active)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public RoleStatus getStatusCode() {
@@ -108,12 +116,16 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
      * 
-     * <p>Indicates the status of the Client role (e.g. Active)</p>
+     * <p>Relationship: PRPA_MT101106CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Indicates the status of the Client role (e.g. Active)</p>
      */
     public void setStatusCode(RoleStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -121,12 +133,17 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
      * 
-     * <p>Indicates the effective time of the Client role</p>
+     * <p>Relationship: 
+     * PRPA_MT101106CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Indicates the effective time of the Client role</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -134,12 +151,17 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
      * 
-     * <p>Indicates the effective time of the Client role</p>
+     * <p>Relationship: 
+     * PRPA_MT101106CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Indicates the effective time of the Client role</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -147,10 +169,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
      * 
-     * <p>A code that controls the disclosure of information about 
-     * this patient encounter.</p>
+     * <p>Relationship: 
+     * PRPA_MT101106CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the business requirement to 
      * provide restricted access where required</p>
@@ -168,6 +192,9 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * to patient and or next of kin. There may be professional 
      * policy and or legislative guidelines about when/if records 
      * may be flagged as not for direct disclosure.</p>
+     * 
+     * <p>A code that controls the disclosure of information about 
+     * this patient encounter.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_NormalRestricedTabooConfidentialityKind getConfidentialityCode() {
@@ -175,10 +202,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
      * 
-     * <p>A code that controls the disclosure of information about 
-     * this patient encounter.</p>
+     * <p>Relationship: 
+     * PRPA_MT101106CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the business requirement to 
      * provide restricted access where required</p>
@@ -196,6 +225,9 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * to patient and or next of kin. There may be professional 
      * policy and or legislative guidelines about when/if records 
      * may be flagged as not for direct disclosure.</p>
+     * 
+     * <p>A code that controls the disclosure of information about 
+     * this patient encounter.</p>
      */
     public void setConfidentialityCode(x_NormalRestricedTabooConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -208,11 +240,21 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101106CA.Subject.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/observationEvent"})
     public ConfidenceValueBean getSubjectOfObservationEvent() {
         return this.subjectOfObservationEvent;
     }
 
+    /**
+     * <p>Relationship: PRPA_MT101106CA.Subject.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
         this.subjectOfObservationEvent = subjectOfObservationEvent;
     }

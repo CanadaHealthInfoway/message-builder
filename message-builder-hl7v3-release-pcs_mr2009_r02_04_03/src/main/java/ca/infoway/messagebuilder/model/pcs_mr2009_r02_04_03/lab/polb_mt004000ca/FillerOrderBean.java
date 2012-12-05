@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Filler Order</p>
+ * <p>Business Name: Filler Order</p>
  * 
  * <p>The filler order communiates the intended testing (as 
  * opposed to the requested tests).</p>
@@ -38,17 +38,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ActPromise"})
 public class FillerOrderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.FulfillmentChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>Filler Order Identifier</p>
+     * <p>Business Name: Filler Order Identifier</p>
      * 
-     * <p>The unique identfier for the filler order or promise.</p>
+     * <p>Relationship: POLB_MT004000CA.ActPromise.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The promise id is mandatory as it is necessary to create 
      * the association (act relationship).</p>
+     * 
+     * <p>The unique identfier for the filler order or promise.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -56,12 +60,16 @@ public class FillerOrderBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>Filler Order Identifier</p>
+     * <p>Business Name: Filler Order Identifier</p>
      * 
-     * <p>The unique identfier for the filler order or promise.</p>
+     * <p>Relationship: POLB_MT004000CA.ActPromise.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The promise id is mandatory as it is necessary to create 
      * the association (act relationship).</p>
+     * 
+     * <p>The unique identfier for the filler order or promise.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

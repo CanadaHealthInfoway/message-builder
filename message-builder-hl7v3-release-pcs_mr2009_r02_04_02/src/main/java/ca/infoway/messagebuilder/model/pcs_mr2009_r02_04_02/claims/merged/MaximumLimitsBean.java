@@ -39,16 +39,32 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT400003CA.MaximumLimits","FICR_MT400004CA.MaximumLimits","FICR_MT490102CA.MaximumLimits"})
 public class MaximumLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>MaximumFillsPermitted</p>
+     * <p>Business Name: MaximumFillsPermitted</p>
      * 
-     * <p>Maximum Fills Permitted</p>
+     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.MaximumLimits.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.MaximumLimits.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.MaximumLimits.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
@@ -56,9 +72,25 @@ public class MaximumLimitsBean extends MessagePartBean {
     }
 
     /**
-     * <p>MaximumFillsPermitted</p>
+     * <p>Business Name: MaximumFillsPermitted</p>
      * 
-     * <p>Maximum Fills Permitted</p>
+     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.MaximumLimits.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.MaximumLimits.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.MaximumLimits.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
@@ -66,9 +98,25 @@ public class MaximumLimitsBean extends MessagePartBean {
 
 
     /**
-     * <p>MaximumQuantitySupply</p>
+     * <p>Business Name: MaximumQuantitySupply</p>
      * 
-     * <p>Maximum Quantity Supply</p>
+     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.MaximumLimits.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.MaximumLimits.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.MaximumLimits.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -76,9 +124,25 @@ public class MaximumLimitsBean extends MessagePartBean {
     }
 
     /**
-     * <p>MaximumQuantitySupply</p>
+     * <p>Business Name: MaximumQuantitySupply</p>
      * 
-     * <p>Maximum Quantity Supply</p>
+     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.MaximumLimits.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.MaximumLimits.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.MaximumLimits.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -86,9 +150,28 @@ public class MaximumLimitsBean extends MessagePartBean {
 
 
     /**
-     * <p>MaximumDaysSupply</p>
+     * <p>Business Name: MaximumDaysSupply</p>
      * 
-     * <p>Maximum Days Supply</p>
+     * <p>Other Business Name: MaximumDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.MaximumLimits.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.MaximumLimits.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.MaximumLimits.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -96,9 +179,28 @@ public class MaximumLimitsBean extends MessagePartBean {
     }
 
     /**
-     * <p>MaximumDaysSupply</p>
+     * <p>Business Name: MaximumDaysSupply</p>
      * 
-     * <p>Maximum Days Supply</p>
+     * <p>Other Business Name: MaximumDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.MaximumLimits.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.MaximumLimits.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MaximumDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.MaximumLimits.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);

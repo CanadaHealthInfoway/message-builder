@@ -29,8 +29,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.prpm_mt306050ca.P
 
 
 /**
- * <p>PRPM_IN306050CA: Find Associated Provider Identifiers 
- * Query</p>
+ * <p>Business Name: PRPM_IN306050CA: Find Associated Provider 
+ * Identifiers Query</p>
+ * 
+ * <p>This interaction is used to request associated 
+ * identifiers for a provider. It is expected that the 
+ * receiving application will respond with the Provider 
+ * Associated Identifiers Query Response containing the 
+ * requested information from the provider registry system.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.prpm_mt306050ca.P
 @Hl7PartTypeMapping({"PRPM_IN306050CA"})
 public class FindAssociatedProviderIdentifiersQueryBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -54,33 +54,63 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.Agent","PORX_MT060090CA.Agent","PORX_MT060160CA.Agent","PORX_MT060340CA.Agent"})
 public class AgentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>SubstitutingPersonIdentifier</p>
+     * <p>Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Substituting Person Identifier</p>
+     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Identity of the person who ultimately made the 
-     * substitution decision.</p>
+     * <p>Relationship: PORX_MT060090CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
+     * 
+     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
+     * 
+     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a trace of responsibility for the 
      * substitution.</p>
      * 
-     * <p>Substituting Person Identifier</p>
+     * <p>Identity of the person who ultimately made the 
+     * substitution decision.</p>
      * 
-     * <p>The identity of the person who was ultimately responsible 
-     * for the drug substitution.</p><p>This is either the patient, 
-     * the prescriber of the dispenser.</p>
+     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>The identity of the person who was ultimately responsible 
-     * for the drug substitution.</p><p>This is either the patient, 
-     * the prescriber of the dispenser.</p>
+     * <p>Relationship: PORX_MT060160CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a trace of responsibility for the dispensed 
      * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -88,28 +118,58 @@ public class AgentBean extends MessagePartBean {
     }
 
     /**
-     * <p>SubstitutingPersonIdentifier</p>
+     * <p>Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Substituting Person Identifier</p>
+     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Identity of the person who ultimately made the 
-     * substitution decision.</p>
+     * <p>Relationship: PORX_MT060090CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
+     * 
+     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
+     * 
+     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a trace of responsibility for the 
      * substitution.</p>
      * 
-     * <p>Substituting Person Identifier</p>
+     * <p>Identity of the person who ultimately made the 
+     * substitution decision.</p>
      * 
-     * <p>The identity of the person who was ultimately responsible 
-     * for the drug substitution.</p><p>This is either the patient, 
-     * the prescriber of the dispenser.</p>
+     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>The identity of the person who was ultimately responsible 
-     * for the drug substitution.</p><p>This is either the patient, 
-     * the prescriber of the dispenser.</p>
+     * <p>Relationship: PORX_MT060160CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a trace of responsibility for the dispensed 
      * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

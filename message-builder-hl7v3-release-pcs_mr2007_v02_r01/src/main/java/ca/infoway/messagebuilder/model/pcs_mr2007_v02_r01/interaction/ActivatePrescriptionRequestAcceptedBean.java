@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 /**
- * <p>PORX_IN010390CA: Activate prescription request accepted</p>
+ * <p>Business Name: PORX_IN010390CA: Activate prescription 
+ * request accepted</p>
+ * 
+ * <p>Indicates that a medication prescription has been 
+ * recorded against the patient's record as requested.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 @Hl7PartTypeMapping({"PORX_IN010390CA"})
 public class ActivatePrescriptionRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

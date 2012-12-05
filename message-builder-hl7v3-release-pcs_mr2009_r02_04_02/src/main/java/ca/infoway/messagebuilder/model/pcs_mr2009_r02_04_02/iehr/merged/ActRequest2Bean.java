@@ -32,30 +32,44 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT210001CA.ActRequest2","REPC_MT210002CA.ActRequest2","REPC_MT210003CA.ActRequest2"})
 public class ActRequest2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
 
 
     /**
-     * <p>RequestedService</p>
+     * <p>Business Name: RequestedService</p>
      * 
-     * <p>H:Requested Service</p>
+     * <p>Other Business Name: RequestedService</p>
      * 
-     * <p>H:Requested Service</p>
+     * <p>Relationship: REPC_MT210001CA.ActRequest2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RequestedService</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.ActRequest2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps to reconcile to service that is subsequently 
+     * performed.</p><p> <i>This element makes use of the CD 
+     * datatype because some terminologies used for the domain 
+     * require use of modifiers.</i> </p><p> <i>The element uses 
+     * CWE to allow for the capture of Requested Service concepts 
+     * not presently supported by the approved code system(s). In 
+     * this case, the human-to-human benefit of capturing 
+     * additional non-coded values outweighs the penalties of 
+     * capturing some information that will not be amenable to 
+     * searching or categorizing.</i> </p>
      * 
      * <p>A coded value denoting the specific service that has been 
      * ordered through the referral.</p>
      * 
-     * <p>Helps to reconcile to service that is subsequently 
-     * performed.</p><p> <i>This element makes use of the CD 
-     * datatype because some terminologies used for the domain 
-     * require use of modifiers.</i> </p><p> <i>The element uses 
-     * CWE to allow for the capture of Requested Service concepts 
-     * not presently supported by the approved code system(s). In 
-     * this case, the human-to-human benefit of capturing 
-     * additional non-coded values outweighs the penalties of 
-     * capturing some information that will not be amenable to 
-     * searching or categorizing.</i> </p>
+     * <p>Other Business Name: RequestedService</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.ActRequest2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps to reconcile to service that is subsequently 
      * performed.</p><p> <i>This element makes use of the CD 
@@ -68,16 +82,8 @@ public class ActRequest2Bean extends MessagePartBean {
      * capturing some information that will not be amenable to 
      * searching or categorizing.</i> </p>
      * 
-     * <p>Helps to reconcile to service that is subsequently 
-     * performed.</p><p> <i>This element makes use of the CD 
-     * datatype because some terminologies used for the domain 
-     * require use of modifiers.</i> </p><p> <i>The element uses 
-     * CWE to allow for the capture of Requested Service concepts 
-     * not presently supported by the approved code system(s). In 
-     * this case, the human-to-human benefit of capturing 
-     * additional non-coded values outweighs the penalties of 
-     * capturing some information that will not be amenable to 
-     * searching or categorizing.</i> </p>
+     * <p>A coded value denoting the specific service that has been 
+     * ordered through the referral.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActProfessionalServiceCode getCode() {
@@ -85,25 +91,39 @@ public class ActRequest2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>RequestedService</p>
+     * <p>Business Name: RequestedService</p>
      * 
-     * <p>H:Requested Service</p>
+     * <p>Other Business Name: RequestedService</p>
      * 
-     * <p>H:Requested Service</p>
+     * <p>Relationship: REPC_MT210001CA.ActRequest2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RequestedService</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.ActRequest2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps to reconcile to service that is subsequently 
+     * performed.</p><p> <i>This element makes use of the CD 
+     * datatype because some terminologies used for the domain 
+     * require use of modifiers.</i> </p><p> <i>The element uses 
+     * CWE to allow for the capture of Requested Service concepts 
+     * not presently supported by the approved code system(s). In 
+     * this case, the human-to-human benefit of capturing 
+     * additional non-coded values outweighs the penalties of 
+     * capturing some information that will not be amenable to 
+     * searching or categorizing.</i> </p>
      * 
      * <p>A coded value denoting the specific service that has been 
      * ordered through the referral.</p>
      * 
-     * <p>Helps to reconcile to service that is subsequently 
-     * performed.</p><p> <i>This element makes use of the CD 
-     * datatype because some terminologies used for the domain 
-     * require use of modifiers.</i> </p><p> <i>The element uses 
-     * CWE to allow for the capture of Requested Service concepts 
-     * not presently supported by the approved code system(s). In 
-     * this case, the human-to-human benefit of capturing 
-     * additional non-coded values outweighs the penalties of 
-     * capturing some information that will not be amenable to 
-     * searching or categorizing.</i> </p>
+     * <p>Other Business Name: RequestedService</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.ActRequest2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps to reconcile to service that is subsequently 
      * performed.</p><p> <i>This element makes use of the CD 
@@ -116,16 +136,8 @@ public class ActRequest2Bean extends MessagePartBean {
      * capturing some information that will not be amenable to 
      * searching or categorizing.</i> </p>
      * 
-     * <p>Helps to reconcile to service that is subsequently 
-     * performed.</p><p> <i>This element makes use of the CD 
-     * datatype because some terminologies used for the domain 
-     * require use of modifiers.</i> </p><p> <i>The element uses 
-     * CWE to allow for the capture of Requested Service concepts 
-     * not presently supported by the approved code system(s). In 
-     * this case, the human-to-human benefit of capturing 
-     * additional non-coded values outweighs the penalties of 
-     * capturing some information that will not be amenable to 
-     * searching or categorizing.</i> </p>
+     * <p>A coded value denoting the specific service that has been 
+     * ordered through the referral.</p>
      */
     public void setCode(ActProfessionalServiceCode code) {
         this.code.setValue(code);

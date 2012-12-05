@@ -32,14 +32,26 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementCrossReference","FICR_MT600201CA.InvoiceElementCrossReference"})
 public class InvoiceElementCrossReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>CrossReferenceIdentifier</p>
+     * <p>Business Name: CrossReferenceIdentifier</p>
      * 
-     * <p>Cross Reference Identifier</p>
+     * <p>Other Business Name: CrossReferenceIdentifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementCrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CrossReferenceIdentifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementCrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -47,9 +59,21 @@ public class InvoiceElementCrossReferenceBean extends MessagePartBean {
     }
 
     /**
-     * <p>CrossReferenceIdentifier</p>
+     * <p>Business Name: CrossReferenceIdentifier</p>
      * 
-     * <p>Cross Reference Identifier</p>
+     * <p>Other Business Name: CrossReferenceIdentifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementCrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CrossReferenceIdentifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementCrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

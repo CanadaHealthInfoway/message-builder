@@ -38,13 +38,10 @@ import java.util.Set;
 
 
 /**
- * <p>Has</p>
+ * <p>Business Name: Has</p>
  * 
  * <p>REPC_MT500004CA.Participant: *has</p>
  * 
- * <p>Identifies the participants associated with the 
- * particular location.</p>
- * 
  * <p>Cardinality is constrained to 200 rather than 1000 
  * because it is exactly equal to the sum of the number of 
  * potential patients and providers</p>
@@ -52,12 +49,12 @@ import java.util.Set;
  * <p>Important for providing context for the encounter. The 
  * element is mandatory because there whole purpose of having a 
  * participant grouping is to have participants.</p>
+ * 
+ * <p>Identifies the participants associated with the 
+ * particular location.</p>
  * 
  * <p>REPC_MT500002CA.Participant: *has</p>
  * 
- * <p>Identifies the participants associated with the 
- * particular location.</p>
- * 
  * <p>Cardinality is constrained to 200 rather than 1000 
  * because it is exactly equal to the sum of the number of 
  * potential patients and providers</p>
@@ -65,12 +62,12 @@ import java.util.Set;
  * <p>Important for providing context for the encounter. The 
  * element is mandatory because there whole purpose of having a 
  * participant grouping is to have participants.</p>
+ * 
+ * <p>Identifies the participants associated with the 
+ * particular location.</p>
  * 
  * <p>REPC_MT500001CA.Participant: *has</p>
  * 
- * <p>Identifies the participants associated with the 
- * particular location.</p>
- * 
  * <p>Cardinality is constrained to 200 rather than 1000 
  * because it is exactly equal to the sum of the number of 
  * potential patients and providers</p>
@@ -78,28 +75,63 @@ import java.util.Set;
  * <p>Important for providing context for the encounter. The 
  * element is mandatory because there whole purpose of having a 
  * participant grouping is to have participants.</p>
+ * 
+ * <p>Identifies the participants associated with the 
+ * particular location.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT500001CA.Participant","REPC_MT500002CA.Participant","REPC_MT500004CA.Participant"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV modeCode = new CVImpl();
     private II roleId = new IIImpl();
     private SET<CV, Code> roleConfidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
 
 
     /**
-     * <p>ParticipationMechanism</p>
+     * <p>Business Name: ParticipationMechanism</p>
      * 
-     * <p>B:Participation Mechanism</p>
+     * <p>Other Business Name: ParticipationMechanism</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Participant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Understanding how each participant was involved in the 
+     * encounter gives context to the encounter, particularly for 
+     * telehealth.</p>
      * 
      * <p>Identifies how the patient and/or provider(s) 
      * participated in the encounter (in person, by phone, by 
      * videoconference, etc.)</p>
      * 
+     * <p>Other Business Name: ParticipationMechanism</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Participant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Understanding how each participant was involved in the 
      * encounter gives context to the encounter, particularly for 
      * telehealth.</p>
+     * 
+     * <p>Identifies how the patient and/or provider(s) 
+     * participated in the encounter (in person, by phone, by 
+     * videoconference, etc.)</p>
+     * 
+     * <p>Other Business Name: ParticipationMechanism</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.Participant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Understanding how each participant was involved in the 
+     * encounter gives context to the encounter, particularly for 
+     * telehealth.</p>
+     * 
+     * <p>Identifies how the patient and/or provider(s) 
+     * participated in the encounter (in person, by phone, by 
+     * videoconference, etc.)</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
@@ -107,17 +139,49 @@ public class HasBean extends MessagePartBean {
     }
 
     /**
-     * <p>ParticipationMechanism</p>
+     * <p>Business Name: ParticipationMechanism</p>
      * 
-     * <p>B:Participation Mechanism</p>
+     * <p>Other Business Name: ParticipationMechanism</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Participant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Understanding how each participant was involved in the 
+     * encounter gives context to the encounter, particularly for 
+     * telehealth.</p>
      * 
      * <p>Identifies how the patient and/or provider(s) 
      * participated in the encounter (in person, by phone, by 
      * videoconference, etc.)</p>
      * 
+     * <p>Other Business Name: ParticipationMechanism</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Participant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Understanding how each participant was involved in the 
      * encounter gives context to the encounter, particularly for 
      * telehealth.</p>
+     * 
+     * <p>Identifies how the patient and/or provider(s) 
+     * participated in the encounter (in person, by phone, by 
+     * videoconference, etc.)</p>
+     * 
+     * <p>Other Business Name: ParticipationMechanism</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.Participant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Understanding how each participant was involved in the 
+     * encounter gives context to the encounter, particularly for 
+     * telehealth.</p>
+     * 
+     * <p>Identifies how the patient and/or provider(s) 
+     * participated in the encounter (in person, by phone, by 
+     * videoconference, etc.)</p>
      */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
@@ -125,19 +189,55 @@ public class HasBean extends MessagePartBean {
 
 
     /**
-     * <p>ParticipantIdReference</p>
+     * <p>Business Name: ParticipantIdReference</p>
      * 
-     * <p>A: Participant Id Reference</p>
+     * <p>Other Business Name: ParticipantIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Role.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Links the participant to the location where they were 
+     * involved in the encounter. The element is mandatory because 
+     * there's no point listing participants unless they can be 
+     * explicitly identified.</p>
      * 
      * <p>The unique identifier of a patient or provider who was 
      * involved in the encounter at the identified location. This 
      * will reference one of the patient or provider ids already 
      * associated with the Care Composition.</p>
      * 
+     * <p>Other Business Name: ParticipantIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Role.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Links the participant to the location where they were 
      * involved in the encounter. The element is mandatory because 
      * there's no point listing participants unless they can be 
      * explicitly identified.</p>
+     * 
+     * <p>The unique identifier of a patient or provider who was 
+     * involved in the encounter at the identified location. This 
+     * will reference one of the patient or provider ids already 
+     * associated with the Care Composition.</p>
+     * 
+     * <p>Other Business Name: ParticipantIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.Role.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Links the participant to the location where they were 
+     * involved in the encounter. The element is mandatory because 
+     * there's no point listing participants unless they can be 
+     * explicitly identified.</p>
+     * 
+     * <p>The unique identifier of a patient or provider who was 
+     * involved in the encounter at the identified location. This 
+     * will reference one of the patient or provider ids already 
+     * associated with the Care Composition.</p>
      */
     @Hl7XmlMapping({"role/id"})
     public Identifier getRoleId() {
@@ -145,19 +245,55 @@ public class HasBean extends MessagePartBean {
     }
 
     /**
-     * <p>ParticipantIdReference</p>
+     * <p>Business Name: ParticipantIdReference</p>
      * 
-     * <p>A: Participant Id Reference</p>
+     * <p>Other Business Name: ParticipantIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Role.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Links the participant to the location where they were 
+     * involved in the encounter. The element is mandatory because 
+     * there's no point listing participants unless they can be 
+     * explicitly identified.</p>
      * 
      * <p>The unique identifier of a patient or provider who was 
      * involved in the encounter at the identified location. This 
      * will reference one of the patient or provider ids already 
      * associated with the Care Composition.</p>
      * 
+     * <p>Other Business Name: ParticipantIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Role.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Links the participant to the location where they were 
      * involved in the encounter. The element is mandatory because 
      * there's no point listing participants unless they can be 
      * explicitly identified.</p>
+     * 
+     * <p>The unique identifier of a patient or provider who was 
+     * involved in the encounter at the identified location. This 
+     * will reference one of the patient or provider ids already 
+     * associated with the Care Composition.</p>
+     * 
+     * <p>Other Business Name: ParticipantIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.Role.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Links the participant to the location where they were 
+     * involved in the encounter. The element is mandatory because 
+     * there's no point listing participants unless they can be 
+     * explicitly identified.</p>
+     * 
+     * <p>The unique identifier of a patient or provider who was 
+     * involved in the encounter at the identified location. This 
+     * will reference one of the patient or provider ids already 
+     * associated with the Care Composition.</p>
      */
     public void setRoleId(Identifier roleId) {
         this.roleId.setValue(roleId);
@@ -165,17 +301,33 @@ public class HasBean extends MessagePartBean {
 
 
     /**
-     * <p>ParticipantConfidentialities</p>
+     * <p>Business Name: ParticipantConfidentialities</p>
      * 
-     * <p>C: Participant Confidentialities</p>
+     * <p>Other Business Name: ParticipantConfidentialities</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Role.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Provides individual participants in a group encounter 
+     * with complete control over the confidentiality of their 
+     * participation in that encounter.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     * 
+     * <p>This element should only be specified if the id is 
+     * referencing a patient, not a provider.</p><p>Stricter 
+     * confidentiality asserted at the overall encounter level 
+     * overrides looser confidentiality asserted at the participant 
+     * level.</p>
      * 
      * <p>Identifies the confidentiality level associated with the 
      * encounter for this specific participant.</p>
      * 
-     * <p>Provides individual participants in a group encounter 
-     * with complete control over the confidentiality of their 
-     * participation in that encounter.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Other Business Name: ParticipantConfidentialities</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Role.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>Provides individual participants in a group encounter 
      * with complete control over the confidentiality of their 
@@ -188,11 +340,28 @@ public class HasBean extends MessagePartBean {
      * overrides looser confidentiality asserted at the participant 
      * level.</p>
      * 
+     * <p>Identifies the confidentiality level associated with the 
+     * encounter for this specific participant.</p>
+     * 
+     * <p>Other Business Name: ParticipantConfidentialities</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.Role.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Provides individual participants in a group encounter 
+     * with complete control over the confidentiality of their 
+     * participation in that encounter.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
+     * 
      * <p>This element should only be specified if the id is 
      * referencing a patient, not a provider.</p><p>Stricter 
      * confidentiality asserted at the overall encounter level 
      * overrides looser confidentiality asserted at the participant 
      * level.</p>
+     * 
+     * <p>Identifies the confidentiality level associated with the 
+     * encounter for this specific participant.</p>
      */
     @Hl7XmlMapping({"role/confidentialityCode"})
     public Set<x_VeryBasicConfidentialityKind> getRoleConfidentialityCode() {

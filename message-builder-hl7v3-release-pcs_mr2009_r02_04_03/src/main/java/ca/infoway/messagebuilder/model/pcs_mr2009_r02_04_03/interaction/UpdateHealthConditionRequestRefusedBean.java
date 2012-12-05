@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 
 
 /**
- * <p>REPC_IN000034CA: Update health condition request refused</p>
+ * <p>Business Name: REPC_IN000034CA: Update health condition 
+ * request refused</p>
+ * 
+ * <p>Indicates that the requested modification to the 
+ * previously-recorded health condition has been refused.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 @Hl7PartTypeMapping({"REPC_IN000034CA"})
 public class UpdateHealthConditionRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

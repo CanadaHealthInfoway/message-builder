@@ -29,7 +29,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
 
 
 /**
- * <p>REPC_IN000001CA: Patient adverse reactions query</p>
+ * <p>Business Name: REPC_IN000001CA: Patient adverse reactions 
+ * query</p>
+ * 
+ * <p>Requests retrieval of the details about all adverse 
+ * reactions which have been recorded against a patient's 
+ * record, potentially filtered by reaction type, time-range of 
+ * the occurrence of the reaction and/or time-range in which 
+ * the adverse reaction information was last changed.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
 @Hl7PartTypeMapping({"REPC_IN000001CA"})
 public class PatientAdverseReactionsQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -50,30 +50,97 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.SpecimenRoleB
 @Hl7PartTypeMapping({"POLB_MT002000CA.Specimen","POLB_MT004000CA.Specimen","POLB_MT004100CA.Specimen1","POLB_MT004200CA.Specimen"})
 public class ReportSectionSpecimenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SpecimenRoleBean specimen;
     private INT sequenceNumber = new INTImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Specimen1.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"specimen"})
     public SpecimenRoleBean getSpecimen() {
         return this.specimen;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Specimen1.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSpecimen(SpecimenRoleBean specimen) {
         this.specimen = specimen;
     }
 
 
     /**
-     * <p>SpecimenSequenceNumber</p>
+     * <p>Business Name: SpecimenSequenceNumber</p>
      * 
-     * <p>Specimen Sequence Number</p>
+     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Specimen.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Order in which the specimen is to appear in the 
      * message.</p>
      * 
-     * <p>Specimen Sequence Number</p>
+     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Specimen.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Order in which the specimen is to appear in the 
+     * message.</p>
+     * 
+     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Specimen.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Specifies the order in which the specimen is to appear in 
      * the message.</p>
@@ -84,14 +151,31 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecimenSequenceNumber</p>
+     * <p>Business Name: SpecimenSequenceNumber</p>
      * 
-     * <p>Specimen Sequence Number</p>
+     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Specimen.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Order in which the specimen is to appear in the 
      * message.</p>
      * 
-     * <p>Specimen Sequence Number</p>
+     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Specimen.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Order in which the specimen is to appear in the 
+     * message.</p>
+     * 
+     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Specimen.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Specifies the order in which the specimen is to appear in 
      * the message.</p>

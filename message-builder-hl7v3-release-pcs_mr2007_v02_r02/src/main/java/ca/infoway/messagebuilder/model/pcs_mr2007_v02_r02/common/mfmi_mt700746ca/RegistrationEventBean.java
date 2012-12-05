@@ -32,20 +32,20 @@ import java.util.List;
 
 
 /**
- * <p>Registration Event</p>
+ * <p>Business Name: Registration Event</p>
+ * 
+ * <p>The RegistrationProcess act is the focal act of the 
+ * message and therefore is mandatory</p>
  * 
  * <p>This class contains information relevant to the 
  * registration of the payload item(s) into the Master File or 
  * Registry. This message is a response to a request to 
  * register (therefore, the mood is an event).</p>
- * 
- * <p>The RegistrationProcess act is the focal act of the 
- * message and therefore is mandatory</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();

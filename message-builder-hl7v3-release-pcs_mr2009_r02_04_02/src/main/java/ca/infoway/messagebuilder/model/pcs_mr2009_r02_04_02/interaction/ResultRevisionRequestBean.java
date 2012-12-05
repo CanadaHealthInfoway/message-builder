@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.
 
 
 /**
- * <p>POLB_IN224202CA: Result Revision Request</p>
+ * <p>Business Name: POLB_IN224202CA: Result Revision Request</p>
+ * 
+ * <p>This interaction is a Result Corrected with Receiver 
+ * Responsibilitie. This interaction is used when the filler 
+ * must correct (i.e., change) results that were previously 
+ * reported as completed. The expected responses to this 
+ * interaction are confirm or reject.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -49,6 +55,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.
 @Hl7PartTypeMapping({"POLB_IN224202CA"})
 public class ResultRevisionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ResultInstancePayloadChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

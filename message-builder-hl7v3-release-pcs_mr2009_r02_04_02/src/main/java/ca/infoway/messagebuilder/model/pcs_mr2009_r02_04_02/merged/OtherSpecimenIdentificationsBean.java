@@ -49,20 +49,23 @@ import java.util.List;
  * <p>COCT_MT080100CA.IdentifiedEntity: Other Specimen 
  * Identifications</p>
  * 
- * <p>Associated specimen identifiers.</p>
- * 
  * <p>For referral and redirected orders, this information 
  * helps keep track of the different id's assigned during each 
  * phase of processing.</p>
  * 
+ * <p>Associated specimen identifiers.</p>
+ * 
  * <p>COCT_MT050007CA.IdentifiedEntity: Other Identifiers</p>
+ * 
+ * <p>Used for patient identification.</p>
  * 
  * <p>This role object is used to store any other patient 
  * identification identifiers.</p>
  * 
- * <p>Used for patient identification.</p>
- * 
  * <p>PRPA_MT101003CA.IdentifiedEntity: Identified Person</p>
+ * 
+ * <p>Provides the message entry point required to add a person 
+ * to the Client Registry</p>
  * 
  * <p>The IdentifiedEntity class is the entry point to the 
  * R-MIM and contains one or more identifiers (for example an 
@@ -71,15 +74,12 @@ import java.util.List;
  * in the Client Registry. The statusCode is set to 
  * &quot;active&quot;. The beginning of the effectiveTime is 
  * when the record was added to the registry.</p>
- * 
- * <p>Provides the message entry point required to add a person 
- * to the Client Registry</p>
  */
 @Hl7PartTypeMapping({"COCT_MT050007CA.IdentifiedEntity","COCT_MT080100CA.IdentifiedEntity","PRPA_MT101003CA.IdentifiedEntity"})
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningOrganizationId = new IIImpl();
@@ -90,31 +90,43 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Specimen Identifiers</p>
+     * <p>Other Business Name: OtherSpecimenIdentifiers</p>
      * 
-     * <p>Associated specimen identifiers.</p>
+     * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For referral and redirected orders, this information 
      * helps keep track of the different id's assigned during each 
      * phase of processing.</p>
      * 
-     * <p>K:Other Identifier</p>
+     * <p>Associated specimen identifiers.</p>
      * 
-     * <p>Alternate Identifiers for the Patient (e.g., Drivers 
-     * License number, Health insurance number).</p>
+     * <p>Other Business Name: OtherIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Other identification numbers associated with identifying 
      * a patient.</p>
      * 
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Alternate Identifiers for the Patient (e.g., Drivers 
+     * License number, Health insurance number).</p>
+     * 
+     * <p>Other Business Name: ClientHealthcareIdentificationNumber</p>
+     * 
+     * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports unique identification of the 
+     * client.</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
      * identifier may be assigned jurisdictionally or by care 
      * facility.</p>
-     * 
-     * <p>Mandatory attribute supports unique identification of the 
-     * client.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -122,31 +134,43 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Specimen Identifiers</p>
+     * <p>Other Business Name: OtherSpecimenIdentifiers</p>
      * 
-     * <p>Associated specimen identifiers.</p>
+     * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For referral and redirected orders, this information 
      * helps keep track of the different id's assigned during each 
      * phase of processing.</p>
      * 
-     * <p>K:Other Identifier</p>
+     * <p>Associated specimen identifiers.</p>
      * 
-     * <p>Alternate Identifiers for the Patient (e.g., Drivers 
-     * License number, Health insurance number).</p>
+     * <p>Other Business Name: OtherIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Other identification numbers associated with identifying 
      * a patient.</p>
      * 
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Alternate Identifiers for the Patient (e.g., Drivers 
+     * License number, Health insurance number).</p>
+     * 
+     * <p>Other Business Name: ClientHealthcareIdentificationNumber</p>
+     * 
+     * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports unique identification of the 
+     * client.</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
      * identifier may be assigned jurisdictionally or by care 
      * facility.</p>
-     * 
-     * <p>Mandatory attribute supports unique identification of the 
-     * client.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -154,19 +178,27 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>J:Other Identifier Type</p>
+     * <p>Other Business Name: OtherSpecimenIdentifierType</p>
      * 
-     * <p>Describes the identification type (driver's license, 
-     * etc.)</p>
+     * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.code</p>
      * 
-     * <p>Used to set the type of identier</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Specimen Identifier Type</p>
+     * <p>Categorized the type of role identifier.</p>
      * 
      * <p>Describes the type of other specimen identifier 
      * (referral, primary, etc.)</p>
      * 
-     * <p>Categorized the type of role identifier.</p>
+     * <p>Other Business Name: OtherIdentifierType</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.IdentifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to set the type of identier</p>
+     * 
+     * <p>Describes the identification type (driver's license, 
+     * etc.)</p>
      */
     @Hl7XmlMapping({"code"})
     public OtherIdentifiersRoleType getCode() {
@@ -174,19 +206,27 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>J:Other Identifier Type</p>
+     * <p>Other Business Name: OtherSpecimenIdentifierType</p>
      * 
-     * <p>Describes the identification type (driver's license, 
-     * etc.)</p>
+     * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.code</p>
      * 
-     * <p>Used to set the type of identier</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Specimen Identifier Type</p>
+     * <p>Categorized the type of role identifier.</p>
      * 
      * <p>Describes the type of other specimen identifier 
      * (referral, primary, etc.)</p>
      * 
-     * <p>Categorized the type of role identifier.</p>
+     * <p>Other Business Name: OtherIdentifierType</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.IdentifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to set the type of identier</p>
+     * 
+     * <p>Describes the identification type (driver's license, 
+     * etc.)</p>
      */
     public void setCode(OtherIdentifiersRoleType code) {
         this.code.setValue(code);
@@ -194,16 +234,20 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Organization Identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
      * 
-     * <p>A unique identifier for the organization</p>
+     * <p>Relationship: COCT_MT080100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
     @Hl7XmlMapping({"assigningOrganization/id"})
     public Identifier getAssigningOrganizationId() {
@@ -211,16 +255,20 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Organization Identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
      * 
-     * <p>A unique identifier for the organization</p>
+     * <p>Relationship: COCT_MT080100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
     public void setAssigningOrganizationId(Identifier assigningOrganizationId) {
         this.assigningOrganizationId.setValue(assigningOrganizationId);
@@ -228,15 +276,19 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
      * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Relationship: COCT_MT080100CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
      */
     @Hl7XmlMapping({"assigningOrganization/name"})
     public String getAssigningOrganizationName() {
@@ -244,15 +296,19 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
      * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Relationship: COCT_MT080100CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
      */
     public void setAssigningOrganizationName(String assigningOrganizationName) {
         this.assigningOrganizationName.setValue(assigningOrganizationName);
@@ -260,14 +316,18 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientName</p>
+     * <p>Business Name: ClientName</p>
      * 
-     * <p>Client Name</p>
+     * <p>Other Business Name: ClientName</p>
      * 
-     * <p>Name(s) for the Client</p>
+     * <p>Relationship: PRPA_MT101003CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Name(s) for the Client</p>
      */
     @Hl7XmlMapping({"identifiedPerson/name"})
     public List<PersonName> getIdentifiedPersonName() {
@@ -276,17 +336,22 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientGender</p>
+     * <p>Business Name: ClientGender</p>
      * 
-     * <p>Client Gender</p>
+     * <p>Other Business Name: ClientGender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101003CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
      * typically restricted to Male (M), Female (F) or Unknown 
      * (UN)</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * client</p>
      */
     @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
     public AdministrativeGender getIdentifiedPersonAdministrativeGenderCode() {
@@ -294,17 +359,22 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ClientGender</p>
+     * <p>Business Name: ClientGender</p>
      * 
-     * <p>Client Gender</p>
+     * <p>Other Business Name: ClientGender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101003CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
      * typically restricted to Male (M), Female (F) or Unknown 
      * (UN)</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * client</p>
      */
     public void setIdentifiedPersonAdministrativeGenderCode(AdministrativeGender identifiedPersonAdministrativeGenderCode) {
         this.identifiedPersonAdministrativeGenderCode.setValue(identifiedPersonAdministrativeGenderCode);
@@ -312,14 +382,18 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientDateOfBirth</p>
+     * <p>Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Client Date of Birth</p>
+     * <p>Other Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Date of birth of the Client</p>
+     * <p>Relationship: PRPA_MT101003CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Date of birth of the Client</p>
      */
     @Hl7XmlMapping({"identifiedPerson/birthTime"})
     public Date getIdentifiedPersonBirthTime() {
@@ -327,14 +401,18 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ClientDateOfBirth</p>
+     * <p>Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Client Date of Birth</p>
+     * <p>Other Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Date of birth of the Client</p>
+     * <p>Relationship: PRPA_MT101003CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>Date of birth of the Client</p>
      */
     public void setIdentifiedPersonBirthTime(Date identifiedPersonBirthTime) {
         this.identifiedPersonBirthTime.setValue(identifiedPersonBirthTime);

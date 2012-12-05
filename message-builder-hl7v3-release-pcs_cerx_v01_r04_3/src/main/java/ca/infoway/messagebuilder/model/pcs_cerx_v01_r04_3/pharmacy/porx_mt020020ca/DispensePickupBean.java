@@ -33,33 +33,37 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 
 
 /**
- * <p>Dispense Pickup</p>
- * 
- * <p>Captures information about what prescription was picked 
- * up and who received it.</p>
+ * <p>Business Name: Dispense Pickup</p>
  * 
  * <p>The root class for the message. The time of pickup is 
  * specified on the ControlAct wrapper.</p>
+ * 
+ * <p>Captures information about what prescription was picked 
+ * up and who received it.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020020CA.SupplyEvent"})
 @Hl7RootType
 public class DispensePickupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
 
 
     /**
-     * <p>Dispense Id</p>
+     * <p>Business Name: Dispense Id</p>
      * 
-     * <p>Identity of prescription dispense that has been picked 
-     * up.</p>
+     * <p>Relationship: PORX_MT020020CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows dispenses to be uniquely identified. This 
      * attribute is mandatory because the identity of the dispense 
      * record must be known.</p>
+     * 
+     * <p>Identity of prescription dispense that has been picked 
+     * up.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -67,14 +71,18 @@ public class DispensePickupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Id</p>
+     * <p>Business Name: Dispense Id</p>
      * 
-     * <p>Identity of prescription dispense that has been picked 
-     * up.</p>
+     * <p>Relationship: PORX_MT020020CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows dispenses to be uniquely identified. This 
      * attribute is mandatory because the identity of the dispense 
      * record must be known.</p>
+     * 
+     * <p>Identity of prescription dispense that has been picked 
+     * up.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -91,11 +99,21 @@ public class DispensePickupBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020020CA.Receiver.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"receiver/responsibleParty"})
     public ResponsiblePersonBean getReceiverResponsibleParty() {
         return this.receiverResponsibleParty;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020020CA.Receiver.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
         this.receiverResponsibleParty = receiverResponsibleParty;
     }

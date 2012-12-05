@@ -29,8 +29,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Disp
 
 
 /**
- * <p>PORX_IN010100CA: Revise assigned dispense responsibility 
- * req.</p>
+ * <p>Business Name: PORX_IN010100CA: Revise assigned dispense 
+ * responsibility req.</p>
+ * 
+ * <p>Requests that the responsibility for fulfilling the 
+ * dispense portion of a prescription be changed to the 
+ * specified facility. Changing to a null flavor of 
+ * &quot;&quot;Not Applicable&quot;&quot; means that no 
+ * facility has responsibility. Changing to a null flavor of 
+ * &quot;&quot;Unknown&quot;&quot; means that the 
+ * responsibility has been transferred to a facility outside 
+ * the list of registered facilities.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +50,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Disp
 @Hl7PartTypeMapping({"PORX_IN010100CA"})
 public class ReviseAssignedDispenseResponsibilityReqBean extends HL7Message_1Bean<TriggerEvent_1Bean<DispenseInstructionsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

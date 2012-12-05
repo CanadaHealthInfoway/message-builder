@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Playing Prescribe Person</p>
+ * <p>Business Name: Playing Prescribe Person</p>
  * 
  * <p>ID cannot be mandatory as it may not be present on a 
  * pre-determination</p>
@@ -38,18 +38,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PresriberRole"})
 public class PlayingPrescribePersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PersonPrescribingBean playingPrescriberPerson;
 
 
     /**
-     * <p>Prescriber ID</p>
+     * <p>Business Name: Prescriber ID</p>
      * 
-     * <p>Prescriber ID</p>
+     * <p>Relationship: COCT_MT300000CA.PresriberRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>This is mandatory for Invoices and required with 
      * nullFlavor for Pre-Determinations.</p>
+     * 
+     * <p>Prescriber ID</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -57,23 +61,39 @@ public class PlayingPrescribePersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescriber ID</p>
+     * <p>Business Name: Prescriber ID</p>
      * 
-     * <p>Prescriber ID</p>
+     * <p>Relationship: COCT_MT300000CA.PresriberRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>This is mandatory for Invoices and required with 
      * nullFlavor for Pre-Determinations.</p>
+     * 
+     * <p>Prescriber ID</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.PresriberRole.playingPrescriberPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"playingPrescriberPerson"})
     public PersonPrescribingBean getPlayingPrescriberPerson() {
         return this.playingPrescriberPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.PresriberRole.playingPrescriberPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPlayingPrescriberPerson(PersonPrescribingBean playingPrescriberPerson) {
         this.playingPrescriberPerson = playingPrescriberPerson;
     }

@@ -46,57 +46,57 @@ import java.util.List;
 
 
 /**
- * <p>DispenseInstructions</p>
+ * <p>Business Name: DispenseInstructions</p>
  * 
  * <p>PORX_MT060040CA.SupplyRequest: Dispense Instructions</p>
  * 
  * <p>At least one of &quot;Days Supply&quot; and &quot;Fill 
  * Quantity&quot; must be identified.</p>
  * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
+ * 
  * <p>Specification of how the prescribed device is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p>
  * 
  * <p>PORX_MT060060CA.SupplyRequest: Dispense Instructions</p>
  * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
+ * 
  * <p>Specification of how the prescribed device is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p>
- * 
  * <p>PORX_MT010140CA.SupplyRequest: Dispense Instructions</p>
- * 
- * <p>This is the information that describes the authorization 
- * for a dispenser to dispense the prescription.</p>
  * 
  * <p>Sets the parameters within which the dispenser must 
  * operate.</p>
+ * 
+ * <p>This is the information that describes the authorization 
+ * for a dispenser to dispense the prescription.</p>
  * 
  * <p>PORX_MT010110CA.SupplyRequest: Dispense Instructions</p>
  * 
  * <p>One of 'quantity' and 'expectedUseTime' must be 
  * specified</p>
  * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the device to the patient.</p>
+ * 
  * <p>Specification of how the prescribed device is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the device to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT010140CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 @Hl7RootType
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private CreatedAtBean location;
@@ -110,13 +110,45 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>TotalPrescribedQuantity</p>
+     * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
      * 
      * <p>The overall number of devices to be dispensed under this 
      * prescription. Includes any first fills (trials, aligning 
      * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
+     * 
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sets upper limit for device to be dispensed. Can be used 
      * to verify the intention of the prescriber with respect to 
@@ -124,17 +156,9 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
-     * 
      * <p>The overall number of devices to be dispensed under this 
      * prescription. Includes any first fills (trials, aligning 
      * quantities), the initial standard fill plus all refills.</p>
-     * 
-     * <p>Sets upper limit for devices to be dispensed. Can be used 
-     * to verify the intention of the prescriber with respect to 
-     * the overall prescription. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
@@ -142,13 +166,45 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>TotalPrescribedQuantity</p>
+     * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
      * 
      * <p>The overall number of devices to be dispensed under this 
      * prescription. Includes any first fills (trials, aligning 
      * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for devices to be dispensed. Can be used 
+     * to verify the intention of the prescriber with respect to 
+     * the overall prescription. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p>
+     * 
+     * <p>The overall number of devices to be dispensed under this 
+     * prescription. Includes any first fills (trials, aligning 
+     * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sets upper limit for device to be dispensed. Can be used 
      * to verify the intention of the prescriber with respect to 
@@ -156,17 +212,9 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
-     * 
      * <p>The overall number of devices to be dispensed under this 
      * prescription. Includes any first fills (trials, aligning 
      * quantities), the initial standard fill plus all refills.</p>
-     * 
-     * <p>Sets upper limit for devices to be dispensed. Can be used 
-     * to verify the intention of the prescriber with respect to 
-     * the overall prescription. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p>
      */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);
@@ -174,19 +222,41 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>TotalDaysSupply</p>
+     * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>C:Total Days Supply</p>
+     * <p>Other Business Name: TotalDaysSupply</p>
      * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used to specify a total authorization as a duration 
      * rather than a quantity with refills. E.g. dispense 30 at a 
      * time, refill for 1 year. May also be sent as an estimate of 
      * the expected overall duration of the prescription based on 
      * the quantity prescribed.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p>
+     * 
+     * <p>Other Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -194,96 +264,335 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>TotalDaysSupply</p>
+     * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>C:Total Days Supply</p>
+     * <p>Other Business Name: TotalDaysSupply</p>
      * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used to specify a total authorization as a duration 
      * rather than a quantity with refills. E.g. dispense 30 at a 
      * time, refill for 1 year. May also be sent as an estimate of 
      * the expected overall duration of the prescription based on 
      * the quantity prescribed.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p>
+     * 
+     * <p>Other Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010140CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010140CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Destination1.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Destination1.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Destination1.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Destination1.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Component3.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/typeCode"})
     public ActRelationshipType getComponentTypeCode() {
         return (ActRelationshipType) this.componentTypeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Component3.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentTypeCode(ActRelationshipType componentTypeCode) {
         this.componentTypeCode.setValue(componentTypeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Component3.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Component.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/contextControlCode"})
     public ContextControl getComponentContextControlCode() {
         return (ContextControl) this.componentContextControlCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Component3.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Component.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentContextControlCode(ContextControl componentContextControlCode) {
         this.componentContextControlCode.setValue(componentContextControlCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Component3.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/contextConductionInd"})
     public Boolean getComponentContextConductionInd() {
         return this.componentContextConductionInd.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Component3.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
         this.componentContextConductionInd.setValue(componentContextConductionInd);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Component3.supplementalFillInformation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Component.supplementalFillInformation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/supplementalFillInformation"})
     public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
         return this.componentSupplementalFillInformation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Component3.supplementalFillInformation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Component.supplementalFillInformation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
         this.componentSupplementalFillInformation = componentSupplementalFillInformation;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010140CA.InFulfillmentOf.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment/supplyEvent"})
     public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
         return this.fulfillmentSupplyEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010140CA.Component6.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/actRequest"})
     public SubstanceAdministrationRequestBean getComponentOfActRequest() {
         return this.componentOfActRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010140CA.Component6.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentOfActRequest(SubstanceAdministrationRequestBean componentOfActRequest) {
         this.componentOfActRequest = componentOfActRequest;
     }

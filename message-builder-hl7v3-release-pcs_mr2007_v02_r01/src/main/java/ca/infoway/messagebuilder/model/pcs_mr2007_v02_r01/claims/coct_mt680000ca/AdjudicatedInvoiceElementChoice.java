@@ -28,8 +28,20 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 public interface AdjudicatedInvoiceElementChoice {
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public AdjudicatedResultOutcomeBean getOutcomeOf();
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
 
 }

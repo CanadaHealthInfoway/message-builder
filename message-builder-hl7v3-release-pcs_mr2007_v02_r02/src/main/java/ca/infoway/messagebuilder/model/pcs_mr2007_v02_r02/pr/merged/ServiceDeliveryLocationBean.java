@@ -52,11 +52,14 @@ import java.util.Set;
 
 
 /**
- * <p>ServiceDeliveryLocation</p>
+ * <p>Business Name: ServiceDeliveryLocation</p>
  * 
  * <p>PRPM_MT306011CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
+ * <p>Roleclass required to support the identification of the 
+ * physical location where healthcare services are provided</p>
+ * 
  * <p>A role played by a place at which services may be 
  * provided. The RIM defines two specializations of service 
  * delivery location: 1. incidental service delivery location - 
@@ -80,13 +83,13 @@ import java.util.Set;
  * clinic may meet on alternate days in the same physical 
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
- * 
- * <p>Roleclass required to support the identification of the 
- * physical location where healthcare services are provided</p>
  * 
  * <p>PRPM_MT309000CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
+ * <p>Roleclass required to support the identification of the 
+ * physical location where healthcare services are provided</p>
+ * 
  * <p>A role played by a place at which services may be 
  * provided. The RIM defines two specializations of service 
  * delivery location: 1. incidental service delivery location - 
@@ -110,14 +113,11 @@ import java.util.Set;
  * clinic may meet on alternate days in the same physical 
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
- * 
- * <p>Roleclass required to support the identification of the 
- * physical location where healthcare services are provided</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
 public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
@@ -127,23 +127,31 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationIdentifier</p>
+     * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>A unique identifier for the service delivery 
-     * location.</p>
+     * <p>Relationship: PRPM_MT306011CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Service Delivery Location Identifier</p>
-     * 
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>A unique identifier for the service delivery 
+     * location.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -152,15 +160,20 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationType</p>
+     * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Service Delivery Location Type</p>
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>The code identifying the specific service delivery 
-     * location</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The code identifying the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"code"})
     public ServiceDeliveryLocationRoleType getCode() {
@@ -168,15 +181,20 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>ServiceDeliveryLocationType</p>
+     * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Service Delivery Location Type</p>
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>The code identifying the specific service delivery 
-     * location</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The code identifying the specific service delivery 
+     * location</p>
      */
     public void setCode(ServiceDeliveryLocationRoleType code) {
         this.code.setValue(code);
@@ -184,14 +202,19 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationAddress</p>
+     * <p>Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Service Delivery Location Address</p>
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Address of the specific service delivery location</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Address of the specific service delivery location</p>
      */
     @Hl7XmlMapping({"addr"})
     public List<PostalAddress> getAddr() {
@@ -200,15 +223,20 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationTelecom</p>
+     * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Service Delivery Location Telecom</p>
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>The telecom for the specific service delivery 
-     * location</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The telecom for the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -217,15 +245,20 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Service Delivery Location Effective Date</p>
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Effective date of the specific service delivery 
-     * location</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Effective date of the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -233,15 +266,20 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Service Delivery Location Effective Date</p>
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Effective date of the specific service delivery 
-     * location</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Effective date of the specific service delivery 
+     * location</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -249,14 +287,18 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationName</p>
+     * <p>Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Service Delivery Location Name</p>
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>The name of the service delivery location</p>
+     * <p>Relationship: PRPM_MT306011CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The name of the service delivery location</p>
      */
     @Hl7XmlMapping({"location/name"})
     public String getLocationName() {
@@ -264,14 +306,18 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>ServiceDeliveryLocationName</p>
+     * <p>Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Service Delivery Location Name</p>
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>The name of the service delivery location</p>
+     * <p>Relationship: PRPM_MT306011CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The name of the service delivery location</p>
      */
     public void setLocationName(String locationName) {
         this.locationName.setValue(locationName);

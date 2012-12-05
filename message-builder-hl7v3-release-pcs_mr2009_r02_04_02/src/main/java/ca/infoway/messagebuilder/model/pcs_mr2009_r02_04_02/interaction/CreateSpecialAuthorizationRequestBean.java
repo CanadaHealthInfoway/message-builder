@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 
 
 /**
- * <p>FICR_IN400001CA: Create Special Authorization Request</p>
+ * <p>Business Name: FICR_IN400001CA: Create Special 
+ * Authorization Request</p>
+ * 
+ * <p>Requests that a Special Authorization for full coverage 
+ * of a non or partial benefit drug be applied to a patient 
+ * record.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN400001CA"})
 public class CreateSpecialAuthorizationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<SpecialAuthorizationRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

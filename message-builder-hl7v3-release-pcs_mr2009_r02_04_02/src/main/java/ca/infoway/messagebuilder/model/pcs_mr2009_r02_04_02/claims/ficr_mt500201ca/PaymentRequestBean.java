@@ -50,7 +50,7 @@ import java.util.Set;
 @Hl7RootType
 public class PaymentRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private MO amt = new MOImpl();
     private ContactPartyBean primaryPerformerContactParty;
@@ -61,7 +61,11 @@ public class PaymentRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Invoice Identifier</p>
+     * <p>Business Name: Invoice Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PaymentRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-9)</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -70,7 +74,11 @@ public class PaymentRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Total Billed Amount</p>
+     * <p>Business Name: Total Billed Amount</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PaymentRequest.amt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"amt"})
     public Money getAmt() {
@@ -78,7 +86,11 @@ public class PaymentRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Total Billed Amount</p>
+     * <p>Business Name: Total Billed Amount</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PaymentRequest.amt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAmt(Money amt) {
         this.amt.setValue(amt);
@@ -95,21 +107,41 @@ public class PaymentRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT500201CA.PaymentRequestPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
         return this.creditAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT500201CA.PaymentRequestPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT500201CA.PaymentRequestPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT500201CA.PaymentRequestPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
     }
@@ -121,6 +153,12 @@ public class PaymentRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT500201CA.PaymentRequestReason.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"reasonOf/invoiceElementChoice"})
     public List<InvoiceElementChoice> getReasonOfInvoiceElementChoice() {
         return this.reasonOfInvoiceElementChoice;

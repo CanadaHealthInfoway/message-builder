@@ -49,20 +49,20 @@ import java.util.Date;
 
 
 /**
- * <p>Active Medication</p>
+ * <p>Business Name: Active Medication</p>
+ * 
+ * <p>Allows providers to identify the offending drugs when 
+ * determining their management approach.</p>
  * 
  * <p>Indicates an active medication (prescription or 
  * non-prescription medication) that is recorded in the 
  * patient's record and which contributed to triggering the 
  * issue.</p>
- * 
- * <p>Allows providers to identify the offending drugs when 
- * determining their management approach.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.CausalActs {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -74,15 +74,20 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Medication Indicator</p>
+     * <p>Business Name: Other Medication Indicator</p>
      * 
-     * <p>If the attribute is 'RQO', represents a prescription or 
-     * dispense record. Otherwise if 'EVN', it represents an 'Other 
-     * Medication' record.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Knowing whether a drug is prescribed or not can influence 
      * actions taken to mitigate an issue. The element is therefore 
      * mandatory</p>
+     * 
+     * <p>If the attribute is 'RQO', represents a prescription or 
+     * dispense record. Otherwise if 'EVN', it represents an 'Other 
+     * Medication' record.</p>
      */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodOrderEvent getMoodCode() {
@@ -90,15 +95,20 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Medication Indicator</p>
+     * <p>Business Name: Other Medication Indicator</p>
      * 
-     * <p>If the attribute is 'RQO', represents a prescription or 
-     * dispense record. Otherwise if 'EVN', it represents an 'Other 
-     * Medication' record.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Knowing whether a drug is prescribed or not can influence 
      * actions taken to mitigate an issue. The element is therefore 
      * mandatory</p>
+     * 
+     * <p>If the attribute is 'RQO', represents a prescription or 
+     * dispense record. Otherwise if 'EVN', it represents an 'Other 
+     * Medication' record.</p>
      */
     public void setMoodCode(x_ActMoodOrderEvent moodCode) {
         this.moodCode.setValue(moodCode);
@@ -106,40 +116,30 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>A:Active Medication Record Number</p>
+     * <p>Business Name: A:Active Medication Record Number</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SubstanceAdministration.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p>
+     * 
+     * <p>InteractingPrescription.PrescriptionExternalKey</p>
+     * 
+     * <p>InteractingPrescription.PrescriptionNumber</p>
+     * 
+     * <p>DDI/Dosage/Duplicate Therapy.SourceNumber (All senders 
+     * must uniquely identify prescriptions on request)</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue.</p><p>The attribute is marked as populated because it 
+     * may be masked.</p>
      * 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the 
-     * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the 
-     * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -147,40 +147,30 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>A:Active Medication Record Number</p>
+     * <p>Business Name: A:Active Medication Record Number</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SubstanceAdministration.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p>
+     * 
+     * <p>InteractingPrescription.PrescriptionExternalKey</p>
+     * 
+     * <p>InteractingPrescription.PrescriptionNumber</p>
+     * 
+     * <p>DDI/Dosage/Duplicate Therapy.SourceNumber (All senders 
+     * must uniquely identify prescriptions on request)</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue.</p><p>The attribute is marked as populated because it 
+     * may be masked.</p>
      * 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the 
-     * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the 
-     * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -188,21 +178,21 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Administration Type</p>
+     * <p>Business Name: Administration Type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Needed to determine what to do about the issue. Because 
+     * the medication can be masked, this element is only marked as 
+     * 'populated'.</p><p>The element allows a full 'CD' type to 
+     * support SNOMED implementations.</p>
      * 
      * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
      * vaccine at issue.</p>
-     * 
-     * <p>Needed to determine what to do about the issue. Because 
-     * the medication can be masked, this element is only marked as 
-     * 'populated'.</p><p>The element allows a full 'CD' type to 
-     * support SNOMED implementations.</p>
-     * 
-     * <p>Needed to determine what to do about the issue. Because 
-     * the medication can be masked, this element is only marked as 
-     * 'populated'.</p><p>The element allows a full 'CD' type to 
-     * support SNOMED implementations.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActSubstanceAdministrationCode getCode() {
@@ -210,21 +200,21 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Administration Type</p>
+     * <p>Business Name: Administration Type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Needed to determine what to do about the issue. Because 
+     * the medication can be masked, this element is only marked as 
+     * 'populated'.</p><p>The element allows a full 'CD' type to 
+     * support SNOMED implementations.</p>
      * 
      * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
      * vaccine at issue.</p>
-     * 
-     * <p>Needed to determine what to do about the issue. Because 
-     * the medication can be masked, this element is only marked as 
-     * 'populated'.</p><p>The element allows a full 'CD' type to 
-     * support SNOMED implementations.</p>
-     * 
-     * <p>Needed to determine what to do about the issue. Because 
-     * the medication can be masked, this element is only marked as 
-     * 'populated'.</p><p>The element allows a full 'CD' type to 
-     * support SNOMED implementations.</p>
      */
     public void setCode(ActSubstanceAdministrationCode code) {
         this.code.setValue(code);
@@ -232,10 +222,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>B:Active Medication Status</p>
+     * <p>Business Name: B:Active Medication Status</p>
      * 
-     * <p>Indicates the status of the medication record at the time 
-     * of the issue.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>ZPB3.8 (aborted = discontinued; nullified = 
      * reversed/system reversed; active=filled/not-filled)</p>
@@ -244,6 +236,9 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * to manage it. For example, if the medication is on hold, it 
      * may be less of an issue than if it is being actively 
      * taken.</p>
+     * 
+     * <p>Indicates the status of the medication record at the time 
+     * of the issue.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -251,10 +246,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>B:Active Medication Status</p>
+     * <p>Business Name: B:Active Medication Status</p>
      * 
-     * <p>Indicates the status of the medication record at the time 
-     * of the issue.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>ZPB3.8 (aborted = discontinued; nullified = 
      * reversed/system reversed; active=filled/not-filled)</p>
@@ -263,6 +260,9 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * to manage it. For example, if the medication is on hold, it 
      * may be less of an issue than if it is being actively 
      * taken.</p>
+     * 
+     * <p>Indicates the status of the medication record at the time 
+     * of the issue.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -270,15 +270,20 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>C:Active Medication Time-range</p>
+     * <p>Business Name: C:Active Medication Time-range</p>
      * 
-     * <p>The date and time during which the patient is expected to 
-     * be taking the drug which triggered the issue.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Requested Duration</p>
      * 
      * <p>Allows the provider to evaluate 'duplicate therapy' and 
      * similar timing-based issues.</p>
+     * 
+     * <p>The date and time during which the patient is expected to 
+     * be taking the drug which triggered the issue.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -286,15 +291,20 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>C:Active Medication Time-range</p>
+     * <p>Business Name: C:Active Medication Time-range</p>
      * 
-     * <p>The date and time during which the patient is expected to 
-     * be taking the drug which triggered the issue.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Requested Duration</p>
      * 
      * <p>Allows the provider to evaluate 'duplicate therapy' and 
      * similar timing-based issues.</p>
+     * 
+     * <p>The date and time during which the patient is expected to 
+     * be taking the drug which triggered the issue.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -302,19 +312,20 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>E:Active Medication Masking Indicator</p>
+     * <p>Business Name: E:Active Medication Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -322,19 +333,20 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>E:Active Medication Masking Indicator</p>
+     * <p>Business Name: E:Active Medication Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Conveys the patient's wishes relating to the sensitivity 
+     * of the drug information.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -342,23 +354,24 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>D:Active Medication Dose Quantity</p>
+     * <p>Business Name: D:Active Medication Dose Quantity</p>
      * 
-     * <p>The amount of medication administered to the patient</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.doseQuantity</p>
      * 
-     * <p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * <p>Requested Dosage Level</p>
      * 
-     * <p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * <p>ZPS.12</p>
      * 
-     * <p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * <p>ZDU.4.4</p>
+     * 
+     * <p>Contraindication.dosageAmount</p>
      * 
      * <p>Used in Low Dose/High Dose issues.</p>
+     * 
+     * <p>The amount of medication administered to the patient</p>
      */
     @Hl7XmlMapping({"doseQuantity"})
     public PhysicalQuantity getDoseQuantity() {
@@ -366,34 +379,45 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>D:Active Medication Dose Quantity</p>
+     * <p>Business Name: D:Active Medication Dose Quantity</p>
      * 
-     * <p>The amount of medication administered to the patient</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.doseQuantity</p>
      * 
-     * <p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * <p>Requested Dosage Level</p>
      * 
-     * <p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * <p>ZPS.12</p>
      * 
-     * <p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * <p>ZDU.4.4</p>
+     * 
+     * <p>Contraindication.dosageAmount</p>
      * 
      * <p>Used in Low Dose/High Dose issues.</p>
+     * 
+     * <p>The amount of medication administered to the patient</p>
      */
     public void setDoseQuantity(PhysicalQuantity doseQuantity) {
         this.doseQuantity.setValue(doseQuantity);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT980030CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT980030CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
     }

@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.comt_mt400001ca.Mas
 
 
 /**
- * <p>COMT_IN400001CA: Change item masking request</p>
+ * <p>Business Name: COMT_IN400001CA: Change item masking 
+ * request</p>
+ * 
+ * <p>Requests that an identified item, group of items 
+ * (identified by act type, medication, indication) or all 
+ * items for a particular patient should have their 
+ * confidentiality code changed to the specified value.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.comt_mt400001ca.Mas
 @Hl7PartTypeMapping({"COMT_IN400001CA"})
 public class ChangeItemMaskingRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MaskableRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

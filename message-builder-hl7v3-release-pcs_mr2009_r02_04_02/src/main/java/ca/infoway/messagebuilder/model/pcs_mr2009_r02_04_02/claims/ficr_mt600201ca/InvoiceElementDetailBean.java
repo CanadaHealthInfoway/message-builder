@@ -56,7 +56,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
     private II id = new IIImpl();
     private CV code = new CVImpl();
@@ -66,6 +66,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     private List<REAL> factorNumber = new ArrayList<REAL>();
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementReason.billableActChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reasonOf/billableActChoice"})
     public List<A_BillableActChoice> getReasonOfBillableActChoice() {
         return this.reasonOfBillableActChoice;
@@ -73,7 +79,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
-     * <p>Submitted Invoice Line Identifier</p>
+     * <p>Business Name: Submitted Invoice Line Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -81,7 +91,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     }
 
     /**
-     * <p>Submitted Invoice Line Identifier</p>
+     * <p>Business Name: Submitted Invoice Line Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -89,7 +103,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
-     * <p>Submitted Product/Service Code</p>
+     * <p>Business Name: Submitted Product/Service Code</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceDetailCode getCode() {
@@ -97,7 +115,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     }
 
     /**
-     * <p>Submitted Product/Service Code</p>
+     * <p>Business Name: Submitted Product/Service Code</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceDetailCode code) {
         this.code.setValue(code);
@@ -105,7 +127,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
-     * <p>Submitted Unit Quantity</p>
+     * <p>Business Name: Submitted Unit Quantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"unitQuantity"})
     public PhysicalQuantity getUnitQuantity() {
@@ -113,7 +140,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     }
 
     /**
-     * <p>Submitted Unit Quantity</p>
+     * <p>Business Name: Submitted Unit Quantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setUnitQuantity(PhysicalQuantity unitQuantity) {
         this.unitQuantity.setValue(unitQuantity);
@@ -121,7 +153,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
-     * <p>Submitted Unit Amount Price</p>
+     * <p>Business Name: Submitted Unit Amount Price</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
     public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
@@ -129,7 +166,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     }
 
     /**
-     * <p>Submitted Unit Amount Price</p>
+     * <p>Business Name: Submitted Unit Amount Price</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
         this.unitPriceAmt.setValue(unitPriceAmt);
@@ -137,7 +179,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
-     * <p>Submitted Invoice Line Amount</p>
+     * <p>Business Name: Submitted Invoice Line Amount</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -145,7 +191,11 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     }
 
     /**
-     * <p>Submitted Invoice Line Amount</p>
+     * <p>Business Name: Submitted Invoice Line Amount</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
@@ -153,7 +203,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
-     * <p>Multiplier, e.g. 0.07</p>
+     * <p>Business Name: Multiplier, e.g. 0.07</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
      */
     @Hl7XmlMapping({"factorNumber"})
     public List<BigDecimal> getFactorNumber() {

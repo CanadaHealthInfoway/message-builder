@@ -37,62 +37,62 @@ import java.util.List;
 
 
 /**
- * <p>DocumentSections</p>
+ * <p>Business Name: DocumentSections</p>
  * 
  * <p>REPC_MT220001CA.SubSection: Document Sections</p>
- * 
- * <p>Used to document additional relevant information about 
- * the patient such as allergies, medications, problem list, 
- * etc.</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Discharge-Care Summary by sharing a filtered, rendered view 
  * of portions of the patient's record.</p>
  * 
- * <p>REPC_MT230003CA.SubSection: Document Sections</p>
- * 
  * <p>Used to document additional relevant information about 
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
+ * 
+ * <p>REPC_MT230003CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Clinical Observation Document by sharing a filtered, 
  * rendered view of portions of the patient's record.</p>
  * 
- * <p>REPC_MT220003CA.SubSection: Document Sections</p>
- * 
  * <p>Used to document additional relevant information about 
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
+ * 
+ * <p>REPC_MT220003CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Discharge-Care Summary by sharing a filtered, rendered view 
  * of portions of the patient's record.</p>
  * 
- * <p>REPC_MT210003CA.SubSection: Document Sections</p>
- * 
  * <p>Used to document additional relevant information about 
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
+ * 
+ * <p>REPC_MT210003CA.SubSection: Document Sections</p>
  * 
  * <p>Provides contextual information for understanding the 
  * Referral by sharing a filtered, rendered view of portions of 
  * the patient's record.</p>
  * 
- * <p>REPC_MT230001CA.SubSection: Document Sections</p>
- * 
  * <p>Used to document additional relevant information about 
  * the patient such as allergies, medications, problem list, 
  * etc.</p>
  * 
+ * <p>REPC_MT230001CA.SubSection: Document Sections</p>
+ * 
  * <p>Provides contextual information for understanding the 
  * Clinical Observation Document by sharing a filtered, 
  * rendered view of portions of the patient's record.</p>
+ * 
+ * <p>Used to document additional relevant information about 
+ * the patient such as allergies, medications, problem list, 
+ * etc.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT210001CA.SubSection","REPC_MT210003CA.SubSection","REPC_MT220001CA.SubSection","REPC_MT220003CA.SubSection","REPC_MT230001CA.SubSection","REPC_MT230003CA.SubSection"})
 public class DocumentSectionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
@@ -100,68 +100,16 @@ public class DocumentSectionsBean extends MessagePartBean {
 
 
     /**
-     * <p>SectionType</p>
+     * <p>Business Name: SectionType</p>
      * 
-     * <p>A: Section Type</p>
+     * <p>Other Business Name: SectionType</p>
      * 
-     * <p> <i>Identifies the type of Clinical Observation Document 
-     * represented by this record.</i> </p><p>Examples: allergy 
-     * list, problem list, medication list, etc.</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.code</p>
      * 
-     * <p> <i>Identifies the type of Clinical Observation Document 
-     * represented by this record.</i> </p><p>Examples: allergy 
-     * list, problem list, medication list, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Section Type is used for searching and for organizing 
-     * Clinical Observation Document records as well as sorting 
-     * them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
-     * allow for the capture of Section Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Clinical Observation Document records as well as sorting 
-     * them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
-     * allow for the capture of Section Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Clinical Observation Document records as well as sorting 
-     * them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
-     * allow for the capture of Section Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>A: Section Type</p>
-     * 
-     * <p>A: Section Type</p>
-     * 
-     * <p> <i>Identifies the type of Referral represented by this 
-     * record.</i> </p><p>Examples: allergy list, problem list, 
-     * medication list, etc.</p>
-     * 
-     * <p> <i>Identifies the type of Referral represented by this 
-     * record.</i> </p><p>Examples: allergy list, problem list, 
-     * medication list, etc.</p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Referral records as well as sorting them for 
+     * Discharge-Care Summary records as well as sorting them for 
      * presentation.</i> </p><p> <i>This is a key attribute for 
      * understanding the type of record and is therefore 
      * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
@@ -171,76 +119,104 @@ public class DocumentSectionsBean extends MessagePartBean {
      * values outweighs the penalties of capturing some information 
      * that will not be amenable to searching or categorizing.</i> 
      * </p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>A: Section Type</p>
      * 
      * <p> <i>Identifies the type of Discharge-Care Summary 
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Section Type is used for searching and for organizing 
+     * Clinical Observation Document records as well as sorting 
+     * them for presentation.</i> </p><p> <i>This is a key 
+     * attribute for understanding the type of record and is 
+     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
+     * allow for the capture of Section Type concepts not presently 
+     * supported by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
+     * <p> <i>Identifies the type of Clinical Observation Document 
+     * represented by this record.</i> </p><p>Examples: allergy 
+     * list, problem list, medication list, etc.</p>
+     * 
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Section Type is used for searching and for organizing 
+     * Referral records as well as sorting them for 
+     * presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
+     * the capture of Section Type concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
+     * <p> <i>Identifies the type of Referral represented by this 
+     * record.</i> </p><p>Examples: allergy list, problem list, 
+     * medication list, etc.</p>
+     * 
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Section Type is used for searching and for organizing 
+     * Discharge-Care Summary records as well as sorting them for 
+     * presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
+     * the capture of Section Type concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
      * <p> <i>Identifies the type of Discharge-Care Summary 
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p> <i>Section Type is used for searching and for organizing 
-     * Discharge-Care Summary records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
+     * Clinical Observation Document records as well as sorting 
+     * them for presentation.</i> </p><p> <i>This is a key 
+     * attribute for understanding the type of record and is 
+     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
+     * allow for the capture of Section Type concepts not presently 
+     * supported by the approved code system(s). In this case, the 
      * human-to-human benefit of capturing additional non-coded 
      * values outweighs the penalties of capturing some information 
      * that will not be amenable to searching or categorizing.</i> 
      * </p>
      * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Discharge-Care Summary records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
+     * <p> <i>Identifies the type of Clinical Observation Document 
+     * represented by this record.</i> </p><p>Examples: allergy 
+     * list, problem list, medication list, etc.</p>
      * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Discharge-Care Summary records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public DocumentSectionType getCode() {
@@ -248,68 +224,16 @@ public class DocumentSectionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>SectionType</p>
+     * <p>Business Name: SectionType</p>
      * 
-     * <p>A: Section Type</p>
+     * <p>Other Business Name: SectionType</p>
      * 
-     * <p> <i>Identifies the type of Clinical Observation Document 
-     * represented by this record.</i> </p><p>Examples: allergy 
-     * list, problem list, medication list, etc.</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.code</p>
      * 
-     * <p> <i>Identifies the type of Clinical Observation Document 
-     * represented by this record.</i> </p><p>Examples: allergy 
-     * list, problem list, medication list, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Section Type is used for searching and for organizing 
-     * Clinical Observation Document records as well as sorting 
-     * them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
-     * allow for the capture of Section Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Clinical Observation Document records as well as sorting 
-     * them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
-     * allow for the capture of Section Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Clinical Observation Document records as well as sorting 
-     * them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
-     * allow for the capture of Section Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>A: Section Type</p>
-     * 
-     * <p>A: Section Type</p>
-     * 
-     * <p> <i>Identifies the type of Referral represented by this 
-     * record.</i> </p><p>Examples: allergy list, problem list, 
-     * medication list, etc.</p>
-     * 
-     * <p> <i>Identifies the type of Referral represented by this 
-     * record.</i> </p><p>Examples: allergy list, problem list, 
-     * medication list, etc.</p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Referral records as well as sorting them for 
+     * Discharge-Care Summary records as well as sorting them for 
      * presentation.</i> </p><p> <i>This is a key attribute for 
      * understanding the type of record and is therefore 
      * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
@@ -319,76 +243,104 @@ public class DocumentSectionsBean extends MessagePartBean {
      * values outweighs the penalties of capturing some information 
      * that will not be amenable to searching or categorizing.</i> 
      * </p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>A: Section Type</p>
      * 
      * <p> <i>Identifies the type of Discharge-Care Summary 
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Section Type is used for searching and for organizing 
+     * Clinical Observation Document records as well as sorting 
+     * them for presentation.</i> </p><p> <i>This is a key 
+     * attribute for understanding the type of record and is 
+     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
+     * allow for the capture of Section Type concepts not presently 
+     * supported by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
+     * <p> <i>Identifies the type of Clinical Observation Document 
+     * represented by this record.</i> </p><p>Examples: allergy 
+     * list, problem list, medication list, etc.</p>
+     * 
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Section Type is used for searching and for organizing 
+     * Referral records as well as sorting them for 
+     * presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
+     * the capture of Section Type concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
+     * <p> <i>Identifies the type of Referral represented by this 
+     * record.</i> </p><p>Examples: allergy list, problem list, 
+     * medication list, etc.</p>
+     * 
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Section Type is used for searching and for organizing 
+     * Discharge-Care Summary records as well as sorting them for 
+     * presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
+     * the capture of Section Type concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
      * <p> <i>Identifies the type of Discharge-Care Summary 
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p> <i>Section Type is used for searching and for organizing 
-     * Discharge-Care Summary records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
+     * Clinical Observation Document records as well as sorting 
+     * them for presentation.</i> </p><p> <i>This is a key 
+     * attribute for understanding the type of record and is 
+     * therefore mandatory.</i> </p><p> <i>The element uses CWE to 
+     * allow for the capture of Section Type concepts not presently 
+     * supported by the approved code system(s). In this case, the 
      * human-to-human benefit of capturing additional non-coded 
      * values outweighs the penalties of capturing some information 
      * that will not be amenable to searching or categorizing.</i> 
      * </p>
      * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Discharge-Care Summary records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
+     * <p> <i>Identifies the type of Clinical Observation Document 
+     * represented by this record.</i> </p><p>Examples: allergy 
+     * list, problem list, medication list, etc.</p>
      * 
-     * <p> <i>Section Type is used for searching and for organizing 
-     * Discharge-Care Summary records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Section Type concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
+     * <p>Other Business Name: SectionType</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.SubSection.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(DocumentSectionType code) {
         this.code.setValue(code);
@@ -396,9 +348,17 @@ public class DocumentSectionsBean extends MessagePartBean {
 
 
     /**
-     * <p>SectionTitle</p>
+     * <p>Business Name: SectionTitle</p>
      * 
-     * <p>B: Section Title</p>
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human readable label for the section. Because 
+     * it is used as part of the document rendering, the attribute 
+     * is mandatory.</p>
      * 
      * <p>Represents the label associated with this particular 
      * portion of the document. These are a human-readable 
@@ -406,11 +366,31 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides a human readable label for the section. Because 
      * it is used as part of the document rendering, the attribute 
      * is mandatory.</p>
      * 
-     * <p>B: Section Title</p>
+     * <p>Represents the label associated with this particular 
+     * portion of the document. These are a human-readable 
+     * equivalents to the Section Type code. E.g. 
+     * &quot;Allergies&quot;, &quot;Assessment&quot;, 
+     * &quot;Recommendations&quot;, etc.</p>
+     * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human readable label for the section. Because 
+     * it is used as part of the document rendering, the attribute 
+     * is mandatory.</p>
      * 
      * <p>Represents the label associated with this particular 
      * portion of the document. These are human-readable 
@@ -418,11 +398,43 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides a human readable label for the section. Because 
      * it is used as part of the document rendering, the attribute 
      * is mandatory.</p>
      * 
-     * <p>B: Section Title</p>
+     * <p>Represents the label associated with this particular 
+     * portion of the document. These are a human-readable 
+     * equivalents to the Section Type code. E.g. 
+     * &quot;Allergies&quot;, &quot;Assessment&quot;, 
+     * &quot;Recommendations&quot;, etc.</p>
+     * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human readable label for the section. Because 
+     * it is used as part of the document rendering, the attribute 
+     * is mandatory.</p>
+     * 
+     * <p>Represents the label associated with this particular 
+     * portion of the document. These are a human-readable 
+     * equivalents to the Section Type code. E.g. 
+     * &quot;Allergies&quot;, &quot;Assessment&quot;, 
+     * &quot;Recommendations&quot;, etc.</p>
+     * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
@@ -430,9 +442,17 @@ public class DocumentSectionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>SectionTitle</p>
+     * <p>Business Name: SectionTitle</p>
      * 
-     * <p>B: Section Title</p>
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human readable label for the section. Because 
+     * it is used as part of the document rendering, the attribute 
+     * is mandatory.</p>
      * 
      * <p>Represents the label associated with this particular 
      * portion of the document. These are a human-readable 
@@ -440,11 +460,31 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides a human readable label for the section. Because 
      * it is used as part of the document rendering, the attribute 
      * is mandatory.</p>
      * 
-     * <p>B: Section Title</p>
+     * <p>Represents the label associated with this particular 
+     * portion of the document. These are a human-readable 
+     * equivalents to the Section Type code. E.g. 
+     * &quot;Allergies&quot;, &quot;Assessment&quot;, 
+     * &quot;Recommendations&quot;, etc.</p>
+     * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human readable label for the section. Because 
+     * it is used as part of the document rendering, the attribute 
+     * is mandatory.</p>
      * 
      * <p>Represents the label associated with this particular 
      * portion of the document. These are human-readable 
@@ -452,11 +492,43 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides a human readable label for the section. Because 
      * it is used as part of the document rendering, the attribute 
      * is mandatory.</p>
      * 
-     * <p>B: Section Title</p>
+     * <p>Represents the label associated with this particular 
+     * portion of the document. These are a human-readable 
+     * equivalents to the Section Type code. E.g. 
+     * &quot;Allergies&quot;, &quot;Assessment&quot;, 
+     * &quot;Recommendations&quot;, etc.</p>
+     * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human readable label for the section. Because 
+     * it is used as part of the document rendering, the attribute 
+     * is mandatory.</p>
+     * 
+     * <p>Represents the label associated with this particular 
+     * portion of the document. These are a human-readable 
+     * equivalents to the Section Type code. E.g. 
+     * &quot;Allergies&quot;, &quot;Assessment&quot;, 
+     * &quot;Recommendations&quot;, etc.</p>
+     * 
+     * <p>Other Business Name: SectionTitle</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.SubSection.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setTitle(String title) {
         this.title.setValue(title);
@@ -464,19 +536,83 @@ public class DocumentSectionsBean extends MessagePartBean {
 
 
     /**
-     * <p>SectionContent</p>
+     * <p>Business Name: SectionContent</p>
      * 
-     * <p>M: Section Content</p>
+     * <p>Other Business Name: SectionContent</p>
      * 
-     * <p>M: Section Content</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.text</p>
      * 
-     * <p>Represents the rendered text content for the section.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a human-readable view of data that is accessible 
      * without sophisticated PoS applications. Allows data to be 
      * filtered and rendered in a manner to focus on the content 
      * deemed relevant by the author of the document. Because it 
      * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable view of data that is accessible 
+     * without sophisticated PoS applications. Allows data to be 
+     * filtered and rendered in a manner to focus on the content 
+     * deemed relevant by the author of the document. Because it 
+     * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable view of data that is accessible 
+     * without sophisticated PoS applications. Allows data to be 
+     * filtered and rendered in a manner to focus on the content 
+     * deemed relevant by the author of the document. Because it 
+     * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable view of data that is accessible 
+     * without sophisticated PoS applications. Allows data to be 
+     * filtered and rendered in a manner to focus on the content 
+     * deemed relevant by the author of the document. Because it 
+     * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable view of data that is accessible 
+     * without sophisticated PoS applications. Allows data to be 
+     * filtered and rendered in a manner to focus on the content 
+     * deemed relevant by the author of the document. Because it 
+     * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
@@ -484,25 +620,126 @@ public class DocumentSectionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>SectionContent</p>
+     * <p>Business Name: SectionContent</p>
      * 
-     * <p>M: Section Content</p>
+     * <p>Other Business Name: SectionContent</p>
      * 
-     * <p>M: Section Content</p>
+     * <p>Relationship: REPC_MT220001CA.SubSection.text</p>
      * 
-     * <p>Represents the rendered text content for the section.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a human-readable view of data that is accessible 
      * without sophisticated PoS applications. Allows data to be 
      * filtered and rendered in a manner to focus on the content 
      * deemed relevant by the author of the document. Because it 
      * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable view of data that is accessible 
+     * without sophisticated PoS applications. Allows data to be 
+     * filtered and rendered in a manner to focus on the content 
+     * deemed relevant by the author of the document. Because it 
+     * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable view of data that is accessible 
+     * without sophisticated PoS applications. Allows data to be 
+     * filtered and rendered in a manner to focus on the content 
+     * deemed relevant by the author of the document. Because it 
+     * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable view of data that is accessible 
+     * without sophisticated PoS applications. Allows data to be 
+     * filtered and rendered in a manner to focus on the content 
+     * deemed relevant by the author of the document. Because it 
+     * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a human-readable view of data that is accessible 
+     * without sophisticated PoS applications. Allows data to be 
+     * filtered and rendered in a manner to focus on the content 
+     * deemed relevant by the author of the document. Because it 
+     * conveys the content, the attribute must be mandatory.</p>
+     * 
+     * <p>Represents the rendered text content for the section.</p>
+     * 
+     * <p>Other Business Name: SectionContent</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.SubSection.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Component7.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Component7.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Component7.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Component7.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Component7.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Component7.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/reference"})
     public List<ReferenceBean> getComponentReference() {
         return this.componentReference;

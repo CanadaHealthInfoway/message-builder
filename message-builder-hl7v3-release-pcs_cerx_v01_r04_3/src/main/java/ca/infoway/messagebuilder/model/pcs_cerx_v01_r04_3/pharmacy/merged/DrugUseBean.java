@@ -30,83 +30,79 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>DrugUse</p>
+ * <p>Business Name: DrugUse</p>
  * 
  * <p>PORX_MT060340CA.WorkingListEvent: Drug Use</p>
  * 
- * <p>Categorization of prescriptions based on the intended 
- * duration of the prescribed therapy.</p>
- * 
  * <p>Useful in establishing compliance for drug renewals and 
  * refills.</p>
+ * 
+ * <p>Categorization of prescriptions based on the intended 
+ * duration of the prescribed therapy.</p>
  * 
  * <p>PORX_MT060160CA.WorkingListEvent: Drug Use</p>
  * 
- * <p>Categorization of prescriptions based on the intended 
- * duration of the prescribed therapy.</p>
- * 
  * <p>Useful in establishing compliance for drug renewals and 
  * refills.</p>
+ * 
+ * <p>Categorization of prescriptions based on the intended 
+ * duration of the prescribed therapy.</p>
  * 
  * <p>PORX_MT030040CA.WorkingListEvent: Drug Use</p>
  * 
- * <p>Categorization of prescriptions based on the intended 
- * duration of the prescribed therapy.</p>
- * 
  * <p>Useful in establishing compliance for drug renewals and 
  * refills.</p>
+ * 
+ * <p>Categorization of prescriptions based on the intended 
+ * duration of the prescribed therapy.</p>
  * 
  * <p>PORX_MT060190CA.WorkingListEvent: Drug Use</p>
  * 
- * <p>Categorization of prescriptions based on the intended 
- * duration of the prescribed therapy.</p>
- * 
  * <p>Useful in establishing compliance for drug renewals and 
  * refills.</p>
+ * 
+ * <p>Categorization of prescriptions based on the intended 
+ * duration of the prescribed therapy.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.WorkingListEvent","PORX_MT030040CA.WorkingListEvent","PORX_MT060160CA.WorkingListEvent","PORX_MT060190CA.WorkingListEvent","PORX_MT060340CA.WorkingListEvent"})
 public class DrugUseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
 
 
     /**
-     * <p>D:Treatment Type</p>
+     * <p>Other Business Name: TreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p>Prescription.drugUseIndicator</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed.</p><p>The field 
+     * is marked as &quot;populated&quot; because the intended 
+     * duration of the therapy should generally be known at 
+     * prescribe time. However in some circumstances, it may not be 
+     * known whether a therapy will be short-term or long-term.</p>
      * 
      * <p>Describes the categorization of the therapy envisioned by 
      * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Other Business Name: TreatmentType</p>
      * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Relationship: PORX_MT060160CA.WorkingListEvent.code</p>
      * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed.</p><p>The field 
-     * is marked as &quot;populated&quot; because the intended 
-     * duration of the therapy should generally be known at 
-     * prescribe time. However in some circumstances, it may not be 
-     * known whether a therapy will be short-term or long-term.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed.</p><p>The field 
-     * is marked as &quot;populated&quot; because the intended 
-     * duration of the therapy should generally be known at 
-     * prescribe time. However in some circumstances, it may not be 
-     * known whether a therapy will be short-term or long-term.</p>
+     * <p>Prescription type</p>
      * 
-     * <p>D:Prescription Treatment Type</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
-     * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
-     * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Prescription.drugUseIndicator</p>
      * 
      * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
@@ -116,11 +112,37 @@ public class DrugUseBean extends MessagePartBean {
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
      * 
-     * <p>D:Treatment Type</p>
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p>Prescription.drugUseIndicator</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;populated&quot; because the intended 
+     * duration of the therapy should generally be known at 
+     * prescribe time. However in some circumstances, it may not be 
+     * known whether a therapy will be short-term or long-term.</p>
      * 
      * <p>Describes the categorization of the therapy envisioned by 
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
+     * 
+     * <p>Other Business Name: TreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Prescription type PIN:Prescription.drugUseIndicator</p>
      * 
@@ -132,15 +154,19 @@ public class DrugUseBean extends MessagePartBean {
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
      * 
-     * <p>D:Treatment Type</p>
-     * 
      * <p>Describes the categorization of the therapy envisioned by 
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Other Business Name: PrescriptionTreatmentType</p>
      * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Relationship: PORX_MT060190CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p>Prescription.drugUseIndicator</p>
      * 
      * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
@@ -149,6 +175,10 @@ public class DrugUseBean extends MessagePartBean {
      * duration of the therapy should generally be known at 
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      */
     @Hl7XmlMapping({"code"})
     public ActTherapyDurationWorkingListCode getCode() {
@@ -156,41 +186,37 @@ public class DrugUseBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Treatment Type</p>
+     * <p>Other Business Name: TreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p>Prescription.drugUseIndicator</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed.</p><p>The field 
+     * is marked as &quot;populated&quot; because the intended 
+     * duration of the therapy should generally be known at 
+     * prescribe time. However in some circumstances, it may not be 
+     * known whether a therapy will be short-term or long-term.</p>
      * 
      * <p>Describes the categorization of the therapy envisioned by 
      * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Other Business Name: TreatmentType</p>
      * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Relationship: PORX_MT060160CA.WorkingListEvent.code</p>
      * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed.</p><p>The field 
-     * is marked as &quot;populated&quot; because the intended 
-     * duration of the therapy should generally be known at 
-     * prescribe time. However in some circumstances, it may not be 
-     * known whether a therapy will be short-term or long-term.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed.</p><p>The field 
-     * is marked as &quot;populated&quot; because the intended 
-     * duration of the therapy should generally be known at 
-     * prescribe time. However in some circumstances, it may not be 
-     * known whether a therapy will be short-term or long-term.</p>
+     * <p>Prescription type</p>
      * 
-     * <p>D:Prescription Treatment Type</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
-     * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
-     * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Prescription.drugUseIndicator</p>
      * 
      * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
@@ -200,11 +226,37 @@ public class DrugUseBean extends MessagePartBean {
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
      * 
-     * <p>D:Treatment Type</p>
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
+     * 
+     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p>Prescription.drugUseIndicator</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;populated&quot; because the intended 
+     * duration of the therapy should generally be known at 
+     * prescribe time. However in some circumstances, it may not be 
+     * known whether a therapy will be short-term or long-term.</p>
      * 
      * <p>Describes the categorization of the therapy envisioned by 
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
+     * 
+     * <p>Other Business Name: TreatmentType</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Prescription type PIN:Prescription.drugUseIndicator</p>
      * 
@@ -216,15 +268,19 @@ public class DrugUseBean extends MessagePartBean {
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
      * 
-     * <p>D:Treatment Type</p>
-     * 
      * <p>Describes the categorization of the therapy envisioned by 
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Other Business Name: PrescriptionTreatmentType</p>
      * 
-     * <p>Prescription type</p><p>Prescription.drugUseIndicator</p>
+     * <p>Relationship: PORX_MT060190CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p>Prescription.drugUseIndicator</p>
      * 
      * <p>Allows categorizing prescription for presentation. May 
      * influence detection of duplicate therapy. May also be used 
@@ -233,6 +289,10 @@ public class DrugUseBean extends MessagePartBean {
      * duration of the therapy should generally be known at 
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      */
     public void setCode(ActTherapyDurationWorkingListCode code) {
         this.code.setValue(code);

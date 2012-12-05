@@ -31,33 +31,37 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Diagnosis</p>
+ * <p>Business Name: Diagnosis</p>
  * 
  * <p>If code is SNOMED, value must not be specified. Otherwise 
  * value is mandatory and code must be DX</p>
  * 
- * <p>Conveys information about a diagnosis to be masked</p>
- * 
  * <p>Allows masking of items related to a particular medical 
  * condition.</p>
+ * 
+ * <p>Conveys information about a diagnosis to be masked</p>
  */
 @Hl7PartTypeMapping({"COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
 
 
     /**
-     * <p>A:Diagnosis Type</p>
+     * <p>Business Name: A:Diagnosis Type</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to convey the diagnosis information to be masked, 
+     * and attribute is therefore mandatory.</p>
      * 
      * <p>Used to indicate that this observation is a diagnosis, 
      * and for SNOMED, provides details of what the diagnosis 
      * is.</p>
-     * 
-     * <p>Needed to convey the diagnosis information to be masked, 
-     * and attribute is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -65,14 +69,18 @@ public class DiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Diagnosis Type</p>
+     * <p>Business Name: A:Diagnosis Type</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to convey the diagnosis information to be masked, 
+     * and attribute is therefore mandatory.</p>
      * 
      * <p>Used to indicate that this observation is a diagnosis, 
      * and for SNOMED, provides details of what the diagnosis 
      * is.</p>
-     * 
-     * <p>Needed to convey the diagnosis information to be masked, 
-     * and attribute is therefore mandatory.</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
@@ -80,15 +88,19 @@ public class DiagnosisBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Diagnosis</p>
+     * <p>Business Name: B:Diagnosis</p>
      * 
-     * <p>The diagnosis whose associated records should be 
-     * masked.</p>
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows masking of all records (prescriptions, dispenses, 
      * encounters, lab tests, etc.) associated with the specified 
      * diagnosis. This element is optional because it is not used 
      * for SNOMED.</p>
+     * 
+     * <p>The diagnosis whose associated records should be 
+     * masked.</p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
@@ -96,15 +108,19 @@ public class DiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Diagnosis</p>
+     * <p>Business Name: B:Diagnosis</p>
      * 
-     * <p>The diagnosis whose associated records should be 
-     * masked.</p>
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows masking of all records (prescriptions, dispenses, 
      * encounters, lab tests, etc.) associated with the specified 
      * diagnosis. This element is optional because it is not used 
      * for SNOMED.</p>
+     * 
+     * <p>The diagnosis whose associated records should be 
+     * masked.</p>
      */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);

@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.Prescr
 
 
 /**
- * <p>PORX_IN020130CA: Record dispense processing request 
- * accepted</p>
+ * <p>Business Name: PORX_IN020130CA: Record dispense 
+ * processing request accepted</p>
+ * 
+ * <p>Indicates that the requested medication dispense 
+ * processing information has been successfully recorded in the 
+ * patient's record.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.Prescr
 @Hl7PartTypeMapping({"PORX_IN020130CA"})
 public class RecordDispenseProcessingRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionDispenseResponseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

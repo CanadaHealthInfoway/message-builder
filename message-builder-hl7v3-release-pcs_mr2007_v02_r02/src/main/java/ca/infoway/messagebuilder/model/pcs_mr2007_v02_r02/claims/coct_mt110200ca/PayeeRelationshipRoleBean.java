@@ -30,25 +30,37 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.x_RoleClas
 
 
 /**
- * <p>Payee Relationship Role</p>
- * 
- * <p>Indicates whether payee is Person or Organisation</p>
+ * <p>Business Name: Payee Relationship Role</p>
  * 
  * <p>Covered Party/Patient is the scoper of this role, but is 
  * not necessary in this CMET</p>
+ * 
+ * <p>Indicates whether payee is Person or Organisation</p>
  */
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeRelationshipRole"})
 public class PayeeRelationshipRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT110200CA.PayeeRelationshipRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public x_RoleClassPayeePolicyRelationship getClassCode() {
         return (x_RoleClassPayeePolicyRelationship) this.classCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT110200CA.PayeeRelationshipRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setClassCode(x_RoleClassPayeePolicyRelationship classCode) {
         this.classCode.setValue(classCode);
     }

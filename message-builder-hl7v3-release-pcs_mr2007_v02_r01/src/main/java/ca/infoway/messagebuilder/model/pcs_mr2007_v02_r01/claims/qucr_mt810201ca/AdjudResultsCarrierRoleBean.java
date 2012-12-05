@@ -32,12 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsCarrierRole"})
 public class AdjudResultsCarrierRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>Carrier Id</p>
+     * <p>Business Name: Carrier Id</p>
+     * 
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -45,7 +49,11 @@ public class AdjudResultsCarrierRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Carrier Id</p>
+     * <p>Business Name: Carrier Id</p>
+     * 
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

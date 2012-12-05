@@ -52,63 +52,59 @@ import java.util.Set;
 /**
  * <p>PORX_MT010110CA.DeviceRequest: Prescription</p>
  * 
+ * <p>This is a 'core' class of the medication model and is 
+ * important for understanding what devices the patient is 
+ * intended to be receiving.</p>
+ * 
  * <p>Information pertaining to a prescriber's authorization 
  * for a device to be dispensed to a patient, as well as the 
  * instruction on when and how the device is to be used by the 
  * patient</p>
  * 
- * <p>This is a 'core' class of the medication model and is 
- * important for understanding what devices the patient is 
- * intended to be receiving.</p>
- * 
  * <p>PORX_MT020070CA.SubstanceAdministrationRequest: 
  * Prescription Reference</p>
  * 
  * <p>The Prescriber Name must be specified only when the 
- * Prescription Order Number is Null.</p><p>Component MUST be 
- * specified if the id is null and CAN NOT be specified if the 
- * id is not null</p>
+ * Prescription Order Number is Null.</p>
  * 
- * <p>The Prescriber Name must be specified only when the 
- * Prescription Order Number is Null.</p><p>Component MUST be 
- * specified if the id is null and CAN NOT be specified if the 
- * id is not null</p>
- * 
- * <p>Information pertaining to the prescription for which a 
- * dispense is being created</p>
+ * <p>Component MUST be specified if the id is null and CAN NOT 
+ * be specified if the id is not null</p>
  * 
  * <p>Dispenses for electronically created prescriptions must 
  * reference the prescription.</p>
  * 
+ * <p>Information pertaining to the prescription for which a 
+ * dispense is being created</p>
+ * 
  * <p>PORX_MT060010CA.SupplyRequest: Prescription Reference</p>
  * 
- * <p>A reference to the prescription order being dispensed</p>
- * 
  * <p>Links a dispense with its parent prescription.</p>
+ * 
+ * <p>A reference to the prescription order being dispensed</p>
  * 
  * <p>PORX_MT060090CA.SubstanceAdministrationRequest: 
  * Prescription Reference</p>
  * 
- * <p>A reference to the prescription order being dispensed</p>
- * 
  * <p>Links a dispense with its parent prescription.</p>
+ * 
+ * <p>A reference to the prescription order being dispensed</p>
  * 
  * <p>PORX_MT020060CA.DeviceRequest: Prescription Reference</p>
  * 
  * <p>The Prescriber Name must be specified only when the 
  * Prescription ID is Null</p>
  * 
- * <p>Information pertaining to the prescription for which a 
- * dispense is being created</p>
- * 
  * <p>Dispenses for electronically created prescriptions must 
  * reference the prescription.</p>
+ * 
+ * <p>Information pertaining to the prescription for which a 
+ * dispense is being created</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.DeviceRequest","PORX_MT020060CA.DeviceRequest","PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 @Hl7RootType
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -127,97 +123,83 @@ public class PrescriptionReferenceBean extends MessagePartBean {
 
 
     /**
-     * <p>Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionNumber</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.DeviceRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
+     * 
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * ID is only 'populated' because in some cases the 
+     * prescription will not yet exist electronically.</p>
+     * 
+     * <p>The identifier of the prescription for which a dispense 
+     * is being created.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS will always assign a Prescription Order 
+     * Number.</p>
      * 
      * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
      * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows prescriptions to be uniquely referenced and 
      * associated with the dispense.</p><p>The ID is mandatory 
      * because the DIS will always assign a Prescription Order 
      * Number.</p>
-     * 
-     * <p>Prescription Order Number</p>
      * 
      * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
      * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p>
+     * <p>Relationship: PORX_MT020060CA.DeviceRequest.id</p>
      * 
-     * <p>D:Prescription Order Number</p>
-     * 
-     * <p>The identifier of the prescription for which a dispense 
-     * is being created.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
      * ID is only 'populated' because in some cases the 
      * prescription will not yet exist electronically.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * ID is only 'populated' because in some cases the 
-     * prescription will not yet exist electronically.</p>
-     * 
-     * <p>D:Prescription Order Number</p>
      * 
      * <p>The identifier of the prescription for which a dispense 
      * is beiing created.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * ID is only 'populated' because in some cases the 
-     * prescription will not yet exist electronically.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * ID is only 'populated' because in some cases the 
-     * prescription will not yet exist electronically.</p>
-     * 
-     * <p>A: Prescription Number</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -225,97 +207,83 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionNumber</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.DeviceRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for the situations where the order is originating 
+     * from the DIS.</p><p>Allows prescriptions to be uniquely 
+     * referenced.</p><p>Because this attribute is not used for 
+     * prescriptions originating from a prescriber system, the 
+     * element is optional.</p>
+     * 
+     * <p>The Prescription Order Number is a globally unique number 
+     * assigned to a prescription by the EHR/DIS irrespective of 
+     * the source of the order</p><p>It is created by the EHR/DIS 
+     * once the prescription has passed all edits and 
+     * validation.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * ID is only 'populated' because in some cases the 
+     * prescription will not yet exist electronically.</p>
+     * 
+     * <p>The identifier of the prescription for which a dispense 
+     * is being created.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS will always assign a Prescription Order 
+     * Number.</p>
      * 
      * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
      * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows prescriptions to be uniquely referenced and 
      * associated with the dispense.</p><p>The ID is mandatory 
      * because the DIS will always assign a Prescription Order 
      * Number.</p>
-     * 
-     * <p>Prescription Order Number</p>
      * 
      * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
      * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS will always assign a Prescription Order 
-     * Number.</p>
+     * <p>Relationship: PORX_MT020060CA.DeviceRequest.id</p>
      * 
-     * <p>D:Prescription Order Number</p>
-     * 
-     * <p>The identifier of the prescription for which a dispense 
-     * is being created.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
      * ID is only 'populated' because in some cases the 
      * prescription will not yet exist electronically.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * ID is only 'populated' because in some cases the 
-     * prescription will not yet exist electronically.</p>
-     * 
-     * <p>D:Prescription Order Number</p>
      * 
      * <p>The identifier of the prescription for which a dispense 
      * is beiing created.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * ID is only 'populated' because in some cases the 
-     * prescription will not yet exist electronically.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
-     * ID is only 'populated' because in some cases the 
-     * prescription will not yet exist electronically.</p>
-     * 
-     * <p>A: Prescription Number</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
-     * 
-     * <p>Allows for the situations where the order is originating 
-     * from the DIS.</p><p>Allows prescriptions to be uniquely 
-     * referenced.</p><p>Because this attribute is not used for 
-     * prescriptions originating from a prescriber system, the 
-     * element is optional.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -323,9 +291,17 @@ public class PrescriptionReferenceBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionStatus</p>
+     * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>C:Prescription Status</p>
+     * <p>Other Business Name: PrescriptionStatus</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.DeviceRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: new, 
@@ -333,10 +309,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * nullified. Use 'active' when registering a new prescription 
      * or converting a predetermination into a valid 
      * prescription.</p>
-     * 
-     * <p>Indicates what actions are allowed to be performed 
-     * against a prescription. This is a mandatory field because 
-     * every prescription needs to be in some state.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -344,9 +316,17 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionStatus</p>
+     * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>C:Prescription Status</p>
+     * <p>Other Business Name: PrescriptionStatus</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.DeviceRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: new, 
@@ -354,10 +334,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * nullified. Use 'active' when registering a new prescription 
      * or converting a predetermination into a valid 
      * prescription.</p>
-     * 
-     * <p>Indicates what actions are allowed to be performed 
-     * against a prescription. This is a mandatory field because 
-     * every prescription needs to be in some state.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -365,9 +341,21 @@ public class PrescriptionReferenceBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionMaskingIndicators</p>
+     * <p>Business Name: PrescriptionMaskingIndicators</p>
      * 
-     * <p>F:Prescription Masking Indicators</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicators</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.DeviceRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their prescription data.</p><p>Taboo allows the provider 
+     * to request restricted access to patient or their care 
+     * giver.</p><p>Constraint: Cant have both normal and one of 
+     * the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their prescriptions. Provides support for additional 
@@ -377,52 +365,6 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * 'Masked') and 'T' (taboo - denotes 'Patient Access 
      * Restricted').</p><p>The default is 'normal' signifying 'Not 
      * Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions. Provides support for additional 
-     * confidentiality constraint, giving patients a level of 
-     * control over their information.</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions. Provides support for additional 
-     * confidentiality constraint, giving patients a level of 
-     * control over their information.</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>Taboo allows the provider 
-     * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
-     * the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>Taboo allows the provider 
-     * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
-     * the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>Taboo allows the provider 
-     * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
-     * the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their prescription data.</p><p>Taboo allows the provider 
-     * to request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
-     * the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getConfidentialityCode() {
@@ -430,113 +372,359 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.DirectTarget.manufacturedProduct</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/manufacturedProduct"})
     public DeviceProductBean getDirectTargetManufacturedProduct() {
         return this.directTargetManufacturedProduct;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.DirectTarget.manufacturedProduct</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
         this.directTargetManufacturedProduct = directTargetManufacturedProduct;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Predecessor.priorDeviceRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
     public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
         return this.predecessorPriorDeviceRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Predecessor.priorDeviceRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
         this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.DeviceRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
         return this.reason;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Coverage2.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"coverage/coverage"})
     public List<CoverageExtensions_1Bean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/procedureRequest"})
     public ProcedureRequestBean getComponent1ProcedureRequest() {
         return this.component1ProcedureRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
         this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component2/supplyRequest"})
     public DispenseInstructions_1Bean getComponent2SupplyRequest() {
         return this.component2SupplyRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent2SupplyRequest(DispenseInstructions_1Bean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Subject4.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public NotesBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Subject4.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.DeviceRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.DeviceRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/contextConductionInd"})
     public Boolean getComponentContextConductionInd() {
         return this.componentContextConductionInd.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
         this.componentContextConductionInd.setValue(componentContextConductionInd);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/supplyRequest"})
     public DispenseInstructions_2Bean getComponentSupplyRequest() {
         return this.componentSupplyRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentSupplyRequest(DispenseInstructions_2Bean componentSupplyRequest) {
         this.componentSupplyRequest = componentSupplyRequest;
     }

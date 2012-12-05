@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt303010ca.Rol
 
 
 /**
- * <p>PRPM_IN303030CA: Update Provider Notification</p>
+ * <p>Business Name: PRPM_IN303030CA: Update Provider 
+ * Notification</p>
+ * 
+ * <p>This interaction is used to send a notification that a 
+ * provider record has been updated in a provider registry 
+ * system. No response is expected from the recipient 
+ * system.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +53,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt303010ca.Rol
 @Hl7PartTypeMapping({"PRPM_IN303030CA"})
 public class UpdateProviderNotificationBean extends HL7Message_1Bean<TriggerEvent_3Bean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

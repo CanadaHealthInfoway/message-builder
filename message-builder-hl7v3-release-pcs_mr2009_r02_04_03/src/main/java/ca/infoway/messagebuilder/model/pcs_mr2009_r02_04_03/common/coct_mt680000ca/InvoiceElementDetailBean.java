@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicatedRe
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
@@ -64,7 +64,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
 
 
     /**
-     * <p>Product/service Code</p>
+     * <p>Business Name: Product/service Code</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Domain for AdjudicatedInvoiceElementDetail.code is 
      * GenericBillableItemModifier</p>
@@ -79,7 +84,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
 
     /**
-     * <p>Product/service Code</p>
+     * <p>Business Name: Product/service Code</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Domain for AdjudicatedInvoiceElementDetail.code is 
      * GenericBillableItemModifier</p>
@@ -94,7 +104,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
 
 
     /**
-     * <p>Quantity per Unit</p>
+     * <p>Business Name: Quantity per Unit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>e.g. 3 {boxes}</p>
      */
@@ -104,7 +119,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
 
     /**
-     * <p>Quantity per Unit</p>
+     * <p>Business Name: Quantity per Unit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>e.g. 3 {boxes}</p>
      */
@@ -114,7 +134,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
 
 
     /**
-     * <p>Price Per Unit</p>
+     * <p>Business Name: Price Per Unit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>e.g. $50 CAD/ 1 {box}</p>
      */
@@ -124,7 +149,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
 
     /**
-     * <p>Price Per Unit</p>
+     * <p>Business Name: Price Per Unit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>e.g. $50 CAD/ 1 {box}</p>
      */
@@ -134,7 +164,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
 
 
     /**
-     * <p>Invoice Element Amount billed</p>
+     * <p>Business Name: Invoice Element Amount billed</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
@@ -145,7 +180,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
 
     /**
-     * <p>Invoice Element Amount billed</p>
+     * <p>Business Name: Invoice Element Amount billed</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
@@ -156,7 +196,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
 
 
     /**
-     * <p>Multiplier for Taxes.</p>
+     * <p>Business Name: Multiplier for Taxes.</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
@@ -167,7 +212,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
 
     /**
-     * <p>Multiplier for Taxes.</p>
+     * <p>Business Name: Multiplier for Taxes.</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>

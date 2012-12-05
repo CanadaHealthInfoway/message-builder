@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.poiz_mt03
 
 
 /**
- * <p>POIZ_IN010070CA: Update immunization request</p>
+ * <p>Business Name: POIZ_IN010070CA: Update immunization 
+ * request</p>
+ * 
+ * <p>Request that information about a previously recorded 
+ * immunization be changed.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.poiz_mt03
 @Hl7PartTypeMapping({"POIZ_IN010070CA"})
 public class UpdateImmunizationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ImmunizationsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

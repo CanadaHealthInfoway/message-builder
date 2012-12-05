@@ -32,12 +32,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT060150CA.PersonalRelationshipRole"})
 public class PersonalRelationshipRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.merged.InformationSourceChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
 
 
     /**
-     * <p>Personal Relationship Type</p>
+     * <p>Business Name: Personal Relationship Type</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.PersonalRelationshipRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public PersonalRelationshipRoleType getCode() {
@@ -45,7 +50,12 @@ public class PersonalRelationshipRoleBean extends MessagePartBean implements ca.
     }
 
     /**
-     * <p>Personal Relationship Type</p>
+     * <p>Business Name: Personal Relationship Type</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.PersonalRelationshipRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(PersonalRelationshipRoleType code) {
         this.code.setValue(code);

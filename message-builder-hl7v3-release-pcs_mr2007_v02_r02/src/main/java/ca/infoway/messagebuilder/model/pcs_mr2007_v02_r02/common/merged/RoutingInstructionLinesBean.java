@@ -29,54 +29,84 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>RoutingInstructionLines</p>
+ * <p>Business Name: RoutingInstructionLines</p>
  * 
  * <p>MCCI_MT102001CA.AttentionLine: Routing Instruction Lines</p>
  * 
- * <p>Provides information on how the message should be routed 
- * within the receiving application.</p>
- * 
  * <p>Allows direction of messages within complex applications. 
  * This association is optional because not all applications 
  * will require this level of routing.</p>
+ * 
+ * <p>Provides information on how the message should be routed 
+ * within the receiving application.</p>
  * 
  * <p>MCCI_MT002300CA.AttentionLine: Routing Instruction Lines</p>
  * 
- * <p>Provides information on how the message should be routed 
- * within the receiving application.</p>
- * 
  * <p>Allows direction of messages within complex applications. 
  * This association is optional because not all applications 
  * will require this level of routing.</p>
+ * 
+ * <p>Provides information on how the message should be routed 
+ * within the receiving application.</p>
  * 
  * <p>MCCI_MT002100CA.AttentionLine: Routing Instruction Lines</p>
  * 
- * <p>Provides information on how the message should be routed 
- * within the receiving application.</p>
- * 
  * <p>Allows direction of messages within complex applications. 
  * This association is optional because not all applications 
  * will require this level of routing.</p>
+ * 
+ * <p>Provides information on how the message should be routed 
+ * within the receiving application.</p>
  */
 @Hl7PartTypeMapping({"MCCI_MT002100CA.AttentionLine","MCCI_MT002300CA.AttentionLine","MCCI_MT102001CA.AttentionLine"})
 public class RoutingInstructionLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST keyWordText = new STImpl();
     private ST value = new STImpl();
 
 
     /**
-     * <p>RoutingType</p>
+     * <p>Business Name: RoutingType</p>
      * 
-     * <p>A:Routing Type</p>
+     * <p>Other Business Name: RoutingType</p>
      * 
-     * <p>A particular type of guidance for routing the 
-     * message.</p>
+     * <p>Relationship: MCCI_MT102001CA.AttentionLine.keyWordText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows categorization of routing types or support for 
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
+     * 
+     * <p>A particular type of guidance for routing the 
+     * message.</p>
+     * 
+     * <p>Other Business Name: RoutingType</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.AttentionLine.keyWordText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorization of routing types or support for 
+     * multiple route pieces. Mandatory to understand the routing 
+     * information.</p>
+     * 
+     * <p>A particular type of guidance for routing the 
+     * message.</p>
+     * 
+     * <p>Other Business Name: RoutingType</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.AttentionLine.keyWordText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorization of routing types or support for 
+     * multiple route pieces. Mandatory to understand the routing 
+     * information.</p>
+     * 
+     * <p>A particular type of guidance for routing the 
+     * message.</p>
      */
     @Hl7XmlMapping({"keyWordText"})
     public String getKeyWordText() {
@@ -84,16 +114,46 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>RoutingType</p>
+     * <p>Business Name: RoutingType</p>
      * 
-     * <p>A:Routing Type</p>
+     * <p>Other Business Name: RoutingType</p>
      * 
-     * <p>A particular type of guidance for routing the 
-     * message.</p>
+     * <p>Relationship: MCCI_MT102001CA.AttentionLine.keyWordText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows categorization of routing types or support for 
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
+     * 
+     * <p>A particular type of guidance for routing the 
+     * message.</p>
+     * 
+     * <p>Other Business Name: RoutingType</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.AttentionLine.keyWordText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorization of routing types or support for 
+     * multiple route pieces. Mandatory to understand the routing 
+     * information.</p>
+     * 
+     * <p>A particular type of guidance for routing the 
+     * message.</p>
+     * 
+     * <p>Other Business Name: RoutingType</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.AttentionLine.keyWordText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows categorization of routing types or support for 
+     * multiple route pieces. Mandatory to understand the routing 
+     * information.</p>
+     * 
+     * <p>A particular type of guidance for routing the 
+     * message.</p>
      */
     public void setKeyWordText(String keyWordText) {
         this.keyWordText.setValue(keyWordText);
@@ -101,13 +161,37 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>RoutingName</p>
+     * <p>Business Name: RoutingName</p>
      * 
-     * <p>B:Routing Name</p>
+     * <p>Other Business Name: RoutingName</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.AttentionLine.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows internal routing within an application.</p>
      * 
      * <p>Indicates the specific value used to route the item.</p>
      * 
+     * <p>Other Business Name: RoutingName</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.AttentionLine.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows internal routing within an application.</p>
+     * 
+     * <p>Indicates the specific value used to route the item.</p>
+     * 
+     * <p>Other Business Name: RoutingName</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.AttentionLine.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows internal routing within an application.</p>
+     * 
+     * <p>Indicates the specific value used to route the item.</p>
      */
     @Hl7XmlMapping({"value"})
     public String getValue() {
@@ -115,13 +199,37 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>RoutingName</p>
+     * <p>Business Name: RoutingName</p>
      * 
-     * <p>B:Routing Name</p>
+     * <p>Other Business Name: RoutingName</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.AttentionLine.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows internal routing within an application.</p>
      * 
      * <p>Indicates the specific value used to route the item.</p>
      * 
+     * <p>Other Business Name: RoutingName</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.AttentionLine.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows internal routing within an application.</p>
+     * 
+     * <p>Indicates the specific value used to route the item.</p>
+     * 
+     * <p>Other Business Name: RoutingName</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.AttentionLine.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows internal routing within an application.</p>
+     * 
+     * <p>Indicates the specific value used to route the item.</p>
      */
     public void setValue(String value) {
         this.value.setValue(value);

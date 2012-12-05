@@ -38,20 +38,20 @@ import java.util.List;
 
 
 /**
- * <p>Specimen Collection Procedure</p>
- * 
- * <p>This is the procedure act which describes the 
- * process/procedure used to collect the associated 
- * specimen.</p>
+ * <p>Business Name: Specimen Collection Procedure</p>
  * 
  * <p>For certain laboratory tests, the specimen collection 
  * procedure information is relevant in determining the result 
  * value.</p>
+ * 
+ * <p>This is the procedure act which describes the 
+ * process/procedure used to collect the associated 
+ * specimen.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareWorkerBean performerAssignedEntity;
@@ -59,7 +59,17 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Specimen Collection Text</p>
+     * <p>Business Name: G:Specimen Collection Text</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The text attribute documents any additional information 
+     * regarding this specimen collection procedure event that is 
+     * not able to be communicated using the other attribution of 
+     * this act e.g. for granularity of coding reasons.</p>
      * 
      * <p>Used to describe any additional information regarding the 
      * specimen collection procedure or the collected material, 
@@ -70,11 +80,6 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
      * not used for notes or comments regarding the specimen 
      * collection process. Notes and annotations are documented 
      * using the Annotation CMET.</p>
-     * 
-     * <p>The text attribute documents any additional information 
-     * regarding this specimen collection procedure event that is 
-     * not able to be communicated using the other attribution of 
-     * this act e.g. for granularity of coding reasons.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -82,7 +87,17 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Specimen Collection Text</p>
+     * <p>Business Name: G:Specimen Collection Text</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The text attribute documents any additional information 
+     * regarding this specimen collection procedure event that is 
+     * not able to be communicated using the other attribution of 
+     * this act e.g. for granularity of coding reasons.</p>
      * 
      * <p>Used to describe any additional information regarding the 
      * specimen collection procedure or the collected material, 
@@ -93,11 +108,6 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
      * not used for notes or comments regarding the specimen 
      * collection process. Notes and annotations are documented 
      * using the Annotation CMET.</p>
-     * 
-     * <p>The text attribute documents any additional information 
-     * regarding this specimen collection procedure event that is 
-     * not able to be communicated using the other attribution of 
-     * this act e.g. for granularity of coding reasons.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -105,19 +115,20 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Specimen Collection Date/Time</p>
+     * <p>Business Name: E:Specimen Collection Date/Time</p>
      * 
-     * <p>The date/time the specimen was collected. This can be a 
-     * date/time interval (start - stop).</p><p>The time may not 
-     * always be known, but a date should always be entered.</p>
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.effectiveTime</p>
      * 
-     * <p>The date/time the specimen was collected. This can be a 
-     * date/time interval (start - stop).</p><p>The time may not 
-     * always be known, but a date should always be entered.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The specimen collection date/time is relevant to the 
      * testing and resulting outcome of that specimen for some 
      * laboratory tests.</p>
+     * 
+     * <p>The date/time the specimen was collected. This can be a 
+     * date/time interval (start - stop).</p><p>The time may not 
+     * always be known, but a date should always be entered.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -125,19 +136,20 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Specimen Collection Date/Time</p>
+     * <p>Business Name: E:Specimen Collection Date/Time</p>
      * 
-     * <p>The date/time the specimen was collected. This can be a 
-     * date/time interval (start - stop).</p><p>The time may not 
-     * always be known, but a date should always be entered.</p>
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.effectiveTime</p>
      * 
-     * <p>The date/time the specimen was collected. This can be a 
-     * date/time interval (start - stop).</p><p>The time may not 
-     * always be known, but a date should always be entered.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The specimen collection date/time is relevant to the 
      * testing and resulting outcome of that specimen for some 
      * laboratory tests.</p>
+     * 
+     * <p>The date/time the specimen was collected. This can be a 
+     * date/time interval (start - stop).</p><p>The time may not 
+     * always be known, but a date should always be entered.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -154,6 +166,11 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT080100CA.Subject2.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public List<NotesBean> getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;

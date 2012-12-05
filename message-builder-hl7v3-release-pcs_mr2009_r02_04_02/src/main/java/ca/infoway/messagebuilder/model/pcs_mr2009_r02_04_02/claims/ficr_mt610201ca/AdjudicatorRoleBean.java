@@ -40,14 +40,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorRole"})
 public class AdjudicatorRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PN playingAdjudicatorPersonName = new PNImpl();
     private InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole;
 
 
     /**
-     * <p>Adjudicator ID</p>
+     * <p>Business Name: Adjudicator ID</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -55,7 +59,11 @@ public class AdjudicatorRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudicator ID</p>
+     * <p>Business Name: Adjudicator ID</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -63,7 +71,11 @@ public class AdjudicatorRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Adjudicator Person Name</p>
+     * <p>Business Name: Adjudicator Person Name</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"playingAdjudicatorPerson/name"})
     public PersonName getPlayingAdjudicatorPersonName() {
@@ -71,18 +83,34 @@ public class AdjudicatorRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudicator Person Name</p>
+     * <p>Business Name: Adjudicator Person Name</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setPlayingAdjudicatorPersonName(PersonName playingAdjudicatorPersonName) {
         this.playingAdjudicatorPersonName.setValue(playingAdjudicatorPersonName);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.DirectAuthorityOver.insuranceCarrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directAuthority/insuranceCarrierRole"})
     public InsuranceCarrierRoleBean getDirectAuthorityInsuranceCarrierRole() {
         return this.directAuthorityInsuranceCarrierRole;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.DirectAuthorityOver.insuranceCarrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectAuthorityInsuranceCarrierRole(InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole) {
         this.directAuthorityInsuranceCarrierRole = directAuthorityInsuranceCarrierRole;
     }

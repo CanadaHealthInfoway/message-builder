@@ -45,7 +45,7 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> adjudResultsGroupAuthorTimeValue = new IVLImpl<TS, Interval<Date>>();
     private II adjudResultsGroupIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();
@@ -57,91 +57,185 @@ public class ParameterListBean extends MessagePartBean {
     private II sendingApplicationIdValue = new IIImpl();
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT800201CA.AdjudResultsGroupAuthorTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
     public Interval<Date> getAdjudResultsGroupAuthorTimeValue() {
         return this.adjudResultsGroupAuthorTimeValue.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT800201CA.AdjudResultsGroupAuthorTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAdjudResultsGroupAuthorTimeValue(Interval<Date> adjudResultsGroupAuthorTimeValue) {
         this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.AdjudResultsGroupId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"adjudResultsGroupId/value"})
     public Identifier getAdjudResultsGroupIdValue() {
         return this.adjudResultsGroupIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.AdjudResultsGroupId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
         this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.FinancialContractId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"financialContractId/value"})
     public Identifier getFinancialContractIdValue() {
         return this.financialContractIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.FinancialContractId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setFinancialContractIdValue(Identifier financialContractIdValue) {
         this.financialContractIdValue.setValue(financialContractIdValue);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT800201CA.InsuranceCarrierRoleId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
     public Identifier getInsuranceCarrierRoleIdValue() {
         return this.insuranceCarrierRoleIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT800201CA.InsuranceCarrierRoleId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInsuranceCarrierRoleIdValue(Identifier insuranceCarrierRoleIdValue) {
         this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.LocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"locationId/value"})
     public Identifier getLocationIdValue() {
         return this.locationIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.LocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocationIdValue(Identifier locationIdValue) {
         this.locationIdValue.setValue(locationIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.PayeeId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"payeeId/value"})
     public Identifier getPayeeIdValue() {
         return this.payeeIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.PayeeId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPayeeIdValue(Identifier payeeIdValue) {
         this.payeeIdValue.setValue(payeeIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.PayorId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"payorId/value"})
     public Identifier getPayorIdValue() {
         return this.payorIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.PayorId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPayorIdValue(Identifier payorIdValue) {
         this.payorIdValue.setValue(payorIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.ProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"providerId/value"})
     public Identifier getProviderIdValue() {
         return this.providerIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.ProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setProviderIdValue(Identifier providerIdValue) {
         this.providerIdValue.setValue(providerIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.SendingApplicationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"sendingApplicationId/value"})
     public Identifier getSendingApplicationIdValue() {
         return this.sendingApplicationIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT800201CA.SendingApplicationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
         this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }

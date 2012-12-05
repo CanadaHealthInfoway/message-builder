@@ -44,20 +44,20 @@ import java.util.Date;
 
 
 /**
- * <p>Immunizations</p>
- * 
- * <p>A record of products administered to a patient specific 
- * to immunization.</p>
+ * <p>Business Name: Immunizations</p>
  * 
  * <p>Necessary component of a person's overall vaccine 
  * profile. Helps deal with outbreaks and also vaccine 
  * contraindication checking.</p>
+ * 
+ * <p>A record of products administered to a patient specific 
+ * to immunization.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Immunization"})
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.Summary {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -71,14 +71,18 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>A:Immunization Record Id</p>
+     * <p>Business Name: A:Immunization Record Id</p>
      * 
-     * <p>This is an identifier assigned to a unique instance of an 
-     * immunization record.</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the unique referencing of a specific 
      * immunization record. This should be known for query 
      * responses and is, therefore, mandatory.</p>
+     * 
+     * <p>This is an identifier assigned to a unique instance of an 
+     * immunization record.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -86,14 +90,18 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>A:Immunization Record Id</p>
+     * <p>Business Name: A:Immunization Record Id</p>
      * 
-     * <p>This is an identifier assigned to a unique instance of an 
-     * immunization record.</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the unique referencing of a specific 
      * immunization record. This should be known for query 
      * responses and is, therefore, mandatory.</p>
+     * 
+     * <p>This is an identifier assigned to a unique instance of an 
+     * immunization record.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -101,15 +109,19 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Not Immunized?</p>
+     * <p>Business Name: Not Immunized?</p>
      * 
-     * <p>An explicit indication that a person has not been 
-     * immunized with the specified vaccine at the time 
-     * indicated.</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Tracking failures to be immunized is also important in 
      * immunization reporting. Marked as mandatory because it is 
      * not meaningful for this flag to be 'unknown'.</p>
+     * 
+     * <p>An explicit indication that a person has not been 
+     * immunized with the specified vaccine at the time 
+     * indicated.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -117,15 +129,19 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>Not Immunized?</p>
+     * <p>Business Name: Not Immunized?</p>
      * 
-     * <p>An explicit indication that a person has not been 
-     * immunized with the specified vaccine at the time 
-     * indicated.</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Tracking failures to be immunized is also important in 
      * immunization reporting. Marked as mandatory because it is 
      * not meaningful for this flag to be 'unknown'.</p>
+     * 
+     * <p>An explicit indication that a person has not been 
+     * immunized with the specified vaccine at the time 
+     * indicated.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -133,15 +149,19 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Immunization Event Status</p>
+     * <p>Business Name: Immunization Event Status</p>
      * 
-     * <p>Status of the immunization event</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to differentiate between valid, obsolete and 
      * invalid immunization events (e.g. immunization event has 
      * been retracted or nullified) and is therefore mandatory.</p>
      * 
      * <p>Nullified=Retracted</p>
+     * 
+     * <p>Status of the immunization event</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -149,15 +169,19 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>Immunization Event Status</p>
+     * <p>Business Name: Immunization Event Status</p>
      * 
-     * <p>Status of the immunization event</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to differentiate between valid, obsolete and 
      * invalid immunization events (e.g. immunization event has 
      * been retracted or nullified) and is therefore mandatory.</p>
      * 
      * <p>Nullified=Retracted</p>
+     * 
+     * <p>Status of the immunization event</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -165,13 +189,17 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Immunization Date</p>
+     * <p>Business Name: Immunization Date</p>
      * 
-     * <p>The date the vaccine was administered to the patient.</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important information for establishing the validity of 
      * the immunization records, and therefore mandatory. Also used 
      * in the scheduling of subsequent immunizations.</p>
+     * 
+     * <p>The date the vaccine was administered to the patient.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -179,13 +207,17 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>Immunization Date</p>
+     * <p>Business Name: Immunization Date</p>
      * 
-     * <p>The date the vaccine was administered to the patient.</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important information for establishing the validity of 
      * the immunization records, and therefore mandatory. Also used 
      * in the scheduling of subsequent immunizations.</p>
+     * 
+     * <p>The date the vaccine was administered to the patient.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -193,14 +225,19 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Uncertainty Code</p>
+     * <p>Business Name: Uncertainty Code</p>
      * 
-     * <p>An indication of uncertainty regarding an immunization 
-     * event</p>
+     * <p>Relationship: 
+     * POIZ_MT061150CA.Immunization.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows for users of information to determine the degree 
      * of uncertainty regarding the details of an immunization 
      * event and is therefore populated.</p>
+     * 
+     * <p>An indication of uncertainty regarding an immunization 
+     * event</p>
      */
     @Hl7XmlMapping({"uncertaintyCode"})
     public ActUncertainty getUncertaintyCode() {
@@ -208,14 +245,19 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>Uncertainty Code</p>
+     * <p>Business Name: Uncertainty Code</p>
      * 
-     * <p>An indication of uncertainty regarding an immunization 
-     * event</p>
+     * <p>Relationship: 
+     * POIZ_MT061150CA.Immunization.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows for users of information to determine the degree 
      * of uncertainty regarding the details of an immunization 
      * event and is therefore populated.</p>
+     * 
+     * <p>An indication of uncertainty regarding an immunization 
+     * event</p>
      */
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
         this.uncertaintyCode.setValue(uncertaintyCode);
@@ -232,31 +274,67 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT061150CA.AdministerableMedicine.administerableVaccine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"consumable/administerableMedicine/administerableVaccine"})
     public VaccineBean getConsumableAdministerableMedicineAdministerableVaccine() {
         return this.consumableAdministerableMedicineAdministerableVaccine;
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT061150CA.AdministerableMedicine.administerableVaccine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setConsumableAdministerableMedicineAdministerableVaccine(VaccineBean consumableAdministerableMedicineAdministerableVaccine) {
         this.consumableAdministerableMedicineAdministerableVaccine = consumableAdministerableMedicineAdministerableVaccine;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT061150CA.Subject5.detectedIssuesIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssuesIndicator"})
     public Boolean getSubjectOf1DetectedIssuesIndicator() {
         return this.subjectOf1DetectedIssuesIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT061150CA.Subject5.detectedIssuesIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1DetectedIssuesIndicator(Boolean subjectOf1DetectedIssuesIndicator) {
         this.subjectOf1DetectedIssuesIndicator.setValue(subjectOf1DetectedIssuesIndicator);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT061150CA.Subject2.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT061150CA.Subject2.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }

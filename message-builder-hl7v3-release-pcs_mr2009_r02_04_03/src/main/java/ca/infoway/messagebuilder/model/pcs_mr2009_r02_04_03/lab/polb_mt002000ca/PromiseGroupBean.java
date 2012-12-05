@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.PromiseGroup"})
 public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
     private II id = new IIImpl();
@@ -93,7 +93,11 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
 
     /**
-     * <p>Promise Grouper Identifier</p>
+     * <p>Business Name: Promise Grouper Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.PromiseGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -101,7 +105,11 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
     /**
-     * <p>Promise Grouper Identifier</p>
+     * <p>Business Name: Promise Grouper Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.PromiseGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -121,7 +129,11 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
 
     /**
-     * <p>Promise Grouper Date/Time</p>
+     * <p>Business Name: Promise Grouper Date/Time</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.PromiseGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -129,25 +141,46 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
     /**
-     * <p>Promise Grouper Date/Time</p>
+     * <p>Business Name: Promise Grouper Date/Time</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.PromiseGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient"})
     public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
         return this.primaryInformationRecipient;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
         this.primaryInformationRecipient = primaryInformationRecipient;
     }
 
 
     /**
-     * <p>Result Masking Indicator</p>
+     * <p>Business Name: Result Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseGroup.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -177,17 +210,32 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Component.promiseChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/promiseChoice"})
     public List<PromiseChoice> getComponentPromiseChoice() {
         return this.componentPromiseChoice;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

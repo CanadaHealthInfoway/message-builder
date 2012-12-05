@@ -34,18 +34,18 @@ import java.util.List;
 
 
 /**
- * <p>Information Access</p>
- * 
- * <p>Describes the type of information access being consented 
- * to.</p>
+ * <p>Business Name: Information Access</p>
  * 
  * <p>Allows fine-grained control over the types of information 
  * access is granted to and who is granted access.</p>
+ * 
+ * <p>Describes the type of information access being consented 
+ * to.</p>
  */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
@@ -61,10 +61,11 @@ public class InformationAccessBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Consent Information Types</p>
+     * <p>Business Name: B:Consent Information Types</p>
      * 
-     * <p>The type of patient information that can be accessed or 
-     * modified.</p>
+     * <p>Relationship: RCMR_MT010001CA.RecordType.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Different consents may need access to different types of 
      * patient information (e.g. demographics, medications, 
@@ -72,6 +73,9 @@ public class InformationAccessBean extends MessagePartBean {
      * information the consent applies to is critical to 
      * controlling access, and therefore the attribute is 
      * mandatory.</p>
+     * 
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
      */
     @Hl7XmlMapping({"subject/recordType/code"})
     public List<ActInformationAccessTypeCode> getSubjectRecordTypeCode() {

@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.Adjudica
 
 
 /**
- * <p>Payment Reason</p>
+ * <p>Business Name: Payment Reason</p>
  * 
  * <p>For spontaneous EOBs, there may be more than 1 EOB for 
  * the same Payment Intent.</p>
@@ -42,15 +42,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.Adjudica
 @Hl7PartTypeMapping({"FICR_MT610201CA.PaymentIntentReason"})
 public class PaymentReasonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.PaymentIntentReason.adjudicatedInvoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"adjudicatedInvoiceElementChoice"})
     public AdjudicatedInvoiceElementChoice getAdjudicatedInvoiceElementChoice() {
         return this.adjudicatedInvoiceElementChoice;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.PaymentIntentReason.adjudicatedInvoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice) {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
     }

@@ -32,12 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400003CA.PolicyHolderPerson"})
 public class PolicyHolderPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.PolicyHolderChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PN name = new PNImpl();
 
 
     /**
-     * <p>Policy Holder Name</p>
+     * <p>Business Name: Policy Holder Name</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.PolicyHolderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"name"})
     public PersonName getName() {
@@ -45,7 +49,11 @@ public class PolicyHolderPersonBean extends MessagePartBean implements ca.infowa
     }
 
     /**
-     * <p>Policy Holder Name</p>
+     * <p>Business Name: Policy Holder Name</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.PolicyHolderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setName(PersonName name) {
         this.name.setValue(name);

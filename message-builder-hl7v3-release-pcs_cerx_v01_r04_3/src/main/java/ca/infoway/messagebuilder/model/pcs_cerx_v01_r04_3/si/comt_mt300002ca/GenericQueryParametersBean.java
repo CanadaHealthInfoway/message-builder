@@ -41,18 +41,18 @@ import java.util.Date;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"COMT_MT300002CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS patientBirthDateValue = new TSImpl();
     private CV patientGenderValue = new CVImpl();
     private II patientIDValue = new IIImpl();
@@ -61,12 +61,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Birth Date</p>
+     * <p>Business Name: Patient Birth Date</p>
      * 
-     * <p>Indicates the date on which the patient was born.</p>
+     * <p>Relationship: COMT_MT300002CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
      */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDateValue() {
@@ -74,12 +78,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Birth Date</p>
+     * <p>Business Name: Patient Birth Date</p>
      * 
-     * <p>Indicates the date on which the patient was born.</p>
+     * <p>Relationship: COMT_MT300002CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and therefore mandatory.</p>
+     * 
+     * <p>Indicates the date on which the patient was born.</p>
      */
     public void setPatientBirthDateValue(Date patientBirthDateValue) {
         this.patientBirthDateValue.setValue(patientBirthDateValue);
@@ -87,12 +95,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: COMT_MT300002CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGenderValue() {
@@ -100,12 +112,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient.</p>
+     * <p>Relationship: COMT_MT300002CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to confirm the identity of the patient for the query 
      * and therefore mandatory.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient.</p>
      */
     public void setPatientGenderValue(AdministrativeGender patientGenderValue) {
         this.patientGenderValue.setValue(patientGenderValue);
@@ -113,16 +129,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>Business Name: B:Patient ID</p>
+     * 
+     * <p>Relationship: COMT_MT300002CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient drug contraindication query. Filter the result set 
      * to include only those records pertaining to the patient with 
      * this Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient Id. This is a 
-     * mandatory field because a patient must be specified for the 
-     * query to be valid</p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -130,16 +150,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>Business Name: B:Patient ID</p>
+     * 
+     * <p>Relationship: COMT_MT300002CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. This is a 
+     * mandatory field because a patient must be specified for the 
+     * query to be valid</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient drug contraindication query. Filter the result set 
      * to include only those records pertaining to the patient with 
      * this Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient Id. This is a 
-     * mandatory field because a patient must be specified for the 
-     * query to be valid</p>
      */
     public void setPatientIDValue(Identifier patientIDValue) {
         this.patientIDValue.setValue(patientIDValue);
@@ -147,21 +171,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the drug 
-     * contraindication query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Relationship: COMT_MT300002CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the drug 
-     * contraindication query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the drug 
+     * contraindication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p>
      */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientNameValue() {
@@ -169,21 +192,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
      * 
-     * <p>The name of the patient who is the subject of the drug 
-     * contraindication query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Relationship: COMT_MT300002CA.PatientName.value</p>
      * 
-     * <p>The name of the patient who is the subject of the drug 
-     * contraindication query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows filtering of result set by patient name. This is a 
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
+     * 
+     * <p>The name of the patient who is the subject of the drug 
+     * contraindication query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p>
      */
     public void setPatientNameValue(PersonName patientNameValue) {
         this.patientNameValue.setValue(patientNameValue);
@@ -191,20 +213,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Note Category Code</p>
+     * <p>Business Name: Patient Note Category Code</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p>
+     * <p>Relationship: 
+     * COMT_MT300002CA.PatientNoteCategoryCode.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of all patient notes pertaining 
      * to a specific note category.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those patient annotation pertaining to the 
+     * specified annotation category.</p><p>Valid patient note 
+     * categories include: General, Medication, Lab, DI, etc.</p>
      */
     @Hl7XmlMapping({"patientNoteCategoryCode/value"})
     public ActPatientAnnotationCode getPatientNoteCategoryCodeValue() {
@@ -212,20 +234,20 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Note Category Code</p>
+     * <p>Business Name: Patient Note Category Code</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p>
+     * <p>Relationship: 
+     * COMT_MT300002CA.PatientNoteCategoryCode.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of all patient notes pertaining 
      * to a specific note category.</p>
+     * 
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those patient annotation pertaining to the 
+     * specified annotation category.</p><p>Valid patient note 
+     * categories include: General, Medication, Lab, DI, etc.</p>
      */
     public void setPatientNoteCategoryCodeValue(ActPatientAnnotationCode patientNoteCategoryCodeValue) {
         this.patientNoteCategoryCodeValue.setValue(patientNoteCategoryCodeValue);

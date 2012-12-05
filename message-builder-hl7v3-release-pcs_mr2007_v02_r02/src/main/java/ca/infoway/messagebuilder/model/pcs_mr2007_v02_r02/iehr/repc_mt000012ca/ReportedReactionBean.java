@@ -54,16 +54,11 @@ import java.util.Set;
 
 
 /**
- * <p>Reported Reaction</p>
+ * <p>Business Name: Reported Reaction</p>
  * 
- * <p>Value must be mandatory if not using SNOMED</p><p>Code 
- * must be fixed to DX if not using SNOMED</p>
+ * <p>Value must be mandatory if not using SNOMED</p>
  * 
- * <p>Value must be mandatory if not using SNOMED</p><p>Code 
- * must be fixed to DX if not using SNOMED</p>
- * 
- * <p>This is a record of an adverse reaction considered 
- * relevant to the patient's clinical record.</p>
+ * <p>Code must be fixed to DX if not using SNOMED</p>
  * 
  * <p>Useful in tracking reactions when it is not known 
  * precisely what product they are associated with and whether 
@@ -71,12 +66,15 @@ import java.util.Set;
  * interaction or some other cause. Effectively gives a 'heads 
  * up' to clinicians using the drug or combination of 
  * drugs.</p>
+ * 
+ * <p>This is a record of an adverse reaction considered 
+ * relevant to the patient's clinical record.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000012CA.ReactionObservationEvent"})
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -89,13 +87,17 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Reaction Record Id</p>
+     * <p>Business Name: C:Reaction Record Id</p>
      * 
-     * <p>An identifier assigned to the record of the adverse 
-     * reaction.</p>
+     * <p>Relationship: REPC_MT000012CA.ReactionObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Uniquely identifies the specific reaction record and is 
      * therefore mandatory.</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -103,13 +105,17 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Reaction Record Id</p>
+     * <p>Business Name: C:Reaction Record Id</p>
      * 
-     * <p>An identifier assigned to the record of the adverse 
-     * reaction.</p>
+     * <p>Relationship: REPC_MT000012CA.ReactionObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Uniquely identifies the specific reaction record and is 
      * therefore mandatory.</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -117,9 +123,12 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
      * 
-     * <p>Indicates the type of diagnosis being captured.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the observation is actually a diagnosis 
      * and is therefore mandatory. The datatype is CD to support 
@@ -127,6 +136,8 @@ public class ReportedReactionBean extends MessagePartBean {
      * 
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -134,9 +145,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
      * 
-     * <p>Indicates the type of diagnosis being captured.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the observation is actually a diagnosis 
      * and is therefore mandatory. The datatype is CD to support 
@@ -144,6 +158,8 @@ public class ReportedReactionBean extends MessagePartBean {
      * 
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
@@ -151,12 +167,17 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Description</p>
+     * <p>Business Name: G:Description</p>
      * 
-     * <p>A free form description of the reaction.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -164,12 +185,17 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Description</p>
+     * <p>Business Name: G:Description</p>
      * 
-     * <p>A free form description of the reaction.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -177,13 +203,18 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>Business Name: F:Reaction Onset Date</p>
      * 
-     * <p>The date on which the reaction occurrence began.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when evidence of the condition first appeared. 
      * May also provide information on the duration of the 
      * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -191,13 +222,18 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>Business Name: F:Reaction Onset Date</p>
      * 
-     * <p>The date on which the reaction occurrence began.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when evidence of the condition first appeared. 
      * May also provide information on the duration of the 
      * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -205,57 +241,12 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Adverse Reaction Masking Indicators</p>
+     * <p>Business Name: G:Adverse Reaction Masking Indicators</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their adverse reactions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.confidentialityCode</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their adverse reactions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their adverse reactions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their adverse reactions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their adverse reactions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Allows the patient to have discrete control over access 
      * to their adverse reaction data.</p><p>Taboo allows the 
@@ -264,26 +255,15 @@ public class ReportedReactionBean extends MessagePartBean {
      * of the other codes simultaneously.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their adverse reaction data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their adverse reaction data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their adverse reaction data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their adverse reactions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getConfidentialityCode() {
@@ -292,10 +272,12 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Reaction</p>
+     * <p>Business Name: B:Reaction</p>
      * 
-     * <p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Ensures consistency in tracking and categorizing the 
      * reaction type. Helps ensure that only proper allergies are 
@@ -303,6 +285,9 @@ public class ReportedReactionBean extends MessagePartBean {
      * will not be used for SNOMED. The attribute is CWE because 
      * not all possible types of reactions are expressible by coded 
      * values.</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
      */
     @Hl7XmlMapping({"value"})
     public SubjectReaction getValue() {
@@ -310,10 +295,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Reaction</p>
+     * <p>Business Name: B:Reaction</p>
      * 
-     * <p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p>
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Ensures consistency in tracking and categorizing the 
      * reaction type. Helps ensure that only proper allergies are 
@@ -321,6 +308,9 @@ public class ReportedReactionBean extends MessagePartBean {
      * will not be used for SNOMED. The attribute is CWE because 
      * not all possible types of reactions are expressible by coded 
      * values.</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
      */
     public void setValue(SubjectReaction value) {
         this.value.setValue(value);

@@ -56,7 +56,7 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -74,7 +74,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Special Authority Request ID</p>
+     * <p>Business Name: Special Authority Request ID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -82,7 +87,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Special Authority Request ID</p>
+     * <p>Business Name: Special Authority Request ID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -90,7 +100,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Special Authorization Request Type</p>
+     * <p>Business Name: Special Authorization Request Type</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActSpecialAuthorizationCode getCode() {
@@ -98,7 +113,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Special Authorization Request Type</p>
+     * <p>Business Name: Special Authorization Request Type</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActSpecialAuthorizationCode code) {
         this.code.setValue(code);
@@ -106,7 +126,13 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Special Authorization Request Effective Date</p>
+     * <p>Business Name: Special Authorization Request Effective 
+     * Date</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -114,7 +140,13 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Special Authorization Request Effective Date</p>
+     * <p>Business Name: Special Authorization Request Effective 
+     * Date</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -122,7 +154,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Special Authorization Priority Code</p>
+     * <p>Business Name: Special Authorization Priority Code</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"priorityCode"})
     public ActPriority getPriorityCode() {
@@ -130,7 +167,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Special Authorization Priority Code</p>
+     * <p>Business Name: Special Authorization Priority Code</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setPriorityCode(ActPriority priorityCode) {
         this.priorityCode.setValue(priorityCode);
@@ -138,7 +180,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Confidentiality Restriction(s</p>
+     * <p>Business Name: Confidentiality Restriction(s</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_VeryBasicConfidentialityKind> getConfidentialityCode() {
@@ -166,6 +213,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.Support2.specialAuthorizationCriteria</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"support/specialAuthorizationCriteria"})
     public List<SpecialAuthorizationCriteriaBean> getSupportSpecialAuthorizationCriteria() {
         return this.supportSpecialAuthorizationCriteria;
@@ -188,11 +241,21 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Coverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"coverage/policyOrAccount"})
     public PolicyOrAccountBean getCoveragePolicyOrAccount() {
         return this.coveragePolicyOrAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Coverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCoveragePolicyOrAccount(PolicyOrAccountBean coveragePolicyOrAccount) {
         this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
@@ -204,11 +267,23 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.InFulfillmentOf.specialAuthorization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment/specialAuthorization"})
     public SpecialAuthorizationBean getFulfillmentSpecialAuthorization() {
         return this.fulfillmentSpecialAuthorization;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.InFulfillmentOf.specialAuthorization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillmentSpecialAuthorization(SpecialAuthorizationBean fulfillmentSpecialAuthorization) {
         this.fulfillmentSpecialAuthorization = fulfillmentSpecialAuthorization;
     }

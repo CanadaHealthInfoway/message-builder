@@ -36,126 +36,84 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Exposures</p>
+ * <p>Business Name: Exposures</p>
  * 
  * <p>REPC_MT000005CA.ExposureEvent: Exposures</p>
  * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
  * <p>Communicates the cause of the adverse reaction.</p>
+ * 
+ * <p>Incidence of the patient's exposure to (or contact with) 
+ * with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p>
  * 
  * <p>REPC_MT000006CA.ExposureEvent: Exposures</p>
  * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
  * <p>Communicates the cause of the adverse reaction.</p>
+ * 
+ * <p>Incidence of the patient's exposure to (or contact with) 
+ * with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p>
  * 
  * <p>REPC_MT000001CA.ExposureEvent: Exposures</p>
  * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
  * <p>Communicates the cause of the adverse reaction.</p>
+ * 
+ * <p>Incidence of the patient's exposure to (or contact with) 
+ * with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p>
  * 
  * <p>REPC_MT000012CA.ExposureEvent: Exposures</p>
  * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
  * <p>Communicates the cause of the adverse reaction.</p>
+ * 
+ * <p>Incidence of the patient's exposure to (or contact with) 
+ * with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p>
  * 
  * <p>REPC_MT000009CA.ExposureEvent: Exposures</p>
  * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
  * <p>Communicates the cause of the adverse reaction.</p>
+ * 
+ * <p>Incidence of the patient's exposure to (or contact with) 
+ * with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p>
  * 
  * <p>REPC_MT000013CA.ExposureEvent: Exposures</p>
  * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
  * <p>Communicates the cause of the adverse reaction.</p>
+ * 
+ * <p>Incidence of the patient's exposure to (or contact with) 
+ * with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p>
  * 
  * <p>REPC_MT000002CA.ExposureEvent: Exposures</p>
  * 
  * <p>routeCode is required if not using SNOMED</p>
  * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
- * <p>Incidence of the patient's exposure to (or contact with) 
- * with some material that might have caused the adverse 
- * reaction.</p><p>Examples of exposures include: Administering 
- * a substance (drug, food, etc) to the patient, Patient coming 
- * into contact with an environmental material, etc.</p>
- * 
  * <p>Communicates the cause of the adverse reaction.</p>
+ * 
+ * <p>Incidence of the patient's exposure to (or contact with) 
+ * with some material that might have caused the adverse 
+ * reaction.</p><p>Examples of exposures include: Administering 
+ * a substance (drug, food, etc) to the patient, Patient coming 
+ * into contact with an environmental material, etc.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.ExposureEvent","REPC_MT000002CA.ExposureEvent","REPC_MT000005CA.ExposureEvent","REPC_MT000006CA.ExposureEvent","REPC_MT000009CA.ExposureEvent","REPC_MT000012CA.ExposureEvent","REPC_MT000013CA.ExposureEvent"})
 public class ExposuresBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV routeCode = new CVImpl();
     private CV consumableAdministrableMaterialAdministerableMaterialKindCode = new CVImpl();
@@ -163,25 +121,98 @@ public class ExposuresBean extends MessagePartBean {
 
 
     /**
-     * <p>IncidenceIdentifier</p>
+     * <p>Business Name: IncidenceIdentifier</p>
      * 
-     * <p>B:Incidence Identifier</p>
+     * <p>Other Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Identifier of the record or order that caused the 
-     * reaction. This could be an identifier for a prescription, 
-     * immunization, or other active medication record.</p>
+     * <p>Relationship: REPC_MT000005CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
-     * 
-     * <p>B:Incidence Identifier</p>
      * 
      * <p>Identifier of the exposure event that caused the adverse 
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the record or order that caused the 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -189,25 +220,98 @@ public class ExposuresBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncidenceIdentifier</p>
+     * <p>Business Name: IncidenceIdentifier</p>
      * 
-     * <p>B:Incidence Identifier</p>
+     * <p>Other Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Identifier of the record or order that caused the 
-     * reaction. This could be an identifier for a prescription, 
-     * immunization, or other active medication record.</p>
+     * <p>Relationship: REPC_MT000005CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
-     * 
-     * <p>B:Incidence Identifier</p>
      * 
      * <p>Identifier of the exposure event that caused the adverse 
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the record or order that caused the 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
+     * 
+     * <p>Other Business Name: IncidenceIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.ExposureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for drilling down to retrieve further information 
+     * about the exposure</p>
+     * 
+     * <p>Identifier of the exposure event that caused the adverse 
+     * reaction. This could be an identifier for a prescription, 
+     * immunization, or other active medication record.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -215,14 +319,84 @@ public class ExposuresBean extends MessagePartBean {
 
 
     /**
-     * <p>ExposureMethod</p>
+     * <p>Business Name: ExposureMethod</p>
      * 
-     * <p>C:Exposure Method</p>
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
      * 
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
      */
     @Hl7XmlMapping({"routeCode"})
     public RouteOfAdministration getRouteCode() {
@@ -230,14 +404,84 @@ public class ExposuresBean extends MessagePartBean {
     }
 
     /**
-     * <p>ExposureMethod</p>
+     * <p>Business Name: ExposureMethod</p>
      * 
-     * <p>C:Exposure Method</p>
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
      * 
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
+     * 
+     * <p>Other Business Name: ExposureMethod</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.ExposureEvent.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Helps evaluate the cause of the reaction.</p>
+     * 
+     * <p>The method by which the patient was exposed to the 
+     * substance.</p>
      */
     public void setRouteCode(RouteOfAdministration routeCode) {
         this.routeCode.setValue(routeCode);
@@ -245,13 +489,13 @@ public class ExposuresBean extends MessagePartBean {
 
 
     /**
-     * <p>ExposedMaterialType</p>
+     * <p>Business Name: ExposedMaterialType</p>
      * 
-     * <p>A:Exposed Material Type</p>
+     * <p>Other Business Name: ExposedMaterialType</p>
      * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
+     * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -261,11 +505,15 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>A:Exposed Material Type</p>
-     * 
      * <p>Indicates the type of agent that the patient was exposed 
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Other Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -275,6 +523,46 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be coded. 
      * Also, the code may sometimes be masked, in which case a 
      * &quot;null flavor&quot; must be specified.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Other Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Other Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
      */
     @Hl7XmlMapping({"consumable/administerableMaterial/administerableMaterialKind/code","consumable/administrableMaterial/administerableMaterialKind/code"})
     @Hl7MapByPartTypes({
@@ -295,13 +583,13 @@ public class ExposuresBean extends MessagePartBean {
     }
 
     /**
-     * <p>ExposedMaterialType</p>
+     * <p>Business Name: ExposedMaterialType</p>
      * 
-     * <p>A:Exposed Material Type</p>
+     * <p>Other Business Name: ExposedMaterialType</p>
      * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
+     * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -311,11 +599,15 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>A:Exposed Material Type</p>
-     * 
      * <p>Indicates the type of agent that the patient was exposed 
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Other Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -325,12 +617,74 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be coded. 
      * Also, the code may sometimes be masked, in which case a 
      * &quot;null flavor&quot; must be specified.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Other Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Other Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
      */
     public void setConsumableAdministrableMaterialAdministerableMaterialKindCode(ExposureAgentEntityType consumableAdministrableMaterialAdministerableMaterialKindCode) {
         this.consumableAdministrableMaterialAdministerableMaterialKindCode.setValue(consumableAdministrableMaterialAdministerableMaterialKindCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.AdministrableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000012CA.AdministerableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.AdministrableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"consumable/administerableMaterial/administerableMaterialKind","consumable/administrableMaterial/administerableMaterialKind"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="consumable", type="REPC_MT000002CA.Consumable"),
@@ -346,6 +700,28 @@ public class ExposuresBean extends MessagePartBean {
         return this.consumableAdministrableMaterialAdministerableMaterialKind;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.AdministrableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000012CA.AdministerableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.AdministrableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setConsumableAdministrableMaterialAdministerableMaterialKind(AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind) {
         this.consumableAdministrableMaterialAdministerableMaterialKind = consumableAdministrableMaterialAdministerableMaterialKind;
     }

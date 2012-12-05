@@ -48,15 +48,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoi
 @Hl7PartTypeMapping({"FICR_MT500201CA.ProviderBillingTaxAccount","FICR_MT600201CA.ProviderBillingTaxAccount"})
 public class ProviderBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
 
     /**
-     * <p>TaxNumber</p>
+     * <p>Business Name: TaxNumber</p>
      * 
-     * <p>Tax number</p>
+     * <p>Other Business Name: TaxNumber</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.ProviderBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: TaxNumber</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.ProviderBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -64,9 +76,21 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>TaxNumber</p>
+     * <p>Business Name: TaxNumber</p>
      * 
-     * <p>Tax number</p>
+     * <p>Other Business Name: TaxNumber</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.ProviderBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: TaxNumber</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.ProviderBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -74,9 +98,21 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>ActInvoiceDetailscode</p>
+     * <p>Business Name: ActInvoiceDetailscode</p>
      * 
-     * <p>ActInvoiceDetailscode</p>
+     * <p>Other Business Name: ActInvoiceDetailscode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.ProviderBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ActInvoiceDetailscode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.ProviderBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceDetailTaxType getCode() {
@@ -84,9 +120,21 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>ActInvoiceDetailscode</p>
+     * <p>Business Name: ActInvoiceDetailscode</p>
      * 
-     * <p>ActInvoiceDetailscode</p>
+     * <p>Other Business Name: ActInvoiceDetailscode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.ProviderBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ActInvoiceDetailscode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.ProviderBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceDetailTaxType code) {
         this.code.setValue(code);

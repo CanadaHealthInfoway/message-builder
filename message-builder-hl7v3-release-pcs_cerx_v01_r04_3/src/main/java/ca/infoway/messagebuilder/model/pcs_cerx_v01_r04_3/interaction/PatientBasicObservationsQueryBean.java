@@ -29,7 +29,14 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 
 
 /**
- * <p>REPC_IN000054CA: Patient basic observations query</p>
+ * <p>Business Name: REPC_IN000054CA: Patient basic 
+ * observations query</p>
+ * 
+ * <p>Requests retrieval of the basic observations (height, 
+ * weight, blood-pressure, etc.) which have been recorded for a 
+ * particular patient, optionally filtered by the type of 
+ * observation and/or by the date-range for which the 
+ * observation was recorded.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 @Hl7PartTypeMapping({"REPC_IN000054CA"})
 public class PatientBasicObservationsQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

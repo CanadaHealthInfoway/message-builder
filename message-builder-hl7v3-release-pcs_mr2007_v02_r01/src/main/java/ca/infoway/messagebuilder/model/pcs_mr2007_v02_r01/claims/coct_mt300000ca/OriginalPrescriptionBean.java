@@ -34,7 +34,7 @@ import java.util.Date;
 
 
 /**
- * <p>Original Prescription</p>
+ * <p>Business Name: Original Prescription</p>
  * 
  * <p>Only end date of effective_time can be specified</p>
  * 
@@ -44,13 +44,17 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SupplyOrder"})
 public class OriginalPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT repeatNumber = new INTImpl();
 
 
     /**
-     * <p>Last Allowed Dispense</p>
+     * <p>Business Name: Last Allowed Dispense</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyOrder.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>last allowed dispense</p>
      */
@@ -60,7 +64,11 @@ public class OriginalPrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Last Allowed Dispense</p>
+     * <p>Business Name: Last Allowed Dispense</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyOrder.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>last allowed dispense</p>
      */
@@ -70,7 +78,11 @@ public class OriginalPrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Number of Refills + 1</p>
+     * <p>Business Name: Number of Refills + 1</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyOrder.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p># refills + 1</p>
      */
@@ -80,7 +92,11 @@ public class OriginalPrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Number of Refills + 1</p>
+     * <p>Business Name: Number of Refills + 1</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.SupplyOrder.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p># refills + 1</p>
      */

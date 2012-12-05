@@ -32,19 +32,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT610002CA.NewProcedureEvent"})
 public class NewProcedureEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>I:Replaced by Record Id</p>
+     * <p>Business Name: I:Replaced by Record Id</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.NewProcedureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists.</i> </p>
      * 
      * <p> <i>Used to identify the record that supersedes the 
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -52,14 +56,18 @@ public class NewProcedureEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Replaced by Record Id</p>
+     * <p>Business Name: I:Replaced by Record Id</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.NewProcedureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Used in circumstances where a newer or corrected 
+     * version of the record of this event exists.</i> </p>
      * 
      * <p> <i>Used to identify the record that supersedes the 
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

@@ -30,70 +30,26 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Cross Reference Identifier</p>
- * 
- * <p>Unique identifier used for cross-referrence.</p>
+ * <p>Business Name: Cross Reference Identifier</p>
  * 
  * <p>Identifier required to link invoices.</p>
+ * 
+ * <p>Unique identifier used for cross-referrence.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementCrossReference"})
 public class CrossReferenceIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>Cross Reference Identifier</p>
+     * <p>Business Name: Cross Reference Identifier</p>
      * 
-     * <p>Includes references to authorization, coverage extension 
-     * and pre-determination results. Previous adjudication results 
-     * are not referenced with this mechanism</p>
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementCrossReference.id</p>
      * 
-     * <p>Includes references to authorization, coverage extension 
-     * and pre-determination results. The identifier is the Root 
-     * Adjudicated Invoice Element Group ID, returned on the 
-     * previous authorization, coverage extension or 
-     * pre-determination results.</p><p>In some situations, the 
-     * authorization, coverage extension and pre-determination 
-     * number may not be available to the submitter electronically. 
-     * Therefore, the OID root may not be available. Current action 
-     * item raised to determine if the OID root can be optional for 
-     * this situation.</p><p>Previous adjudication results are not 
-     * referenced with this mechanism</p><p>May also be used for 
-     * other identifiers that have been assigned by external 
-     * agencies through a manual process, that if supplied on an 
-     * Invoice, would result in payment.</p>
-     * 
-     * <p>Includes references to authorization, coverage extension 
-     * and pre-determination results. The identifier is the Root 
-     * Adjudicated Invoice Element Group ID, returned on the 
-     * previous authorization, coverage extension or 
-     * pre-determination results.</p><p>In some situations, the 
-     * authorization, coverage extension and pre-determination 
-     * number may not be available to the submitter electronically. 
-     * Therefore, the OID root may not be available. Current action 
-     * item raised to determine if the OID root can be optional for 
-     * this situation.</p><p>Previous adjudication results are not 
-     * referenced with this mechanism</p><p>May also be used for 
-     * other identifiers that have been assigned by external 
-     * agencies through a manual process, that if supplied on an 
-     * Invoice, would result in payment.</p>
-     * 
-     * <p>Includes references to authorization, coverage extension 
-     * and pre-determination results. The identifier is the Root 
-     * Adjudicated Invoice Element Group ID, returned on the 
-     * previous authorization, coverage extension or 
-     * pre-determination results.</p><p>In some situations, the 
-     * authorization, coverage extension and pre-determination 
-     * number may not be available to the submitter electronically. 
-     * Therefore, the OID root may not be available. Current action 
-     * item raised to determine if the OID root can be optional for 
-     * this situation.</p><p>Previous adjudication results are not 
-     * referenced with this mechanism</p><p>May also be used for 
-     * other identifiers that have been assigned by external 
-     * agencies through a manual process, that if supplied on an 
-     * Invoice, would result in payment.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Includes references to authorization, coverage extension 
      * and pre-determination results. The identifier is the Root 
@@ -111,6 +67,10 @@ public class CrossReferenceIdentifierBean extends MessagePartBean {
      * Invoice, would result in payment.</p>
      * 
      * <p>RxS1: Not permitted for this scenario.</p>
+     * 
+     * <p>Includes references to authorization, coverage extension 
+     * and pre-determination results. Previous adjudication results 
+     * are not referenced with this mechanism</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -118,56 +78,12 @@ public class CrossReferenceIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>Cross Reference Identifier</p>
+     * <p>Business Name: Cross Reference Identifier</p>
      * 
-     * <p>Includes references to authorization, coverage extension 
-     * and pre-determination results. Previous adjudication results 
-     * are not referenced with this mechanism</p>
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementCrossReference.id</p>
      * 
-     * <p>Includes references to authorization, coverage extension 
-     * and pre-determination results. The identifier is the Root 
-     * Adjudicated Invoice Element Group ID, returned on the 
-     * previous authorization, coverage extension or 
-     * pre-determination results.</p><p>In some situations, the 
-     * authorization, coverage extension and pre-determination 
-     * number may not be available to the submitter electronically. 
-     * Therefore, the OID root may not be available. Current action 
-     * item raised to determine if the OID root can be optional for 
-     * this situation.</p><p>Previous adjudication results are not 
-     * referenced with this mechanism</p><p>May also be used for 
-     * other identifiers that have been assigned by external 
-     * agencies through a manual process, that if supplied on an 
-     * Invoice, would result in payment.</p>
-     * 
-     * <p>Includes references to authorization, coverage extension 
-     * and pre-determination results. The identifier is the Root 
-     * Adjudicated Invoice Element Group ID, returned on the 
-     * previous authorization, coverage extension or 
-     * pre-determination results.</p><p>In some situations, the 
-     * authorization, coverage extension and pre-determination 
-     * number may not be available to the submitter electronically. 
-     * Therefore, the OID root may not be available. Current action 
-     * item raised to determine if the OID root can be optional for 
-     * this situation.</p><p>Previous adjudication results are not 
-     * referenced with this mechanism</p><p>May also be used for 
-     * other identifiers that have been assigned by external 
-     * agencies through a manual process, that if supplied on an 
-     * Invoice, would result in payment.</p>
-     * 
-     * <p>Includes references to authorization, coverage extension 
-     * and pre-determination results. The identifier is the Root 
-     * Adjudicated Invoice Element Group ID, returned on the 
-     * previous authorization, coverage extension or 
-     * pre-determination results.</p><p>In some situations, the 
-     * authorization, coverage extension and pre-determination 
-     * number may not be available to the submitter electronically. 
-     * Therefore, the OID root may not be available. Current action 
-     * item raised to determine if the OID root can be optional for 
-     * this situation.</p><p>Previous adjudication results are not 
-     * referenced with this mechanism</p><p>May also be used for 
-     * other identifiers that have been assigned by external 
-     * agencies through a manual process, that if supplied on an 
-     * Invoice, would result in payment.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Includes references to authorization, coverage extension 
      * and pre-determination results. The identifier is the Root 
@@ -185,6 +101,10 @@ public class CrossReferenceIdentifierBean extends MessagePartBean {
      * Invoice, would result in payment.</p>
      * 
      * <p>RxS1: Not permitted for this scenario.</p>
+     * 
+     * <p>Includes references to authorization, coverage extension 
+     * and pre-determination results. Previous adjudication results 
+     * are not referenced with this mechanism</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

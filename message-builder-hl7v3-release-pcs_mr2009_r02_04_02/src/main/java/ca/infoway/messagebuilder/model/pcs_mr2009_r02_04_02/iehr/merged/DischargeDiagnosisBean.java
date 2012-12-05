@@ -33,59 +33,71 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActDiagn
 
 
 /**
- * <p>DischargeDiagnosis</p>
+ * <p>Business Name: DischargeDiagnosis</p>
  * 
  * <p>REPC_MT500001CA.DiagnosisEvent: Discharge Diagnosis</p>
  * 
+ * <p>These are key elements in defining the encounter.</p>
+ * 
  * <p>Describes the health conditions which were identified or 
  * determined as part of the encounter.</p>
- * 
- * <p>These are key elements in defining the encounter.</p>
  * 
  * <p>REPC_MT500003CA.DiagnosisEvent: Discharge Diagnosis</p>
  * 
+ * <p>These are key elements in defining the encounter.</p>
+ * 
  * <p>Describes the health conditions which were identified or 
  * determined as part of the encounter.</p>
- * 
- * <p>These are key elements in defining the encounter.</p>
  * 
  * <p>REPC_MT500002CA.DiagnosisEvent: Discharge Diagnosis</p>
  * 
+ * <p>These are key elements in defining the encounter.</p>
+ * 
  * <p>Describes the health conditions which were identified or 
  * determined as part of the encounter.</p>
- * 
- * <p>These are key elements in defining the encounter.</p>
  * 
  * <p>REPC_MT500004CA.DiagnosisEvent: Discharge Diagnosis</p>
  * 
+ * <p>These are key elements in defining the encounter.</p>
+ * 
  * <p>Describes the health conditions which were identified or 
  * determined as part of the encounter.</p>
- * 
- * <p>These are key elements in defining the encounter.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT500001CA.DiagnosisEvent","REPC_MT500002CA.DiagnosisEvent","REPC_MT500003CA.DiagnosisEvent","REPC_MT500004CA.DiagnosisEvent"})
 public class DischargeDiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
 
 
     /**
-     * <p>DiagnosisType</p>
+     * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>A:Diagnosis Type</p>
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.DiagnosisEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code is fixed to DX if not using SNOMED</p>
      * 
+     * <p>Identifies this observation as a type of diagnosis and is 
+     * therefore mandatory.</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
      * <p>Identifies the type of diagnosis</p>
      * 
-     * <p>Identifies this observation as a type of diagnosis and is 
-     * therefore mandatory.</p><p> <i>This element makes use of the 
-     * CD datatype to allow for use of the SNOMED code system that 
-     * in some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.DiagnosisEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
      * 
      * <p>Identifies this observation as a type of diagnosis and is 
      * therefore mandatory.</p><p> <i>This element makes use of the 
@@ -93,6 +105,42 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * in some circumstances requires the use of post-coordination. 
      * Post-coordination is only supported by the CD datatype.</i> 
      * </p>
+     * 
+     * <p>Identifies the type of diagnosis</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.DiagnosisEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Identifies this observation as a type of diagnosis and is 
+     * therefore mandatory.</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>Identifies the type of diagnosis</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.DiagnosisEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Identifies this observation as a type of diagnosis and is 
+     * therefore mandatory.</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>Identifies the type of diagnosis</p>
      */
     @Hl7XmlMapping({"code"})
     public ActDiagnosisCode getCode() {
@@ -100,20 +148,32 @@ public class DischargeDiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>DiagnosisType</p>
+     * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>A:Diagnosis Type</p>
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.DiagnosisEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code is fixed to DX if not using SNOMED</p>
      * 
+     * <p>Identifies this observation as a type of diagnosis and is 
+     * therefore mandatory.</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
      * <p>Identifies the type of diagnosis</p>
      * 
-     * <p>Identifies this observation as a type of diagnosis and is 
-     * therefore mandatory.</p><p> <i>This element makes use of the 
-     * CD datatype to allow for use of the SNOMED code system that 
-     * in some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.DiagnosisEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
      * 
      * <p>Identifies this observation as a type of diagnosis and is 
      * therefore mandatory.</p><p> <i>This element makes use of the 
@@ -121,6 +181,42 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * in some circumstances requires the use of post-coordination. 
      * Post-coordination is only supported by the CD datatype.</i> 
      * </p>
+     * 
+     * <p>Identifies the type of diagnosis</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.DiagnosisEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Identifies this observation as a type of diagnosis and is 
+     * therefore mandatory.</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>Identifies the type of diagnosis</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.DiagnosisEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Code is fixed to DX if not using SNOMED</p>
+     * 
+     * <p>Identifies this observation as a type of diagnosis and is 
+     * therefore mandatory.</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>Identifies the type of diagnosis</p>
      */
     public void setCode(ActDiagnosisCode code) {
         this.code.setValue(code);
@@ -128,19 +224,29 @@ public class DischargeDiagnosisBean extends MessagePartBean {
 
 
     /**
-     * <p>DiagnosisCode</p>
+     * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Diagnosis Code</p>
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.DiagnosisEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking outcomes and provides key information 
+     * about the encounter</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
      * 
      * <p>A coded form of the condition that was identified as part 
      * of the care delivery described by this Care Composition.</p>
      * 
-     * <p>Allows tracking outcomes and provides key information 
-     * about the encounter</p><p> <i>This element makes use of the 
-     * CD datatype to allow for use of the SNOMED code system that 
-     * in some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.DiagnosisEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows tracking outcomes and provides key information 
      * about the encounter</p><p> <i>This element makes use of the 
@@ -148,6 +254,41 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * in some circumstances requires the use of post-coordination. 
      * Post-coordination is only supported by the CD datatype.</i> 
      * </p>
+     * 
+     * <p>A coded form of the condition that was identified as part 
+     * of the care delivery described by this Care Composition.</p>
+     * 
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.DiagnosisEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking outcomes and provides key information 
+     * about the encounter</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>A coded form of the condition that was identified as part 
+     * of the care delivery described by this Care Composition.</p>
+     * 
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.DiagnosisEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking outcomes and provides key information 
+     * about the encounter</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>A coded form of the condition that was identified as part 
+     * of the care delivery described by this Care Composition.</p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
@@ -155,19 +296,29 @@ public class DischargeDiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>DiagnosisCode</p>
+     * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Diagnosis Code</p>
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.DiagnosisEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking outcomes and provides key information 
+     * about the encounter</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
      * 
      * <p>A coded form of the condition that was identified as part 
      * of the care delivery described by this Care Composition.</p>
      * 
-     * <p>Allows tracking outcomes and provides key information 
-     * about the encounter</p><p> <i>This element makes use of the 
-     * CD datatype to allow for use of the SNOMED code system that 
-     * in some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.DiagnosisEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows tracking outcomes and provides key information 
      * about the encounter</p><p> <i>This element makes use of the 
@@ -175,6 +326,41 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * in some circumstances requires the use of post-coordination. 
      * Post-coordination is only supported by the CD datatype.</i> 
      * </p>
+     * 
+     * <p>A coded form of the condition that was identified as part 
+     * of the care delivery described by this Care Composition.</p>
+     * 
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.DiagnosisEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking outcomes and provides key information 
+     * about the encounter</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>A coded form of the condition that was identified as part 
+     * of the care delivery described by this Care Composition.</p>
+     * 
+     * <p>Other Business Name: DiagnosisCode</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.DiagnosisEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking outcomes and provides key information 
+     * about the encounter</p><p> <i>This element makes use of the 
+     * CD datatype to allow for use of the SNOMED code system that 
+     * in some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
+     * 
+     * <p>A coded form of the condition that was identified as part 
+     * of the care delivery described by this Care Composition.</p>
      */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);

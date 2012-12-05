@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001000ca.
 
 
 /**
- * <p>POLB_IN211000CA: Order Status</p>
+ * <p>Business Name: POLB_IN211000CA: Order Status</p>
+ * 
+ * <p>This interaction is a Order Status without Receiver 
+ * Responsibilities (i.e., the sending system utilizes messages 
+ * that do not require application-level responses). This 
+ * interaction is used when a order status change is 
+ * communicated.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +53,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001000ca.
 @Hl7PartTypeMapping({"POLB_IN211000CA"})
 public class OrderStatusBean extends HL7Message_1Bean<TriggerEvent_1Bean<RequestChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

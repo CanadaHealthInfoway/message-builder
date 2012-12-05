@@ -31,25 +31,29 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Patient consent</p>
+ * <p>Business Name: Patient consent</p>
  * 
  * <p>Information about the patient's consent.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.Subject"})
 public class PatientConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST signatureText = new STImpl();
     private BL patientConsent = new BLImpl(false);
 
 
     /**
-     * <p>Patient Keyword</p>
+     * <p>Business Name: Patient Keyword</p>
      * 
-     * <p>Patient Keyword</p>
+     * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The keyword used by the Patient to indicate signature or 
      * consent.</p>
+     * 
+     * <p>Patient Keyword</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
@@ -57,23 +61,37 @@ public class PatientConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Keyword</p>
+     * <p>Business Name: Patient Keyword</p>
      * 
-     * <p>Patient Keyword</p>
+     * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The keyword used by the Patient to indicate signature or 
      * consent.</p>
+     * 
+     * <p>Patient Keyword</p>
      */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"patientConsent"})
     public Boolean getPatientConsent() {
         return this.patientConsent.getValue();
     }
 
+    /**
+     * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPatientConsent(Boolean patientConsent) {
         this.patientConsent.setValue(patientConsent);
     }

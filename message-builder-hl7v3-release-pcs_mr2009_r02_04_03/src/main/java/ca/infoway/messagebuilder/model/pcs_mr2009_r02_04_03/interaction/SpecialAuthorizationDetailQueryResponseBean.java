@@ -30,8 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>FICR_IN404103CA: Special Authorization Detail Query 
- * Response</p>
+ * <p>Business Name: FICR_IN404103CA: Special Authorization 
+ * Detail Query Response</p>
+ * 
+ * <p>Returns a specific Special Authorization Request based on 
+ * submitted query parameters.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -45,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN404103CA"})
 public class SpecialAuthorizationDetailQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<SpecialAuthorizationRequestBean,ParameterList_1Bean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

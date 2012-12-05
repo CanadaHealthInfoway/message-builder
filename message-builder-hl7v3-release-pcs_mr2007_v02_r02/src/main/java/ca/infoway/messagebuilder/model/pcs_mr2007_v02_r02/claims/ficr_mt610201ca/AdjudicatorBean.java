@@ -31,36 +31,38 @@ import java.util.Date;
 
 
 /**
- * <p>Adjudicator</p>
+ * <p>Business Name: Adjudicator</p>
+ * 
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
+ * 
+ * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
+ * otherwise not specified.</p>
  * 
  * <p>Adjudicator Information</p>
- * 
- * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p>
- * 
- * <p>Mandatory for Root AdjudicatedInvoiceElementGroup, 
- * otherwise not specified.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private AdjudicatorRoleBean adjudicatorRole;
 
 
     /**
-     * <p>Adjudication date/time</p>
+     * <p>Business Name: Adjudication date/time</p>
      * 
-     * <p>Adjudication date/time</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
      * 
-     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
-     * (COB): Will only be valued for electronic EOBs.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
      * (COB): Will only be valued for electronic EOBs.</p>
      * 
      * <p>Used in RX for daily totals.</p>
+     * 
+     * <p>Adjudication date/time</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -68,17 +70,19 @@ public class AdjudicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudication date/time</p>
+     * <p>Business Name: Adjudication date/time</p>
      * 
-     * <p>Adjudication date/time</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
      * 
-     * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
-     * (COB): Will only be valued for electronic EOBs.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used in Pharmacy for daily totals.</p><p>For Invoice 
      * (COB): Will only be valued for electronic EOBs.</p>
      * 
      * <p>Used in RX for daily totals.</p>
+     * 
+     * <p>Adjudication date/time</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);

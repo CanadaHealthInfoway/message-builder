@@ -28,59 +28,97 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200
 
 
 /**
- * <p>Dispensed</p>
+ * <p>Business Name: Dispensed</p>
  * 
  * <p>PORX_MT020070CA.Product2: *e:dispensed</p>
- * 
- * <p>Identifies the product being dispensed.</p><p>Also 
- * provides information on compound ingredients and 
- * instructions and packaging requirements</p>
- * 
- * <p>Identifies the product being dispensed.</p><p>Also 
- * provides information on compound ingredients and 
- * instructions and packaging requirements</p>
  * 
  * <p>Identifies the drug as part of the patient's medication 
  * profile. The drug is one of the most important parts of the 
  * dispense record, and it is therefore mandatory.</p>
  * 
+ * <p>Identifies the product being dispensed.</p><p>Also 
+ * provides information on compound ingredients and 
+ * instructions and packaging requirements</p>
+ * 
  * <p>PORX_MT020050CA.Product2: *c:dispensed</p>
- * 
- * <p>Identifies the product being dispensed.</p><p>Also 
- * provides information on compound ingredients and 
- * instructions and packaging requirements</p>
- * 
- * <p>Identifies the product being dispensed.</p><p>Also 
- * provides information on compound ingredients and 
- * instructions and packaging requirements</p>
  * 
  * <p>The drug being supplied must be identified and and is 
  * therefore mandatory.</p>
  * 
+ * <p>Identifies the product being dispensed.</p><p>Also 
+ * provides information on compound ingredients and 
+ * instructions and packaging requirements</p>
+ * 
  * <p>COCT_MT260010CA.Product: *a:dispensed</p>
  * 
+ * <p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p>
+ * 
  * <p>Indicates the drug that was dispensed</p>
- * 
- * <p>Important information for issue management.</p><p>The 
- * association is marked as populated because it may be 
- * masked.</p>
- * 
- * <p>Important information for issue management.</p><p>The 
- * association is marked as populated because it may be 
- * masked.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.Product","COCT_MT260020CA.Product","PORX_MT020050CA.Product2","PORX_MT020070CA.Product2"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DrugProductBean medication;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"medication"})
     public DrugProductBean getMedication() {
         return this.medication;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setMedication(DrugProductBean medication) {
         this.medication = medication;
     }

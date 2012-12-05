@@ -30,112 +30,237 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>DispenseShipToLocation</p>
+ * <p>Business Name: DispenseShipToLocation</p>
  * 
  * <p>PORX_MT060160CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT060040CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT060340CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT020070CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT020060CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT060090CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  * 
  * <p>PORX_MT060010CA.ServiceDeliveryLocation: Dispense Ship-To 
  * Location</p>
  * 
- * <p>The location where the dispensed product is expected to 
- * be delivered.</p>
- * 
  * <p>Important as part of a claim for justifying shipping 
  * charges.</p>
+ * 
+ * <p>The location where the dispensed product is expected to 
+ * be delivered.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.ServiceDeliveryLocation","PORX_MT010120CA.ServiceDeliveryLocation","PORX_MT020060CA.ServiceDeliveryLocation","PORX_MT020070CA.ServiceDeliveryLocation","PORX_MT060010CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation2","PORX_MT060090CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation2","PORX_MT060340CA.ServiceDeliveryLocation","PORX_MT060340CA.ServiceDeliveryLocation2"})
 public class DispenseShipToLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AD addr = new ADImpl();
 
 
     /**
-     * <p>I:Ship-To Address</p>
+     * <p>Other Business Name: ShipToAddress</p>
      * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>H:Prescription Ship to Address</p>
+     * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Indicates the location the dispensed device should be 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
      * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>In some cases devices need to be delivered to the patient 
      * instead of being picked up. In other cases, devices need to 
      * be shipped to the physician's office to replace stock used 
      * for the patient.</p>
      * 
-     * <p>Ship To Address</p>
+     * <p>Indicates the location the dispensed device should be 
+     * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>H:Prescription Ship to Address</p>
+     * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>In some cases drugs need to be delivered to the patient 
      * instead of being picked up. In other cases, drugs need to be 
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases devices need to be delivered to the patient 
+     * instead of being picked up. In other cases, devices need to 
+     * be shipped to the physician's office to replace stock used 
+     * for the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed device should be 
+     * shipped to, at the request of the patient or provider.</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -143,39 +268,164 @@ public class DispenseShipToLocationBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Ship-To Address</p>
+     * <p>Other Business Name: ShipToAddress</p>
      * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>H:Prescription Ship to Address</p>
+     * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Indicates the location the dispensed device should be 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
      * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases drugs need to be delivered to the patient 
+     * instead of being picked up. In other cases, drugs need to be 
+     * shipped to the physician's office to replace stock used for 
+     * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>In some cases devices need to be delivered to the patient 
      * instead of being picked up. In other cases, devices need to 
      * be shipped to the physician's office to replace stock used 
      * for the patient.</p>
      * 
-     * <p>Ship To Address</p>
+     * <p>Indicates the location the dispensed device should be 
+     * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>H:Prescription Ship to Address</p>
+     * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>In some cases drugs need to be delivered to the patient 
      * instead of being picked up. In other cases, drugs need to be 
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed medication should be 
+     * shipped to, at the request of the patient or provider.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>In some cases devices need to be delivered to the patient 
+     * instead of being picked up. In other cases, devices need to 
+     * be shipped to the physician's office to replace stock used 
+     * for the patient.</p>
+     * 
+     * <p>Indicates the location the dispensed device should be 
+     * shipped to, at the request of the patient or provider.</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);

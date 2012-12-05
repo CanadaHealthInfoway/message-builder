@@ -52,39 +52,39 @@ import java.util.List;
  * <p>REPC_MT000016CA.ParameterList: Adverse Reactions Query 
  * Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  * 
  * <p>PORX_MT060280CA.ParameterList: Drug Prescription Detail 
  * Query Parameters</p>
  * 
+ * <p>Root class for query definition.</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition.</p>
  * 
  * <p>REPC_MT000004CA.ParameterList: Allergy/Intolerance Query 
  * Parameters</p>
  * 
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response</p>
  * 
- * <p>Root class for query definition</p>
- * 
  * <p>PORX_MT060360CA.ParameterList: Generic Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060280CA.ParameterList","PORX_MT060360CA.ParameterList","REPC_MT000004CA.ParameterList","REPC_MT000016CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<II> careCompositionIDValue = new ArrayList<II>();
     private List<CV> careCompositionTypeValue = new ArrayList<CV>();
     private BL includeNotesIndicatorValue = new BLImpl();
@@ -102,34 +102,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionIDs</p>
+     * <p>Business Name: CareCompositionIDs</p>
      * 
-     * <p>Care Composition IDs</p>
+     * <p>Other Business Name: CareCompositionIDs</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Relationship: PORX_MT060280CA.CareCompositionID.value</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
-     * 
-     * <p>Care Composition IDs</p>
      * 
      * <p>Desc: Filters the records retrieved to only include those 
      * associated with the specified encounter, episode or care 
@@ -141,7 +123,16 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * referral, the retrieved records should also include the care 
      * summary created in fulfillment of the referral.</p>
      * 
-     * <p>Desc: Filters the records retrieved to only include those 
+     * <p>Other Business Name: CareCompositionIDs</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.CareCompositionID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
      * associated with the specified encounter, episode or care 
      * event. If unspecified, no filter is applied.</p><p>Note: 
      * When matching on care composition id, systems should also 
@@ -151,8 +142,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * referral, the retrieved records should also include the care 
      * summary created in fulfillment of the referral.</p>
      * 
+     * <p>Other Business Name: CareCompositionIDs</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.CareCompositionID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
     public List<Identifier> getCareCompositionIDValue() {
@@ -161,18 +168,52 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionTypes</p>
+     * <p>Business Name: CareCompositionTypes</p>
      * 
-     * <p>Care Composition Types</p>
+     * <p>Other Business Name: CareCompositionTypes</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p>
+     * <p>Relationship: PORX_MT060280CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with a 
      * particular type of encounter, episode or care event. 
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
+     * 
+     * <p>Other Business Name: CareCompositionTypes</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
+     * 
+     * <p>Other Business Name: CareCompositionTypes</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypeValue() {
@@ -181,79 +222,71 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medication 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the selected 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
+     * the retrieval of information for adverse reactions 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the adverse 
      * reactions records are to be returned along with the detailed 
      * information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
+     * the retrieval of information for medication detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not notes attached to the 
-     * allergy/intolerance records are to be returned along with 
-     * the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * prescription dispense record are to be returned along with 
      * the detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
+     * the retrieval of information for allergy/intolerance 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Indicates whether or not notes attached to the 
+     * allergy/intolerance records are to be returned along with 
+     * the detailed information.</p>
      */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
     public Boolean getIncludeNotesIndicatorValue() {
@@ -261,79 +294,71 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeNotesIndicator</p>
+     * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Include Notes Indicator</p>
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including notes in 
+     * the retrieval of information for medication 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not notes attached to the selected 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
+     * the retrieval of information for adverse reactions 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the adverse 
      * reactions records are to be returned along with the detailed 
      * information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
+     * the retrieval of information for medication detail 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for adverse reactions 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p>Indicates whether or not notes attached to the 
-     * allergy/intolerance records are to be returned along with 
-     * the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Include Notes Indicator</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * prescription dispense record are to be returned along with 
      * the detailed information.</p>
      * 
+     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
+     * the retrieval of information for allergy/intolerance 
      * data.</p><p>Because the attribute is boolean, it must 
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including notes in 
-     * the retrieval of information for medication detail 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Indicates whether or not notes attached to the 
+     * allergy/intolerance records are to be returned along with 
+     * the detailed information.</p>
      */
     public void setIncludeNotesIndicatorValue(Boolean includeNotesIndicatorValue) {
         this.includeNotesIndicatorValue.setValue(includeNotesIndicatorValue);
@@ -341,18 +366,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>ReactionPeriod</p>
+     * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>F:Reaction Period</p>
+     * <p>Other Business Name: ReactionPeriod</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the adverse reaction 
+     * period of interest for retrieval of adverse reaction 
+     * records. Useful to avoid run-away queries.</p>
      * 
      * <p>The period in which the recorded adverse reaction 
      * occurred or was updated. I.e. Filters the result-set to 
      * those reactions whose onset occurred within the time-range 
      * specified by this parameter.</p>
-     * 
-     * <p>Allows the requester to specify the adverse reaction 
-     * period of interest for retrieval of adverse reaction 
-     * records. Useful to avoid run-away queries.</p>
      */
     @Hl7XmlMapping({"reactionPeriod/value"})
     public Interval<Date> getReactionPeriodValue() {
@@ -360,18 +389,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReactionPeriod</p>
+     * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>F:Reaction Period</p>
+     * <p>Other Business Name: ReactionPeriod</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the adverse reaction 
+     * period of interest for retrieval of adverse reaction 
+     * records. Useful to avoid run-away queries.</p>
      * 
      * <p>The period in which the recorded adverse reaction 
      * occurred or was updated. I.e. Filters the result-set to 
      * those reactions whose onset occurred within the time-range 
      * specified by this parameter.</p>
-     * 
-     * <p>Allows the requester to specify the adverse reaction 
-     * period of interest for retrieval of adverse reaction 
-     * records. Useful to avoid run-away queries.</p>
      */
     public void setReactionPeriodValue(Interval<Date> reactionPeriodValue) {
         this.reactionPeriodValue.setValue(reactionPeriodValue);
@@ -379,31 +412,34 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>I:Reaction</p>
+     * <p>Other Business Name: ReactionType</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve only those 
+     * allergy/intolerance records for which there was a specific 
+     * type of reaction.</p>
+     * 
+     * <p>Indicates that the result set be filtered to include only 
+     * those allergy/intolerance records for which specific type of 
+     * reaction was recorded.</p><p>Reaction types include: STEVEN 
+     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value denoting a specific reaction. E.g. Code for 
      * 'rash'. The result set will be filtered to include only 
      * those allergy records or intolerance records pertaining to 
      * the specified reaction.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
-     * 
-     * <p>G:Reaction Type</p>
-     * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
-     * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
-     * 
-     * <p>Allows the requester to retrieve only those 
-     * allergy/intolerance records for which there was a specific 
-     * type of reaction.</p>
      */
     @Hl7XmlMapping({"reactionType/value"})
     public SubjectReaction getReactionTypeValue() {
@@ -411,31 +447,34 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Reaction</p>
+     * <p>Other Business Name: ReactionType</p>
+     * 
+     * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to retrieve only those 
+     * allergy/intolerance records for which there was a specific 
+     * type of reaction.</p>
+     * 
+     * <p>Indicates that the result set be filtered to include only 
+     * those allergy/intolerance records for which specific type of 
+     * reaction was recorded.</p><p>Reaction types include: STEVEN 
+     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value denoting a specific reaction. E.g. Code for 
      * 'rash'. The result set will be filtered to include only 
      * those allergy records or intolerance records pertaining to 
      * the specified reaction.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
-     * 
-     * <p>G:Reaction Type</p>
-     * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
-     * 
-     * <p>Indicates that the result set be filtered to include only 
-     * those allergy/intolerance records for which specific type of 
-     * reaction was recorded.</p><p>Reaction types include: STEVEN 
-     * JOHNSON, ANAPHYLAXIS, NAUSEA, etc</p>
-     * 
-     * <p>Allows the requester to retrieve only those 
-     * allergy/intolerance records for which there was a specific 
-     * type of reaction.</p>
      */
     public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
         this.reactionTypeValue.setValue(reactionTypeValue);
@@ -443,9 +482,17 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AmendedInTimeRange</p>
+     * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Amended in Time Range</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -453,14 +500,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * etc.) within the indicated time-period. This will commonly 
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
     public Interval<Date> getAmendedInTimeRangeValue() {
@@ -468,9 +507,17 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AmendedInTimeRange</p>
+     * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Amended in Time Range</p>
+     * <p>Other Business Name: AmendedInTimeRange</p>
+     * 
+     * <p>Relationship: PORX_MT060280CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -478,14 +525,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * etc.) within the indicated time-period. This will commonly 
      * be used to 'retrieve everything that has been amended since 
      * xxx'.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     public void setAmendedInTimeRangeValue(Interval<Date> amendedInTimeRangeValue) {
         this.amendedInTimeRangeValue.setValue(amendedInTimeRangeValue);
@@ -493,29 +532,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is always either 'TRUE' or 'FALSE' it is 
      * mandatory.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is always either 'TRUE' or 'FALSE' it is 
-     * mandatory.</p>
+     * <p>Indicates whether or not history of selected medication 
+     * records are to be returned along with the detailed 
+     * information.</p><p>&quot;Pending&quot; changes will be 
+     * returned regardless of the setting of this flag.</p>
      */
     @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
     public Boolean getIncludeEventHistoryIndicatorValue() {
@@ -523,29 +557,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
      * 
-     * <p>Indicates whether or not history of selected medication 
-     * records are to be returned along with the detailed 
-     * information.</p><p>&quot;Pending&quot; changes will be 
-     * returned regardless of the setting of this flag.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including history 
      * in the retrieval of the requested information.</p><p>Because 
      * the attribute is always either 'TRUE' or 'FALSE' it is 
      * mandatory.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including history 
-     * in the retrieval of the requested information.</p><p>Because 
-     * the attribute is always either 'TRUE' or 'FALSE' it is 
-     * mandatory.</p>
+     * <p>Indicates whether or not history of selected medication 
+     * records are to be returned along with the detailed 
+     * information.</p><p>&quot;Pending&quot; changes will be 
+     * returned regardless of the setting of this flag.</p>
      */
     public void setIncludeEventHistoryIndicatorValue(Boolean includeEventHistoryIndicatorValue) {
         this.includeEventHistoryIndicatorValue.setValue(includeEventHistoryIndicatorValue);
@@ -553,42 +582,41 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Indicates whether or not Issues (detected and/or managed) 
-     * attached to the prescription dispense record to be returned 
-     * along with the detailed information.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
+     * in the retrieval of medication detail profile 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * in the retrieval of patient medication data.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescription dispense record to be returned 
+     * along with the detailed information.</p>
      */
     @Hl7XmlMapping({"includeIssuesIndicator/value"})
     public Boolean getIncludeIssuesIndicatorValue() {
@@ -596,42 +624,41 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludeIssuesIndicator</p>
+     * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Include Issues Indicator</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Indicates whether or not Issues (detected and/or managed) 
-     * attached to the prescription dispense record to be returned 
-     * along with the detailed information.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of patient medication data.</p><p>Because 
-     * the attribute is boolean, it must explicitly indicate a 
-     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
-     * 
-     * <p>Include Issues Indicator</p>
+     * in the retrieval of medication detail profile 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not issues (detected and/or managed) 
      * attached to the prescriptions, dispenses and other active 
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the flexibility of omitting/including issues 
-     * in the retrieval of medication detail profile 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
+     * in the retrieval of patient medication data.</p><p>Because 
+     * the attribute is boolean, it must explicitly indicate a 
+     * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
+     * 
+     * <p>Indicates whether or not Issues (detected and/or managed) 
+     * attached to the prescription dispense record to be returned 
+     * along with the detailed information.</p>
      */
     public void setIncludeIssuesIndicatorValue(Boolean includeIssuesIndicatorValue) {
         this.includeIssuesIndicatorValue.setValue(includeIssuesIndicatorValue);
@@ -639,26 +666,25 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
      * prescription order and/or prescription dispense are to be 
      * returned along with the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"includePendingChangesIndicator/value"})
     public Boolean getIncludePendingChangesIndicatorValue() {
@@ -666,26 +692,25 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the flexibility of omitting/including future 
+     * events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether to include future changes (e.g. status 
      * changes that aren't effective yet) associated with a 
      * prescription order and/or prescription dispense are to be 
      * returned along with the detailed information.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
-     * 
-     * <p>Allows for the flexibility of omitting/including future 
-     * events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p>
      */
     public void setIncludePendingChangesIndicatorValue(Boolean includePendingChangesIndicatorValue) {
         this.includePendingChangesIndicatorValue.setValue(includePendingChangesIndicatorValue);
@@ -693,20 +718,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Prescription order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved, and 
      * is therefore mandatory.</p>
+     * 
+     * <p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p>
      */
     @Hl7XmlMapping({"prescriptionOrderNumber/value"})
     public Identifier getPrescriptionOrderNumberValue() {
@@ -714,20 +740,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Prescription order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
      * 
-     * <p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the prescription that is to be retrieved, and 
      * is therefore mandatory.</p>
+     * 
+     * <p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p>
      */
     public void setPrescriptionOrderNumberValue(Identifier prescriptionOrderNumberValue) {
         this.prescriptionOrderNumberValue.setValue(prescriptionOrderNumberValue);
@@ -735,17 +762,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>G:Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the selective retrieval of allergy/intolerance 
+     * records based on the status of the record.</p>
      * 
      * <p>Indicates that the result set should be filtered to 
      * include only those allergy/intolerance records for the 
      * specified status. Valid statuses include: ACTIVE or 
      * COMPLETE.</p>
-     * 
-     * <p>Allows for the selective retrieval of allergy/intolerance 
-     * records based on the status of the record.</p>
      */
     @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
     public ActStatus getAllergyIntoleranceStatusValue() {
@@ -753,17 +785,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>G:Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the selective retrieval of allergy/intolerance 
+     * records based on the status of the record.</p>
      * 
      * <p>Indicates that the result set should be filtered to 
      * include only those allergy/intolerance records for the 
      * specified status. Valid statuses include: ACTIVE or 
      * COMPLETE.</p>
-     * 
-     * <p>Allows for the selective retrieval of allergy/intolerance 
-     * records based on the status of the record.</p>
      */
     public void setAllergyIntoleranceStatusValue(ActStatus allergyIntoleranceStatusValue) {
         this.allergyIntoleranceStatusValue.setValue(allergyIntoleranceStatusValue);
@@ -771,17 +808,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceType</p>
+     * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>H:Allergy/Intolerance Type</p>
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value indicating whether to return an allergy 
      * record or an intolerance record. The result set will be 
      * filtered to include only allergy records or intolerance 
      * records accordingly.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
      */
     @Hl7XmlMapping({"allergyIntoleranceType/value"})
     public ObservationIntoleranceType getAllergyIntoleranceTypeValue() {
@@ -789,17 +831,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceType</p>
+     * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>H:Allergy/Intolerance Type</p>
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AllergyIntoleranceType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p>
      * 
      * <p>A coded value indicating whether to return an allergy 
      * record or an intolerance record. The result set will be 
      * filtered to include only allergy records or intolerance 
      * records accordingly.</p>
-     * 
-     * <p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p>
      */
     public void setAllergyIntoleranceTypeValue(ObservationIntoleranceType allergyIntoleranceTypeValue) {
         this.allergyIntoleranceTypeValue.setValue(allergyIntoleranceTypeValue);
@@ -807,16 +854,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceChangePeriod</p>
+     * <p>Business Name: AllergyIntoleranceChangePeriod</p>
      * 
-     * <p>F:Allergy/Intolerance Change Period</p>
+     * <p>Other Business Name: AllergyIntoleranceChangePeriod</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in retrieving incremental changes to the patient's 
+     * record.</p>
      * 
      * <p>Filters the query response to only include 
      * allergy/intolerance records which have been created or 
      * modified within the date-range specified.</p>
-     * 
-     * <p>Useful in retrieving incremental changes to the patient's 
-     * record.</p>
      */
     @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
     public Interval<Date> getAlllergyIntoleranceChangePeriodValue() {
@@ -824,16 +876,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceChangePeriod</p>
+     * <p>Business Name: AllergyIntoleranceChangePeriod</p>
      * 
-     * <p>F:Allergy/Intolerance Change Period</p>
+     * <p>Other Business Name: AllergyIntoleranceChangePeriod</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Useful in retrieving incremental changes to the patient's 
+     * record.</p>
      * 
      * <p>Filters the query response to only include 
      * allergy/intolerance records which have been created or 
      * modified within the date-range specified.</p>
-     * 
-     * <p>Useful in retrieving incremental changes to the patient's 
-     * record.</p>
      */
     public void setAlllergyIntoleranceChangePeriodValue(Interval<Date> alllergyIntoleranceChangePeriodValue) {
         this.alllergyIntoleranceChangePeriodValue.setValue(alllergyIntoleranceChangePeriodValue);
@@ -841,17 +898,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>D:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Identifies which prescription dispense record should be 
-     * retrieved.</p>
+     * <p>Relationship: 
+     * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record. A dispense cannot be 
      * retrieved without the identifier of the record, and the 
      * attribute is therefore mandatory.</p>
+     * 
+     * <p>Identifies which prescription dispense record should be 
+     * retrieved.</p>
      */
     @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
     public Identifier getPrescriptionDispenseNumberValue() {
@@ -859,17 +921,22 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>D:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Identifies which prescription dispense record should be 
-     * retrieved.</p>
+     * <p>Relationship: 
+     * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record. A dispense cannot be 
      * retrieved without the identifier of the record, and the 
      * attribute is therefore mandatory.</p>
+     * 
+     * <p>Identifies which prescription dispense record should be 
+     * retrieved.</p>
      */
     public void setPrescriptionDispenseNumberValue(Identifier prescriptionDispenseNumberValue) {
         this.prescriptionDispenseNumberValue.setValue(prescriptionDispenseNumberValue);

@@ -27,13 +27,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Messa
 
 
 /**
- * <p>MCCI_IN102002CA: Request Poll Queue Status</p>
+ * <p>Business Name: MCCI_IN102002CA: Request Poll Queue Status</p>
+ * 
+ * <p>Requests an indication of the number and priority of 
+ * outstanding interactions (if any) on the application's poll 
+ * queue.</p>
  * 
  * <p>Message: MCCI_MT102001CA.Message</p>
  */
 @Hl7PartTypeMapping({"MCCI_IN102002CA"})
 public class RequestPollQueueStatusBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

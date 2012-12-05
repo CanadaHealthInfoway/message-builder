@@ -35,42 +35,119 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private INT repeatNumber = new INTImpl();
     private INT quantity = new INTImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public ActClass getClassCode() {
         return (ActClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
     /**
-     * <p>NumberOfFills</p>
+     * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>Number of Fills</p>
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A prescription can authorize multiple fills.</p>
      * 
      * <p>Allows the prescriber to specify the number of fills 
      * authorized by this prescription.</p>
      * 
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>A prescription can authorize multiple fills.</p>
+     * 
+     * <p>Allows the prescriber to specify the number of fills 
+     * authorized by this prescription.</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
@@ -78,14 +155,31 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>NumberOfFills</p>
+     * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>Number of Fills</p>
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A prescription can authorize multiple fills.</p>
      * 
      * <p>Allows the prescriber to specify the number of fills 
      * authorized by this prescription.</p>
      * 
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>A prescription can authorize multiple fills.</p>
+     * 
+     * <p>Allows the prescriber to specify the number of fills 
+     * authorized by this prescription.</p>
      */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
@@ -93,14 +187,31 @@ public class SupplementalFillInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>FillQuantity</p>
+     * <p>Business Name: FillQuantity</p>
      * 
-     * <p>Fill Quantity</p>
+     * <p>Other Business Name: FillQuantity</p>
      * 
-     * <p>Specifies the quantity for each fill.</p>
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The prescription is usually authorized for a specific 
      * quantity for each fill.</p>
+     * 
+     * <p>Specifies the quantity for each fill.</p>
+     * 
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The prescription is usually authorized for a specific 
+     * quantity for each fill.</p>
+     * 
+     * <p>Specifies the quantity for each fill.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
@@ -108,14 +219,31 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>FillQuantity</p>
+     * <p>Business Name: FillQuantity</p>
      * 
-     * <p>Fill Quantity</p>
+     * <p>Other Business Name: FillQuantity</p>
      * 
-     * <p>Specifies the quantity for each fill.</p>
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The prescription is usually authorized for a specific 
      * quantity for each fill.</p>
+     * 
+     * <p>Specifies the quantity for each fill.</p>
+     * 
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The prescription is usually authorized for a specific 
+     * quantity for each fill.</p>
+     * 
+     * <p>Specifies the quantity for each fill.</p>
      */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);

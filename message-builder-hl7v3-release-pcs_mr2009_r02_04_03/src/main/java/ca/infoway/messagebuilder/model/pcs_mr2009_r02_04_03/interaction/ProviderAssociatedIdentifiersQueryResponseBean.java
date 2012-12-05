@@ -30,8 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt306050ca.P
 
 
 /**
- * <p>PRPM_IN306051CA: Provider Associated Identifiers Query 
- * Response</p>
+ * <p>Business Name: PRPM_IN306051CA: Provider Associated 
+ * Identifiers Query Response</p>
+ * 
+ * <p>This interaction is used to respond to a Provider 
+ * Associated Identifiers Query interaction and will contain 
+ * the requested records from the provider registry system.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -51,6 +55,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt306050ca.P
 @Hl7PartTypeMapping({"PRPM_IN306051CA"})
 public class ProviderAssociatedIdentifiersQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

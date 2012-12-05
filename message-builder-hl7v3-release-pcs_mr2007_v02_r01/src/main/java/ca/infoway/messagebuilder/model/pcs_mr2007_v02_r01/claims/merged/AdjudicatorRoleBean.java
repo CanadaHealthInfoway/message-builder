@@ -36,24 +36,32 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt610201ca
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorRole","QUCR_MT830201CA.AdjudicatorRole"})
 public class AdjudicatorRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PN playingAdjudicatorPersonName = new PNImpl();
     private InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole;
 
 
     /**
-     * <p>AdjudicatorID</p>
+     * <p>Business Name: AdjudicatorID</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: AdjudicatorID</p>
      * 
-     * <p>Set of identifiers that uniquely identify the adjudicator 
-     * of the invoice.</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorRole.id</p>
      * 
-     * <p>Adjudicator ID</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Adjudicator Id -Set of identifiers that uniquely identify 
      * the adjudicator of the invoice.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the adjudicator 
+     * of the invoice.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -61,17 +69,25 @@ public class AdjudicatorRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdjudicatorID</p>
+     * <p>Business Name: AdjudicatorID</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: AdjudicatorID</p>
      * 
-     * <p>Set of identifiers that uniquely identify the adjudicator 
-     * of the invoice.</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorRole.id</p>
      * 
-     * <p>Adjudicator ID</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Adjudicator Id -Set of identifiers that uniquely identify 
      * the adjudicator of the invoice.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the adjudicator 
+     * of the invoice.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -79,9 +95,13 @@ public class AdjudicatorRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>AdjudicatorPersonName</p>
+     * <p>Business Name: AdjudicatorPersonName</p>
      * 
-     * <p>Adjudicator Person Name</p>
+     * <p>Other Business Name: AdjudicatorPersonName</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"playingAdjudicatorPerson/name"})
     public PersonName getPlayingAdjudicatorPersonName() {
@@ -89,20 +109,40 @@ public class AdjudicatorRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdjudicatorPersonName</p>
+     * <p>Business Name: AdjudicatorPersonName</p>
      * 
-     * <p>Adjudicator Person Name</p>
+     * <p>Other Business Name: AdjudicatorPersonName</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setPlayingAdjudicatorPersonName(PersonName playingAdjudicatorPersonName) {
         this.playingAdjudicatorPersonName.setValue(playingAdjudicatorPersonName);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.DirectAuthorityOver.insuranceCarrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directAuthority/insuranceCarrierRole"})
     public InsuranceCarrierRoleBean getDirectAuthorityInsuranceCarrierRole() {
         return this.directAuthorityInsuranceCarrierRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.DirectAuthorityOver.insuranceCarrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectAuthorityInsuranceCarrierRole(InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole) {
         this.directAuthorityInsuranceCarrierRole = directAuthorityInsuranceCarrierRole;
     }

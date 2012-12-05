@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Derivation</p>
+ * <p>Business Name: Derivation</p>
  * 
  * <p>Used to document a result and component result parts from 
  * which the conclusive or interpretive result was drawn or 
@@ -38,26 +38,48 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004000CA.DerivedFrom"})
 public class DerivationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL inversionInd = new BLImpl();
     private ResultObservationBean observationEvent;
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.DerivedFrom.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inversionInd"})
     public Boolean getInversionInd() {
         return this.inversionInd.getValue();
     }
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.DerivedFrom.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInversionInd(Boolean inversionInd) {
         this.inversionInd.setValue(inversionInd);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.DerivedFrom.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"observationEvent"})
     public ResultObservationBean getObservationEvent() {
         return this.observationEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.DerivedFrom.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setObservationEvent(ResultObservationBean observationEvent) {
         this.observationEvent = observationEvent;
     }

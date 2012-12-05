@@ -40,19 +40,19 @@ import java.util.Set;
 
 
 /**
- * <p>Maskable Record</p>
- * 
- * <p>A particular record or type of record for which masking 
- * is supported.</p>
+ * <p>Business Name: Maskable Record</p>
  * 
  * <p>The root construct for masking and unmasking specific 
  * record or type of record.</p>
+ * 
+ * <p>A particular record or type of record for which masking 
+ * is supported.</p>
  */
 @Hl7PartTypeMapping({"COMT_MT400001CA.MaskableActType"})
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -61,11 +61,11 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Record Identifier</p>
+     * <p>Business Name: C:Record Identifier</p>
      * 
-     * <p>The identifier of the prescription, dispense, allergy, 
-     * lab test result or other record for which the masking status 
-     * is being changed.</p>
+     * <p>Relationship: COMT_MT400001CA.MaskableActType.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows unique reference to a particular record to be 
      * masked or unmasked.</p>
@@ -74,6 +74,10 @@ public class MaskableRecordBean extends MessagePartBean {
      * automatic masking of the parent. For example, masking a 
      * dispense record may cause the prescription to become masked 
      * as well.</p>
+     * 
+     * <p>The identifier of the prescription, dispense, allergy, 
+     * lab test result or other record for which the masking status 
+     * is being changed.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -81,11 +85,11 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Record Identifier</p>
+     * <p>Business Name: C:Record Identifier</p>
      * 
-     * <p>The identifier of the prescription, dispense, allergy, 
-     * lab test result or other record for which the masking status 
-     * is being changed.</p>
+     * <p>Relationship: COMT_MT400001CA.MaskableActType.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows unique reference to a particular record to be 
      * masked or unmasked.</p>
@@ -94,6 +98,10 @@ public class MaskableRecordBean extends MessagePartBean {
      * automatic masking of the parent. For example, masking a 
      * dispense record may cause the prescription to become masked 
      * as well.</p>
+     * 
+     * <p>The identifier of the prescription, dispense, allergy, 
+     * lab test result or other record for which the masking status 
+     * is being changed.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -101,14 +109,18 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Record Type</p>
+     * <p>Business Name: B:Record Type</p>
      * 
-     * <p>Indicates a detailed type of record to be masked. E.g. 
-     * All lab tests of a given type.</p>
+     * <p>Relationship: COMT_MT400001CA.MaskableActType.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows automatic masking of a particular type of record 
      * rather than requiring each occurrence to be masked 
      * individually.</p>
+     * 
+     * <p>Indicates a detailed type of record to be masked. E.g. 
+     * All lab tests of a given type.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInformationCategoryCode getCode() {
@@ -116,14 +128,18 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Record Type</p>
+     * <p>Business Name: B:Record Type</p>
      * 
-     * <p>Indicates a detailed type of record to be masked. E.g. 
-     * All lab tests of a given type.</p>
+     * <p>Relationship: COMT_MT400001CA.MaskableActType.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows automatic masking of a particular type of record 
      * rather than requiring each occurrence to be masked 
      * individually.</p>
+     * 
+     * <p>Indicates a detailed type of record to be masked. E.g. 
+     * All lab tests of a given type.</p>
      */
     public void setCode(ActInformationCategoryCode code) {
         this.code.setValue(code);
@@ -131,15 +147,20 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Masked Indicator</p>
+     * <p>Business Name: A:Masked Indicator</p>
      * 
-     * <p>Indicates the new value for the masking status of the 
-     * item.</p>
+     * <p>Relationship: 
+     * COMT_MT400001CA.MaskableActType.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
      * <p>Forces the sender of the message to assert what the new 
      * value should be, rather than performing a 'toggle' and 
      * potentially ending up in the wrong state. Therefore, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Indicates the new value for the masking status of the 
+     * item.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -147,11 +168,21 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COMT_MT400001CA.DirectTarget.role</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/role"})
     public RoleBean getDirectTargetRole() {
         return this.directTargetRole;
     }
 
+    /**
+     * <p>Relationship: COMT_MT400001CA.DirectTarget.role</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectTargetRole(RoleBean directTargetRole) {
         this.directTargetRole = directTargetRole;
     }

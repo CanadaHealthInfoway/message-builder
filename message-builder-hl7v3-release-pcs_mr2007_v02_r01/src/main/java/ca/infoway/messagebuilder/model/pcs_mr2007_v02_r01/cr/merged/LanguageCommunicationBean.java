@@ -32,64 +32,91 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>LanguageCommunication</p>
+ * <p>Business Name: LanguageCommunication</p>
  * 
  * <p>PRPA_MT101001CA.LanguageCommunication: 
  * LanguageCommunication</p>
  * 
+ * <p>Supports the business requirement to identify languages 
+ * used by client for the purposes of communication</p>
+ * 
  * <p>Information about what language(s) should be used to 
  * communicate with the focal person can be sent in the 
  * LanguageCommunication class.</p>
- * 
- * <p>Supports the business requirement to identify languages 
- * used by client for the purposes of communication</p>
  * 
  * <p>PRPA_MT101002CA.LanguageCommunication: 
  * LanguageCommunication</p>
  * 
+ * <p>Supports the business requirement to identify languages 
+ * used by client for the purposes of communication</p>
+ * 
  * <p>Information about what language(s) should be used to 
  * communicate with the focal person can be sent in the 
  * LanguageCommunication class.</p>
- * 
- * <p>Supports the business requirement to identify languages 
- * used by client for the purposes of communication</p>
  * 
  * <p>PRPA_MT101104CA.LanguageCommunication: 
  * LanguageCommunication</p>
  * 
+ * <p>Supports the business requirement to identify languages 
+ * used by client for the purposes of communication</p>
+ * 
  * <p>Information about what language(s) should be used to 
  * communicate with the focal person can be sent in the 
  * LanguageCommunication class.</p>
- * 
- * <p>Supports the business requirement to identify languages 
- * used by client for the purposes of communication</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101001CA.LanguageCommunication","PRPA_MT101002CA.LanguageCommunication","PRPA_MT101102CA.LanguageCommunication","PRPA_MT101104CA.LanguageCommunication"})
 public class LanguageCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV languageCode = new CVImpl();
     private BL preferenceInd = new BLImpl();
 
 
     /**
-     * <p>LanguageOfCommunicationCode</p>
+     * <p>Business Name: LanguageOfCommunicationCode</p>
      * 
-     * <p>Language of Communication Code</p>
+     * <p>Other Business Name: LanguageOfCommunicationCode</p>
      * 
-     * <p>Language of Communication Code</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101001CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in.</p>
      * 
      * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in</p>
      * 
-     * <p>Language of Communication Code</p>
-     * 
      * <p>A code indicating the language of communication</p>
      * 
+     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in.</p>
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
      */
     @Hl7XmlMapping({"languageCode"})
     public HumanLanguage getLanguageCode() {
@@ -97,23 +124,50 @@ public class LanguageCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>LanguageOfCommunicationCode</p>
+     * <p>Business Name: LanguageOfCommunicationCode</p>
      * 
-     * <p>Language of Communication Code</p>
+     * <p>Other Business Name: LanguageOfCommunicationCode</p>
      * 
-     * <p>Language of Communication Code</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101001CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in.</p>
      * 
      * <p>A code indicating the language of communication</p>
+     * 
+     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in</p>
      * 
-     * <p>Language of Communication Code</p>
-     * 
      * <p>A code indicating the language of communication</p>
      * 
+     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in.</p>
+     * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
      */
     public void setLanguageCode(HumanLanguage languageCode) {
         this.languageCode.setValue(languageCode);
@@ -121,18 +175,60 @@ public class LanguageCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>LanguageOfCommunicationPreferenceIndicator</p>
+     * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
      * 
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Other Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
      * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101001CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute that supports the business requirement 
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Other Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Other Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
      */
     @Hl7XmlMapping({"preferenceInd"})
     public Boolean getPreferenceInd() {
@@ -140,18 +236,60 @@ public class LanguageCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>LanguageOfCommunicationPreferenceIndicator</p>
+     * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
      * 
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Other Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
      * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
+     * <p>Relationship: 
+     * PRPA_MT101102CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101001CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute that supports the business requirement 
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Other Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Other Business Name: 
+     * LanguageOfCommunicationPreferenceIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute that supports the business requirement 
+     * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
+     * communications.</p>
      */
     public void setPreferenceInd(Boolean preferenceInd) {
         this.preferenceInd.setValue(preferenceInd);

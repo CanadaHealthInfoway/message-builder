@@ -44,7 +44,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT repeatNumber = new INTImpl();
@@ -55,15 +55,19 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Type</p>
+     * <p>Business Name: Dispense Type</p>
      * 
-     * <p>Indicates the type of dispensing event that is performed. 
-     * Examples include: Trial Fill, Completion of Trial, Partial 
-     * Fill, Emergency Fill, Samples, etc.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates reason for the size of dispense. Because it 
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>Indicates the type of dispensing event that is performed. 
+     * Examples include: Trial Fill, Completion of Trial, Partial 
+     * Fill, Emergency Fill, Samples, etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActPharmacySupplyType getCode() {
@@ -71,15 +75,19 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Type</p>
+     * <p>Business Name: Dispense Type</p>
      * 
-     * <p>Indicates the type of dispensing event that is performed. 
-     * Examples include: Trial Fill, Completion of Trial, Partial 
-     * Fill, Emergency Fill, Samples, etc.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates reason for the size of dispense. Because it 
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p>
+     * 
+     * <p>Indicates the type of dispensing event that is performed. 
+     * Examples include: Trial Fill, Completion of Trial, Partial 
+     * Fill, Emergency Fill, Samples, etc.</p>
      */
     public void setCode(ActPharmacySupplyType code) {
         this.code.setValue(code);
@@ -87,15 +95,11 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Processing and Pickup Date</p>
+     * <p>Business Name: Dispense Processing and Pickup Date</p>
      * 
-     * <p>Represents the date the dispense product was prepared and 
-     * when the product was picked up by or delivered to the 
-     * patient. The dispense processing date and pickup date can be 
-     * back dated to reflect when the actual processing and pickup 
-     * occurred. The lower-bound of the period signifies the 
-     * dispense-processing date whereas the upper-bound signifies 
-     * the dispense-pickup date.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used by the system in calculating expected exhaustion 
      * time. Valuable in compliance checking. This attribute is 
@@ -104,6 +108,14 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Must be able to post-date a dispense (enter 
      * retroactively) e.g. system failure.</p>
+     * 
+     * <p>Represents the date the dispense product was prepared and 
+     * when the product was picked up by or delivered to the 
+     * patient. The dispense processing date and pickup date can be 
+     * back dated to reflect when the actual processing and pickup 
+     * occurred. The lower-bound of the period signifies the 
+     * dispense-processing date whereas the upper-bound signifies 
+     * the dispense-pickup date.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -111,15 +123,11 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Processing and Pickup Date</p>
+     * <p>Business Name: Dispense Processing and Pickup Date</p>
      * 
-     * <p>Represents the date the dispense product was prepared and 
-     * when the product was picked up by or delivered to the 
-     * patient. The dispense processing date and pickup date can be 
-     * back dated to reflect when the actual processing and pickup 
-     * occurred. The lower-bound of the period signifies the 
-     * dispense-processing date whereas the upper-bound signifies 
-     * the dispense-pickup date.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used by the system in calculating expected exhaustion 
      * time. Valuable in compliance checking. This attribute is 
@@ -128,6 +136,14 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Must be able to post-date a dispense (enter 
      * retroactively) e.g. system failure.</p>
+     * 
+     * <p>Represents the date the dispense product was prepared and 
+     * when the product was picked up by or delivered to the 
+     * patient. The dispense processing date and pickup date can be 
+     * back dated to reflect when the actual processing and pickup 
+     * occurred. The lower-bound of the period signifies the 
+     * dispense-processing date whereas the upper-bound signifies 
+     * the dispense-pickup date.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -135,13 +151,17 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Number of remaining fills</p>
+     * <p>Business Name: Number of remaining fills</p>
      * 
-     * <p>Indicates the number or remaining fills, if any, for this 
-     * prescription.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of remaining fills is used to evaluate the 
      * &quot;completed&quot; status of the prescription.</p>
+     * 
+     * <p>Indicates the number or remaining fills, if any, for this 
+     * prescription.</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
@@ -149,13 +169,17 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Number of remaining fills</p>
+     * <p>Business Name: Number of remaining fills</p>
      * 
-     * <p>Indicates the number or remaining fills, if any, for this 
-     * prescription.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of remaining fills is used to evaluate the 
      * &quot;completed&quot; status of the prescription.</p>
+     * 
+     * <p>Indicates the number or remaining fills, if any, for this 
+     * prescription.</p>
      */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
@@ -163,15 +187,19 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispensed Quantity</p>
+     * <p>Business Name: Dispensed Quantity</p>
      * 
-     * <p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Critical in understanding the patient's medication 
      * profile, both past and current, This is also mandatory to 
      * allow determination of the amount that remains to be 
      * dispensed against the prescription.</p>
+     * 
+     * <p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -179,15 +207,19 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispensed Quantity</p>
+     * <p>Business Name: Dispensed Quantity</p>
      * 
-     * <p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Critical in understanding the patient's medication 
      * profile, both past and current, This is also mandatory to 
      * allow determination of the amount that remains to be 
      * dispensed against the prescription.</p>
+     * 
+     * <p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -195,10 +227,11 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispensed Days Supply</p>
+     * <p>Business Name: Dispensed Days Supply</p>
      * 
-     * <p>The number of days that the dispensed quantity is 
-     * expected to last.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -206,6 +239,9 @@ public class SupplyEventBean extends MessagePartBean {
      * Therapy'). Because 'Days Supply' may be necessary to compute 
      * total dispensed quantity, it is made a 'populated' 
      * field.</p>
+     * 
+     * <p>The number of days that the dispensed quantity is 
+     * expected to last.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -213,10 +249,11 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispensed Days Supply</p>
+     * <p>Business Name: Dispensed Days Supply</p>
      * 
-     * <p>The number of days that the dispensed quantity is 
-     * expected to last.</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -224,6 +261,9 @@ public class SupplyEventBean extends MessagePartBean {
      * Therapy'). Because 'Days Supply' may be necessary to compute 
      * total dispensed quantity, it is made a 'populated' 
      * field.</p>
+     * 
+     * <p>The number of days that the dispensed quantity is 
+     * expected to last.</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);

@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>REPC_IN000052CA: Record patient basic observation request 
- * accepted</p>
+ * <p>Business Name: REPC_IN000052CA: Record patient basic 
+ * observation request accepted</p>
+ * 
+ * <p>Indicates that the requested basic observation (height, 
+ * weight, blood-pressure, etc.) has been successfully recorded 
+ * in a patient's record.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"REPC_IN000052CA"})
 public class RecordPatientBasicObservationRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

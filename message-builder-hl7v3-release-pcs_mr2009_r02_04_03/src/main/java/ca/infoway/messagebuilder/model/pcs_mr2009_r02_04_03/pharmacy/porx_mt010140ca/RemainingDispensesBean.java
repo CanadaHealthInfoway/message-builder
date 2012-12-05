@@ -31,26 +31,28 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt220100
 
 
 /**
- * <p>Remaining Dispenses</p>
- * 
- * <p>Indicates dispenses yet to be made against the 
- * prescription</p>
+ * <p>Business Name: Remaining Dispenses</p>
  * 
  * <p>Allows updating the quantity remaining to be 
  * dispensed.</p>
+ * 
+ * <p>Indicates dispenses yet to be made against the 
+ * prescription</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ quantity = new PQImpl();
     private DrugProductBean productMedication;
 
 
     /**
-     * <p>C:Remaining Quantity</p>
+     * <p>Business Name: C:Remaining Quantity</p>
      * 
-     * <p>Indicates the remaining quantity to be dispensed.</p>
+     * <p>Relationship: PORX_MT010140CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to adjust quantity asserted with the electronic 
      * version of a prescription when fills have been issued by 
@@ -61,6 +63,8 @@ public class RemainingDispensesBean extends MessagePartBean {
      * greater than the remaining quantity recorded in the 
      * electronic system. If not specified, the quantity remaining 
      * will be left unchanged.</p>
+     * 
+     * <p>Indicates the remaining quantity to be dispensed.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -68,9 +72,11 @@ public class RemainingDispensesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Remaining Quantity</p>
+     * <p>Business Name: C:Remaining Quantity</p>
      * 
-     * <p>Indicates the remaining quantity to be dispensed.</p>
+     * <p>Relationship: PORX_MT010140CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to adjust quantity asserted with the electronic 
      * version of a prescription when fills have been issued by 
@@ -81,17 +87,29 @@ public class RemainingDispensesBean extends MessagePartBean {
      * greater than the remaining quantity recorded in the 
      * electronic system. If not specified, the quantity remaining 
      * will be left unchanged.</p>
+     * 
+     * <p>Indicates the remaining quantity to be dispensed.</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010140CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010140CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }

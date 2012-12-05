@@ -30,48 +30,67 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.InvoiceT
 
 
 /**
- * <p>Invoice Component</p>
+ * <p>Business Name: Invoice Component</p>
  * 
  * <p>At most 5 levels of recursion, with n children at each 
  * level. Root level counts as level 1.</p>
  * 
+ * <p>At most 5 levels of recursion, with n children at each 
+ * level. Root level counts as level 1.</p><p>The number of 
+ * children for each group cannot and should not be 
+ * limited.</p>
+ * 
  * <p>This allows for an Invoice Grouping to be composed of one 
  * or more invoice element groups and/or details. There must be 
  * one leaf detail.</p>
- * 
- * <p>At most 5 levels of recursion, with n children at each 
- * level. Root level counts as level 1.</p><p>The number of 
- * children for each group cannot and should not be 
- * limited.</p>
- * 
- * <p>At most 5 levels of recursion, with n children at each 
- * level. Root level counts as level 1.</p><p>The number of 
- * children for each group cannot and should not be 
- * limited.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementComponent"})
 public class InvoiceComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private InvoiceElementChoice invoiceElementChoice;
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementComponent.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementComponent.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementComponent.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"invoiceElementChoice"})
     public InvoiceElementChoice getInvoiceElementChoice() {
         return this.invoiceElementChoice;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementComponent.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInvoiceElementChoice(InvoiceElementChoice invoiceElementChoice) {
         this.invoiceElementChoice = invoiceElementChoice;
     }

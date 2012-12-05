@@ -29,15 +29,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.DispenseInstructions"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ExpectedStartTimeBean substanceAdministrationIntent;
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.DispenseInstructions.substanceAdministrationIntent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"substanceAdministrationIntent"})
     public ExpectedStartTimeBean getSubstanceAdministrationIntent() {
         return this.substanceAdministrationIntent;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.DispenseInstructions.substanceAdministrationIntent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubstanceAdministrationIntent(ExpectedStartTimeBean substanceAdministrationIntent) {
         this.substanceAdministrationIntent = substanceAdministrationIntent;
     }

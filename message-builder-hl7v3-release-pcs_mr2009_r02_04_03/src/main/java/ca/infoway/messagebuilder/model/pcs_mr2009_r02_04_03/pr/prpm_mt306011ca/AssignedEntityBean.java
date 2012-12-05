@@ -60,7 +60,11 @@ import java.util.Set;
 
 
 /**
- * <p>Assigned Entity</p>
+ * <p>Business Name: Assigned Entity</p>
+ * 
+ * <p>Roleclass required to provide additional information for 
+ * the person responsible for providing healthcare services 
+ * within a specific healthcare setting</p>
  * 
  * <p>The role class, assigned entity, captures the critical 
  * information of the provider playing the role of interest. 
@@ -71,15 +75,11 @@ import java.util.Set;
  * for the entity that actually plays the role. For example, 
  * the role scoper will normally be the party that assigns the 
  * identifier for the role.</p>
- * 
- * <p>Roleclass required to provide additional information for 
- * the person responsible for providing healthcare services 
- * within a specific healthcare setting</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -101,13 +101,17 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Identifier</p>
+     * <p>Business Name: Functional Role Identifier</p>
      * 
-     * <p>Identifies specific functional role that a provider may 
-     * play within an organization.</p>
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>Identifies specific functional role that a provider may 
+     * play within an organization.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -115,6 +119,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"relatedTo"})
     public List<RelatedToBean> getRelatedTo() {
         return this.relatedTo;
@@ -122,12 +131,16 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Type</p>
+     * <p>Business Name: Functional Role Type</p>
      * 
-     * <p>The code identifying the specific functional role.</p>
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The code identifying the specific functional role.</p>
      */
     @Hl7XmlMapping({"code"})
     public AssignedRoleType getCode() {
@@ -135,12 +148,16 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Functional Role Type</p>
+     * <p>Business Name: Functional Role Type</p>
      * 
-     * <p>The code identifying the specific functional role.</p>
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The code identifying the specific functional role.</p>
      */
     public void setCode(AssignedRoleType code) {
         this.code.setValue(code);
@@ -148,13 +165,17 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Name</p>
+     * <p>Business Name: Functional Role Name</p>
      * 
-     * <p>The providers name pertaining to the specific functional 
-     * role.</p>
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The providers name pertaining to the specific functional 
+     * role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -163,13 +184,17 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Address</p>
+     * <p>Business Name: Functional Role Address</p>
      * 
-     * <p>Address of the provider when playing the functional 
-     * role.</p>
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>Address of the provider when playing the functional 
+     * role.</p>
      */
     @Hl7XmlMapping({"addr"})
     public List<PostalAddress> getAddr() {
@@ -178,13 +203,17 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Telecom</p>
+     * <p>Business Name: Functional Role Telecom</p>
      * 
-     * <p>Telecom of the provider when playing the functional 
-     * role.</p>
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>Telecom of the provider when playing the functional 
+     * role.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -193,13 +222,17 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Status Code</p>
+     * <p>Business Name: Functional Role Status Code</p>
      * 
-     * <p>The status of the provider in the functional role i.e. 
-     * Active</p>
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The status of the provider in the functional role i.e. 
+     * Active</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public RoleStatus getStatusCode() {
@@ -207,13 +240,17 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Functional Role Status Code</p>
+     * <p>Business Name: Functional Role Status Code</p>
      * 
-     * <p>The status of the provider in the functional role i.e. 
-     * Active</p>
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The status of the provider in the functional role i.e. 
+     * Active</p>
      */
     public void setStatusCode(RoleStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -221,13 +258,18 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Effective Date</p>
+     * <p>Business Name: Functional Role Effective Date</p>
      * 
-     * <p>The effective date of the provider in the functional 
-     * role.</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.AssignedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The effective date of the provider in the functional 
+     * role.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -235,13 +277,18 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Functional Role Effective Date</p>
+     * <p>Business Name: Functional Role Effective Date</p>
      * 
-     * <p>The effective date of the provider in the functional 
-     * role.</p>
+     * <p>Relationship: 
+     * PRPM_MT306011CA.AssignedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The effective date of the provider in the functional 
+     * role.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -258,11 +305,23 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"representedOrganization"})
     public OrganizationBean getRepresentedOrganization() {
         return this.representedOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setRepresentedOrganization(OrganizationBean representedOrganization) {
         this.representedOrganization = representedOrganization;
     }

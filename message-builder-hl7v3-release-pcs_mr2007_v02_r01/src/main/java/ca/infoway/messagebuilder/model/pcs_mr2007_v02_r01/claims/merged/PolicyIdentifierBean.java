@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.CarrierRoleBean
 
 
 /**
- * <p>PolicyIdentifier</p>
+ * <p>Business Name: PolicyIdentifier</p>
  * 
  * <p>FICR_MT600201CA.PolicyOrAccount: Policy Identifier</p>
  * 
@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.CarrierRoleBean
 @Hl7PartTypeMapping({"FICR_MT600201CA.PolicyOrAccount","FICR_MT610201CA.PolicyOrAccount"})
 public class PolicyIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CoveredPartyInformationBean beneficiaryCoveredPartyAsPatient;
@@ -54,45 +54,52 @@ public class PolicyIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Policy Identifier(s</p>
+     * <p>Other Business Name: PolicyID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>In some cases, the policy identifier may include a 
+     * concatenation of group, section, certificate, etc. to be 
+     * unique. Methods for specifying the Extension component of 
+     * the data type will be expressed in the NeCST Message 
+     * Specifications.</p><p>For Worker's Compensation and Auto 
+     * Invoices, the policy identifier (WCB or Auto Claim Number) 
+     * may not be known when the Invoice is submitted. In these 
+     * situations, the Adjudicator may require name, address and 
+     * date of accident (for example) in the Invoice to help 
+     * determine the WCB or Auto Claim Number (policy identifier). 
+     * Most of these adjudicators will keep this Invoice Grouping 
+     * pended until the WCB or Auto Claim Number (policy 
+     * identifier) is found and may be refused after a specified 
+     * time period (e.g. 10 days).</p><p>For Invoice: In good faith 
+     * Invoices, the Policy Identifier, Covered Party Identifier 
+     * and Policy Holder Identifier is not present, and therefore 
+     * this attribute cannot be made mandatory.</p>
+     * 
+     * <p>For Invoice, Pre-Determination and Coverage Extension 
+     * requests: If this information is not supplied, the 
+     * Adjudicator may attempt to determine the information from 
+     * other patient information supplied in the message (e.g. 
+     * name, date of birth, gender) and would return this 
+     * information with the response. If this cannot be obtained in 
+     * a real time environment, the message may be rejected, 
+     * depending on the Application Role (if Application Role = 
+     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
+     * Extension results: This information is 
+     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
+     * to be confirmed.</p>
      * 
      * <p>Set of identifiers that uniquely identify the policy. 
      * I.e. WCB Number, Auto Number, Certificate Number, combined 
      * identifier (Group+Section+Coverage Number)</p>
      * 
-     * <p>identifier may include a concatenation of group, section, 
-     * certificate, etc. to be unique. Methods for specifying the 
-     * Extension component of the data type will be expressed in 
-     * the NeCST Message Specifications.</p><p>For Worker's 
-     * Compensation and Auto Invoices, the policy identifier (WCB 
-     * or Auto Claim Number) may not be known when the Invoice is 
-     * submitted. In these situations, the Adjudicator may require 
-     * name, address and date of accident (for example) in the 
-     * Invoice to help determine the WCB or Auto Claim Number 
-     * (policy identifier). Most of these adjudicators will keep 
-     * this Invoice Grouping pended until the WCB or Auto Claim 
-     * Number (policy identifier) is found and may be refused after 
-     * a specified time period (e.g. 10 days).</p><p>For Invoice: 
-     * In good faith Invoices, the Policy Identifier, Covered Party 
-     * Identifier and Policy Holder Identifier is not present, and 
-     * therefore this attribute cannot be made mandatory.</p>
+     * <p>Other Business Name: PolicyIdentifierS</p>
      * 
-     * <p>identifier may include a concatenation of group, section, 
-     * certificate, etc. to be unique. Methods for specifying the 
-     * Extension component of the data type will be expressed in 
-     * the NeCST Message Specifications.</p><p>For Worker's 
-     * Compensation and Auto Invoices, the policy identifier (WCB 
-     * or Auto Claim Number) may not be known when the Invoice is 
-     * submitted. In these situations, the Adjudicator may require 
-     * name, address and date of accident (for example) in the 
-     * Invoice to help determine the WCB or Auto Claim Number 
-     * (policy identifier). Most of these adjudicators will keep 
-     * this Invoice Grouping pended until the WCB or Auto Claim 
-     * Number (policy identifier) is found and may be refused after 
-     * a specified time period (e.g. 10 days).</p><p>For Invoice: 
-     * In good faith Invoices, the Policy Identifier, Covered Party 
-     * Identifier and Policy Holder Identifier is not present, and 
-     * therefore this attribute cannot be made mandatory.</p>
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>identifier may include a concatenation of group, section, 
      * certificate, etc. to be unique. Methods for specifying the 
@@ -123,110 +130,10 @@ public class PolicyIdentifierBean extends MessagePartBean {
      * Extension results: This information is 
      * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
      * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>Policy ID</p>
      * 
      * <p>Set of identifiers that uniquely identify the policy. 
      * I.e. WCB Number, Auto Number, Certificate Number, combined 
      * identifier (Group+Section+Coverage Number)</p>
-     * 
-     * <p>In some cases, the policy identifier may include a 
-     * concatenation of group, section, certificate, etc. to be 
-     * unique. Methods for specifying the Extension component of 
-     * the data type will be expressed in the NeCST Message 
-     * Specifications.</p><p>For Worker's Compensation and Auto 
-     * Invoices, the policy identifier (WCB or Auto Claim Number) 
-     * may not be known when the Invoice is submitted. In these 
-     * situations, the Adjudicator may require name, address and 
-     * date of accident (for example) in the Invoice to help 
-     * determine the WCB or Auto Claim Number (policy identifier). 
-     * Most of these adjudicators will keep this Invoice Grouping 
-     * pended until the WCB or Auto Claim Number (policy 
-     * identifier) is found and may be refused after a specified 
-     * time period (e.g. 10 days).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p>
-     * 
-     * <p>In some cases, the policy identifier may include a 
-     * concatenation of group, section, certificate, etc. to be 
-     * unique. Methods for specifying the Extension component of 
-     * the data type will be expressed in the NeCST Message 
-     * Specifications.</p><p>For Worker's Compensation and Auto 
-     * Invoices, the policy identifier (WCB or Auto Claim Number) 
-     * may not be known when the Invoice is submitted. In these 
-     * situations, the Adjudicator may require name, address and 
-     * date of accident (for example) in the Invoice to help 
-     * determine the WCB or Auto Claim Number (policy identifier). 
-     * Most of these adjudicators will keep this Invoice Grouping 
-     * pended until the WCB or Auto Claim Number (policy 
-     * identifier) is found and may be refused after a specified 
-     * time period (e.g. 10 days).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p>
-     * 
-     * <p>In some cases, the policy identifier may include a 
-     * concatenation of group, section, certificate, etc. to be 
-     * unique. Methods for specifying the Extension component of 
-     * the data type will be expressed in the NeCST Message 
-     * Specifications.</p><p>For Worker's Compensation and Auto 
-     * Invoices, the policy identifier (WCB or Auto Claim Number) 
-     * may not be known when the Invoice is submitted. In these 
-     * situations, the Adjudicator may require name, address and 
-     * date of accident (for example) in the Invoice to help 
-     * determine the WCB or Auto Claim Number (policy identifier). 
-     * Most of these adjudicators will keep this Invoice Grouping 
-     * pended until the WCB or Auto Claim Number (policy 
-     * identifier) is found and may be refused after a specified 
-     * time period (e.g. 10 days).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-
-     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -234,45 +141,52 @@ public class PolicyIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>Policy Identifier(s</p>
+     * <p>Other Business Name: PolicyID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>In some cases, the policy identifier may include a 
+     * concatenation of group, section, certificate, etc. to be 
+     * unique. Methods for specifying the Extension component of 
+     * the data type will be expressed in the NeCST Message 
+     * Specifications.</p><p>For Worker's Compensation and Auto 
+     * Invoices, the policy identifier (WCB or Auto Claim Number) 
+     * may not be known when the Invoice is submitted. In these 
+     * situations, the Adjudicator may require name, address and 
+     * date of accident (for example) in the Invoice to help 
+     * determine the WCB or Auto Claim Number (policy identifier). 
+     * Most of these adjudicators will keep this Invoice Grouping 
+     * pended until the WCB or Auto Claim Number (policy 
+     * identifier) is found and may be refused after a specified 
+     * time period (e.g. 10 days).</p><p>For Invoice: In good faith 
+     * Invoices, the Policy Identifier, Covered Party Identifier 
+     * and Policy Holder Identifier is not present, and therefore 
+     * this attribute cannot be made mandatory.</p>
+     * 
+     * <p>For Invoice, Pre-Determination and Coverage Extension 
+     * requests: If this information is not supplied, the 
+     * Adjudicator may attempt to determine the information from 
+     * other patient information supplied in the message (e.g. 
+     * name, date of birth, gender) and would return this 
+     * information with the response. If this cannot be obtained in 
+     * a real time environment, the message may be rejected, 
+     * depending on the Application Role (if Application Role = 
+     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
+     * Extension results: This information is 
+     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
+     * to be confirmed.</p>
      * 
      * <p>Set of identifiers that uniquely identify the policy. 
      * I.e. WCB Number, Auto Number, Certificate Number, combined 
      * identifier (Group+Section+Coverage Number)</p>
      * 
-     * <p>identifier may include a concatenation of group, section, 
-     * certificate, etc. to be unique. Methods for specifying the 
-     * Extension component of the data type will be expressed in 
-     * the NeCST Message Specifications.</p><p>For Worker's 
-     * Compensation and Auto Invoices, the policy identifier (WCB 
-     * or Auto Claim Number) may not be known when the Invoice is 
-     * submitted. In these situations, the Adjudicator may require 
-     * name, address and date of accident (for example) in the 
-     * Invoice to help determine the WCB or Auto Claim Number 
-     * (policy identifier). Most of these adjudicators will keep 
-     * this Invoice Grouping pended until the WCB or Auto Claim 
-     * Number (policy identifier) is found and may be refused after 
-     * a specified time period (e.g. 10 days).</p><p>For Invoice: 
-     * In good faith Invoices, the Policy Identifier, Covered Party 
-     * Identifier and Policy Holder Identifier is not present, and 
-     * therefore this attribute cannot be made mandatory.</p>
+     * <p>Other Business Name: PolicyIdentifierS</p>
      * 
-     * <p>identifier may include a concatenation of group, section, 
-     * certificate, etc. to be unique. Methods for specifying the 
-     * Extension component of the data type will be expressed in 
-     * the NeCST Message Specifications.</p><p>For Worker's 
-     * Compensation and Auto Invoices, the policy identifier (WCB 
-     * or Auto Claim Number) may not be known when the Invoice is 
-     * submitted. In these situations, the Adjudicator may require 
-     * name, address and date of accident (for example) in the 
-     * Invoice to help determine the WCB or Auto Claim Number 
-     * (policy identifier). Most of these adjudicators will keep 
-     * this Invoice Grouping pended until the WCB or Auto Claim 
-     * Number (policy identifier) is found and may be refused after 
-     * a specified time period (e.g. 10 days).</p><p>For Invoice: 
-     * In good faith Invoices, the Policy Identifier, Covered Party 
-     * Identifier and Policy Holder Identifier is not present, and 
-     * therefore this attribute cannot be made mandatory.</p>
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>identifier may include a concatenation of group, section, 
      * certificate, etc. to be unique. Methods for specifying the 
@@ -303,110 +217,10 @@ public class PolicyIdentifierBean extends MessagePartBean {
      * Extension results: This information is 
      * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
      * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>Policy ID</p>
      * 
      * <p>Set of identifiers that uniquely identify the policy. 
      * I.e. WCB Number, Auto Number, Certificate Number, combined 
      * identifier (Group+Section+Coverage Number)</p>
-     * 
-     * <p>In some cases, the policy identifier may include a 
-     * concatenation of group, section, certificate, etc. to be 
-     * unique. Methods for specifying the Extension component of 
-     * the data type will be expressed in the NeCST Message 
-     * Specifications.</p><p>For Worker's Compensation and Auto 
-     * Invoices, the policy identifier (WCB or Auto Claim Number) 
-     * may not be known when the Invoice is submitted. In these 
-     * situations, the Adjudicator may require name, address and 
-     * date of accident (for example) in the Invoice to help 
-     * determine the WCB or Auto Claim Number (policy identifier). 
-     * Most of these adjudicators will keep this Invoice Grouping 
-     * pended until the WCB or Auto Claim Number (policy 
-     * identifier) is found and may be refused after a specified 
-     * time period (e.g. 10 days).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p>
-     * 
-     * <p>In some cases, the policy identifier may include a 
-     * concatenation of group, section, certificate, etc. to be 
-     * unique. Methods for specifying the Extension component of 
-     * the data type will be expressed in the NeCST Message 
-     * Specifications.</p><p>For Worker's Compensation and Auto 
-     * Invoices, the policy identifier (WCB or Auto Claim Number) 
-     * may not be known when the Invoice is submitted. In these 
-     * situations, the Adjudicator may require name, address and 
-     * date of accident (for example) in the Invoice to help 
-     * determine the WCB or Auto Claim Number (policy identifier). 
-     * Most of these adjudicators will keep this Invoice Grouping 
-     * pended until the WCB or Auto Claim Number (policy 
-     * identifier) is found and may be refused after a specified 
-     * time period (e.g. 10 days).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p>
-     * 
-     * <p>In some cases, the policy identifier may include a 
-     * concatenation of group, section, certificate, etc. to be 
-     * unique. Methods for specifying the Extension component of 
-     * the data type will be expressed in the NeCST Message 
-     * Specifications.</p><p>For Worker's Compensation and Auto 
-     * Invoices, the policy identifier (WCB or Auto Claim Number) 
-     * may not be known when the Invoice is submitted. In these 
-     * situations, the Adjudicator may require name, address and 
-     * date of accident (for example) in the Invoice to help 
-     * determine the WCB or Auto Claim Number (policy identifier). 
-     * Most of these adjudicators will keep this Invoice Grouping 
-     * pended until the WCB or Auto Claim Number (policy 
-     * identifier) is found and may be refused after a specified 
-     * time period (e.g. 10 days).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-
-     * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -414,19 +228,13 @@ public class PolicyIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>PolicyType</p>
+     * <p>Business Name: PolicyType</p>
      * 
-     * <p>Policy Type</p>
+     * <p>Other Business Name: PolicyType</p>
      * 
-     * <p>Policy Type - A code that identifies the type of coverage 
-     * the policy provides. I.e.. H.S.A.</p>
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.code</p>
      * 
-     * <p>For Invoice: This information is likely not known or not 
-     * required by a Payor. Will be required for HSA policies that 
-     * use the same policy identifier as another policy.</p><p>For 
-     * Adjudication Results: This could be mandatory to indicate 
-     * the type of policy. Must be specified if the EOB references 
-     * a policy that was not specified on the Invoice.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>For Invoice: This information is likely not known or not 
      * required by a Payor. Will be required for HSA policies that 
@@ -437,6 +245,9 @@ public class PolicyIdentifierBean extends MessagePartBean {
      * 
      * <p>For Pre-Determination Results, this could be used to 
      * coordinate Pre-Determinations.</p>
+     * 
+     * <p>Policy Type - A code that identifies the type of coverage 
+     * the policy provides. I.e.. H.S.A.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -444,19 +255,13 @@ public class PolicyIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>PolicyType</p>
+     * <p>Business Name: PolicyType</p>
      * 
-     * <p>Policy Type</p>
+     * <p>Other Business Name: PolicyType</p>
      * 
-     * <p>Policy Type - A code that identifies the type of coverage 
-     * the policy provides. I.e.. H.S.A.</p>
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.code</p>
      * 
-     * <p>For Invoice: This information is likely not known or not 
-     * required by a Payor. Will be required for HSA policies that 
-     * use the same policy identifier as another policy.</p><p>For 
-     * Adjudication Results: This could be mandatory to indicate 
-     * the type of policy. Must be specified if the EOB references 
-     * a policy that was not specified on the Invoice.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>For Invoice: This information is likely not known or not 
      * required by a Payor. Will be required for HSA policies that 
@@ -467,27 +272,90 @@ public class PolicyIdentifierBean extends MessagePartBean {
      * 
      * <p>For Pre-Determination Results, this could be used to 
      * coordinate Pre-Determinations.</p>
+     * 
+     * <p>Policy Type - A code that identifies the type of coverage 
+     * the policy provides. I.e.. H.S.A.</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
     public CoveredPartyInformationBean getBeneficiaryCoveredPartyAsPatient() {
         return this.beneficiaryCoveredPartyAsPatient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyInformationBean beneficiaryCoveredPartyAsPatient) {
         this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author/carrierRole"})
     public CarrierRoleBean getAuthorCarrierRole() {
         return this.authorCarrierRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyUnderwriter.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
         this.authorCarrierRole = authorCarrierRole;
     }

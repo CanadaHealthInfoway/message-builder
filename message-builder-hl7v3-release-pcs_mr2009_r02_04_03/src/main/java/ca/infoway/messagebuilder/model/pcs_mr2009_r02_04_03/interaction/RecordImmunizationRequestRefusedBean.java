@@ -28,7 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>POIZ_IN010040CA: Record immunization request refused</p>
+ * <p>Business Name: POIZ_IN010040CA: Record immunization 
+ * request refused</p>
+ * 
+ * <p>Indicates that the request to add an immunization to the 
+ * patient record has been denied.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -37,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"POIZ_IN010040CA"})
 public class RecordImmunizationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

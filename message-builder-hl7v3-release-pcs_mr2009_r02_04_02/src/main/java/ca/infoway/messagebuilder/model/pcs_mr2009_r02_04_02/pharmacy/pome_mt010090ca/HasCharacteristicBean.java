@@ -32,69 +32,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>has characteristic</p>
- * 
- * <p>Filters medications by their appearance.</p>
+ * <p>Business Name: has characteristic</p>
  * 
  * <p>Used to hold characteristic type and value pair as one 
  * set of query parameter item.</p>
+ * 
+ * <p>Filters medications by their appearance.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010090CA.DrugCharacteristics"})
 public class HasCharacteristicBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST drugCharacteristicValue = new STImpl();
     private CV drugCharacteristicTypeValue = new CVImpl();
 
 
     /**
-     * <p>G:Drug Characteristic</p>
+     * <p>Business Name: G:Drug Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugCharacteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides the 'value' part of the name-value pair 
+     * describing the characteristic of drug product to be 
+     * retrieved. Example:</p><p>type: color</p><p>value: 
+     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
+     * attribute is mandatory because there's no point searching 
+     * for a characteristic without specifying a value.</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color - red, shape - triangular, markings 
      * etc).</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
      */
     @Hl7XmlMapping({"drugCharacteristic/value"})
     public String getDrugCharacteristicValue() {
@@ -102,53 +71,22 @@ public class HasCharacteristicBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Drug Characteristic</p>
+     * <p>Business Name: G:Drug Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugCharacteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides the 'value' part of the name-value pair 
+     * describing the characteristic of drug product to be 
+     * retrieved. Example:</p><p>type: color</p><p>value: 
+     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
+     * attribute is mandatory because there's no point searching 
+     * for a characteristic without specifying a value.</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color - red, shape - triangular, markings 
      * etc).</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the characteristic of drug product to be 
-     * retrieved. Example:</p><p>type: color</p><p>value: 
-     * blue</p><p>type: shape</p><p>value: rectangular</p><p>The 
-     * attribute is mandatory because there's no point searching 
-     * for a characteristic without specifying a value.</p>
      */
     public void setDrugCharacteristicValue(String drugCharacteristicValue) {
         this.drugCharacteristicValue.setValue(drugCharacteristicValue);
@@ -156,16 +94,21 @@ public class HasCharacteristicBean extends MessagePartBean {
 
 
     /**
-     * <p>H:Drug Characteristic Type Code</p>
+     * <p>Business Name: H:Drug Characteristic Type Code</p>
      * 
-     * <p>A coded value denoting the type of physical 
-     * characteristic of a drug. Characteristics include: Color, 
-     * Shape, Markings, Size, etc.</p>
+     * <p>Relationship: 
+     * POME_MT010090CA.DrugCharacteristicType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieval based on specific characteristic of a 
      * drug. The attribute is mandatory because there's no point 
      * searching for a characteristic without identifying what kind 
      * of characteristic is being searched by.</p>
+     * 
+     * <p>A coded value denoting the type of physical 
+     * characteristic of a drug. Characteristics include: Color, 
+     * Shape, Markings, Size, etc.</p>
      */
     @Hl7XmlMapping({"drugCharacteristicType/value"})
     public MedicationObservationType getDrugCharacteristicTypeValue() {
@@ -173,16 +116,21 @@ public class HasCharacteristicBean extends MessagePartBean {
     }
 
     /**
-     * <p>H:Drug Characteristic Type Code</p>
+     * <p>Business Name: H:Drug Characteristic Type Code</p>
      * 
-     * <p>A coded value denoting the type of physical 
-     * characteristic of a drug. Characteristics include: Color, 
-     * Shape, Markings, Size, etc.</p>
+     * <p>Relationship: 
+     * POME_MT010090CA.DrugCharacteristicType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieval based on specific characteristic of a 
      * drug. The attribute is mandatory because there's no point 
      * searching for a characteristic without identifying what kind 
      * of characteristic is being searched by.</p>
+     * 
+     * <p>A coded value denoting the type of physical 
+     * characteristic of a drug. Characteristics include: Color, 
+     * Shape, Markings, Size, etc.</p>
      */
     public void setDrugCharacteristicTypeValue(MedicationObservationType drugCharacteristicTypeValue) {
         this.drugCharacteristicTypeValue.setValue(drugCharacteristicTypeValue);

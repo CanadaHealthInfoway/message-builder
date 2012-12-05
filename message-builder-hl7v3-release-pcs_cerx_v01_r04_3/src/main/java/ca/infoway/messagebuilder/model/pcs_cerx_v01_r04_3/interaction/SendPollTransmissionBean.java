@@ -27,13 +27,16 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Messa
 
 
 /**
- * <p>MCCI_IN102001CA: Send Poll Transmission</p>
+ * <p>Business Name: MCCI_IN102001CA: Send Poll Transmission</p>
+ * 
+ * <p>Sends HL7 Poll Transmission to an HL7 interaction queue 
+ * manager.</p>
  * 
  * <p>Message: MCCI_MT102001CA.Message</p>
  */
 @Hl7PartTypeMapping({"MCCI_IN102001CA"})
 public class SendPollTransmissionBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

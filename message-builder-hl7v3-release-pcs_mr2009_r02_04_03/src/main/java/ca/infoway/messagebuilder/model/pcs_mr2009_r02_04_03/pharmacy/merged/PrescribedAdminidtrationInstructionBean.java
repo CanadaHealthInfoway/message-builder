@@ -34,39 +34,41 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.Substanc
 @Hl7PartTypeMapping({"PORX_MT030040CA.AdministrationInstructions","PORX_MT060100CA.AdministrationInstructions"})
 public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
 
     /**
-     * <p>PrescriptionType</p>
+     * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Prescription Type</p>
+     * <p>Other Business Name: PrescriptionType</p>
      * 
-     * <p>Differentiates the type of medication e.g. drug, 
-     * vaccine</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.AdministrationInstructions.code</p>
      * 
-     * <p>Important in providing the context of the rendered dosage 
-     * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
-     * 
-     * <p>Important in providing the context of the rendered dosage 
-     * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
-     * 
-     * <p>Prescription Type</p>
-     * 
-     * <p>Differentiates the type of medication e.g. drug, 
-     * vaccine</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important in providing the context of the rendered dosage 
      * instruction.</p><p>For this reason the attribute is 
      * Mandatory</p>
      * 
+     * <p>Differentiates the type of medication e.g. drug, 
+     * vaccine</p>
+     * 
+     * <p>Other Business Name: PrescriptionType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.AdministrationInstructions.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Important in providing the context of the rendered dosage 
      * instruction.</p><p>For this reason the attribute is 
-     * Mandatory</p>
+     * Mandatory.</p>
+     * 
+     * <p>Differentiates the type of medication e.g. drug, 
+     * vaccine</p>
      */
     @Hl7XmlMapping({"code"})
     public SubstanceAdministrationType getCode() {
@@ -74,33 +76,35 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionType</p>
+     * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Prescription Type</p>
+     * <p>Other Business Name: PrescriptionType</p>
      * 
-     * <p>Differentiates the type of medication e.g. drug, 
-     * vaccine</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.AdministrationInstructions.code</p>
      * 
-     * <p>Important in providing the context of the rendered dosage 
-     * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
-     * 
-     * <p>Important in providing the context of the rendered dosage 
-     * instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p>
-     * 
-     * <p>Prescription Type</p>
-     * 
-     * <p>Differentiates the type of medication e.g. drug, 
-     * vaccine</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important in providing the context of the rendered dosage 
      * instruction.</p><p>For this reason the attribute is 
      * Mandatory</p>
      * 
+     * <p>Differentiates the type of medication e.g. drug, 
+     * vaccine</p>
+     * 
+     * <p>Other Business Name: PrescriptionType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.AdministrationInstructions.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Important in providing the context of the rendered dosage 
      * instruction.</p><p>For this reason the attribute is 
-     * Mandatory</p>
+     * Mandatory.</p>
+     * 
+     * <p>Differentiates the type of medication e.g. drug, 
+     * vaccine</p>
      */
     public void setCode(SubstanceAdministrationType code) {
         this.code.setValue(code);
@@ -108,31 +112,14 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
 
 
     /**
-     * <p>RenderedDosageInstruction</p>
+     * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Other Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.AdministrationInstructions.text</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
@@ -147,8 +134,6 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * or &quot;Scaling dose&quot; or something similar should be 
      * sent. Dosage instructions should never be truncated.</p>
      * 
-     * <p>Rendered Dosage Instruction</p>
-     * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
      * is made up of either an 'Ad-hoc dosage instruction' or 
@@ -156,12 +141,12 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * route, dosage unit, and other pertinent administration 
      * information specified by the provider.</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
+     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
@@ -171,13 +156,12 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * prescriptions and dispenses have dosage, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p>
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -185,31 +169,14 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
     }
 
     /**
-     * <p>RenderedDosageInstruction</p>
+     * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Other Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.AdministrationInstructions.text</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
-     * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
@@ -224,8 +191,6 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * or &quot;Scaling dose&quot; or something similar should be 
      * sent. Dosage instructions should never be truncated.</p>
      * 
-     * <p>Rendered Dosage Instruction</p>
-     * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
      * is made up of either an 'Ad-hoc dosage instruction' or 
@@ -233,12 +198,12 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * route, dosage unit, and other pertinent administration 
      * information specified by the provider.</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
+     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
@@ -248,13 +213,12 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * prescriptions and dispenses have dosage, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p>
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

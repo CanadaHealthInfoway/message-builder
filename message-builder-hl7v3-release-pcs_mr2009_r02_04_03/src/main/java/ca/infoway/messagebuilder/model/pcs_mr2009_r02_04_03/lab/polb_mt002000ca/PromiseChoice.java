@@ -57,8 +57,20 @@ public interface PromiseChoice {
     public List<RoleChoice> getPerformerRoleChoice();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public PrimaryInformationRecipientBean getPrimaryInformationRecipient();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient);
 
 
@@ -73,11 +85,26 @@ public interface PromiseChoice {
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Component.promiseChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<PromiseChoice> getComponentPromiseChoice();
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public VersionInformationBean getSubjectOf1ControlActEvent();
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
 
 

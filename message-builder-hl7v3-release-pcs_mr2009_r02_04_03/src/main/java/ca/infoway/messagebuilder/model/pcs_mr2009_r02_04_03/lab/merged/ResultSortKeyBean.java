@@ -29,44 +29,63 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ResultSortKey</p>
+ * <p>Business Name: ResultSortKey</p>
  * 
  * <p>POLB_MT004000CA.ResultSortKey: Result Sort Key</p>
- * 
- * <p>String used for sorting of results.</p>
  * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * result to allow a laboratory to provide sorting information 
  * for test results.</p>
+ * 
+ * <p>String used for sorting of results.</p>
  * 
  * <p>POLB_MT004200CA.ResultSortKey: Result Sort Key</p>
  * 
  * <p>This must not be linked at ObservationReport level.</p>
  * 
- * <p>String used for sorting of results.</p>
- * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * result to allow a laboratory to provide sorting information 
  * for test results.</p>
+ * 
+ * <p>String used for sorting of results.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004000CA.ResultSortKey","POLB_MT004100CA.ResultSortKey","POLB_MT004200CA.ResultSortKey"})
 public class ResultSortKeyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
 
 
     /**
-     * <p>SortKeyText</p>
+     * <p>Business Name: SortKeyText</p>
      * 
-     * <p>Sort Key Text</p>
+     * <p>Other Business Name: SortKeyText</p>
      * 
-     * <p>Sort Key Text</p>
+     * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
      * 
-     * <p>Value used for sorting results.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Attribute for communicating the actual sort key 
      * value.</p>
+     * 
+     * <p>Value used for sorting results.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.ResultSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Attribute for communicating the actual sort key 
+     * value.</p>
+     * 
+     * <p>Value used for sorting results.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ResultSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -74,16 +93,35 @@ public class ResultSortKeyBean extends MessagePartBean {
     }
 
     /**
-     * <p>SortKeyText</p>
+     * <p>Business Name: SortKeyText</p>
      * 
-     * <p>Sort Key Text</p>
+     * <p>Other Business Name: SortKeyText</p>
      * 
-     * <p>Sort Key Text</p>
+     * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
      * 
-     * <p>Value used for sorting results.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Attribute for communicating the actual sort key 
      * value.</p>
+     * 
+     * <p>Value used for sorting results.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.ResultSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Attribute for communicating the actual sort key 
+     * value.</p>
+     * 
+     * <p>Value used for sorting results.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.ResultSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

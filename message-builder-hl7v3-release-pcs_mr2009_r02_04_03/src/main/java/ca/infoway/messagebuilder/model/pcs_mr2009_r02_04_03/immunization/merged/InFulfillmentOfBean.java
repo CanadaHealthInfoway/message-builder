@@ -33,33 +33,50 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>POIZ_MT030060CA.InFulfillmentOf: (no business name)</p>
  * 
- * <p>Indicates the order of a specific immunization event with 
- * a planned/expected number of immunizations.</p>
- * 
  * <p>Allows tracking against an immunization plan or 
  * schedule.</p>
+ * 
+ * <p>Indicates the order of a specific immunization event with 
+ * a planned/expected number of immunizations.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InFulfillmentOf","POIZ_MT030060CA.InFulfillmentOf","POIZ_MT060150CA.InFulfillmentOf"})
 public class InFulfillmentOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private BL immunizationPlan = new BLImpl(false);
 
 
     /**
-     * <p>DoseNumber</p>
+     * <p>Business Name: DoseNumber</p>
      * 
-     * <p>Dose Number</p>
+     * <p>Other Business Name: DoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used in compliance checking regarding completion of an 
+     * immunization plan or schedule.</p>
      * 
      * <p>Indicates whether this is the initial immunization (Dose 
      * Number = 1) or a specific booster (Dose Number = 2 means 
      * first booster, 3 means second booster, etc.).</p>
      * 
-     * <p>Used in compliance checking regarding completion of an 
-     * immunization plan or schedule.</p>
+     * <p>Other Business Name: DoseNumber</p>
      * 
-     * <p>Dose Number</p>
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
@@ -67,29 +84,90 @@ public class InFulfillmentOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>DoseNumber</p>
+     * <p>Business Name: DoseNumber</p>
      * 
-     * <p>Dose Number</p>
+     * <p>Other Business Name: DoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used in compliance checking regarding completion of an 
+     * immunization plan or schedule.</p>
      * 
      * <p>Indicates whether this is the initial immunization (Dose 
      * Number = 1) or a specific booster (Dose Number = 2 means 
      * first booster, 3 means second booster, etc.).</p>
      * 
-     * <p>Used in compliance checking regarding completion of an 
-     * immunization plan or schedule.</p>
+     * <p>Other Business Name: DoseNumber</p>
      * 
-     * <p>Dose Number</p>
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"immunizationPlan"})
     public Boolean getImmunizationPlan() {
         return this.immunizationPlan.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setImmunizationPlan(Boolean immunizationPlan) {
         this.immunizationPlan.setValue(immunizationPlan);
     }

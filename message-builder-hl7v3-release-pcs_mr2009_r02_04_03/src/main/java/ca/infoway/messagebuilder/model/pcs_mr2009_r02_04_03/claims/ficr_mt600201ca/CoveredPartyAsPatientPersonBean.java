@@ -48,7 +48,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatientPerson"})
 public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PN name = new PNImpl();
     private CV administrativeGenderCode = new CVImpl();
     private TS birthTime = new TSImpl();
@@ -60,7 +60,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Patient Name</p>
+     * <p>Business Name: Patient Name</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"name"})
     public PersonName getName() {
@@ -68,7 +73,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Patient Name</p>
+     * <p>Business Name: Patient Name</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setName(PersonName name) {
         this.name.setValue(name);
@@ -76,7 +86,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Person Gender</p>
+     * <p>Business Name: Person Gender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"administrativeGenderCode"})
     public AdministrativeGender getAdministrativeGenderCode() {
@@ -84,7 +99,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Person Gender</p>
+     * <p>Business Name: Person Gender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setAdministrativeGenderCode(AdministrativeGender administrativeGenderCode) {
         this.administrativeGenderCode.setValue(administrativeGenderCode);
@@ -92,7 +112,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Person Date of birth</p>
+     * <p>Business Name: Person Date of birth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"birthTime"})
     public Date getBirthTime() {
@@ -100,7 +125,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Person Date of birth</p>
+     * <p>Business Name: Person Date of birth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setBirthTime(Date birthTime) {
         this.birthTime.setValue(birthTime);
@@ -108,7 +138,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Person multiple birth indicator</p>
+     * <p>Business Name: Person multiple birth indicator</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"multipleBirthInd"})
     public Boolean getMultipleBirthInd() {
@@ -116,7 +151,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Person multiple birth indicator</p>
+     * <p>Business Name: Person multiple birth indicator</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setMultipleBirthInd(Boolean multipleBirthInd) {
         this.multipleBirthInd.setValue(multipleBirthInd);
@@ -124,7 +164,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Person multiple birth order number</p>
+     * <p>Business Name: Person multiple birth order number</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"multipleBirthOrderNumber"})
     public Integer getMultipleBirthOrderNumber() {
@@ -132,7 +177,12 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Person multiple birth order number</p>
+     * <p>Business Name: Person multiple birth order number</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatientPerson.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setMultipleBirthOrderNumber(Integer multipleBirthOrderNumber) {
         this.multipleBirthOrderNumber.setValue(multipleBirthOrderNumber);
@@ -140,7 +190,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Id of parent</p>
+     * <p>Business Name: Id of parent</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ParentOrGuardianRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"parentOrGuardianRole/id"})
     public Identifier getParentOrGuardianRoleId() {
@@ -148,7 +202,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Id of parent</p>
+     * <p>Business Name: Id of parent</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ParentOrGuardianRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setParentOrGuardianRoleId(Identifier parentOrGuardianRoleId) {
         this.parentOrGuardianRoleId.setValue(parentOrGuardianRoleId);
@@ -156,7 +214,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Parent or Guardian Relationship to patient</p>
+     * <p>Business Name: Parent or Guardian Relationship to patient</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ParentOrGuardianRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"parentOrGuardianRole/code"})
     public PersonalRelationshipRoleType getParentOrGuardianRoleCode() {
@@ -164,7 +226,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Parent or Guardian Relationship to patient</p>
+     * <p>Business Name: Parent or Guardian Relationship to patient</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ParentOrGuardianRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setParentOrGuardianRoleCode(PersonalRelationshipRoleType parentOrGuardianRoleCode) {
         this.parentOrGuardianRoleCode.setValue(parentOrGuardianRoleCode);
@@ -172,7 +238,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Name of Parent or Guardian</p>
+     * <p>Business Name: Name of Parent or Guardian</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ParentOrGuardian.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"parentOrGuardianRole/relationshipHolder/name"})
     public PersonName getParentOrGuardianRoleRelationshipHolderName() {
@@ -180,7 +250,11 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Name of Parent or Guardian</p>
+     * <p>Business Name: Name of Parent or Guardian</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.ParentOrGuardian.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setParentOrGuardianRoleRelationshipHolderName(PersonName parentOrGuardianRoleRelationshipHolderName) {
         this.parentOrGuardianRoleRelationshipHolderName.setValue(parentOrGuardianRoleRelationshipHolderName);

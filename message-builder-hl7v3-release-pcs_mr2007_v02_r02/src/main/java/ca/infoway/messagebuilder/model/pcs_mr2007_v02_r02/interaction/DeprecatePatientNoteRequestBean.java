@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 
 
 /**
- * <p>COMT_IN300101CA: Deprecate patient note request</p>
+ * <p>Business Name: COMT_IN300101CA: Deprecate patient note 
+ * request</p>
+ * 
+ * <p>Requests that the specified patient annotation be marked 
+ * as no longer applicable.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 @Hl7PartTypeMapping({"COMT_IN300101CA"})
 public class DeprecatePatientNoteRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

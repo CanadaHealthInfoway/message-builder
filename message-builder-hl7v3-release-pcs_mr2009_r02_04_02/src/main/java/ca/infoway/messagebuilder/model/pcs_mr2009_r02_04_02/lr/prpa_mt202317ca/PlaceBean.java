@@ -34,20 +34,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202317CA.Place"})
 public class PlaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private BL mobileInd = new BLImpl();
 
 
     /**
-     * <p>E:Location Place Type</p>
+     * <p>Business Name: E:Location Place Type</p>
      * 
-     * <p>Distinguishes different levels of location granularity. 
-     * E.g. Campus, building, floor, ward, room, bed.</p>
+     * <p>Relationship: PRPA_MT202317CA.Place.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used for searching, as well as for understanding what is 
      * meant by a particular location and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Distinguishes different levels of location granularity. 
+     * E.g. Campus, building, floor, ward, room, bed.</p>
      */
     @Hl7XmlMapping({"code"})
     public ServiceDeliveryLocationPlaceType getCode() {
@@ -55,14 +59,18 @@ public class PlaceBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Location Place Type</p>
+     * <p>Business Name: E:Location Place Type</p>
      * 
-     * <p>Distinguishes different levels of location granularity. 
-     * E.g. Campus, building, floor, ward, room, bed.</p>
+     * <p>Relationship: PRPA_MT202317CA.Place.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used for searching, as well as for understanding what is 
      * meant by a particular location and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Distinguishes different levels of location granularity. 
+     * E.g. Campus, building, floor, ward, room, bed.</p>
      */
     public void setCode(ServiceDeliveryLocationPlaceType code) {
         this.code.setValue(code);
@@ -70,19 +78,19 @@ public class PlaceBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Location Mobile Indicator</p>
+     * <p>Business Name: F:Location Mobile Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT202317CA.Place.mobileInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows flagging that the location does not have a fixed 
+     * physical location.</p><p>This element must always be known 
+     * and is therefore mandatory.</p>
      * 
      * <p>An indication of whether a place has the capability to 
      * move from one location to another. Example: air and ground 
      * ambulances, mobile clinics.</p>
-     * 
-     * <p>Allows flagging that the location does not have a fixed 
-     * physical location.</p><p>This element must always be known 
-     * and is therefore mandatory.</p>
-     * 
-     * <p>Allows flagging that the location does not have a fixed 
-     * physical location.</p><p>This element must always be known 
-     * and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"mobileInd"})
     public Boolean getMobileInd() {
@@ -90,19 +98,19 @@ public class PlaceBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Location Mobile Indicator</p>
+     * <p>Business Name: F:Location Mobile Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT202317CA.Place.mobileInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows flagging that the location does not have a fixed 
+     * physical location.</p><p>This element must always be known 
+     * and is therefore mandatory.</p>
      * 
      * <p>An indication of whether a place has the capability to 
      * move from one location to another. Example: air and ground 
      * ambulances, mobile clinics.</p>
-     * 
-     * <p>Allows flagging that the location does not have a fixed 
-     * physical location.</p><p>This element must always be known 
-     * and is therefore mandatory.</p>
-     * 
-     * <p>Allows flagging that the location does not have a fixed 
-     * physical location.</p><p>This element must always be known 
-     * and is therefore mandatory.</p>
      */
     public void setMobileInd(Boolean mobileInd) {
         this.mobileInd.setValue(mobileInd);

@@ -32,28 +32,28 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Agent Category</p>
- * 
- * <p>Category of material or agent to which the patient was 
- * exposed.</p>
+ * <p>Business Name: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
  * referenced.</p>
+ * 
+ * <p>Category of material or agent to which the patient was 
+ * exposed.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000006CA.MaterialKind"})
 public class AgentCategoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
 
 
     /**
-     * <p>A:Exposed Material Type</p>
+     * <p>Business Name: A:Exposed Material Type</p>
      * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
+     * <p>Relationship: REPC_MT000006CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -62,6 +62,10 @@ public class AgentCategoryBean extends MessagePartBean {
      * communicating about the exposure to an agent if it is not 
      * known what the agent is, however it may not always be 
      * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public ExposureAgentEntityType getCode() {
@@ -69,11 +73,11 @@ public class AgentCategoryBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Exposed Material Type</p>
+     * <p>Business Name: A:Exposed Material Type</p>
      * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
+     * <p>Relationship: REPC_MT000006CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -82,6 +86,10 @@ public class AgentCategoryBean extends MessagePartBean {
      * communicating about the exposure to an agent if it is not 
      * known what the agent is, however it may not always be 
      * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
      */
     public void setCode(ExposureAgentEntityType code) {
         this.code.setValue(code);
@@ -89,13 +97,17 @@ public class AgentCategoryBean extends MessagePartBean {
 
 
     /**
-     * <p>Exposed Material Name</p>
+     * <p>Business Name: Exposed Material Name</p>
      * 
-     * <p>Indicates the name of the agent identified by 
-     * MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000006CA.MaterialKind.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides a human-readable name in circumstances where the 
      * agent is captured as code.</p>
+     * 
+     * <p>Indicates the name of the agent identified by 
+     * MaterialKind.code</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -103,13 +115,17 @@ public class AgentCategoryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Exposed Material Name</p>
+     * <p>Business Name: Exposed Material Name</p>
      * 
-     * <p>Indicates the name of the agent identified by 
-     * MaterialKind.code</p>
+     * <p>Relationship: REPC_MT000006CA.MaterialKind.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides a human-readable name in circumstances where the 
      * agent is captured as code.</p>
+     * 
+     * <p>Indicates the name of the agent identified by 
+     * MaterialKind.code</p>
      */
     public void setName(String name) {
         this.name.setValue(name);

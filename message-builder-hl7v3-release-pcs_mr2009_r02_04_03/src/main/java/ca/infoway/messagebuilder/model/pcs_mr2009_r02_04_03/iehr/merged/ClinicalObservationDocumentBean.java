@@ -40,39 +40,39 @@ import java.util.List;
 
 
 /**
- * <p>ClinicalObservationDocument</p>
+ * <p>Business Name: ClinicalObservationDocument</p>
  * 
  * <p>REPC_MT230001CA.Observation: A: Clinical Observation 
  * Document</p>
  * 
- * <p>Discrete information about the observation or procedure 
- * or other report or note being written</p>
- * 
  * <p>Provides contextual overview information for searching 
  * and filtering</p>
+ * 
+ * <p>Discrete information about the observation or procedure 
+ * or other report or note being written</p>
  * 
  * <p>REPC_MT230003CA.Observation: A: Clinical Observation 
  * Document</p>
  * 
- * <p>Discrete information about the observation or procedure 
- * or other report or note being written</p>
- * 
  * <p>Provides contextual overview information for searching 
  * and filtering</p>
+ * 
+ * <p>Discrete information about the observation or procedure 
+ * or other report or note being written</p>
  * 
  * <p>REPC_MT230002CA.Observation: A: Clinical Observation 
  * Document</p>
  * 
- * <p>Discrete information about the observation or procedure 
- * or other report or note being written</p>
- * 
  * <p>Provides contextual overview information for searching 
  * and filtering</p>
+ * 
+ * <p>Discrete information about the observation or procedure 
+ * or other report or note being written</p>
  */
 @Hl7PartTypeMapping({"REPC_MT230001CA.Observation","REPC_MT230002CA.Observation","REPC_MT230003CA.Observation"})
 public class ClinicalObservationDocumentBean extends MessagePartBean implements DocumentContent_3, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt230001ca.DocumentContent {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -81,6 +81,25 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     private ActEventBean subjectActEvent;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<BecauseOfBean> getReason() {
         return this.reason;
@@ -88,27 +107,53 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
 
 
     /**
-     * <p>ClinicalObservationDocumentType</p>
+     * <p>Business Name: ClinicalObservationDocumentType</p>
      * 
-     * <p>C: Clinical Observation Document Type</p>
+     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Observation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Clinical Observation Document Type is used for 
+     * searching and for organizing Clinical Observation Document 
+     * records as well as sorting them for presentation.</i> 
+     * </p><p> <i>This is a key attribute for understanding the 
+     * type of record and is therefore mandatory.</i> </p><p> 
+     * <i>This element makes use of the CD datatype to allow for 
+     * use of the SNOMED code system that in some circumstances 
+     * requires the use of post-coordination. Post-coordination is 
+     * only supported by the CD datatype.</i> </p>
      * 
      * <p> <i>Identifies the type of Clinical Observation Document 
      * represented by this record.</i> </p><p>e.g. family history, 
      * environmental history, social history, etc.</p>
      * 
+     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Observation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Clinical Observation Document Type is used for 
+     * searching and for organizing Clinical Observation Document 
+     * records as well as sorting them for presentation.</i> 
+     * </p><p> <i>This is a key attribute for understanding the 
+     * type of record and is therefore mandatory.</i> </p><p> 
+     * <i>This element makes use of the CD datatype to allow for 
+     * use of the SNOMED code system that in some circumstances 
+     * requires the use of post-coordination. Post-coordination is 
+     * only supported by the CD datatype.</i> </p>
+     * 
      * <p> <i>Identifies the type of Clinical Observation Document 
      * represented by this record.</i> </p><p>e.g. family history, 
      * environmental history, social history, etc.</p>
      * 
-     * <p> <i>Clinical Observation Document Type is used for 
-     * searching and for organizing Clinical Observation Document 
-     * records as well as sorting them for presentation.</i> 
-     * </p><p> <i>This is a key attribute for understanding the 
-     * type of record and is therefore mandatory.</i> </p><p> 
-     * <i>This element makes use of the CD datatype to allow for 
-     * use of the SNOMED code system that in some circumstances 
-     * requires the use of post-coordination. Post-coordination is 
-     * only supported by the CD datatype.</i> </p>
+     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Observation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Clinical Observation Document Type is used for 
      * searching and for organizing Clinical Observation Document 
@@ -120,15 +165,9 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * requires the use of post-coordination. Post-coordination is 
      * only supported by the CD datatype.</i> </p>
      * 
-     * <p> <i>Clinical Observation Document Type is used for 
-     * searching and for organizing Clinical Observation Document 
-     * records as well as sorting them for presentation.</i> 
-     * </p><p> <i>This is a key attribute for understanding the 
-     * type of record and is therefore mandatory.</i> </p><p> 
-     * <i>This element makes use of the CD datatype to allow for 
-     * use of the SNOMED code system that in some circumstances 
-     * requires the use of post-coordination. Post-coordination is 
-     * only supported by the CD datatype.</i> </p>
+     * <p> <i>Identifies the type of Clinical Observation Document 
+     * represented by this record.</i> </p><p>e.g. family history, 
+     * environmental history, social history, etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public ClinicalReportObservationType getCode() {
@@ -136,27 +175,53 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>ClinicalObservationDocumentType</p>
+     * <p>Business Name: ClinicalObservationDocumentType</p>
      * 
-     * <p>C: Clinical Observation Document Type</p>
+     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Observation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Clinical Observation Document Type is used for 
+     * searching and for organizing Clinical Observation Document 
+     * records as well as sorting them for presentation.</i> 
+     * </p><p> <i>This is a key attribute for understanding the 
+     * type of record and is therefore mandatory.</i> </p><p> 
+     * <i>This element makes use of the CD datatype to allow for 
+     * use of the SNOMED code system that in some circumstances 
+     * requires the use of post-coordination. Post-coordination is 
+     * only supported by the CD datatype.</i> </p>
      * 
      * <p> <i>Identifies the type of Clinical Observation Document 
      * represented by this record.</i> </p><p>e.g. family history, 
      * environmental history, social history, etc.</p>
      * 
+     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Observation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Clinical Observation Document Type is used for 
+     * searching and for organizing Clinical Observation Document 
+     * records as well as sorting them for presentation.</i> 
+     * </p><p> <i>This is a key attribute for understanding the 
+     * type of record and is therefore mandatory.</i> </p><p> 
+     * <i>This element makes use of the CD datatype to allow for 
+     * use of the SNOMED code system that in some circumstances 
+     * requires the use of post-coordination. Post-coordination is 
+     * only supported by the CD datatype.</i> </p>
+     * 
      * <p> <i>Identifies the type of Clinical Observation Document 
      * represented by this record.</i> </p><p>e.g. family history, 
      * environmental history, social history, etc.</p>
      * 
-     * <p> <i>Clinical Observation Document Type is used for 
-     * searching and for organizing Clinical Observation Document 
-     * records as well as sorting them for presentation.</i> 
-     * </p><p> <i>This is a key attribute for understanding the 
-     * type of record and is therefore mandatory.</i> </p><p> 
-     * <i>This element makes use of the CD datatype to allow for 
-     * use of the SNOMED code system that in some circumstances 
-     * requires the use of post-coordination. Post-coordination is 
-     * only supported by the CD datatype.</i> </p>
+     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Observation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Clinical Observation Document Type is used for 
      * searching and for organizing Clinical Observation Document 
@@ -168,15 +233,9 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * requires the use of post-coordination. Post-coordination is 
      * only supported by the CD datatype.</i> </p>
      * 
-     * <p> <i>Clinical Observation Document Type is used for 
-     * searching and for organizing Clinical Observation Document 
-     * records as well as sorting them for presentation.</i> 
-     * </p><p> <i>This is a key attribute for understanding the 
-     * type of record and is therefore mandatory.</i> </p><p> 
-     * <i>This element makes use of the CD datatype to allow for 
-     * use of the SNOMED code system that in some circumstances 
-     * requires the use of post-coordination. Post-coordination is 
-     * only supported by the CD datatype.</i> </p>
+     * <p> <i>Identifies the type of Clinical Observation Document 
+     * represented by this record.</i> </p><p>e.g. family history, 
+     * environmental history, social history, etc.</p>
      */
     public void setCode(ClinicalReportObservationType code) {
         this.code.setValue(code);
@@ -184,9 +243,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
 
 
     /**
-     * <p>ClinicalObservationDocumentTimeRange</p>
+     * <p>Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
-     * <p>F: Clinical Observation Document Time Range</p>
+     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Observation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Identifies the time-period of relevance to the record 
+     * that is useful in filtering and organizing 
+     * &quot;time-view&quot; presentations of data. Because the 
+     * timing information won't always be known, this attribute is 
+     * marked as 'populated'.</i> </p>
      * 
      * <p>Indicates the period of time over which the assessment 
      * described by the clinical note applies. If the assessment 
@@ -194,11 +263,41 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
+     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Observation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p> <i>Identifies the time-period of relevance to the record 
      * that is useful in filtering and organizing 
      * &quot;time-view&quot; presentations of data. Because the 
      * timing information won't always be known, this attribute is 
      * marked as 'populated'.</i> </p>
+     * 
+     * <p>Indicates the period of time over which the assessment 
+     * described by the clinical note applies. If the assessment 
+     * applies over the entire life of the patient, only the end 
+     * date (the point up to which the assessment is current) needs 
+     * to be specified.</p>
+     * 
+     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Observation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Identifies the time-period of relevance to the record 
+     * that is useful in filtering and organizing 
+     * &quot;time-view&quot; presentations of data. Because the 
+     * timing information won't always be known, this attribute is 
+     * marked as 'populated'.</i> </p>
+     * 
+     * <p>Indicates the period of time over which the assessment 
+     * described by the clinical note applies. If the assessment 
+     * applies over the entire life of the patient, only the end 
+     * date (the point up to which the assessment is current) needs 
+     * to be specified.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -206,9 +305,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>ClinicalObservationDocumentTimeRange</p>
+     * <p>Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
-     * <p>F: Clinical Observation Document Time Range</p>
+     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Observation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Identifies the time-period of relevance to the record 
+     * that is useful in filtering and organizing 
+     * &quot;time-view&quot; presentations of data. Because the 
+     * timing information won't always be known, this attribute is 
+     * marked as 'populated'.</i> </p>
      * 
      * <p>Indicates the period of time over which the assessment 
      * described by the clinical note applies. If the assessment 
@@ -216,42 +325,186 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
+     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Observation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p> <i>Identifies the time-period of relevance to the record 
      * that is useful in filtering and organizing 
      * &quot;time-view&quot; presentations of data. Because the 
      * timing information won't always be known, this attribute is 
      * marked as 'populated'.</i> </p>
+     * 
+     * <p>Indicates the period of time over which the assessment 
+     * described by the clinical note applies. If the assessment 
+     * applies over the entire life of the patient, only the end 
+     * date (the point up to which the assessment is current) needs 
+     * to be specified.</p>
+     * 
+     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Observation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Identifies the time-period of relevance to the record 
+     * that is useful in filtering and organizing 
+     * &quot;time-view&quot; presentations of data. Because the 
+     * timing information won't always be known, this attribute is 
+     * marked as 'populated'.</i> </p>
+     * 
+     * <p>Indicates the period of time over which the assessment 
+     * described by the clinical note applies. If the assessment 
+     * applies over the entire life of the patient, only the end 
+     * date (the point up to which the assessment is current) needs 
+     * to be specified.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Observation.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.DocumentContent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.DocumentContent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Observation.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.DocumentContent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.DocumentContent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setLocation(OccurredAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.InFulfillmentOf3.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.InFulfillmentOf3.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.InFulfillmentOf3.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
     public Request_2Bean getInFulfillmentOfActRequest() {
         return this.inFulfillmentOfActRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.InFulfillmentOf3.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.InFulfillmentOf3.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.InFulfillmentOf3.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInFulfillmentOfActRequest(Request_2Bean inFulfillmentOfActRequest) {
         this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Subject.actEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Subject.actEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Subject.actEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/actEvent"})
     public ActEventBean getSubjectActEvent() {
         return this.subjectActEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Subject.actEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Subject.actEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Subject.actEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectActEvent(ActEventBean subjectActEvent) {
         this.subjectActEvent = subjectActEvent;
     }

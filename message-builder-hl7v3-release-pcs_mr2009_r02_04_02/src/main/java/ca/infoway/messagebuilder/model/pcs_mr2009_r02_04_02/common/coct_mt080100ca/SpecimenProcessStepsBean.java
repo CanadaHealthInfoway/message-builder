@@ -38,33 +38,37 @@ import java.util.Date;
 
 
 /**
- * <p>Specimen Process Steps</p>
+ * <p>Business Name: Specimen Process Steps</p>
+ * 
+ * <p>At this time, only the transportation specimen process 
+ * steps are in scope for lab messaging.</p>
  * 
  * <p>The specimen is subject to one or more process steps. 
  * e.g. the specimen receive date is documented using a process 
  * step object, specimen action codes are also represented and 
  * communicated using this process step object.</p>
- * 
- * <p>At this time, only the transportation specimen process 
- * steps are in scope for lab messaging.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT080100CA.TransportationEvent"})
 public class SpecimenProcessStepsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>P:Transportation Type</p>
+     * <p>Business Name: P:Transportation Type</p>
      * 
-     * <p>Describes the type of process step being documented and 
-     * communicated. Value is fixed to specimen received.</p>
+     * <p>Relationship: COCT_MT080100CA.TransportationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Categorizes the type of transportation act being 
      * communiated.</p>
+     * 
+     * <p>Describes the type of process step being documented and 
+     * communicated. Value is fixed to specimen received.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActSpecimenTransportationCode getCode() {
@@ -72,13 +76,17 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
     }
 
     /**
-     * <p>P:Transportation Type</p>
+     * <p>Business Name: P:Transportation Type</p>
      * 
-     * <p>Describes the type of process step being documented and 
-     * communicated. Value is fixed to specimen received.</p>
+     * <p>Relationship: COCT_MT080100CA.TransportationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Categorizes the type of transportation act being 
      * communiated.</p>
+     * 
+     * <p>Describes the type of process step being documented and 
+     * communicated. Value is fixed to specimen received.</p>
      */
     public void setCode(ActSpecimenTransportationCode code) {
         this.code.setValue(code);
@@ -86,14 +94,19 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
 
 
     /**
-     * <p>R:Transportation Status</p>
+     * <p>Business Name: R:Transportation Status</p>
      * 
-     * <p>The state or status of this transportation process 
-     * step.</p>
+     * <p>Relationship: 
+     * COCT_MT080100CA.TransportationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates (along with the mood) whether this act's action 
      * has been completed or is still being acted upon (or has yet 
      * to be acted upon).</p>
+     * 
+     * <p>The state or status of this transportation process 
+     * step.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -101,14 +114,19 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
     }
 
     /**
-     * <p>R:Transportation Status</p>
+     * <p>Business Name: R:Transportation Status</p>
      * 
-     * <p>The state or status of this transportation process 
-     * step.</p>
+     * <p>Relationship: 
+     * COCT_MT080100CA.TransportationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates (along with the mood) whether this act's action 
      * has been completed or is still being acted upon (or has yet 
      * to be acted upon).</p>
+     * 
+     * <p>The state or status of this transportation process 
+     * step.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -116,16 +134,21 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
 
 
     /**
-     * <p>Q:Transportation Date/Time</p>
+     * <p>Business Name: Q:Transportation Date/Time</p>
      * 
-     * <p>The date/time the process step took place or the duration 
-     * of that step (days or time in transit, start time, end 
-     * time).</p>
+     * <p>Relationship: 
+     * COCT_MT080100CA.TransportationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Holds the date/time the process step took place. This 
      * attribute is especially important for those process steps 
      * which document the date/time the process happened (specimen 
      * received date/time).</p>
+     * 
+     * <p>The date/time the process step took place or the duration 
+     * of that step (days or time in transit, start time, end 
+     * time).</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -133,16 +156,21 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Q:Transportation Date/Time</p>
+     * <p>Business Name: Q:Transportation Date/Time</p>
      * 
-     * <p>The date/time the process step took place or the duration 
-     * of that step (days or time in transit, start time, end 
-     * time).</p>
+     * <p>Relationship: 
+     * COCT_MT080100CA.TransportationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Holds the date/time the process step took place. This 
      * attribute is especially important for those process steps 
      * which document the date/time the process happened (specimen 
      * received date/time).</p>
+     * 
+     * <p>The date/time the process step took place or the duration 
+     * of that step (days or time in transit, start time, end 
+     * time).</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);

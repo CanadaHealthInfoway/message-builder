@@ -28,7 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>COMT_IN400003CA: Change item masking request refused</p>
+ * <p>Business Name: COMT_IN400003CA: Change item masking 
+ * request refused</p>
+ * 
+ * <p>Indicates that the requested confidentiality code change 
+ * has been denied.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -37,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"COMT_IN400003CA"})
 public class ChangeItemMaskingRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

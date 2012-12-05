@@ -38,67 +38,11 @@ import java.util.List;
 
 
 /**
- * <p>CoveredPartyInformation</p>
+ * <p>Business Name: CoveredPartyInformation</p>
  * 
  * <p>FICR_MT610201CA.CoveredPartyAsPatient: Covered Party 
  * Information</p>
  * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
  * <p>For Adjudication Results: Policy information can be 
  * returned in an EOB in adjudication results to inform a 
  * Provider of new policy information for a policy that was not 
@@ -110,76 +54,34 @@ import java.util.List;
  * Provider of new policy information for a policy that was not 
  * submitted in the Invoice by the Provider (to be confirmed 
  * and specified in the NeCST Message Specifications).</p>
+ * 
+ * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
+ * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
+ * single covered party,</p><p>an organization, an 
+ * animal</p><p>or a group of patients</p><p>and/or a group of 
+ * animals.</p><p>Covered party may be a patient who for the 
+ * purposes of the invoice is a covered party.</p>
  * 
  * <p>FICR_MT600201CA.CoveredPartyAsPatient: Covered Party 
  * Information</p>
  * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
- * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
- * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
- * single covered party,</p><p>an organization, an 
- * animal</p><p>or a group of patients</p><p>and/or a group of 
- * animals.</p><p>Covered party may be a patient who for the 
- * purposes of the invoice is a covered party.</p>
- * 
  * <p>For Adjudication Results: Policy information can be 
  * returned in an EOB in adjudication results to inform a 
  * Provider of new policy information for a policy that was not 
  * submitted in the Invoice by the Provider (to be confirmed 
  * and specified in the NeCST Message Specifications).</p>
+ * 
+ * <p>Covered Person Identifier</p><p>(Assigned by carrier - 
+ * root of OID)</p><p>= Subscriber+Dependents</p><p>Can be a 
+ * single covered party,</p><p>an organization, an 
+ * animal</p><p>or a group of patients</p><p>and/or a group of 
+ * animals.</p><p>Covered party may be a patient who for the 
+ * purposes of the invoice is a covered party.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;
@@ -188,22 +90,13 @@ public class CoveredPartyInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyIdentifier</p>
+     * <p>Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>Covered Party Identifier</p>
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>The insurance policy identifier of the party covered.</p>
+     * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.id</p>
      * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>In the absence of a Covered Party identifier, additional 
      * information to identify the individual may be required (e.g. 
@@ -216,70 +109,26 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * parents' policy is specified (in PolicyOrAccount.id). The 
      * new born/child is noted as the covered party.</p>
      * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>Covered Party Identifier</p>
+     * <p>Covered Party Identifier- The For Invoice, 
+     * Pre-Determination and Coverage Extension requests: If this 
+     * information is not supplied, the Adjudicator may attempt to 
+     * determine the information from other patient information 
+     * supplied in the message (e.g. name, date of birth, gender) 
+     * and would return this information with the response. If this 
+     * cannot be obtained in a real time environment, the message 
+     * may be rejected, depending on the Application Role (if 
+     * Application Role = Final).</p><p>For Invoice, 
+     * Pre-Determination and Coverage Extension results: This 
+     * information is mandatory.</p><p>RxS1: This information is 
+     * mandatory. Scheme to be confirmed.</p>
      * 
      * <p>The insurance policy identifier of the party covered</p>
      * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>In the absence of a Covered Party identifier, additional 
      * information to identify the individual may be required (e.g. 
@@ -292,55 +141,20 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * parents' policy is specified (in PolicyOrAccount.id). The 
      * new born/child is noted as the covered party.</p>
      * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
+     * <p>For Invoice, Pre-Determination and Coverage Extension 
+     * requests: If this information is not supplied, the 
+     * Adjudicator may attempt to determine the information from 
+     * other patient information supplied in the message (e.g. 
+     * name, date of birth, gender) and would return this 
+     * information with the response. If this cannot be obtained in 
+     * a real time environment, the message may be rejected, 
+     * depending on the Application Role (if Application Role = 
+     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
+     * Extension results: This information is 
+     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
+     * to be confirmed.</p>
      * 
-     * <p>Covered Party Identifier- The For Invoice, 
-     * Pre-Determination and Coverage Extension requests: If this 
-     * information is not supplied, the Adjudicator may attempt to 
-     * determine the information from other patient information 
-     * supplied in the message (e.g. name, date of birth, gender) 
-     * and would return this information with the response. If this 
-     * cannot be obtained in a real time environment, the message 
-     * may be rejected, depending on the Application Role (if 
-     * Application Role = Final).</p><p>For Invoice, 
-     * Pre-Determination and Coverage Extension results: This 
-     * information is mandatory.</p><p>RxS1: This information is 
-     * mandatory. Scheme to be confirmed.</p>
-     * 
-     * <p>Covered Party Identifier- The For Invoice, 
-     * Pre-Determination and Coverage Extension requests: If this 
-     * information is not supplied, the Adjudicator may attempt to 
-     * determine the information from other patient information 
-     * supplied in the message (e.g. name, date of birth, gender) 
-     * and would return this information with the response. If this 
-     * cannot be obtained in a real time environment, the message 
-     * may be rejected, depending on the Application Role (if 
-     * Application Role = Final).</p><p>For Invoice, 
-     * Pre-Determination and Coverage Extension results: This 
-     * information is mandatory.</p><p>RxS1: This information is 
-     * mandatory. Scheme to be confirmed.</p>
-     * 
-     * <p>Covered Party Identifier- The For Invoice, 
-     * Pre-Determination and Coverage Extension requests: If this 
-     * information is not supplied, the Adjudicator may attempt to 
-     * determine the information from other patient information 
-     * supplied in the message (e.g. name, date of birth, gender) 
-     * and would return this information with the response. If this 
-     * cannot be obtained in a real time environment, the message 
-     * may be rejected, depending on the Application Role (if 
-     * Application Role = Final).</p><p>For Invoice, 
-     * Pre-Determination and Coverage Extension results: This 
-     * information is mandatory.</p><p>RxS1: This information is 
-     * mandatory. Scheme to be confirmed.</p>
+     * <p>The insurance policy identifier of the party covered.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -348,22 +162,13 @@ public class CoveredPartyInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>CoveredPartyIdentifier</p>
+     * <p>Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>Covered Party Identifier</p>
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>The insurance policy identifier of the party covered.</p>
+     * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.id</p>
      * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>In the absence of a Covered Party identifier, additional 
      * information to identify the individual may be required (e.g. 
@@ -376,70 +181,26 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * parents' policy is specified (in PolicyOrAccount.id). The 
      * new born/child is noted as the covered party.</p>
      * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>For Invoice, Pre-Determination and Coverage Extension 
-     * requests: If this information is not supplied, the 
-     * Adjudicator may attempt to determine the information from 
-     * other patient information supplied in the message (e.g. 
-     * name, date of birth, gender) and would return this 
-     * information with the response. If this cannot be obtained in 
-     * a real time environment, the message may be rejected, 
-     * depending on the Application Role (if Application Role = 
-     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
-     * Extension results: This information is 
-     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
-     * to be confirmed.</p>
-     * 
-     * <p>Covered Party Identifier</p>
+     * <p>Covered Party Identifier- The For Invoice, 
+     * Pre-Determination and Coverage Extension requests: If this 
+     * information is not supplied, the Adjudicator may attempt to 
+     * determine the information from other patient information 
+     * supplied in the message (e.g. name, date of birth, gender) 
+     * and would return this information with the response. If this 
+     * cannot be obtained in a real time environment, the message 
+     * may be rejected, depending on the Application Role (if 
+     * Application Role = Final).</p><p>For Invoice, 
+     * Pre-Determination and Coverage Extension results: This 
+     * information is mandatory.</p><p>RxS1: This information is 
+     * mandatory. Scheme to be confirmed.</p>
      * 
      * <p>The insurance policy identifier of the party covered</p>
      * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>In the absence of a Covered Party identifier, additional 
      * information to identify the individual may be required (e.g. 
@@ -452,55 +213,20 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * parents' policy is specified (in PolicyOrAccount.id). The 
      * new born/child is noted as the covered party.</p>
      * 
-     * <p>In the absence of a Covered Party identifier, additional 
-     * information to identify the individual may be required (e.g. 
-     * name, date of birth).</p><p>For Invoice: In good faith 
-     * Invoices, the Policy Identifier, Covered Party Identifier 
-     * and Policy Holder Identifier is not present, and therefore 
-     * this attribute cannot be made mandatory.</p><p>For new borns 
-     * &amp; children not registered to date such as adopted 
-     * children (i.e. without a covered party identifier), the 
-     * parents' policy is specified (in PolicyOrAccount.id). The 
-     * new born/child is noted as the covered party.</p>
+     * <p>For Invoice, Pre-Determination and Coverage Extension 
+     * requests: If this information is not supplied, the 
+     * Adjudicator may attempt to determine the information from 
+     * other patient information supplied in the message (e.g. 
+     * name, date of birth, gender) and would return this 
+     * information with the response. If this cannot be obtained in 
+     * a real time environment, the message may be rejected, 
+     * depending on the Application Role (if Application Role = 
+     * Final).</p><p>For Invoice, Pre-Determination and Coverage 
+     * Extension results: This information is 
+     * mandatory.</p><p>RxS1: This information is mandatory. Scheme 
+     * to be confirmed.</p>
      * 
-     * <p>Covered Party Identifier- The For Invoice, 
-     * Pre-Determination and Coverage Extension requests: If this 
-     * information is not supplied, the Adjudicator may attempt to 
-     * determine the information from other patient information 
-     * supplied in the message (e.g. name, date of birth, gender) 
-     * and would return this information with the response. If this 
-     * cannot be obtained in a real time environment, the message 
-     * may be rejected, depending on the Application Role (if 
-     * Application Role = Final).</p><p>For Invoice, 
-     * Pre-Determination and Coverage Extension results: This 
-     * information is mandatory.</p><p>RxS1: This information is 
-     * mandatory. Scheme to be confirmed.</p>
-     * 
-     * <p>Covered Party Identifier- The For Invoice, 
-     * Pre-Determination and Coverage Extension requests: If this 
-     * information is not supplied, the Adjudicator may attempt to 
-     * determine the information from other patient information 
-     * supplied in the message (e.g. name, date of birth, gender) 
-     * and would return this information with the response. If this 
-     * cannot be obtained in a real time environment, the message 
-     * may be rejected, depending on the Application Role (if 
-     * Application Role = Final).</p><p>For Invoice, 
-     * Pre-Determination and Coverage Extension results: This 
-     * information is mandatory.</p><p>RxS1: This information is 
-     * mandatory. Scheme to be confirmed.</p>
-     * 
-     * <p>Covered Party Identifier- The For Invoice, 
-     * Pre-Determination and Coverage Extension requests: If this 
-     * information is not supplied, the Adjudicator may attempt to 
-     * determine the information from other patient information 
-     * supplied in the message (e.g. name, date of birth, gender) 
-     * and would return this information with the response. If this 
-     * cannot be obtained in a real time environment, the message 
-     * may be rejected, depending on the Application Role (if 
-     * Application Role = Final).</p><p>For Invoice, 
-     * Pre-Determination and Coverage Extension results: This 
-     * information is mandatory.</p><p>RxS1: This information is 
-     * mandatory. Scheme to be confirmed.</p>
+     * <p>The insurance policy identifier of the party covered.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -508,26 +234,35 @@ public class CoveredPartyInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship to Policy Holder</p>
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Invoice and Pre-Determination Request &amp; all 
+     * Results: Mandatory, otherwise Required.</p>
+     * 
+     * <p>For Invoice and Pre-Determination Request &amp; all 
+     * Results: Mandatory, otherwise Required.</p>
      * 
      * <p>Relationship to Policy Holder - The covered party 
      * relationship to the Policy Holder.</p>
      * 
-     * <p>For Invoice and Pre-Determination Request &amp; all 
-     * Results: Mandatory, otherwise Required.</p>
+     * <p>Other Business Name: 
+     * CoveredPartyRelationshipToPolicyHolder</p>
      * 
-     * <p>For Invoice and Pre-Determination Request &amp; all 
-     * Results: Mandatory, otherwise Required.</p>
+     * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.code</p>
      * 
-     * <p>Covered Party Relationship to Policy Holder</p>
-     * 
-     * <p>The covered party relationship to the Policy Holder.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Reason for being covered, including spouse, child, 
      * students, handicapped</p>
      * 
      * <p>For Invoice and Pre-Determination Request &amp; all 
      * Results: Mandatory, otherwise Required.</p>
+     * 
+     * <p>The covered party relationship to the Policy Holder.</p>
      */
     @Hl7XmlMapping({"code"})
     public CoverageRoleType getCode() {
@@ -535,52 +270,115 @@ public class CoveredPartyInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Relationship to Policy Holder</p>
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Invoice and Pre-Determination Request &amp; all 
+     * Results: Mandatory, otherwise Required.</p>
+     * 
+     * <p>For Invoice and Pre-Determination Request &amp; all 
+     * Results: Mandatory, otherwise Required.</p>
      * 
      * <p>Relationship to Policy Holder - The covered party 
      * relationship to the Policy Holder.</p>
      * 
-     * <p>For Invoice and Pre-Determination Request &amp; all 
-     * Results: Mandatory, otherwise Required.</p>
+     * <p>Other Business Name: 
+     * CoveredPartyRelationshipToPolicyHolder</p>
      * 
-     * <p>For Invoice and Pre-Determination Request &amp; all 
-     * Results: Mandatory, otherwise Required.</p>
+     * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.code</p>
      * 
-     * <p>Covered Party Relationship to Policy Holder</p>
-     * 
-     * <p>The covered party relationship to the Policy Holder.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Reason for being covered, including spouse, child, 
      * students, handicapped</p>
      * 
      * <p>For Invoice and Pre-Determination Request &amp; all 
      * Results: Mandatory, otherwise Required.</p>
+     * 
+     * <p>The covered party relationship to the Policy Holder.</p>
      */
     public void setCode(CoverageRoleType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
     public RelatedPersonBean getIndirectAuthorityPersonalRelationship() {
         return this.indirectAuthorityPersonalRelationship;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setIndirectAuthorityPersonalRelationship(RelatedPersonBean indirectAuthorityPersonalRelationship) {
         this.indirectAuthorityPersonalRelationship = indirectAuthorityPersonalRelationship;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatient.coveredPartyAsPatientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"coveredPartyAsPatientChoice"})
     public CoveredPartyAsPatientChoice getCoveredPartyAsPatientChoice() {
         return this.coveredPartyAsPatientChoice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatient.coveredPartyAsPatientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCoveredPartyAsPatientChoice(CoveredPartyAsPatientChoice coveredPartyAsPatientChoice) {
         this.coveredPartyAsPatientChoice = coveredPartyAsPatientChoice;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.CoveredPartyAsPatient.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public List<PatientConsentBean> getSubjectOf() {
         return this.subjectOf;

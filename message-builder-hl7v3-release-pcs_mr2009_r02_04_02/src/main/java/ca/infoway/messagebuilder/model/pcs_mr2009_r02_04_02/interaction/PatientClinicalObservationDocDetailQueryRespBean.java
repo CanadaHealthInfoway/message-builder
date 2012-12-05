@@ -30,8 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt230003ca
 
 
 /**
- * <p>REPC_IN000095CA: Patient clinical observation doc detail 
- * query resp</p>
+ * <p>Business Name: REPC_IN000095CA: Patient clinical 
+ * observation doc detail query resp</p>
+ * 
+ * <p>Returns a list of Clinical Observation Document details 
+ * for a particular patient, potentially filtered by time or 
+ * other criteria.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -44,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt230003ca
 @Hl7PartTypeMapping({"REPC_IN000095CA"})
 public class PatientClinicalObservationDocDetailQueryRespBean extends HL7Message_1Bean<TriggerEvent_6Bean<ClinicalObservationDocumentBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -51,7 +51,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.CoveredParty","FICR_MT400003CA.CoveredParty","FICR_MT400004CA.CoveredParty","FICR_MT490101CA.CoveredParty","FICR_MT490102CA.CoveredParty"})
 public class CoveredPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<PN, PersonName> coveredPartyAsPatientPersonName = new SETImpl<PN, PersonName>(PNImpl.class);
@@ -62,9 +62,37 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyIdentifier</p>
+     * <p>Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>Covered Party Identifier</p>
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -72,9 +100,37 @@ public class CoveredPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>CoveredPartyIdentifier</p>
+     * <p>Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>Covered Party Identifier</p>
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.CoveredParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -82,9 +138,37 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>RelationshipToPolicyHolder</p>
+     * <p>Business Name: RelationshipToPolicyHolder</p>
      * 
-     * <p>Relationship to Policy Holder</p>
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public CoveredPartyRoleType getCode() {
@@ -92,9 +176,37 @@ public class CoveredPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>RelationshipToPolicyHolder</p>
+     * <p>Business Name: RelationshipToPolicyHolder</p>
      * 
-     * <p>Relationship to Policy Holder</p>
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.CoveredParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(CoveredPartyRoleType code) {
         this.code.setValue(code);
@@ -102,9 +214,42 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyPatientNameS</p>
+     * <p>Business Name: CoveredPartyPatientNameS</p>
      * 
-     * <p>Covered Party (Patient) Name(s</p>
+     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.CoveredPartyAsPatientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.CoveredPartyAsPatientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.CoveredPartyAsPatientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.CoveredPartyAsPatientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.CoveredPartyAsPatientPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      */
     @Hl7XmlMapping({"coveredPartyAsPatientPerson/name"})
     public Set<PersonName> getCoveredPartyAsPatientPersonName() {
@@ -113,9 +258,42 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyPatientGender</p>
+     * <p>Business Name: CoveredPartyPatientGender</p>
      * 
-     * <p>Covered Party (Patient) Gender</p>
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"coveredPartyAsPatientPerson/administrativeGenderCode"})
     public AdministrativeGender getCoveredPartyAsPatientPersonAdministrativeGenderCode() {
@@ -123,9 +301,42 @@ public class CoveredPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>CoveredPartyPatientGender</p>
+     * <p>Business Name: CoveredPartyPatientGender</p>
      * 
-     * <p>Covered Party (Patient) Gender</p>
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCoveredPartyAsPatientPersonAdministrativeGenderCode(AdministrativeGender coveredPartyAsPatientPersonAdministrativeGenderCode) {
         this.coveredPartyAsPatientPersonAdministrativeGenderCode.setValue(coveredPartyAsPatientPersonAdministrativeGenderCode);
@@ -133,9 +344,42 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyPatientDateOfBirth</p>
+     * <p>Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
-     * <p>Covered Party (Patient) Date of Birth</p>
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"coveredPartyAsPatientPerson/birthTime"})
     public Date getCoveredPartyAsPatientPersonBirthTime() {
@@ -143,9 +387,42 @@ public class CoveredPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>CoveredPartyPatientDateOfBirth</p>
+     * <p>Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
-     * <p>Covered Party (Patient) Date of Birth</p>
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.CoveredPartyAsPatientPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCoveredPartyAsPatientPersonBirthTime(Date coveredPartyAsPatientPersonBirthTime) {
         this.coveredPartyAsPatientPersonBirthTime.setValue(coveredPartyAsPatientPersonBirthTime);
@@ -153,9 +430,42 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyPatientAddress</p>
+     * <p>Business Name: CoveredPartyPatientAddress</p>
      * 
-     * <p>Covered Party (Patient) Address</p>
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"coveredPartyAsPatientPerson/addr"})
     public PostalAddress getCoveredPartyAsPatientPersonAddr() {
@@ -163,15 +473,84 @@ public class CoveredPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>CoveredPartyPatientAddress</p>
+     * <p>Business Name: CoveredPartyPatientAddress</p>
      * 
-     * <p>Covered Party (Patient) Address</p>
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.CoveredPartyAsPatientPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setCoveredPartyAsPatientPersonAddr(PostalAddress coveredPartyAsPatientPersonAddr) {
         this.coveredPartyAsPatientPersonAddr.setValue(coveredPartyAsPatientPersonAddr);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.IndirectAuthorithyOver.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
     public List<RelatedPersonBean> getIndirectAuthorityPersonalRelationship() {
         return this.indirectAuthorityPersonalRelationship;

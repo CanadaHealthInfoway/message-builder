@@ -29,8 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 
 
 /**
- * <p>PRPA_IN202018CA: Update service delivery location 
- * accepted</p>
+ * <p>Business Name: PRPA_IN202018CA: Update service delivery 
+ * location accepted</p>
+ * 
+ * <p>Indicates that the requested service delivery location 
+ * information has been sucessfully updated.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 @Hl7PartTypeMapping({"PRPA_IN202018CA"})
 public class UpdateServiceDeliveryLocationAcceptedBean extends HL7Message_1Bean<TriggerEventBean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

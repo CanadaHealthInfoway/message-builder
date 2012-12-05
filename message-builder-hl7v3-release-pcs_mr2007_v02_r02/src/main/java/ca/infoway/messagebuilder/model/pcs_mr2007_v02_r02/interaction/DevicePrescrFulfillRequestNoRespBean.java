@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescr
 
 
 /**
- * <p>PORX_IN010940CA: Device prescr. fulfill request (no 
- * resp.)</p>
+ * <p>Business Name: PORX_IN010940CA: Device prescr. fulfill 
+ * request (no resp.)</p>
+ * 
+ * <p>Requests that the specified facility dispense the device 
+ * prescription transmitted by this interaction and does not 
+ * expect a response interaction</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescr
 @Hl7PartTypeMapping({"PORX_IN010940CA"})
 public class DevicePrescrFulfillRequestNoRespBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionReferenceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

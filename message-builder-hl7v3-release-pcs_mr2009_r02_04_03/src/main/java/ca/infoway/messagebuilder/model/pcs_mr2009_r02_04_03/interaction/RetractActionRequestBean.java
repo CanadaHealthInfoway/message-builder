@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActEventBean;
 
 
 /**
- * <p>COMT_IN600001CA: Retract action request</p>
+ * <p>Business Name: COMT_IN600001CA: Retract action request</p>
+ * 
+ * <p>Seeks to have an identified ControlAct nullified, 
+ * essentially reversing the record of the event.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActEventBean;
 @Hl7PartTypeMapping({"COMT_IN600001CA"})
 public class RetractActionRequestBean extends HL7Message_1Bean<TriggerEventBean<ActEventBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

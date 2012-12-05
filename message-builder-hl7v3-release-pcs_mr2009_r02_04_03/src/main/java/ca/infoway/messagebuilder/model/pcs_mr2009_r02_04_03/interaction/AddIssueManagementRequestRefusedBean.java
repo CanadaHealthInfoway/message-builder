@@ -28,7 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>COMT_IN700003CA: Add issue management request refused</p>
+ * <p>Business Name: COMT_IN700003CA: Add issue management 
+ * request refused</p>
+ * 
+ * <p>Indicates that the request to update an issue with 
+ * identified management(s) has been denied.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -37,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"COMT_IN700003CA"})
 public class AddIssueManagementRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

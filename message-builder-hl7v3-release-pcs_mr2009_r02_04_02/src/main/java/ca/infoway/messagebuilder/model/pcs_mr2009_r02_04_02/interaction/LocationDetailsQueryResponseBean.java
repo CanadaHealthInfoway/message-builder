@@ -30,7 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.prpa_mt202303ca.L
 
 
 /**
- * <p>PRPA_IN202308CA: Location details query response</p>
+ * <p>Business Name: PRPA_IN202308CA: Location details query 
+ * response</p>
+ * 
+ * <p>Returns detailed information about an identified Service 
+ * Delivery Location.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -43,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.prpa_mt202303ca.L
 @Hl7PartTypeMapping({"PRPA_IN202308CA"})
 public class LocationDetailsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<QueryDefinitionBean,LocationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

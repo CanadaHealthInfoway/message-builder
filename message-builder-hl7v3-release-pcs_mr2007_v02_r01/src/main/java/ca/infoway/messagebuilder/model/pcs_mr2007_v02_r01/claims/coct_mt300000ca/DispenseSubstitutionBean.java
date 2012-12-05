@@ -33,14 +33,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private SubstitutionRoleBean performerSubstitutionRole;
 
 
     /**
-     * <p>Substitution Type</p>
+     * <p>Business Name: Substitution Type</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.Substitution.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>type of substitution</p>
      */
@@ -50,7 +54,11 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Substitution Type</p>
+     * <p>Business Name: Substitution Type</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.Substitution.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>type of substitution</p>
      */
@@ -60,12 +68,16 @@ public class DispenseSubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Substitution Reason</p>
+     * <p>Business Name: Substitution Reason</p>
      * 
-     * <p>Reason why the substitution occurred.</p>
+     * <p>Relationship: COCT_MT300000CA.Substitution.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Reason for substituting or not substituting, e.g. because 
      * prescriber requested</p>
+     * 
+     * <p>Reason why the substitution occurred.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public SubstanceAdminSubstitutionReason getReasonCode() {
@@ -73,23 +85,37 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Substitution Reason</p>
+     * <p>Business Name: Substitution Reason</p>
      * 
-     * <p>Reason why the substitution occurred.</p>
+     * <p>Relationship: COCT_MT300000CA.Substitution.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Reason for substituting or not substituting, e.g. because 
      * prescriber requested</p>
+     * 
+     * <p>Reason why the substitution occurred.</p>
      */
     public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Performer.substitutionRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/substitutionRole"})
     public SubstitutionRoleBean getPerformerSubstitutionRole() {
         return this.performerSubstitutionRole;
     }
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Performer.substitutionRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
         this.performerSubstitutionRole = performerSubstitutionRole;
     }

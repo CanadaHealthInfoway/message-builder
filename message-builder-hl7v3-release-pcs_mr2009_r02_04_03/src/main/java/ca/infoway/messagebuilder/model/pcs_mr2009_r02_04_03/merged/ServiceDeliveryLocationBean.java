@@ -50,6 +50,9 @@ import java.util.Date;
  * <p>PRPM_MT303010CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
+ * <p>Roleclass required to support the identification of the 
+ * physical location where healthcare services are provided</p>
+ * 
  * <p>A role played by a place at which services may be 
  * provided. The RIM defines two specializations of service 
  * delivery location: 1. incidental service delivery location - 
@@ -73,21 +76,21 @@ import java.util.Date;
  * clinic may meet on alternate days in the same physical 
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
- * 
- * <p>Roleclass required to support the identification of the 
- * physical location where healthcare services are provided</p>
  * 
  * <p>PORX_MT020050CA.ServiceDeliveryLocation: (no business 
  * name)</p>
  * 
- * <p>The location where the supply is expected to be 
- * delivered.</p>
- * 
  * <p>Allows tracking what drugs are dispensed to a 
  * facility.</p>
  * 
+ * <p>The location where the supply is expected to be 
+ * delivered.</p>
+ * 
  * <p>PRPM_MT301010CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
+ * 
+ * <p>Roleclass required to support the identification of the 
+ * physical location where healthcare services are provided</p>
  * 
  * <p>A role played by a place at which services may be 
  * provided. The RIM defines two specializations of service 
@@ -113,25 +116,22 @@ import java.util.Date;
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
  * 
- * <p>Roleclass required to support the identification of the 
- * physical location where healthcare services are provided</p>
- * 
  * <p>COCT_MT240012CA.ServiceDeliveryLocation: Service Location</p>
- * 
- * <p>An identification of a service location (or facility) 
- * that can be found in the service delivery location. E.g. 
- * Pharmacy, Medical Clinic, Hospital</p>
  * 
  * <p>Used for tracking service delivery responsibility, to 
  * provide contact information for follow-up and for 
  * statistical analysis. Also important for indicating where 
  * paper records can be located.</p>
+ * 
+ * <p>An identification of a service location (or facility) 
+ * that can be found in the service delivery location. E.g. 
+ * Pharmacy, Medical Clinic, Hospital</p>
  */
 @Hl7PartTypeMapping({"COCT_MT240012CA.ServiceDeliveryLocation","PORX_MT020050CA.ServiceDeliveryLocation","PRPM_MT301010CA.ServiceDeliveryLocation","PRPM_MT303010CA.ServiceDeliveryLocation","REPC_MT500001CA.ServiceDeliveryLocation","REPC_MT500002CA.ServiceDeliveryLocation","REPC_MT500004CA.ServiceDeliveryLocation"})
 @Hl7RootType
 public class ServiceDeliveryLocationBean extends MessagePartBean implements Choice, Recipient {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -141,72 +141,105 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>A unique identifier for the service delivery 
-     * location.</p>
+     * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>C:Ship-to Facility Id</p>
+     * <p>A unique identifier for the service delivery 
+     * location.</p>
      * 
-     * <p>Identifier of the facility where the dispensed medication 
-     * was shipped.</p>
+     * <p>Other Business Name: LocationIdReference</p>
      * 
-     * <p>Allows tracking what drugs are dispensed to a facility. 
-     * The attribute is mandatory because identification of the 
-     * facility must be known.</p>
+     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
      * 
-     * <p>C:Service Location Identifier</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Unique identifier for a healthcare service location.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Location Id Reference</p>
+     * <p>Allows linking participants to locations.</p>
      * 
      * <p>References the location for which the participants are 
      * being identified. This will be a location already associated 
      * with the care composition.</p>
      * 
+     * <p>Other Business Name: ShipToFacilityId</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking what drugs are dispensed to a facility. 
+     * The attribute is mandatory because identification of the 
+     * facility must be known.</p>
+     * 
+     * <p>Identifier of the facility where the dispensed medication 
+     * was shipped.</p>
+     * 
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
+     * 
+     * <p>A unique identifier for the service delivery 
+     * location.</p>
+     * 
+     * <p>Other Business Name: LocationIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows linking participants to locations.</p>
+     * 
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
+     * 
+     * <p>Other Business Name: LocationIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking participants to locations.</p>
+     * 
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
+     * 
+     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT240012CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Unique identifier for a healthcare service location.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -214,72 +247,105 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>A unique identifier for the service delivery 
-     * location.</p>
+     * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>C:Ship-to Facility Id</p>
+     * <p>A unique identifier for the service delivery 
+     * location.</p>
      * 
-     * <p>Identifier of the facility where the dispensed medication 
-     * was shipped.</p>
+     * <p>Other Business Name: LocationIdReference</p>
      * 
-     * <p>Allows tracking what drugs are dispensed to a facility. 
-     * The attribute is mandatory because identification of the 
-     * facility must be known.</p>
+     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
      * 
-     * <p>C:Service Location Identifier</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Unique identifier for a healthcare service location.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Location Id Reference</p>
+     * <p>Allows linking participants to locations.</p>
      * 
      * <p>References the location for which the participants are 
      * being identified. This will be a location already associated 
      * with the care composition.</p>
      * 
+     * <p>Other Business Name: ShipToFacilityId</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking what drugs are dispensed to a facility. 
+     * The attribute is mandatory because identification of the 
+     * facility must be known.</p>
+     * 
+     * <p>Identifier of the facility where the dispensed medication 
+     * was shipped.</p>
+     * 
+     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
+     * 
+     * <p>A unique identifier for the service delivery 
+     * location.</p>
+     * 
+     * <p>Other Business Name: LocationIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows linking participants to locations.</p>
+     * 
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
+     * 
+     * <p>Other Business Name: LocationIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking participants to locations.</p>
+     * 
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
+     * 
+     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT240012CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Unique identifier for a healthcare service location.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -287,15 +353,33 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>ServiceDeliveryLocationType</p>
+     * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Service Delivery Location Type</p>
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>The code identifying the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The code identifying the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"code"})
     public ServiceDeliveryLocationRoleType getCode() {
@@ -303,15 +387,33 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>ServiceDeliveryLocationType</p>
+     * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Service Delivery Location Type</p>
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>The code identifying the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The code identifying the specific service delivery 
+     * location</p>
      */
     public void setCode(ServiceDeliveryLocationRoleType code) {
         this.code.setValue(code);
@@ -319,21 +421,31 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>ServiceDeliveryLocationAddress</p>
+     * <p>Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Service Delivery Location Address</p>
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Address of the specific service delivery location</p>
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Service Delivery Location Address</p>
-     * 
      * <p>Address of the specific service delivery location</p>
+     * 
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Address of the specific service delivery location</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -341,21 +453,31 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>ServiceDeliveryLocationAddress</p>
+     * <p>Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Service Delivery Location Address</p>
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Address of the specific service delivery location</p>
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Service Delivery Location Address</p>
-     * 
      * <p>Address of the specific service delivery location</p>
+     * 
+     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Address of the specific service delivery location</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
@@ -363,15 +485,33 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>ServiceDeliveryLocationTelecom</p>
+     * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Service Delivery Location Telecom</p>
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>The telecom for the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The telecom for the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -379,15 +519,33 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>ServiceDeliveryLocationTelecom</p>
+     * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Service Delivery Location Telecom</p>
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>The telecom for the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>The telecom for the specific service delivery 
+     * location</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
@@ -395,15 +553,33 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Service Delivery Location Effective Date</p>
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Effective date of the specific service delivery 
+     * location</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -411,15 +587,33 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Service Delivery Location Effective Date</p>
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the service delivery location</p>
      * 
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
+     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>Effective date of the specific service delivery 
+     * location</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -427,28 +621,44 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>Service Delivery Location Name</p>
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>The name of the service delivery location</p>
+     * <p>Relationship: PRPM_MT303010CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>B:Service Location Name</p>
+     * <p>The name of the service delivery location</p>
      * 
-     * <p>The name assigned to the service location.</p>
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Relationship: PRPM_MT301010CA.Place.name</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p>
+     * 
+     * <p>The name of the service delivery location</p>
+     * 
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240012CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.070</p>
+     * 
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication, and for cross-checking of 
      * location Id and is therefore mandatory</p>
+     * 
+     * <p>The name assigned to the service location.</p>
      */
     @Hl7XmlMapping({"location/name"})
     public String getLocationName() {
@@ -456,28 +666,44 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>Service Delivery Location Name</p>
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>The name of the service delivery location</p>
+     * <p>Relationship: PRPM_MT303010CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>B:Service Location Name</p>
+     * <p>The name of the service delivery location</p>
      * 
-     * <p>The name assigned to the service location.</p>
+     * <p>Other Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Relationship: PRPM_MT301010CA.Place.name</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p>
+     * 
+     * <p>The name of the service delivery location</p>
+     * 
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240012CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.070</p>
+     * 
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication, and for cross-checking of 
      * location Id and is therefore mandatory</p>
+     * 
+     * <p>The name assigned to the service location.</p>
      */
     public void setLocationName(String locationName) {
         this.locationName.setValue(locationName);

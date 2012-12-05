@@ -33,19 +33,23 @@ import java.util.Set;
 
 
 /**
- * <p>Pharmacist Role</p>
+ * <p>Business Name: Pharmacist Role</p>
  * 
  * <p>Details of the pharmacist</p>
  */
 @Hl7PartTypeMapping({"COCT_MT300000CA.PharmacistRole"})
 public class PharmacistRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
-     * <p>Pharmacist ID</p>
+     * <p>Business Name: Pharmacist ID</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.PharmacistRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Pharmacist ID</p>
      */

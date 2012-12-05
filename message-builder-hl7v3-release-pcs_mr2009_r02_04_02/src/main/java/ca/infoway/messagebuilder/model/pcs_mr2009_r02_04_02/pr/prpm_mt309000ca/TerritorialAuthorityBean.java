@@ -31,32 +31,36 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Territor
 
 
 /**
- * <p>Territorial Authority</p>
- * 
- * <p>RoleClass necessary to support the Jurisdiction within 
- * which the scoping organization exists</p>
+ * <p>Business Name: Territorial Authority</p>
  * 
  * <p>Supports business requirement to provide additional 
  * information regarding the jurisdication within the scoping 
  * organization exists.</p>
+ * 
+ * <p>RoleClass necessary to support the Jurisdiction within 
+ * which the scoping organization exists</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT309000CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV territoryCode = new CVImpl();
     private TerritorialAuthorityBean partTerritorialAuthority;
 
 
     /**
-     * <p>Territorial Authority Type</p>
+     * <p>Business Name: Territorial Authority Type</p>
      * 
-     * <p>The code identifying the specific Territorial 
-     * Authority</p>
+     * <p>Relationship: PRPM_MT309000CA.TerritorialAuthority.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider</p>
+     * 
+     * <p>The code identifying the specific Territorial 
+     * Authority</p>
      */
     @Hl7XmlMapping({"code"})
     public TerritorialAuthorityRoleType getCode() {
@@ -64,13 +68,17 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Territorial Authority Type</p>
+     * <p>Business Name: Territorial Authority Type</p>
      * 
-     * <p>The code identifying the specific Territorial 
-     * Authority</p>
+     * <p>Relationship: PRPM_MT309000CA.TerritorialAuthority.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider</p>
+     * 
+     * <p>The code identifying the specific Territorial 
+     * Authority</p>
      */
     public void setCode(TerritorialAuthorityRoleType code) {
         this.code.setValue(code);
@@ -78,17 +86,21 @@ public class TerritorialAuthorityBean extends MessagePartBean {
 
 
     /**
-     * <p>Jurisdiction Type</p>
+     * <p>Business Name: Jurisdiction Type</p>
      * 
-     * <p>A character value that represents the Canadian provincial 
-     * or territorial geographical area within which the Provider 
-     * is operating.</p>
+     * <p>Relationship: PRPM_MT309000CA.Jurisdiction.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider</p>
      * 
      * <p>If Jurisdiction is included in the message, then 
      * Territorial Authority Type is Expected to Exist.</p>
+     * 
+     * <p>A character value that represents the Canadian provincial 
+     * or territorial geographical area within which the Provider 
+     * is operating.</p>
      */
     @Hl7XmlMapping({"territory/code"})
     public JurisdictionTypeCode getTerritoryCode() {
@@ -96,28 +108,42 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Jurisdiction Type</p>
+     * <p>Business Name: Jurisdiction Type</p>
      * 
-     * <p>A character value that represents the Canadian provincial 
-     * or territorial geographical area within which the Provider 
-     * is operating.</p>
+     * <p>Relationship: PRPM_MT309000CA.Jurisdiction.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider</p>
      * 
      * <p>If Jurisdiction is included in the message, then 
      * Territorial Authority Type is Expected to Exist.</p>
+     * 
+     * <p>A character value that represents the Canadian provincial 
+     * or territorial geographical area within which the Provider 
+     * is operating.</p>
      */
     public void setTerritoryCode(JurisdictionTypeCode territoryCode) {
         this.territoryCode.setValue(territoryCode);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.Part.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"part/territorialAuthority"})
     public TerritorialAuthorityBean getPartTerritorialAuthority() {
         return this.partTerritorialAuthority;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.Part.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
         this.partTerritorialAuthority = partTerritorialAuthority;
     }

@@ -40,7 +40,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.OtherIDs"})
 public class OtherIDsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private II scopingIdOrganizationId = new IIImpl();
@@ -48,7 +48,11 @@ public class OtherIDsBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcare Identification</p>
+     * <p>Business Name: NonHealthcare Identification</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.OtherIDs.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -57,14 +61,18 @@ public class OtherIDsBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcare Identification Code</p>
+     * <p>Business Name: NonHealthcare Identification Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      * 
      * <p>A pan Canadian code further specifying the kind of Role 
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * client</p>
      */
     @Hl7XmlMapping({"code"})
     public OtherIDsRoleCode getCode() {
@@ -72,14 +80,18 @@ public class OtherIDsBean extends MessagePartBean {
     }
 
     /**
-     * <p>NonHealthcare Identification Code</p>
+     * <p>Business Name: NonHealthcare Identification Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.OtherIDs.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * client</p>
      * 
      * <p>A pan Canadian code further specifying the kind of Role 
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
-     * 
-     * <p>Populated attribute supports the identification of the 
-     * client</p>
      */
     public void setCode(OtherIDsRoleCode code) {
         this.code.setValue(code);
@@ -87,7 +99,11 @@ public class OtherIDsBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcare Organization Identifier</p>
+     * <p>Business Name: NonHealthcare Organization Identifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"scopingIdOrganization/id"})
     public Identifier getScopingIdOrganizationId() {
@@ -95,7 +111,11 @@ public class OtherIDsBean extends MessagePartBean {
     }
 
     /**
-     * <p>NonHealthcare Organization Identifier</p>
+     * <p>Business Name: NonHealthcare Organization Identifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.IdOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setScopingIdOrganizationId(Identifier scopingIdOrganizationId) {
         this.scopingIdOrganizationId.setValue(scopingIdOrganizationId);
@@ -103,7 +123,11 @@ public class OtherIDsBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcare Organization Name</p>
+     * <p>Business Name: NonHealthcare Organization Name</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"scopingIdOrganization/name"})
     public String getScopingIdOrganizationName() {
@@ -111,7 +135,11 @@ public class OtherIDsBean extends MessagePartBean {
     }
 
     /**
-     * <p>NonHealthcare Organization Name</p>
+     * <p>Business Name: NonHealthcare Organization Name</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.IdOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setScopingIdOrganizationName(String scopingIdOrganizationName) {
         this.scopingIdOrganizationName.setValue(scopingIdOrganizationName);

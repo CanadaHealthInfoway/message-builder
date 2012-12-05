@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>has component</p>
+ * <p>Business Name: has component</p>
  * 
  * <p>Associates an Organism Identification Event with a 
  * Specimen Observation Cluster.</p>
@@ -35,15 +35,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Component4"})
 public class HasComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private OrganismIdentificatonObservationsBean organismIdentificationEvent;
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component4.organismIdentificationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"organismIdentificationEvent"})
     public OrganismIdentificatonObservationsBean getOrganismIdentificationEvent() {
         return this.organismIdentificationEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component4.organismIdentificationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOrganismIdentificationEvent(OrganismIdentificatonObservationsBean organismIdentificationEvent) {
         this.organismIdentificationEvent = organismIdentificationEvent;
     }

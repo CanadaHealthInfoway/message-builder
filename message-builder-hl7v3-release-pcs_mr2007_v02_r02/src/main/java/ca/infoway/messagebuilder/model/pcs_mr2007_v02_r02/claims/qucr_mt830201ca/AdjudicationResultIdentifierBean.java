@@ -44,16 +44,16 @@ import java.util.Date;
 
 
 /**
- * <p>Adjudication Result Identifier</p>
- * 
- * <p>Adjudication Result Identifier</p>
+ * <p>Business Name: Adjudication Result Identifier</p>
  * 
  * <p>May include data centre and sequence numbers</p>
+ * 
+ * <p>Adjudication Result Identifier</p>
  */
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
@@ -65,11 +65,16 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>May include data centre and sequence numbers</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Technique to identify that the EOB was not electronic 
      * (manual) is through the participation mode code for the 
      * adjudicator.</p>
+     * 
+     * <p>May include data centre and sequence numbers</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -77,11 +82,16 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>May include data centre and sequence numbers</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Technique to identify that the EOB was not electronic 
      * (manual) is through the participation mode code for the 
      * adjudicator.</p>
+     * 
+     * <p>May include data centre and sequence numbers</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -89,46 +99,24 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>(Invoice Type</p>
+     * <p>Business Name: (Invoice Type</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
+     * different from submitted invoice. This would be a cause for 
+     * rejecting the invoice.</p><p>For Adjudication Results: code 
+     * must match to the corresponding invoice element that was 
+     * submitted.</p><p>For Invoice Nullify Results: this is the 
+     * identifier of the EOB that was previously messaged to the 
+     * Provider.</p><p>Modifiers for the codes are taken from the 
+     * same domain (i.e ActInvoiceGroupCode).</p>
      * 
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceGroupCode getCode() {
@@ -136,46 +124,24 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>(Invoice Type</p>
+     * <p>Business Name: (Invoice Type</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
+     * different from submitted invoice. This would be a cause for 
+     * rejecting the invoice.</p><p>For Adjudication Results: code 
+     * must match to the corresponding invoice element that was 
+     * submitted.</p><p>For Invoice Nullify Results: this is the 
+     * identifier of the EOB that was previously messaged to the 
+     * Provider.</p><p>Modifiers for the codes are taken from the 
+     * same domain (i.e ActInvoiceGroupCode).</p>
      * 
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
      */
     public void setCode(ActInvoiceGroupCode code) {
         this.code.setValue(code);
@@ -183,14 +149,19 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Paid Amount</p>
+     * <p>Business Name: Paid Amount</p>
      * 
-     * <p>Grand total of all SOFA observations contained in this 
-     * summary</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For Coverage Extension Results, this is typically not 
      * specified, as dollar limits are noted as information 
      * codes.</p>
+     * 
+     * <p>Grand total of all SOFA observations contained in this 
+     * summary</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -198,37 +169,59 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>Paid Amount</p>
+     * <p>Business Name: Paid Amount</p>
      * 
-     * <p>Grand total of all SOFA observations contained in this 
-     * summary</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For Coverage Extension Results, this is typically not 
      * specified, as dollar limits are noted as information 
      * codes.</p>
+     * 
+     * <p>Grand total of all SOFA observations contained in this 
+     * summary</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"author/contextControlCode"})
     public ContextControl getAuthorContextControlCode() {
         return (ContextControl) this.authorContextControlCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setAuthorContextControlCode(ContextControl authorContextControlCode) {
         this.authorContextControlCode.setValue(authorContextControlCode);
     }
 
 
     /**
-     * <p>(Adjudication date/time</p>
+     * <p>Business Name: (Adjudication date/time</p>
      * 
-     * <p>Date and time of Adjudication</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
      * only be value for electronic EOBs</p>
+     * 
+     * <p>Date and time of Adjudication</p>
      */
     @Hl7XmlMapping({"author/time"})
     public Date getAuthorTime() {
@@ -236,12 +229,17 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>(Adjudication date/time</p>
+     * <p>Business Name: (Adjudication date/time</p>
      * 
-     * <p>Date and time of Adjudication</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used in Pharmacy for daily totals. For Invoice COB: Will 
      * only be value for electronic EOBs</p>
+     * 
+     * <p>Date and time of Adjudication</p>
      */
     public void setAuthorTime(Date authorTime) {
         this.authorTime.setValue(authorTime);
@@ -249,25 +247,18 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
+     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
+     * only</p>
+     * 
      * <p>EOB Communication Method</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
      */
     @Hl7XmlMapping({"author/modeCode"})
     public ParticipationMode getAuthorModeCode() {
@@ -275,25 +266,18 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
+     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
+     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
+     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
+     * only</p>
+     * 
      * <p>EOB Communication Method</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
-     * 
-     * <p>For Invoice (COB): If Invoice submitted WRITTEN, then EOB 
-     * must be adjudicated WRITTEN.</p><p>If Invoice submitted 
-     * ELECTRONIC, then EOB can be ELECTRONIC (preferred) or 
-     * WRITTEN.</p><p>For Adjudication Results: Must be ELECTRONIC 
-     * only</p>
      */
     public void setAuthorModeCode(ParticipationMode authorModeCode) {
         this.authorModeCode.setValue(authorModeCode);
@@ -310,11 +294,23 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"outcomeOf"})
     public AdjudicatedResultOutcomeBean getOutcomeOf() {
         return this.outcomeOf;
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
         this.outcomeOf = outcomeOf;
     }

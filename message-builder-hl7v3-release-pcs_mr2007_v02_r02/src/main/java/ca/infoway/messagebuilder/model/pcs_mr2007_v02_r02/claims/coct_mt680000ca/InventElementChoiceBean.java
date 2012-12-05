@@ -37,14 +37,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent"})
 public class InventElementChoiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
     private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
 
 
     /**
-     * <p>Invoice Element Intent Code</p>
+     * <p>Business Name: Invoice Element Intent Code</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.InvoiceElementIntent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>(Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
@@ -55,7 +59,11 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Invoice Element Intent Code</p>
+     * <p>Business Name: Invoice Element Intent Code</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.InvoiceElementIntent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>(Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
@@ -66,7 +74,11 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Total amount billed for invoice element</p>
+     * <p>Business Name: Total amount billed for invoice element</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.InvoiceElementIntent.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the total monetary amount billed for the 
      * invoice element.</p>
@@ -77,7 +89,11 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Total amount billed for invoice element</p>
+     * <p>Business Name: Total amount billed for invoice element</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.InvoiceElementIntent.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the total monetary amount billed for the 
      * invoice element.</p>
@@ -87,6 +103,12 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent.component</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     */
     @Hl7XmlMapping({"component"})
     public List<InvoiceElementComponentBean> getComponent() {
         return this.component;

@@ -31,19 +31,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.LabInitiatedOrderIndicator","POLB_MT001001CA.LabInitiatedOrderIndicator","POLB_MT001010CA.LabInitiatedOrderIndicator","POLB_MT001999CA.LabInitiatedOrderIndicator"})
 public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL negationInd = new BLImpl();
 
 
     /**
-     * <p>LabInitiatedOrderIndicator</p>
+     * <p>Business Name: LabInitiatedOrderIndicator</p>
      * 
-     * <p>Lab Initiated Order Indicator</p>
+     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.LabInitiatedOrderIndicator.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A 'true' value indicates that the Order was initiated by 
      * the Lab.</p>
      * 
-     * <p>Lab Initiated Order Indicator</p>
+     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001001CA.LabInitiatedOrderIndicator.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001010CA.LabInitiatedOrderIndicator.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001999CA.LabInitiatedOrderIndicator.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -51,14 +75,38 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>LabInitiatedOrderIndicator</p>
+     * <p>Business Name: LabInitiatedOrderIndicator</p>
      * 
-     * <p>Lab Initiated Order Indicator</p>
+     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.LabInitiatedOrderIndicator.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A 'true' value indicates that the Order was initiated by 
      * the Lab.</p>
      * 
-     * <p>Lab Initiated Order Indicator</p>
+     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001001CA.LabInitiatedOrderIndicator.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001010CA.LabInitiatedOrderIndicator.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001999CA.LabInitiatedOrderIndicator.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);

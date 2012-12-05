@@ -32,30 +32,36 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Patient Identifying Characteristics</p>
- * 
- * <p>For this model, the observation is a description of 
- * patient characteristics used for identification.</p>
+ * <p>Business Name: Patient Identifying Characteristics</p>
  * 
  * <p>Used for patient identification when the client registry 
  * is not available.</p>
+ * 
+ * <p>For this model, the observation is a description of 
+ * patient characteristics used for identification.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent"})
 public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST value = new STImpl();
 
 
     /**
-     * <p>Identifying Characteristics Observation Type</p>
+     * <p>Business Name: Identifying Characteristics Observation 
+     * Type</p>
      * 
-     * <p>Describes the observation type.</p>
+     * <p>Relationship: 
+     * COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to categorize this observation event. For this 
      * model, the observation is a description of patient 
      * characteristics used for identification.</p>
+     * 
+     * <p>Describes the observation type.</p>
      */
     @Hl7XmlMapping({"code"})
     public PatientCharacteristicObservationType getCode() {
@@ -63,13 +69,19 @@ public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Identifying Characteristics Observation Type</p>
+     * <p>Business Name: Identifying Characteristics Observation 
+     * Type</p>
      * 
-     * <p>Describes the observation type.</p>
+     * <p>Relationship: 
+     * COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to categorize this observation event. For this 
      * model, the observation is a description of patient 
      * characteristics used for identification.</p>
+     * 
+     * <p>Describes the observation type.</p>
      */
     public void setCode(PatientCharacteristicObservationType code) {
         this.code.setValue(code);
@@ -77,10 +89,12 @@ public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
 
 
     /**
-     * <p>I:Patient Characteristics Text</p>
+     * <p>Business Name: I:Patient Characteristics Text</p>
      * 
-     * <p>A text attribute that is specifically used to describe 
-     * identifying characteristics of a patient.</p>
+     * <p>Relationship: 
+     * COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>When a lab does not have access to the client registry to 
      * identify the patient, additional information is helpful in 
@@ -88,6 +102,9 @@ public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
      * non-coded patient descriptive details which don't change 
      * measurable over time and can be used to assist in patient 
      * identification.</p>
+     * 
+     * <p>A text attribute that is specifically used to describe 
+     * identifying characteristics of a patient.</p>
      */
     @Hl7XmlMapping({"value"})
     public String getValue() {
@@ -95,10 +112,12 @@ public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Patient Characteristics Text</p>
+     * <p>Business Name: I:Patient Characteristics Text</p>
      * 
-     * <p>A text attribute that is specifically used to describe 
-     * identifying characteristics of a patient.</p>
+     * <p>Relationship: 
+     * COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>When a lab does not have access to the client registry to 
      * identify the patient, additional information is helpful in 
@@ -106,6 +125,9 @@ public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
      * non-coded patient descriptive details which don't change 
      * measurable over time and can be used to assist in patient 
      * identification.</p>
+     * 
+     * <p>A text attribute that is specifically used to describe 
+     * identifying characteristics of a patient.</p>
      */
     public void setValue(String value) {
         this.value.setValue(value);

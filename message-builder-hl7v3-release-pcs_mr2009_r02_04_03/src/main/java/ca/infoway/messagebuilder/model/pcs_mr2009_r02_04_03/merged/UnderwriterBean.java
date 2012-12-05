@@ -32,31 +32,52 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Underwriter","PORX_MT010120CA.Underwriter","PORX_MT060040CA.Underwriter"})
 public class UnderwriterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ResponsibleOrganizationBean underwritingOrganization;
 
 
     /**
-     * <p>PayorIdentifier</p>
+     * <p>Business Name: PayorIdentifier</p>
      * 
-     * <p>Payor Identifier</p>
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p>
      * 
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gives context to the coverage extension identifier and 
      * therefore mandatory. Allows the dispensing service delivery 
      * location to know where to send a claim.</p>
      * 
-     * <p>B:Payor Identifier</p>
-     * 
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gives context to the coverage extension identifier and 
      * therefore mandatory. Allows the dispensing service delivery 
      * location to know where to send a claim.</p>
+     * 
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -64,36 +85,101 @@ public class UnderwriterBean extends MessagePartBean {
     }
 
     /**
-     * <p>PayorIdentifier</p>
+     * <p>Business Name: PayorIdentifier</p>
      * 
-     * <p>Payor Identifier</p>
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p>
      * 
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gives context to the coverage extension identifier and 
      * therefore mandatory. Allows the dispensing service delivery 
      * location to know where to send a claim.</p>
      * 
-     * <p>B:Payor Identifier</p>
-     * 
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gives context to the coverage extension identifier and 
      * therefore mandatory. Allows the dispensing service delivery 
      * location to know where to send a claim.</p>
+     * 
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Underwriter.underwritingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Underwriter.underwritingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.Underwriter.underwritingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"underwritingOrganization"})
     public ResponsibleOrganizationBean getUnderwritingOrganization() {
         return this.underwritingOrganization;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Underwriter.underwritingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.Underwriter.underwritingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.Underwriter.underwritingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setUnderwritingOrganization(ResponsibleOrganizationBean underwritingOrganization) {
         this.underwritingOrganization = underwritingOrganization;
     }

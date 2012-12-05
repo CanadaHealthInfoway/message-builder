@@ -52,10 +52,7 @@ import java.util.Set;
 
 
 /**
- * <p>Reported Reaction</p>
- * 
- * <p>This is a record of an adverse reaction considered 
- * relevant to the patient's clinical record.</p>
+ * <p>Business Name: Reported Reaction</p>
  * 
  * <p>Useful in tracking reactions when it is not known 
  * precisely what product they are associated with and whether 
@@ -63,12 +60,15 @@ import java.util.Set;
  * interaction or some other cause. Effectively gives a 'heads 
  * up' to clinicians using the drug or combination of 
  * drugs.</p>
+ * 
+ * <p>This is a record of an adverse reaction considered 
+ * relevant to the patient's clinical record.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000002CA.ReactionObservationEvent"})
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -81,11 +81,14 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code is fixed to DX if not using SNOMED</p>
-     * 
-     * <p>Indicates the type of diagnosis being captured.</p>
      * 
      * <p>Indicates that the observation is actually a diagnosis 
      * and is therefore mandatory. The datatype is CD to support 
@@ -93,6 +96,8 @@ public class ReportedReactionBean extends MessagePartBean {
      * 
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActDiagnosisCode getCode() {
@@ -100,11 +105,14 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code is fixed to DX if not using SNOMED</p>
-     * 
-     * <p>Indicates the type of diagnosis being captured.</p>
      * 
      * <p>Indicates that the observation is actually a diagnosis 
      * and is therefore mandatory. The datatype is CD to support 
@@ -112,6 +120,8 @@ public class ReportedReactionBean extends MessagePartBean {
      * 
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
      */
     public void setCode(ActDiagnosisCode code) {
         this.code.setValue(code);
@@ -119,43 +129,26 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Description</p>
+     * <p>Business Name: G:Description</p>
      * 
-     * <p>A free form description of the reaction.</p><p>This is a 
-     * specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p>
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.text</p>
      * 
-     * <p>A free form description of the reaction.</p><p>This is a 
-     * specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p>
-     * 
-     * <p>A free form description of the reaction.</p><p>This is a 
-     * specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p><p>This is a 
+     * specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when he took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -163,43 +156,26 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Description</p>
+     * <p>Business Name: G:Description</p>
      * 
-     * <p>A free form description of the reaction.</p><p>This is a 
-     * specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p>
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.text</p>
      * 
-     * <p>A free form description of the reaction.</p><p>This is a 
-     * specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p>
-     * 
-     * <p>A free form description of the reaction.</p><p>This is a 
-     * specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
+     * 
+     * <p>A free form description of the reaction.</p><p>This is a 
+     * specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when he took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -207,13 +183,18 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>Business Name: F:Reaction Onset Date</p>
      * 
-     * <p>The date on which the reaction occurrence began.</p>
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when evidence of the condition first appeared. 
      * May also provide information on the duration of the 
      * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -221,13 +202,18 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>Business Name: F:Reaction Onset Date</p>
      * 
-     * <p>The date on which the reaction occurrence began.</p>
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when evidence of the condition first appeared. 
      * May also provide information on the duration of the 
      * reaction.</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -235,7 +221,19 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Adverse Reaction Masking Indicators</p>
+     * <p>Business Name: G:Adverse Reaction Masking Indicators</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their adverse reaction data.</p><p>Taboo allows the 
+     * provider to request restricted access to patient or their 
+     * care giver.</p><p>Constraint: Cant have both normal and one 
+     * of the other codes simultaneously.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>Communicates the desire of the patient to restrict access 
      * to this Health Condition record. Provides support for 
@@ -255,34 +253,6 @@ public class ReportedReactionBean extends MessagePartBean {
      * the patient from providers or masking by a provider from the 
      * patient, respectively. 'normal' should never be asserted 
      * with one of the other codes.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their adverse reaction data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their adverse reaction data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their adverse reaction data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their adverse reaction data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -291,12 +261,14 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Reaction</p>
+     * <p>Business Name: B:Reaction</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Value is mandatory if not using SNOMED</p>
-     * 
-     * <p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p>
      * 
      * <p>B.1</p>
      * 
@@ -306,6 +278,9 @@ public class ReportedReactionBean extends MessagePartBean {
      * will not be used for SNOMED. The attribute is CWE because 
      * not all possible types of reactions are expressible by coded 
      * values.</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
      */
     @Hl7XmlMapping({"value"})
     public SubjectReaction getValue() {
@@ -313,12 +288,14 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Reaction</p>
+     * <p>Business Name: B:Reaction</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Value is mandatory if not using SNOMED</p>
-     * 
-     * <p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p>
      * 
      * <p>B.1</p>
      * 
@@ -328,6 +305,9 @@ public class ReportedReactionBean extends MessagePartBean {
      * will not be used for SNOMED. The attribute is CWE because 
      * not all possible types of reactions are expressible by coded 
      * values.</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
      */
     public void setValue(SubjectReaction value) {
         this.value.setValue(value);

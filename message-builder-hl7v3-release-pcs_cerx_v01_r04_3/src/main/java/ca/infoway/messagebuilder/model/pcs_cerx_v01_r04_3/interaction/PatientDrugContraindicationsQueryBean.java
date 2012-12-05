@@ -29,7 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt050020
 
 
 /**
- * <p>PORX_IN050030CA: Patient drug contraindications query</p>
+ * <p>Business Name: PORX_IN050030CA: Patient drug 
+ * contraindications query</p>
+ * 
+ * <p>Requests retrieval of the potential contraindications 
+ * associated with issuing a specified medication to a 
+ * particular patient based on their existing medication and 
+ * clinical profile.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt050020
 @Hl7PartTypeMapping({"PORX_IN050030CA"})
 public class PatientDrugContraindicationsQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

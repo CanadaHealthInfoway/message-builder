@@ -32,21 +32,31 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DiagnosisBean
 @Hl7PartTypeMapping({"COCT_MT290000CA.DiagnosisInformation","COCT_MT490000CA.DiagnosisInformation"})
 public class DiagnosisInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private DiagnosisBean diagnosis;
 
 
     /**
-     * <p>DiagnosisPriority</p>
+     * <p>Business Name: DiagnosisPriority</p>
      * 
-     * <p>Diagnosis Priority</p>
+     * <p>Other Business Name: DiagnosisPriority</p>
      * 
-     * <p>1 = Primary, 2 = Secondary, etc.</p>
+     * <p>Relationship: 
+     * COCT_MT290000CA.DiagnosisInformation.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>1=Primary, 2=Secondary, etc.</p>
      * 
-     * <p>Diagnosis Priority</p>
+     * <p>1 = Primary, 2 = Secondary, etc.</p>
+     * 
+     * <p>Other Business Name: DiagnosisPriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.DiagnosisInformation.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>1=Primary, 2=Secondary, etc.</p>
      */
@@ -56,15 +66,25 @@ public class DiagnosisInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>DiagnosisPriority</p>
+     * <p>Business Name: DiagnosisPriority</p>
      * 
-     * <p>Diagnosis Priority</p>
+     * <p>Other Business Name: DiagnosisPriority</p>
      * 
-     * <p>1 = Primary, 2 = Secondary, etc.</p>
+     * <p>Relationship: 
+     * COCT_MT290000CA.DiagnosisInformation.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>1=Primary, 2=Secondary, etc.</p>
      * 
-     * <p>Diagnosis Priority</p>
+     * <p>1 = Primary, 2 = Secondary, etc.</p>
+     * 
+     * <p>Other Business Name: DiagnosisPriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.DiagnosisInformation.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>1=Primary, 2=Secondary, etc.</p>
      */
@@ -73,11 +93,41 @@ public class DiagnosisInformationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.DiagnosisInformation.diagnosis</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.DiagnosisInformation.diagnosis</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"diagnosis"})
     public DiagnosisBean getDiagnosis() {
         return this.diagnosis;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.DiagnosisInformation.diagnosis</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.DiagnosisInformation.diagnosis</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDiagnosis(DiagnosisBean diagnosis) {
         this.diagnosis = diagnosis;
     }

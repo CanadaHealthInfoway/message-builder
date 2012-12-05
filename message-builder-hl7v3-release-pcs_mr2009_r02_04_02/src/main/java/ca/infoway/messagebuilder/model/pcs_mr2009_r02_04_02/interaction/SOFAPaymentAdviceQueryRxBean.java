@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 
 
 /**
- * <p>QUCR_IN800102CA: SOFA Payment Advice Query, Rx</p>
+ * <p>Business Name: QUCR_IN800102CA: SOFA Payment Advice 
+ * Query, Rx</p>
+ * 
+ * <p>The sender sends a SOFA (Statement of Financial Activity) 
+ * Payment Advice Query message for Pharmacy services and/or 
+ * products.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"QUCR_IN800102CA"})
 public class SOFAPaymentAdviceQueryRxBean extends HL7Message_1Bean<TriggerEvent_5Bean<ParameterList_2Bean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

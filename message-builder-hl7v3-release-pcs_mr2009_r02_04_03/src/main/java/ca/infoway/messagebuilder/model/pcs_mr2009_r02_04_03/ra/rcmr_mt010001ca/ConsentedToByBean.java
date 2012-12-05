@@ -33,31 +33,35 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.ra.merged.PatientBea
 
 
 /**
- * <p>b:consented to by</p>
- * 
- * <p>Indicates that the consent was provided by the patient or 
- * representative.</p>
+ * <p>Business Name: b:consented to by</p>
  * 
  * <p>Consent can be provided by the patient or representative 
  * or be overridden by a provider. It is important to know 
  * which occurred for audit purposes.</p>
+ * 
+ * <p>Indicates that the consent was provided by the patient or 
+ * representative.</p>
  */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV modeCode = new CVImpl();
     private Consenter consenter;
 
 
     /**
-     * <p>Patient Consent Mechanism</p>
+     * <p>Business Name: Patient Consent Mechanism</p>
      * 
-     * <p>Indicates whether the patient's consent is written or 
-     * verbal.</p>
+     * <p>Relationship: RCMR_MT010001CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Verbal consents may trigger a higher level of 
      * auditing.</p>
+     * 
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public x_PhysicalVerbalParticipationMode getModeCode() {
@@ -65,13 +69,17 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Consent Mechanism</p>
+     * <p>Business Name: Patient Consent Mechanism</p>
      * 
-     * <p>Indicates whether the patient's consent is written or 
-     * verbal.</p>
+     * <p>Relationship: RCMR_MT010001CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Verbal consents may trigger a higher level of 
      * auditing.</p>
+     * 
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
      */
     public void setModeCode(x_PhysicalVerbalParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);

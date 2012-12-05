@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryAck","QUQI_MT120006CA.QueryAck","QUQI_MT120008CA.QueryAck"})
 public class QueryAckBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II queryId = new IIImpl();
     private CS queryResponseCode = new CSImpl();
     private INT resultTotalQuantity = new INTImpl();
@@ -46,15 +46,43 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>QueryResponseIdentifier</p>
+     * <p>Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>H:Query Response Identifier</p>
+     * <p>Other Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>Identifies the query being acknowledged</p>
+     * <p>Relationship: QUQI_MT120006CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows linking of a response back to the request that 
      * triggered it and is therefore mandatory. Particularly useful 
      * when responses are deferred or queued.</p>
+     * 
+     * <p>Identifies the query being acknowledged</p>
+     * 
+     * <p>Other Business Name: QueryResponseIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking of a response back to the request that 
+     * triggered it and is therefore mandatory. Particularly useful 
+     * when responses are deferred or queued.</p>
+     * 
+     * <p>Identifies the query being acknowledged</p>
+     * 
+     * <p>Other Business Name: QueryResponseIdentifier</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking of a response back to the request that 
+     * triggered it and is therefore mandatory. Particularly useful 
+     * when responses are deferred or queued.</p>
+     * 
+     * <p>Identifies the query being acknowledged</p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
@@ -62,15 +90,43 @@ public class QueryAckBean extends MessagePartBean {
     }
 
     /**
-     * <p>QueryResponseIdentifier</p>
+     * <p>Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>H:Query Response Identifier</p>
+     * <p>Other Business Name: QueryResponseIdentifier</p>
      * 
-     * <p>Identifies the query being acknowledged</p>
+     * <p>Relationship: QUQI_MT120006CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows linking of a response back to the request that 
      * triggered it and is therefore mandatory. Particularly useful 
      * when responses are deferred or queued.</p>
+     * 
+     * <p>Identifies the query being acknowledged</p>
+     * 
+     * <p>Other Business Name: QueryResponseIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking of a response back to the request that 
+     * triggered it and is therefore mandatory. Particularly useful 
+     * when responses are deferred or queued.</p>
+     * 
+     * <p>Identifies the query being acknowledged</p>
+     * 
+     * <p>Other Business Name: QueryResponseIdentifier</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking of a response back to the request that 
+     * triggered it and is therefore mandatory. Particularly useful 
+     * when responses are deferred or queued.</p>
+     * 
+     * <p>Identifies the query being acknowledged</p>
      */
     public void setQueryId(Identifier queryId) {
         this.queryId.setValue(queryId);
@@ -78,14 +134,40 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>QueryStatus</p>
+     * <p>Business Name: QueryStatus</p>
      * 
-     * <p>I:Query Status</p>
+     * <p>Other Business Name: QueryStatus</p>
      * 
-     * <p>Indicates whether the query was successful or not.</p>
+     * <p>Relationship: QUQI_MT120006CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to control receiver logic and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether the query was successful or not.</p>
+     * 
+     * <p>Other Business Name: QueryStatus</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to control receiver logic and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether the query was successful or not.</p>
+     * 
+     * <p>Other Business Name: QueryStatus</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to control receiver logic and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether the query was successful or not.</p>
      */
     @Hl7XmlMapping({"queryResponseCode"})
     public QueryResponse getQueryResponseCode() {
@@ -93,14 +175,40 @@ public class QueryAckBean extends MessagePartBean {
     }
 
     /**
-     * <p>QueryStatus</p>
+     * <p>Business Name: QueryStatus</p>
      * 
-     * <p>I:Query Status</p>
+     * <p>Other Business Name: QueryStatus</p>
      * 
-     * <p>Indicates whether the query was successful or not.</p>
+     * <p>Relationship: QUQI_MT120006CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to control receiver logic and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Indicates whether the query was successful or not.</p>
+     * 
+     * <p>Other Business Name: QueryStatus</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to control receiver logic and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether the query was successful or not.</p>
+     * 
+     * <p>Other Business Name: QueryStatus</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to control receiver logic and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Indicates whether the query was successful or not.</p>
      */
     public void setQueryResponseCode(QueryResponse queryResponseCode) {
         this.queryResponseCode.setValue(queryResponseCode);
@@ -108,16 +216,49 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>TotalMatchingRows</p>
+     * <p>Business Name: TotalMatchingRows</p>
      * 
-     * <p>J:Total Matching Rows</p>
+     * <p>Other Business Name: TotalMatchingRows</p>
      * 
-     * <p>Identifies the total number of rows identified that 
-     * matched the query.</p>
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the overall size of the result-set and is 
      * therefore mandatory. Particularly useful when only part of 
      * the result set is actually returned.</p>
+     * 
+     * <p>Identifies the total number of rows identified that 
+     * matched the query.</p>
+     * 
+     * <p>Other Business Name: TotalMatchingRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the overall size of the result-set and is 
+     * therefore mandatory. Particularly useful when only part of 
+     * the result set is actually returned.</p>
+     * 
+     * <p>Identifies the total number of rows identified that 
+     * matched the query.</p>
+     * 
+     * <p>Other Business Name: TotalMatchingRows</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the overall size of the result-set and is 
+     * therefore mandatory. Particularly useful when only part of 
+     * the result set is actually returned.</p>
+     * 
+     * <p>Identifies the total number of rows identified that 
+     * matched the query.</p>
      */
     @Hl7XmlMapping({"resultTotalQuantity"})
     public Integer getResultTotalQuantity() {
@@ -125,16 +266,49 @@ public class QueryAckBean extends MessagePartBean {
     }
 
     /**
-     * <p>TotalMatchingRows</p>
+     * <p>Business Name: TotalMatchingRows</p>
      * 
-     * <p>J:Total Matching Rows</p>
+     * <p>Other Business Name: TotalMatchingRows</p>
      * 
-     * <p>Identifies the total number of rows identified that 
-     * matched the query.</p>
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the overall size of the result-set and is 
      * therefore mandatory. Particularly useful when only part of 
      * the result set is actually returned.</p>
+     * 
+     * <p>Identifies the total number of rows identified that 
+     * matched the query.</p>
+     * 
+     * <p>Other Business Name: TotalMatchingRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the overall size of the result-set and is 
+     * therefore mandatory. Particularly useful when only part of 
+     * the result set is actually returned.</p>
+     * 
+     * <p>Identifies the total number of rows identified that 
+     * matched the query.</p>
+     * 
+     * <p>Other Business Name: TotalMatchingRows</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the overall size of the result-set and is 
+     * therefore mandatory. Particularly useful when only part of 
+     * the result set is actually returned.</p>
+     * 
+     * <p>Identifies the total number of rows identified that 
+     * matched the query.</p>
      */
     public void setResultTotalQuantity(Integer resultTotalQuantity) {
         this.resultTotalQuantity.setValue(resultTotalQuantity);
@@ -142,23 +316,46 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>ReturnedRows</p>
+     * <p>Business Name: ReturnedRows</p>
      * 
-     * <p>K:Returned Rows</p>
+     * <p>Other Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a quick overview of the results of the query and 
+     * is therefore mandatory.</p>
      * 
      * <p>Identifies the number of rows returned as part of this 
      * particular query response.</p>
+     * 
+     * <p>Other Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a quick overview of the results of the query and 
+     * is therefore mandatory.</p>
+     * 
+     * <p>Identifies the number of rows returned as part of this 
+     * particular query response.</p>
+     * 
+     * <p>Other Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a quick overview of the results of the query and 
      * is therefore mandatory</p>
      * 
-     * <p>K:Returned Rows</p>
-     * 
      * <p>Identifies the number of rows returned as part of this 
      * particular query response.</p>
-     * 
-     * <p>Provides a quick overview of the results of the query and 
-     * is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"resultCurrentQuantity"})
     public Integer getResultCurrentQuantity() {
@@ -166,23 +363,46 @@ public class QueryAckBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReturnedRows</p>
+     * <p>Business Name: ReturnedRows</p>
      * 
-     * <p>K:Returned Rows</p>
+     * <p>Other Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a quick overview of the results of the query and 
+     * is therefore mandatory.</p>
      * 
      * <p>Identifies the number of rows returned as part of this 
      * particular query response.</p>
+     * 
+     * <p>Other Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a quick overview of the results of the query and 
+     * is therefore mandatory.</p>
+     * 
+     * <p>Identifies the number of rows returned as part of this 
+     * particular query response.</p>
+     * 
+     * <p>Other Business Name: ReturnedRows</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a quick overview of the results of the query and 
      * is therefore mandatory</p>
      * 
-     * <p>K:Returned Rows</p>
-     * 
      * <p>Identifies the number of rows returned as part of this 
      * particular query response.</p>
-     * 
-     * <p>Provides a quick overview of the results of the query and 
-     * is therefore mandatory.</p>
      */
     public void setResultCurrentQuantity(Integer resultCurrentQuantity) {
         this.resultCurrentQuantity.setValue(resultCurrentQuantity);
@@ -190,15 +410,46 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>RemainingRows</p>
+     * <p>Business Name: RemainingRows</p>
      * 
-     * <p>L:Remaining Rows</p>
+     * <p>Other Business Name: RemainingRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies how much data remains to be queried and is 
+     * therefore mandatory.</p>
      * 
      * <p>Indicates the number of rows that still exist after the 
      * last row returned in this response.</p>
      * 
+     * <p>Other Business Name: RemainingRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Identifies how much data remains to be queried and is 
      * therefore mandatory.</p>
+     * 
+     * <p>Indicates the number of rows that still exist after the 
+     * last row returned in this response.</p>
+     * 
+     * <p>Other Business Name: RemainingRows</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies how much data remains to be queried and is 
+     * therefore mandatory.</p>
+     * 
+     * <p>Indicates the number of rows that still exist after the 
+     * last row returned in this response.</p>
      */
     @Hl7XmlMapping({"resultRemainingQuantity"})
     public Integer getResultRemainingQuantity() {
@@ -206,15 +457,46 @@ public class QueryAckBean extends MessagePartBean {
     }
 
     /**
-     * <p>RemainingRows</p>
+     * <p>Business Name: RemainingRows</p>
      * 
-     * <p>L:Remaining Rows</p>
+     * <p>Other Business Name: RemainingRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies how much data remains to be queried and is 
+     * therefore mandatory.</p>
      * 
      * <p>Indicates the number of rows that still exist after the 
      * last row returned in this response.</p>
      * 
+     * <p>Other Business Name: RemainingRows</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Identifies how much data remains to be queried and is 
      * therefore mandatory.</p>
+     * 
+     * <p>Indicates the number of rows that still exist after the 
+     * last row returned in this response.</p>
+     * 
+     * <p>Other Business Name: RemainingRows</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies how much data remains to be queried and is 
+     * therefore mandatory.</p>
+     * 
+     * <p>Indicates the number of rows that still exist after the 
+     * last row returned in this response.</p>
      */
     public void setResultRemainingQuantity(Integer resultRemainingQuantity) {
         this.resultRemainingQuantity.setValue(resultRemainingQuantity);

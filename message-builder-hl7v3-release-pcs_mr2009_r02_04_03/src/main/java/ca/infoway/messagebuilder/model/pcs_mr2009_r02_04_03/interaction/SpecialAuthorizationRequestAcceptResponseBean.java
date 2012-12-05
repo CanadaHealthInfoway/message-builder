@@ -29,8 +29,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>FICR_IN400002CA: Special Authorization Request Accept 
- * Response</p>
+ * <p>Business Name: FICR_IN400002CA: Special Authorization 
+ * Request Accept Response</p>
+ * 
+ * <p>Indicates that processing of the Create SA Request for a 
+ * specific product (e.g. drug), device or service was either: 
+ * - Approved (SA status of &quot;&quot;active&quot;&quot;); or 
+ * - Pended (SA status of &quot;&quot;suspended&quot;&quot;); 
+ * or - Pended and Request Additional Information (SA status of 
+ * &quot;&quot;suspended&quot;&quot;) with request for 
+ * additional information from the Payor conveyed in the 
+ * response message payload</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -42,6 +51,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN400002CA"})
 public class SpecialAuthorizationRequestAcceptResponseBean extends HL7Message_1Bean<TriggerEvent_2Bean<SpecialAuthorizationRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -41,42 +41,42 @@ import java.util.List;
 
 
 /**
- * <p>Vaccine</p>
+ * <p>Business Name: Vaccine</p>
  * 
  * <p>POIZ_MT030060CA.Vaccine: Vaccine</p>
  * 
- * <p>A pharmaceutical product to be supplied and/or 
- * administered to a patient. Encompasses manufactured vaccines 
- * and generic classifications.</p>
- * 
  * <p>Allows vaccines to be clearly described and referenced. 
  * Also allows searching for and examining information about 
  * vaccines that have been administered to a patient.</p>
+ * 
+ * <p>A pharmaceutical product to be supplied and/or 
+ * administered to a patient. Encompasses manufactured vaccines 
+ * and generic classifications.</p>
  * 
  * <p>POIZ_MT060150CA.Vaccine: Vaccine</p>
  * 
- * <p>A pharmaceutical product to be supplied and/or 
- * administered to a patient. Encompasses manufactured vaccines 
- * and generic classifications.</p>
- * 
  * <p>Allows vaccines to be clearly described and referenced. 
  * Also allows searching for and examining information about 
  * vaccines that have been administered to a patient.</p>
+ * 
+ * <p>A pharmaceutical product to be supplied and/or 
+ * administered to a patient. Encompasses manufactured vaccines 
+ * and generic classifications.</p>
  * 
  * <p>POIZ_MT030050CA.Vaccine: Vaccine</p>
  * 
- * <p>A pharmaceutical product to be supplied and/or 
- * administered to a patient. Encompasses manufactured vaccines 
- * and generic classifications.</p>
- * 
  * <p>Allows vaccines to be clearly described and referenced. 
  * Also allows searching for and examining information about 
  * vaccines that have been administered to a patient.</p>
+ * 
+ * <p>A pharmaceutical product to be supplied and/or 
+ * administered to a patient. Encompasses manufactured vaccines 
+ * and generic classifications.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Vaccine","POIZ_MT030060CA.Vaccine","POIZ_MT060150CA.Vaccine"})
 public class VaccineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private ST desc = new STImpl();
@@ -88,20 +88,58 @@ public class VaccineBean extends MessagePartBean {
 
 
     /**
-     * <p>VaccineCode</p>
+     * <p>Business Name: VaccineCode</p>
      * 
-     * <p>Vaccine Code</p>
+     * <p>Other Business Name: VaccineCode</p>
      * 
-     * <p>An identifier for a type of drug. Depending on where the 
-     * drug is being referenced, the drug may be identified at 
-     * different levels of abstraction. E.g. Manufactured drug 
-     * (including vaccine).</p>
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to ensure clear communication by uniquely 
      * identifying a particular drug product when prescribing or 
      * dispensing. This attribute is only marked as 'populated' 
      * because some custom compounds will not have unique 
      * identifiers.</p>
+     * 
+     * <p>An identifier for a type of drug. Depending on where the 
+     * drug is being referenced, the drug may be identified at 
+     * different levels of abstraction. E.g. Manufactured drug 
+     * (including vaccine).</p>
+     * 
+     * <p>Other Business Name: VaccineCode</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to ensure clear communication by uniquely 
+     * identifying a particular drug product when prescribing or 
+     * dispensing. This attribute is only marked as 'populated' 
+     * because some custom compounds will not have unique 
+     * identifiers.</p>
+     * 
+     * <p>An identifier for a type of drug. Depending on where the 
+     * drug is being referenced, the drug may be identified at 
+     * different levels of abstraction. E.g. Manufactured drug 
+     * (including vaccine).</p>
+     * 
+     * <p>Other Business Name: VaccineCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to ensure clear communication by uniquely 
+     * identifying a particular drug product when prescribing or 
+     * dispensing. This attribute is only marked as 'populated' 
+     * because some custom compounds will not have unique 
+     * identifiers.</p>
+     * 
+     * <p>An identifier for a type of drug. Depending on where the 
+     * drug is being referenced, the drug may be identified at 
+     * different levels of abstraction. E.g. Manufactured drug 
+     * (including vaccine).</p>
      */
     @Hl7XmlMapping({"code"})
     public ClinicalDrug getCode() {
@@ -109,20 +147,58 @@ public class VaccineBean extends MessagePartBean {
     }
 
     /**
-     * <p>VaccineCode</p>
+     * <p>Business Name: VaccineCode</p>
      * 
-     * <p>Vaccine Code</p>
+     * <p>Other Business Name: VaccineCode</p>
      * 
-     * <p>An identifier for a type of drug. Depending on where the 
-     * drug is being referenced, the drug may be identified at 
-     * different levels of abstraction. E.g. Manufactured drug 
-     * (including vaccine).</p>
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to ensure clear communication by uniquely 
      * identifying a particular drug product when prescribing or 
      * dispensing. This attribute is only marked as 'populated' 
      * because some custom compounds will not have unique 
      * identifiers.</p>
+     * 
+     * <p>An identifier for a type of drug. Depending on where the 
+     * drug is being referenced, the drug may be identified at 
+     * different levels of abstraction. E.g. Manufactured drug 
+     * (including vaccine).</p>
+     * 
+     * <p>Other Business Name: VaccineCode</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to ensure clear communication by uniquely 
+     * identifying a particular drug product when prescribing or 
+     * dispensing. This attribute is only marked as 'populated' 
+     * because some custom compounds will not have unique 
+     * identifiers.</p>
+     * 
+     * <p>An identifier for a type of drug. Depending on where the 
+     * drug is being referenced, the drug may be identified at 
+     * different levels of abstraction. E.g. Manufactured drug 
+     * (including vaccine).</p>
+     * 
+     * <p>Other Business Name: VaccineCode</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Used to ensure clear communication by uniquely 
+     * identifying a particular drug product when prescribing or 
+     * dispensing. This attribute is only marked as 'populated' 
+     * because some custom compounds will not have unique 
+     * identifiers.</p>
+     * 
+     * <p>An identifier for a type of drug. Depending on where the 
+     * drug is being referenced, the drug may be identified at 
+     * different levels of abstraction. E.g. Manufactured drug 
+     * (including vaccine).</p>
      */
     public void setCode(ClinicalDrug code) {
         this.code.setValue(code);
@@ -130,17 +206,49 @@ public class VaccineBean extends MessagePartBean {
 
 
     /**
-     * <p>VaccineName</p>
+     * <p>Business Name: VaccineName</p>
      * 
-     * <p>Vaccine Name</p>
+     * <p>Other Business Name: VaccineName</p>
      * 
-     * <p>The name assigned to a vaccine.</p>
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Names are used for human reference communication, to 
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
      * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>The name assigned to a vaccine.</p>
+     * 
+     * <p>Other Business Name: VaccineName</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. If a 
+     * code is available, the name acts as a cross-check. If the 
+     * code is not available the name acts as the primary 
+     * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>The name assigned to a vaccine.</p>
+     * 
+     * <p>Other Business Name: VaccineName</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. If a 
+     * code is available, the name acts as a cross-check. If the 
+     * code is not available the name acts as the primary 
+     * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>The name assigned to a vaccine.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -148,17 +256,49 @@ public class VaccineBean extends MessagePartBean {
     }
 
     /**
-     * <p>VaccineName</p>
+     * <p>Business Name: VaccineName</p>
      * 
-     * <p>Vaccine Name</p>
+     * <p>Other Business Name: VaccineName</p>
      * 
-     * <p>The name assigned to a vaccine.</p>
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Names are used for human reference communication, to 
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
      * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>The name assigned to a vaccine.</p>
+     * 
+     * <p>Other Business Name: VaccineName</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. If a 
+     * code is available, the name acts as a cross-check. If the 
+     * code is not available the name acts as the primary 
+     * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>The name assigned to a vaccine.</p>
+     * 
+     * <p>Other Business Name: VaccineName</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. If a 
+     * code is available, the name acts as a cross-check. If the 
+     * code is not available the name acts as the primary 
+     * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>The name assigned to a vaccine.</p>
      */
     public void setName(String name) {
         this.name.setValue(name);
@@ -166,17 +306,49 @@ public class VaccineBean extends MessagePartBean {
 
 
     /**
-     * <p>VaccineDescription</p>
+     * <p>Business Name: VaccineDescription</p>
      * 
-     * <p>Vaccine Description</p>
+     * <p>Other Business Name: VaccineDescription</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows description of compound ingredients and/or recipe 
+     * in free text form.</p>
      * 
      * <p>A free form textual description of a vaccine. This 
      * usually is only populated for custom compounds, providing 
      * instructions on the composition and creation of the 
      * compound.</p>
      * 
+     * <p>Other Business Name: VaccineDescription</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows description of compound ingredients and/or recipe 
      * in free text form.</p>
+     * 
+     * <p>A free form textual description of a vaccine. This 
+     * usually is only populated for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p>
+     * 
+     * <p>Other Business Name: VaccineDescription</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows description of compound ingredients and/or recipe 
+     * in free text form.</p>
+     * 
+     * <p>A free form textual description of a vaccine. This 
+     * usually is only populated for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p>
      */
     @Hl7XmlMapping({"desc"})
     public String getDesc() {
@@ -184,17 +356,49 @@ public class VaccineBean extends MessagePartBean {
     }
 
     /**
-     * <p>VaccineDescription</p>
+     * <p>Business Name: VaccineDescription</p>
      * 
-     * <p>Vaccine Description</p>
+     * <p>Other Business Name: VaccineDescription</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows description of compound ingredients and/or recipe 
+     * in free text form.</p>
      * 
      * <p>A free form textual description of a vaccine. This 
      * usually is only populated for custom compounds, providing 
      * instructions on the composition and creation of the 
      * compound.</p>
      * 
+     * <p>Other Business Name: VaccineDescription</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows description of compound ingredients and/or recipe 
      * in free text form.</p>
+     * 
+     * <p>A free form textual description of a vaccine. This 
+     * usually is only populated for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p>
+     * 
+     * <p>Other Business Name: VaccineDescription</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows description of compound ingredients and/or recipe 
+     * in free text form.</p>
+     * 
+     * <p>A free form textual description of a vaccine. This 
+     * usually is only populated for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p>
      */
     public void setDesc(String desc) {
         this.desc.setValue(desc);
@@ -202,12 +406,13 @@ public class VaccineBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugForm</p>
+     * <p>Business Name: DrugForm</p>
      * 
-     * <p>Drug Form</p>
+     * <p>Other Business Name: DrugForm</p>
      * 
-     * <p>Indicates the form in which the drug product must be, or 
-     * has been manufactured or custom prepared.</p>
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides a constrained vocabulary for describing dose 
      * forms. The form of the drug influences how it can be used by 
@@ -215,6 +420,41 @@ public class VaccineBean extends MessagePartBean {
      * 
      * <p>Must be populated if the Vaccine Code does not specify 
      * the Drug Form.</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p>
+     * 
+     * <p>Must be populated if the Vaccine Code does not specify 
+     * the Drug Form.</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p>
+     * 
+     * <p>Must be populated if the Vaccine Code does not specify 
+     * the Drug Form.</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared.</p>
      */
     @Hl7XmlMapping({"formCode"})
     public AdministrableDrugForm getFormCode() {
@@ -222,12 +462,13 @@ public class VaccineBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugForm</p>
+     * <p>Business Name: DrugForm</p>
      * 
-     * <p>Drug Form</p>
+     * <p>Other Business Name: DrugForm</p>
      * 
-     * <p>Indicates the form in which the drug product must be, or 
-     * has been manufactured or custom prepared.</p>
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides a constrained vocabulary for describing dose 
      * forms. The form of the drug influences how it can be used by 
@@ -235,6 +476,41 @@ public class VaccineBean extends MessagePartBean {
      * 
      * <p>Must be populated if the Vaccine Code does not specify 
      * the Drug Form.</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p>
+     * 
+     * <p>Must be populated if the Vaccine Code does not specify 
+     * the Drug Form.</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p>
+     * 
+     * <p>Must be populated if the Vaccine Code does not specify 
+     * the Drug Form.</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared.</p>
      */
     public void setFormCode(AdministrableDrugForm formCode) {
         this.formCode.setValue(formCode);
@@ -242,15 +518,43 @@ public class VaccineBean extends MessagePartBean {
 
 
     /**
-     * <p>VaccineLotNumber</p>
+     * <p>Business Name: VaccineLotNumber</p>
      * 
-     * <p>Vaccine Lot Number</p>
+     * <p>Other Business Name: VaccineLotNumber</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.lotNumberText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in tracking for recalls but may not always be 
+     * known (e.g. historical immunization records).</p>
      * 
      * <p>Identification of a batch in which a specific 
      * manufactured drug belongs.</p>
      * 
+     * <p>Other Business Name: VaccineLotNumber</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.lotNumberText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Useful in tracking for recalls but may not always be 
      * known (e.g. historical immunization records).</p>
+     * 
+     * <p>Identification of a batch in which a specific 
+     * manufactured drug belongs.</p>
+     * 
+     * <p>Other Business Name: VaccineLotNumber</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.lotNumberText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in tracking for recalls but may not always be 
+     * known (e.g. historical immunization records).</p>
+     * 
+     * <p>Identification of a batch in which a specific 
+     * manufactured drug belongs.</p>
      */
     @Hl7XmlMapping({"lotNumberText"})
     public String getLotNumberText() {
@@ -258,15 +562,43 @@ public class VaccineBean extends MessagePartBean {
     }
 
     /**
-     * <p>VaccineLotNumber</p>
+     * <p>Business Name: VaccineLotNumber</p>
      * 
-     * <p>Vaccine Lot Number</p>
+     * <p>Other Business Name: VaccineLotNumber</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.lotNumberText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in tracking for recalls but may not always be 
+     * known (e.g. historical immunization records).</p>
      * 
      * <p>Identification of a batch in which a specific 
      * manufactured drug belongs.</p>
      * 
+     * <p>Other Business Name: VaccineLotNumber</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.lotNumberText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Useful in tracking for recalls but may not always be 
      * known (e.g. historical immunization records).</p>
+     * 
+     * <p>Identification of a batch in which a specific 
+     * manufactured drug belongs.</p>
+     * 
+     * <p>Other Business Name: VaccineLotNumber</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.lotNumberText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in tracking for recalls but may not always be 
+     * known (e.g. historical immunization records).</p>
+     * 
+     * <p>Identification of a batch in which a specific 
+     * manufactured drug belongs.</p>
      */
     public void setLotNumberText(String lotNumberText) {
         this.lotNumberText.setValue(lotNumberText);
@@ -274,15 +606,13 @@ public class VaccineBean extends MessagePartBean {
 
 
     /**
-     * <p>VaccineExpiryDate</p>
+     * <p>Business Name: VaccineExpiryDate</p>
      * 
-     * <p>Vaccine Expiry Date</p>
+     * <p>Other Business Name: VaccineExpiryDate</p>
      * 
-     * <p>Indicates either the length of time a drug product can 
-     * remain viable (when talking about a drug in general terms), 
-     * or the date on which the drug product is no longer 
-     * considered viable (when talking about a specific medication 
-     * that has been dispensed).</p>
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.expirationTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The potency, effectiveness and safety of drug products 
      * changes over time. When determining quantities to be 
@@ -293,6 +623,56 @@ public class VaccineBean extends MessagePartBean {
      * remains viable, specify the 'Width' property. To indicate a 
      * specific end date for an actual dispensed product, specify 
      * the 'High' property</p>
+     * 
+     * <p>Indicates either the length of time a drug product can 
+     * remain viable (when talking about a drug in general terms), 
+     * or the date on which the drug product is no longer 
+     * considered viable (when talking about a specific medication 
+     * that has been dispensed).</p>
+     * 
+     * <p>Other Business Name: VaccineExpiryDate</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.expirationTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The potency, effectiveness and safety of drug products 
+     * changes over time. When determining quantities to be 
+     * supplied to a patient, one of the considerations is how long 
+     * the drug will remain viable.</p>
+     * 
+     * <p>To indicate the length of time after opening a product 
+     * remains viable, specify the 'Width' property. To indicate a 
+     * specific end date for an actual dispensed product, specify 
+     * the 'High' property</p>
+     * 
+     * <p>Indicates either the length of time a drug product can 
+     * remain viable (when talking about a drug in general terms), 
+     * or the date on which the drug product is no longer 
+     * considered viable (when talking about a specific medication 
+     * that has been dispensed).</p>
+     * 
+     * <p>Other Business Name: VaccineExpiryDate</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.expirationTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The potency, effectiveness and safety of drug products 
+     * changes over time. When determining quantities to be 
+     * supplied to a patient, one of the considerations is how long 
+     * the drug will remain viable.</p>
+     * 
+     * <p>To indicate the length of time after opening a product 
+     * remains viable, specify the 'Width' property. To indicate a 
+     * specific end date for an actual dispensed product, specify 
+     * the 'High' property</p>
+     * 
+     * <p>Indicates either the length of time a drug product can 
+     * remain viable (when talking about a drug in general terms), 
+     * or the date on which the drug product is no longer 
+     * considered viable (when talking about a specific medication 
+     * that has been dispensed).</p>
      */
     @Hl7XmlMapping({"expirationTime"})
     public Interval<Date> getExpirationTime() {
@@ -300,15 +680,13 @@ public class VaccineBean extends MessagePartBean {
     }
 
     /**
-     * <p>VaccineExpiryDate</p>
+     * <p>Business Name: VaccineExpiryDate</p>
      * 
-     * <p>Vaccine Expiry Date</p>
+     * <p>Other Business Name: VaccineExpiryDate</p>
      * 
-     * <p>Indicates either the length of time a drug product can 
-     * remain viable (when talking about a drug in general terms), 
-     * or the date on which the drug product is no longer 
-     * considered viable (when talking about a specific medication 
-     * that has been dispensed).</p>
+     * <p>Relationship: POIZ_MT030060CA.Vaccine.expirationTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The potency, effectiveness and safety of drug products 
      * changes over time. When determining quantities to be 
@@ -319,22 +697,135 @@ public class VaccineBean extends MessagePartBean {
      * remains viable, specify the 'Width' property. To indicate a 
      * specific end date for an actual dispensed product, specify 
      * the 'High' property</p>
+     * 
+     * <p>Indicates either the length of time a drug product can 
+     * remain viable (when talking about a drug in general terms), 
+     * or the date on which the drug product is no longer 
+     * considered viable (when talking about a specific medication 
+     * that has been dispensed).</p>
+     * 
+     * <p>Other Business Name: VaccineExpiryDate</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Vaccine.expirationTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The potency, effectiveness and safety of drug products 
+     * changes over time. When determining quantities to be 
+     * supplied to a patient, one of the considerations is how long 
+     * the drug will remain viable.</p>
+     * 
+     * <p>To indicate the length of time after opening a product 
+     * remains viable, specify the 'Width' property. To indicate a 
+     * specific end date for an actual dispensed product, specify 
+     * the 'High' property</p>
+     * 
+     * <p>Indicates either the length of time a drug product can 
+     * remain viable (when talking about a drug in general terms), 
+     * or the date on which the drug product is no longer 
+     * considered viable (when talking about a specific medication 
+     * that has been dispensed).</p>
+     * 
+     * <p>Other Business Name: VaccineExpiryDate</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Vaccine.expirationTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The potency, effectiveness and safety of drug products 
+     * changes over time. When determining quantities to be 
+     * supplied to a patient, one of the considerations is how long 
+     * the drug will remain viable.</p>
+     * 
+     * <p>To indicate the length of time after opening a product 
+     * remains viable, specify the 'Width' property. To indicate a 
+     * specific end date for an actual dispensed product, specify 
+     * the 'High' property</p>
+     * 
+     * <p>Indicates either the length of time a drug product can 
+     * remain viable (when talking about a drug in general terms), 
+     * or the date on which the drug product is no longer 
+     * considered viable (when talking about a specific medication 
+     * that has been dispensed).</p>
      */
     public void setExpirationTime(Interval<Date> expirationTime) {
         this.expirationTime.setValue(expirationTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
     public ManufacturerBean getAsManufacturedProductManufacturer() {
         return this.asManufacturedProductManufacturer;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
         this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Ingredients.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Ingredients.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Ingredients.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"ingredients/ingredient"})
     public List<AntigensBean> getIngredientsIngredient() {
         return this.ingredientsIngredient;

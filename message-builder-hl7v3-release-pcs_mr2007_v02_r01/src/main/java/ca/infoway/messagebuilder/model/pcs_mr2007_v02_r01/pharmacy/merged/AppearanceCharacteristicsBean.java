@@ -32,58 +32,66 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>AppearanceCharacteristics</p>
+ * <p>Business Name: AppearanceCharacteristics</p>
  * 
  * <p>POME_MT010100CA.Characteristic: Appearance 
  * Characteristics</p>
  * 
- * <p>The characteristics of a manufactured product that 
- * visually distinguish it from other products.</p>
- * 
  * <p>Used for searching drugs. May be employed as means of 
  * communication between providers and patients.</p>
+ * 
+ * <p>The characteristics of a manufactured product that 
+ * visually distinguish it from other products.</p>
  * 
  * <p>POME_MT010040CA.Characteristic: Appearance 
  * Characteristics</p>
  * 
- * <p>The characteristics of a manufactured product that 
- * visually distinguish it from other products.</p>
- * 
  * <p>Used for searching drugs. May be employed as means of 
  * communication between providers and patients.</p>
+ * 
+ * <p>The characteristics of a manufactured product that 
+ * visually distinguish it from other products.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.Characteristic","POME_MT010100CA.Characteristic"})
 public class AppearanceCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST value = new STImpl();
 
 
     /**
-     * <p>CharacteristicType</p>
+     * <p>Business Name: CharacteristicType</p>
      * 
-     * <p>Characteristic Type</p>
+     * <p>Other Business Name: CharacteristicType</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of characteristic is being 
+     * identified. This is mandatory as providing the 
+     * characteristic alone without specifying the type can result 
+     * in ambiguity.</p>
      * 
      * <p>A coded value denoting the type of physical 
      * characteristic being documented. Kinds of characteristics 
-     * include: Color, Shape, Markings, Size.</p>
+     * include: Color, Shape, Markings, Size, etc.</p>
+     * 
+     * <p>Other Business Name: CharacteristicType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of characteristic is being 
      * identified. This is mandatory as providing the 
      * characteristic alone without specifying the type can result 
      * in ambiguity</p>
      * 
-     * <p>A:Characteristic Type</p>
-     * 
      * <p>A coded value denoting the type of physical 
      * characteristic being documented. Kinds of characteristics 
-     * include: Color, Shape, Markings, Size, etc.</p>
-     * 
-     * <p>Identifies what kind of characteristic is being 
-     * identified. This is mandatory as providing the 
-     * characteristic alone without specifying the type can result 
-     * in ambiguity.</p>
+     * include: Color, Shape, Markings, Size.</p>
      */
     @Hl7XmlMapping({"code"})
     public MedicationObservationType getCode() {
@@ -91,29 +99,37 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>CharacteristicType</p>
+     * <p>Business Name: CharacteristicType</p>
      * 
-     * <p>Characteristic Type</p>
+     * <p>Other Business Name: CharacteristicType</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of characteristic is being 
+     * identified. This is mandatory as providing the 
+     * characteristic alone without specifying the type can result 
+     * in ambiguity.</p>
      * 
      * <p>A coded value denoting the type of physical 
      * characteristic being documented. Kinds of characteristics 
-     * include: Color, Shape, Markings, Size.</p>
+     * include: Color, Shape, Markings, Size, etc.</p>
+     * 
+     * <p>Other Business Name: CharacteristicType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of characteristic is being 
      * identified. This is mandatory as providing the 
      * characteristic alone without specifying the type can result 
      * in ambiguity</p>
      * 
-     * <p>A:Characteristic Type</p>
-     * 
      * <p>A coded value denoting the type of physical 
      * characteristic being documented. Kinds of characteristics 
-     * include: Color, Shape, Markings, Size, etc.</p>
-     * 
-     * <p>Identifies what kind of characteristic is being 
-     * identified. This is mandatory as providing the 
-     * characteristic alone without specifying the type can result 
-     * in ambiguity.</p>
+     * include: Color, Shape, Markings, Size.</p>
      */
     public void setCode(MedicationObservationType code) {
         this.code.setValue(code);
@@ -121,39 +137,36 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
 
 
     /**
-     * <p>Characteristic</p>
+     * <p>Business Name: Characteristic</p>
      * 
-     * <p>E:Characteristic</p>
+     * <p>Other Business Name: Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides the 'value' part of the name-value pair 
+     * describing the drug product appearance 
+     * characteristic.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; as there must be a value for a 
+     * mandatory code.</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc).</p>
      * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the drug product appearance 
-     * characteristic.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; as there must be a value for a 
-     * mandatory code.</p>
+     * <p>Other Business Name: Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides the 'value' part of the name-value pair 
      * describing the drug product appearance 
-     * characteristic.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; as there must be a value for a 
-     * mandatory code.</p>
-     * 
-     * <p>Characteristic</p>
+     * characteristic.</p><p>The attribute is marked as 'mandatory' 
+     * as there must be a value for a mandatory code.</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc)</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the drug product appearance 
-     * characteristic.</p><p>The attribute is marked as 'mandatory' 
-     * as there must be a value for a mandatory code.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the drug product appearance 
-     * characteristic.</p><p>The attribute is marked as 'mandatory' 
-     * as there must be a value for a mandatory code.</p>
      */
     @Hl7XmlMapping({"value"})
     public String getValue() {
@@ -161,39 +174,36 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Characteristic</p>
+     * <p>Business Name: Characteristic</p>
      * 
-     * <p>E:Characteristic</p>
+     * <p>Other Business Name: Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides the 'value' part of the name-value pair 
+     * describing the drug product appearance 
+     * characteristic.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; as there must be a value for a 
+     * mandatory code.</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc).</p>
      * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the drug product appearance 
-     * characteristic.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; as there must be a value for a 
-     * mandatory code.</p>
+     * <p>Other Business Name: Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides the 'value' part of the name-value pair 
      * describing the drug product appearance 
-     * characteristic.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; as there must be a value for a 
-     * mandatory code.</p>
-     * 
-     * <p>Characteristic</p>
+     * characteristic.</p><p>The attribute is marked as 'mandatory' 
+     * as there must be a value for a mandatory code.</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc)</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the drug product appearance 
-     * characteristic.</p><p>The attribute is marked as 'mandatory' 
-     * as there must be a value for a mandatory code.</p>
-     * 
-     * <p>Provides the 'value' part of the name-value pair 
-     * describing the drug product appearance 
-     * characteristic.</p><p>The attribute is marked as 'mandatory' 
-     * as there must be a value for a mandatory code.</p>
      */
     public void setValue(String value) {
         this.value.setValue(value);

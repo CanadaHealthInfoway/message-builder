@@ -41,7 +41,7 @@ import java.util.List;
 
 
 /**
- * <p>Specimen Observation Cluster</p>
+ * <p>Business Name: Specimen Observation Cluster</p>
  * 
  * <p>This act groups all the communicated objects for one or 
  * more isolate(s) including any antibiotic sensitivity tests 
@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SpecimenObservationCluster"})
 public class SpecimenObservationClusterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -63,7 +63,12 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
 
 
     /**
-     * <p>Cluster Comment</p>
+     * <p>Business Name: Cluster Comment</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Comments associated with the Isolate Cluster.</p>
      */
@@ -73,7 +78,12 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
 
     /**
-     * <p>Cluster Comment</p>
+     * <p>Business Name: Cluster Comment</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Comments associated with the Isolate Cluster.</p>
      */
@@ -83,7 +93,12 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
 
 
     /**
-     * <p>Cluster Status</p>
+     * <p>Business Name: Cluster Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the isolate cluster.</p>
      */
@@ -93,7 +108,12 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
 
     /**
-     * <p>Cluster Status</p>
+     * <p>Business Name: Cluster Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the isolate cluster.</p>
      */
@@ -103,7 +123,12 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
 
 
     /**
-     * <p>Cluster Effective Time</p>
+     * <p>Business Name: Cluster Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective time associated with the Isolate Cluster.</p>
      */
@@ -113,7 +138,12 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
 
     /**
-     * <p>Cluster Effective Time</p>
+     * <p>Business Name: Cluster Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective time associated with the Isolate Cluster.</p>
      */
@@ -128,22 +158,46 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component3.isolateObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/isolateObservationEvent"})
     public List<IsolateObservationsBean> getComponent1IsolateObservationEvent() {
         return this.component1IsolateObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.component2</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2"})
     public HasComponentBean getComponent2() {
         return this.component2;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.component2</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2(HasComponentBean component2) {
         this.component2 = component2;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component5.sensitivityBattery</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/sensitivityBattery"})
     public List<SensitivityBatteryBean> getComponent3SensitivityBattery() {
         return this.component3SensitivityBattery;

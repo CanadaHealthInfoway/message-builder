@@ -43,7 +43,7 @@ import java.util.List;
 
 
 /**
- * <p>SpecimenRole</p>
+ * <p>Business Name: SpecimenRole</p>
  * 
  * <p>COCT_MT080100CA.Specimen: Specimen Role</p>
  * 
@@ -55,7 +55,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST specimenMaterialDesc = new STImpl();
     private II id = new IIImpl();
     private CD specimenMaterialCode = new CDImpl();
@@ -66,25 +66,41 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>W:Specimen Text</p>
+     * <p>Other Business Name: FocusArea</p>
      * 
-     * <p>Any descriptive specimen information not sufficiently 
-     * communicated by the code attribute.</p>
+     * <p>Relationship: REPC_MT500004CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows grouping observations, procedures and other 
+     * records directly associated with a particular mole, tumor or 
+     * other potion of a patient not easily referenced as a coded 
+     * body site.</p><p>This element is optional because not all 
+     * systems will support Localized Health Condition-based 
+     * Collections</p>
+     * 
+     * <p>Describes the specific body region or area associated 
+     * with a Localized Health Condition-based 
+     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
+     * one inch below left shoulder-blade&quot;</p>
+     * 
+     * <p>Other Business Name: SpecimenText</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used when information is not able to be coded or 
      * represented using the available other attributes.</p>
      * 
-     * <p>I: Focus Area</p>
+     * <p>Any descriptive specimen information not sufficiently 
+     * communicated by the code attribute.</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
+     * <p>Other Business Name: FocusArea</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
+     * <p>Relationship: REPC_MT500001CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows grouping observations, procedures and other 
      * records directly associated with a particular mole, tumor or 
@@ -93,12 +109,46 @@ public class SpecimenRoleBean extends MessagePartBean {
      * systems will support Localized Health Condition-based 
      * Collections</p>
      * 
+     * <p>Describes the specific body region or area associated 
+     * with a Localized Health Condition-based 
+     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
+     * one inch below left shoulder-blade&quot;</p>
+     * 
+     * <p>Other Business Name: FocusArea</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows grouping observations, procedures and other 
      * records directly associated with a particular mole, tumor or 
      * other potion of a patient not easily referenced as a coded 
      * body site.</p><p>This element is optional because not all 
      * systems will support Localized Health Condition-based 
      * Collections</p>
+     * 
+     * <p>Describes the specific body region or area associated 
+     * with a Localized Health Condition-based 
+     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
+     * one inch below left shoulder-blade&quot;</p>
+     * 
+     * <p>Other Business Name: FocusArea</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows grouping observations, procedures and other 
+     * records directly associated with a particular mole, tumor or 
+     * other potion of a patient not easily referenced as a coded 
+     * body site.</p><p>This element is optional because not all 
+     * systems will support Localized Health Condition-based 
+     * Collections</p>
+     * 
+     * <p>Describes the specific body region or area associated 
+     * with a Localized Health Condition-based 
+     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
+     * one inch below left shoulder-blade&quot;</p>
      */
     @Hl7XmlMapping({"specimenMaterial/desc"})
     public String getSpecimenMaterialDesc() {
@@ -106,25 +156,41 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>W:Specimen Text</p>
+     * <p>Other Business Name: FocusArea</p>
      * 
-     * <p>Any descriptive specimen information not sufficiently 
-     * communicated by the code attribute.</p>
+     * <p>Relationship: REPC_MT500004CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows grouping observations, procedures and other 
+     * records directly associated with a particular mole, tumor or 
+     * other potion of a patient not easily referenced as a coded 
+     * body site.</p><p>This element is optional because not all 
+     * systems will support Localized Health Condition-based 
+     * Collections</p>
+     * 
+     * <p>Describes the specific body region or area associated 
+     * with a Localized Health Condition-based 
+     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
+     * one inch below left shoulder-blade&quot;</p>
+     * 
+     * <p>Other Business Name: SpecimenText</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used when information is not able to be coded or 
      * represented using the available other attributes.</p>
      * 
-     * <p>I: Focus Area</p>
+     * <p>Any descriptive specimen information not sufficiently 
+     * communicated by the code attribute.</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
+     * <p>Other Business Name: FocusArea</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
+     * <p>Relationship: REPC_MT500001CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows grouping observations, procedures and other 
      * records directly associated with a particular mole, tumor or 
@@ -133,12 +199,46 @@ public class SpecimenRoleBean extends MessagePartBean {
      * systems will support Localized Health Condition-based 
      * Collections</p>
      * 
+     * <p>Describes the specific body region or area associated 
+     * with a Localized Health Condition-based 
+     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
+     * one inch below left shoulder-blade&quot;</p>
+     * 
+     * <p>Other Business Name: FocusArea</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows grouping observations, procedures and other 
      * records directly associated with a particular mole, tumor or 
      * other potion of a patient not easily referenced as a coded 
      * body site.</p><p>This element is optional because not all 
      * systems will support Localized Health Condition-based 
      * Collections</p>
+     * 
+     * <p>Describes the specific body region or area associated 
+     * with a Localized Health Condition-based 
+     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
+     * one inch below left shoulder-blade&quot;</p>
+     * 
+     * <p>Other Business Name: FocusArea</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows grouping observations, procedures and other 
+     * records directly associated with a particular mole, tumor or 
+     * other potion of a patient not easily referenced as a coded 
+     * body site.</p><p>This element is optional because not all 
+     * systems will support Localized Health Condition-based 
+     * Collections</p>
+     * 
+     * <p>Describes the specific body region or area associated 
+     * with a Localized Health Condition-based 
+     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
+     * one inch below left shoulder-blade&quot;</p>
      */
     public void setSpecimenMaterialDesc(String specimenMaterialDesc) {
         this.specimenMaterialDesc.setValue(specimenMaterialDesc);
@@ -146,36 +246,28 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>SpecimenIdentifier</p>
+     * <p>Business Name: SpecimenIdentifier</p>
      * 
-     * <p>A:Specimen Identifier</p>
+     * <p>Other Business Name: SpecimenIdentifier</p>
      * 
-     * <p>A unique identifier for the specimen. Frequently the 
-     * accession number which often uniquely identifies the 
-     * specimen is used as the unique specimen identifier in 
-     * communications. However, accessioning may group multiple 
-     * specimens (identified) under one accession number. 
-     * Therefore, it is recommended that this be truly the specimen 
-     * identifier and not the accession number.</p><p>For a 
-     * referral, this attribute should be Required so it is 
-     * reflected back in the result. If Lab A has collected and or 
-     * done something to the specimen, then the identifier would be 
-     * sent.</p>
+     * <p>Relationship: COCT_MT080100CA.Specimen.id</p>
      * 
-     * <p>A unique identifier for the specimen. Frequently the 
-     * accession number which often uniquely identifies the 
-     * specimen is used as the unique specimen identifier in 
-     * communications. However, accessioning may group multiple 
-     * specimens (identified) under one accession number. 
-     * Therefore, it is recommended that this be truly the specimen 
-     * identifier and not the accession number.</p><p>For a 
-     * referral, this attribute should be Required so it is 
-     * reflected back in the result. If Lab A has collected and or 
-     * done something to the specimen, then the identifier would be 
-     * sent.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique specimen identifier is necessary for specimen 
      * tracking and management.</p>
+     * 
+     * <p>A unique identifier for the specimen. Frequently the 
+     * accession number which often uniquely identifies the 
+     * specimen is used as the unique specimen identifier in 
+     * communications. However, accessioning may group multiple 
+     * specimens (identified) under one accession number. 
+     * Therefore, it is recommended that this be truly the specimen 
+     * identifier and not the accession number.</p><p>For a 
+     * referral, this attribute should be Required so it is 
+     * reflected back in the result. If Lab A has collected and or 
+     * done something to the specimen, then the identifier would be 
+     * sent.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -183,36 +275,28 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecimenIdentifier</p>
+     * <p>Business Name: SpecimenIdentifier</p>
      * 
-     * <p>A:Specimen Identifier</p>
+     * <p>Other Business Name: SpecimenIdentifier</p>
      * 
-     * <p>A unique identifier for the specimen. Frequently the 
-     * accession number which often uniquely identifies the 
-     * specimen is used as the unique specimen identifier in 
-     * communications. However, accessioning may group multiple 
-     * specimens (identified) under one accession number. 
-     * Therefore, it is recommended that this be truly the specimen 
-     * identifier and not the accession number.</p><p>For a 
-     * referral, this attribute should be Required so it is 
-     * reflected back in the result. If Lab A has collected and or 
-     * done something to the specimen, then the identifier would be 
-     * sent.</p>
+     * <p>Relationship: COCT_MT080100CA.Specimen.id</p>
      * 
-     * <p>A unique identifier for the specimen. Frequently the 
-     * accession number which often uniquely identifies the 
-     * specimen is used as the unique specimen identifier in 
-     * communications. However, accessioning may group multiple 
-     * specimens (identified) under one accession number. 
-     * Therefore, it is recommended that this be truly the specimen 
-     * identifier and not the accession number.</p><p>For a 
-     * referral, this attribute should be Required so it is 
-     * reflected back in the result. If Lab A has collected and or 
-     * done something to the specimen, then the identifier would be 
-     * sent.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique specimen identifier is necessary for specimen 
      * tracking and management.</p>
+     * 
+     * <p>A unique identifier for the specimen. Frequently the 
+     * accession number which often uniquely identifies the 
+     * specimen is used as the unique specimen identifier in 
+     * communications. However, accessioning may group multiple 
+     * specimens (identified) under one accession number. 
+     * Therefore, it is recommended that this be truly the specimen 
+     * identifier and not the accession number.</p><p>For a 
+     * referral, this attribute should be Required so it is 
+     * reflected back in the result. If Lab A has collected and or 
+     * done something to the specimen, then the identifier would be 
+     * sent.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -220,15 +304,19 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>SpecimenCode</p>
+     * <p>Business Name: SpecimenCode</p>
      * 
-     * <p>V:Specimen Code</p>
+     * <p>Other Business Name: SpecimenCode</p>
      * 
-     * <p>The code of the specimen material collected e.g. skin, 
-     * blood, etc.</p>
+     * <p>Relationship: COCT_MT080100CA.Material.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The specimen code differentiates testing types, methods, 
      * and resulting processing of specimen material.</p>
+     * 
+     * <p>The code of the specimen material collected e.g. skin, 
+     * blood, etc.</p>
      */
     @Hl7XmlMapping({"specimenMaterial/code"})
     public HumanLabSpecimenEntityType getSpecimenMaterialCode() {
@@ -236,21 +324,32 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecimenCode</p>
+     * <p>Business Name: SpecimenCode</p>
      * 
-     * <p>V:Specimen Code</p>
+     * <p>Other Business Name: SpecimenCode</p>
      * 
-     * <p>The code of the specimen material collected e.g. skin, 
-     * blood, etc.</p>
+     * <p>Relationship: COCT_MT080100CA.Material.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The specimen code differentiates testing types, methods, 
      * and resulting processing of specimen material.</p>
+     * 
+     * <p>The code of the specimen material collected e.g. skin, 
+     * blood, etc.</p>
      */
     public void setSpecimenMaterialCode(HumanLabSpecimenEntityType specimenMaterialCode) {
         this.specimenMaterialCode.setValue(specimenMaterialCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Material.asIdentifiedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
     public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
         return this.specimenMaterialAsIdentifiedEntity;
@@ -258,15 +357,19 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>SpecimenContainerRisk</p>
+     * <p>Business Name: SpecimenContainerRisk</p>
      * 
-     * <p>Y:Specimen Container Risk</p>
+     * <p>Other Business Name: SpecimenContainerRisk</p>
      * 
-     * <p>Describes any risk to the handlers of this container 
-     * (containing a specimen).</p>
+     * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to document container risks to those who handle the 
      * container.</p>
+     * 
+     * <p>Describes any risk to the handlers of this container 
+     * (containing a specimen).</p>
      */
     @Hl7XmlMapping({"specimenMaterial/asContent/container/riskCode"})
     public EntityRisk getSpecimenMaterialAsContentContainerRiskCode() {
@@ -274,32 +377,60 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecimenContainerRisk</p>
+     * <p>Business Name: SpecimenContainerRisk</p>
      * 
-     * <p>Y:Specimen Container Risk</p>
+     * <p>Other Business Name: SpecimenContainerRisk</p>
      * 
-     * <p>Describes any risk to the handlers of this container 
-     * (containing a specimen).</p>
+     * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to document container risks to those who handle the 
      * container.</p>
+     * 
+     * <p>Describes any risk to the handlers of this container 
+     * (containing a specimen).</p>
      */
     public void setSpecimenMaterialAsContentContainerRiskCode(EntityRisk specimenMaterialAsContentContainerRiskCode) {
         this.specimenMaterialAsContentContainerRiskCode.setValue(specimenMaterialAsContentContainerRiskCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.Subject2.transportationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/transportationEvent"})
     public List<SpecimenProcessStepsBean> getSubjectOfTransportationEvent() {
         return this.subjectOfTransportationEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"productOf/specimenCollectionProcedureEvent"})
     public SpecimenCollectionProcedureBean getProductOfSpecimenCollectionProcedureEvent() {
         return this.productOfSpecimenCollectionProcedureEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
         this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
     }

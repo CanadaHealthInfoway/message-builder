@@ -39,12 +39,17 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActInvoice
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorBillingTaxAccount"})
 public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
 
     /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Tax number, such as GST, PST number</p>
      */
     @Hl7XmlMapping({"id"})
@@ -53,6 +58,11 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Tax number, such as GST, PST number</p>
      */
     public void setId(Identifier id) {
@@ -60,11 +70,23 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"code"})
     public ActInvoiceDetailTaxCode getCode() {
         return (ActInvoiceDetailTaxCode) this.code.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatorBillingTaxAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCode(ActInvoiceDetailTaxCode code) {
         this.code.setValue(code);
     }

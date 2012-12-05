@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Isolate Participation</p>
+ * <p>Business Name: Isolate Participation</p>
  * 
  * <p>Associates the isolate specimen and specimen material 
  * (identification of the microorganism) with the grouper 
@@ -36,15 +36,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Specimen2"})
 public class IsolateParticipationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IsolateBean isolate;
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Specimen2.isolate</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"isolate"})
     public IsolateBean getIsolate() {
         return this.isolate;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Specimen2.isolate</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setIsolate(IsolateBean isolate) {
         this.isolate = isolate;
     }

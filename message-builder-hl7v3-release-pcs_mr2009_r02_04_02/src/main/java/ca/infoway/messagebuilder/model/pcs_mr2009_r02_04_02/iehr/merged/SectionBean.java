@@ -34,7 +34,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT220001CA.Section","REPC_MT220003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private DocumentContent_2 component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
@@ -42,17 +42,13 @@ public class SectionBean extends MessagePartBean {
 
 
     /**
-     * <p>DocumentOverviewContent</p>
+     * <p>Business Name: DocumentOverviewContent</p>
      * 
-     * <p>M: Document Overview Content</p>
+     * <p>Other Business Name: DocumentOverviewContent</p>
      * 
-     * <p>Provides the primary rendered textual content of the 
-     * document.</p><p>E.g. The cover letter for a referral, the 
-     * overview portion of a report, etc.</p>
+     * <p>Relationship: REPC_MT220001CA.Section.text</p>
      * 
-     * <p>Provides the primary rendered textual content of the 
-     * document.</p><p>E.g. The cover letter for a referral, the 
-     * overview portion of a report, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the principle content of the document and 
      * therefore is mandatory.</p>
@@ -61,6 +57,28 @@ public class SectionBean extends MessagePartBean {
      * report content should be organized or formatted. Guidance 
      * may be provided by professional colleges, specialty groups 
      * or others.</p>
+     * 
+     * <p>Provides the primary rendered textual content of the 
+     * document.</p><p>E.g. The cover letter for a referral, the 
+     * overview portion of a report, etc.</p>
+     * 
+     * <p>Other Business Name: DocumentOverviewContent</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Section.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Represents the principle content of the document and 
+     * therefore is mandatory.</p>
+     * 
+     * <p>There is no guidance provided within the standard on how 
+     * report content should be organized or formatted. Guidance 
+     * may be provided by professional colleges, specialty groups 
+     * or others.</p>
+     * 
+     * <p>Provides the primary rendered textual content of the 
+     * document.</p><p>E.g. The cover letter for a referral, the 
+     * overview portion of a report, etc.</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
@@ -68,17 +86,13 @@ public class SectionBean extends MessagePartBean {
     }
 
     /**
-     * <p>DocumentOverviewContent</p>
+     * <p>Business Name: DocumentOverviewContent</p>
      * 
-     * <p>M: Document Overview Content</p>
+     * <p>Other Business Name: DocumentOverviewContent</p>
      * 
-     * <p>Provides the primary rendered textual content of the 
-     * document.</p><p>E.g. The cover letter for a referral, the 
-     * overview portion of a report, etc.</p>
+     * <p>Relationship: REPC_MT220001CA.Section.text</p>
      * 
-     * <p>Provides the primary rendered textual content of the 
-     * document.</p><p>E.g. The cover letter for a referral, the 
-     * overview portion of a report, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the principle content of the document and 
      * therefore is mandatory.</p>
@@ -87,28 +101,102 @@ public class SectionBean extends MessagePartBean {
      * report content should be organized or formatted. Guidance 
      * may be provided by professional colleges, specialty groups 
      * or others.</p>
+     * 
+     * <p>Provides the primary rendered textual content of the 
+     * document.</p><p>E.g. The cover letter for a referral, the 
+     * overview portion of a report, etc.</p>
+     * 
+     * <p>Other Business Name: DocumentOverviewContent</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Section.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Represents the principle content of the document and 
+     * therefore is mandatory.</p>
+     * 
+     * <p>There is no guidance provided within the standard on how 
+     * report content should be organized or formatted. Guidance 
+     * may be provided by professional colleges, specialty groups 
+     * or others.</p>
+     * 
+     * <p>Provides the primary rendered textual content of the 
+     * document.</p><p>E.g. The cover letter for a referral, the 
+     * overview portion of a report, etc.</p>
      */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/documentContent"})
     public DocumentContent_2 getComponent1DocumentContent() {
         return this.component1DocumentContent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1DocumentContent(DocumentContent_2 component1DocumentContent) {
         this.component1DocumentContent = component1DocumentContent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Component.subSection</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Component.subSection</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/subSection"})
     public List<DocumentSectionsBean> getComponent2SubSection() {
         return this.component2SubSection;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Component5.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Component5.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/reference"})
     public List<ReferenceBean> getComponent3Reference() {
         return this.component3Reference;

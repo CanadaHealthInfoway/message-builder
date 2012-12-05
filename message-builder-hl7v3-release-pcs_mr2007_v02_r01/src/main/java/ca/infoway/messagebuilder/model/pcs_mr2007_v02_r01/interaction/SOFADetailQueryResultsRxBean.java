@@ -30,7 +30,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 /**
- * <p>QUCR_IN830102CA: SOFA Detail Query Results, Rx</p>
+ * <p>Business Name: QUCR_IN830102CA: SOFA Detail Query 
+ * Results, Rx</p>
+ * 
+ * <p>The sender sends a SOFA (Statement of Financial Activity) 
+ * Detail Query Response message for Pharmacy services and/or 
+ * products.The response is for detailed account activity 
+ * information, including references to previously adjudicated 
+ * Invoices.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -43,6 +50,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 @Hl7PartTypeMapping({"QUCR_IN830102CA"})
 public class SOFADetailQueryResultsRxBean extends HL7Message_1Bean<TriggerEvent_5Bean<TypeOfSummaryBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

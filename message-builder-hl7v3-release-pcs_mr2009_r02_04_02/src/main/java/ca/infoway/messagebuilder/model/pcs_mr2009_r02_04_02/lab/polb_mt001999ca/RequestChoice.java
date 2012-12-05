@@ -53,8 +53,18 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public HealthcareOrganizationBean getPerformerAssignedEntity();
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity);
 
 
@@ -95,17 +105,38 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator);
 
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Component5.requestChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RequestChoice> getComponent4RequestChoice();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.InFulfillmentOf.resultChoice1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<ResultChoice> getFulfillmentResultChoice1();
 
 
     public List<IncludesBean> getSubjectOf1();
 
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Subject2.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public VersionInformationBean getSubjectOf2ControlActEvent();
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Subject2.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent);
 
 

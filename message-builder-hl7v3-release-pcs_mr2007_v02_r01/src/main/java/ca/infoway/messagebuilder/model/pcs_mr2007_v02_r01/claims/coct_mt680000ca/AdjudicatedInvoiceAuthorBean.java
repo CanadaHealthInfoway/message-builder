@@ -33,12 +33,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ED<String> signatureText = new EDImpl<String>();
     private ST adjudicatorRolePlayingAdjudicatorDeviceSoftwareName = new STImpl();
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceAuthor.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>EOB signature</p>
      */
     @Hl7XmlMapping({"signatureText"})
@@ -47,6 +52,11 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceAuthor.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>EOB signature</p>
      */
     public void setSignatureText(String signatureText) {
@@ -55,6 +65,11 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatorDevice.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>(COB Source. Which s/w rules were used to create the COB 
      * CMET such as CPhA, NeCST. Use modifier for Invoice or 
      * PreDet</p>
@@ -65,6 +80,11 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatorDevice.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>(COB Source. Which s/w rules were used to create the COB 
      * CMET such as CPhA, NeCST. Use modifier for Invoice or 
      * PreDet</p>

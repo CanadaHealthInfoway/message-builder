@@ -44,28 +44,28 @@ import java.util.List;
 
 
 /**
- * <p>Referral</p>
+ * <p>Business Name: Referral</p>
  * 
  * <p>REPC_MT210002CA.PatientCareProvisionRequest: C:Referral</p>
  * 
- * <p>Discrete information about the type of care being 
- * requested.</p>
- * 
  * <p>Provides contextual overview information for searching 
  * and filtering</p>
+ * 
+ * <p>Discrete information about the type of care being 
+ * requested.</p>
  * 
  * <p>REPC_MT210003CA.PatientCareProvisionRequest: C:Referral</p>
  * 
- * <p>Discrete information about the type of care being 
- * requested.</p>
- * 
  * <p>Provides contextual overview information for searching 
  * and filtering</p>
+ * 
+ * <p>Discrete information about the type of care being 
+ * requested.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT210001CA.PatientCareProvisionRequest","REPC_MT210002CA.PatientCareProvisionRequest","REPC_MT210003CA.PatientCareProvisionRequest"})
 public class ReferralBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210001ca.DocumentContent, DocumentContent_1 {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -76,6 +76,25 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     private CareCompositionsBean fulfillmentPatientCareProvisionEvent;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<BecauseOfBean> getReason() {
         return this.reason;
@@ -83,11 +102,24 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>ReferralType</p>
+     * <p>Business Name: ReferralType</p>
      * 
-     * <p>C: Referral Type</p>
+     * <p>Other Business Name: ReferralType</p>
      * 
-     * <p>C: Referral Type</p>
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Referral Type is used for searching and for 
+     * organizing Referral records as well as sorting them for 
+     * presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p> <i>This element makes use of the CD 
+     * datatype to allow for use of the SNOMED code system that in 
+     * some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
      * 
      * <p>Concepts identifying different types of referral request 
      * document. These codes identify the general type of care 
@@ -95,15 +127,19 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * indication or diagnosis which triggered the need for the 
      * referral.</p>
      * 
-     * <p> <i>Referral Type is used for searching and for 
-     * organizing Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>This element makes use of the CD 
-     * datatype to allow for use of the SNOMED code system that in 
-     * some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
+     * <p>Other Business Name: ReferralType</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ReferralType</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Referral Type is used for searching and for 
      * organizing Referral records as well as sorting them for 
@@ -115,15 +151,11 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * Post-coordination is only supported by the CD datatype.</i> 
      * </p>
      * 
-     * <p> <i>Referral Type is used for searching and for 
-     * organizing Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>This element makes use of the CD 
-     * datatype to allow for use of the SNOMED code system that in 
-     * some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
+     * <p>Concepts identifying different types of referral request 
+     * document. These codes identify the general type of care 
+     * services requested. They are not used to represent the 
+     * indication or diagnosis which triggered the need for the 
+     * referral.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCareProvisionRequestType getCode() {
@@ -131,11 +163,24 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>ReferralType</p>
+     * <p>Business Name: ReferralType</p>
      * 
-     * <p>C: Referral Type</p>
+     * <p>Other Business Name: ReferralType</p>
      * 
-     * <p>C: Referral Type</p>
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Referral Type is used for searching and for 
+     * organizing Referral records as well as sorting them for 
+     * presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p> <i>This element makes use of the CD 
+     * datatype to allow for use of the SNOMED code system that in 
+     * some circumstances requires the use of post-coordination. 
+     * Post-coordination is only supported by the CD datatype.</i> 
+     * </p>
      * 
      * <p>Concepts identifying different types of referral request 
      * document. These codes identify the general type of care 
@@ -143,15 +188,19 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * indication or diagnosis which triggered the need for the 
      * referral.</p>
      * 
-     * <p> <i>Referral Type is used for searching and for 
-     * organizing Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>This element makes use of the CD 
-     * datatype to allow for use of the SNOMED code system that in 
-     * some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
+     * <p>Other Business Name: ReferralType</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ReferralType</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Referral Type is used for searching and for 
      * organizing Referral records as well as sorting them for 
@@ -163,15 +212,11 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * Post-coordination is only supported by the CD datatype.</i> 
      * </p>
      * 
-     * <p> <i>Referral Type is used for searching and for 
-     * organizing Referral records as well as sorting them for 
-     * presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p> <i>This element makes use of the CD 
-     * datatype to allow for use of the SNOMED code system that in 
-     * some circumstances requires the use of post-coordination. 
-     * Post-coordination is only supported by the CD datatype.</i> 
-     * </p>
+     * <p>Concepts identifying different types of referral request 
+     * document. These codes identify the general type of care 
+     * services requested. They are not used to represent the 
+     * indication or diagnosis which triggered the need for the 
+     * referral.</p>
      */
     public void setCode(ActCareProvisionRequestType code) {
         this.code.setValue(code);
@@ -179,9 +224,24 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>ReferralStatus</p>
+     * <p>Business Name: ReferralStatus</p>
      * 
-     * <p>D: Referral Status</p>
+     * <p>Other Business Name: ReferralStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Status is frequently used to filter query responses 
+     * as well as to sort records for presentation. It also affects 
+     * how the Referral record is interpreted.</i> </p><p> 
+     * <i>Because the status won't always be known, the attribute 
+     * is marked as 'populated' to allow the use of null 
+     * flavors.</i> </p><p>It is important to note that the EHR is 
+     * not expected to perform status management of referrals. Thus 
+     * it is up to clinicians to amend the status of a referral 
+     * when it has changed to complete.</p>
      * 
      * <p> <i>This identifies the current state of the Referral 
      * record.</i> </p><p>If the status is 'active' it means the 
@@ -191,6 +251,30 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * 'aborted' it means the request made by the referral has been 
      * withdrawn.</p>
      * 
+     * <p>Other Business Name: ReferralStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ReferralStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Status is frequently used to filter query responses 
+     * as well as to sort records for presentation. It also affects 
+     * how the Referral record is interpreted.</i> </p><p> 
+     * <i>Because the status won't always be known, the attribute 
+     * is marked as 'populated' to allow the use of null 
+     * flavors.</i> </p><p>It is important to note that the EHR is 
+     * not expected to perform status management of referrals. Thus 
+     * it is up to clinicians to amend the status of a referral 
+     * when it has changed to complete.</p>
+     * 
      * <p> <i>This identifies the current state of the Referral 
      * record.</i> </p><p>If the status is 'active' it means the 
      * request is still outstanding or in progress. If the status 
@@ -198,38 +282,6 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * and the referral is considered closed. If the status is 
      * 'aborted' it means the request made by the referral has been 
      * withdrawn.</p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Referral record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p><p>It is important to note that the EHR is 
-     * not expected to perform status management of referrals. Thus 
-     * it is up to clinicians to amend the status of a referral 
-     * when it has changed to complete.</p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Referral record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p><p>It is important to note that the EHR is 
-     * not expected to perform status management of referrals. Thus 
-     * it is up to clinicians to amend the status of a referral 
-     * when it has changed to complete.</p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Referral record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p><p>It is important to note that the EHR is 
-     * not expected to perform status management of referrals. Thus 
-     * it is up to clinicians to amend the status of a referral 
-     * when it has changed to complete.</p>
-     * 
-     * <p>D: Referral Status</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public x_ActStatusActiveComplete getStatusCode() {
@@ -237,9 +289,24 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>ReferralStatus</p>
+     * <p>Business Name: ReferralStatus</p>
      * 
-     * <p>D: Referral Status</p>
+     * <p>Other Business Name: ReferralStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Status is frequently used to filter query responses 
+     * as well as to sort records for presentation. It also affects 
+     * how the Referral record is interpreted.</i> </p><p> 
+     * <i>Because the status won't always be known, the attribute 
+     * is marked as 'populated' to allow the use of null 
+     * flavors.</i> </p><p>It is important to note that the EHR is 
+     * not expected to perform status management of referrals. Thus 
+     * it is up to clinicians to amend the status of a referral 
+     * when it has changed to complete.</p>
      * 
      * <p> <i>This identifies the current state of the Referral 
      * record.</i> </p><p>If the status is 'active' it means the 
@@ -249,6 +316,30 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * 'aborted' it means the request made by the referral has been 
      * withdrawn.</p>
      * 
+     * <p>Other Business Name: ReferralStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ReferralStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Status is frequently used to filter query responses 
+     * as well as to sort records for presentation. It also affects 
+     * how the Referral record is interpreted.</i> </p><p> 
+     * <i>Because the status won't always be known, the attribute 
+     * is marked as 'populated' to allow the use of null 
+     * flavors.</i> </p><p>It is important to note that the EHR is 
+     * not expected to perform status management of referrals. Thus 
+     * it is up to clinicians to amend the status of a referral 
+     * when it has changed to complete.</p>
+     * 
      * <p> <i>This identifies the current state of the Referral 
      * record.</i> </p><p>If the status is 'active' it means the 
      * request is still outstanding or in progress. If the status 
@@ -256,38 +347,6 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * and the referral is considered closed. If the status is 
      * 'aborted' it means the request made by the referral has been 
      * withdrawn.</p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Referral record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p><p>It is important to note that the EHR is 
-     * not expected to perform status management of referrals. Thus 
-     * it is up to clinicians to amend the status of a referral 
-     * when it has changed to complete.</p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Referral record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p><p>It is important to note that the EHR is 
-     * not expected to perform status management of referrals. Thus 
-     * it is up to clinicians to amend the status of a referral 
-     * when it has changed to complete.</p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Referral record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p><p>It is important to note that the EHR is 
-     * not expected to perform status management of referrals. Thus 
-     * it is up to clinicians to amend the status of a referral 
-     * when it has changed to complete.</p>
-     * 
-     * <p>D: Referral Status</p>
      */
     public void setStatusCode(x_ActStatusActiveComplete statusCode) {
         this.statusCode.setValue(statusCode);
@@ -295,22 +354,39 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>ReferralRequestedByTime</p>
+     * <p>Business Name: ReferralRequestedByTime</p>
      * 
-     * <p>F: Referral Requested By Time</p>
+     * <p>Other Business Name: ReferralRequestedByTime</p>
      * 
-     * <p>F: Referral Requested By Time</p>
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Identifies the time-period of relevance to the record 
+     * that is useful in filtering and organizing 
+     * &quot;time-view&quot; presentations of data. Because the 
+     * timing information won't always be known, this attribute is 
+     * marked as 'populated'.</i> </p><p>Identifies the time-period 
+     * of relevance to the record which is useful in filtering and 
+     * organizing &quot;time-view&quot; presentations of data.</p>
      * 
      * <p>Indicates the target date by which the referring provider 
      * hopes the requested assessment could be completed.</p>
      * 
-     * <p> <i>Identifies the time-period of relevance to the record 
-     * that is useful in filtering and organizing 
-     * &quot;time-view&quot; presentations of data. Because the 
-     * timing information won't always be known, this attribute is 
-     * marked as 'populated'.</i> </p><p>Identifies the time-period 
-     * of relevance to the record which is useful in filtering and 
-     * organizing &quot;time-view&quot; presentations of data.</p>
+     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Identifies the time-period of relevance to the record 
      * that is useful in filtering and organizing 
@@ -319,6 +395,9 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * marked as 'populated'.</i> </p><p>Identifies the time-period 
      * of relevance to the record which is useful in filtering and 
      * organizing &quot;time-view&quot; presentations of data.</p>
+     * 
+     * <p>Indicates the target date by which the referring provider 
+     * hopes the requested assessment could be completed.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -326,22 +405,39 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>ReferralRequestedByTime</p>
+     * <p>Business Name: ReferralRequestedByTime</p>
      * 
-     * <p>F: Referral Requested By Time</p>
+     * <p>Other Business Name: ReferralRequestedByTime</p>
      * 
-     * <p>F: Referral Requested By Time</p>
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Identifies the time-period of relevance to the record 
+     * that is useful in filtering and organizing 
+     * &quot;time-view&quot; presentations of data. Because the 
+     * timing information won't always be known, this attribute is 
+     * marked as 'populated'.</i> </p><p>Identifies the time-period 
+     * of relevance to the record which is useful in filtering and 
+     * organizing &quot;time-view&quot; presentations of data.</p>
      * 
      * <p>Indicates the target date by which the referring provider 
      * hopes the requested assessment could be completed.</p>
      * 
-     * <p> <i>Identifies the time-period of relevance to the record 
-     * that is useful in filtering and organizing 
-     * &quot;time-view&quot; presentations of data. Because the 
-     * timing information won't always be known, this attribute is 
-     * marked as 'populated'.</i> </p><p>Identifies the time-period 
-     * of relevance to the record which is useful in filtering and 
-     * organizing &quot;time-view&quot; presentations of data.</p>
+     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Identifies the time-period of relevance to the record 
      * that is useful in filtering and organizing 
@@ -350,47 +446,220 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * marked as 'populated'.</i> </p><p>Identifies the time-period 
      * of relevance to the record which is useful in filtering and 
      * organizing &quot;time-view&quot; presentations of data.</p>
+     * 
+     * <p>Indicates the target date by which the referring provider 
+     * hopes the requested assessment could be completed.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"performer"})
     public AdministeredByBean getPerformer() {
         return this.performer;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPerformer(AdministeredByBean performer) {
         this.performer = performer;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setLocation(OccurredAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Component8.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Component8.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Component8.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/actRequest"})
     public ActRequest2Bean getComponentActRequest() {
         return this.componentActRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Component8.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Component8.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Component8.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentActRequest(ActRequest2Bean componentActRequest) {
         this.componentActRequest = componentActRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment/patientCareProvisionEvent"})
     public CareCompositionsBean getFulfillmentPatientCareProvisionEvent() {
         return this.fulfillmentPatientCareProvisionEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.InFulfillmentOf2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillmentPatientCareProvisionEvent(CareCompositionsBean fulfillmentPatientCareProvisionEvent) {
         this.fulfillmentPatientCareProvisionEvent = fulfillmentPatientCareProvisionEvent;
     }

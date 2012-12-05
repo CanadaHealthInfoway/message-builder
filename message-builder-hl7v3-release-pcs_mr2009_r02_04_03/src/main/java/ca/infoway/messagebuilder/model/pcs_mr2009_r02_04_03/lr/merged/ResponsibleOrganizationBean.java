@@ -32,49 +32,51 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ResponsibleOrganization</p>
+ * <p>Business Name: ResponsibleOrganization</p>
  * 
  * <p>PRPA_MT202302CA.Organization: B:Responsible Organization</p>
  * 
- * <p>The organization responsible for the operations of the 
- * service delivery location.</p>
- * 
  * <p>To provide additional information regarding the 
  * management and administration of the service delivery 
  * location.</p>
+ * 
+ * <p>The organization responsible for the operations of the 
+ * service delivery location.</p>
  * 
  * <p>PRPA_MT202301CA.Organization: B:Responsible Organization</p>
  * 
- * <p>The organization responsible for the operations of the 
- * service delivery location.</p>
- * 
  * <p>To provide additional information regarding the 
  * management and administration of the service delivery 
  * location.</p>
+ * 
+ * <p>The organization responsible for the operations of the 
+ * service delivery location.</p>
  * 
  * <p>PRPA_MT202303CA.Organization: B:Responsible Organization</p>
  * 
- * <p>The organization responsible for the operations of the 
- * service delivery location.</p>
- * 
  * <p>To provide additional information regarding the 
  * management and administration of the service delivery 
  * location.</p>
+ * 
+ * <p>The organization responsible for the operations of the 
+ * service delivery location.</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT202301CA.Organization","PRPA_MT202302CA.Organization","PRPA_MT202303CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST name = new STImpl();
 
 
     /**
-     * <p>ResponsibleOrganizationIdentifier</p>
+     * <p>Business Name: ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>A: Responsible Organization Identifier</p>
+     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Unique identifier for the responsible organization.</p>
+     * <p>Relationship: PRPA_MT202302CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows drilling down for additional information about the 
      * organization. May also be used as a query parameter.</p>
@@ -84,6 +86,42 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * organization identifiers are not maintained in the registry, 
      * they may be omitted or alternative identifier sources may be 
      * used (e.g. identifiers issued by health regions).</p>
+     * 
+     * <p>Unique identifier for the responsible organization.</p>
+     * 
+     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows drilling down for additional information about the 
+     * organization. May also be used as a query parameter.</p>
+     * 
+     * <p>The expectation is that these identifiers can be 
+     * retrieved from jurisdictional provider registries. Where 
+     * organization identifiers are not maintained in the registry, 
+     * they may be omitted or alternative identifier sources may be 
+     * used (e.g. identifiers issued by health regions).</p>
+     * 
+     * <p>Unique identifier for the responsible organization.</p>
+     * 
+     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows drilling down for additional information about the 
+     * organization. May also be used as a query parameter.</p>
+     * 
+     * <p>The expectation is that these identifiers can be 
+     * retrieved from jurisdictional provider registries. Where 
+     * organization identifiers are not maintained in the registry, 
+     * they may be omitted or alternative identifier sources may be 
+     * used (e.g. identifiers issued by health regions).</p>
+     * 
+     * <p>Unique identifier for the responsible organization.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -91,11 +129,13 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>ResponsibleOrganizationIdentifier</p>
+     * <p>Business Name: ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>A: Responsible Organization Identifier</p>
+     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Unique identifier for the responsible organization.</p>
+     * <p>Relationship: PRPA_MT202302CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows drilling down for additional information about the 
      * organization. May also be used as a query parameter.</p>
@@ -105,6 +145,42 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * organization identifiers are not maintained in the registry, 
      * they may be omitted or alternative identifier sources may be 
      * used (e.g. identifiers issued by health regions).</p>
+     * 
+     * <p>Unique identifier for the responsible organization.</p>
+     * 
+     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows drilling down for additional information about the 
+     * organization. May also be used as a query parameter.</p>
+     * 
+     * <p>The expectation is that these identifiers can be 
+     * retrieved from jurisdictional provider registries. Where 
+     * organization identifiers are not maintained in the registry, 
+     * they may be omitted or alternative identifier sources may be 
+     * used (e.g. identifiers issued by health regions).</p>
+     * 
+     * <p>Unique identifier for the responsible organization.</p>
+     * 
+     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows drilling down for additional information about the 
+     * organization. May also be used as a query parameter.</p>
+     * 
+     * <p>The expectation is that these identifiers can be 
+     * retrieved from jurisdictional provider registries. Where 
+     * organization identifiers are not maintained in the registry, 
+     * they may be omitted or alternative identifier sources may be 
+     * used (e.g. identifiers issued by health regions).</p>
+     * 
+     * <p>Unique identifier for the responsible organization.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -112,15 +188,43 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>ResponsibleOrganizationName</p>
+     * <p>Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>B: Responsible Organization Name</p>
+     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a user-accessible label for the organization and 
+     * is therefore mandatory.</p>
      * 
      * <p>The label by which the responsible organization is known 
      * and communicated with e.g. Capital Health District.</p>
      * 
+     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides a user-accessible label for the organization and 
      * is therefore mandatory.</p>
+     * 
+     * <p>The label by which the responsible organization is known 
+     * and communicated with e.g. Capital Health District.</p>
+     * 
+     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a user-accessible label for the organization and 
+     * is therefore mandatory.</p>
+     * 
+     * <p>The label by which the responsible organization is known 
+     * and communicated with e.g. Capital Health District.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -128,15 +232,43 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>ResponsibleOrganizationName</p>
+     * <p>Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>B: Responsible Organization Name</p>
+     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a user-accessible label for the organization and 
+     * is therefore mandatory.</p>
      * 
      * <p>The label by which the responsible organization is known 
      * and communicated with e.g. Capital Health District.</p>
      * 
+     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides a user-accessible label for the organization and 
      * is therefore mandatory.</p>
+     * 
+     * <p>The label by which the responsible organization is known 
+     * and communicated with e.g. Capital Health District.</p>
+     * 
+     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a user-accessible label for the organization and 
+     * is therefore mandatory.</p>
+     * 
+     * <p>The label by which the responsible organization is known 
+     * and communicated with e.g. Capital Health District.</p>
      */
     public void setName(String name) {
         this.name.setValue(name);

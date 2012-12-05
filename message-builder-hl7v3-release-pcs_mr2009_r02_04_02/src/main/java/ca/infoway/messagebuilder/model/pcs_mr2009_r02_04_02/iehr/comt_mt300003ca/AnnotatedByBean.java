@@ -31,38 +31,37 @@ import java.util.Date;
 
 
 /**
- * <p>*b:annotated by</p>
- * 
- * <p>Identifier of the provider who created the patient 
- * note.</p>
+ * <p>Business Name: *b:annotated by</p>
  * 
  * <p>Allows other providers to communicator with the author of 
  * the note for follow-up enquiries. The author of an 
  * annotation must always be known and is therefore 
  * mandatory.</p>
+ * 
+ * <p>Identifier of the provider who created the patient 
+ * note.</p>
  */
 @Hl7PartTypeMapping({"COMT_MT300003CA.Author"})
 public class AnnotatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private HealthcareWorkerBean assignedEntity;
 
 
     /**
-     * <p>B:Patient Note Date</p>
+     * <p>Business Name: B:Patient Note Date</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows other provider to evaluate the currency of the 
+     * information contained in the note.</p><p>The date of the 
+     * note creation is always known and is therefore 
+     * mandatory.</p>
      * 
      * <p>The date on which the patient note was created.</p>
-     * 
-     * <p>Allows other provider to evaluate the currency of the 
-     * information contained in the note.</p><p>The date of the 
-     * note creation is always known and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Allows other provider to evaluate the currency of the 
-     * information contained in the note.</p><p>The date of the 
-     * note creation is always known and is therefore 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -70,19 +69,18 @@ public class AnnotatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Patient Note Date</p>
+     * <p>Business Name: B:Patient Note Date</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows other provider to evaluate the currency of the 
+     * information contained in the note.</p><p>The date of the 
+     * note creation is always known and is therefore 
+     * mandatory.</p>
      * 
      * <p>The date on which the patient note was created.</p>
-     * 
-     * <p>Allows other provider to evaluate the currency of the 
-     * information contained in the note.</p><p>The date of the 
-     * note creation is always known and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Allows other provider to evaluate the currency of the 
-     * information contained in the note.</p><p>The date of the 
-     * note creation is always known and is therefore 
-     * mandatory.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);

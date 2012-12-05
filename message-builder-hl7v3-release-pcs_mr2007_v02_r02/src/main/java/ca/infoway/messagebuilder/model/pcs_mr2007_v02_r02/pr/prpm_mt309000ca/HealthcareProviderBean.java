@@ -44,18 +44,18 @@ import java.util.Set;
 
 
 /**
- * <p>Healthcare Provider</p>
- * 
- * <p>This roles the specific Healthcare provider role such as 
- * a Physician, Nurse or other type of caregivers.</p>
+ * <p>Business Name: Healthcare Provider</p>
  * 
  * <p>Roleclass required to support the identification of 
  * person responsible for providing healthcare services</p>
+ * 
+ * <p>This roles the specific Healthcare provider role such as 
+ * a Physician, Nurse or other type of caregivers.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -72,13 +72,17 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
 
 
     /**
-     * <p>Healthcare Provider Role Identification</p>
+     * <p>Business Name: Healthcare Provider Role Identification</p>
      * 
-     * <p>A unique identifier for a provider in a specific 
-     * healthcare role.</p>
+     * <p>Relationship: PRPM_MT309000CA.HealthCareProvider.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>A unique identifier for a provider in a specific 
+     * healthcare role.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -86,6 +90,11 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"relatedTo"})
     public List<RelatedToBean> getRelatedTo() {
         return this.relatedTo;
@@ -93,13 +102,17 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
 
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Business Name: Healthcare Provider Role Type</p>
      * 
-     * <p>The code identifying the specific healthcare provider 
-     * role.</p>
+     * <p>Relationship: PRPM_MT309000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The code identifying the specific healthcare provider 
+     * role.</p>
      */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getCode() {
@@ -107,13 +120,17 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Business Name: Healthcare Provider Role Type</p>
      * 
-     * <p>The code identifying the specific healthcare provider 
-     * role.</p>
+     * <p>Relationship: PRPM_MT309000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The code identifying the specific healthcare provider 
+     * role.</p>
      */
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);
@@ -121,13 +138,17 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
 
 
     /**
-     * <p>Healthcare Provider Role Name</p>
+     * <p>Business Name: Healthcare Provider Role Name</p>
      * 
-     * <p>The providers name pertaining to the specific healthcare 
-     * provider role.</p>
+     * <p>Relationship: PRPM_MT309000CA.HealthCareProvider.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The providers name pertaining to the specific healthcare 
+     * provider role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -135,21 +156,45 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT309000CA.HealthCareProvider.healthCarePrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
     public PrinicpalPersonBean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT309000CA.HealthCareProvider.healthCarePrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT309000CA.HealthCareProvider.issuingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"issuingOrganization"})
     public OrganizationBean getIssuingOrganization() {
         return this.issuingOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT309000CA.HealthCareProvider.issuingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
     }

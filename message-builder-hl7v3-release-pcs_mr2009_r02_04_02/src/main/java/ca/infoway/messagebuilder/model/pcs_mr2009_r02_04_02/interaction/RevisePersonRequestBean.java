@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.merged.Identified
 
 
 /**
- * <p>PRPA_IN101204CA: Revise Person Request</p>
+ * <p>Business Name: PRPA_IN101204CA: Revise Person Request</p>
+ * 
+ * <p>This interaction occurs after information about a person 
+ * is revised in a person registry. An informer sends to a 
+ * tracker updated person information.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.merged.Identified
 @Hl7PartTypeMapping({"PRPA_IN101204CA"})
 public class RevisePersonRequestBean extends HL7Message_1Bean<TriggerEvent_3Bean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

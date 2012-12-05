@@ -29,15 +29,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Reason2"})
 public class Reason2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AdjudicatedInvoiceElementGroupBean adjudicatedInvoiceElementGroup;
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Reason2.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"adjudicatedInvoiceElementGroup"})
     public AdjudicatedInvoiceElementGroupBean getAdjudicatedInvoiceElementGroup() {
         return this.adjudicatedInvoiceElementGroup;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Reason2.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean adjudicatedInvoiceElementGroup) {
         this.adjudicatedInvoiceElementGroup = adjudicatedInvoiceElementGroup;
     }

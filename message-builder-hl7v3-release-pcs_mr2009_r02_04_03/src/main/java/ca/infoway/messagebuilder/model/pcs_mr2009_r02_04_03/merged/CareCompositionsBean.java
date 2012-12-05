@@ -42,26 +42,26 @@ import java.util.List;
 
 
 /**
- * <p>CareCompositions</p>
+ * <p>Business Name: CareCompositions</p>
  * 
  * <p>COCT_MT011001CA.PatientCareProvisionEvent: Care 
  * Compositions</p>
+ * 
+ * <p>Allows linking records to encounters, condition and 
+ * care-based compositions. Useful for searching and navigation 
+ * of the patient's record.</p>
  * 
  * <p>A care composition is a record with two purposes. It 
  * indicates that care of a given type has occurred or is 
  * occurring. It also acts as a collector for the events that 
  * happened during care, including who is responsible for the 
  * care provided.</p>
- * 
- * <p>Allows linking records to encounters, condition and 
- * care-based compositions. Useful for searching and navigation 
- * of the patient's record.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT011001CA.PatientCareProvisionEvent","REPC_MT210001CA.PatientCareProvisionEvent2","REPC_MT210002CA.PatientCareProvisionEvent2","REPC_MT210003CA.PatientCareProvisionEvent2"})
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -71,20 +71,27 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
-     * <p>B: Care Composition Identifier</p>
+     * <p>Other Business Name: CareCompositionIdentifier</p>
      * 
-     * <p>Unique identifier of an encounter, condition or 
-     * care-based collection.</p>
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p>
      * 
      * <p>Allows care compositions to be uniquely identified and 
      * referenced.</p>
      * 
-     * <p>N: Referral Report Link</p>
+     * <p>Unique identifier of an encounter, condition or 
+     * care-based collection.</p>
      * 
-     * <p>A unique identifier for the report resulting from the 
-     * action requested by this referral.</p>
+     * <p>Other Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides a direct link between the referral and the 
      * resulting report.</p>
@@ -93,7 +100,32 @@ public class CareCompositionsBean extends MessagePartBean {
      * been created if the report provides a direct link to the 
      * referral.</p>
      * 
-     * <p>N: Referral Report Link</p>
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
+     * 
+     * <p>Other Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -101,20 +133,27 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>B: Care Composition Identifier</p>
+     * <p>Other Business Name: CareCompositionIdentifier</p>
      * 
-     * <p>Unique identifier of an encounter, condition or 
-     * care-based collection.</p>
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p>
      * 
      * <p>Allows care compositions to be uniquely identified and 
      * referenced.</p>
      * 
-     * <p>N: Referral Report Link</p>
+     * <p>Unique identifier of an encounter, condition or 
+     * care-based collection.</p>
      * 
-     * <p>A unique identifier for the report resulting from the 
-     * action requested by this referral.</p>
+     * <p>Other Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides a direct link between the referral and the 
      * resulting report.</p>
@@ -123,7 +162,32 @@ public class CareCompositionsBean extends MessagePartBean {
      * been created if the report provides a direct link to the 
      * referral.</p>
      * 
-     * <p>N: Referral Report Link</p>
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
+     * 
+     * <p>Other Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -131,16 +195,14 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionType</p>
+     * <p>Business Name: CareCompositionType</p>
      * 
-     * <p>A: Care Composition Type</p>
+     * <p>Other Business Name: CareCompositionType</p>
      * 
-     * <p>Identifies the kind of composition represented. Examples 
-     * include encounters (&quot;Emergency Encounter&quot;, 
-     * &quot;Long Term Care Encounter&quot;, etc), health condition 
-     * (episode)-based collections (e.g. &quot;Diabetes&quot;, 
-     * &quot;Hypertension&quot;, etc) and general care-based 
-     * collections such as &quot;gynecological care&quot;.</p>
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p>
      * 
@@ -150,6 +212,13 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Allows care compositions to be captured and categorized 
      * at different levels of abstraction, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the kind of composition represented. Examples 
+     * include encounters (&quot;Emergency Encounter&quot;, 
+     * &quot;Long Term Care Encounter&quot;, etc), health condition 
+     * (episode)-based collections (e.g. &quot;Diabetes&quot;, 
+     * &quot;Hypertension&quot;, etc) and general care-based 
+     * collections such as &quot;gynecological care&quot;.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCareEventType getCode() {
@@ -157,16 +226,14 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>CareCompositionType</p>
+     * <p>Business Name: CareCompositionType</p>
      * 
-     * <p>A: Care Composition Type</p>
+     * <p>Other Business Name: CareCompositionType</p>
      * 
-     * <p>Identifies the kind of composition represented. Examples 
-     * include encounters (&quot;Emergency Encounter&quot;, 
-     * &quot;Long Term Care Encounter&quot;, etc), health condition 
-     * (episode)-based collections (e.g. &quot;Diabetes&quot;, 
-     * &quot;Hypertension&quot;, etc) and general care-based 
-     * collections such as &quot;gynecological care&quot;.</p>
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p>
      * 
@@ -176,6 +243,13 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Allows care compositions to be captured and categorized 
      * at different levels of abstraction, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the kind of composition represented. Examples 
+     * include encounters (&quot;Emergency Encounter&quot;, 
+     * &quot;Long Term Care Encounter&quot;, etc), health condition 
+     * (episode)-based collections (e.g. &quot;Diabetes&quot;, 
+     * &quot;Hypertension&quot;, etc) and general care-based 
+     * collections such as &quot;gynecological care&quot;.</p>
      */
     public void setCode(ActCareEventType code) {
         this.code.setValue(code);
@@ -183,9 +257,14 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionEffectiveDate</p>
+     * <p>Business Name: CareCompositionEffectiveDate</p>
      * 
-     * <p>Care Composition Effective Date</p>
+     * <p>Other Business Name: CareCompositionEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -193,32 +272,67 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>CareCompositionEffectiveDate</p>
+     * <p>Business Name: CareCompositionEffectiveDate</p>
      * 
-     * <p>Care Composition Effective Date</p>
+     * <p>Other Business Name: CareCompositionEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT011001CA.Admitter.assignees</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"admitter/assignees"})
     public List<Assignees> getAdmitterAssignees() {
         return this.admitterAssignees;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT011001CA.Attender.assignees</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"attender/assignees"})
     public List<Assignees> getAttenderAssignees() {
         return this.attenderAssignees;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setLocation(OccurredAtBean location) {
         this.location = location;
     }

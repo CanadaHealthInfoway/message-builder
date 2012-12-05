@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 
 
 /**
- * <p>COMT_IN300001CA: Add patient note request</p>
+ * <p>Business Name: COMT_IN300001CA: Add patient note request</p>
+ * 
+ * <p>Requests that the specified annotation be recorded 
+ * against the identified patient</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 @Hl7PartTypeMapping({"COMT_IN300001CA"})
 public class AddPatientNoteRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

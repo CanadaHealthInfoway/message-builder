@@ -30,8 +30,13 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt050010
 
 
 /**
- * <p>PORX_IN050020CA: Drug regimen contraindications query 
- * response</p>
+ * <p>Business Name: PORX_IN050020CA: Drug regimen 
+ * contraindications query response</p>
+ * 
+ * <p>Indicates the contraindications (if any) associated with 
+ * a set of medications. Only includes drug-drug and duplicate 
+ * therapy contraindications because that's all that is 
+ * deducible based on a list of medications.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -44,6 +49,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt050010
 @Hl7PartTypeMapping({"PORX_IN050020CA"})
 public class DrugRegimenContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

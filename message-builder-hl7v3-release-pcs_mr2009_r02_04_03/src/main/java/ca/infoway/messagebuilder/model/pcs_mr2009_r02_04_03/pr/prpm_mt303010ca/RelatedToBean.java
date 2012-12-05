@@ -34,13 +34,17 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
 
 
     /**
-     * <p>Relationship Effective Date and Time</p>
+     * <p>Business Name: Relationship Effective Date and Time</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.RelatedTo.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective date and time of the role relationships.</p>
      */
@@ -50,7 +54,11 @@ public class RelatedToBean extends MessagePartBean {
     }
 
     /**
-     * <p>Relationship Effective Date and Time</p>
+     * <p>Business Name: Relationship Effective Date and Time</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.RelatedTo.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective date and time of the role relationships.</p>
      */
@@ -59,11 +67,21 @@ public class RelatedToBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT303010CA.RelatedTo.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"roleChoice"})
     public RoleChoice getRoleChoice() {
         return this.roleChoice;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT303010CA.RelatedTo.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;
     }

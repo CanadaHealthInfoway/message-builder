@@ -57,21 +57,21 @@ import java.util.List;
 
 
 /**
- * <p>Allergy/Intolerance</p>
+ * <p>Business Name: Allergy/Intolerance</p>
  * 
  * <p>Value is mandatory if not using SNOMED</p>
- * 
- * <p>A record of a patient's allergy or intolerance.</p>
  * 
  * <p>Necessary component of a person's overall medication and 
  * clinical profile. Helps with drug contraindication 
  * checking.</p>
+ * 
+ * <p>A record of a patient's allergy or intolerance.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000005CA.IntoleranceCondition"})
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -92,13 +92,17 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Allergy/Intolerance Record Id</p>
+     * <p>Business Name: D:Allergy/Intolerance Record Id</p>
      * 
-     * <p>Unique identifier for an allergy/intolerance record.</p>
+     * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for direct referencing of an allergy/intolerance 
      * record when querying or performing updates and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Unique identifier for an allergy/intolerance record.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -106,13 +110,17 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Allergy/Intolerance Record Id</p>
+     * <p>Business Name: D:Allergy/Intolerance Record Id</p>
      * 
-     * <p>Unique identifier for an allergy/intolerance record.</p>
+     * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for direct referencing of an allergy/intolerance 
      * record when querying or performing updates and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Unique identifier for an allergy/intolerance record.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -120,16 +128,20 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Allergy/Intolerance Type</p>
+     * <p>Business Name: A:Allergy/Intolerance Type</p>
      * 
-     * <p>A coded value denoting whether the record pertains to an 
-     * intolerance or a true allergy. (Allergies result from 
-     * immunologic reactions. Intolerances do not.)</p>
+     * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the separation of allergy and intolerance 
      * records. The type of condition is critical to understanding 
      * the record and is therefore mandatory. It is expressed as a 
      * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting whether the record pertains to an 
+     * intolerance or a true allergy. (Allergies result from 
+     * immunologic reactions. Intolerances do not.)</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationIntoleranceType getCode() {
@@ -137,16 +149,20 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Allergy/Intolerance Type</p>
+     * <p>Business Name: A:Allergy/Intolerance Type</p>
      * 
-     * <p>A coded value denoting whether the record pertains to an 
-     * intolerance or a true allergy. (Allergies result from 
-     * immunologic reactions. Intolerances do not.)</p>
+     * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the separation of allergy and intolerance 
      * records. The type of condition is critical to understanding 
      * the record and is therefore mandatory. It is expressed as a 
      * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>A coded value denoting whether the record pertains to an 
+     * intolerance or a true allergy. (Allergies result from 
+     * immunologic reactions. Intolerances do not.)</p>
      */
     public void setCode(ObservationIntoleranceType code) {
         this.code.setValue(code);
@@ -154,17 +170,22 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Allergy/Intolerance Refuted</p>
+     * <p>Business Name: G:Allergy/Intolerance Refuted</p>
      * 
-     * <p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows providers to refute a previously confirmed or 
      * suspected allergy. The attribute is mandatory because it is 
      * critical to know whether the record represents the 
      * refutation or affirmation of an allergy or intolerance.</p>
+     * 
+     * <p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -172,17 +193,22 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Allergy/Intolerance Refuted</p>
+     * <p>Business Name: G:Allergy/Intolerance Refuted</p>
      * 
-     * <p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows providers to refute a previously confirmed or 
      * suspected allergy. The attribute is mandatory because it is 
      * critical to know whether the record represents the 
      * refutation or affirmation of an allergy or intolerance.</p>
+     * 
+     * <p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -190,17 +216,22 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Allergy/Intolerance Status</p>
+     * <p>Business Name: E:Allergy/Intolerance Status</p>
      * 
-     * <p>A coded value that indicates whether an 
-     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
-     * longer active).</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows providers to evaluate the relevance of a recorded 
      * allergy/intolerance. The status has a default value of 
      * 'ACTIVE' and is therefore mandatory.</p>
      * 
      * <p>System must default the status to 'ACTIVE'.</p>
+     * 
+     * <p>A coded value that indicates whether an 
+     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
+     * longer active).</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -208,17 +239,22 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Allergy/Intolerance Status</p>
+     * <p>Business Name: E:Allergy/Intolerance Status</p>
      * 
-     * <p>A coded value that indicates whether an 
-     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
-     * longer active).</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows providers to evaluate the relevance of a recorded 
      * allergy/intolerance. The status has a default value of 
      * 'ACTIVE' and is therefore mandatory.</p>
      * 
      * <p>System must default the status to 'ACTIVE'.</p>
+     * 
+     * <p>A coded value that indicates whether an 
+     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
+     * longer active).</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -226,13 +262,18 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>I:Allergy/Intolerance Date</p>
+     * <p>Business Name: I:Allergy/Intolerance Date</p>
      * 
-     * <p>The date on which the recorded allergy is considered 
-     * active.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows providers to evaluate the period of relevance for 
      * the allergy/intolerance record.</p>
+     * 
+     * <p>The date on which the recorded allergy is considered 
+     * active.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -240,13 +281,18 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Allergy/Intolerance Date</p>
+     * <p>Business Name: I:Allergy/Intolerance Date</p>
      * 
-     * <p>The date on which the recorded allergy is considered 
-     * active.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows providers to evaluate the period of relevance for 
      * the allergy/intolerance record.</p>
+     * 
+     * <p>The date on which the recorded allergy is considered 
+     * active.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -254,23 +300,23 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>H:Allergy/Intolerance Masking Indicator</p>
+     * <p>Business Name: H:Allergy/Intolerance Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>Denotes access restriction placed on the allergy or 
      * intolerance record. Methods for accessing masked allergy 
      * records will be governed by each jurisdiction (e.g. court 
      * orders, shared secret/consent, etc.). The default 
      * confidentiality level is 'NORMAL'.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -278,23 +324,23 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>H:Allergy/Intolerance Masking Indicator</p>
+     * <p>Business Name: H:Allergy/Intolerance Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>Denotes access restriction placed on the allergy or 
      * intolerance record. Methods for accessing masked allergy 
      * records will be governed by each jurisdiction (e.g. court 
      * orders, shared secret/consent, etc.). The default 
      * confidentiality level is 'NORMAL'.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -302,92 +348,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Confirmed Indicator</p>
+     * <p>Business Name: F:Confirmed Indicator</p>
      * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.uncertaintyCode</p>
      * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
-     * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
-     * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
-     * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps other providers to make appropriate decisions in 
      * their management of allergy or intolerance 
@@ -395,11 +361,22 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * allergy or intolerance record must be tagged as either 
      * 'confirmed' or 'suspected'.</p>
      * 
-     * <p>Helps other providers to make appropriate decisions in 
-     * their management of allergy or intolerance 
-     * contraindications.</p><p>Attribute is mandatory because an 
-     * allergy or intolerance record must be tagged as either 
-     * 'confirmed' or 'suspected'.</p>
+     * <p>An indication of the level of confidence/surety placed in 
+     * the recorded information.</p><p>The two valid codes 
+     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
+     * author of the act affirms the uncertainty of the act 
+     * statement. In other words, they know that parts of the act 
+     * statement are not certain or are inferred. An example of 
+     * this is an inferred prescription where some order data is 
+     * inferred from a supply event (i.e. dispense).</p><p>- N 
+     * (stated with no assertion of uncertainty) - Specifies that 
+     * the act statement is made without any explicit expression of 
+     * certainty/uncertainty. This is the normal statement, meaning 
+     * that it may not be free of errors and uncertainty may still 
+     * exist. In healthcare, N is believed to express certainty to 
+     * the strength possible.</p><p>An allergy or intolerance 
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N.</p>
      */
     @Hl7XmlMapping({"uncertaintyCode"})
     public ActUncertainty getUncertaintyCode() {
@@ -407,92 +384,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Confirmed Indicator</p>
+     * <p>Business Name: F:Confirmed Indicator</p>
      * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.uncertaintyCode</p>
      * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
-     * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
-     * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
-     * 
-     * <p>An indication of the level of confidence/surety placed in 
-     * the recorded information.</p><p>The two valid codes 
-     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
-     * author of the act affirms the uncertainty of the act 
-     * statement. In other words, they know that parts of the act 
-     * statement are not certain or are inferred. An example of 
-     * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the record is U or N.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps other providers to make appropriate decisions in 
      * their management of allergy or intolerance 
@@ -500,11 +397,22 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * allergy or intolerance record must be tagged as either 
      * 'confirmed' or 'suspected'.</p>
      * 
-     * <p>Helps other providers to make appropriate decisions in 
-     * their management of allergy or intolerance 
-     * contraindications.</p><p>Attribute is mandatory because an 
-     * allergy or intolerance record must be tagged as either 
-     * 'confirmed' or 'suspected'.</p>
+     * <p>An indication of the level of confidence/surety placed in 
+     * the recorded information.</p><p>The two valid codes 
+     * are:</p><p>- U (stated with uncertainty) -Specifies that the 
+     * author of the act affirms the uncertainty of the act 
+     * statement. In other words, they know that parts of the act 
+     * statement are not certain or are inferred. An example of 
+     * this is an inferred prescription where some order data is 
+     * inferred from a supply event (i.e. dispense).</p><p>- N 
+     * (stated with no assertion of uncertainty) - Specifies that 
+     * the act statement is made without any explicit expression of 
+     * certainty/uncertainty. This is the normal statement, meaning 
+     * that it may not be free of errors and uncertainty may still 
+     * exist. In healthcare, N is believed to express certainty to 
+     * the strength possible.</p><p>An allergy or intolerance 
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N.</p>
      */
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
         this.uncertaintyCode.setValue(uncertaintyCode);
@@ -512,14 +420,18 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Agent</p>
+     * <p>Business Name: B:Agent</p>
      * 
-     * <p>Indicates the substance to which the patient is 
-     * allergic</p>
+     * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Critical for identifying the allergy or intolerance. 
      * Because it is not used for SNOMED, this element is 
      * optional.</p>
+     * 
+     * <p>Indicates the substance to which the patient is 
+     * allergic</p>
      */
     @Hl7XmlMapping({"value"})
     public IntoleranceValue getValue() {
@@ -527,14 +439,18 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Agent</p>
+     * <p>Business Name: B:Agent</p>
      * 
-     * <p>Indicates the substance to which the patient is 
-     * allergic</p>
+     * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Critical for identifying the allergy or intolerance. 
      * Because it is not used for SNOMED, this element is 
      * optional.</p>
+     * 
+     * <p>Indicates the substance to which the patient is 
+     * allergic</p>
      */
     public void setValue(IntoleranceValue value) {
         this.value.setValue(value);
@@ -551,11 +467,23 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -613,11 +541,23 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/annotationIndicator"})
     public Boolean getSubjectOf3AnnotationIndicator() {
         return this.subjectOf3AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3AnnotationIndicator(Boolean subjectOf3AnnotationIndicator) {
         this.subjectOf3AnnotationIndicator.setValue(subjectOf3AnnotationIndicator);
     }

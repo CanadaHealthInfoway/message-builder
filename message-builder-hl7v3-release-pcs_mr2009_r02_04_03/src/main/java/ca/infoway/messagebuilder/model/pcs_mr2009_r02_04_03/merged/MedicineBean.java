@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.Medicine","FICR_MT400003CA.Medicine","FICR_MT400004CA.Medicine","FICR_MT490101CA.Medicine"})
 public class MedicineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private ST desc = new STImpl();
@@ -44,9 +44,31 @@ public class MedicineBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ClinicalDrug getCode() {
@@ -54,9 +76,31 @@ public class MedicineBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setCode(ClinicalDrug code) {
         this.code.setValue(code);
@@ -64,9 +108,31 @@ public class MedicineBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugName</p>
+     * <p>Business Name: DrugName</p>
      * 
-     * <p>Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -74,9 +140,31 @@ public class MedicineBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugName</p>
+     * <p>Business Name: DrugName</p>
      * 
-     * <p>Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setName(String name) {
         this.name.setValue(name);
@@ -84,9 +172,31 @@ public class MedicineBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugDescription</p>
+     * <p>Business Name: DrugDescription</p>
      * 
-     * <p>Drug Description</p>
+     * <p>Other Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"desc"})
     public String getDesc() {
@@ -94,9 +204,31 @@ public class MedicineBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugDescription</p>
+     * <p>Business Name: DrugDescription</p>
      * 
-     * <p>Drug Description</p>
+     * <p>Other Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setDesc(String desc) {
         this.desc.setValue(desc);
@@ -104,9 +236,43 @@ public class MedicineBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugForm</p>
+     * <p>Business Name: DrugForm</p>
      * 
-     * <p>Drug Form</p>
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared. Examples include: 
@@ -118,9 +284,43 @@ public class MedicineBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugForm</p>
+     * <p>Business Name: DrugForm</p>
      * 
-     * <p>Drug Form</p>
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Other Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared. Examples include: 
@@ -131,11 +331,37 @@ public class MedicineBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"ingredient"})
     public DrugContainsBean getIngredient() {
         return this.ingredient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setIngredient(DrugContainsBean ingredient) {
         this.ingredient = ingredient;
     }

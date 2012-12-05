@@ -34,39 +34,39 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBea
 
 
 /**
- * <p>IssueDescription</p>
+ * <p>Business Name: IssueDescription</p>
  * 
  * <p>COCT_MT260030CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p>This is the decision support rule that triggered the 
- * issue.</p>
- * 
  * <p>Provides detailed background for providers in evaluating 
  * the issue.</p>
+ * 
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  * 
  * <p>COCT_MT260020CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p>This is the decision support rule that triggered the 
- * issue.</p>
- * 
  * <p>Provides detailed background for providers in evaluating 
  * the issue.</p>
+ * 
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  * 
  * <p>COCT_MT260010CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p>This is the decision support rule that triggered the 
- * issue.</p>
- * 
  * <p>Provides detailed background for providers in evaluating 
  * the issue.</p>
+ * 
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private PrescribedByBean author;
@@ -74,36 +74,85 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueMonographId</p>
+     * <p>Business Name: IssueMonographId</p>
      * 
-     * <p>A:Issue Monograph Id</p>
+     * <p>Other Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p>
+     * 
+     * <p>ZPE.2</p>
+     * 
+     * <p>MB.05.03C</p>
+     * 
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
      * 
      * <p>Knowledgebase organization specific identifier for the 
      * issue definition.</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Other Business Name: IssueMonographId</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Relationship: COCT_MT260030CA.DetectedIssueDefinition.id</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>DDIMonograph.DDIMonographId</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>ZPE.2</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>MB.05.03C</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
      * 
      * <p>Allows applications to match with local Knowledge-bases 
      * and avoid displaying duplicate issues to providers.</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
+     * 
+     * <p>Other Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p>
+     * 
+     * <p>ZPE.2</p>
+     * 
+     * <p>MB.05.03C</p>
+     * 
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -111,36 +160,85 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueMonographId</p>
+     * <p>Business Name: IssueMonographId</p>
      * 
-     * <p>A:Issue Monograph Id</p>
+     * <p>Other Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p>
+     * 
+     * <p>ZPE.2</p>
+     * 
+     * <p>MB.05.03C</p>
+     * 
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
      * 
      * <p>Knowledgebase organization specific identifier for the 
      * issue definition.</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Other Business Name: IssueMonographId</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Relationship: COCT_MT260030CA.DetectedIssueDefinition.id</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>DDIMonograph.DDIMonographId</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>ZPE.2</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>MB.05.03C</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
      * 
      * <p>Allows applications to match with local Knowledge-bases 
      * and avoid displaying duplicate issues to providers.</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
+     * 
+     * <p>Other Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p>
+     * 
+     * <p>ZPE.2</p>
+     * 
+     * <p>MB.05.03C</p>
+     * 
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -148,19 +246,58 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueDescription</p>
+     * <p>Business Name: IssueDescription</p>
      * 
-     * <p>C:Issue Description</p>
+     * <p>Other Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
      * 
      * <p>A free form textual description of the issue. This is 
      * usually in the form of a monograph.</p>
      * 
-     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * <p>Other Business Name: IssueDescription</p>
      * 
-     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
      * 
      * <p>Provides detailed clinical background on reasons for 
      * issue.</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
+     * 
+     * <p>Other Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
@@ -168,40 +305,167 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueDescription</p>
+     * <p>Business Name: IssueDescription</p>
      * 
-     * <p>C:Issue Description</p>
+     * <p>Other Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
      * 
      * <p>A free form textual description of the issue. This is 
      * usually in the form of a monograph.</p>
      * 
-     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * <p>Other Business Name: IssueDescription</p>
      * 
-     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
      * 
      * <p>Provides detailed clinical background on reasons for 
      * issue.</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
+     * 
+     * <p>Other Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
      */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueDefinition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueDefinition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueDefinition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public PrescribedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueDefinition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueDefinition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueDefinition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(PrescribedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
     public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
         return this.componentSubstanceAdministrationEventCriterion;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
         this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
     }

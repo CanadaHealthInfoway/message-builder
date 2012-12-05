@@ -37,33 +37,33 @@ import java.util.Date;
 /**
  * <p>POIZ_MT030060CA.Informant: (no business name)</p>
  * 
- * <p>Indicates where the information that led to the recording 
- * of this information came from. The possible 3 sources of the 
- * information are: the patient, the patient's representative 
- * or a health-care provider.</p>
- * 
  * <p>The original source of the information can be important 
  * in evaluating its accuracy and importance. This information 
  * may not always be known. As a result, this association is 
  * required.</p>
+ * 
+ * <p>Indicates where the information that led to the recording 
+ * of this information came from. The possible 3 sources of the 
+ * information are: the patient, the patient's representative 
+ * or a health-care provider.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Informant","POIZ_MT030060CA.Informant","POIZ_MT060150CA.Informant"})
 public class InformantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
     private CV modeCode = new CVImpl();
     private InformationSourceChoice informationSourceChoice;
 
 
     /**
-     * <p>DateOfInformation</p>
+     * <p>Business Name: DateOfInformation</p>
      * 
-     * <p>Date of Information</p>
+     * <p>Other Business Name: DateOfInformation</p>
      * 
-     * <p>Date in which the informant supplied information about an 
-     * immunization event. This may differ from the time of the 
-     * immunization event for historical entries.</p>
+     * <p>Relationship: POIZ_MT030060CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Participation time is needed when the participant's 
      * involvement in the act spans only part of the Act's time. 
@@ -73,7 +73,21 @@ public class InformantBean extends MessagePartBean {
      * this information. As a result, the attribute is 
      * optional.</p>
      * 
-     * <p>Date of Information</p>
+     * <p>Date in which the informant supplied information about an 
+     * immunization event. This may differ from the time of the 
+     * immunization event for historical entries.</p>
+     * 
+     * <p>Other Business Name: DateOfInformation</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: DateOfInformation</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"time"})
     public Interval<Date> getTime() {
@@ -81,13 +95,13 @@ public class InformantBean extends MessagePartBean {
     }
 
     /**
-     * <p>DateOfInformation</p>
+     * <p>Business Name: DateOfInformation</p>
      * 
-     * <p>Date of Information</p>
+     * <p>Other Business Name: DateOfInformation</p>
      * 
-     * <p>Date in which the informant supplied information about an 
-     * immunization event. This may differ from the time of the 
-     * immunization event for historical entries.</p>
+     * <p>Relationship: POIZ_MT030060CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Participation time is needed when the participant's 
      * involvement in the act spans only part of the Act's time. 
@@ -97,7 +111,21 @@ public class InformantBean extends MessagePartBean {
      * this information. As a result, the attribute is 
      * optional.</p>
      * 
-     * <p>Date of Information</p>
+     * <p>Date in which the informant supplied information about an 
+     * immunization event. This may differ from the time of the 
+     * immunization event for historical entries.</p>
+     * 
+     * <p>Other Business Name: DateOfInformation</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: DateOfInformation</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTime(Interval<Date> time) {
         this.time.setValue(time);
@@ -105,18 +133,32 @@ public class InformantBean extends MessagePartBean {
 
 
     /**
-     * <p>InformationSourceForm</p>
+     * <p>Business Name: InformationSourceForm</p>
      * 
-     * <p>Information Source Form</p>
+     * <p>Other Business Name: InformationSourceForm</p>
      * 
-     * <p>Describes how the information was presented by the 
-     * information source.</p>
+     * <p>Relationship: POIZ_MT030060CA.Informant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Useful for categorizing how information is gathered from 
      * information sources. This information may not always be 
      * available, so this attribute is noted as being required.</p>
      * 
-     * <p>Information Source Form</p>
+     * <p>Describes how the information was presented by the 
+     * information source.</p>
+     * 
+     * <p>Other Business Name: InformationSourceForm</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Informant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: InformationSourceForm</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Informant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
@@ -124,29 +166,87 @@ public class InformantBean extends MessagePartBean {
     }
 
     /**
-     * <p>InformationSourceForm</p>
+     * <p>Business Name: InformationSourceForm</p>
      * 
-     * <p>Information Source Form</p>
+     * <p>Other Business Name: InformationSourceForm</p>
      * 
-     * <p>Describes how the information was presented by the 
-     * information source.</p>
+     * <p>Relationship: POIZ_MT030060CA.Informant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Useful for categorizing how information is gathered from 
      * information sources. This information may not always be 
      * available, so this attribute is noted as being required.</p>
      * 
-     * <p>Information Source Form</p>
+     * <p>Describes how the information was presented by the 
+     * information source.</p>
+     * 
+     * <p>Other Business Name: InformationSourceForm</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Informant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: InformationSourceForm</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Informant.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Informant.informationSourceChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Informant.informationSourceChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Informant.informationSourceChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informationSourceChoice"})
     public InformationSourceChoice getInformationSourceChoice() {
         return this.informationSourceChoice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Informant.informationSourceChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Informant.informationSourceChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Informant.informationSourceChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformationSourceChoice(InformationSourceChoice informationSourceChoice) {
         this.informationSourceChoice = informationSourceChoice;
     }

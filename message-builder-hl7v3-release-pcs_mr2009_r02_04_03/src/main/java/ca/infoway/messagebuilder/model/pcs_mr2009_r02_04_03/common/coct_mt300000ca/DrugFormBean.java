@@ -30,23 +30,28 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Drug form</p>
+ * <p>Business Name: Drug form</p>
  * 
  * <p>Kind of manufactured material</p>
  */
 @Hl7PartTypeMapping({"COCT_MT300000CA.ManufacturedMaterialKind"})
 public class DrugFormBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV formCode = new CVImpl();
 
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
      * 
-     * <p>code for drug form</p>
+     * <p>Relationship: 
+     * COCT_MT300000CA.ManufacturedMaterialKind.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>required for compounds</p>
+     * 
+     * <p>code for drug form</p>
      */
     @Hl7XmlMapping({"formCode"})
     public OrderableDrugForm getFormCode() {
@@ -54,11 +59,16 @@ public class DrugFormBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
      * 
-     * <p>code for drug form</p>
+     * <p>Relationship: 
+     * COCT_MT300000CA.ManufacturedMaterialKind.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>required for compounds</p>
+     * 
+     * <p>code for drug form</p>
      */
     public void setFormCode(OrderableDrugForm formCode) {
         this.formCode.setValue(formCode);

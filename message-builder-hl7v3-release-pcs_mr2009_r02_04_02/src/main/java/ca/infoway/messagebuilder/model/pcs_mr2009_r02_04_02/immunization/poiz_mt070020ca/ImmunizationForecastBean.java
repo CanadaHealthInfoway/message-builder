@@ -38,7 +38,7 @@ import java.util.Date;
 
 
 /**
- * <p>Immunization Forecast</p>
+ * <p>Business Name: Immunization Forecast</p>
  * 
  * <p>Represents the recommended vaccination schedule for a 
  * patient.</p>
@@ -46,7 +46,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.ImmunizationForecast"})
 public class ImmunizationForecastBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT consumableSequenceNumber = new INTImpl();
     private CV consumableMedicationAdministerableMedicineCode = new CVImpl();
@@ -54,10 +54,12 @@ public class ImmunizationForecastBean extends MessagePartBean {
 
 
     /**
-     * <p>Eligibility Period</p>
+     * <p>Business Name: Eligibility Period</p>
      * 
-     * <p>Represents the dates that the patient is eligible and due 
-     * for a vaccine administration.</p>
+     * <p>Relationship: 
+     * POIZ_MT070020CA.ImmunizationForecast.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed for informing service providers as to when a 
      * patient is eligible or due for an administration. As such, 
@@ -67,6 +69,9 @@ public class ImmunizationForecastBean extends MessagePartBean {
      * administration date. The high date in the range represents 
      * the date that the patient is due for the vaccine 
      * administration.</p>
+     * 
+     * <p>Represents the dates that the patient is eligible and due 
+     * for a vaccine administration.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -74,10 +79,12 @@ public class ImmunizationForecastBean extends MessagePartBean {
     }
 
     /**
-     * <p>Eligibility Period</p>
+     * <p>Business Name: Eligibility Period</p>
      * 
-     * <p>Represents the dates that the patient is eligible and due 
-     * for a vaccine administration.</p>
+     * <p>Relationship: 
+     * POIZ_MT070020CA.ImmunizationForecast.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed for informing service providers as to when a 
      * patient is eligible or due for an administration. As such, 
@@ -87,6 +94,9 @@ public class ImmunizationForecastBean extends MessagePartBean {
      * administration date. The high date in the range represents 
      * the date that the patient is due for the vaccine 
      * administration.</p>
+     * 
+     * <p>Represents the dates that the patient is eligible and due 
+     * for a vaccine administration.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -94,15 +104,19 @@ public class ImmunizationForecastBean extends MessagePartBean {
 
 
     /**
-     * <p>Dose Number</p>
+     * <p>Business Name: Dose Number</p>
+     * 
+     * <p>Relationship: POIZ_MT070020CA.Consumable.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Used to provide additional context to the immunization 
+     * forecast.</p>
      * 
      * <p>Indicates whether the forecasted event is the initial 
      * immunization (Dose Number = 1) or a specific booster (Dose 
      * Number = 2 means first booster, 3 means second booster, 
      * etc.).</p>
-     * 
-     * <p>Used to provide additional context to the immunization 
-     * forecast.</p>
      */
     @Hl7XmlMapping({"consumable/sequenceNumber"})
     public Integer getConsumableSequenceNumber() {
@@ -110,15 +124,19 @@ public class ImmunizationForecastBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dose Number</p>
+     * <p>Business Name: Dose Number</p>
+     * 
+     * <p>Relationship: POIZ_MT070020CA.Consumable.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Used to provide additional context to the immunization 
+     * forecast.</p>
      * 
      * <p>Indicates whether the forecasted event is the initial 
      * immunization (Dose Number = 1) or a specific booster (Dose 
      * Number = 2 means first booster, 3 means second booster, 
      * etc.).</p>
-     * 
-     * <p>Used to provide additional context to the immunization 
-     * forecast.</p>
      */
     public void setConsumableSequenceNumber(Integer consumableSequenceNumber) {
         this.consumableSequenceNumber.setValue(consumableSequenceNumber);
@@ -126,14 +144,18 @@ public class ImmunizationForecastBean extends MessagePartBean {
 
 
     /**
-     * <p>Immunizing Agent Code</p>
+     * <p>Business Name: Immunizing Agent Code</p>
      * 
-     * <p>A coded attribute which represents the immunizing agent 
-     * that is to be administered.</p>
+     * <p>Relationship: POIZ_MT070020CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to represent higher-level vaccine information. It is 
      * expected that either the immunizing agent name or code is 
      * provided. As a result, this attribute is populated.</p>
+     * 
+     * <p>A coded attribute which represents the immunizing agent 
+     * that is to be administered.</p>
      */
     @Hl7XmlMapping({"consumable/medication/administerableMedicine/code"})
     public ClinicalDrug getConsumableMedicationAdministerableMedicineCode() {
@@ -141,14 +163,18 @@ public class ImmunizationForecastBean extends MessagePartBean {
     }
 
     /**
-     * <p>Immunizing Agent Code</p>
+     * <p>Business Name: Immunizing Agent Code</p>
      * 
-     * <p>A coded attribute which represents the immunizing agent 
-     * that is to be administered.</p>
+     * <p>Relationship: POIZ_MT070020CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to represent higher-level vaccine information. It is 
      * expected that either the immunizing agent name or code is 
      * provided. As a result, this attribute is populated.</p>
+     * 
+     * <p>A coded attribute which represents the immunizing agent 
+     * that is to be administered.</p>
      */
     public void setConsumableMedicationAdministerableMedicineCode(ClinicalDrug consumableMedicationAdministerableMedicineCode) {
         this.consumableMedicationAdministerableMedicineCode.setValue(consumableMedicationAdministerableMedicineCode);
@@ -156,14 +182,18 @@ public class ImmunizationForecastBean extends MessagePartBean {
 
 
     /**
-     * <p>Immunization Status</p>
+     * <p>Business Name: Immunization Status</p>
      * 
-     * <p>Used to represent the patient's status with respect to 
-     * their immunization schedule.</p>
+     * <p>Relationship: POIZ_MT070020CA.ForecastStatus.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Needed to indicate to a provider if a patient is up to 
      * date with their immunizations according to the schedule and 
      * is therefore mandatory.</p>
+     * 
+     * <p>Used to represent the patient's status with respect to 
+     * their immunization schedule.</p>
      */
     @Hl7XmlMapping({"subject/forecastStatus/code"})
     public ImmunizationForecastStatus getSubjectForecastStatusCode() {
@@ -171,14 +201,18 @@ public class ImmunizationForecastBean extends MessagePartBean {
     }
 
     /**
-     * <p>Immunization Status</p>
+     * <p>Business Name: Immunization Status</p>
      * 
-     * <p>Used to represent the patient's status with respect to 
-     * their immunization schedule.</p>
+     * <p>Relationship: POIZ_MT070020CA.ForecastStatus.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Needed to indicate to a provider if a patient is up to 
      * date with their immunizations according to the schedule and 
      * is therefore mandatory.</p>
+     * 
+     * <p>Used to represent the patient's status with respect to 
+     * their immunization schedule.</p>
      */
     public void setSubjectForecastStatusCode(ImmunizationForecastStatus subjectForecastStatusCode) {
         this.subjectForecastStatusCode.setValue(subjectForecastStatusCode);

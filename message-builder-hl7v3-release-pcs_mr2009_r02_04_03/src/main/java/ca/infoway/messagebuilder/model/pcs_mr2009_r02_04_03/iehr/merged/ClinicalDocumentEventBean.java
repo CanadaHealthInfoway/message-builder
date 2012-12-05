@@ -32,17 +32,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT610001CA.ClinicalDocumentEvent","REPC_MT610002CA.ClinicalDocumentEvent"})
 public class ClinicalDocumentEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>ServiceReportReferenceId</p>
+     * <p>Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>K:Service Report Reference Id</p>
+     * <p>Other Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>An identifier for a report associated with the 
-     * procedure.</p>
+     * <p>Relationship: REPC_MT610001CA.ClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for a direct link to a report that has been 
      * written on the procedure. Often surgical, and even 
@@ -51,6 +52,26 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * narrative form. When filled in, this attribute allows the 
      * user to drill down to the Clinical Observation Document 
      * record used to capture this additional information.</p>
+     * 
+     * <p>An identifier for a report associated with the 
+     * procedure.</p>
+     * 
+     * <p>Other Business Name: ServiceReportReferenceId</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.ClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for a direct link to a report that has been 
+     * written on the procedure. Often surgical, and even 
+     * psychological procedures can result in numerous 
+     * observations, and other information generally captured in 
+     * narrative form. When filled in, this attribute allows the 
+     * user to drill down to the Clinical Observation Document 
+     * record used to capture this additional information.</p>
+     * 
+     * <p>An identifier for a report associated with the 
+     * procedure.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -58,12 +79,13 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>ServiceReportReferenceId</p>
+     * <p>Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>K:Service Report Reference Id</p>
+     * <p>Other Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>An identifier for a report associated with the 
-     * procedure.</p>
+     * <p>Relationship: REPC_MT610001CA.ClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for a direct link to a report that has been 
      * written on the procedure. Often surgical, and even 
@@ -72,6 +94,26 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * narrative form. When filled in, this attribute allows the 
      * user to drill down to the Clinical Observation Document 
      * record used to capture this additional information.</p>
+     * 
+     * <p>An identifier for a report associated with the 
+     * procedure.</p>
+     * 
+     * <p>Other Business Name: ServiceReportReferenceId</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.ClinicalDocumentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for a direct link to a report that has been 
+     * written on the procedure. Often surgical, and even 
+     * psychological procedures can result in numerous 
+     * observations, and other information generally captured in 
+     * narrative form. When filled in, this attribute allows the 
+     * user to drill down to the Clinical Observation Document 
+     * record used to capture this additional information.</p>
+     * 
+     * <p>An identifier for a report associated with the 
+     * procedure.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

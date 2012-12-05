@@ -27,13 +27,15 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Messa
 
 
 /**
- * <p>MCCI_IN000002CA: Accept Ack</p>
+ * <p>Business Name: MCCI_IN000002CA: Accept Ack</p>
+ * 
+ * <p>Sends HL7 Accept Acknowledgement</p>
  * 
  * <p>Message: MCCI_MT000200CA.Message</p>
  */
 @Hl7PartTypeMapping({"MCCI_IN000002CA"})
 public class AcceptAckBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

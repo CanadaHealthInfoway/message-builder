@@ -61,40 +61,40 @@ import java.util.Set;
 
 
 /**
- * <p>Immunizations</p>
+ * <p>Business Name: Immunizations</p>
  * 
  * <p>POIZ_MT060150CA.Immunization: Immunizations</p>
  * 
- * <p>A record of products administered to a patient specific 
- * to immunization.</p>
- * 
  * <p>Necessary component of a person's overall vaccine 
  * profile. Helps deal with outbreaks and also vaccine 
  * contraindication checking.</p>
+ * 
+ * <p>A record of products administered to a patient specific 
+ * to immunization.</p>
  * 
  * <p>POIZ_MT030050CA.Immunization: Immunizations</p>
  * 
- * <p>A record of products administered to a patient specific 
- * to immunization.</p>
- * 
  * <p>Necessary component of a person's overall vaccine 
  * profile. Helps deal with outbreaks and also vaccine 
  * contraindication checking.</p>
+ * 
+ * <p>A record of products administered to a patient specific 
+ * to immunization.</p>
  * 
  * <p>POIZ_MT030060CA.Immunization: Immunizations</p>
  * 
- * <p>A record of products administered to a patient specific 
- * to immunization.</p>
- * 
  * <p>Necessary component of a person's overall vaccine 
  * profile. Helps deal with outbreaks and also vaccine 
  * contraindication checking.</p>
+ * 
+ * <p>A record of products administered to a patient specific 
+ * to immunization.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Immunization","POIZ_MT030060CA.Immunization","POIZ_MT060150CA.Immunization"})
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -124,15 +124,43 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ImmunizationEventID</p>
+     * <p>Business Name: ImmunizationEventID</p>
      * 
-     * <p>A:Immunization Event ID</p>
+     * <p>Other Business Name: ImmunizationEventID</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the unique referencing of a specific 
+     * immunization record. Thus the mandatory requirement.</p>
      * 
      * <p>This is an identifier assigned to a unique instance of an 
      * immunization record.</p>
      * 
+     * <p>Other Business Name: ImmunizationEventID</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the unique referencing of a specific 
      * immunization record. Thus the mandatory requirement.</p>
+     * 
+     * <p>This is an identifier assigned to a unique instance of an 
+     * immunization record.</p>
+     * 
+     * <p>Other Business Name: ImmunizationEventID</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the unique referencing of a specific 
+     * immunization record. Thus the mandatory requirement.</p>
+     * 
+     * <p>This is an identifier assigned to a unique instance of an 
+     * immunization record.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -140,15 +168,43 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ImmunizationEventID</p>
+     * <p>Business Name: ImmunizationEventID</p>
      * 
-     * <p>A:Immunization Event ID</p>
+     * <p>Other Business Name: ImmunizationEventID</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the unique referencing of a specific 
+     * immunization record. Thus the mandatory requirement.</p>
      * 
      * <p>This is an identifier assigned to a unique instance of an 
      * immunization record.</p>
      * 
+     * <p>Other Business Name: ImmunizationEventID</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the unique referencing of a specific 
      * immunization record. Thus the mandatory requirement.</p>
+     * 
+     * <p>This is an identifier assigned to a unique instance of an 
+     * immunization record.</p>
+     * 
+     * <p>Other Business Name: ImmunizationEventID</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the unique referencing of a specific 
+     * immunization record. Thus the mandatory requirement.</p>
+     * 
+     * <p>This is an identifier assigned to a unique instance of an 
+     * immunization record.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -156,17 +212,49 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>NotImmunized</p>
+     * <p>Business Name: NotImmunized</p>
      * 
-     * <p>Not Immunized?</p>
+     * <p>Other Business Name: NotImmunized</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Tracking failures to be immunized is also important in 
+     * immunization reporting. Marked as mandatory because it is 
+     * not meaningful for this flag to be 'unknown'.</p>
      * 
      * <p>An explicit indication that a person has not been 
      * immunized with the specified vaccine at the time 
      * indicated.</p>
      * 
+     * <p>Other Business Name: NotImmunized</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Tracking failures to be immunized is also important in 
      * immunization reporting. Marked as mandatory because it is 
      * not meaningful for this flag to be 'unknown'.</p>
+     * 
+     * <p>An explicit indication that a person has not been 
+     * immunized with the specified vaccine at the time 
+     * indicated.</p>
+     * 
+     * <p>Other Business Name: NotImmunized</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Tracking failures to be immunized is also important in 
+     * immunization reporting. Marked as mandatory because it is 
+     * not meaningful for this flag to be 'unknown'.</p>
+     * 
+     * <p>An explicit indication that a person has not been 
+     * immunized with the specified vaccine at the time 
+     * indicated.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -174,17 +262,49 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>NotImmunized</p>
+     * <p>Business Name: NotImmunized</p>
      * 
-     * <p>Not Immunized?</p>
+     * <p>Other Business Name: NotImmunized</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Tracking failures to be immunized is also important in 
+     * immunization reporting. Marked as mandatory because it is 
+     * not meaningful for this flag to be 'unknown'.</p>
      * 
      * <p>An explicit indication that a person has not been 
      * immunized with the specified vaccine at the time 
      * indicated.</p>
      * 
+     * <p>Other Business Name: NotImmunized</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Tracking failures to be immunized is also important in 
      * immunization reporting. Marked as mandatory because it is 
      * not meaningful for this flag to be 'unknown'.</p>
+     * 
+     * <p>An explicit indication that a person has not been 
+     * immunized with the specified vaccine at the time 
+     * indicated.</p>
+     * 
+     * <p>Other Business Name: NotImmunized</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Tracking failures to be immunized is also important in 
+     * immunization reporting. Marked as mandatory because it is 
+     * not meaningful for this flag to be 'unknown'.</p>
+     * 
+     * <p>An explicit indication that a person has not been 
+     * immunized with the specified vaccine at the time 
+     * indicated.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -192,17 +312,49 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ImmunizationEventStatus</p>
+     * <p>Business Name: ImmunizationEventStatus</p>
      * 
-     * <p>Immunization Event Status</p>
+     * <p>Other Business Name: ImmunizationEventStatus</p>
      * 
-     * <p>Status of the immunization event</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to differentiate between valid, obsolete and 
      * invalid immunization events (e.g. immunization event has 
      * been retracted or nullified) and is therefore mandatory.</p>
      * 
      * <p>Nullified=Retracted</p>
+     * 
+     * <p>Status of the immunization event</p>
+     * 
+     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to differentiate between valid, obsolete and 
+     * invalid immunization events (e.g. immunization event has 
+     * been retracted or nullified) and is therefore mandatory.</p>
+     * 
+     * <p>Nullified=Retracted</p>
+     * 
+     * <p>Status of the immunization event</p>
+     * 
+     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to differentiate between valid, obsolete and 
+     * invalid immunization events (e.g. immunization event has 
+     * been retracted or nullified) and is therefore mandatory.</p>
+     * 
+     * <p>Nullified=Retracted</p>
+     * 
+     * <p>Status of the immunization event</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -210,17 +362,49 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ImmunizationEventStatus</p>
+     * <p>Business Name: ImmunizationEventStatus</p>
      * 
-     * <p>Immunization Event Status</p>
+     * <p>Other Business Name: ImmunizationEventStatus</p>
      * 
-     * <p>Status of the immunization event</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to differentiate between valid, obsolete and 
      * invalid immunization events (e.g. immunization event has 
      * been retracted or nullified) and is therefore mandatory.</p>
      * 
      * <p>Nullified=Retracted</p>
+     * 
+     * <p>Status of the immunization event</p>
+     * 
+     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to differentiate between valid, obsolete and 
+     * invalid immunization events (e.g. immunization event has 
+     * been retracted or nullified) and is therefore mandatory.</p>
+     * 
+     * <p>Nullified=Retracted</p>
+     * 
+     * <p>Status of the immunization event</p>
+     * 
+     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to differentiate between valid, obsolete and 
+     * invalid immunization events (e.g. immunization event has 
+     * been retracted or nullified) and is therefore mandatory.</p>
+     * 
+     * <p>Nullified=Retracted</p>
+     * 
+     * <p>Status of the immunization event</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -228,15 +412,31 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ImmunizationDate</p>
+     * <p>Business Name: ImmunizationDate</p>
      * 
-     * <p>Immunization Date</p>
+     * <p>Other Business Name: ImmunizationDate</p>
      * 
-     * <p>The date the vaccine was administered to the patient.</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important information for establishing the validity of 
      * the immunization records, and therefore mandatory. Also used 
      * in the scheduling of subsequent immunizations.</p>
+     * 
+     * <p>The date the vaccine was administered to the patient.</p>
+     * 
+     * <p>Other Business Name: ImmunizationDate</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important information for establishing the validity of 
+     * the immunization records, and therefore mandatory. Also used 
+     * in the scheduling of subsequent immunizations.</p>
+     * 
+     * <p>The date the vaccine was administered to the patient.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -244,15 +444,31 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ImmunizationDate</p>
+     * <p>Business Name: ImmunizationDate</p>
      * 
-     * <p>Immunization Date</p>
+     * <p>Other Business Name: ImmunizationDate</p>
      * 
-     * <p>The date the vaccine was administered to the patient.</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important information for establishing the validity of 
      * the immunization records, and therefore mandatory. Also used 
      * in the scheduling of subsequent immunizations.</p>
+     * 
+     * <p>The date the vaccine was administered to the patient.</p>
+     * 
+     * <p>Other Business Name: ImmunizationDate</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important information for establishing the validity of 
+     * the immunization records, and therefore mandatory. Also used 
+     * in the scheduling of subsequent immunizations.</p>
+     * 
+     * <p>The date the vaccine was administered to the patient.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -260,22 +476,52 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ImmunizationMaskingIndicators</p>
+     * <p>Business Name: ImmunizationMaskingIndicators</p>
      * 
-     * <p>Immunization Masking Indicators</p>
+     * <p>Other Business Name: ImmunizationMaskingIndicators</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>Denotes access restriction place on the immunization 
      * record.</p>
      * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
+     * <p>Other Business Name: ImmunizationMaskingIndicators</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p>
+     * 
+     * <p>Denotes access restriction place on the immunization 
+     * record.</p>
+     * 
+     * <p>Other Business Name: ImmunizationMaskingIndicators</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
+     * 
+     * <p>Denotes access restriction place on the immunization 
+     * record.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -284,12 +530,14 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>UncertaintyCode</p>
+     * <p>Business Name: UncertaintyCode</p>
      * 
-     * <p>Uncertainty Code</p>
+     * <p>Other Business Name: UncertaintyCode</p>
      * 
-     * <p>An indication of uncertainty regarding an immunization 
-     * event</p>
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows for users of information to determine the degree 
      * of uncertainty regarding the details of an immunization 
@@ -297,6 +545,43 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Only populated when it is needed to communicate a degree 
      * of uncertainty - i.e. historical information.</p>
+     * 
+     * <p>An indication of uncertainty regarding an immunization 
+     * event</p>
+     * 
+     * <p>Other Business Name: UncertaintyCode</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows for users of information to determine the degree 
+     * of uncertainty regarding the details of an immunization 
+     * event and is therefore populated.</p>
+     * 
+     * <p>Only populated when it is needed to communicate a degree 
+     * of uncertainty - i.e. historical information.</p>
+     * 
+     * <p>An indication of uncertainty regarding an immunization 
+     * event</p>
+     * 
+     * <p>Other Business Name: UncertaintyCode</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows for users of information to determine the degree 
+     * of uncertainty regarding the details of an immunization 
+     * event and is therefore populated.</p>
+     * 
+     * <p>Only populated when it is needed to communicate a degree 
+     * of uncertainty - i.e. historical information.</p>
+     * 
+     * <p>An indication of uncertainty regarding an immunization 
+     * event</p>
      */
     @Hl7XmlMapping({"uncertaintyCode"})
     public ActUncertainty getUncertaintyCode() {
@@ -304,12 +589,14 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>UncertaintyCode</p>
+     * <p>Business Name: UncertaintyCode</p>
      * 
-     * <p>Uncertainty Code</p>
+     * <p>Other Business Name: UncertaintyCode</p>
      * 
-     * <p>An indication of uncertainty regarding an immunization 
-     * event</p>
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows for users of information to determine the degree 
      * of uncertainty regarding the details of an immunization 
@@ -317,6 +604,43 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Only populated when it is needed to communicate a degree 
      * of uncertainty - i.e. historical information.</p>
+     * 
+     * <p>An indication of uncertainty regarding an immunization 
+     * event</p>
+     * 
+     * <p>Other Business Name: UncertaintyCode</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows for users of information to determine the degree 
+     * of uncertainty regarding the details of an immunization 
+     * event and is therefore populated.</p>
+     * 
+     * <p>Only populated when it is needed to communicate a degree 
+     * of uncertainty - i.e. historical information.</p>
+     * 
+     * <p>An indication of uncertainty regarding an immunization 
+     * event</p>
+     * 
+     * <p>Other Business Name: UncertaintyCode</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Allows for users of information to determine the degree 
+     * of uncertainty regarding the details of an immunization 
+     * event and is therefore populated.</p>
+     * 
+     * <p>Only populated when it is needed to communicate a degree 
+     * of uncertainty - i.e. historical information.</p>
+     * 
+     * <p>An indication of uncertainty regarding an immunization 
+     * event</p>
      */
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
         this.uncertaintyCode.setValue(uncertaintyCode);
@@ -324,22 +648,52 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>RouteOfAdministration</p>
+     * <p>Business Name: RouteOfAdministration</p>
      * 
-     * <p>Route of Administration</p>
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>RouteCode is Required if not using SNOMED.</p>
+     * 
+     * <p>Ensures consistency in description of 
+     * routes.</p><p>Attribute is marked 'optional' to allow for 
+     * use of pre-coordinated SNOMED Codes.</p>
      * 
      * <p>The route by which the drug was administered to the 
      * patient, for example, sub-cutaneous, intra-muscular</p>
      * 
-     * <p>Ensures consistency in description of 
-     * routes.</p><p>Attribute is marked 'optional' to allow for 
-     * use of pre-coordinated SNOMED Codes.</p>
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>RouteCode is Required if not using SNOMED.</p>
      * 
      * <p>Ensures consistency in description of 
      * routes.</p><p>Attribute is marked 'optional' to allow for 
      * use of pre-coordinated SNOMED Codes.</p>
+     * 
+     * <p>The route by which the drug was administered to the 
+     * patient, for example, sub-cutaneous, intra-muscular</p>
+     * 
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>RouteCode is Required if not using SNOMED.</p>
+     * 
+     * <p>Ensures consistency in description of 
+     * routes.</p><p>Attribute is marked 'optional' to allow for 
+     * use of pre-coordinated SNOMED Codes.</p>
+     * 
+     * <p>The route by which the drug was administered to the 
+     * patient, for example, sub-cutaneous, intra-muscular</p>
      */
     @Hl7XmlMapping({"routeCode"})
     public RouteOfAdministration getRouteCode() {
@@ -347,22 +701,52 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>RouteOfAdministration</p>
+     * <p>Business Name: RouteOfAdministration</p>
      * 
-     * <p>Route of Administration</p>
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>RouteCode is Required if not using SNOMED.</p>
+     * 
+     * <p>Ensures consistency in description of 
+     * routes.</p><p>Attribute is marked 'optional' to allow for 
+     * use of pre-coordinated SNOMED Codes.</p>
      * 
      * <p>The route by which the drug was administered to the 
      * patient, for example, sub-cutaneous, intra-muscular</p>
      * 
-     * <p>Ensures consistency in description of 
-     * routes.</p><p>Attribute is marked 'optional' to allow for 
-     * use of pre-coordinated SNOMED Codes.</p>
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>RouteCode is Required if not using SNOMED.</p>
      * 
      * <p>Ensures consistency in description of 
      * routes.</p><p>Attribute is marked 'optional' to allow for 
      * use of pre-coordinated SNOMED Codes.</p>
+     * 
+     * <p>The route by which the drug was administered to the 
+     * patient, for example, sub-cutaneous, intra-muscular</p>
+     * 
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>RouteCode is Required if not using SNOMED.</p>
+     * 
+     * <p>Ensures consistency in description of 
+     * routes.</p><p>Attribute is marked 'optional' to allow for 
+     * use of pre-coordinated SNOMED Codes.</p>
+     * 
+     * <p>The route by which the drug was administered to the 
+     * patient, for example, sub-cutaneous, intra-muscular</p>
      */
     public void setRouteCode(RouteOfAdministration routeCode) {
         this.routeCode.setValue(routeCode);
@@ -370,26 +754,61 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>AnatomicalSite</p>
+     * <p>Business Name: AnatomicalSite</p>
      * 
-     * <p>Anatomical Site</p>
+     * <p>Other Business Name: AnatomicalSite</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>approachSiteCode is Required if not using SNOMED</p>
+     * 
+     * <p>Site of administration is needed for follow up in case of 
+     * an adverse event and in some jurisdictions is part of the 
+     * minimum dataset per national standard and legal client 
+     * record.</p><p>Attribute is marked &quot;optional&quot; to 
+     * allow for use of pre-coordinated SNOMED Codes.</p>
      * 
      * <p>A coded value denoting the body area where the 
      * immunization was administered.</p>
      * 
-     * <p>Site of administration is needed for follow up in case of 
-     * an adverse event and in some jurisdictions is part of the 
-     * minimum dataset per national standard and legal client 
-     * record.</p><p>Attribute is marked &quot;optional&quot; to 
-     * allow for use of pre-coordinated SNOMED Codes.</p>
+     * <p>Other Business Name: AnatomicalSite</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>approachSiteCode is Required if not using SNOMED</p>
      * 
      * <p>Site of administration is needed for follow up in case of 
      * an adverse event and in some jurisdictions is part of the 
      * minimum dataset per national standard and legal client 
      * record.</p><p>Attribute is marked &quot;optional&quot; to 
      * allow for use of pre-coordinated SNOMED Codes.</p>
+     * 
+     * <p>A coded value denoting the body area where the 
+     * immunization was administered.</p>
+     * 
+     * <p>Other Business Name: AnatomicalSite</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>approachSiteCode is Required if not using SNOMED</p>
+     * 
+     * <p>Site of administration is needed for follow up in case of 
+     * an adverse event and in some jurisdictions is part of the 
+     * minimum dataset per national standard and legal client 
+     * record.</p><p>Attribute is marked &quot;optional&quot; to 
+     * allow for use of pre-coordinated SNOMED Codes.</p>
+     * 
+     * <p>A coded value denoting the body area where the 
+     * immunization was administered.</p>
      */
     @Hl7XmlMapping({"approachSiteCode"})
     public HumanSubstanceAdministrationSite getApproachSiteCode() {
@@ -397,26 +816,61 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>AnatomicalSite</p>
+     * <p>Business Name: AnatomicalSite</p>
      * 
-     * <p>Anatomical Site</p>
+     * <p>Other Business Name: AnatomicalSite</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>approachSiteCode is Required if not using SNOMED</p>
+     * 
+     * <p>Site of administration is needed for follow up in case of 
+     * an adverse event and in some jurisdictions is part of the 
+     * minimum dataset per national standard and legal client 
+     * record.</p><p>Attribute is marked &quot;optional&quot; to 
+     * allow for use of pre-coordinated SNOMED Codes.</p>
      * 
      * <p>A coded value denoting the body area where the 
      * immunization was administered.</p>
      * 
-     * <p>Site of administration is needed for follow up in case of 
-     * an adverse event and in some jurisdictions is part of the 
-     * minimum dataset per national standard and legal client 
-     * record.</p><p>Attribute is marked &quot;optional&quot; to 
-     * allow for use of pre-coordinated SNOMED Codes.</p>
+     * <p>Other Business Name: AnatomicalSite</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>approachSiteCode is Required if not using SNOMED</p>
      * 
      * <p>Site of administration is needed for follow up in case of 
      * an adverse event and in some jurisdictions is part of the 
      * minimum dataset per national standard and legal client 
      * record.</p><p>Attribute is marked &quot;optional&quot; to 
      * allow for use of pre-coordinated SNOMED Codes.</p>
+     * 
+     * <p>A coded value denoting the body area where the 
+     * immunization was administered.</p>
+     * 
+     * <p>Other Business Name: AnatomicalSite</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>approachSiteCode is Required if not using SNOMED</p>
+     * 
+     * <p>Site of administration is needed for follow up in case of 
+     * an adverse event and in some jurisdictions is part of the 
+     * minimum dataset per national standard and legal client 
+     * record.</p><p>Attribute is marked &quot;optional&quot; to 
+     * allow for use of pre-coordinated SNOMED Codes.</p>
+     * 
+     * <p>A coded value denoting the body area where the 
+     * immunization was administered.</p>
      */
     public void setApproachSiteCode(HumanSubstanceAdministrationSite approachSiteCode) {
         this.approachSiteCode.setValue(approachSiteCode);
@@ -424,22 +878,49 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>QuantityAdministered</p>
+     * <p>Business Name: QuantityAdministered</p>
      * 
-     * <p>Quantity Administered</p>
+     * <p>Other Business Name: QuantityAdministered</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Useful for evaluating reaction, evaluating vaccine 
+     * failure and for checking contraindication.</p><p>Attribute 
+     * is populated to allow for situations where quantity may not 
+     * be known and thus null flavor must be specified.</p>
      * 
      * <p>The amount of the drug product administered to/by the 
      * patient.</p>
      * 
-     * <p>Useful for evaluating reaction, evaluating vaccine 
-     * failure and for checking contraindication.</p><p>Attribute 
-     * is populated to allow for situations where quantity may not 
-     * be known and thus null flavor must be specified.</p>
+     * <p>Other Business Name: QuantityAdministered</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Useful for evaluating reaction, evaluating vaccine 
      * failure and for checking contraindication.</p><p>Attribute 
      * is populated to allow for situations where quantity may not 
      * be known and thus null flavor must be specified.</p>
+     * 
+     * <p>The amount of the drug product administered to/by the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: QuantityAdministered</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Useful for evaluating reaction, evaluating vaccine 
+     * failure and for checking contraindication.</p><p>Attribute 
+     * is populated to allow for situations where quantity may not 
+     * be known and thus null flavor must be specified.</p>
+     * 
+     * <p>The amount of the drug product administered to/by the 
+     * patient.</p>
      */
     @Hl7XmlMapping({"doseQuantity"})
     public PhysicalQuantity getDoseQuantity() {
@@ -447,150 +928,667 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>QuantityAdministered</p>
+     * <p>Business Name: QuantityAdministered</p>
      * 
-     * <p>Quantity Administered</p>
+     * <p>Other Business Name: QuantityAdministered</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Useful for evaluating reaction, evaluating vaccine 
+     * failure and for checking contraindication.</p><p>Attribute 
+     * is populated to allow for situations where quantity may not 
+     * be known and thus null flavor must be specified.</p>
      * 
      * <p>The amount of the drug product administered to/by the 
      * patient.</p>
      * 
-     * <p>Useful for evaluating reaction, evaluating vaccine 
-     * failure and for checking contraindication.</p><p>Attribute 
-     * is populated to allow for situations where quantity may not 
-     * be known and thus null flavor must be specified.</p>
+     * <p>Other Business Name: QuantityAdministered</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Useful for evaluating reaction, evaluating vaccine 
      * failure and for checking contraindication.</p><p>Attribute 
      * is populated to allow for situations where quantity may not 
      * be known and thus null flavor must be specified.</p>
+     * 
+     * <p>The amount of the drug product administered to/by the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: QuantityAdministered</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Useful for evaluating reaction, evaluating vaccine 
+     * failure and for checking contraindication.</p><p>Attribute 
+     * is populated to allow for situations where quantity may not 
+     * be known and thus null flavor must be specified.</p>
+     * 
+     * <p>The amount of the drug product administered to/by the 
+     * patient.</p>
      */
     public void setDoseQuantity(PhysicalQuantity doseQuantity) {
         this.doseQuantity.setValue(doseQuantity);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public AdministeredToBean getSubject() {
         return this.subject;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject(AdministeredToBean subject) {
         this.subject = subject;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.AdministerableMedicine.administerableVaccine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.AdministerableMedicine.administerableVaccine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.AdministerableMedicine.administerableVaccine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"consumable/administerableMedicine/administerableVaccine"})
     public VaccineBean getConsumableAdministerableMedicineAdministerableVaccine() {
         return this.consumableAdministerableMedicineAdministerableVaccine;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.AdministerableMedicine.administerableVaccine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.AdministerableMedicine.administerableVaccine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.AdministerableMedicine.administerableVaccine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setConsumableAdministerableMedicineAdministerableVaccine(VaccineBean consumableAdministerableMedicineAdministerableVaccine) {
         this.consumableAdministerableMedicineAdministerableVaccine = consumableAdministerableMedicineAdministerableVaccine;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"performer"})
     public AdministeredByBean getPerformer() {
         return this.performer;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPerformer(AdministeredByBean performer) {
         this.performer = performer;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedEntity"})
     public HealthcareWorkerBean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"informant"})
     public InformantBean getInformant() {
         return this.informant;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInformant(InformantBean informant) {
         this.informant = informant;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Authenticator.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Authenticator.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Authenticator.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"authenticator/assignedEntity"})
     public HealthcareWorkerBean getAuthenticatorAssignedEntity() {
         return this.authenticatorAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Authenticator.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Authenticator.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Authenticator.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthenticatorAssignedEntity(HealthcareWorkerBean authenticatorAssignedEntity) {
         this.authenticatorAssignedEntity = authenticatorAssignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLocation(OccurredAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf"})
     public InFulfillmentOfBean getInFulfillmentOf() {
         return this.inFulfillmentOf;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInFulfillmentOf(InFulfillmentOfBean inFulfillmentOf) {
         this.inFulfillmentOf = inFulfillmentOf;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reason"})
     public ReasonBean getReason() {
         return this.reason;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReason(ReasonBean reason) {
         this.reason = reason;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Authorization.consent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Authorization.consent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Authorization.consent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"authorization/consent"})
     public ConsentBean getAuthorizationConsent() {
         return this.authorizationConsent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Authorization.consent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Authorization.consent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Authorization.consent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorizationConsent(ConsentBean authorizationConsent) {
         this.authorizationConsent = authorizationConsent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.PertinentInformation.patientImmunizationObservations</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.PertinentInformation.patientImmunizationObservations</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.PertinentInformation.patientImmunizationObservations</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/patientImmunizationObservations"})
     public List<PatientImmunizationObservationsBean> getPertinentInformationPatientImmunizationObservations() {
         return this.pertinentInformationPatientImmunizationObservations;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
         return this.subjectOf1DetectedIssueEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Immunization.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Immunization.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
+     */
     @Hl7XmlMapping({"subjectOf","subjectOf2"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="POIZ_MT030050CA.Subject2"),
@@ -601,27 +1599,125 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.CauseOf.investigationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.CauseOf.investigationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.CauseOf.investigationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"cause1/investigationEvent"})
     public InvestigationEventBean getCause1InvestigationEvent() {
         return this.cause1InvestigationEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.CauseOf.investigationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.CauseOf.investigationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.CauseOf.investigationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCause1InvestigationEvent(InvestigationEventBean cause1InvestigationEvent) {
         this.cause1InvestigationEvent = cause1InvestigationEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.CauseOf2.intoleranceCondition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.CauseOf2.intoleranceCondition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.CauseOf2.intoleranceCondition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"cause2/intoleranceCondition"})
     public List<IntoleranceConditionBean> getCause2IntoleranceCondition() {
         return this.cause2IntoleranceCondition;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Reference.healthDocument</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Reference.healthDocument</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Reference.healthDocument</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"referencedBy/healthDocument"})
     public HealthDocumentBean getReferencedByHealthDocument() {
         return this.referencedByHealthDocument;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Reference.healthDocument</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.Reference.healthDocument</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Reference.healthDocument</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReferencedByHealthDocument(HealthDocumentBean referencedByHealthDocument) {
         this.referencedByHealthDocument = referencedByHealthDocument;
     }

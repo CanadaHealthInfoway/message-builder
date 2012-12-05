@@ -30,8 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 
 
 /**
- * <p>REPC_IN000024CA: Patient medical conditions query 
- * response</p>
+ * <p>Business Name: REPC_IN000024CA: Patient medical 
+ * conditions query response</p>
+ * 
+ * <p>Returns the details of one or more medical condition 
+ * records.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -44,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
 @Hl7PartTypeMapping({"REPC_IN000024CA"})
 public class PatientMedicalConditionsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicalConditionBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

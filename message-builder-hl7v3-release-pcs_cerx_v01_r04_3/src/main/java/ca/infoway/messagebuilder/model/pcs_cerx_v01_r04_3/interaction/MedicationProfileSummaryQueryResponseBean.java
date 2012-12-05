@@ -30,8 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Medica
 
 
 /**
- * <p>PORX_IN060400CA: Medication profile summary query 
- * response</p>
+ * <p>Business Name: PORX_IN060400CA: Medication profile 
+ * summary query response</p>
+ * 
+ * <p>Returns basic information about a patient's 
+ * prescriptions, dispenses and other medications for a 
+ * specific patient optionally filtered by date.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -49,6 +53,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Medica
 @Hl7PartTypeMapping({"PORX_IN060400CA"})
 public class MedicationProfileSummaryQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicationRecord,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

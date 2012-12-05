@@ -35,49 +35,75 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>DosagePreconditions</p>
+ * <p>Business Name: DosagePreconditions</p>
  * 
  * <p>COCT_MT260030CA.ObservationEventCriterion: Dosage 
  * Preconditions</p>
  * 
- * <p>A condition that must be true for the patient in order 
- * for the specified recommended dosage range to apply.</p>
- * 
  * <p>Allows recommended dosage instructions to be bound to a 
  * particular characteristic of the patient.</p>
+ * 
+ * <p>A condition that must be true for the patient in order 
+ * for the specified recommended dosage range to apply.</p>
  * 
  * <p>COCT_MT260010CA.ObservationEventCriterion: Dosage 
  * Preconditions</p>
  * 
- * <p>A condition that must be true for the patient in order 
- * for the specified recommended dosage range to apply.</p>
- * 
  * <p>Allows recommended dosage instructions to be bound to a 
  * particular characteristic of the patient.</p>
+ * 
+ * <p>A condition that must be true for the patient in order 
+ * for the specified recommended dosage range to apply.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationEventCriterion","COCT_MT260020CA.ObservationEventCriterion","COCT_MT260030CA.ObservationEventCriterion"})
 public class DosagePreconditionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private URG<PQ, PhysicalQuantity> value = new URGImpl<PQ, PhysicalQuantity>();
 
 
     /**
-     * <p>DosagePreconditionType</p>
+     * <p>Business Name: DosagePreconditionType</p>
      * 
-     * <p>A:Dosage Precondition Type</p>
+     * <p>Other Business Name: DosagePreconditionType</p>
      * 
-     * <p>Indicates the type of characteristic against which the 
-     * patient is evaluated. This includes age, weight, height, 
-     * etc.</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the specification of multiple preconditions for a 
      * dosage specification, such as Age Range, Weight Range, etc. 
      * This is mandatory because the precondition range cannot be 
      * evaluated without knowing the precondition type.</p>
      * 
-     * <p>A:Dosage Precondition Type</p>
+     * <p>Indicates the type of characteristic against which the 
+     * patient is evaluated. This includes age, weight, height, 
+     * etc.</p>
+     * 
+     * <p>Other Business Name: DosagePreconditionType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the specification of multiple preconditions for a 
+     * dosage specification, such as Age Range, Weight Range, etc. 
+     * This is mandatory because the precondition range cannot be 
+     * evaluated without knowing the precondition type.</p>
+     * 
+     * <p>Indicates the type of characteristic against which the 
+     * patient is evaluated. This includes age, weight, height, 
+     * etc.</p>
+     * 
+     * <p>Other Business Name: DosagePreconditionType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationDosageDefinitionPreconditionType getCode() {
@@ -85,20 +111,46 @@ public class DosagePreconditionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosagePreconditionType</p>
+     * <p>Business Name: DosagePreconditionType</p>
      * 
-     * <p>A:Dosage Precondition Type</p>
+     * <p>Other Business Name: DosagePreconditionType</p>
      * 
-     * <p>Indicates the type of characteristic against which the 
-     * patient is evaluated. This includes age, weight, height, 
-     * etc.</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the specification of multiple preconditions for a 
      * dosage specification, such as Age Range, Weight Range, etc. 
      * This is mandatory because the precondition range cannot be 
      * evaluated without knowing the precondition type.</p>
      * 
-     * <p>A:Dosage Precondition Type</p>
+     * <p>Indicates the type of characteristic against which the 
+     * patient is evaluated. This includes age, weight, height, 
+     * etc.</p>
+     * 
+     * <p>Other Business Name: DosagePreconditionType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the specification of multiple preconditions for a 
+     * dosage specification, such as Age Range, Weight Range, etc. 
+     * This is mandatory because the precondition range cannot be 
+     * evaluated without knowing the precondition type.</p>
+     * 
+     * <p>Indicates the type of characteristic against which the 
+     * patient is evaluated. This includes age, weight, height, 
+     * etc.</p>
+     * 
+     * <p>Other Business Name: DosagePreconditionType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ObservationDosageDefinitionPreconditionType code) {
         this.code.setValue(code);
@@ -106,37 +158,18 @@ public class DosagePreconditionsBean extends MessagePartBean {
 
 
     /**
-     * <p>DosagePreconditionValue</p>
+     * <p>Business Name: DosagePreconditionValue</p>
      * 
-     * <p>B:Dosage Precondition Value</p>
+     * <p>Other Business Name: DosagePreconditionValue</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * values of the measurements must be known.</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationEventCriterion.value</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * values of the measurements must be known.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * values of the measurements must be known.</p>
+     * <p>Minimum Age</p>
      * 
-     * <p>Minimum Age</p><p>Maximum Age</p>
-     * 
-     * <p>Minimum Age</p><p>Maximum Age</p>
-     * 
-     * <p>Allows direct comparison of the patient's characteristics 
-     * with the minimum and maximum values specified.</p><p>The 
-     * element is mandatory because there's no point in identifying 
-     * that the dosage range is based on criteria unless the 
-     * specific criterion used is expressed.</p>
+     * <p>Maximum Age</p>
      * 
      * <p>Allows direct comparison of the patient's characteristics 
      * with the minimum and maximum values specified.</p><p>The 
@@ -148,37 +181,22 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * criteria (e.g. weight), but the specific range on which the 
      * criteria is based is not known.</p>
      * 
-     * <p>B:Dosage Precondition Value</p>
-     * 
-     * <p>B:Dosage Precondition Value</p>
-     * 
      * <p>A specific value or range of values of the Dosage 
      * Precondition Type, for which the recommended dosage 
      * applies.</p><p>This includes min-max age range, min-max 
      * weights, etc.</p><p>This is a mandatory attribute as the 
      * specific range of values must be known.</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * specific range of values must be known.</p>
+     * <p>Other Business Name: DosagePreconditionValue</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * specific range of values must be known.</p>
+     * <p>Relationship: 
+     * COCT_MT260010CA.ObservationEventCriterion.value</p>
      * 
-     * <p>Minimum Age</p><p>Maximum Age</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Minimum Age</p><p>Maximum Age</p>
+     * <p>Minimum Age</p>
      * 
-     * <p>Allows direct comparison of the patient's characteristics 
-     * with the minimum and maximum values specified.</p><p>The 
-     * element is mandatory because there's no point in identifying 
-     * that the dosage range is based on criteria unless the 
-     * specific criterion used is expressed.</p>
+     * <p>Maximum Age</p>
      * 
      * <p>Allows direct comparison of the patient's characteristics 
      * with the minimum and maximum values specified.</p><p>The 
@@ -189,6 +207,19 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>If not specified, it means that the range is based on a 
      * criteria (e.g. weight), but the specific range on which the 
      * criteria is based is not known.</p>
+     * 
+     * <p>A specific value or range of values of the Dosage 
+     * Precondition Type, for which the recommended dosage 
+     * applies.</p><p>This includes min-max age range, min-max 
+     * weights, etc.</p><p>This is a mandatory attribute as the 
+     * values of the measurements must be known.</p>
+     * 
+     * <p>Other Business Name: DosagePreconditionValue</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.ObservationEventCriterion.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"value"})
     public UncertainRange<PhysicalQuantity> getValue() {
@@ -196,37 +227,18 @@ public class DosagePreconditionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosagePreconditionValue</p>
+     * <p>Business Name: DosagePreconditionValue</p>
      * 
-     * <p>B:Dosage Precondition Value</p>
+     * <p>Other Business Name: DosagePreconditionValue</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * values of the measurements must be known.</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.ObservationEventCriterion.value</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * values of the measurements must be known.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * values of the measurements must be known.</p>
+     * <p>Minimum Age</p>
      * 
-     * <p>Minimum Age</p><p>Maximum Age</p>
-     * 
-     * <p>Minimum Age</p><p>Maximum Age</p>
-     * 
-     * <p>Allows direct comparison of the patient's characteristics 
-     * with the minimum and maximum values specified.</p><p>The 
-     * element is mandatory because there's no point in identifying 
-     * that the dosage range is based on criteria unless the 
-     * specific criterion used is expressed.</p>
+     * <p>Maximum Age</p>
      * 
      * <p>Allows direct comparison of the patient's characteristics 
      * with the minimum and maximum values specified.</p><p>The 
@@ -238,37 +250,22 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * criteria (e.g. weight), but the specific range on which the 
      * criteria is based is not known.</p>
      * 
-     * <p>B:Dosage Precondition Value</p>
-     * 
-     * <p>B:Dosage Precondition Value</p>
-     * 
      * <p>A specific value or range of values of the Dosage 
      * Precondition Type, for which the recommended dosage 
      * applies.</p><p>This includes min-max age range, min-max 
      * weights, etc.</p><p>This is a mandatory attribute as the 
      * specific range of values must be known.</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * specific range of values must be known.</p>
+     * <p>Other Business Name: DosagePreconditionValue</p>
      * 
-     * <p>A specific value or range of values of the Dosage 
-     * Precondition Type, for which the recommended dosage 
-     * applies.</p><p>This includes min-max age range, min-max 
-     * weights, etc.</p><p>This is a mandatory attribute as the 
-     * specific range of values must be known.</p>
+     * <p>Relationship: 
+     * COCT_MT260010CA.ObservationEventCriterion.value</p>
      * 
-     * <p>Minimum Age</p><p>Maximum Age</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Minimum Age</p><p>Maximum Age</p>
+     * <p>Minimum Age</p>
      * 
-     * <p>Allows direct comparison of the patient's characteristics 
-     * with the minimum and maximum values specified.</p><p>The 
-     * element is mandatory because there's no point in identifying 
-     * that the dosage range is based on criteria unless the 
-     * specific criterion used is expressed.</p>
+     * <p>Maximum Age</p>
      * 
      * <p>Allows direct comparison of the patient's characteristics 
      * with the minimum and maximum values specified.</p><p>The 
@@ -279,6 +276,19 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * <p>If not specified, it means that the range is based on a 
      * criteria (e.g. weight), but the specific range on which the 
      * criteria is based is not known.</p>
+     * 
+     * <p>A specific value or range of values of the Dosage 
+     * Precondition Type, for which the recommended dosage 
+     * applies.</p><p>This includes min-max age range, min-max 
+     * weights, etc.</p><p>This is a mandatory attribute as the 
+     * values of the measurements must be known.</p>
+     * 
+     * <p>Other Business Name: DosagePreconditionValue</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.ObservationEventCriterion.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setValue(UncertainRange<PhysicalQuantity> value) {
         this.value.setValue(value);

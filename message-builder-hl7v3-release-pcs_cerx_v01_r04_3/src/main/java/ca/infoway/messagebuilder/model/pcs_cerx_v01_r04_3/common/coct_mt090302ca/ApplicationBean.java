@@ -33,58 +33,46 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Application</p>
+ * <p>Business Name: Application</p>
+ * 
+ * <p>Allows an application to be uniquely identified.</p>
  * 
  * <p>An identification of a system/application that can 
  * initiate an event to change the status of an object.</p>
- * 
- * <p>Allows an application to be uniquely identified.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT090302CA.AssignedDevice"})
 @Hl7RootType
 public class ApplicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST assignedDeviceName = new STImpl();
 
 
     /**
-     * <p>C:Application Id</p>
+     * <p>Business Name: C:Application Id</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>To uniquely identify an 
+     * application/system.</p><p>Attribute is mandatory to allow 
+     * for distinguishing different applications/systems.</p>
      * 
      * <p>Unique identifier of an application or a system.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>To uniquely identify an 
-     * application/system.</p><p>Attribute is mandatory to allow 
-     * for distinguishing different applications/systems.</p>
-     * 
-     * <p>To uniquely identify an 
-     * application/system.</p><p>Attribute is mandatory to allow 
-     * for distinguishing different applications/systems.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -92,41 +80,29 @@ public class ApplicationBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>C:Application Id</p>
+     * <p>Business Name: C:Application Id</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>To uniquely identify an 
+     * application/system.</p><p>Attribute is mandatory to allow 
+     * for distinguishing different applications/systems.</p>
      * 
      * <p>Unique identifier of an application or a system.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>To uniquely identify an 
-     * application/system.</p><p>Attribute is mandatory to allow 
-     * for distinguishing different applications/systems.</p>
-     * 
-     * <p>To uniquely identify an 
-     * application/system.</p><p>Attribute is mandatory to allow 
-     * for distinguishing different applications/systems.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -134,21 +110,22 @@ public class ApplicationBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>B:Application Name</p>
+     * <p>Business Name: B:Application Name</p>
      * 
-     * <p>The name assigned to the application/system.</p>
+     * <p>Relationship: COCT_MT090302CA.Device.name</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>PVD.070</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication. The name of the application 
      * must be known and is therefore marked as 'mandatory'.</p>
+     * 
+     * <p>The name assigned to the application/system.</p>
      */
     @Hl7XmlMapping({"assignedDevice/name"})
     public String getAssignedDeviceName() {
@@ -156,21 +133,22 @@ public class ApplicationBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>B:Application Name</p>
+     * <p>Business Name: B:Application Name</p>
      * 
-     * <p>The name assigned to the application/system.</p>
+     * <p>Relationship: COCT_MT090302CA.Device.name</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>PVD.070</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication. The name of the application 
      * must be known and is therefore marked as 'mandatory'.</p>
+     * 
+     * <p>The name assigned to the application/system.</p>
      */
     public void setAssignedDeviceName(String assignedDeviceName) {
         this.assignedDeviceName.setValue(assignedDeviceName);

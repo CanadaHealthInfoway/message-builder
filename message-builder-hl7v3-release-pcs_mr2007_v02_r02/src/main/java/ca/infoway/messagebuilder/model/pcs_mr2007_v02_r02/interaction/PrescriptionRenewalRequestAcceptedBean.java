@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 
 
 /**
- * <p>PORX_IN010730CA: Prescription renewal request accepted</p>
+ * <p>Business Name: PORX_IN010730CA: Prescription renewal 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the requested prescription has been 
+ * renewed by a new prescription, referenced by identifier.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 @Hl7PartTypeMapping({"PORX_IN010730CA"})
 public class PrescriptionRenewalRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

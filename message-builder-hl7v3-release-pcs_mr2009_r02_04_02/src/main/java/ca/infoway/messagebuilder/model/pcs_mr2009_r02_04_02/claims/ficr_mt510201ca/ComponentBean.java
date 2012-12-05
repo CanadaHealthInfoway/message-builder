@@ -29,15 +29,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Component"})
 public class ComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Component.adjudicatedInvoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"adjudicatedInvoiceElementChoice"})
     public AdjudicatedInvoiceElementChoice getAdjudicatedInvoiceElementChoice() {
         return this.adjudicatedInvoiceElementChoice;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Component.adjudicatedInvoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice) {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
     }

@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.MedicalCon
 
 
 /**
- * <p>REPC_IN000032CA: Update medical condition request</p>
+ * <p>Business Name: REPC_IN000032CA: Update medical condition 
+ * request</p>
+ * 
+ * <p>Requests that information such as severity, status, start 
+ * date and end date of a previously-recorded medical condition 
+ * be updated.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.MedicalCon
 @Hl7PartTypeMapping({"REPC_IN000032CA"})
 public class UpdateMedicalConditionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MedicalConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

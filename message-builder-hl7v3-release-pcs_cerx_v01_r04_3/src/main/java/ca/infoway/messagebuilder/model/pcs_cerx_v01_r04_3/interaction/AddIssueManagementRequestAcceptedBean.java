@@ -28,7 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 
 
 /**
- * <p>COMT_IN700002CA: Add issue management request accepted</p>
+ * <p>Business Name: COMT_IN700002CA: Add issue management 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the specified issue has been successfully 
+ * updated to include the identified management(s).</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -37,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 @Hl7PartTypeMapping({"COMT_IN700002CA"})
 public class AddIssueManagementRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

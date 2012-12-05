@@ -28,8 +28,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 
 
 /**
- * <p>FICR_IN400003CA: Special Authorization Request Refuse 
- * Response</p>
+ * <p>Business Name: FICR_IN400003CA: Special Authorization 
+ * Request Refuse Response</p>
+ * 
+ * <p>Indicates that processing of the Create SA Request for a 
+ * specific product (e.g. drug), device or service was not 
+ * approved).</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -38,6 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN400003CA"})
 public class SpecialAuthorizationRequestRefuseResponseBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -41,54 +41,82 @@ import java.util.Set;
 
 
 /**
- * <p>AvailableServices</p>
+ * <p>Business Name: AvailableServices</p>
  * 
  * <p>PRPA_MT202301CA.ServiceDefinition: Available Services</p>
  * 
- * <p>A list of available services provided by the service 
- * delivery location.</p>
- * 
  * <p>Useful when searching for a location to provide a 
  * particular service. May be used to filter query 
  * responses.</p>
+ * 
+ * <p>A list of available services provided by the service 
+ * delivery location.</p>
  * 
  * <p>PRPA_MT202302CA.ServiceDefinition: Available Services</p>
  * 
- * <p>A list of available services provided by the service 
- * delivery location.</p>
- * 
  * <p>Useful when searching for a location to provide a 
  * particular service. May be used to filter query 
  * responses.</p>
+ * 
+ * <p>A list of available services provided by the service 
+ * delivery location.</p>
  * 
  * <p>PRPA_MT202303CA.ServiceDefinition: Available Services</p>
  * 
- * <p>A list of available services provided by the service 
- * delivery location.</p>
- * 
  * <p>Useful when searching for a location to provide a 
  * particular service. May be used to filter query 
  * responses.</p>
+ * 
+ * <p>A list of available services provided by the service 
+ * delivery location.</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ServiceDefinition","PRPA_MT202302CA.ServiceDefinition","PRPA_MT202303CA.ServiceDefinition"})
 public class AvailableServicesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private SET<PIVL, PeriodicIntervalTime> activityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);
 
 
     /**
-     * <p>ServiceType</p>
+     * <p>Business Name: ServiceType</p>
      * 
-     * <p>A: Service Type</p>
+     * <p>Other Business Name: ServiceType</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.ServiceDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the attribute that defines what the service is 
+     * and is therefore mandatory.</p>
      * 
      * <p>Describes the kind of health-related service being 
      * offered.</p>
      * 
+     * <p>Other Business Name: ServiceType</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.ServiceDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>This is the attribute that defines what the service is 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Describes the kind of health-related service being 
+     * offered.</p>
+     * 
+     * <p>Other Business Name: ServiceType</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.ServiceDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the attribute that defines what the service is 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Describes the kind of health-related service being 
+     * offered.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActServiceDeliveryLocationService getCode() {
@@ -96,15 +124,43 @@ public class AvailableServicesBean extends MessagePartBean {
     }
 
     /**
-     * <p>ServiceType</p>
+     * <p>Business Name: ServiceType</p>
      * 
-     * <p>A: Service Type</p>
+     * <p>Other Business Name: ServiceType</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.ServiceDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the attribute that defines what the service is 
+     * and is therefore mandatory.</p>
      * 
      * <p>Describes the kind of health-related service being 
      * offered.</p>
      * 
+     * <p>Other Business Name: ServiceType</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.ServiceDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>This is the attribute that defines what the service is 
      * and is therefore mandatory.</p>
+     * 
+     * <p>Describes the kind of health-related service being 
+     * offered.</p>
+     * 
+     * <p>Other Business Name: ServiceType</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.ServiceDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the attribute that defines what the service is 
+     * and is therefore mandatory.</p>
+     * 
+     * <p>Describes the kind of health-related service being 
+     * offered.</p>
      */
     public void setCode(ActServiceDeliveryLocationService code) {
         this.code.setValue(code);
@@ -112,9 +168,20 @@ public class AvailableServicesBean extends MessagePartBean {
 
 
     /**
-     * <p>ServiceAvailability</p>
+     * <p>Business Name: ServiceAvailability</p>
      * 
-     * <p>B: Service Availability</p>
+     * <p>Other Business Name: ServiceAvailability</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDefinition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Services may not be always available; it is important to 
+     * know whether a service is currently available when making 
+     * decisions about where to send a patient.</p><p>Because not 
+     * all jurisdictions will support capturing availability time, 
+     * this element is being made optional.</p>
      * 
      * <p>Indicates the availability of the health-related service 
      * within the location (as known by the registry/repository). 
@@ -122,17 +189,43 @@ public class AvailableServicesBean extends MessagePartBean {
      * offered in the past and may again be offered in the future, 
      * but not available right now).</p>
      * 
-     * <p>Services may not be always available; it is important to 
-     * know whether a service is currently available when making 
-     * decisions about where to send a patient.</p><p>Because not 
-     * all jurisdictions will support capturing availability time, 
-     * this element is being made optional.</p>
+     * <p>Other Business Name: ServiceAvailability</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202302CA.ServiceDefinition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Services may not be always available; it is important to 
      * know whether a service is currently available when making 
      * decisions about where to send a patient.</p><p>Because not 
      * all jurisdictions will support capturing availability time, 
      * this element is being made optional.</p>
+     * 
+     * <p>Indicates the availability of the health-related service 
+     * within the location (as known by the registry/repository). 
+     * e.g. active (currently offered), suspended (may have been 
+     * offered in the past and may again be offered in the future, 
+     * but not available right now).</p>
+     * 
+     * <p>Other Business Name: ServiceAvailability</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202303CA.ServiceDefinition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Services may not be always available; it is important to 
+     * know whether a service is currently available when making 
+     * decisions about where to send a patient.</p><p>Because not 
+     * all jurisdictions will support capturing availability time, 
+     * this element is being made optional.</p>
+     * 
+     * <p>Indicates the availability of the health-related service 
+     * within the location (as known by the registry/repository). 
+     * e.g. active (currently offered), suspended (may have been 
+     * offered in the past and may again be offered in the future, 
+     * but not available right now).</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public x_ActStatusActiveSuspended getStatusCode() {
@@ -140,9 +233,20 @@ public class AvailableServicesBean extends MessagePartBean {
     }
 
     /**
-     * <p>ServiceAvailability</p>
+     * <p>Business Name: ServiceAvailability</p>
      * 
-     * <p>B: Service Availability</p>
+     * <p>Other Business Name: ServiceAvailability</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDefinition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Services may not be always available; it is important to 
+     * know whether a service is currently available when making 
+     * decisions about where to send a patient.</p><p>Because not 
+     * all jurisdictions will support capturing availability time, 
+     * this element is being made optional.</p>
      * 
      * <p>Indicates the availability of the health-related service 
      * within the location (as known by the registry/repository). 
@@ -150,17 +254,43 @@ public class AvailableServicesBean extends MessagePartBean {
      * offered in the past and may again be offered in the future, 
      * but not available right now).</p>
      * 
-     * <p>Services may not be always available; it is important to 
-     * know whether a service is currently available when making 
-     * decisions about where to send a patient.</p><p>Because not 
-     * all jurisdictions will support capturing availability time, 
-     * this element is being made optional.</p>
+     * <p>Other Business Name: ServiceAvailability</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202302CA.ServiceDefinition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Services may not be always available; it is important to 
      * know whether a service is currently available when making 
      * decisions about where to send a patient.</p><p>Because not 
      * all jurisdictions will support capturing availability time, 
      * this element is being made optional.</p>
+     * 
+     * <p>Indicates the availability of the health-related service 
+     * within the location (as known by the registry/repository). 
+     * e.g. active (currently offered), suspended (may have been 
+     * offered in the past and may again be offered in the future, 
+     * but not available right now).</p>
+     * 
+     * <p>Other Business Name: ServiceAvailability</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202303CA.ServiceDefinition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Services may not be always available; it is important to 
+     * know whether a service is currently available when making 
+     * decisions about where to send a patient.</p><p>Because not 
+     * all jurisdictions will support capturing availability time, 
+     * this element is being made optional.</p>
+     * 
+     * <p>Indicates the availability of the health-related service 
+     * within the location (as known by the registry/repository). 
+     * e.g. active (currently offered), suspended (may have been 
+     * offered in the past and may again be offered in the future, 
+     * but not available right now).</p>
      */
     public void setStatusCode(x_ActStatusActiveSuspended statusCode) {
         this.statusCode.setValue(statusCode);
@@ -168,12 +298,14 @@ public class AvailableServicesBean extends MessagePartBean {
 
 
     /**
-     * <p>ServiceAvailabilityTime</p>
+     * <p>Business Name: ServiceAvailabilityTime</p>
      * 
-     * <p>C: Service Availability Time</p>
+     * <p>Other Business Name: ServiceAvailabilityTime</p>
      * 
-     * <p>Specifies the time that a specific service is generally 
-     * available. E.g. 8am to 7pm, Monday through Friday.</p>
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDefinition.activityTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>We'd like this to be String, but need a datatype change 
      * to make that possible.</p>
@@ -181,6 +313,43 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Allows for a greater level of detail on service 
      * availability, i.e. hours of operation of a specific service 
      * at this location.</p>
+     * 
+     * <p>Specifies the time that a specific service is generally 
+     * available. E.g. 8am to 7pm, Monday through Friday.</p>
+     * 
+     * <p>Other Business Name: ServiceAvailabilityTime</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202302CA.ServiceDefinition.activityTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>We'd like this to be String, but need a datatype change 
+     * to make that possible.</p>
+     * 
+     * <p>Allows for a greater level of detail on service 
+     * availability, i.e. hours of operation of a specific service 
+     * at this location.</p>
+     * 
+     * <p>Specifies the time that a specific service is generally 
+     * available. E.g. 8am to 7pm, Monday through Friday.</p>
+     * 
+     * <p>Other Business Name: ServiceAvailabilityTime</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202303CA.ServiceDefinition.activityTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>We'd like this to be String, but need a datatype change 
+     * to make that possible.</p>
+     * 
+     * <p>Allows for a greater level of detail on service 
+     * availability, i.e. hours of operation of a specific service 
+     * at this location.</p>
+     * 
+     * <p>Specifies the time that a specific service is generally 
+     * available. E.g. 8am to 7pm, Monday through Friday.</p>
      */
     @Hl7XmlMapping({"activityTime"})
     public Set<PeriodicIntervalTime> getActivityTime() {

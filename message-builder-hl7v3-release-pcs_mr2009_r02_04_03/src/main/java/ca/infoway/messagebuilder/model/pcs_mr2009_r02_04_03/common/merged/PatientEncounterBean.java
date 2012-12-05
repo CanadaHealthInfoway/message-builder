@@ -33,14 +33,14 @@ import java.util.Date;
 
 
 /**
- * <p>PatientEncounter</p>
+ * <p>Business Name: PatientEncounter</p>
  * 
  * <p>COCT_MT300000CA.PatientEncounter: Patient Encounter</p>
  * 
- * <p>Patient Encounter details</p>
- * 
  * <p>Can be used to reference discharge and admit dates for an 
  * encounter in a hospital.</p>
+ * 
+ * <p>Patient Encounter details</p>
  * 
  * <p>COCT_MT290000CA.PatientEncounter: Patient Encounter</p>
  * 
@@ -49,22 +49,30 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT290000CA.PatientEncounter","COCT_MT300000CA.PatientEncounter"})
 public class PatientEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private TS effectiveTime = new TSImpl();
 
 
     /**
-     * <p>EncounterID</p>
+     * <p>Business Name: EncounterID</p>
      * 
-     * <p>Encounter ID</p>
+     * <p>Other Business Name: EncounterID</p>
      * 
-     * <p>Encounter id</p>
+     * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
-     * <p>Encounter ID</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A unique identifier that refers to the interaction with 
      * the patient.</p>
+     * 
+     * <p>Other Business Name: EncounterID</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Encounter id</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -72,16 +80,24 @@ public class PatientEncounterBean extends MessagePartBean {
     }
 
     /**
-     * <p>EncounterID</p>
+     * <p>Business Name: EncounterID</p>
      * 
-     * <p>Encounter ID</p>
+     * <p>Other Business Name: EncounterID</p>
      * 
-     * <p>Encounter id</p>
+     * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
-     * <p>Encounter ID</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A unique identifier that refers to the interaction with 
      * the patient.</p>
+     * 
+     * <p>Other Business Name: EncounterID</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Encounter id</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -89,14 +105,24 @@ public class PatientEncounterBean extends MessagePartBean {
 
 
     /**
-     * <p>Encounter Date</p>
+     * <p>Other Business Name: EncounterDate</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.PatientEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The start and end dates of the interaction with the 
      * patient, eg. for dispensing, the interval would be when the 
      * patient handed the prescription to the pharmacy to when the 
      * patient picked up the medication.</p>
      * 
-     * <p>Admit/Discharge Date</p>
+     * <p>Other Business Name: AdmitDischargeDate</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.PatientEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Time of encounter</p>
      */
@@ -106,14 +132,24 @@ public class PatientEncounterBean extends MessagePartBean {
     }
 
     /**
-     * <p>Encounter Date</p>
+     * <p>Other Business Name: EncounterDate</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.PatientEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The start and end dates of the interaction with the 
      * patient, eg. for dispensing, the interval would be when the 
      * patient handed the prescription to the pharmacy to when the 
      * patient picked up the medication.</p>
      * 
-     * <p>Admit/Discharge Date</p>
+     * <p>Other Business Name: AdmitDischargeDate</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.PatientEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Time of encounter</p>
      */

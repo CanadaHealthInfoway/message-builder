@@ -39,35 +39,39 @@ import java.util.List;
 
 
 /**
- * <p>Keyword</p>
- * 
- * <p>Information pertaining to a patient's secret password 
- * used to control access to his/her health information.</p>
+ * <p>Business Name: Keyword</p>
  * 
  * <p>Allows a patient to control access to their health 
  * information. Provides authorization for providers to view 
  * patient information.</p>
+ * 
+ * <p>Information pertaining to a patient's secret password 
+ * used to control access to his/her health information.</p>
  */
 @Hl7PartTypeMapping({"RCMR_MT010002CA.KeywordEvent"})
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
 
     /**
-     * <p>Keyword</p>
+     * <p>Business Name: Keyword</p>
      * 
-     * <p>Indicate the keyword associated with a particular 
-     * consent.</p>
+     * <p>Relationship: RCMR_MT010002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows patients to change their keyword. If explicitly 
      * set to null, removes the keyword for the identified record 
      * types. Because of this, the attribute is set to 
      * 'populated'.</p>
+     * 
+     * <p>Indicate the keyword associated with a particular 
+     * consent.</p>
      */
     @Hl7XmlMapping({"author/signatureText"})
     public String getAuthorSignatureText() {
@@ -75,15 +79,19 @@ public class KeywordBean extends MessagePartBean {
     }
 
     /**
-     * <p>Keyword</p>
+     * <p>Business Name: Keyword</p>
      * 
-     * <p>Indicate the keyword associated with a particular 
-     * consent.</p>
+     * <p>Relationship: RCMR_MT010002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows patients to change their keyword. If explicitly 
      * set to null, removes the keyword for the identified record 
      * types. Because of this, the attribute is set to 
      * 'populated'.</p>
+     * 
+     * <p>Indicate the keyword associated with a particular 
+     * consent.</p>
      */
     public void setAuthorSignatureText(String authorSignatureText) {
         this.authorSignatureText.setValue(authorSignatureText);
@@ -115,25 +123,23 @@ public class KeywordBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Consent Information Types</p>
+     * <p>Business Name: B:Consent Information Types</p>
      * 
-     * <p>The type of patient information that can be accessed or 
-     * modified. Examples are: demographics, medications, lab, DI, 
-     * etc</p><p>The keyword revisioning process may also involve 
-     * revising the list of information types covered by the 
-     * keyword.</p>
+     * <p>Relationship: RCMR_MT010002CA.RecordType.code</p>
      * 
-     * <p>The type of patient information that can be accessed or 
-     * modified. Examples are: demographics, medications, lab, DI, 
-     * etc</p><p>The keyword revisioning process may also involve 
-     * revising the list of information types covered by the 
-     * keyword.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Different keywords may be needed to access different 
      * types of patient information (e.g. demographics, 
      * medications, allergies, lab results). Understanding the type 
      * of information the keyword applies to is critical, and 
      * therefore the attribute is mandatory.</p>
+     * 
+     * <p>The type of patient information that can be accessed or 
+     * modified. Examples are: demographics, medications, lab, DI, 
+     * etc</p><p>The keyword revisioning process may also involve 
+     * revising the list of information types covered by the 
+     * keyword.</p>
      */
     @Hl7XmlMapping({"subject/recordType/code"})
     public List<ActInformationAccessCode> getSubjectRecordTypeCode() {

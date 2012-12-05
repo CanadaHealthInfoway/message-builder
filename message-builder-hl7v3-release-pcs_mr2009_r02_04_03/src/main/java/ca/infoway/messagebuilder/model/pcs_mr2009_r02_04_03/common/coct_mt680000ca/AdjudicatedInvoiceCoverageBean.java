@@ -37,13 +37,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private FinancialContractPolicyAccountBean policyOrAccount;
 
 
     /**
-     * <p>COB Priority</p>
+     * <p>Business Name: COB Priority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceCoverage.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>COB priority as adjudicated primary, secondary, etc.</p>
      */
@@ -53,7 +58,12 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
     }
 
     /**
-     * <p>COB Priority</p>
+     * <p>Business Name: COB Priority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceCoverage.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>COB priority as adjudicated primary, secondary, etc.</p>
      */
@@ -62,11 +72,23 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceCoverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"policyOrAccount"})
     public FinancialContractPolicyAccountBean getPolicyOrAccount() {
         return this.policyOrAccount;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceCoverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPolicyOrAccount(FinancialContractPolicyAccountBean policyOrAccount) {
         this.policyOrAccount = policyOrAccount;
     }

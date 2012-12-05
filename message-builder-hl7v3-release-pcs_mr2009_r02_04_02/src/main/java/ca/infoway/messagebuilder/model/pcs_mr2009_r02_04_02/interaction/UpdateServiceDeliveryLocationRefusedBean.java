@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>PRPA_IN202019CA: Update service delivery location refused</p>
+ * <p>Business Name: PRPA_IN202019CA: Update service delivery 
+ * location refused</p>
+ * 
+ * <p>Indicates that the requested modification to the service 
+ * delivery location has been refused.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"PRPA_IN202019CA"})
 public class UpdateServiceDeliveryLocationRefusedBean extends HL7Message_1Bean<TriggerEvent_4Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>REPC_IN000074CA: Update care composition request accepted</p>
+ * <p>Business Name: REPC_IN000074CA: Update care composition 
+ * request accepted</p>
+ * 
+ * <p>A modification of encounter, episode or similar data for 
+ * a particular patient or group of patients, has been 
+ * successfully added.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"REPC_IN000074CA"})
 public class UpdateCareCompositionRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

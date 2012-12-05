@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
@@ -99,7 +99,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
 
 
     /**
-     * <p>Battery Event Identifier</p>
+     * <p>Business Name: Battery Event Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.BatteryEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -114,7 +118,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
 
 
     /**
-     * <p>Type of Battery Event</p>
+     * <p>Business Name: Type of Battery Event</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.BatteryEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationOrderableLabType getCode() {
@@ -122,18 +130,34 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
     /**
-     * <p>Type of Battery Event</p>
+     * <p>Business Name: Type of Battery Event</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.BatteryEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(ObservationOrderableLabType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
     public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
         return this.primaryInformationRecipientAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
         this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
@@ -146,7 +170,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
 
 
     /**
-     * <p>Battery Event Status</p>
+     * <p>Business Name: Battery Event Status</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.BatteryEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -154,7 +182,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
     /**
-     * <p>Battery Event Status</p>
+     * <p>Business Name: Battery Event Status</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.BatteryEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -162,7 +194,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
 
 
     /**
-     * <p>Battery Event Effective Time</p>
+     * <p>Business Name: Battery Event Effective Time</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.BatteryEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Time at which the lab order became effective.</p>
      */
@@ -172,7 +208,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
     /**
-     * <p>Battery Event Effective Time</p>
+     * <p>Business Name: Battery Event Effective Time</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.BatteryEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Time at which the lab order became effective.</p>
      */
@@ -192,7 +232,12 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
 
 
     /**
-     * <p>Battery Event Confidentiality</p>
+     * <p>Business Name: Battery Event Confidentiality</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.BatteryEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -222,23 +267,45 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Component4.reportLevelObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/reportLevelObservationEvent"})
     public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent() {
         return this.component3ReportLevelObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Component1.observationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component4/observationChoice"})
     public List<ObservationChoice> getComponent4ObservationChoice() {
         return this.component4ObservationChoice;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

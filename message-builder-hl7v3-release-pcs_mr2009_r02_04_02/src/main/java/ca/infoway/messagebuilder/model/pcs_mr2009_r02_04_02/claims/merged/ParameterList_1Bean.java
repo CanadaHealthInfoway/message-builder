@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterList_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS coveredPartyDOBValue = new TSImpl();
     private CV coveredPartyGenderValue = new CVImpl();
     private PN coveredPartyNameValue = new PNImpl();
@@ -71,9 +71,19 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>CoveredPartyBirthdate</p>
+     * <p>Business Name: CoveredPartyBirthdate</p>
      * 
-     * <p>Covered Party Birthdate</p>
+     * <p>Other Business Name: CoveredPartyBirthdate</p>
+     * 
+     * <p>Relationship: FICR_MT490002CA.CoveredPartyDOB.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyBirthdate</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.CoveredPartyDOB.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"coveredPartyDOB/value"})
     public Date getCoveredPartyDOBValue() {
@@ -81,9 +91,19 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>CoveredPartyBirthdate</p>
+     * <p>Business Name: CoveredPartyBirthdate</p>
      * 
-     * <p>Covered Party Birthdate</p>
+     * <p>Other Business Name: CoveredPartyBirthdate</p>
+     * 
+     * <p>Relationship: FICR_MT490002CA.CoveredPartyDOB.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyBirthdate</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.CoveredPartyDOB.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCoveredPartyDOBValue(Date coveredPartyDOBValue) {
         this.coveredPartyDOBValue.setValue(coveredPartyDOBValue);
@@ -91,9 +111,17 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Covered Party Gender</p>
+     * <p>Other Business Name: GenderOfCoveredParty</p>
      * 
-     * <p>Gender of covered party</p>
+     * <p>Relationship: FICR_MT490002CA.CoveredPartyGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyGender</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.CoveredPartyGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"coveredPartyGender/value"})
     public AdministrativeGender getCoveredPartyGenderValue() {
@@ -101,9 +129,17 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Covered Party Gender</p>
+     * <p>Other Business Name: GenderOfCoveredParty</p>
      * 
-     * <p>Gender of covered party</p>
+     * <p>Relationship: FICR_MT490002CA.CoveredPartyGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyGender</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.CoveredPartyGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCoveredPartyGenderValue(AdministrativeGender coveredPartyGenderValue) {
         this.coveredPartyGenderValue.setValue(coveredPartyGenderValue);
@@ -111,9 +147,17 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Covered Party Name</p>
+     * <p>Other Business Name: CoveredPartyName</p>
      * 
-     * <p>Covered Party (Patient) Name</p>
+     * <p>Relationship: FICR_MT490002CA.CoveredPartyName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientName</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.CoveredPartyName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"coveredPartyName/value"})
     public PersonName getCoveredPartyNameValue() {
@@ -121,9 +165,17 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Covered Party Name</p>
+     * <p>Other Business Name: CoveredPartyName</p>
      * 
-     * <p>Covered Party (Patient) Name</p>
+     * <p>Relationship: FICR_MT490002CA.CoveredPartyName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CoveredPartyPatientName</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.CoveredPartyName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCoveredPartyNameValue(PersonName coveredPartyNameValue) {
         this.coveredPartyNameValue.setValue(coveredPartyNameValue);
@@ -131,9 +183,19 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PolicyIdentifier</p>
+     * <p>Business Name: PolicyIdentifier</p>
      * 
-     * <p>Policy Identifier</p>
+     * <p>Other Business Name: PolicyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490002CA.PolicyIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.PolicyIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"policyIdentifier/value"})
     public Identifier getPolicyIdentifierValue() {
@@ -141,9 +203,19 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PolicyIdentifier</p>
+     * <p>Business Name: PolicyIdentifier</p>
      * 
-     * <p>Policy Identifier</p>
+     * <p>Other Business Name: PolicyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490002CA.PolicyIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.PolicyIdentifier.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setPolicyIdentifierValue(Identifier policyIdentifierValue) {
         this.policyIdentifierValue.setValue(policyIdentifierValue);
@@ -151,9 +223,14 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>SpecialAuthorizationRequestID</p>
+     * <p>Business Name: SpecialAuthorizationRequestID</p>
      * 
-     * <p>Special Authorization Request ID</p>
+     * <p>Other Business Name: SpecialAuthorizationRequestID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490002CA.SpecialAuthorizationRequestID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"specialAuthorizationRequestID/value"})
     public Identifier getSpecialAuthorizationRequestIDValue() {
@@ -161,9 +238,14 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecialAuthorizationRequestID</p>
+     * <p>Business Name: SpecialAuthorizationRequestID</p>
      * 
-     * <p>Special Authorization Request ID</p>
+     * <p>Other Business Name: SpecialAuthorizationRequestID</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490002CA.SpecialAuthorizationRequestID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setSpecialAuthorizationRequestIDValue(Identifier specialAuthorizationRequestIDValue) {
         this.specialAuthorizationRequestIDValue.setValue(specialAuthorizationRequestIDValue);
@@ -171,9 +253,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>ApprovedDeviceCode</p>
+     * <p>Business Name: ApprovedDeviceCode</p>
      * 
-     * <p>Approved Device Code</p>
+     * <p>Other Business Name: ApprovedDeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.ApprovedDeviceCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"approvedDeviceCode/value"})
     public ClinicalDeviceEntity getApprovedDeviceCodeValue() {
@@ -181,9 +267,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>ApprovedDeviceCode</p>
+     * <p>Business Name: ApprovedDeviceCode</p>
      * 
-     * <p>Approved Device Code</p>
+     * <p>Other Business Name: ApprovedDeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.ApprovedDeviceCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setApprovedDeviceCodeValue(ClinicalDeviceEntity approvedDeviceCodeValue) {
         this.approvedDeviceCodeValue.setValue(approvedDeviceCodeValue);
@@ -191,9 +281,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>ApprovedDrugCode</p>
+     * <p>Business Name: ApprovedDrugCode</p>
      * 
-     * <p>Approved Drug Code</p>
+     * <p>Other Business Name: ApprovedDrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.ApprovedDrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"approvedDrugCode/value"})
     public ClinicalDrug getApprovedDrugCodeValue() {
@@ -201,9 +295,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>ApprovedDrugCode</p>
+     * <p>Business Name: ApprovedDrugCode</p>
      * 
-     * <p>Approved Drug Code</p>
+     * <p>Other Business Name: ApprovedDrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.ApprovedDrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setApprovedDrugCodeValue(ClinicalDrug approvedDrugCodeValue) {
         this.approvedDrugCodeValue.setValue(approvedDrugCodeValue);
@@ -211,9 +309,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>AuthorID</p>
+     * <p>Business Name: AuthorID</p>
      * 
-     * <p>Author ID</p>
+     * <p>Other Business Name: AuthorID</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.AuthorID.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"authorID/id"})
     public Identifier getAuthorIDId() {
@@ -221,9 +323,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AuthorID</p>
+     * <p>Business Name: AuthorID</p>
      * 
-     * <p>Author ID</p>
+     * <p>Other Business Name: AuthorID</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.AuthorID.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAuthorIDId(Identifier authorIDId) {
         this.authorIDId.setValue(authorIDId);
@@ -231,9 +337,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>AuthorName</p>
+     * <p>Business Name: AuthorName</p>
      * 
-     * <p>Author Name</p>
+     * <p>Other Business Name: AuthorName</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.AuthorName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"authorName/value"})
     public PersonName getAuthorNameValue() {
@@ -241,9 +351,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AuthorName</p>
+     * <p>Business Name: AuthorName</p>
      * 
-     * <p>Author Name</p>
+     * <p>Other Business Name: AuthorName</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.AuthorName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAuthorNameValue(PersonName authorNameValue) {
         this.authorNameValue.setValue(authorNameValue);
@@ -251,9 +365,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>SpecialAuthorizationExpiryDateRange</p>
+     * <p>Business Name: SpecialAuthorizationExpiryDateRange</p>
      * 
-     * <p>Special Authorization Expiry Date Range</p>
+     * <p>Other Business Name: SpecialAuthorizationExpiryDateRange</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.ExpiryDateRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"expiryDateRange/value"})
     public Interval<Date> getExpiryDateRangeValue() {
@@ -261,9 +379,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecialAuthorizationExpiryDateRange</p>
+     * <p>Business Name: SpecialAuthorizationExpiryDateRange</p>
      * 
-     * <p>Special Authorization Expiry Date Range</p>
+     * <p>Other Business Name: SpecialAuthorizationExpiryDateRange</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.ExpiryDateRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setExpiryDateRangeValue(Interval<Date> expiryDateRangeValue) {
         this.expiryDateRangeValue.setValue(expiryDateRangeValue);
@@ -271,9 +393,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>RequestedDeviceCode</p>
+     * <p>Business Name: RequestedDeviceCode</p>
      * 
-     * <p>Requested Device Code</p>
+     * <p>Other Business Name: RequestedDeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.RequestedDeviceCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"requestedDeviceCode/value"})
     public ClinicalDeviceEntity getRequestedDeviceCodeValue() {
@@ -281,9 +407,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>RequestedDeviceCode</p>
+     * <p>Business Name: RequestedDeviceCode</p>
      * 
-     * <p>Requested Device Code</p>
+     * <p>Other Business Name: RequestedDeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.RequestedDeviceCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setRequestedDeviceCodeValue(ClinicalDeviceEntity requestedDeviceCodeValue) {
         this.requestedDeviceCodeValue.setValue(requestedDeviceCodeValue);
@@ -291,9 +421,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>RequestedDrugCode</p>
+     * <p>Business Name: RequestedDrugCode</p>
      * 
-     * <p>Requested Drug Code</p>
+     * <p>Other Business Name: RequestedDrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.RequestedDrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"requestedDrugCode/value"})
     public ClinicalDrug getRequestedDrugCodeValue() {
@@ -301,9 +435,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>RequestedDrugCode</p>
+     * <p>Business Name: RequestedDrugCode</p>
      * 
-     * <p>Requested Drug Code</p>
+     * <p>Other Business Name: RequestedDrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT490001CA.RequestedDrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setRequestedDrugCodeValue(ClinicalDrug requestedDrugCodeValue) {
         this.requestedDrugCodeValue.setValue(requestedDrugCodeValue);
@@ -311,9 +449,14 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>SpecialAuthorizationRequestType</p>
+     * <p>Business Name: SpecialAuthorizationRequestType</p>
      * 
-     * <p>Special Authorization Request Type</p>
+     * <p>Other Business Name: SpecialAuthorizationRequestType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490001CA.SpecialAuthorizationRequestType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"specialAuthorizationRequestType/value"})
     public ActSpecialAuthorizationCode getSpecialAuthorizationRequestTypeValue() {
@@ -321,9 +464,14 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecialAuthorizationRequestType</p>
+     * <p>Business Name: SpecialAuthorizationRequestType</p>
      * 
-     * <p>Special Authorization Request Type</p>
+     * <p>Other Business Name: SpecialAuthorizationRequestType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490001CA.SpecialAuthorizationRequestType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setSpecialAuthorizationRequestTypeValue(ActSpecialAuthorizationCode specialAuthorizationRequestTypeValue) {
         this.specialAuthorizationRequestTypeValue.setValue(specialAuthorizationRequestTypeValue);
@@ -331,9 +479,14 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>SpecialAuthorizationStatus</p>
+     * <p>Business Name: SpecialAuthorizationStatus</p>
      * 
-     * <p>Special Authorization Status</p>
+     * <p>Other Business Name: SpecialAuthorizationStatus</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490001CA.SpecialAuthorizationStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"specialAuthorizationStatus/value"})
     public List<ActStatus> getSpecialAuthorizationStatusValue() {

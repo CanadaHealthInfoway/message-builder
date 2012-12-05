@@ -30,18 +30,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Device playing the Sending Application Role</p>
+ * <p>Business Name: Device playing the Sending Application 
+ * Role</p>
  * 
  * <p>Device playing the Sending Application Role</p>
  */
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsSendingAppRole"})
 public class DevicePlayingTheSendingApplicationRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II playingAdjudResultsSendingAppDeviceId = new IIImpl();
 
 
     /**
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsSendingAppDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Sending application identifier</p>
      */
     @Hl7XmlMapping({"playingAdjudResultsSendingAppDevice/id"})
@@ -50,6 +56,11 @@ public class DevicePlayingTheSendingApplicationRoleBean extends MessagePartBean 
     }
 
     /**
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsSendingAppDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Sending application identifier</p>
      */
     public void setPlayingAdjudResultsSendingAppDeviceId(Identifier playingAdjudResultsSendingAppDeviceId) {

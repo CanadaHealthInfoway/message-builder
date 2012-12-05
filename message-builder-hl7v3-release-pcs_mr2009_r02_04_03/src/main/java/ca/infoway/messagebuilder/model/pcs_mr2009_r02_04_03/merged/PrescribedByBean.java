@@ -38,110 +38,104 @@ import java.util.Date;
 /**
  * <p>PORX_MT060040CA.Author4: *b:prescribed by</p>
  * 
+ * <p>To be a legal order, the person responsible for its 
+ * creation must be identified. Thus the association is 
+ * mandatory.</p>
+ * 
  * <p>This is the provider who authorized the device to be 
  * dispensed to the patient.</p>
  * 
+ * <p>PORX_MT030040CA.Author2: *b:prescribed by</p>
+ * 
  * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
  * mandatory.</p>
- * 
- * <p>PORX_MT030040CA.Author2: *b:prescribed by</p>
  * 
  * <p>This is the provider who authorized the medication to be 
  * dispensed to the patient.</p>
- * 
- * <p>To be a legal order, the person responsible for its 
- * creation must be identified. Thus the association is 
- * mandatory.</p>
  * 
  * <p>PORX_MT060340CA.Author4: *b:prescribed by</p>
  * 
- * <p>This is the provider who authorized the medication to be 
- * dispensed to the patient.</p>
- * 
  * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
  * mandatory.</p>
  * 
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
+ * 
  * <p>PORX_MT020050CA.Author2: prescribed by</p>
+ * 
+ * <p>Used to create an 'inferred' prescription if an 
+ * electronic prescription does not already exist in the 
+ * EHR.</p><p>The attribute is marked as &quot;populated&quot; 
+ * as the prescriber must be known or null flavour 
+ * specified.</p>
  * 
  * <p>The person who ordered the office supply.</p>
  * 
- * <p>Used to create an 'inferred' prescription if an 
- * electronic prescription does not already exist in the 
- * EHR.</p><p>The attribute is marked as &quot;populated&quot; 
- * as the prescriber must be known or null flavour 
- * specified.</p>
- * 
- * <p>Used to create an 'inferred' prescription if an 
- * electronic prescription does not already exist in the 
- * EHR.</p><p>The attribute is marked as &quot;populated&quot; 
- * as the prescriber must be known or null flavour 
- * specified.</p>
- * 
  * <p>RCMR_MT010001CA.Author2: c:overridden by</p>
- * 
- * <p>Indicates that information access was approved by a 
- * provider rather than a patient. I.e. This is an override 
- * rather than an actual consent.</p>
  * 
  * <p>Clinical circumstances may demand that a patient's 
  * information be accessed without consent to ensure patient 
  * safety.</p>
  * 
- * <p>PORX_MT060160CA.Author4: *b:prescribed by</p>
+ * <p>Indicates that information access was approved by a 
+ * provider rather than a patient. I.e. This is an override 
+ * rather than an actual consent.</p>
  * 
- * <p>This is the provider who authorized the medication to be 
- * dispensed to the patient.</p>
+ * <p>PORX_MT060160CA.Author4: *b:prescribed by</p>
  * 
  * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
  * mandatory.</p>
+ * 
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
  * <p>PORX_MT060020CA.Author2: *b:prescribed by</p>
  * 
- * <p>This is the provider who authorized the device to be 
- * dispensed to the patient.</p>
+ * <p>Prescription.Prescriber</p>
  * 
- * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
- * 
- * <p>Prescription.Prescriber</p><p>A_BillablePharmacyDispense</p>
+ * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
  * mandatory.</p>
+ * 
+ * <p>This is the provider who authorized the device to be 
+ * dispensed to the patient.</p>
  * 
  * <p>PORX_MT060100CA.Author2: *b:prescribed by</p>
  * 
- * <p>This is the provider who authorized the medication to be 
- * dispensed to the patient.</p>
- * 
  * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
  * mandatory.</p>
+ * 
+ * <p>This is the provider who authorized the medication to be 
+ * dispensed to the patient.</p>
  * 
  * <p>PORX_MT060190CA.Author2: *c:prescribed by</p>
  * 
+ * <p>To be a legal order, the person responsible for its 
+ * creation must be identified. Thus the association is 
+ * mandatory.</p>
+ * 
  * <p>This is the provider who authorized the medication to be 
  * dispensed to the patient.</p>
  * 
+ * <p>PORX_MT060060CA.Author2: *b:prescribed by</p>
+ * 
  * <p>To be a legal order, the person responsible for its 
  * creation must be identified. Thus the association is 
  * mandatory.</p>
- * 
- * <p>PORX_MT060060CA.Author2: *b:prescribed by</p>
  * 
  * <p>This is the provider who authorized the device to be 
  * dispensed to the patient.</p>
- * 
- * <p>To be a legal order, the person responsible for its 
- * creation must be identified. Thus the association is 
- * mandatory.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060040CA.Author4","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060160CA.Author4","PORX_MT060190CA.Author2","PORX_MT060340CA.Author4","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -149,61 +143,136 @@ public class PrescribedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * always be known, except for inferred prescriptions.</p>
+     * 
+     * <p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
      * 
      * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
      * valid to be dispensed or administered for two weeks.</p>
      * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
-     * populated as it will not be there for inferred 
-     * prescriptions.</p>
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Prescription.prescribedDate</p>
+     * 
+     * <p>Date prescription written</p>
+     * 
+     * <p>ZDP.8</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=85, format=102)</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=LO, format=102, where filter 
+     * type = most recent)</p>
+     * 
+     * <p>Claim:414-DE</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription may 
+     * not be known, as in the case of 'inferred prescription'.</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060100CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Essential information for a prescription to be 
+     * legal.</p><p>This information may not always be known for an 
+     * inferred prescription, and is therefore marked as 
+     * &quot;populated&quot;.</p>
      * 
      * <p>The date that the prescription was written by the 
      * prescriber.</p>
      * 
-     * <p>Essential information for a prescription to be 
-     * legal.</p><p>This information may not always be known for an 
-     * inferred prescription, and is therefore marked as 
-     * &quot;populated&quot;.</p>
+     * <p>Other Business Name: PrescribedDate</p>
      * 
-     * <p>Essential information for a prescription to be 
-     * legal.</p><p>This information may not always be known for an 
-     * inferred prescription, and is therefore marked as 
-     * &quot;populated&quot;.</p>
+     * <p>Relationship: PORX_MT060060CA.Author2.time</p>
      * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p>
-     * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p>The date at which the device was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -211,94 +280,10 @@ public class PrescribedByBean extends MessagePartBean {
      * not be know if a repository is pre-populated with dispense 
      * information.</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be know if a repository is pre-populated with dispense 
-     * information.</p>
-     * 
-     * <p>Prescription Order Date</p>
-     * 
      * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
      * valid to be dispensed or used for two weeks.</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated as it will not be there for inferred 
-     * prescriptions.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated as it will not be there for inferred 
-     * prescriptions.</p>
-     * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p>
-     * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p>The date at which the device was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -306,61 +291,136 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * always be known, except for inferred prescriptions.</p>
+     * 
+     * <p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
      * 
      * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
      * valid to be dispensed or administered for two weeks.</p>
      * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
-     * populated as it will not be there for inferred 
-     * prescriptions.</p>
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Prescription.prescribedDate</p>
+     * 
+     * <p>Date prescription written</p>
+     * 
+     * <p>ZDP.8</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=85, format=102)</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=LO, format=102, where filter 
+     * type = most recent)</p>
+     * 
+     * <p>Claim:414-DE</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription may 
+     * not be known, as in the case of 'inferred prescription'.</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060100CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated as it will not be there for inferred 
+     * prescriptions.</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Essential information for a prescription to be 
+     * legal.</p><p>This information may not always be known for an 
+     * inferred prescription, and is therefore marked as 
+     * &quot;populated&quot;.</p>
      * 
      * <p>The date that the prescription was written by the 
      * prescriber.</p>
      * 
-     * <p>Essential information for a prescription to be 
-     * legal.</p><p>This information may not always be known for an 
-     * inferred prescription, and is therefore marked as 
-     * &quot;populated&quot;.</p>
+     * <p>Other Business Name: PrescribedDate</p>
      * 
-     * <p>Essential information for a prescription to be 
-     * legal.</p><p>This information may not always be known for an 
-     * inferred prescription, and is therefore marked as 
-     * &quot;populated&quot;.</p>
+     * <p>Relationship: PORX_MT060060CA.Author2.time</p>
      * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be known, as in the case of 'inferred prescription'.</p>
-     * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p>The date at which the device was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -368,94 +428,10 @@ public class PrescribedByBean extends MessagePartBean {
      * not be know if a repository is pre-populated with dispense 
      * information.</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription may 
-     * not be know if a repository is pre-populated with dispense 
-     * information.</p>
-     * 
-     * <p>Prescription Order Date</p>
-     * 
      * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
      * valid to be dispensed or used for two weeks.</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated as it will not be there for inferred 
-     * prescriptions.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated as it will not be there for inferred 
-     * prescriptions.</p>
-     * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p>
-     * 
-     * <p>Prescribed Date</p>
-     * 
-     * <p>The date at which the device was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * always be known, except for inferred prescriptions.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -463,17 +439,49 @@ public class PrescribedByBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionTransmissionMethod</p>
+     * <p>Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Prescription Transmission Method</p>
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p>
      * 
      * <p>Indicates the medium in which a prescription was 
      * transmitted to or received by the person who entered it into 
      * the electronic record.</p>
      * 
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Some jurisdictions have a requirement to track how an 
      * order was received. May also be important when orders are 
      * entered into a central repository from the pharmacy.</p>
+     * 
+     * <p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p>
+     * 
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p>
+     * 
+     * <p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
@@ -481,17 +489,49 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionTransmissionMethod</p>
+     * <p>Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Prescription Transmission Method</p>
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p>
      * 
      * <p>Indicates the medium in which a prescription was 
      * transmitted to or received by the person who entered it into 
      * the electronic record.</p>
      * 
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Some jurisdictions have a requirement to track how an 
      * order was received. May also be important when orders are 
      * entered into a central repository from the pharmacy.</p>
+     * 
+     * <p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p>
+     * 
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p>
+     * 
+     * <p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p>
      */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
@@ -499,16 +539,46 @@ public class PrescribedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Signature</p>
+     * <p>Business Name: Signature</p>
      * 
-     * <p>Signature</p>
+     * <p>Other Business Name: Signature</p>
      * 
-     * <p>An electronic signature of the prescription by the 
-     * prescriber.</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows for pure electronic prescriptions without a 
      * trusted intermediary. The attribute is optional because all 
      * jurisdictions may not support digital signatures.</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
+     * 
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
+     * 
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
@@ -516,27 +586,179 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Signature</p>
+     * <p>Business Name: Signature</p>
      * 
-     * <p>Signature</p>
+     * <p>Other Business Name: Signature</p>
      * 
-     * <p>An electronic signature of the prescription by the 
-     * prescriber.</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows for pure electronic prescriptions without a 
      * trusted intermediary. The attribute is optional because all 
      * jurisdictions may not support digital signatures.</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
+     * 
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
+     * 
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
      */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060100CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060100CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }

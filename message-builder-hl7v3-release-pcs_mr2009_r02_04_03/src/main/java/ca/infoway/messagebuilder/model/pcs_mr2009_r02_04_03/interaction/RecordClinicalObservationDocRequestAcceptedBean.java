@@ -29,8 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 
 
 /**
- * <p>REPC_IN000080CA: Record clinical observation doc. request 
- * accepted</p>
+ * <p>Business Name: REPC_IN000080CA: Record clinical 
+ * observation doc. request accepted</p>
+ * 
+ * <p>Indicates that a clinical observation document about a 
+ * patient has been recorded.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 @Hl7PartTypeMapping({"REPC_IN000080CA"})
 public class RecordClinicalObservationDocRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

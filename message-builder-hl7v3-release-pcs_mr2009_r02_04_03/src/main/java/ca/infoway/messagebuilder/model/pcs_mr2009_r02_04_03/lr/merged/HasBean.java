@@ -35,56 +35,88 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Has</p>
+ * <p>Business Name: Has</p>
  * 
  * <p>PRPA_MT202303CA.IdentifiedLocation: *k:has</p>
  * 
- * <p>Provides additional identifiers by which the location may 
- * be known.</p>
- * 
  * <p>In a registry, it is often necessary to link a location 
  * record to other registries or to commonly used 
  * jurisdictional identifiers.</p>
+ * 
+ * <p>Provides additional identifiers by which the location may 
+ * be known.</p>
  * 
  * <p>PRPA_MT202302CA.IdentifiedLocation: *k:has</p>
  * 
- * <p>Provides additional identifiers by which the location may 
- * be known.</p>
- * 
  * <p>In a registry, it is often necessary to link a location 
  * record to other registries or to commonly used 
  * jurisdictional identifiers.</p>
+ * 
+ * <p>Provides additional identifiers by which the location may 
+ * be known.</p>
  * 
  * <p>PRPA_MT202301CA.IdentifiedLocation: *k:has</p>
  * 
- * <p>Provides additional identifiers by which the location may 
- * be known.</p>
- * 
  * <p>In a registry, it is often necessary to link a location 
  * record to other registries or to commonly used 
  * jurisdictional identifiers.</p>
+ * 
+ * <p>Provides additional identifiers by which the location may 
+ * be known.</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT202301CA.IdentifiedLocation","PRPA_MT202302CA.IdentifiedLocation","PRPA_MT202303CA.IdentifiedLocation"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST assigningIdentifierOrganizationName = new STImpl();
 
 
     /**
-     * <p>Identifier</p>
+     * <p>Business Name: Identifier</p>
      * 
-     * <p>A: Identifier</p>
+     * <p>Other Business Name: Identifier</p>
      * 
-     * <p>An identifier by which the location is known.</p>
+     * <p>Relationship: PRPA_MT202303CA.IdentifiedLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Specifies the actual identifier that can be used for 
      * searching or linking. The attribute is mandatory because 
      * there is no point specifying an &quot;Other 
      * Identifiers&quot; class if you are not going to specify an 
      * identifier.</p>
+     * 
+     * <p>An identifier by which the location is known.</p>
+     * 
+     * <p>Other Business Name: Identifier</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.IdentifiedLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Specifies the actual identifier that can be used for 
+     * searching or linking. The attribute is mandatory because 
+     * there is no point specifying an &quot;Other 
+     * Identifiers&quot; class if you are not going to specify an 
+     * identifier.</p>
+     * 
+     * <p>An identifier by which the location is known.</p>
+     * 
+     * <p>Other Business Name: Identifier</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.IdentifiedLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Specifies the actual identifier that can be used for 
+     * searching or linking. The attribute is mandatory because 
+     * there is no point specifying an &quot;Other 
+     * Identifiers&quot; class if you are not going to specify an 
+     * identifier.</p>
+     * 
+     * <p>An identifier by which the location is known.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -92,17 +124,49 @@ public class HasBean extends MessagePartBean {
     }
 
     /**
-     * <p>Identifier</p>
+     * <p>Business Name: Identifier</p>
      * 
-     * <p>A: Identifier</p>
+     * <p>Other Business Name: Identifier</p>
      * 
-     * <p>An identifier by which the location is known.</p>
+     * <p>Relationship: PRPA_MT202303CA.IdentifiedLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Specifies the actual identifier that can be used for 
      * searching or linking. The attribute is mandatory because 
      * there is no point specifying an &quot;Other 
      * Identifiers&quot; class if you are not going to specify an 
      * identifier.</p>
+     * 
+     * <p>An identifier by which the location is known.</p>
+     * 
+     * <p>Other Business Name: Identifier</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.IdentifiedLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Specifies the actual identifier that can be used for 
+     * searching or linking. The attribute is mandatory because 
+     * there is no point specifying an &quot;Other 
+     * Identifiers&quot; class if you are not going to specify an 
+     * identifier.</p>
+     * 
+     * <p>An identifier by which the location is known.</p>
+     * 
+     * <p>Other Business Name: Identifier</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.IdentifiedLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Specifies the actual identifier that can be used for 
+     * searching or linking. The attribute is mandatory because 
+     * there is no point specifying an &quot;Other 
+     * Identifiers&quot; class if you are not going to specify an 
+     * identifier.</p>
+     * 
+     * <p>An identifier by which the location is known.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -110,16 +174,46 @@ public class HasBean extends MessagePartBean {
 
 
     /**
-     * <p>IdentifierType</p>
+     * <p>Business Name: IdentifierType</p>
      * 
-     * <p>B:Identifier Type</p>
+     * <p>Other Business Name: IdentifierType</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.IdentifiedLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the appropriate use for the 
+     * identifier and is therefore mandatory.</p>
      * 
      * <p>Specifies the kind of identifier being communicated. For 
      * example, billing identifier, regional identifier, public 
      * health identifier, etc.</p>
      * 
+     * <p>Other Business Name: IdentifierType</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.IdentifiedLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides context around the appropriate use for the 
      * identifier and is therefore mandatory.</p>
+     * 
+     * <p>Specifies the kind of identifier being communicated. For 
+     * example, billing identifier, regional identifier, public 
+     * health identifier, etc.</p>
+     * 
+     * <p>Other Business Name: IdentifierType</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.IdentifiedLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the appropriate use for the 
+     * identifier and is therefore mandatory.</p>
+     * 
+     * <p>Specifies the kind of identifier being communicated. For 
+     * example, billing identifier, regional identifier, public 
+     * health identifier, etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public LocationIdentifiedEntityRoleType getCode() {
@@ -127,16 +221,46 @@ public class HasBean extends MessagePartBean {
     }
 
     /**
-     * <p>IdentifierType</p>
+     * <p>Business Name: IdentifierType</p>
      * 
-     * <p>B:Identifier Type</p>
+     * <p>Other Business Name: IdentifierType</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.IdentifiedLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the appropriate use for the 
+     * identifier and is therefore mandatory.</p>
      * 
      * <p>Specifies the kind of identifier being communicated. For 
      * example, billing identifier, regional identifier, public 
      * health identifier, etc.</p>
      * 
+     * <p>Other Business Name: IdentifierType</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.IdentifiedLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Provides context around the appropriate use for the 
      * identifier and is therefore mandatory.</p>
+     * 
+     * <p>Specifies the kind of identifier being communicated. For 
+     * example, billing identifier, regional identifier, public 
+     * health identifier, etc.</p>
+     * 
+     * <p>Other Business Name: IdentifierType</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.IdentifiedLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the appropriate use for the 
+     * identifier and is therefore mandatory.</p>
+     * 
+     * <p>Specifies the kind of identifier being communicated. For 
+     * example, billing identifier, regional identifier, public 
+     * health identifier, etc.</p>
      */
     public void setCode(LocationIdentifiedEntityRoleType code) {
         this.code.setValue(code);
@@ -144,18 +268,52 @@ public class HasBean extends MessagePartBean {
 
 
     /**
-     * <p>IdentifyingOrganization</p>
+     * <p>Business Name: IdentifyingOrganization</p>
      * 
-     * <p>C: Identifying Organization</p>
+     * <p>Other Business Name: IdentifyingOrganization</p>
      * 
-     * <p>This is the name of the organization which issued and/or 
-     * uses the identifier for the location.</p>
+     * <p>Relationship: PRPA_MT202303CA.IdentifierOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Further qualifies how the identifier is intended to be 
      * used. For example distinguishing a health-region assigned 
      * identifier from a provincially-assigned identifier. Because 
      * it is important to understanding the identifier, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>This is the name of the organization which issued and/or 
+     * uses the identifier for the location.</p>
+     * 
+     * <p>Other Business Name: IdentifyingOrganization</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.IdentifierOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Further qualifies how the identifier is intended to be 
+     * used. For example distinguishing a health-region assigned 
+     * identifier from a provincially-assigned identifier. Because 
+     * it is important to understanding the identifier, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>This is the name of the organization which issued and/or 
+     * uses the identifier for the location.</p>
+     * 
+     * <p>Other Business Name: IdentifyingOrganization</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.IdentifierOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Further qualifies how the identifier is intended to be 
+     * used. For example distinguishing a health-region assigned 
+     * identifier from a provincially-assigned identifier. Because 
+     * it is important to understanding the identifier, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>This is the name of the organization which issued and/or 
+     * uses the identifier for the location.</p>
      */
     @Hl7XmlMapping({"assigningIdentifierOrganization/name"})
     public String getAssigningIdentifierOrganizationName() {
@@ -163,18 +321,52 @@ public class HasBean extends MessagePartBean {
     }
 
     /**
-     * <p>IdentifyingOrganization</p>
+     * <p>Business Name: IdentifyingOrganization</p>
      * 
-     * <p>C: Identifying Organization</p>
+     * <p>Other Business Name: IdentifyingOrganization</p>
      * 
-     * <p>This is the name of the organization which issued and/or 
-     * uses the identifier for the location.</p>
+     * <p>Relationship: PRPA_MT202303CA.IdentifierOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Further qualifies how the identifier is intended to be 
      * used. For example distinguishing a health-region assigned 
      * identifier from a provincially-assigned identifier. Because 
      * it is important to understanding the identifier, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>This is the name of the organization which issued and/or 
+     * uses the identifier for the location.</p>
+     * 
+     * <p>Other Business Name: IdentifyingOrganization</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.IdentifierOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Further qualifies how the identifier is intended to be 
+     * used. For example distinguishing a health-region assigned 
+     * identifier from a provincially-assigned identifier. Because 
+     * it is important to understanding the identifier, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>This is the name of the organization which issued and/or 
+     * uses the identifier for the location.</p>
+     * 
+     * <p>Other Business Name: IdentifyingOrganization</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.IdentifierOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Further qualifies how the identifier is intended to be 
+     * used. For example distinguishing a health-region assigned 
+     * identifier from a provincially-assigned identifier. Because 
+     * it is important to understanding the identifier, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>This is the name of the organization which issued and/or 
+     * uses the identifier for the location.</p>
      */
     public void setAssigningIdentifierOrganizationName(String assigningIdentifierOrganizationName) {
         this.assigningIdentifierOrganizationName.setValue(assigningIdentifierOrganizationName);

@@ -41,13 +41,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.Invoic
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private InvoiceElementChoice invoiceElementChoice;
 
 
     /**
-     * <p>Invoice Element Sequence Number</p>
+     * <p>Business Name: Invoice Element Sequence Number</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementComponent.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
@@ -55,18 +60,35 @@ public class InvoiceElementComponentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Invoice Element Sequence Number</p>
+     * <p>Business Name: Invoice Element Sequence Number</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementComponent.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementComponent.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"invoiceElementChoice"})
     public InvoiceElementChoice getInvoiceElementChoice() {
         return this.invoiceElementChoice;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementComponent.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInvoiceElementChoice(InvoiceElementChoice invoiceElementChoice) {
         this.invoiceElementChoice = invoiceElementChoice;
     }

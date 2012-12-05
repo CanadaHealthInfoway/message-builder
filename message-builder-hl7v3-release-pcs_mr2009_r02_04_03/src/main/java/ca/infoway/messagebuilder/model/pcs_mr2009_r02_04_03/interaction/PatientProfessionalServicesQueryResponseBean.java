@@ -30,8 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt610004ca
 
 
 /**
- * <p>REPC_IN000042CA: Patient professional services query 
- * response</p>
+ * <p>Business Name: REPC_IN000042CA: Patient professional 
+ * services query response</p>
+ * 
+ * <p>Returns detailed information about some or all 
+ * professional services delivered to a patient.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -44,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt610004ca
 @Hl7PartTypeMapping({"REPC_IN000042CA"})
 public class PatientProfessionalServicesQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ProfessionalServiceBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

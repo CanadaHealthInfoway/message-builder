@@ -43,10 +43,7 @@ import java.util.List;
 
 
 /**
- * <p>Trigger Event</p>
- * 
- * <p>Identifies the action that resulted in this message being 
- * sent.</p>
+ * <p>Business Name: Trigger Event</p>
  * 
  * <p>Key to understanding what action a message 
  * represents.</p>
@@ -54,12 +51,15 @@ import java.util.List;
  * <p>There may be constraints on the usage of the reasonCode 
  * attribute in the definition of the interaction or the 
  * trigger events which are conveyed with this wrapper.</p>
+ * 
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  */
 @Hl7PartTypeMapping({"QUQI_MT120000CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -71,12 +71,16 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>B:Event Identifier</p>
+     * <p>Business Name: B:Event Identifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for audit purposes and therefore mandatory.</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
-     * 
-     * <p>Used for audit purposes and therefore mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -84,12 +88,16 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>B:Event Identifier</p>
+     * <p>Business Name: B:Event Identifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used for audit purposes and therefore mandatory.</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
-     * 
-     * <p>Used for audit purposes and therefore mandatory.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -97,12 +105,16 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>A:Event Type</p>
+     * <p>Business Name: A:Event Type</p>
      * 
-     * <p>Identifies the trigger event that occurred.</p>
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -110,12 +122,16 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>A:Event Type</p>
+     * <p>Business Name: A:Event Type</p>
      * 
-     * <p>Identifies the trigger event that occurred.</p>
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
      */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
@@ -123,15 +139,20 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>C:Event Effective Period</p>
+     * <p>Business Name: C:Event Effective Period</p>
      * 
-     * <p>Indicates when the query was performed. If not specified, 
-     * the assumption is that the query was performed at the same 
-     * time the message was constructed.</p>
+     * <p>Relationship: 
+     * QUQI_MT120000CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sometimes messages may be constructed and sent at a 
      * significantly different time than the query was actually 
      * processed.</p>
+     * 
+     * <p>Indicates when the query was performed. If not specified, 
+     * the assumption is that the query was performed at the same 
+     * time the message was constructed.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -139,15 +160,20 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>C:Event Effective Period</p>
+     * <p>Business Name: C:Event Effective Period</p>
      * 
-     * <p>Indicates when the query was performed. If not specified, 
-     * the assumption is that the query was performed at the same 
-     * time the message was constructed.</p>
+     * <p>Relationship: 
+     * QUQI_MT120000CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sometimes messages may be constructed and sent at a 
      * significantly different time than the query was actually 
      * processed.</p>
+     * 
+     * <p>Indicates when the query was performed. If not specified, 
+     * the assumption is that the query was performed at the same 
+     * time the message was constructed.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -155,12 +181,16 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>Business Name: E:Event Reason</p>
      * 
-     * <p>Indicates the reason for the response given</p>
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Usually used to indicate a reason why a query was 
      * unsuccessful or was not processed.</p>
+     * 
+     * <p>Indicates the reason for the response given</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -168,12 +198,16 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>Business Name: E:Event Reason</p>
      * 
-     * <p>Indicates the reason for the response given</p>
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Usually used to indicate a reason why a query was 
      * unsuccessful or was not processed.</p>
+     * 
+     * <p>Indicates the reason for the response given</p>
      */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
@@ -192,11 +226,21 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"queryAck"})
     public QueryResponseInformationBean getQueryAck() {
         return this.queryAck;
     }
 
+    /**
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setQueryAck(QueryResponseInformationBean queryAck) {
         this.queryAck = queryAck;
     }

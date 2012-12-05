@@ -63,35 +63,22 @@ import java.util.Set;
 
 
 /**
- * <p>Other Medication</p>
+ * <p>Business Name: Other Medication</p>
  * 
  * <p>Annotation is only permitted if Annotation Indicator is 
- * not present and vice versa</p><p>routeCode must not be used 
- * when code is SNOMED and is mandatory otherwise</p><p>Status 
- * can only be ACTIVE or COMPLETE</p><p>Reported Issue is only 
- * permitted if Issue Indicator is not present and vice 
- * versa</p>
+ * not present and vice versa</p>
  * 
- * <p>Annotation is only permitted if Annotation Indicator is 
- * not present and vice versa</p><p>routeCode must not be used 
- * when code is SNOMED and is mandatory otherwise</p><p>Status 
- * can only be ACTIVE or COMPLETE</p><p>Reported Issue is only 
- * permitted if Issue Indicator is not present and vice 
- * versa</p>
+ * <p>routeCode must not be used when code is SNOMED and is 
+ * mandatory otherwise</p>
  * 
- * <p>Annotation is only permitted if Annotation Indicator is 
- * not present and vice versa</p><p>routeCode must not be used 
- * when code is SNOMED and is mandatory otherwise</p><p>Status 
- * can only be ACTIVE or COMPLETE</p><p>Reported Issue is only 
- * permitted if Issue Indicator is not present and vice 
- * versa</p>
+ * <p>Status can only be ACTIVE or COMPLETE</p>
  * 
- * <p>Annotation is only permitted if Annotation Indicator is 
- * not present and vice versa</p><p>routeCode must not be used 
- * when code is SNOMED and is mandatory otherwise</p><p>Status 
- * can only be ACTIVE or COMPLETE</p><p>Reported Issue is only 
- * permitted if Issue Indicator is not present and vice 
- * versa</p>
+ * <p>Reported Issue is only permitted if Issue Indicator is 
+ * not present and vice versa</p>
+ * 
+ * <p>Necessary component of a person's overall medication 
+ * profile. Allows DUR checking against a more complete drug 
+ * profile.</p>
  * 
  * <p>A record of a medication the patient is believed to be 
  * taking, but for which an electronic order does not exist. 
@@ -104,16 +91,12 @@ import java.util.Set;
  * the patient may be taking but was not prescribed on the EHR 
  * (e.g. institutionally administered or out-of-jurisdiction 
  * prescriptions) will also be recorded here.</p>
- * 
- * <p>Necessary component of a person's overall medication 
- * profile. Allows DUR checking against a more complete drug 
- * profile.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060210CA.OtherMedication"})
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -134,13 +117,17 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Administration Record Id</p>
+     * <p>Business Name: A:Administration Record Id</p>
      * 
-     * <p>This is an identifier assigned to a unique instance of an 
-     * active medication record.</p>
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the unique referencing of a specific active 
      * medication record. Thus the mandatory requirement. .</p>
+     * 
+     * <p>This is an identifier assigned to a unique instance of an 
+     * active medication record.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -148,13 +135,17 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Administration Record Id</p>
+     * <p>Business Name: A:Administration Record Id</p>
      * 
-     * <p>This is an identifier assigned to a unique instance of an 
-     * active medication record.</p>
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the unique referencing of a specific active 
      * medication record. Thus the mandatory requirement. .</p>
+     * 
+     * <p>This is an identifier assigned to a unique instance of an 
+     * active medication record.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -162,22 +153,22 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Medication Type</p>
+     * <p>Business Name: Other Medication Type</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Must be 'DRUG' unless using SNOMED</p>
+     * 
+     * <p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p><p>The element allows 'CD' to 
+     * provide support for SNOMED.</p>
      * 
      * <p>Indicates that the record is a drug administration rather 
      * than an immunization or other type of administration. For 
      * SNOMED, may also include route, drug and other 
      * information.</p>
-     * 
-     * <p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p>
-     * 
-     * <p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -185,22 +176,22 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Medication Type</p>
+     * <p>Business Name: Other Medication Type</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Must be 'DRUG' unless using SNOMED</p>
+     * 
+     * <p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p><p>The element allows 'CD' to 
+     * provide support for SNOMED.</p>
      * 
      * <p>Indicates that the record is a drug administration rather 
      * than an immunization or other type of administration. For 
      * SNOMED, may also include route, drug and other 
      * information.</p>
-     * 
-     * <p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p>
-     * 
-     * <p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
@@ -208,41 +199,25 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Other Medication Status</p>
+     * <p>Business Name: B:Other Medication Status</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to determine whether the medication should be 
+     * considered in performing DUR checking.</p><p>Attribute is 
+     * mandatory to ensure that a medication recorded in EHR/DIS is 
+     * in some state.</p><p>Note ------ The provider might know 
+     * that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'completed' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p>
      * 
      * <p>Indicates the status of the other medication record 
      * created on the EHR/DIS. Valid statuses for other medication 
      * records are: 'active' and 'completed' only.</p>
-     * 
-     * <p>Used to determine whether the medication should be 
-     * considered in performing DUR checking.</p><p>Attribute is 
-     * mandatory to ensure that a medication recorded in EHR/DIS is 
-     * in some state.</p><p>Note ------ The provider might know 
-     * that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'completed' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
-     * 
-     * <p>Used to determine whether the medication should be 
-     * considered in performing DUR checking.</p><p>Attribute is 
-     * mandatory to ensure that a medication recorded in EHR/DIS is 
-     * in some state.</p><p>Note ------ The provider might know 
-     * that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'completed' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
-     * 
-     * <p>Used to determine whether the medication should be 
-     * considered in performing DUR checking.</p><p>Attribute is 
-     * mandatory to ensure that a medication recorded in EHR/DIS is 
-     * in some state.</p><p>Note ------ The provider might know 
-     * that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'completed' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -250,41 +225,25 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Other Medication Status</p>
+     * <p>Business Name: B:Other Medication Status</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to determine whether the medication should be 
+     * considered in performing DUR checking.</p><p>Attribute is 
+     * mandatory to ensure that a medication recorded in EHR/DIS is 
+     * in some state.</p><p>Note ------ The provider might know 
+     * that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'completed' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p>
      * 
      * <p>Indicates the status of the other medication record 
      * created on the EHR/DIS. Valid statuses for other medication 
      * records are: 'active' and 'completed' only.</p>
-     * 
-     * <p>Used to determine whether the medication should be 
-     * considered in performing DUR checking.</p><p>Attribute is 
-     * mandatory to ensure that a medication recorded in EHR/DIS is 
-     * in some state.</p><p>Note ------ The provider might know 
-     * that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'completed' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
-     * 
-     * <p>Used to determine whether the medication should be 
-     * considered in performing DUR checking.</p><p>Attribute is 
-     * mandatory to ensure that a medication recorded in EHR/DIS is 
-     * in some state.</p><p>Note ------ The provider might know 
-     * that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'completed' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
-     * 
-     * <p>Used to determine whether the medication should be 
-     * considered in performing DUR checking.</p><p>Attribute is 
-     * mandatory to ensure that a medication recorded in EHR/DIS is 
-     * in some state.</p><p>Note ------ The provider might know 
-     * that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'completed' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -292,14 +251,19 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Drug Active Period</p>
+     * <p>Business Name: C:Drug Active Period</p>
      * 
-     * <p>Indicates the time-period in which the patient has been 
-     * taking or is expected to be taking the medication.</p>
+     * <p>Relationship: 
+     * PORX_MT060210CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to help determine whether the medication is 
      * currently active. Because this information won't always be 
      * available, the attribute is marked as 'populated'.</p>
+     * 
+     * <p>Indicates the time-period in which the patient has been 
+     * taking or is expected to be taking the medication.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -307,14 +271,19 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Drug Active Period</p>
+     * <p>Business Name: C:Drug Active Period</p>
      * 
-     * <p>Indicates the time-period in which the patient has been 
-     * taking or is expected to be taking the medication.</p>
+     * <p>Relationship: 
+     * PORX_MT060210CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to help determine whether the medication is 
      * currently active. Because this information won't always be 
      * available, the attribute is marked as 'populated'.</p>
+     * 
+     * <p>Indicates the time-period in which the patient has been 
+     * taking or is expected to be taking the medication.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -322,43 +291,12 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Other Medication Masking Indicators</p>
+     * <p>Business Name: D:Other Medication Masking Indicators</p>
      * 
-     * <p>Denotes access restriction place on the other medication 
-     * record.</p><p>Methods for accessing masked other medications 
-     * will be governed by each jurisdiction (e.g. court orders, 
-     * shared secret/consent, etc.).</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
+     * <p>Relationship: 
+     * PORX_MT060210CA.OtherMedication.confidentialityCode</p>
      * 
-     * <p>Denotes access restriction place on the other medication 
-     * record.</p><p>Methods for accessing masked other medications 
-     * will be governed by each jurisdiction (e.g. court orders, 
-     * shared secret/consent, etc.).</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Denotes access restriction place on the other medication 
-     * record.</p><p>Methods for accessing masked other medications 
-     * will be governed by each jurisdiction (e.g. court orders, 
-     * shared secret/consent, etc.).</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
-     * 
-     * <p>Denotes access restriction place on the other medication 
-     * record.</p><p>Methods for accessing masked other medications 
-     * will be governed by each jurisdiction (e.g. court orders, 
-     * shared secret/consent, etc.).</p><p>Valid values are: 'N' 
-     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
-     * 'Masked') and 'T' (taboo - denotes 'Patient Access 
-     * Restricted').</p><p>The default is 'normal' signifying 'Not 
-     * Masked'.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
@@ -368,29 +306,14 @@ public class OtherMedicationBean extends MessagePartBean {
      * attribute is optional because not all systems will support 
      * masking.</p>
      * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Cant have both normal 
-     * and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Cant have both normal 
-     * and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Cant have both normal 
-     * and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
+     * <p>Denotes access restriction place on the other medication 
+     * record.</p><p>Methods for accessing masked other medications 
+     * will be governed by each jurisdiction (e.g. court orders, 
+     * shared secret/consent, etc.).</p><p>Valid values are: 'N' 
+     * (normal - denotes 'Not Masked'); 'R' (restricted - denotes 
+     * 'Masked') and 'T' (taboo - denotes 'Patient Access 
+     * Restricted').</p><p>The default is 'normal' signifying 'Not 
+     * Masked'.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getConfidentialityCode() {
@@ -399,15 +322,19 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Route of Administration</p>
+     * <p>Business Name: E:Route of Administration</p>
      * 
-     * <p>This is the means by which the patient is taking the 
-     * medication.</p>
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Ensures consistency in description of routes. Provides 
      * potential for cross-checking dosage form and route. Because 
      * this information is pre-coordinated into 'code' for SNOMED, 
      * it is marked as optional.</p>
+     * 
+     * <p>This is the means by which the patient is taking the 
+     * medication.</p>
      */
     @Hl7XmlMapping({"routeCode"})
     public RouteOfAdministration getRouteCode() {
@@ -415,26 +342,40 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Route of Administration</p>
+     * <p>Business Name: E:Route of Administration</p>
      * 
-     * <p>This is the means by which the patient is taking the 
-     * medication.</p>
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Ensures consistency in description of routes. Provides 
      * potential for cross-checking dosage form and route. Because 
      * this information is pre-coordinated into 'code' for SNOMED, 
      * it is marked as optional.</p>
+     * 
+     * <p>This is the means by which the patient is taking the 
+     * medication.</p>
      */
     public void setRouteCode(RouteOfAdministration routeCode) {
         this.routeCode.setValue(routeCode);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
     }
@@ -470,6 +411,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Component.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
         return this.componentDosageInstruction;
@@ -482,27 +428,56 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Subject9.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
     public Boolean getSubjectOf2DetectedIssueIndicator() {
         return this.subjectOf2DetectedIssueIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Subject9.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
         this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Subject14.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/annotation"})
     public List<NotesBean> getSubjectOf3Annotation() {
         return this.subjectOf3Annotation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Subject15.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf4/annotationIndicator"})
     public Boolean getSubjectOf4AnnotationIndicator() {
         return this.subjectOf4AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Subject15.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf4AnnotationIndicator(Boolean subjectOf4AnnotationIndicator) {
         this.subjectOf4AnnotationIndicator.setValue(subjectOf4AnnotationIndicator);
     }
@@ -514,6 +489,12 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Component2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;

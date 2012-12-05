@@ -51,20 +51,20 @@ import java.util.Set;
 
 
 /**
- * <p>Billable Clinical Service</p>
- * 
- * <p>Service which was provided and is referenced in this 
- * encounter</p>
+ * <p>Business Name: Billable Clinical Service</p>
  * 
  * <p>Patient classes are not referenced in the billable acts, 
  * as they are noted in the parent model (e.g. Invoice message) 
  * as the CoveredPartyAsPatient</p>
+ * 
+ * <p>Service which was provided and is referenced in this 
+ * encounter</p>
  */
 @Hl7PartTypeMapping({"COCT_MT290000CA.BillableClinicalService"})
 @Hl7RootType
 public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -81,7 +81,11 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Service event ID</p>
+     * <p>Business Name: Service event ID</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.BillableClinicalService.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to uniquely identify a service event</p>
      */
@@ -91,7 +95,11 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Service event ID</p>
+     * <p>Business Name: Service event ID</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.BillableClinicalService.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to uniquely identify a service event</p>
      */
@@ -101,7 +109,12 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Procedure code</p>
+     * <p>Business Name: Procedure code</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.BillableClinicalService.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>procedure cd, CPT cd, supply cd</p>
      */
@@ -111,7 +124,12 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Procedure code</p>
+     * <p>Business Name: Procedure code</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.BillableClinicalService.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>procedure cd, CPT cd, supply cd</p>
      */
@@ -121,7 +139,12 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Duration, date/time of occurrence</p>
+     * <p>Business Name: Duration, date/time of occurrence</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.BillableClinicalService.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Duration, date/time of occurrence</p>
      */
@@ -131,7 +154,12 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Duration, date/time of occurrence</p>
+     * <p>Business Name: Duration, date/time of occurrence</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.BillableClinicalService.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Duration, date/time of occurrence</p>
      */
@@ -141,14 +169,19 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Service Reason</p>
+     * <p>Business Name: Service Reason</p>
      * 
-     * <p>clinical reasons for service, not related or specified by 
-     * diagnosis. e.g. duplicate therapy, fraudulent 
-     * prescription</p>
+     * <p>Relationship: 
+     * COCT_MT290000CA.BillableClinicalService.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>(clinical reasons for service, not related or specified 
      * by a diagnosis e.g. duplicate therapy, fraudulent 
+     * prescription</p>
+     * 
+     * <p>clinical reasons for service, not related or specified by 
+     * diagnosis. e.g. duplicate therapy, fraudulent 
      * prescription</p>
      */
     @Hl7XmlMapping({"reasonCode"})
@@ -213,6 +246,12 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT290000CA.BillableClinicalService.pertinentInformation1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation1"})
     public List<AccidentInformationBean> getPertinentInformation1() {
         return this.pertinentInformation1;

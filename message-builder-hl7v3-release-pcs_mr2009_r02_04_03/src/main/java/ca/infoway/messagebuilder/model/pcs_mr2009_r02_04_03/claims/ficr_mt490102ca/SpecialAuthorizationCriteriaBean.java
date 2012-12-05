@@ -36,14 +36,19 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActSuppo
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorizationCriteria"})
 public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private ANY<Object> value = new ANYImpl<Object>();
 
 
     /**
-     * <p>General Supporting Information Type</p>
+     * <p>Business Name: General Supporting Information Type</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationCriteria.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActSupportingInformationCode getCode() {
@@ -51,7 +56,12 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>General Supporting Information Type</p>
+     * <p>Business Name: General Supporting Information Type</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationCriteria.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActSupportingInformationCode code) {
         this.code.setValue(code);
@@ -59,7 +69,12 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
 
     /**
-     * <p>General Supporting Information Text</p>
+     * <p>Business Name: General Supporting Information Text</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationCriteria.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -67,7 +82,12 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>General Supporting Information Text</p>
+     * <p>Business Name: General Supporting Information Text</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationCriteria.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -75,7 +95,12 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
 
     /**
-     * <p>General Supporting Information Value</p>
+     * <p>Business Name: General Supporting Information Value</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationCriteria.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"value"})
     public Object getValue() {
@@ -83,7 +108,12 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>General Supporting Information Value</p>
+     * <p>Business Name: General Supporting Information Value</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationCriteria.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setValue(Object value) {
         this.value.setValue(value);

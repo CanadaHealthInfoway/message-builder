@@ -29,7 +29,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt002000ca.
 
 
 /**
- * <p>POLB_IN222000CA: Laboratory Promise Status</p>
+ * <p>Business Name: POLB_IN222000CA: Laboratory Promise Status</p>
+ * 
+ * <p>This interaction is a Promise Status without Receiver 
+ * Responsibilities (i.e., the sending system utilizes messages 
+ * that do not require application-level responses). This 
+ * interaction is used to communicate the status of a promise. 
+ * It is typically used to communicate where the filler is in 
+ * the process of fulfilling an order.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +54,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt002000ca.
 @Hl7PartTypeMapping({"POLB_IN222000CA"})
 public class LaboratoryPromiseStatusBean extends HL7Message_1Bean<TriggerEventBean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

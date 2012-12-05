@@ -33,19 +33,23 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 @Hl7PartTypeMapping({"COMT_MT301001CA.AnnotatedAct"})
 public class AnnotatedActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PatientBean subjectPatient;
 
 
     /**
-     * <p>A:Record Id</p>
+     * <p>Business Name: A:Record Id</p>
      * 
-     * <p>The identifier assigned by the central system (EHR) to 
-     * the record item being annotated.</p>
+     * <p>Relationship: COMT_MT301001CA.AnnotatedAct.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the record to be uniquely referenced and is 
      * therefore mandatory.</p>
+     * 
+     * <p>The identifier assigned by the central system (EHR) to 
+     * the record item being annotated.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -53,13 +57,17 @@ public class AnnotatedActBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Record Id</p>
+     * <p>Business Name: A:Record Id</p>
      * 
-     * <p>The identifier assigned by the central system (EHR) to 
-     * the record item being annotated.</p>
+     * <p>Relationship: COMT_MT301001CA.AnnotatedAct.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the record to be uniquely referenced and is 
      * therefore mandatory.</p>
+     * 
+     * <p>The identifier assigned by the central system (EHR) to 
+     * the record item being annotated.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

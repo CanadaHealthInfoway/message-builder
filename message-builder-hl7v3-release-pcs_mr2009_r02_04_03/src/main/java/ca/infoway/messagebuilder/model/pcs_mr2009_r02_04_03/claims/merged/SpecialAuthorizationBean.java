@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT400003CA.SpecialAuthorization","FICR_MT400004CA.SpecialAuthorization","FICR_MT490101CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;
@@ -52,9 +52,28 @@ public class SpecialAuthorizationBean extends MessagePartBean {
 
 
     /**
-     * <p>SpecialAuthorizationStatus</p>
+     * <p>Business Name: SpecialAuthorizationStatus</p>
      * 
-     * <p>Special Authorization Status</p>
+     * <p>Other Business Name: SpecialAuthorizationStatus</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.SpecialAuthorization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationStatus</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationStatus</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.SpecialAuthorization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -62,9 +81,28 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecialAuthorizationStatus</p>
+     * <p>Business Name: SpecialAuthorizationStatus</p>
      * 
-     * <p>Special Authorization Status</p>
+     * <p>Other Business Name: SpecialAuthorizationStatus</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.SpecialAuthorization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationStatus</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationStatus</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.SpecialAuthorization.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -72,9 +110,28 @@ public class SpecialAuthorizationBean extends MessagePartBean {
 
 
     /**
-     * <p>SpecialAuthorizationEffectiveDate</p>
+     * <p>Business Name: SpecialAuthorizationEffectiveDate</p>
      * 
-     * <p>Special Authorization Effective Date</p>
+     * <p>Other Business Name: SpecialAuthorizationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.SpecialAuthorization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.SpecialAuthorization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -82,51 +139,202 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>SpecialAuthorizationEffectiveDate</p>
+     * <p>Business Name: SpecialAuthorizationEffectiveDate</p>
      * 
-     * <p>Special Authorization Effective Date</p>
+     * <p>Other Business Name: SpecialAuthorizationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.SpecialAuthorization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SpecialAuthorizationEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.SpecialAuthorization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedEntity"})
     public HealthcareOrganizationBean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorAssignedEntity(HealthcareOrganizationBean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"coverage/policyOrAccount"})
     public PolicyOrAccount_1Bean getCoveragePolicyOrAccount() {
         return this.coveragePolicyOrAccount;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Coverage2.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCoveragePolicyOrAccount(PolicyOrAccount_1Bean coveragePolicyOrAccount) {
         this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-100)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.SpecialAuthorization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-100)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public List<Subject3Bean> getSubject() {
         return this.subject;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Limitation.maximumLimits</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Limitation.maximumLimits</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"limitation/maximumLimits"})
     public MaximumLimitsBean getLimitationMaximumLimits() {
         return this.limitationMaximumLimits;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Limitation.maximumLimits</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Limitation.maximumLimits</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLimitationMaximumLimits(MaximumLimitsBean limitationMaximumLimits) {
         this.limitationMaximumLimits = limitationMaximumLimits;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400004CA.SpecialAuthorization.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400003CA.SpecialAuthorization.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public List<IncludesBean> getSubjectOf() {
         return this.subjectOf;

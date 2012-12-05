@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryByParameter","MFMI_MT700751CA.QueryByParameter","QUQI_MT020000CA.QueryByParameter","QUQI_MT020002CA.QueryByParameter","QUQI_MT120006CA.QueryByParameter","QUQI_MT120008CA.QueryByParameter"})
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II queryId = new IIImpl();
     private CS responseModalityCode = new CSImpl();
     private INT initialQuantity = new INTImpl();
@@ -55,14 +55,73 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>QueryIdentifier</p>
+     * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>H:Query Identifier</p>
+     * <p>Other Business Name: QueryIdentifier</p>
      * 
-     * <p>Unique number for this particular query.</p>
+     * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
@@ -70,14 +129,73 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>QueryIdentifier</p>
+     * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>H:Query Identifier</p>
+     * <p>Other Business Name: QueryIdentifier</p>
      * 
-     * <p>Unique number for this particular query.</p>
+     * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
+     * 
+     * <p>Unique number for this particular query.</p>
      */
     public void setQueryId(Identifier queryId) {
         this.queryId.setValue(queryId);
@@ -85,12 +203,46 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>ExpeditedQueryIndicator</p>
+     * <p>Business Name: ExpeditedQueryIndicator</p>
      * 
-     * <p>K: Expedited Query Indicator</p>
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Intended to cover situations in which the HIAL issues a 
+     * query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
      * 
      * <p>This allows the sender to indicate to the receiver that 
      * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Intended to cover situations in which the HIAL issues a 
+     * query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&gt;Intended to cover situations in which the HIAL issues 
      * a query with an ID to obtain a very limited amount of 
@@ -98,16 +250,56 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * information to obtain IDs and othe information, such as 
      * licence status</p>
      * 
-     * <p>K: Expedited Query Indicator</p>
-     * 
      * <p>This allows the sender to indicate to the receiver that 
      * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020002CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Intended to cover situations in which the HIAL issues a 
      * query with an ID to obtain a very limited amount of 
      * information, or issues a query with basic provider 
      * information to obtain IDs and othe information, such as 
      * licence status</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>&gt;Intended to cover situations in which the HIAL issues 
+     * a query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>&gt;Intended to cover situations in which the HIAL issues 
+     * a query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
      */
     @Hl7XmlMapping({"responseModalityCode"})
     public ResponseModality getResponseModalityCode() {
@@ -115,12 +307,46 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>ExpeditedQueryIndicator</p>
+     * <p>Business Name: ExpeditedQueryIndicator</p>
      * 
-     * <p>K: Expedited Query Indicator</p>
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Intended to cover situations in which the HIAL issues a 
+     * query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
      * 
      * <p>This allows the sender to indicate to the receiver that 
      * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Intended to cover situations in which the HIAL issues a 
+     * query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&gt;Intended to cover situations in which the HIAL issues 
      * a query with an ID to obtain a very limited amount of 
@@ -128,16 +354,56 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * information to obtain IDs and othe information, such as 
      * licence status</p>
      * 
-     * <p>K: Expedited Query Indicator</p>
-     * 
      * <p>This allows the sender to indicate to the receiver that 
      * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020002CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Intended to cover situations in which the HIAL issues a 
      * query with an ID to obtain a very limited amount of 
      * information, or issues a query with basic provider 
      * information to obtain IDs and othe information, such as 
      * licence status</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>&gt;Intended to cover situations in which the HIAL issues 
+     * a query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
+     * 
+     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryByParameter.responseModalityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>&gt;Intended to cover situations in which the HIAL issues 
+     * a query with an ID to obtain a very limited amount of 
+     * information, or issues a query with basic provider 
+     * information to obtain IDs and othe information, such as 
+     * licence status</p>
+     * 
+     * <p>This allows the sender to indicate to the receiver that 
+     * this query should follow an expedited processing flow.</p>
      */
     public void setResponseModalityCode(ResponseModality responseModalityCode) {
         this.responseModalityCode.setValue(responseModalityCode);
@@ -145,22 +411,14 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>QueryLimit</p>
+     * <p>Business Name: QueryLimit</p>
      * 
-     * <p>I:Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
      * 
-     * <p>The number of response item repetitions that should be 
-     * included in the initial response.</p>
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
      * 
-     * <p>There may be a very large number of matching rows. To 
-     * manage communication bandwidth, a limited set may initially 
-     * be returned with further data retrieved by using query 
-     * continuations.</p>
-     * 
-     * <p>I:Query Limit</p>
-     * 
-     * <p>The number of response item repetitions that should be 
-     * included in the initial response.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
@@ -173,6 +431,112 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * number requested. Regardless of the number specified here, 
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020002CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      */
     @Hl7XmlMapping({"initialQuantity"})
     public Integer getInitialQuantity() {
@@ -180,22 +544,14 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>QueryLimit</p>
+     * <p>Business Name: QueryLimit</p>
      * 
-     * <p>I:Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
      * 
-     * <p>The number of response item repetitions that should be 
-     * included in the initial response.</p>
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
      * 
-     * <p>There may be a very large number of matching rows. To 
-     * manage communication bandwidth, a limited set may initially 
-     * be returned with further data retrieved by using query 
-     * continuations.</p>
-     * 
-     * <p>I:Query Limit</p>
-     * 
-     * <p>The number of response item repetitions that should be 
-     * included in the initial response.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>There may be a very large number of matching rows. To 
      * manage communication bandwidth, a limited set may initially 
@@ -208,6 +564,112 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * number requested. Regardless of the number specified here, 
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020002CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
+     * 
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p>
+     * 
+     * <p>If not specified, the default behavior is to return all 
+     * repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p>
+     * 
+     * <p>The number of response item repetitions that should be 
+     * included in the initial response.</p>
      */
     public void setInitialQuantity(Integer initialQuantity) {
         this.initialQuantity.setValue(initialQuantity);
@@ -215,16 +677,91 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>QueryLimitType</p>
+     * <p>Business Name: QueryLimitType</p>
      * 
-     * <p>J:Query Limit Type</p>
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
      * 
      * <p>Defines the units associated with the magnitude of the 
      * maximum size limit of a query response that can be accepted 
      * by the requesting application.</p>
      * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020002CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
      */
     @Hl7XmlMapping({"initialQuantityCode"})
     public QueryRequestLimit getInitialQuantityCode() {
@@ -232,42 +769,207 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>QueryLimitType</p>
+     * <p>Business Name: QueryLimitType</p>
      * 
-     * <p>J:Query Limit Type</p>
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
      * 
      * <p>Defines the units associated with the magnitude of the 
      * maximum size limit of a query response that can be accepted 
      * by the requesting application.</p>
      * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020002CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
+     * 
+     * <p>Other Business Name: QueryLimitType</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed to quantify the types of records requested to be 
+     * returned in the query.</p>
+     * 
+     * <p>Defines the units associated with the magnitude of the 
+     * maximum size limit of a query response that can be accepted 
+     * by the requesting application.</p>
      */
     public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
         this.initialQuantityCode.setValue(initialQuantityCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020002CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"parameterList"})
     public PL getParameterList() {
         return this.parameterList;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700751CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020002CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setParameterList(PL parameterList) {
         this.parameterList = parameterList;
     }
 
 
     /**
-     * <p>SequenceNumber</p>
+     * <p>Business Name: SequenceNumber</p>
      * 
-     * <p>Sequence Number</p>
+     * <p>Other Business Name: SequenceNumber</p>
      * 
-     * <p>When more than one sort control is specified, this is the 
-     * order of this sort element amongst the others.</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This number determines which sort element is using 
      * primarily, secondary, etc. and is therefore mandatory.</p>
+     * 
+     * <p>When more than one sort control is specified, this is the 
+     * order of this sort element amongst the others.</p>
      */
     @Hl7XmlMapping({"sortControl/sequenceNumber"})
     public Integer getSortControlSequenceNumber() {
@@ -275,15 +977,19 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>SequenceNumber</p>
+     * <p>Business Name: SequenceNumber</p>
      * 
-     * <p>Sequence Number</p>
+     * <p>Other Business Name: SequenceNumber</p>
      * 
-     * <p>When more than one sort control is specified, this is the 
-     * order of this sort element amongst the others.</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This number determines which sort element is using 
      * primarily, secondary, etc. and is therefore mandatory.</p>
+     * 
+     * <p>When more than one sort control is specified, this is the 
+     * order of this sort element amongst the others.</p>
      */
     public void setSortControlSequenceNumber(Integer sortControlSequenceNumber) {
         this.sortControlSequenceNumber.setValue(sortControlSequenceNumber);
@@ -291,13 +997,17 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>SortElementName</p>
+     * <p>Business Name: SortElementName</p>
      * 
-     * <p>Sort Element Name</p>
+     * <p>Other Business Name: SortElementName</p>
      * 
-     * <p>Name of the element to sort.</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.elementName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the element is mandatory.</p>
+     * 
+     * <p>Name of the element to sort.</p>
      */
     @Hl7XmlMapping({"sortControl/elementName"})
     public String getSortControlElementName() {
@@ -305,13 +1015,17 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>SortElementName</p>
+     * <p>Business Name: SortElementName</p>
      * 
-     * <p>Sort Element Name</p>
+     * <p>Other Business Name: SortElementName</p>
      * 
-     * <p>Name of the element to sort.</p>
+     * <p>Relationship: MFMI_MT700751CA.SortControl.elementName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the element is mandatory.</p>
+     * 
+     * <p>Name of the element to sort.</p>
      */
     public void setSortControlElementName(String sortControlElementName) {
         this.sortControlElementName.setValue(sortControlElementName);
@@ -319,14 +1033,18 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>SortControlDirection</p>
+     * <p>Business Name: SortControlDirection</p>
      * 
-     * <p>Sort Control Direction</p>
+     * <p>Other Business Name: SortControlDirection</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.SortControl.directionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This element is required.</p>
      * 
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
-     * 
-     * <p>This element is required.</p>
      */
     @Hl7XmlMapping({"sortControl/directionCode"})
     public Sequencing getSortControlDirectionCode() {
@@ -334,14 +1052,18 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>SortControlDirection</p>
+     * <p>Business Name: SortControlDirection</p>
      * 
-     * <p>Sort Control Direction</p>
+     * <p>Other Business Name: SortControlDirection</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.SortControl.directionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This element is required.</p>
      * 
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
-     * 
-     * <p>This element is required.</p>
      */
     public void setSortControlDirectionCode(Sequencing sortControlDirectionCode) {
         this.sortControlDirectionCode.setValue(sortControlDirectionCode);

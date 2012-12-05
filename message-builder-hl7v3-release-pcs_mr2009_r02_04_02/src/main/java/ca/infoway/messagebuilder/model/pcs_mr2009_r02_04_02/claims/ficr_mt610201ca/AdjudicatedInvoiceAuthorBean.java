@@ -32,13 +32,18 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private AdjudicatorRoleBean adjudicatorRole;
 
 
     /**
-     * <p>Adjudication date/time</p>
+     * <p>Business Name: Adjudication date/time</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -46,18 +51,35 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudication date/time</p>
+     * <p>Business Name: Adjudication date/time</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"adjudicatorRole"})
     public AdjudicatorRoleBean getAdjudicatorRole() {
         return this.adjudicatorRole;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
         this.adjudicatorRole = adjudicatorRole;
     }

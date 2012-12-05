@@ -35,20 +35,24 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POIZ_MT061140CA.PatientID"})
 public class PatientIDBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> value = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
-     * <p>A:Patient IDs</p>
+     * <p>Business Name: A:Patient IDs</p>
+     * 
+     * <p>Relationship: POIZ_MT061140CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
+     * 
+     * <p>Allows filtering of result set by patient Id. As a 
+     * result, this parameter is required.</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * immunization candidate query. Filter the result set to 
      * include only those records pertaining to the patient with 
      * this Id.</p>
-     * 
-     * <p>Allows filtering of result set by patient Id. As a 
-     * result, this parameter is required.</p>
      */
     @Hl7XmlMapping({"value"})
     public Set<Identifier> getValue() {

@@ -45,19 +45,19 @@ import java.util.List;
 
 
 /**
- * <p>Billable Clinical Product</p>
- * 
- * <p>Product being billed</p>
+ * <p>Business Name: Billable Clinical Product</p>
  * 
  * <p>Patient classes are not referenced in the billable acts, 
  * as they are noted in the parent model (e.g. Invoice message) 
  * as the CoveredPartyAsPatient</p>
+ * 
+ * <p>Product being billed</p>
  */
 @Hl7PartTypeMapping({"COCT_MT490000CA.SupplyEvent"})
 @Hl7RootType
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -72,7 +72,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Billable Clinical Product ID</p>
+     * <p>Business Name: Billable Clinical Product ID</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>receipt number for the sale or rental</p>
      */
@@ -82,7 +86,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Billable Clinical Product ID</p>
+     * <p>Business Name: Billable Clinical Product ID</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>receipt number for the sale or rental</p>
      */
@@ -92,7 +100,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Method of payment for product.</p>
+     * <p>Business Name: Method of payment for product.</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Rent or Sale.</p>
      */
@@ -102,7 +114,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Method of payment for product.</p>
+     * <p>Business Name: Method of payment for product.</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Rent or Sale.</p>
      */
@@ -112,12 +128,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Time of Sale</p>
+     * <p>Business Name: Time of Sale</p>
      * 
-     * <p>Date that the sale is transacted (change of ownership for 
-     * a sale) and could be different than the date that it is 
-     * invoiced. Similar in concept to the service date.</p><p>For 
-     * rentals, this is the rental period.</p>
+     * <p>Relationship: COCT_MT490000CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date that the sale is transacted (change of ownership for 
      * a sale) and could be different than the date that it is 
@@ -130,12 +145,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Time of Sale</p>
+     * <p>Business Name: Time of Sale</p>
      * 
-     * <p>Date that the sale is transacted (change of ownership for 
-     * a sale) and could be different than the date that it is 
-     * invoiced. Similar in concept to the service date.</p><p>For 
-     * rentals, this is the rental period.</p>
+     * <p>Relationship: COCT_MT490000CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date that the sale is transacted (change of ownership for 
      * a sale) and could be different than the date that it is 

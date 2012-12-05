@@ -32,25 +32,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.TerritorialAuthority","PRPA_MT202302CA.TerritorialAuthority","PRPA_MT202303CA.TerritorialAuthority","PRPA_MT202317CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>LocationRegionId</p>
+     * <p>Business Name: LocationRegionId</p>
      * 
-     * <p>H: Location Region Id</p>
+     * <p>Other Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>In Canada, many service delivery locations are organized 
+     * into regions for administrative, coordination and/or funding 
+     * reasons. Regions may influence where a patient may go for 
+     * services. They may also be used for searching.</p><p>Because 
+     * not all service delivery locations are associated with a 
+     * region, this element is only 'populated' to allow null 
+     * flavors such as 'NA'.</p>
      * 
      * <p>Identifies the health region associated with the service 
      * delivery location (if any).</p>
      * 
-     * <p>In Canada, many service delivery locations are organized 
-     * into regions for administrative, coordination and/or funding 
-     * reasons. Regions may influence where a patient may go for 
-     * services. They may also be used for searching.</p><p>Because 
-     * not all service delivery locations are associated with a 
-     * region, this element is only 'populated' to allow null 
-     * flavors such as 'NA'.</p>
+     * <p>Other Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>In Canada, many service delivery locations are organized 
      * into regions for administrative, coordination and/or funding 
@@ -59,6 +69,43 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * not all service delivery locations are associated with a 
      * region, this element is only 'populated' to allow null 
      * flavors such as 'NA'.</p>
+     * 
+     * <p>Identifies the health region associated with the service 
+     * delivery location (if any).</p>
+     * 
+     * <p>Other Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRPA_MT202317CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>In Canada, many service delivery locations are organized 
+     * into regions for administrative, coordination and/or funding 
+     * reasons. Regions may influence where a patient may go for 
+     * services. They may also be used for searching.</p><p>Because 
+     * not all service delivery locations are associated with a 
+     * region, this element is only 'populated' to allow null 
+     * flavors such as 'NA'.</p>
+     * 
+     * <p>Identifies the health region associated with the service 
+     * delivery location (if any).</p>
+     * 
+     * <p>Other Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>In Canada, many service delivery locations are organized 
+     * into regions for administrative, coordination and/or funding 
+     * reasons. Regions may influence where a patient may go for 
+     * services. They may also be used for searching.</p><p>Because 
+     * not all service delivery locations are associated with a 
+     * region, this element is only 'populated' to allow null 
+     * flavors such as 'NA'.</p>
+     * 
+     * <p>Identifies the health region associated with the service 
+     * delivery location (if any).</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -66,20 +113,30 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
 
     /**
-     * <p>LocationRegionId</p>
+     * <p>Business Name: LocationRegionId</p>
      * 
-     * <p>H: Location Region Id</p>
+     * <p>Other Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRPA_MT202302CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>In Canada, many service delivery locations are organized 
+     * into regions for administrative, coordination and/or funding 
+     * reasons. Regions may influence where a patient may go for 
+     * services. They may also be used for searching.</p><p>Because 
+     * not all service delivery locations are associated with a 
+     * region, this element is only 'populated' to allow null 
+     * flavors such as 'NA'.</p>
      * 
      * <p>Identifies the health region associated with the service 
      * delivery location (if any).</p>
      * 
-     * <p>In Canada, many service delivery locations are organized 
-     * into regions for administrative, coordination and/or funding 
-     * reasons. Regions may influence where a patient may go for 
-     * services. They may also be used for searching.</p><p>Because 
-     * not all service delivery locations are associated with a 
-     * region, this element is only 'populated' to allow null 
-     * flavors such as 'NA'.</p>
+     * <p>Other Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRPA_MT202303CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>In Canada, many service delivery locations are organized 
      * into regions for administrative, coordination and/or funding 
@@ -88,6 +145,43 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * not all service delivery locations are associated with a 
      * region, this element is only 'populated' to allow null 
      * flavors such as 'NA'.</p>
+     * 
+     * <p>Identifies the health region associated with the service 
+     * delivery location (if any).</p>
+     * 
+     * <p>Other Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRPA_MT202317CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>In Canada, many service delivery locations are organized 
+     * into regions for administrative, coordination and/or funding 
+     * reasons. Regions may influence where a patient may go for 
+     * services. They may also be used for searching.</p><p>Because 
+     * not all service delivery locations are associated with a 
+     * region, this element is only 'populated' to allow null 
+     * flavors such as 'NA'.</p>
+     * 
+     * <p>Identifies the health region associated with the service 
+     * delivery location (if any).</p>
+     * 
+     * <p>Other Business Name: LocationRegionId</p>
+     * 
+     * <p>Relationship: PRPA_MT202301CA.TerritorialAuthority.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>In Canada, many service delivery locations are organized 
+     * into regions for administrative, coordination and/or funding 
+     * reasons. Regions may influence where a patient may go for 
+     * services. They may also be used for searching.</p><p>Because 
+     * not all service delivery locations are associated with a 
+     * region, this element is only 'populated' to allow null 
+     * flavors such as 'NA'.</p>
+     * 
+     * <p>Identifies the health region associated with the service 
+     * delivery location (if any).</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

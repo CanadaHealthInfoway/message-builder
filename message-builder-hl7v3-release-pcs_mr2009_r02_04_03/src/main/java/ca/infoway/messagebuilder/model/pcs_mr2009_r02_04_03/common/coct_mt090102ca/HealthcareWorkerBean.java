@@ -36,35 +36,39 @@ import java.util.Set;
 
 
 /**
- * <p>Healthcare Worker</p>
- * 
- * <p>The person assigned to carry out the associated action 
- * (linked by a participation) and/or the organization/group 
- * under whose authority they are acting.</p>
+ * <p>Business Name: Healthcare Worker</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up. The CMET supports both licensed providers as well 
  * as non-licensed providers such as technicians, 
  * receptionists, etc.</p>
+ * 
+ * <p>The person assigned to carry out the associated action 
+ * (linked by a participation) and/or the organization/group 
+ * under whose authority they are acting.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT090102CA.AssignedEntity"})
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Recipient, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.Assignees {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private ActingPersonBean assignedPerson;
     private ResponsibleOrganizationBean representedOrganization;
 
 
     /**
-     * <p>A: Healthcare Worker Identifier</p>
+     * <p>Business Name: A: Healthcare Worker Identifier</p>
      * 
-     * <p>Unique identifier the person involved in the action.</p>
+     * <p>Relationship: COCT_MT090102CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-3)</p>
      * 
      * <p>Allows unique identification of the person which can be 
      * critical for authentication, permissions, drill-down and 
      * traceability and is therefore mandatory.</p>
+     * 
+     * <p>Unique identifier the person involved in the action.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {

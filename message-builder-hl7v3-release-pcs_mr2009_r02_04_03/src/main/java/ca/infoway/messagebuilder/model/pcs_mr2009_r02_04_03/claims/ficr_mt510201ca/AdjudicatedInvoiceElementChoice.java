@@ -39,8 +39,18 @@ public interface AdjudicatedInvoiceElementChoice {
     public void setReference1Allowable(AllowableBean reference1Allowable);
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Outcome.adjudicationResult</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public AdjudicationResultBean getOutcomeOfAdjudicationResult();
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Outcome.adjudicationResult</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult);
 
 }

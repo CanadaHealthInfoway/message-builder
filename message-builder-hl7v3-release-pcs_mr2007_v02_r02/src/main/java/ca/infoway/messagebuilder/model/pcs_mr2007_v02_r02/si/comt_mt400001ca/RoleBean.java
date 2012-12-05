@@ -32,15 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT400001CA.Role"})
 public class RoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV playingEntityKindCode = new CVImpl();
 
 
     /**
-     * <p>Maskable Material</p>
+     * <p>Business Name: Maskable Material</p>
      * 
-     * <p>Indicates the materia (e.g drug) whose associated records 
-     * should be masked.</p>
+     * <p>Relationship: COMT_MT400001CA.EntityKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows masking a drug, avoiding the requirement to mask 
      * each prescription and dispense individually.</p>
@@ -48,6 +49,9 @@ public class RoleBean extends MessagePartBean {
      * <p>Usually specified at the generic or 
      * therapeutic-equivalent level to ensure related medications 
      * are also covered.</p>
+     * 
+     * <p>Indicates the materia (e.g drug) whose associated records 
+     * should be masked.</p>
      */
     @Hl7XmlMapping({"playingEntityKind/code"})
     public MaskableMaterialEntityType getPlayingEntityKindCode() {
@@ -55,10 +59,11 @@ public class RoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Maskable Material</p>
+     * <p>Business Name: Maskable Material</p>
      * 
-     * <p>Indicates the materia (e.g drug) whose associated records 
-     * should be masked.</p>
+     * <p>Relationship: COMT_MT400001CA.EntityKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows masking a drug, avoiding the requirement to mask 
      * each prescription and dispense individually.</p>
@@ -66,6 +71,9 @@ public class RoleBean extends MessagePartBean {
      * <p>Usually specified at the generic or 
      * therapeutic-equivalent level to ensure related medications 
      * are also covered.</p>
+     * 
+     * <p>Indicates the materia (e.g drug) whose associated records 
+     * should be masked.</p>
      */
     public void setPlayingEntityKindCode(MaskableMaterialEntityType playingEntityKindCode) {
         this.playingEntityKindCode.setValue(playingEntityKindCode);

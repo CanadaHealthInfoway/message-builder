@@ -29,7 +29,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004999ca.
 
 
 /**
- * <p>POLB_IN224201CA: Laboratory Result Revision Notification</p>
+ * <p>Business Name: POLB_IN224201CA: Laboratory Result 
+ * Revision Notification</p>
+ * 
+ * <p>This interaction is a Result Corrected without Receiver 
+ * Responsibilities (i.e., the sending system utilizes messages 
+ * that do not use application-level responses). This 
+ * interaction is used when the filler must correct (i.e., 
+ * change) results that were previously reported as 
+ * completed</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -49,6 +57,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004999ca.
 @Hl7PartTypeMapping({"POLB_IN224201CA"})
 public class LaboratoryResultRevisionNotificationBean extends HL7Message_1Bean<TriggerEventBean<ResultInstancePayloadChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

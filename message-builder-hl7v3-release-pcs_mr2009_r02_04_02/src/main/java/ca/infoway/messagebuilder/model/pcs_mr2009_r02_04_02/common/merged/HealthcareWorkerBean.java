@@ -46,13 +46,9 @@ import java.util.Set;
 
 
 /**
- * <p>HealthcareWorker</p>
+ * <p>Business Name: HealthcareWorker</p>
  * 
  * <p>COCT_MT090108CA.AssignedEntity: Healthcare Worker</p>
- * 
- * <p>The person organization assigned to carry out the 
- * associated (linked by a participation) action and/or the 
- * organization under whose authority they are acting.</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up. The CMET supports both licensed providers as well 
@@ -62,22 +58,26 @@ import java.util.Set;
  * <p>All attributes other than the various identifiers are 
  * expected to be retrieved from the provider registry.</p>
  * 
- * <p>COCT_MT090102CA.AssignedEntity: Healthcare Worker</p>
+ * <p>The person organization assigned to carry out the 
+ * associated (linked by a participation) action and/or the 
+ * organization under whose authority they are acting.</p>
  * 
- * <p>The person assigned to carry out the associated action 
- * (linked by a participation) and/or the organization/group 
- * under whose authority they are acting.</p>
+ * <p>COCT_MT090102CA.AssignedEntity: Healthcare Worker</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up. The CMET supports both licensed providers as well 
  * as non-licensed providers such as technicians, 
  * receptionists, etc.</p>
+ * 
+ * <p>The person assigned to carry out the associated action 
+ * (linked by a participation) and/or the organization/group 
+ * under whose authority they are acting.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT090102CA.AssignedEntity","COCT_MT090108CA.AssignedEntity","COCT_MT260010CA.AssignedEntity","COCT_MT260020CA.AssignedEntity","COCT_MT260030CA.AssignedEntity"})
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice, ActingPerson, AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice, EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Recipient, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST assignedOrganizationName = new STImpl();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
@@ -89,36 +89,61 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>C:Knowledgebase Vendor Name</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
      * 
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
+     * <p>Other Business Name: OrganizationName</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
+     * <p>Relationship: COCT_MT090108CA.Organization.name</p>
      * 
-     * <p>H: Organization Name</p>
-     * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
      * 
-     * <p>C:Knowledgebase Vendor Name</p>
-     * 
-     * <p>E: Organization Name</p>
-     * 
      * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
      */
     @Hl7XmlMapping({"assignedOrganization/name","representedOrganization/name"})
     @Hl7MapByPartTypes({
@@ -132,36 +157,61 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>C:Knowledgebase Vendor Name</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
      * 
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
+     * <p>Other Business Name: OrganizationName</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
+     * <p>Relationship: COCT_MT090108CA.Organization.name</p>
      * 
-     * <p>H: Organization Name</p>
-     * 
-     * <p>Identifies the name of the organization</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
      * 
-     * <p>C:Knowledgebase Vendor Name</p>
-     * 
-     * <p>E: Organization Name</p>
-     * 
      * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
      */
     public void setAssignedOrganizationName(String assignedOrganizationName) {
         this.assignedOrganizationName.setValue(assignedOrganizationName);
@@ -169,23 +219,31 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerIdentifier</p>
+     * <p>Business Name: HealthcareWorkerIdentifier</p>
      * 
-     * <p>A:Healthcare Worker Identifier</p>
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-3)</p>
+     * 
+     * <p>Allows unique identification of the person which can be 
+     * critical for authentication, permissions, drill-down and 
+     * traceability and is therefore mandatory.</p>
      * 
      * <p>Unique identifier the person involved in the action.</p>
+     * 
+     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-3)</p>
      * 
      * <p>Allows unique identification of the person which can be 
      * critical for authentication, permissions, drill-down and 
      * traceability and is therefore mandatory.</p>
      * 
-     * <p>A: Healthcare Worker Identifier</p>
-     * 
      * <p>Unique identifier the person involved in the action.</p>
-     * 
-     * <p>Allows unique identification of the person which can be 
-     * critical for authentication, permissions, drill-down and 
-     * traceability and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -194,17 +252,21 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerType</p>
+     * <p>Business Name: HealthcareWorkerType</p>
      * 
-     * <p>B: Healthcare Worker Type</p>
+     * <p>Other Business Name: HealthcareWorkerType</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the &quot;kind&quot; of healthcare participant, 
      * such as &quot;physician&quot;, &quot;dentist&quot;, 
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
-     * 
-     * <p>Provides context around the actions of the participant 
-     * and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getCode() {
@@ -212,17 +274,21 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>HealthcareWorkerType</p>
+     * <p>Business Name: HealthcareWorkerType</p>
      * 
-     * <p>B: Healthcare Worker Type</p>
+     * <p>Other Business Name: HealthcareWorkerType</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p>
      * 
      * <p>Indicates the &quot;kind&quot; of healthcare participant, 
      * such as &quot;physician&quot;, &quot;dentist&quot;, 
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
-     * 
-     * <p>Provides context around the actions of the participant 
-     * and is therefore mandatory.</p>
      */
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);
@@ -230,16 +296,20 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerPhoneAndEmails</p>
+     * <p>Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>E: Healthcare Worker Phone and Emails</p>
+     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>Indicates phone and/or e-mail addresses at which the 
-     * healthcare worker can be reached.</p>
+     * <p>Relationship: COCT_MT090108CA.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>This is the most commonly used piece of contact 
      * information and is returned here to avoid unnecessary 
      * queries of the provider registry.</p>
+     * 
+     * <p>Indicates phone and/or e-mail addresses at which the 
+     * healthcare worker can be reached.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getTelecom() {
@@ -247,36 +317,74 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090102CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedPerson"})
     public ActingPersonBean getAssignedPerson() {
         return this.assignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090102CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedPerson(ActingPersonBean assignedPerson) {
         this.assignedPerson = assignedPerson;
     }
 
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>D: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
      * 
      * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>F: Organization identifier</p>
-     * 
      * <p>A unique identifier for the organization</p>
-     * 
-     * <p>Allows the organization to be referenced when determining 
-     * privileges and for drill-downs to retrieve additional 
-     * information. Because of its importance, the attribute is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"representedOrganization/id"})
     public Identifier getRepresentedOrganizationId() {
@@ -284,25 +392,33 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>D: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090108CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
      * 
      * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>F: Organization identifier</p>
-     * 
      * <p>A unique identifier for the organization</p>
-     * 
-     * <p>Allows the organization to be referenced when determining 
-     * privileges and for drill-downs to retrieve additional 
-     * information. Because of its importance, the attribute is 
-     * mandatory.</p>
      */
     public void setRepresentedOrganizationId(Identifier representedOrganizationId) {
         this.representedOrganizationId.setValue(representedOrganizationId);
@@ -310,15 +426,19 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>G: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
      * 
-     * <p>Identifies the type of organization on whose behalf the 
-     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
+     * <p>Relationship: COCT_MT090108CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides context to the action and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
     public HealthcareOrganizationRoleType getRepresentedOrganizationAssignedOrganizationCode() {
@@ -326,15 +446,19 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>G: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
      * 
-     * <p>Identifies the type of organization on whose behalf the 
-     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
+     * <p>Relationship: COCT_MT090108CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides context to the action and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      */
     public void setRepresentedOrganizationAssignedOrganizationCode(HealthcareOrganizationRoleType representedOrganizationAssignedOrganizationCode) {
         this.representedOrganizationAssignedOrganizationCode.setValue(representedOrganizationAssignedOrganizationCode);
@@ -342,16 +466,21 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>OrganizationPhoneAndEmails</p>
+     * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>I: Organization Phone and Emails</p>
+     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Identifies contact information for the responsible 
-     * organization.</p>
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>This is the most commonly used contact information and is 
      * returned to avoid unnecessary queries against the client 
      * registry.</p>
+     * 
+     * <p>Identifies contact information for the responsible 
+     * organization.</p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getRepresentedOrganizationAssignedOrganizationTelecom() {

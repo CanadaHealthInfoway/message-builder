@@ -32,12 +32,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.PersonalRelationshipCode"})
 public class PersonalRelationshipCodeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV value = new CVImpl();
 
 
     /**
-     * <p>Client Next of Kin</p>
+     * <p>Business Name: Client Next of Kin</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101103CA.PersonalRelationshipCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"value"})
     public PersonalRelationshipRoleType getValue() {
@@ -45,7 +50,12 @@ public class PersonalRelationshipCodeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Next of Kin</p>
+     * <p>Business Name: Client Next of Kin</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101103CA.PersonalRelationshipCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setValue(PersonalRelationshipRoleType value) {
         this.value.setValue(value);

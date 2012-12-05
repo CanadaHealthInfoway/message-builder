@@ -39,23 +39,23 @@ import java.util.List;
 
 
 /**
- * <p>PaymentIntent</p>
+ * <p>Business Name: PaymentIntent</p>
  * 
  * <p>FICR_MT630000CA.PaymentIntent: Payment Intent</p>
- * 
- * <p>Intention of Payor to pay invoice as previously 
- * adjudicated.</p>
  * 
  * <p>If an Adjudicator adjudicates for multiple insurance 
  * policies (EOBs) for multiple Payors and/or Payees, there 
  * would be more than 1 Payment Intent payload in the Results 
  * message</p>
+ * 
+ * <p>Intention of Payor to pay invoice as previously 
+ * adjudicated.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.PaymentIntent","FICR_MT630000CA.PaymentIntent"})
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS effectiveTime = new TSImpl();
     private MO amt = new MOImpl();
     private PayeeAccountBean creditAccount;
@@ -65,24 +65,27 @@ public class PaymentIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>PaymentIntentDateTime</p>
+     * <p>Business Name: PaymentIntentDateTime</p>
      * 
-     * <p>Payment Intent Date/Time</p>
+     * <p>Other Business Name: PaymentIntentDateTime</p>
      * 
-     * <p>Payment Intent Date/Time</p>
+     * <p>Relationship: FICR_MT610201CA.PaymentIntent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: PaymentIntentDateTime</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.PaymentIntent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>For nullify, this would also be the date the payor 
+     * intends to make the payment.</p><p>For Invoice Nullify 
+     * Results: Effective time of the cancel is noted in the 
+     * control act wrapper.</p>
      * 
      * <p>Parment Intent Date/Time - Time payor intends to make 
      * payment (e.g. date of cheque/EFT run).</p>
-     * 
-     * <p>For nullify, this would also be the date the payor 
-     * intends to make the payment.</p><p>For Invoice Nullify 
-     * Results: Effective time of the cancel is noted in the 
-     * control act wrapper.</p>
-     * 
-     * <p>For nullify, this would also be the date the payor 
-     * intends to make the payment.</p><p>For Invoice Nullify 
-     * Results: Effective time of the cancel is noted in the 
-     * control act wrapper.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -90,24 +93,27 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
     /**
-     * <p>PaymentIntentDateTime</p>
+     * <p>Business Name: PaymentIntentDateTime</p>
      * 
-     * <p>Payment Intent Date/Time</p>
+     * <p>Other Business Name: PaymentIntentDateTime</p>
      * 
-     * <p>Payment Intent Date/Time</p>
+     * <p>Relationship: FICR_MT610201CA.PaymentIntent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: PaymentIntentDateTime</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.PaymentIntent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>For nullify, this would also be the date the payor 
+     * intends to make the payment.</p><p>For Invoice Nullify 
+     * Results: Effective time of the cancel is noted in the 
+     * control act wrapper.</p>
      * 
      * <p>Parment Intent Date/Time - Time payor intends to make 
      * payment (e.g. date of cheque/EFT run).</p>
-     * 
-     * <p>For nullify, this would also be the date the payor 
-     * intends to make the payment.</p><p>For Invoice Nullify 
-     * Results: Effective time of the cancel is noted in the 
-     * control act wrapper.</p>
-     * 
-     * <p>For nullify, this would also be the date the payor 
-     * intends to make the payment.</p><p>For Invoice Nullify 
-     * Results: Effective time of the cancel is noted in the 
-     * control act wrapper.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -115,41 +121,29 @@ public class PaymentIntentBean extends MessagePartBean {
 
 
     /**
+     * <p>Other Business Name: TotalIntentPaymentAmount</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PaymentIntent.amt</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: PaymentAmount</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.PaymentIntent.amt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
+     * Results messages</p><p>Net_amt must be negative or 0 for 
+     * Invoice Cancel messages</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
+     * 
      * <p>payment amount</p>
-     * 
-     * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
-     * Results messages</p><p>Net_amt must be negative or 0 for 
-     * Invoice Cancel messages</p>
-     * 
-     * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
-     * Results messages</p><p>Net_amt must be negative or 0 for 
-     * Invoice Cancel messages</p>
-     * 
-     * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
-     * Results messages</p><p>Net_amt must be negative or 0 for 
-     * Invoice Cancel messages</p>
-     * 
-     * <p>payment amount</p>
-     * 
-     * <p>Adjudication Results: The payment intent amount cannot be 
-     * mandatory for active adjudication results.</p><p>For Invoice 
-     * Nullify Results: the payment intent is completed only, and 
-     * therefore the amount must be specified.</p><p>For completed 
-     * Payment Intents, this field is mandatory.</p>
-     * 
-     * <p>Adjudication Results: The payment intent amount cannot be 
-     * mandatory for active adjudication results.</p><p>For Invoice 
-     * Nullify Results: the payment intent is completed only, and 
-     * therefore the amount must be specified.</p><p>For completed 
-     * Payment Intents, this field is mandatory.</p>
-     * 
-     * <p>Adjudication Results: The payment intent amount cannot be 
-     * mandatory for active adjudication results.</p><p>For Invoice 
-     * Nullify Results: the payment intent is completed only, and 
-     * therefore the amount must be specified.</p><p>For completed 
-     * Payment Intents, this field is mandatory.</p>
-     * 
-     * <p>Total intent payment amount</p>
      */
     @Hl7XmlMapping({"amt"})
     public Money getAmt() {
@@ -157,73 +151,128 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
     /**
+     * <p>Other Business Name: TotalIntentPaymentAmount</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PaymentIntent.amt</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: PaymentAmount</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.PaymentIntent.amt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
+     * Results messages</p><p>Net_amt must be negative or 0 for 
+     * Invoice Cancel messages</p>
+     * 
+     * <p>Adjudication Results: The payment intent amount cannot be 
+     * mandatory for active adjudication results.</p><p>For Invoice 
+     * Nullify Results: the payment intent is completed only, and 
+     * therefore the amount must be specified.</p><p>For completed 
+     * Payment Intents, this field is mandatory.</p>
+     * 
      * <p>payment amount</p>
-     * 
-     * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
-     * Results messages</p><p>Net_amt must be negative or 0 for 
-     * Invoice Cancel messages</p>
-     * 
-     * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
-     * Results messages</p><p>Net_amt must be negative or 0 for 
-     * Invoice Cancel messages</p>
-     * 
-     * <p>Net_amt must be positive or 0 for</p><p>Adjudication 
-     * Results messages</p><p>Net_amt must be negative or 0 for 
-     * Invoice Cancel messages</p>
-     * 
-     * <p>payment amount</p>
-     * 
-     * <p>Adjudication Results: The payment intent amount cannot be 
-     * mandatory for active adjudication results.</p><p>For Invoice 
-     * Nullify Results: the payment intent is completed only, and 
-     * therefore the amount must be specified.</p><p>For completed 
-     * Payment Intents, this field is mandatory.</p>
-     * 
-     * <p>Adjudication Results: The payment intent amount cannot be 
-     * mandatory for active adjudication results.</p><p>For Invoice 
-     * Nullify Results: the payment intent is completed only, and 
-     * therefore the amount must be specified.</p><p>For completed 
-     * Payment Intents, this field is mandatory.</p>
-     * 
-     * <p>Adjudication Results: The payment intent amount cannot be 
-     * mandatory for active adjudication results.</p><p>For Invoice 
-     * Nullify Results: the payment intent is completed only, and 
-     * therefore the amount must be specified.</p><p>For completed 
-     * Payment Intents, this field is mandatory.</p>
-     * 
-     * <p>Total intent payment amount</p>
      */
     public void setAmt(Money amt) {
         this.amt.setValue(amt);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PaymentIntentPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.PaymentIntentPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
         return this.creditAccount;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PaymentIntentPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.PaymentIntentPayee.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PaymentIntentPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.PaymentIntentPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PaymentIntentPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT630000CA.PaymentIntentPayor.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PertinentInformation.adjudicatorBillingTaxAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
     public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
         return this.pertinentInformationAdjudicatorBillingTaxAccount;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PaymentIntent.reasonOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     */
     @Hl7XmlMapping({"reasonOf"})
     public List<PaymentIntentReasonBean> getReasonOf() {
         return this.reasonOf;

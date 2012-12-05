@@ -36,49 +36,49 @@ import java.util.Date;
 
 
 /**
- * <p>IssueManagements</p>
+ * <p>Business Name: IssueManagements</p>
  * 
  * <p>PORX_MT980030CA.DetectedIssueManagement: Issue 
  * Managements</p>
  * 
+ * <p>A_DetectedMedicationIssue</p>
+ * 
+ * <p>It allows overriding of the detected issue</p>
+ * 
  * <p>The processes and procedures employed by providers to 
  * resolve clinical and business issues between the action 
  * being performed and additional information already in the 
  * patient's record or system business rules.</p>
- * 
- * <p>A_DetectedMedicationIssue</p>
- * 
- * <p>It allows overriding of the detected issue</p>
  * 
  * <p>PORX_MT980010CA.DetectedIssueManagement: Issue 
  * Managements</p>
  * 
+ * <p>A_DetectedMedicationIssue</p>
+ * 
+ * <p>It allows overriding of the detected issue</p>
+ * 
  * <p>The processes and procedures employed by providers to 
  * resolve clinical and business issues between the action 
  * being performed and additional information already in the 
  * patient's record or system business rules.</p>
  * 
- * <p>A_DetectedMedicationIssue</p>
- * 
- * <p>It allows overriding of the detected issue</p>
- * 
  * <p>PORX_MT980020CA.DetectedIssueManagement: Issue 
  * Managements</p>
- * 
- * <p>The processes and procedures employed by providers to 
- * resolve clinical conflicts between the action being 
- * performed and additional information already in the 
- * patient's record.</p>
  * 
  * <p>A_DetectedMedicationIssue</p>
  * 
  * <p>Presents alternatives for how the issue could be managed 
  * or has been managed in the past.</p>
+ * 
+ * <p>The processes and procedures employed by providers to 
+ * resolve clinical conflicts between the action being 
+ * performed and additional information already in the 
+ * patient's record.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueManagement","PORX_MT980020CA.DetectedIssueManagement","PORX_MT980030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private TS authorTime = new TSImpl();
@@ -86,158 +86,136 @@ public class IssueManagementsBean extends MessagePartBean {
 
 
     /**
-     * <p>ManagementType</p>
+     * <p>Business Name: ManagementType</p>
      * 
-     * <p>A:Management Type</p>
+     * <p>Other Business Name: ManagementType</p>
      * 
-     * <p>Indicates the kinds of management actions that can be 
-     * taken, based on the issue type.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueManagement.code</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ManagedContraindication.State</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>OverrideReason.reason</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>D65(when dealing with clinical indication overrides, 
+     * otherwise use overrides in ControlAct wrapper.</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZPB3.10</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Intervention Codes</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZPS.8</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZPS.15</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZDP.21.1</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>DRU.100-02</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>DRU.100-03</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>DUR/PPS.440-E6</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>DUR/PPS.441-E6</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Claim.420-DK</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
      * 
      * <p>Ensures consistency in description of management 
      * actions.</p><p>This is mandatory so as to ensure distinction 
      * between different kinds of management.</p>
-     * 
-     * <p>Ensures consistency in description of management 
-     * actions.</p><p>This is mandatory so as to ensure distinction 
-     * between different kinds of management.</p>
-     * 
-     * <p>A:Management Type</p>
      * 
      * <p>Indicates the kinds of management actions that have been 
      * taken, depending on the issue type.</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Other Business Name: ManagementType</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueManagement.code</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ManagedContraindication.State</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>OverrideReason.reason</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>D65(when dealing with clinical indication overrides, 
+     * otherwise use overrides in ControlAct wrapper.</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZPB3.10</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>Intervention Codes</p>
+     * 
+     * <p>ZPS.8</p>
+     * 
+     * <p>ZPS.15</p>
+     * 
+     * <p>ZDP.21.1</p>
+     * 
+     * <p>DRU.100-02</p>
+     * 
+     * <p>DRU.100-03</p>
+     * 
+     * <p>DUR/PPS.440-E6</p>
+     * 
+     * <p>DUR/PPS.441-E6</p>
+     * 
+     * <p>Claim.420-DK</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Ensures consistency in description of management 
+     * actions.</p><p>This is mandatory so as to ensure distinction 
+     * between different kinds of management.</p>
+     * 
+     * <p>Indicates the kinds of management actions that have been 
+     * taken, depending on the issue type.</p>
+     * 
+     * <p>Other Business Name: ManagementType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueManagement.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ManagedContraindication.State</p>
+     * 
+     * <p>OverrideReason.reason</p>
+     * 
+     * <p>D65(when dealing with clinical indication overrides, 
+     * otherwise use overrides in ControlAct wrapper.</p>
+     * 
+     * <p>ZPB3.10</p>
+     * 
+     * <p>Intervention Codes</p>
+     * 
+     * <p>ZPS.8</p>
+     * 
+     * <p>ZPS.15</p>
+     * 
+     * <p>ZDP.21.1</p>
+     * 
+     * <p>DRU.100-02</p>
+     * 
+     * <p>DRU.100-03</p>
+     * 
+     * <p>DUR/PPS.440-E6</p>
+     * 
+     * <p>DUR/PPS.441-E6</p>
+     * 
+     * <p>Claim.420-DK</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Ensures consistency in description of management 
+     * actions.</p><p>This is mandatory so as to ensure distinction 
+     * between different kinds of management.</p>
+     * 
+     * <p>Indicates the kinds of management actions that can be 
+     * taken, based on the issue type.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActDetectedIssueManagementCode getCode() {
@@ -245,158 +223,136 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ManagementType</p>
+     * <p>Business Name: ManagementType</p>
      * 
-     * <p>A:Management Type</p>
+     * <p>Other Business Name: ManagementType</p>
      * 
-     * <p>Indicates the kinds of management actions that can be 
-     * taken, based on the issue type.</p>
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueManagement.code</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ManagedContraindication.State</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>OverrideReason.reason</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>D65(when dealing with clinical indication overrides, 
+     * otherwise use overrides in ControlAct wrapper.</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZPB3.10</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Intervention Codes</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZPS.8</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZPS.15</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZDP.21.1</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>DRU.100-02</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>DRU.100-03</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>DUR/PPS.440-E6</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>DUR/PPS.441-E6</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Claim.420-DK</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
      * 
      * <p>Ensures consistency in description of management 
      * actions.</p><p>This is mandatory so as to ensure distinction 
      * between different kinds of management.</p>
-     * 
-     * <p>Ensures consistency in description of management 
-     * actions.</p><p>This is mandatory so as to ensure distinction 
-     * between different kinds of management.</p>
-     * 
-     * <p>A:Management Type</p>
      * 
      * <p>Indicates the kinds of management actions that have been 
      * taken, depending on the issue type.</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Other Business Name: ManagementType</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueManagement.code</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ManagedContraindication.State</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>OverrideReason.reason</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>D65(when dealing with clinical indication overrides, 
+     * otherwise use overrides in ControlAct wrapper.</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-E6</p><p>Claim.420-DK</p><p>A_DetectedMedicationIssue</p>
+     * <p>ZPB3.10</p>
      * 
-     * <p>ManagedContraindication.State</p><p>OverrideReason.reason</p><p>D65(when 
-     * dealing with clinical indication overrides, otherwise use 
-     * overrides in ControlAct 
-     * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15</p><p>ZDP.21.1</p><p>DRU.100-02</p><p>DRU.100-03</p><p>DUR/PPS.440-E6</p><p>DUR/PPS.441-
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>Intervention Codes</p>
+     * 
+     * <p>ZPS.8</p>
+     * 
+     * <p>ZPS.15</p>
+     * 
+     * <p>ZDP.21.1</p>
+     * 
+     * <p>DRU.100-02</p>
+     * 
+     * <p>DRU.100-03</p>
+     * 
+     * <p>DUR/PPS.440-E6</p>
+     * 
+     * <p>DUR/PPS.441-E6</p>
+     * 
+     * <p>Claim.420-DK</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Ensures consistency in description of management 
+     * actions.</p><p>This is mandatory so as to ensure distinction 
+     * between different kinds of management.</p>
+     * 
+     * <p>Indicates the kinds of management actions that have been 
+     * taken, depending on the issue type.</p>
+     * 
+     * <p>Other Business Name: ManagementType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueManagement.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ManagedContraindication.State</p>
+     * 
+     * <p>OverrideReason.reason</p>
+     * 
+     * <p>D65(when dealing with clinical indication overrides, 
+     * otherwise use overrides in ControlAct wrapper.</p>
+     * 
+     * <p>ZPB3.10</p>
+     * 
+     * <p>Intervention Codes</p>
+     * 
+     * <p>ZPS.8</p>
+     * 
+     * <p>ZPS.15</p>
+     * 
+     * <p>ZDP.21.1</p>
+     * 
+     * <p>DRU.100-02</p>
+     * 
+     * <p>DRU.100-03</p>
+     * 
+     * <p>DUR/PPS.440-E6</p>
+     * 
+     * <p>DUR/PPS.441-E6</p>
+     * 
+     * <p>Claim.420-DK</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Ensures consistency in description of management 
+     * actions.</p><p>This is mandatory so as to ensure distinction 
+     * between different kinds of management.</p>
+     * 
+     * <p>Indicates the kinds of management actions that can be 
+     * taken, based on the issue type.</p>
      */
     public void setCode(ActDetectedIssueManagementCode code) {
         this.code.setValue(code);
@@ -404,15 +360,46 @@ public class IssueManagementsBean extends MessagePartBean {
 
 
     /**
-     * <p>ManagementDescription</p>
+     * <p>Business Name: ManagementDescription</p>
      * 
-     * <p>C:Management Description</p>
+     * <p>Other Business Name: ManagementDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueManagement.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows additional clinical detail to be conveyed that are 
+     * important clinically and not conveyed by the code.</p>
      * 
      * <p>Additional free-text details describing the management of 
      * the issue.</p>
      * 
+     * <p>Other Business Name: ManagementDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueManagement.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
+     * 
+     * <p>Additional free-text details describing the management of 
+     * the issue.</p>
+     * 
+     * <p>Other Business Name: ManagementDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueManagement.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows additional clinical detail to be conveyed that are 
+     * important clinically and not conveyed by the code.</p>
+     * 
+     * <p>Additional free-text details describing the management of 
+     * the issue.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -420,15 +407,46 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ManagementDescription</p>
+     * <p>Business Name: ManagementDescription</p>
      * 
-     * <p>C:Management Description</p>
+     * <p>Other Business Name: ManagementDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueManagement.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows additional clinical detail to be conveyed that are 
+     * important clinically and not conveyed by the code.</p>
      * 
      * <p>Additional free-text details describing the management of 
      * the issue.</p>
      * 
+     * <p>Other Business Name: ManagementDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueManagement.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
+     * 
+     * <p>Additional free-text details describing the management of 
+     * the issue.</p>
+     * 
+     * <p>Other Business Name: ManagementDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueManagement.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows additional clinical detail to be conveyed that are 
+     * important clinically and not conveyed by the code.</p>
+     * 
+     * <p>Additional free-text details describing the management of 
+     * the issue.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -436,27 +454,49 @@ public class IssueManagementsBean extends MessagePartBean {
 
 
     /**
-     * <p>ManagementDate</p>
+     * <p>Business Name: ManagementDate</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ManagementDate</p>
      * 
-     * <p>The date and time on which the provider managed the 
-     * issue.</p>
+     * <p>Relationship: PORX_MT980030CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
      * 
-     * <p>The date and time on which the provider used this 
-     * management for the issue in the past.</p>
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
      * <p>Part of the audit record but not always available and 
      * therefore only marked as 'populated'.</p>
+     * 
+     * <p>The date and time on which the provider used this 
+     * management for the issue in the past.</p>
      */
     @Hl7XmlMapping({"author/time"})
     public Date getAuthorTime() {
@@ -464,38 +504,98 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ManagementDate</p>
+     * <p>Business Name: ManagementDate</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ManagementDate</p>
      * 
-     * <p>The date and time on which the provider managed the 
-     * issue.</p>
+     * <p>Relationship: PORX_MT980030CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
      * 
-     * <p>The date and time on which the provider used this 
-     * management for the issue in the past.</p>
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
      * <p>Part of the audit record but not always available and 
      * therefore only marked as 'populated'.</p>
+     * 
+     * <p>The date and time on which the provider used this 
+     * management for the issue in the past.</p>
      */
     public void setAuthorTime(Date authorTime) {
         this.authorTime.setValue(authorTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedPerson"})
     public ProviderBean getAuthorAssignedPerson() {
         return this.authorAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
         this.authorAssignedPerson = authorAssignedPerson;
     }

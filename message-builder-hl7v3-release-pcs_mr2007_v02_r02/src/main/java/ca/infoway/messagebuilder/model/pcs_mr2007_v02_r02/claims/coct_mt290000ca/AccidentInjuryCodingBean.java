@@ -32,21 +32,25 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.Observatio
 
 
 /**
- * <p>Accident Injury coding</p>
+ * <p>Business Name: Accident Injury coding</p>
  * 
  * <p>Accident Information</p>
  */
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInjuryCoding"})
 public class AccidentInjuryCodingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
     private CV targetSiteCode = new CVImpl();
 
 
     /**
-     * <p>Observation Injury type</p>
+     * <p>Business Name: Observation Injury type</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Injury Type</p>
      */
@@ -56,7 +60,11 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
     }
 
     /**
-     * <p>Observation Injury type</p>
+     * <p>Business Name: Observation Injury type</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Injury Type</p>
      */
@@ -66,7 +74,11 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
 
 
     /**
-     * <p>Injury code</p>
+     * <p>Business Name: Injury code</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Nature of Injury</p>
      */
@@ -76,7 +88,11 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
     }
 
     /**
-     * <p>Injury code</p>
+     * <p>Business Name: Injury code</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Nature of Injury</p>
      */
@@ -86,7 +102,12 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
 
 
     /**
-     * <p>Act Injury Site</p>
+     * <p>Business Name: Act Injury Site</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.AccidentInjuryCoding.targetSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Body Part + modifier = Side of Body</p>
      */
@@ -96,7 +117,12 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
     }
 
     /**
-     * <p>Act Injury Site</p>
+     * <p>Business Name: Act Injury Site</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.AccidentInjuryCoding.targetSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Body Part + modifier = Side of Body</p>
      */

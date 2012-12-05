@@ -41,22 +41,22 @@ import java.util.List;
 
 
 /**
- * <p>Type of Summary</p>
+ * <p>Business Name: Type of Summary</p>
  * 
  * <p>The AdjudResultsGroup.netAmt must equal the sum of all 
  * immediate children AdjudResultsGroup.netAmt</p>
  * 
- * <p>(Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
- * Compound, Healthcare Goods, Preferred Accomodation</p>
- * 
  * <p>Detailed information required for financial 
  * reconciliation.</p>
+ * 
+ * <p>(Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
+ * Compound, Healthcare Goods, Preferred Accomodation</p>
  */
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudResultsGroup"})
 @Hl7RootType
 public class TypeOfSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private MO netAmt = new MOImpl();
@@ -64,7 +64,9 @@ public class TypeOfSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Type of Adjustment</p>
+     * <p>Relationship: QUCR_MT830201CA.AdjudResultsGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For Payment Advice: Code also specifies the type of 
      * adjustment for a payment advice (e.g. CFWD - carry forward 
@@ -82,29 +84,7 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * Code also specifies the type of adjustment for a payment 
      * advice (e.g. CFWD - carry forward adjustment).</p>
      * 
-     * <p>-For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>-For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
+     * <p>Type of Adjustment</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceAdjudicationPaymentCode getCode() {
@@ -112,7 +92,9 @@ public class TypeOfSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Type of Adjustment</p>
+     * <p>Relationship: QUCR_MT830201CA.AdjudResultsGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For Payment Advice: Code also specifies the type of 
      * adjustment for a payment advice (e.g. CFWD - carry forward 
@@ -130,29 +112,7 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * Code also specifies the type of adjustment for a payment 
      * advice (e.g. CFWD - carry forward adjustment).</p>
      * 
-     * <p>-For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
-     * 
-     * <p>-For Payment Advice: For Vision Care payment advices, 
-     * RETRO adjustments will always include references to the EOBs 
-     * that made up the retroactive adjustment.</p><p>For Payment 
-     * Advice: For Pharmacy payment advices, RETRO adjustments will 
-     * not include references to the EOBs that made up the 
-     * retroactive adjustment. Providers must submit a Payment 
-     * Advice Query message to get the EOBs referenced by the RETRO 
-     * amount. The Payment Advice Detail message, however, is not 
-     * currently supported in Pharmacy.</p><p>For Payment Advice: 
-     * Code also specifies the type of adjustment for a payment 
-     * advice (e.g. CFWD - carry forward adjustment).</p>
+     * <p>Type of Adjustment</p>
      */
     public void setCode(ActInvoiceAdjudicationPaymentCode code) {
         this.code.setValue(code);
@@ -160,10 +120,12 @@ public class TypeOfSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Summary period date range</p>
+     * <p>Business Name: Summary period date range</p>
      * 
-     * <p>Summary period date range - Time period for the payment 
-     * or summary period.</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudResultsGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Time period for the payment or summary period. Can also 
      * indicate time period over which the clawback and/or retro 
@@ -171,6 +133,9 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
+     * 
+     * <p>Summary period date range - Time period for the payment 
+     * or summary period.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -178,10 +143,12 @@ public class TypeOfSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Summary period date range</p>
+     * <p>Business Name: Summary period date range</p>
      * 
-     * <p>Summary period date range - Time period for the payment 
-     * or summary period.</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudResultsGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Time period for the payment or summary period. Can also 
      * indicate time period over which the clawback and/or retro 
@@ -189,6 +156,9 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
+     * 
+     * <p>Summary period date range - Time period for the payment 
+     * or summary period.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -196,9 +166,11 @@ public class TypeOfSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Summary Period Amt</p>
+     * <p>Business Name: Summary Period Amt</p>
      * 
-     * <p>Summary Period Amt</p>
+     * <p>Relationship: QUCR_MT830201CA.AdjudResultsGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
@@ -208,6 +180,8 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * situation, it should equal the net effect of all 
      * AdjudResultsGroupSummaryData elements that would appear in 
      * the Payment Advice.</p>
+     * 
+     * <p>Summary Period Amt</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -215,9 +189,11 @@ public class TypeOfSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Summary Period Amt</p>
+     * <p>Business Name: Summary Period Amt</p>
      * 
-     * <p>Summary Period Amt</p>
+     * <p>Relationship: QUCR_MT830201CA.AdjudResultsGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
@@ -227,12 +203,20 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * situation, it should equal the net effect of all 
      * AdjudResultsGroupSummaryData elements that would appear in 
      * the Payment Advice.</p>
+     * 
+     * <p>Summary Period Amt</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudResultsRef.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicationResultIdentifierBean> getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;

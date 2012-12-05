@@ -31,15 +31,28 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Location","PRPM_MT309000CA.Location"})
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
 
 
     /**
-     * <p>OrderOfServiceDeliveryLocations</p>
+     * <p>Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Order of Service Delivery Locations</p>
+     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows each Service Delivery Location to be sequentially 
+     * listed.</p>
+     * 
+     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
@@ -50,9 +63,22 @@ public class LocationBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrderOfServiceDeliveryLocations</p>
+     * <p>Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Order of Service Delivery Locations</p>
+     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows each Service Delivery Location to be sequentially 
+     * listed.</p>
+     * 
+     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
@@ -62,11 +88,41 @@ public class LocationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
     public ServiceDeliveryLocationBean getServiceDeliveryLocation() {
         return this.serviceDeliveryLocation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setServiceDeliveryLocation(ServiceDeliveryLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
     }

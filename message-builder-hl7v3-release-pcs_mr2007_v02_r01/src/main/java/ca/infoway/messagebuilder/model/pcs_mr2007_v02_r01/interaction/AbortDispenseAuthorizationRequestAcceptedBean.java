@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 /**
- * <p>PORX_IN010570CA: Abort dispense authorization request 
- * accepted</p>
+ * <p>Business Name: PORX_IN010570CA: Abort dispense 
+ * authorization request accepted</p>
+ * 
+ * <p>Indicates that the requests prescription has been marked 
+ * as &quot;&quot;no longer dispensable but still 
+ * administrable&quot;&quot;.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 @Hl7PartTypeMapping({"PORX_IN010570CA"})
 public class AbortDispenseAuthorizationRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

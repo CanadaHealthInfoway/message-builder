@@ -47,7 +47,7 @@ import java.util.List;
 
 
 /**
- * <p>Antibiotic Sensitivity Observation</p>
+ * <p>Business Name: Antibiotic Sensitivity Observation</p>
  * 
  * <p>Act for the antibiotic sensitivity test result 
  * information. The code attribute is a LOINC code and 
@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SensitivityObservationEvent"})
 public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private CS statusCode = new CSImpl();
@@ -70,7 +70,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Sensitivity Test Code</p>
+     * <p>Business Name: Sensitivity Test Code</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>pCLOCD code describing the drug which is being tested for 
      * sensitivities.</p>
@@ -81,7 +86,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Sensitivity Test Code</p>
+     * <p>Business Name: Sensitivity Test Code</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>pCLOCD code describing the drug which is being tested for 
      * sensitivities.</p>
@@ -92,15 +102,20 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Sensitivity Text</p>
+     * <p>Business Name: Sensitivity Text</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for any information regarding this information to 
+     * be captured.</p>
      * 
      * <p>This observation is coded using LOINC. If any coded 
      * attribute is not able to represent the specificity or 
      * granularity of the observation attribute, additional details 
      * should be placed in this attribute.</p>
-     * 
-     * <p>Allows for any information regarding this information to 
-     * be captured.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -108,15 +123,20 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Sensitivity Text</p>
+     * <p>Business Name: Sensitivity Text</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for any information regarding this information to 
+     * be captured.</p>
      * 
      * <p>This observation is coded using LOINC. If any coded 
      * attribute is not able to represent the specificity or 
      * granularity of the observation attribute, additional details 
      * should be placed in this attribute.</p>
-     * 
-     * <p>Allows for any information regarding this information to 
-     * be captured.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -124,7 +144,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Sensitivity Status</p>
+     * <p>Business Name: Sensitivity Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the sensitivity.</p>
      */
@@ -134,7 +159,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Sensitivity Status</p>
+     * <p>Business Name: Sensitivity Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the sensitivity.</p>
      */
@@ -144,7 +174,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Sensitivity Test Date/time Range</p>
+     * <p>Business Name: Sensitivity Test Date/time Range</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date/time interval over which the sensitivity test 
      * was performed.</p>
@@ -155,7 +190,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Sensitivity Test Date/time Range</p>
+     * <p>Business Name: Sensitivity Test Date/time Range</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date/time interval over which the sensitivity test 
      * was performed.</p>
@@ -166,7 +206,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Sensitivity Value</p>
+     * <p>Business Name: Sensitivity Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Any numeric or quantitative result. Interpretation values 
      * are coded and communicated using the interpretationCode 
@@ -178,7 +223,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Sensitivity Value</p>
+     * <p>Business Name: Sensitivity Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Any numeric or quantitative result. Interpretation values 
      * are coded and communicated using the interpretationCode 
@@ -190,7 +240,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Sensitivity Value Interpretation</p>
+     * <p>Business Name: Sensitivity Value Interpretation</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.interpretationCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The result interpretation value of the sensitivity 
      * testing.</p>
@@ -201,7 +256,12 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Sensitivity Value Interpretation</p>
+     * <p>Business Name: Sensitivity Value Interpretation</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.interpretationCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The result interpretation value of the sensitivity 
      * testing.</p>

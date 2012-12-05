@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>COMT_IN600002CA: Retract action request accepted</p>
+ * <p>Business Name: COMT_IN600002CA: Retract action request 
+ * accepted</p>
+ * 
+ * <p>Indicates that an identified ControlAct has been 
+ * nullified as requested, essentially reversing the record of 
+ * the event.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"COMT_IN600002CA"})
 public class RetractActionRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

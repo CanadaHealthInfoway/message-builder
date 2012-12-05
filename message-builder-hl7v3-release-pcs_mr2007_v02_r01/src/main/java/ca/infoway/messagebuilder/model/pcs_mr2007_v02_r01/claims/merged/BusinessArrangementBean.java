@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActBilling
 
 
 /**
- * <p>BusinessArrangement</p>
+ * <p>Business Name: BusinessArrangement</p>
  * 
  * <p>FICR_MT600201CA.FinancialContract: Business Arrangement</p>
  * 
@@ -43,26 +43,35 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActBilling
 @Hl7PartTypeMapping({"FICR_MT600201CA.FinancialContract","QUCR_MT810201CA.AdjudResultsFinancialContract"})
 public class BusinessArrangementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
 
     /**
-     * <p>Financial Contract ID</p>
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Alberta Health &amp; Wellness requires an ability to 
+     * message a business arrangement identifier for invoices in 
+     * Alberta.</p>
+     * 
+     * <p>Alberta Health &amp; Wellness requires an ability to 
+     * message a business arrangement identifier for invoices in 
+     * Alberta.</p>
      * 
      * <p>The unique identifier of the billing contract 
      * information.</p>
      * 
-     * <p>Alberta Health &amp; Wellness requires an ability to 
-     * message a business arrangement identifier for invoices in 
-     * Alberta.</p>
+     * <p>Other Business Name: BusinessArrangementID</p>
      * 
-     * <p>Alberta Health &amp; Wellness requires an ability to 
-     * message a business arrangement identifier for invoices in 
-     * Alberta.</p>
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
      * 
-     * <p>Business Arrangement ID</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Business arrangement identifier</p>
      */
@@ -72,20 +81,29 @@ public class BusinessArrangementBean extends MessagePartBean {
     }
 
     /**
-     * <p>Financial Contract ID</p>
+     * <p>Other Business Name: FinancialContractID</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Alberta Health &amp; Wellness requires an ability to 
+     * message a business arrangement identifier for invoices in 
+     * Alberta.</p>
+     * 
+     * <p>Alberta Health &amp; Wellness requires an ability to 
+     * message a business arrangement identifier for invoices in 
+     * Alberta.</p>
      * 
      * <p>The unique identifier of the billing contract 
      * information.</p>
      * 
-     * <p>Alberta Health &amp; Wellness requires an ability to 
-     * message a business arrangement identifier for invoices in 
-     * Alberta.</p>
+     * <p>Other Business Name: BusinessArrangementID</p>
      * 
-     * <p>Alberta Health &amp; Wellness requires an ability to 
-     * message a business arrangement identifier for invoices in 
-     * Alberta.</p>
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
      * 
-     * <p>Business Arrangement ID</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Business arrangement identifier</p>
      */
@@ -95,16 +113,20 @@ public class BusinessArrangementBean extends MessagePartBean {
 
 
     /**
-     * <p>BillingArrangementType</p>
+     * <p>Business Name: BillingArrangementType</p>
      * 
-     * <p>Billing Arrangement Type</p>
+     * <p>Other Business Name: BillingArrangementType</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>RxS1: Not permitted, as billing arrangements are not 
+     * included in this scenario.</p>
      * 
      * <p>The type of provision made for reimbursing the healthcare 
      * services provided over a specific period. I.e. Capitation 
      * Funding or Fee For Service.</p>
-     * 
-     * <p>RxS1: Not permitted, as billing arrangements are not 
-     * included in this scenario.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActBillingArrangementCode getCode() {
@@ -112,16 +134,20 @@ public class BusinessArrangementBean extends MessagePartBean {
     }
 
     /**
-     * <p>BillingArrangementType</p>
+     * <p>Business Name: BillingArrangementType</p>
      * 
-     * <p>Billing Arrangement Type</p>
+     * <p>Other Business Name: BillingArrangementType</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>RxS1: Not permitted, as billing arrangements are not 
+     * included in this scenario.</p>
      * 
      * <p>The type of provision made for reimbursing the healthcare 
      * services provided over a specific period. I.e. Capitation 
      * Funding or Fee For Service.</p>
-     * 
-     * <p>RxS1: Not permitted, as billing arrangements are not 
-     * included in this scenario.</p>
      */
     public void setCode(ActBillingArrangementCode code) {
         this.code.setValue(code);

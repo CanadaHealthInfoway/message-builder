@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.MedicalCon
 
 
 /**
- * <p>REPC_IN000028CA: Record medical condition request</p>
+ * <p>Business Name: REPC_IN000028CA: Record medical condition 
+ * request</p>
+ * 
+ * <p>Requests that a medical condition record be recorded 
+ * against the specified patient.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.MedicalCon
 @Hl7PartTypeMapping({"REPC_IN000028CA"})
 public class RecordMedicalConditionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MedicalConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

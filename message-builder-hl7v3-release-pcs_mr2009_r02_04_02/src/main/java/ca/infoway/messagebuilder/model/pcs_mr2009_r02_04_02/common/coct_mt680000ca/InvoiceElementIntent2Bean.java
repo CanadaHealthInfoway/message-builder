@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoi
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent2"})
 public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
@@ -52,7 +52,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Generic Service Codes</p>
+     * <p>Business Name: Generic Service Codes</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.InvoiceElementIntent2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Domain for InvoiceElementIntent2.code is 
      * GenericBillableItemModifier</p>
@@ -67,7 +71,11 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
 
     /**
-     * <p>Generic Service Codes</p>
+     * <p>Business Name: Generic Service Codes</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.InvoiceElementIntent2.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Domain for InvoiceElementIntent2.code is 
      * GenericBillableItemModifier</p>
@@ -82,7 +90,12 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Unit Quantity</p>
+     * <p>Business Name: Unit Quantity</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>e.g. 3 {boxes}</p>
      */
@@ -92,7 +105,12 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
 
     /**
-     * <p>Unit Quantity</p>
+     * <p>Business Name: Unit Quantity</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>e.g. 3 {boxes}</p>
      */
@@ -102,7 +120,12 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Price per unit</p>
+     * <p>Business Name: Price per unit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>e.g. $50 CAD/ 1 {box}</p>
      */
@@ -112,7 +135,12 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
 
     /**
-     * <p>Price per unit</p>
+     * <p>Business Name: Price per unit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>e.g. $50 CAD/ 1 {box}</p>
      */
@@ -122,7 +150,13 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Total amount billed for line item/elements.</p>
+     * <p>Business Name: Total amount billed for line 
+     * item/elements.</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>(= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
@@ -133,7 +167,13 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
 
     /**
-     * <p>Total amount billed for line item/elements.</p>
+     * <p>Business Name: Total amount billed for line 
+     * item/elements.</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>(= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
@@ -144,7 +184,12 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Factor Number</p>
+     * <p>Business Name: Factor Number</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
@@ -155,7 +200,12 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
 
     /**
-     * <p>Factor Number</p>
+     * <p>Business Name: Factor Number</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementIntent2.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>

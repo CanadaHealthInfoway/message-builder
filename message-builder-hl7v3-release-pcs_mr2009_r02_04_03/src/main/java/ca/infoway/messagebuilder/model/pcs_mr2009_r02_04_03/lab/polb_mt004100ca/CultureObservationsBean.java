@@ -46,7 +46,7 @@ import java.util.List;
 
 
 /**
- * <p>Culture Observations</p>
+ * <p>Business Name: Culture Observations</p>
  * 
  * <p>Act for describing any observations about the culture 
  * e.g. Protein measurements, gram stains, culture-level 
@@ -60,7 +60,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.CultureObservationEvent"})
 public class CultureObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private CS statusCode = new CSImpl();
@@ -71,7 +71,12 @@ public class CultureObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Observation Type</p>
+     * <p>Business Name: Culture Observation Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Act for describing the type of observations about the 
      * culture e.g. gram stain, etc.</p>
@@ -82,7 +87,12 @@ public class CultureObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Culture Observation Type</p>
+     * <p>Business Name: Culture Observation Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Act for describing the type of observations about the 
      * culture e.g. gram stain, etc.</p>
@@ -93,7 +103,12 @@ public class CultureObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Observation Comment</p>
+     * <p>Business Name: Culture Observation Comment</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Comments associated with the Culture Observation.</p>
      */
@@ -103,7 +118,12 @@ public class CultureObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Culture Observation Comment</p>
+     * <p>Business Name: Culture Observation Comment</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Comments associated with the Culture Observation.</p>
      */
@@ -113,7 +133,12 @@ public class CultureObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Observation Status</p>
+     * <p>Business Name: Culture Observation Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the Culture Observation.</p>
      */
@@ -123,7 +148,12 @@ public class CultureObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Culture Observation Status</p>
+     * <p>Business Name: Culture Observation Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the Culture Observation.</p>
      */
@@ -133,7 +163,12 @@ public class CultureObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Observation Date/Time</p>
+     * <p>Business Name: Culture Observation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time interval when this culture observation took 
      * place.</p>
@@ -144,7 +179,12 @@ public class CultureObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Culture Observation Date/Time</p>
+     * <p>Business Name: Culture Observation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time interval when this culture observation took 
      * place.</p>
@@ -155,7 +195,12 @@ public class CultureObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Observation Value</p>
+     * <p>Business Name: Culture Observation Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The result value of this culture observation e.g. the 
      * number value associated with a protein measurement, etc. 
@@ -168,7 +213,12 @@ public class CultureObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Culture Observation Value</p>
+     * <p>Business Name: Culture Observation Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.CultureObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The result value of this culture observation e.g. the 
      * number value associated with a protein measurement, etc. 

@@ -44,7 +44,7 @@ import java.util.List;
 
 
 /**
- * <p>Isolate Observations</p>
+ * <p>Business Name: Isolate Observations</p>
  * 
  * <p>Allows for further observations to be documentation at 
  * the isolate level, e.g. growth, colony count, etc.</p>
@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.IsolateObservationEvent"})
 public class IsolateObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -62,7 +62,12 @@ public class IsolateObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Isolate Observation Type</p>
+     * <p>Business Name: Isolate Observation Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.IsolateObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of isolate observation and is bound to 
      * the LOINC code domain.</p>
@@ -73,7 +78,12 @@ public class IsolateObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Isolate Observation Type</p>
+     * <p>Business Name: Isolate Observation Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.IsolateObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of isolate observation and is bound to 
      * the LOINC code domain.</p>
@@ -84,7 +94,12 @@ public class IsolateObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Isolate Observation Status</p>
+     * <p>Business Name: Isolate Observation Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.IsolateObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the Isolate Observation.</p>
      */
@@ -94,7 +109,12 @@ public class IsolateObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Isolate Observation Status</p>
+     * <p>Business Name: Isolate Observation Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.IsolateObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status associated with the Isolate Observation.</p>
      */
@@ -104,7 +124,12 @@ public class IsolateObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Isolate Observation Effective Time</p>
+     * <p>Business Name: Isolate Observation Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.IsolateObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective time of the Isolate Observation.</p>
      */
@@ -114,7 +139,12 @@ public class IsolateObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Isolate Observation Effective Time</p>
+     * <p>Business Name: Isolate Observation Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.IsolateObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective time of the Isolate Observation.</p>
      */
@@ -124,7 +154,12 @@ public class IsolateObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Isolate Observation Value</p>
+     * <p>Business Name: Isolate Observation Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.IsolateObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The value of the isolate observation.</p>
      */
@@ -134,7 +169,12 @@ public class IsolateObservationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Isolate Observation Value</p>
+     * <p>Business Name: Isolate Observation Value</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.IsolateObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The value of the isolate observation.</p>
      */

@@ -30,28 +30,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Patient</p>
- * 
- * <p>Indicates the type of patient for whom the dosage 
- * instruction applies.</p>
+ * <p>Business Name: Patient</p>
  * 
  * <p>Important for qualifying and filtering dosage 
  * specifications.</p>
+ * 
+ * <p>Indicates the type of patient for whom the dosage 
+ * instruction applies.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV patientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
 
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.LivingSubjectKind.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Some dosage specifications are gender-specific.</p>
      * 
      * <p>Indicates the gender of patient to whom the dosage 
      * specification applies.</p>
-     * 
-     * <p>Some dosage specifications are gender-specific.</p>
      */
     @Hl7XmlMapping({"patientLivingSubjectKind/administrativeGenderCode"})
     public AdministrativeGender getPatientLivingSubjectKindAdministrativeGenderCode() {
@@ -59,12 +64,17 @@ public class PatientBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.LivingSubjectKind.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Some dosage specifications are gender-specific.</p>
      * 
      * <p>Indicates the gender of patient to whom the dosage 
      * specification applies.</p>
-     * 
-     * <p>Some dosage specifications are gender-specific.</p>
      */
     public void setPatientLivingSubjectKindAdministrativeGenderCode(AdministrativeGender patientLivingSubjectKindAdministrativeGenderCode) {
         this.patientLivingSubjectKindAdministrativeGenderCode.setValue(patientLivingSubjectKindAdministrativeGenderCode);

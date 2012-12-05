@@ -37,39 +37,39 @@ import java.util.Date;
 
 
 /**
- * <p>IssueDescription</p>
+ * <p>Business Name: IssueDescription</p>
  * 
  * <p>PORX_MT980010CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p>This is the decision support rule that triggered the 
- * issue.</p>
- * 
  * <p>Provides detailed background for providers in evaluating 
  * the issue.</p>
+ * 
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  * 
  * <p>PORX_MT980020CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p>This is the decision support rule that triggered the 
- * issue.</p>
- * 
  * <p>Provides detailed background for providers in evaluating 
  * the issue.</p>
+ * 
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  * 
  * <p>PORX_MT980030CA.DetectedIssueDefinition: Issue 
  * Description</p>
  * 
- * <p>This is the decision support rule that triggered the 
- * issue.</p>
- * 
  * <p>Provides detailed background for providers in evaluating 
  * the issue.</p>
+ * 
+ * <p>This is the decision support rule that triggered the 
+ * issue.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueDefinition","PORX_MT980020CA.DetectedIssueDefinition","PORX_MT980030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ANY<Object> text = new ANYImpl<Object>();
     private TS authorTime = new TSImpl();
@@ -78,36 +78,85 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueMonographId</p>
+     * <p>Business Name: IssueMonographId</p>
      * 
-     * <p>A:Issue Monograph Id</p>
+     * <p>Other Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p>
+     * 
+     * <p>ZPE.2</p>
+     * 
+     * <p>MB.05.03C</p>
+     * 
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
      * 
      * <p>Knowledgebase organization specific identifier for the 
      * issue definition.</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Other Business Name: IssueMonographId</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Relationship: PORX_MT980020CA.DetectedIssueDefinition.id</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>DDIMonograph.DDIMonographId</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>ZPE.2</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>MB.05.03C</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
      * 
      * <p>Allows applications to match with local Knowledge-bases 
      * and avoid displaying duplicate issues to providers.</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
+     * 
+     * <p>Other Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p>
+     * 
+     * <p>ZPE.2</p>
+     * 
+     * <p>MB.05.03C</p>
+     * 
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -115,36 +164,85 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueMonographId</p>
+     * <p>Business Name: IssueMonographId</p>
      * 
-     * <p>A:Issue Monograph Id</p>
+     * <p>Other Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p>
+     * 
+     * <p>ZPE.2</p>
+     * 
+     * <p>MB.05.03C</p>
+     * 
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
      * 
      * <p>Knowledgebase organization specific identifier for the 
      * issue definition.</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Other Business Name: IssueMonographId</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Relationship: PORX_MT980020CA.DetectedIssueDefinition.id</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>DDIMonograph.DDIMonographId</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>ZPE.2</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>MB.05.03C</p>
      * 
-     * <p>DDIMonograph.DDIMonographId</p><p>ZPE.2</p><p>MB.05.03C</p><p>ZPS.14</p><p>ZDU.5.2</p><p>A_DetectedMedicationIssue</p><p>Monograph 
-     * Code</p>
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
      * 
      * <p>Allows applications to match with local Knowledge-bases 
      * and avoid displaying duplicate issues to providers.</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
+     * 
+     * <p>Other Business Name: IssueMonographId</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.DetectedIssueDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.DDIMonographId</p>
+     * 
+     * <p>ZPE.2</p>
+     * 
+     * <p>MB.05.03C</p>
+     * 
+     * <p>ZPS.14</p>
+     * 
+     * <p>ZDU.5.2</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Monograph Code</p>
+     * 
+     * <p>Allows applications to match with local Knowledge-bases 
+     * and avoid displaying duplicate issues to providers.</p>
+     * 
+     * <p>Knowledgebase organization specific identifier for the 
+     * issue definition.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -152,19 +250,58 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueDescription</p>
+     * <p>Business Name: IssueDescription</p>
      * 
-     * <p>C:Issue Description</p>
+     * <p>Other Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
      * 
      * <p>A free form textual description of the issue. This is 
      * usually in the form of a monograph.</p>
      * 
-     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * <p>Other Business Name: IssueDescription</p>
      * 
-     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
      * 
      * <p>Provides detailed clinical background on reasons for 
      * issue.</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
+     * 
+     * <p>Other Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
      */
     @Hl7XmlMapping({"text"})
     public Object getText() {
@@ -172,19 +309,58 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueDescription</p>
+     * <p>Business Name: IssueDescription</p>
      * 
-     * <p>C:Issue Description</p>
+     * <p>Other Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
      * 
      * <p>A free form textual description of the issue. This is 
      * usually in the form of a monograph.</p>
      * 
-     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * <p>Other Business Name: IssueDescription</p>
      * 
-     * <p>Monograph URI (Reference)</p><p>Monograph description</p>
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
      * 
      * <p>Provides detailed clinical background on reasons for 
      * issue.</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
+     * 
+     * <p>Other Business Name: IssueDescription</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueDefinition.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Monograph URI (Reference)</p>
+     * 
+     * <p>Monograph description</p>
+     * 
+     * <p>Provides detailed clinical background on reasons for 
+     * issue.</p>
+     * 
+     * <p>A free form textual description of the issue. This is 
+     * usually in the form of a monograph.</p>
      */
     public void setText(Object text) {
         this.text.setValue(text);
@@ -192,20 +368,58 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueMonographEffectiveDate</p>
+     * <p>Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>B:Issue Monograph Effective Date</p>
+     * <p>Other Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>The date and time on which the monograph becomes valid 
-     * and applicable.</p>
+     * <p>Relationship: PORX_MT980010CA.Author2.time</p>
      * 
-     * <p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p>
+     * <p>DDIMonograph.EffectiveDate</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
      * 
      * <p>Allows detailed matching of local knowledgebase record 
      * with that of the central. (The monograph id may remain the 
      * same, but the effective date will always change).</p>
+     * 
+     * <p>The date and time on which the monograph becomes valid 
+     * and applicable.</p>
+     * 
+     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.EffectiveDate</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Allows detailed matching of local knowledgebase record 
+     * with that of the central. (The monograph id may remain the 
+     * same, but the effective date will always change).</p>
+     * 
+     * <p>The date and time on which the monograph becomes valid 
+     * and applicable.</p>
+     * 
+     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.EffectiveDate</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Allows detailed matching of local knowledgebase record 
+     * with that of the central. (The monograph id may remain the 
+     * same, but the effective date will always change).</p>
+     * 
+     * <p>The date and time on which the monograph becomes valid 
+     * and applicable.</p>
      */
     @Hl7XmlMapping({"author/time"})
     public Date getAuthorTime() {
@@ -213,20 +427,58 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueMonographEffectiveDate</p>
+     * <p>Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>B:Issue Monograph Effective Date</p>
+     * <p>Other Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>The date and time on which the monograph becomes valid 
-     * and applicable.</p>
+     * <p>Relationship: PORX_MT980010CA.Author2.time</p>
      * 
-     * <p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DDIMonograph.EffectiveDate</p><p>A_DetectedMedicationIssue</p>
+     * <p>DDIMonograph.EffectiveDate</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
      * 
      * <p>Allows detailed matching of local knowledgebase record 
      * with that of the central. (The monograph id may remain the 
      * same, but the effective date will always change).</p>
+     * 
+     * <p>The date and time on which the monograph becomes valid 
+     * and applicable.</p>
+     * 
+     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.EffectiveDate</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Allows detailed matching of local knowledgebase record 
+     * with that of the central. (The monograph id may remain the 
+     * same, but the effective date will always change).</p>
+     * 
+     * <p>The date and time on which the monograph becomes valid 
+     * and applicable.</p>
+     * 
+     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DDIMonograph.EffectiveDate</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Allows detailed matching of local knowledgebase record 
+     * with that of the central. (The monograph id may remain the 
+     * same, but the effective date will always change).</p>
+     * 
+     * <p>The date and time on which the monograph becomes valid 
+     * and applicable.</p>
      */
     public void setAuthorTime(Date authorTime) {
         this.authorTime.setValue(authorTime);
@@ -234,20 +486,46 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>KnowledgebaseVendorName</p>
+     * <p>Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>C:Knowledgebase Vendor Name</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
      * 
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows a knowledgebase vendor to be referenced by 
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
+     * 
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
      */
     @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
     public String getAuthorAssignedEntityAssignedOrganizationName() {
@@ -255,31 +533,101 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>KnowledgebaseVendorName</p>
+     * <p>Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>C:Knowledgebase Vendor Name</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
      * 
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows a knowledgebase vendor to be referenced by 
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
+     * 
+     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a knowledgebase vendor to be referenced by 
+     * name.</p><p>The attribute is mandatory because it is the 
+     * only information collected about a knowledgebase vendor.</p>
+     * 
+     * <p>The name of a clinical knowledgebase vendor 
+     * organization.</p>
      */
     public void setAuthorAssignedEntityAssignedOrganizationName(String authorAssignedEntityAssignedOrganizationName) {
         this.authorAssignedEntityAssignedOrganizationName.setValue(authorAssignedEntityAssignedOrganizationName);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
     public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
         return this.componentSubstanceAdministrationEventCriterion;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.Component.substanceAdministrationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
         this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
     }

@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AllowableBean reference1Allowable;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private II id = new IIImpl();
@@ -82,7 +82,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Adjudicated Results Identifier</p>
+     * <p>Business Name: Adjudicated Results Identifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -90,7 +95,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Adjudicated Results Identifier</p>
+     * <p>Business Name: Adjudicated Results Identifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -98,7 +108,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Invoice Type</p>
+     * <p>Business Name: Invoice Type</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceGroupType getCode() {
@@ -106,7 +121,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Invoice Type</p>
+     * <p>Business Name: Invoice Type</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceGroupType code) {
         this.code.setValue(code);
@@ -114,7 +134,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Status of the Adjudicated Invoice</p>
+     * <p>Business Name: Status of the Adjudicated Invoice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -122,7 +147,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Status of the Adjudicated Invoice</p>
+     * <p>Business Name: Status of the Adjudicated Invoice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -130,7 +160,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Paid Amount</p>
+     * <p>Business Name: Paid Amount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -138,28 +173,57 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Paid Amount</p>
+     * <p>Business Name: Paid Amount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public AdjudicatedInvoiceAuthorBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoicePredecessor.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/adjudicatedInvoiceElementGroup"})
     public AdjudicatedInvoiceElementGroupBean getPredecessorAdjudicatedInvoiceElementGroup() {
         return this.predecessorAdjudicatedInvoiceElementGroup;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoicePredecessor.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPredecessorAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean predecessorAdjudicatedInvoiceElementGroup) {
         this.predecessorAdjudicatedInvoiceElementGroup = predecessorAdjudicatedInvoiceElementGroup;
     }
@@ -171,12 +235,24 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"coverage"})
     public List<AdjudicatedInvoiceCoverageBean> getCoverage() {
         return this.coverage;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.component</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     */
     @Hl7XmlMapping({"component"})
     public List<AdjudicatedInvoiceElementComponentBean> getComponent() {
         return this.component;

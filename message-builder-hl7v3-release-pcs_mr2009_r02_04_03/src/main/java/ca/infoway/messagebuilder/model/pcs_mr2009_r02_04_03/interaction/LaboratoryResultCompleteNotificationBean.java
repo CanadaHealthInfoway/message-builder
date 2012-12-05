@@ -29,7 +29,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004999ca.
 
 
 /**
- * <p>POLB_IN224200CA: Laboratory Result Complete Notification</p>
+ * <p>Business Name: POLB_IN224200CA: Laboratory Result 
+ * Complete Notification</p>
+ * 
+ * <p>This interaction is a Result Complete without Receiver 
+ * Responsibilities (i.e., the sending system utilizes messages 
+ * that do not require application-level responses). This 
+ * interaction signals completion of the result as well as 
+ * completion of the Filler's Promise for the result</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -49,6 +56,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004999ca.
 @Hl7PartTypeMapping({"POLB_IN224200CA"})
 public class LaboratoryResultCompleteNotificationBean extends HL7Message_1Bean<TriggerEventBean<ResultInstancePayloadChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

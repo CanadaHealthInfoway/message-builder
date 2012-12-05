@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.ObservationPromise"})
 public class ObservationPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
     private II id = new IIImpl();
@@ -101,7 +101,11 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
 
 
     /**
-     * <p>Lab Order Observation Identifier</p>
+     * <p>Business Name: Lab Order Observation Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.ObservationPromise.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -109,7 +113,11 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
     /**
-     * <p>Lab Order Observation Identifier</p>
+     * <p>Business Name: Lab Order Observation Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.ObservationPromise.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -123,7 +131,11 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
 
 
     /**
-     * <p>Orderable Observation Type</p>
+     * <p>Business Name: Orderable Observation Type</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.ObservationPromise.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationResultableLabType getCode() {
@@ -131,7 +143,11 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
     /**
-     * <p>Orderable Observation Type</p>
+     * <p>Business Name: Orderable Observation Type</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.ObservationPromise.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(ObservationResultableLabType code) {
         this.code.setValue(code);
@@ -144,18 +160,35 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient"})
     public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
         return this.primaryInformationRecipient;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
         this.primaryInformationRecipient = primaryInformationRecipient;
     }
 
 
     /**
-     * <p>Order Observation Activated Date/Time</p>
+     * <p>Business Name: Order Observation Activated Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ObservationPromise.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -163,7 +196,12 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
     /**
-     * <p>Order Observation Activated Date/Time</p>
+     * <p>Business Name: Order Observation Activated Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ObservationPromise.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -177,7 +215,12 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
 
 
     /**
-     * <p>Result Masking Indicator</p>
+     * <p>Business Name: Result Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ObservationPromise.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -196,7 +239,12 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
 
 
     /**
-     * <p>Planned Observation Method</p>
+     * <p>Business Name: Planned Observation Method</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ObservationPromise.methodCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"methodCode"})
     public ObservationMethod getMethodCode() {
@@ -204,7 +252,12 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
     /**
-     * <p>Planned Observation Method</p>
+     * <p>Business Name: Planned Observation Method</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ObservationPromise.methodCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setMethodCode(ObservationMethod methodCode) {
         this.methodCode.setValue(methodCode);
@@ -217,17 +270,32 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Component.promiseChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/promiseChoice"})
     public List<PromiseChoice> getComponentPromiseChoice() {
         return this.componentPromiseChoice;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

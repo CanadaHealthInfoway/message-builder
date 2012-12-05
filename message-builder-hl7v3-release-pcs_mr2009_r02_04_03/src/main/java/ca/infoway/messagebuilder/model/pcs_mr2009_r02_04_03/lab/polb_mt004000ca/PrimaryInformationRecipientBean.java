@@ -35,16 +35,28 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.Recipient
 @Hl7PartTypeMapping({"POLB_MT004000CA.PrimaryInformationRecipient"})
 public class PrimaryInformationRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS contextControlCode = new CSImpl();
     private RecipientChoice recipientChoice;
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PrimaryInformationRecipient.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PrimaryInformationRecipient.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }

@@ -42,22 +42,22 @@ import java.util.Set;
 
 
 /**
- * <p>Service Location</p>
- * 
- * <p>An identification of a service location (or facility) 
- * where health service has been or can be delivered. E.g. 
- * Pharmacy, Medical Clinic, Hospital</p>
+ * <p>Business Name: Service Location</p>
  * 
  * <p>Used for tracking service delivery responsibility, to 
  * provide contact information for follow-up and for 
  * statistical analysis. Also important for indicating where 
  * paper records can be located.</p>
+ * 
+ * <p>An identification of a service location (or facility) 
+ * where health service has been or can be delivered. E.g. 
+ * Pharmacy, Medical Clinic, Hospital</p>
  */
 @Hl7PartTypeMapping({"COCT_MT240003CA.ServiceDeliveryLocation"})
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.Recipient {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -65,47 +65,32 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>C:Service Location Id</p>
+     * <p>Business Name: C:Service Location Id</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -113,47 +98,32 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>C:Service Location Id</p>
+     * <p>Business Name: C:Service Location Id</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>PVD.020-01 (extension)</p>
+     * 
+     * <p>PVD.020-02 (root)</p>
+     * 
+     * <p>Dispensing Pharmacy number</p>
+     * 
+     * <p>Pharmacy Identifier</p>
+     * 
+     * <p>Facility.facilityKey</p>
+     * 
+     * <p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -161,22 +131,21 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>D:Service Location Address</p>
+     * <p>Business Name: D:Service Location Address</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Identifies the physical location of a service location 
+     * and also allows for the location to be contacted.</p><p>The 
+     * address is marked as 'populated' because it is considered a 
+     * critical piece of information about the facility, but may 
+     * not always be available or meaningful.</p>
      * 
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
-     * 
-     * <p>Identifies the physical location of a service location 
-     * and also allows for the location to be contacted.</p><p>The 
-     * address is marked as 'populated' because it is considered a 
-     * critical piece of information about the facility, but may 
-     * not always be available or meaningful.</p>
-     * 
-     * <p>Identifies the physical location of a service location 
-     * and also allows for the location to be contacted.</p><p>The 
-     * address is marked as 'populated' because it is considered a 
-     * critical piece of information about the facility, but may 
-     * not always be available or meaningful.</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -184,22 +153,21 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>D:Service Location Address</p>
+     * <p>Business Name: D:Service Location Address</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Identifies the physical location of a service location 
+     * and also allows for the location to be contacted.</p><p>The 
+     * address is marked as 'populated' because it is considered a 
+     * critical piece of information about the facility, but may 
+     * not always be available or meaningful.</p>
      * 
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
-     * 
-     * <p>Identifies the physical location of a service location 
-     * and also allows for the location to be contacted.</p><p>The 
-     * address is marked as 'populated' because it is considered a 
-     * critical piece of information about the facility, but may 
-     * not always be available or meaningful.</p>
-     * 
-     * <p>Identifies the physical location of a service location 
-     * and also allows for the location to be contacted.</p><p>The 
-     * address is marked as 'populated' because it is considered a 
-     * critical piece of information about the facility, but may 
-     * not always be available or meaningful.</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
@@ -207,14 +175,19 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>E:Service Location Phones and E-mails</p>
+     * <p>Business Name: E:Service Location Phones and E-mails</p>
      * 
-     * <p>The phone numbers and/or electronic mail addresses by 
-     * which a service location may be contacted.</p>
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      * 
      * <p>Allows a service location to be communicated with and is 
      * therefore important. Because a contact number won't always 
      * exist, the field is marked 'populated'.</p>
+     * 
+     * <p>The phone numbers and/or electronic mail addresses by 
+     * which a service location may be contacted.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getTelecom() {
@@ -223,21 +196,22 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>B:Service Location Name</p>
+     * <p>Business Name: B:Service Location Name</p>
      * 
-     * <p>The name assigned to the service location.</p>
+     * <p>Relationship: COCT_MT240003CA.Place.name</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>PVD.070</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication, and for cross-checking of 
      * location Id and is therefore mandatory</p>
+     * 
+     * <p>The name assigned to the service location.</p>
      */
     @Hl7XmlMapping({"location/name"})
     public String getLocationName() {
@@ -245,21 +219,22 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>B:Service Location Name</p>
+     * <p>Business Name: B:Service Location Name</p>
      * 
-     * <p>The name assigned to the service location.</p>
+     * <p>Relationship: COCT_MT240003CA.Place.name</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>PVD.070</p>
      * 
-     * <p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p>
+     * <p>Dispensing Pharmacy Name</p>
+     * 
+     * <p>Facility.name</p>
      * 
      * <p>Used for human communication, and for cross-checking of 
      * location Id and is therefore mandatory</p>
+     * 
+     * <p>The name assigned to the service location.</p>
      */
     public void setLocationName(String locationName) {
         this.locationName.setValue(locationName);

@@ -36,55 +36,75 @@ import java.util.Date;
 
 
 /**
- * <p>PrescriptionPatientMeasurements</p>
+ * <p>Business Name: PrescriptionPatientMeasurements</p>
  * 
  * <p>PORX_MT060340CA.QuantityObservationEvent: Prescription 
  * Patient Measurements</p>
  * 
+ * <p>Allows patient height and weight to be conveyed to the 
+ * pharmacy for dosage calculation or verification</p>
+ * 
  * <p>This comprises the height and/or weight of a patient as 
  * measured/observed/known by the prescriber at the time of 
  * prescribing.</p>
- * 
- * <p>Allows patient height and weight to be conveyed to the 
- * pharmacy for dosage calculation or verification</p>
  * 
  * <p>PORX_MT010120CA.QuantityObservationEvent: Prescription 
  * Patient Measurements</p>
  * 
+ * <p>Allows patient height and weight to be conveyed to the 
+ * pharmacy for dosage calculation or verification;</p>
+ * 
  * <p>This comprises the height and/or weight of a patient as 
  * measured/observed/known by the prescriber at the time of 
  * prescribing.</p>
- * 
- * <p>Allows patient height and weight to be conveyed to the 
- * pharmacy for dosage calculation or verification;</p>
  * 
  * <p>PORX_MT060160CA.QuantityObservationEvent: Prescription 
  * Patient Measurements</p>
  * 
+ * <p>Allows patient height and weight to be conveyed to the 
+ * pharmacy for dosage calculation or verification</p>
+ * 
  * <p>This comprises the height and/or weight of a patient as 
  * measured/observed/known by the prescriber at the time of 
  * prescribing.</p>
- * 
- * <p>Allows patient height and weight to be conveyed to the 
- * pharmacy for dosage calculation or verification</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ value = new PQImpl();
 
 
     /**
-     * <p>PrescriptionPatientMeasurementType</p>
+     * <p>Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Prescription Patient Measurement Type</p>
+     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Identification of the type of measurement/observation 
-     * that was made about the patient. The only two allowable 
-     * types are height and weight.</p>
+     * <p>Relationship: 
+     * PORX_MT060340CA.QuantityObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>OBS.010-01</p>
+     * 
+     * <p>Clinical.495-H2</p>
+     * 
+     * <p>Distinguishes height from weight.</p><p>Code is mandatory 
+     * to ensure that measurements/observations are 
+     * distinguishable.</p>
+     * 
+     * <p>Identification of the type of observation that was made 
+     * about the patient. The only two allowable types are height 
+     * and weight.</p>
+     * 
+     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.QuantityObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>OBS.010-01 NCPDP:Clinical.495-H2</p>
      * 
@@ -92,23 +112,28 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * specified. Code is mandatory to ensure that 
      * measurements/observations are distinguishable.</p>
      * 
-     * <p>Prescription Patient Measurement Type</p>
+     * <p>Identification of the type of measurement/observation 
+     * that was made about the patient. The only two allowable 
+     * types are height and weight.</p>
+     * 
+     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.QuantityObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>OBS.010-01</p>
+     * 
+     * <p>Clinical.495-H2</p>
+     * 
+     * <p>Distinguishes height from weight.</p><p>Code is mandatory 
+     * to ensure that measurements/observations are 
+     * distinguishable.</p>
      * 
      * <p>Identification of the type of observation that was made 
      * about the patient. The only two allowable types are height 
      * and weight.</p>
-     * 
-     * <p>OBS.010-01</p><p>Clinical.495-H2</p>
-     * 
-     * <p>OBS.010-01</p><p>Clinical.495-H2</p>
-     * 
-     * <p>Distinguishes height from weight.</p><p>Code is mandatory 
-     * to ensure that measurements/observations are 
-     * distinguishable.</p>
-     * 
-     * <p>Distinguishes height from weight.</p><p>Code is mandatory 
-     * to ensure that measurements/observations are 
-     * distinguishable.</p>
      */
     @Hl7XmlMapping({"code"})
     public x_ActObservationHeightOrWeight getCode() {
@@ -116,13 +141,33 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionPatientMeasurementType</p>
+     * <p>Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Prescription Patient Measurement Type</p>
+     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Identification of the type of measurement/observation 
-     * that was made about the patient. The only two allowable 
-     * types are height and weight.</p>
+     * <p>Relationship: 
+     * PORX_MT060340CA.QuantityObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>OBS.010-01</p>
+     * 
+     * <p>Clinical.495-H2</p>
+     * 
+     * <p>Distinguishes height from weight.</p><p>Code is mandatory 
+     * to ensure that measurements/observations are 
+     * distinguishable.</p>
+     * 
+     * <p>Identification of the type of observation that was made 
+     * about the patient. The only two allowable types are height 
+     * and weight.</p>
+     * 
+     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.QuantityObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>OBS.010-01 NCPDP:Clinical.495-H2</p>
      * 
@@ -130,23 +175,28 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * specified. Code is mandatory to ensure that 
      * measurements/observations are distinguishable.</p>
      * 
-     * <p>Prescription Patient Measurement Type</p>
+     * <p>Identification of the type of measurement/observation 
+     * that was made about the patient. The only two allowable 
+     * types are height and weight.</p>
+     * 
+     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.QuantityObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>OBS.010-01</p>
+     * 
+     * <p>Clinical.495-H2</p>
+     * 
+     * <p>Distinguishes height from weight.</p><p>Code is mandatory 
+     * to ensure that measurements/observations are 
+     * distinguishable.</p>
      * 
      * <p>Identification of the type of observation that was made 
      * about the patient. The only two allowable types are height 
      * and weight.</p>
-     * 
-     * <p>OBS.010-01</p><p>Clinical.495-H2</p>
-     * 
-     * <p>OBS.010-01</p><p>Clinical.495-H2</p>
-     * 
-     * <p>Distinguishes height from weight.</p><p>Code is mandatory 
-     * to ensure that measurements/observations are 
-     * distinguishable.</p>
-     * 
-     * <p>Distinguishes height from weight.</p><p>Code is mandatory 
-     * to ensure that measurements/observations are 
-     * distinguishable.</p>
      */
     public void setCode(x_ActObservationHeightOrWeight code) {
         this.code.setValue(code);
@@ -154,29 +204,33 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Prescription Patient Measurement Time</p>
+     * <p>Other Business Name: PrescriptionPatientMeasurementTime</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>OBS.010-04</p>
+     * 
+     * <p>Clinical.494-ZE</p>
+     * 
+     * <p>Clinical.495-H1</p>
+     * 
+     * <p>Allows provider to evaluate currency of the 
+     * information.</p><p>The attribute is populated because the 
+     * measurement time must be known or a null flavor must be 
+     * specified.</p>
      * 
      * <p>The date on which the measurement was made.</p>
      * 
-     * <p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p>
+     * <p>Other Business Name: 
+     * PrescriptionPatientMeasurementTimestamp</p>
      * 
-     * <p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.QuantityObservationEvent.effectiveTime</p>
      * 
-     * <p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p>
-     * 
-     * <p>Allows provider to evaluate currency of the 
-     * information.</p><p>The attribute is populated because the 
-     * measurement time must be known or a null flavor must be 
-     * specified.</p>
-     * 
-     * <p>Allows provider to evaluate currency of the 
-     * information.</p><p>The attribute is populated because the 
-     * measurement time must be known or a null flavor must be 
-     * specified.</p>
-     * 
-     * <p>Prescription Patient Measurement Timestamp</p>
-     * 
-     * <p>The date on which the measurement was made</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
      * NCPDP:Clinical.495-H1</p>
@@ -186,10 +240,27 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * determines the relevance of the information, this attribute 
      * is defined as 'populated'.</p>
      * 
-     * <p>Allows providers to evaluate currency of the 
-     * information.</p><p>Because the date of measurement 
-     * determines the relevance of the information, this attribute 
-     * is defined as 'populated'.</p>
+     * <p>The date on which the measurement was made</p>
+     * 
+     * <p>Other Business Name: PrescriptionPatientMeasurementTime</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>OBS.010-04</p>
+     * 
+     * <p>Clinical.494-ZE</p>
+     * 
+     * <p>Clinical.495-H1</p>
+     * 
+     * <p>Allows provider to evaluate currency of the 
+     * information.</p><p>The attribute is populated because the 
+     * measurement time must be known or a null flavor must be 
+     * specified.</p>
+     * 
+     * <p>The date on which the measurement was made.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -197,29 +268,33 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescription Patient Measurement Time</p>
+     * <p>Other Business Name: PrescriptionPatientMeasurementTime</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>OBS.010-04</p>
+     * 
+     * <p>Clinical.494-ZE</p>
+     * 
+     * <p>Clinical.495-H1</p>
+     * 
+     * <p>Allows provider to evaluate currency of the 
+     * information.</p><p>The attribute is populated because the 
+     * measurement time must be known or a null flavor must be 
+     * specified.</p>
      * 
      * <p>The date on which the measurement was made.</p>
      * 
-     * <p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p>
+     * <p>Other Business Name: 
+     * PrescriptionPatientMeasurementTimestamp</p>
      * 
-     * <p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.QuantityObservationEvent.effectiveTime</p>
      * 
-     * <p>OBS.010-04</p><p>Clinical.494-ZE</p><p>Clinical.495-H1</p>
-     * 
-     * <p>Allows provider to evaluate currency of the 
-     * information.</p><p>The attribute is populated because the 
-     * measurement time must be known or a null flavor must be 
-     * specified.</p>
-     * 
-     * <p>Allows provider to evaluate currency of the 
-     * information.</p><p>The attribute is populated because the 
-     * measurement time must be known or a null flavor must be 
-     * specified.</p>
-     * 
-     * <p>Prescription Patient Measurement Timestamp</p>
-     * 
-     * <p>The date on which the measurement was made</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
      * NCPDP:Clinical.495-H1</p>
@@ -229,10 +304,27 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * determines the relevance of the information, this attribute 
      * is defined as 'populated'.</p>
      * 
-     * <p>Allows providers to evaluate currency of the 
-     * information.</p><p>Because the date of measurement 
-     * determines the relevance of the information, this attribute 
-     * is defined as 'populated'.</p>
+     * <p>The date on which the measurement was made</p>
+     * 
+     * <p>Other Business Name: PrescriptionPatientMeasurementTime</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>OBS.010-04</p>
+     * 
+     * <p>Clinical.494-ZE</p>
+     * 
+     * <p>Clinical.495-H1</p>
+     * 
+     * <p>Allows provider to evaluate currency of the 
+     * information.</p><p>The attribute is populated because the 
+     * measurement time must be known or a null flavor must be 
+     * specified.</p>
+     * 
+     * <p>The date on which the measurement was made.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -240,13 +332,37 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionPatientMeasuredValue</p>
+     * <p>Business Name: PrescriptionPatientMeasuredValue</p>
      * 
-     * <p>Prescription Patient Measured Value</p>
+     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.QuantityObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>OBS.010-02 (quantity)</p>
+     * 
+     * <p>OBS.010-03 (unit)</p>
+     * 
+     * <p>Clinical.595-H4 (value)</p>
+     * 
+     * <p>Clinical.495-H3 (unit)</p>
+     * 
+     * <p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p>
      * 
      * <p>The amount (quantity and unit) that has been recorded for 
-     * the specific type of observation. E.g. height in meters, 
-     * weight in kilograms.</p>
+     * the patient's height and/or weight. E.g. height in meters, 
+     * weight in kilograms, etc.</p>
+     * 
+     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.QuantityObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>OBS.010-02 (quantity) eScript:OBS.010-03 (unit) 
      * NCPDP:Clinical.595-H4 (value) NCPDP:Clinical.495-H3 
@@ -257,40 +373,32 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * 'mandatory' to ensure that a value is supplied, if there is 
      * a measurement.</p>
      * 
-     * <p>Provides comparable representation of the measurement. 
-     * May be used in calculations.</p><p>Attribute is defined as 
-     * 'mandatory' to ensure that a value is supplied, if there is 
-     * a measurement.</p>
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in meters, 
+     * weight in kilograms.</p>
      * 
-     * <p>Prescription Patient Measured Value</p>
+     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.QuantityObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>OBS.010-02 (quantity)</p>
+     * 
+     * <p>OBS.010-03 (unit)</p>
+     * 
+     * <p>Clinical.595-H4 (value)</p>
+     * 
+     * <p>Clinical.495-H3 (unit)</p>
+     * 
+     * <p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p>
      * 
      * <p>The amount (quantity and unit) that has been recorded for 
      * the patient's height and/or weight. E.g. height in meters, 
      * weight in kilograms, etc.</p>
-     * 
-     * <p>OBS.010-02 (quantity)</p><p>OBS.010-03 
-     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
-     * (unit)</p>
-     * 
-     * <p>OBS.010-02 (quantity)</p><p>OBS.010-03 
-     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
-     * (unit)</p>
-     * 
-     * <p>OBS.010-02 (quantity)</p><p>OBS.010-03 
-     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
-     * (unit)</p>
-     * 
-     * <p>OBS.010-02 (quantity)</p><p>OBS.010-03 
-     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
-     * (unit)</p>
-     * 
-     * <p>Provides comparable representation of the measurement. 
-     * May be used in calculations.</p><p>The attribute is 
-     * mandatory because the measurement value must be known.</p>
-     * 
-     * <p>Provides comparable representation of the measurement. 
-     * May be used in calculations.</p><p>The attribute is 
-     * mandatory because the measurement value must be known.</p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {
@@ -298,13 +406,37 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionPatientMeasuredValue</p>
+     * <p>Business Name: PrescriptionPatientMeasuredValue</p>
      * 
-     * <p>Prescription Patient Measured Value</p>
+     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.QuantityObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>OBS.010-02 (quantity)</p>
+     * 
+     * <p>OBS.010-03 (unit)</p>
+     * 
+     * <p>Clinical.595-H4 (value)</p>
+     * 
+     * <p>Clinical.495-H3 (unit)</p>
+     * 
+     * <p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p>
      * 
      * <p>The amount (quantity and unit) that has been recorded for 
-     * the specific type of observation. E.g. height in meters, 
-     * weight in kilograms.</p>
+     * the patient's height and/or weight. E.g. height in meters, 
+     * weight in kilograms, etc.</p>
+     * 
+     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.QuantityObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>OBS.010-02 (quantity) eScript:OBS.010-03 (unit) 
      * NCPDP:Clinical.595-H4 (value) NCPDP:Clinical.495-H3 
@@ -315,40 +447,32 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * 'mandatory' to ensure that a value is supplied, if there is 
      * a measurement.</p>
      * 
-     * <p>Provides comparable representation of the measurement. 
-     * May be used in calculations.</p><p>Attribute is defined as 
-     * 'mandatory' to ensure that a value is supplied, if there is 
-     * a measurement.</p>
+     * <p>The amount (quantity and unit) that has been recorded for 
+     * the specific type of observation. E.g. height in meters, 
+     * weight in kilograms.</p>
      * 
-     * <p>Prescription Patient Measured Value</p>
+     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.QuantityObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>OBS.010-02 (quantity)</p>
+     * 
+     * <p>OBS.010-03 (unit)</p>
+     * 
+     * <p>Clinical.595-H4 (value)</p>
+     * 
+     * <p>Clinical.495-H3 (unit)</p>
+     * 
+     * <p>Provides comparable representation of the measurement. 
+     * May be used in calculations.</p><p>The attribute is 
+     * mandatory because the measurement value must be known.</p>
      * 
      * <p>The amount (quantity and unit) that has been recorded for 
      * the patient's height and/or weight. E.g. height in meters, 
      * weight in kilograms, etc.</p>
-     * 
-     * <p>OBS.010-02 (quantity)</p><p>OBS.010-03 
-     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
-     * (unit)</p>
-     * 
-     * <p>OBS.010-02 (quantity)</p><p>OBS.010-03 
-     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
-     * (unit)</p>
-     * 
-     * <p>OBS.010-02 (quantity)</p><p>OBS.010-03 
-     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
-     * (unit)</p>
-     * 
-     * <p>OBS.010-02 (quantity)</p><p>OBS.010-03 
-     * (unit)</p><p>Clinical.595-H4 (value)</p><p>Clinical.495-H3 
-     * (unit)</p>
-     * 
-     * <p>Provides comparable representation of the measurement. 
-     * May be used in calculations.</p><p>The attribute is 
-     * mandatory because the measurement value must be known.</p>
-     * 
-     * <p>Provides comparable representation of the measurement. 
-     * May be used in calculations.</p><p>The attribute is 
-     * mandatory because the measurement value must be known.</p>
      */
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);

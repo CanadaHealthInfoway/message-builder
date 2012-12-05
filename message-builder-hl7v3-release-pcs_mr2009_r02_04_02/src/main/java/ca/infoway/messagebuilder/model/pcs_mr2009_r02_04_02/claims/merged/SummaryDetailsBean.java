@@ -36,9 +36,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoi
  * <p>QUCR_MT810201CA.AdjudResultsGroupSummaryData: Adjudicated 
  * Results Group Summary Data</p>
  * 
- * <p>Summary Data for this Group of Adjudicated Results</p>
- * 
  * <p>Used for SOFA queries only</p>
+ * 
+ * <p>Summary Data for this Group of Adjudicated Results</p>
  * 
  * <p>FICR_MT610201CA.AdjudResultsGroupSummaryData: (no 
  * business name)</p>
@@ -54,22 +54,37 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoi
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudResultsGroupSummaryData","FICR_MT630000CA.AdjudResultsGroupSummaryData","QUCR_MT810201CA.AdjudResultsGroupSummaryData"})
 public class SummaryDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private PQ value = new PQImpl();
 
 
     /**
-     * <p>Summary Period Amt</p>
+     * <p>Other Business Name: SummaryInformation</p>
      * 
-     * <p>Summary Period Amt</p>
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SummaryTypeCode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>(defines the 'categorization'. Only really relevant for 
      * summaries.</p>
      * 
-     * <p>Summary Information</p>
-     * 
-     * <p>Summary Type Code</p>
+     * <p>Summary Period Amt</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceElementSummaryType getCode() {
@@ -77,16 +92,31 @@ public class SummaryDetailsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Summary Period Amt</p>
+     * <p>Other Business Name: SummaryInformation</p>
      * 
-     * <p>Summary Period Amt</p>
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SummaryTypeCode</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsGroupSummaryData.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>(defines the 'categorization'. Only really relevant for 
      * summaries.</p>
      * 
-     * <p>Summary Information</p>
-     * 
-     * <p>Summary Type Code</p>
+     * <p>Summary Period Amt</p>
      */
     public void setCode(ActInvoiceElementSummaryType code) {
         this.code.setValue(code);
@@ -94,21 +124,36 @@ public class SummaryDetailsBean extends MessagePartBean {
 
 
     /**
-     * <p>Value of summary</p>
+     * <p>Other Business Name: ValueOfSummary</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupSummaryData.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Constrain Value to PQ or MO data types only</p>
      * 
      * <p>PQ or MO - Value of summary</p>
      * 
-     * <p>Summary Total Amt</p>
+     * <p>Other Business Name: SummaryTotalAmount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroupSummaryData.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SummaryTotalAmt</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsGroupSummaryData.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Constrain Value to PQ or MO data types only</p>
      * 
-     * <p>Summary Total Amt</p>
-     * 
      * <p>PQ or MO only - Value of summary</p>
      * 
-     * <p>Summary Total Amount</p>
+     * <p>Summary Total Amt</p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {
@@ -116,21 +161,36 @@ public class SummaryDetailsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Value of summary</p>
+     * <p>Other Business Name: ValueOfSummary</p>
+     * 
+     * <p>Relationship: 
+     * QUCR_MT810201CA.AdjudResultsGroupSummaryData.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Constrain Value to PQ or MO data types only</p>
      * 
      * <p>PQ or MO - Value of summary</p>
      * 
-     * <p>Summary Total Amt</p>
+     * <p>Other Business Name: SummaryTotalAmount</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsGroupSummaryData.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SummaryTotalAmt</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsGroupSummaryData.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Constrain Value to PQ or MO data types only</p>
      * 
-     * <p>Summary Total Amt</p>
-     * 
      * <p>PQ or MO only - Value of summary</p>
      * 
-     * <p>Summary Total Amount</p>
+     * <p>Summary Total Amt</p>
      */
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);

@@ -65,18 +65,18 @@ import java.util.Set;
 
 
 /**
- * <p>Observation Report</p>
+ * <p>Business Name: Observation Report</p>
+ * 
+ * <p>Used to organize and report results.</p>
  * 
  * <p>This observation report object is used to group multiple 
  * clusters, batteries, or observations into one result 
  * report.</p>
- * 
- * <p>Used to organize and report results.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationReport"})
 public class ObservationReportBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private Patient_1Bean recordTargetPatient;
     private II id = new IIImpl();
@@ -117,12 +117,16 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Observation Report Identifier</p>
+     * <p>Business Name: Observation Report Identifier</p>
      * 
-     * <p>Unique identifier for this result report.</p>
+     * <p>Relationship: POLB_MT004000CA.ObservationReport.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifiers are required for revisions and 
      * cancels.</p>
+     * 
+     * <p>Unique identifier for this result report.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -130,12 +134,16 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Observation Report Identifier</p>
+     * <p>Business Name: Observation Report Identifier</p>
      * 
-     * <p>Unique identifier for this result report.</p>
+     * <p>Relationship: POLB_MT004000CA.ObservationReport.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifiers are required for revisions and 
      * cancels.</p>
+     * 
+     * <p>Unique identifier for this result report.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -149,7 +157,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Lab Observation Report Type</p>
+     * <p>Business Name: Lab Observation Report Type</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationReport.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The type of this observation report. Used for 
      * queries.</p>
@@ -160,7 +172,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Lab Observation Report Type</p>
+     * <p>Business Name: Lab Observation Report Type</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationReport.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The type of this observation report. Used for 
      * queries.</p>
@@ -176,18 +192,34 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient"})
     public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
         return this.primaryInformationRecipient;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
         this.primaryInformationRecipient = primaryInformationRecipient;
     }
 
 
     /**
-     * <p>Observation Report Title</p>
+     * <p>Business Name: Observation Report Title</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationReport.title</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The title for this report.</p>
      */
@@ -197,7 +229,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Observation Report Title</p>
+     * <p>Business Name: Observation Report Title</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationReport.title</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The title for this report.</p>
      */
@@ -213,7 +249,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Rendered Report</p>
+     * <p>Business Name: Rendered Report</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationReport.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This attribute is used to send a Rendered Report (or 
      * reference to) which includes only those elements in the 
@@ -225,7 +265,11 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Rendered Report</p>
+     * <p>Business Name: Rendered Report</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationReport.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This attribute is used to send a Rendered Report (or 
      * reference to) which includes only those elements in the 
@@ -247,17 +291,22 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Observation Report Status</p>
+     * <p>Business Name: Observation Report Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationReport.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * act e.g. active=in progress or not yet started, 
+     * complete=final.</p>
      * 
      * <p>The status or state of the report. The statusCode is not 
      * as fine-grained as lab reporting statuses such as 
      * preliminary. A &quot;preliminary&quot; result is a result 
      * whose statusCode=active and ProcessStep (procedure event) 
      * valued &quot;preliminary&quot;.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * act e.g. active=in progress or not yet started, 
-     * complete=final.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -265,17 +314,22 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Observation Report Status</p>
+     * <p>Business Name: Observation Report Status</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationReport.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * act e.g. active=in progress or not yet started, 
+     * complete=final.</p>
      * 
      * <p>The status or state of the report. The statusCode is not 
      * as fine-grained as lab reporting statuses such as 
      * preliminary. A &quot;preliminary&quot; result is a result 
      * whose statusCode=active and ProcessStep (procedure event) 
      * valued &quot;preliminary&quot;.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * act e.g. active=in progress or not yet started, 
-     * complete=final.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -283,7 +337,12 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Report Date/Time</p>
+     * <p>Business Name: Report Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationReport.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time this report was 
      * &quot;released&quot;.</p>
@@ -294,7 +353,12 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Report Date/Time</p>
+     * <p>Business Name: Report Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationReport.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time this report was 
      * &quot;released&quot;.</p>
@@ -321,7 +385,16 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Result Masking Indicator</p>
+     * <p>Business Name: Result Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationReport.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>This code allows for privacy control by patients as well 
+     * as flagged for 'not for disclosure to patient' by care 
+     * providers.</p>
      * 
      * <p>Any piece of information is potentially subject to 
      * 'masking', restricting it's availability from providers who 
@@ -330,10 +403,6 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * direct disclosure to patient&quot;. The values in this 
      * attribute enable the above masking to be represented and 
      * messaged.</p>
-     * 
-     * <p>This code allows for privacy control by patients as well 
-     * as flagged for 'not for disclosure to patient' by care 
-     * providers.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -347,17 +416,32 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Component1.resultChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/resultChoice"})
     public List<ResultChoice> getComponent3ResultChoice() {
         return this.component3ResultChoice;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

@@ -34,16 +34,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.FathersName"})
 public class FathersNameBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PN value = new PNImpl();
     private ST semanticsText = new STImpl();
 
 
     /**
-     * <p>Father's Name</p>
+     * <p>Business Name: Father's Name</p>
      * 
-     * <p>This query parameter item is the name of the focal 
-     * person's father.</p>
+     * <p>Relationship: PRPA_MT101103CA.FathersName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>It is included as a parameter item in order to further 
      * constrain the possible number of responses and increase the 
@@ -54,6 +55,9 @@ public class FathersNameBean extends MessagePartBean {
      * of &quot;family&quot; for the person who is the player in a 
      * PersonalRelationship of type of &quot;father&quot; to the 
      * focal person.</p>
+     * 
+     * <p>This query parameter item is the name of the focal 
+     * person's father.</p>
      */
     @Hl7XmlMapping({"value"})
     public PersonName getValue() {
@@ -61,10 +65,11 @@ public class FathersNameBean extends MessagePartBean {
     }
 
     /**
-     * <p>Father's Name</p>
+     * <p>Business Name: Father's Name</p>
      * 
-     * <p>This query parameter item is the name of the focal 
-     * person's father.</p>
+     * <p>Relationship: PRPA_MT101103CA.FathersName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>It is included as a parameter item in order to further 
      * constrain the possible number of responses and increase the 
@@ -75,17 +80,30 @@ public class FathersNameBean extends MessagePartBean {
      * of &quot;family&quot; for the person who is the player in a 
      * PersonalRelationship of type of &quot;father&quot; to the 
      * focal person.</p>
+     * 
+     * <p>This query parameter item is the name of the focal 
+     * person's father.</p>
      */
     public void setValue(PersonName value) {
         this.value.setValue(value);
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101103CA.FathersName.semanticsText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"semanticsText"})
     public String getSemanticsText() {
         return this.semanticsText.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPA_MT101103CA.FathersName.semanticsText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSemanticsText(String semanticsText) {
         this.semanticsText.setValue(semanticsText);
     }

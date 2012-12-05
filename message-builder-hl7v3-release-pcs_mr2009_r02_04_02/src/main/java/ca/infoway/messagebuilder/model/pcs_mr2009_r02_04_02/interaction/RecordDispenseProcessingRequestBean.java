@@ -29,7 +29,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt0200
 
 
 /**
- * <p>PORX_IN020190CA: Record dispense processing request</p>
+ * <p>Business Name: PORX_IN020190CA: Record dispense 
+ * processing request</p>
+ * 
+ * <p>Requests the recording in the patient record that the 
+ * medication dispense processing (drug preparation, packaging 
+ * and contraindication checking) for a particular quantity of 
+ * medication against a prescription has been performed and the 
+ * medication is awaiting pickup.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt0200
 @Hl7PartTypeMapping({"PORX_IN020190CA"})
 public class RecordDispenseProcessingRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionDispenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

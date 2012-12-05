@@ -34,33 +34,47 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>POIZ_MT030060CA.NoImmunizationReason: (no business name)</p>
  * 
- * <p>Identifies the reason why an immunization event did not 
- * occur.</p>
- * 
  * <p>Needed for explicitly communicating the reason why a 
  * patient was not administered as vaccine.</p>
+ * 
+ * <p>Identifies the reason why an immunization event did not 
+ * occur.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.NoImmunizationReason","POIZ_MT030060CA.NoImmunizationReason","POIZ_MT060150CA.NoImmunizationReason"})
 public class NoImmunizationReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
     private CV reasonCode = new CVImpl();
 
 
     /**
-     * <p>ImmunizationRefusalReasonText</p>
+     * <p>Business Name: ImmunizationRefusalReasonText</p>
      * 
-     * <p>Immunization Refusal Reason Text</p>
+     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
      * 
-     * <p>A textual or multimedia description (or reference to a 
-     * description) of the reason.</p>
+     * <p>Relationship: POIZ_MT030060CA.NoImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Provides additional context and description relating to 
      * the reason for not immunizing. Not all implementations will 
      * support text. As a result, this attribute is optional.</p>
      * 
-     * <p>Immunization Refusal Reason Text</p>
+     * <p>A textual or multimedia description (or reference to a 
+     * description) of the reason.</p>
+     * 
+     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.NoImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.NoImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -68,18 +82,32 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>ImmunizationRefusalReasonText</p>
+     * <p>Business Name: ImmunizationRefusalReasonText</p>
      * 
-     * <p>Immunization Refusal Reason Text</p>
+     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
      * 
-     * <p>A textual or multimedia description (or reference to a 
-     * description) of the reason.</p>
+     * <p>Relationship: POIZ_MT030060CA.NoImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Provides additional context and description relating to 
      * the reason for not immunizing. Not all implementations will 
      * support text. As a result, this attribute is optional.</p>
      * 
-     * <p>Immunization Refusal Reason Text</p>
+     * <p>A textual or multimedia description (or reference to a 
+     * description) of the reason.</p>
+     * 
+     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.NoImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.NoImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -87,26 +115,38 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>ImmunizationRefusalReason</p>
+     * <p>Business Name: ImmunizationRefusalReason</p>
      * 
-     * <p>Immunization Refusal Reason</p>
+     * <p>Other Business Name: ImmunizationRefusalReason</p>
      * 
-     * <p>A coded value denoting a patient's reason for refusing to 
-     * be immunized.</p><p>Typical reasons include: Parental 
-     * decision, Religious exemption, Patient decision, previous 
-     * adverse event etc.</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.NoImmunizationReason.reasonCode</p>
      * 
-     * <p>A coded value denoting a patient's reason for refusing to 
-     * be immunized.</p><p>Typical reasons include: Parental 
-     * decision, Religious exemption, Patient decision, previous 
-     * adverse event etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows sorting and categorizing different kinds of 
      * refusal reasons. Ensures that reasons are gathered in a 
      * consistent analyzable manner. As a result, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Immunization Refusal Reason</p>
+     * <p>A coded value denoting a patient's reason for refusing to 
+     * be immunized.</p><p>Typical reasons include: Parental 
+     * decision, Religious exemption, Patient decision, previous 
+     * adverse event etc.</p>
+     * 
+     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.NoImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.NoImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ActNoImmunizationReason getReasonCode() {
@@ -114,26 +154,38 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>ImmunizationRefusalReason</p>
+     * <p>Business Name: ImmunizationRefusalReason</p>
      * 
-     * <p>Immunization Refusal Reason</p>
+     * <p>Other Business Name: ImmunizationRefusalReason</p>
      * 
-     * <p>A coded value denoting a patient's reason for refusing to 
-     * be immunized.</p><p>Typical reasons include: Parental 
-     * decision, Religious exemption, Patient decision, previous 
-     * adverse event etc.</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.NoImmunizationReason.reasonCode</p>
      * 
-     * <p>A coded value denoting a patient's reason for refusing to 
-     * be immunized.</p><p>Typical reasons include: Parental 
-     * decision, Religious exemption, Patient decision, previous 
-     * adverse event etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows sorting and categorizing different kinds of 
      * refusal reasons. Ensures that reasons are gathered in a 
      * consistent analyzable manner. As a result, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Immunization Refusal Reason</p>
+     * <p>A coded value denoting a patient's reason for refusing to 
+     * be immunized.</p><p>Typical reasons include: Parental 
+     * decision, Religious exemption, Patient decision, previous 
+     * adverse event etc.</p>
+     * 
+     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.NoImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.NoImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setReasonCode(ActNoImmunizationReason reasonCode) {
         this.reasonCode.setValue(reasonCode);

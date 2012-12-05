@@ -58,28 +58,22 @@ import java.util.Set;
 
 
 /**
- * <p>Health Condition</p>
- * 
- * <p>A record of a patient's health condition, as tracked over 
- * time. Examples include diseases, disabilities, pregnancy, 
- * lactation and other clinical conditions of 
- * interest.</p><p>Also known as &quot;Problem&quot; (from a 
- * 'problem list').</p>
- * 
- * <p>A record of a patient's health condition, as tracked over 
- * time. Examples include diseases, disabilities, pregnancy, 
- * lactation and other clinical conditions of 
- * interest.</p><p>Also known as &quot;Problem&quot; (from a 
- * 'problem list').</p>
+ * <p>Business Name: Health Condition</p>
  * 
  * <p>Necessary component of a person's overall profile. Helps 
  * with contraindication checking.</p>
+ * 
+ * <p>A record of a patient's health condition, as tracked over 
+ * time. Examples include diseases, disabilities, pregnancy, 
+ * lactation and other clinical conditions of 
+ * interest.</p><p>Also known as &quot;Problem&quot; (from a 
+ * 'problem list').</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000003CA.ConditionEvent"})
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -93,36 +87,24 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>B: Condition Type</p>
+     * <p>Business Name: B: Condition Type</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code is fixed DX if not using SNOMED;</p>
      * 
+     * <p> <i>Condition Type is used for searching and for 
+     * organizing Health Condition records as well as sorting them 
+     * for presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p>Since all diagnosis concepts can be 
+     * represented in a single field, this domain is a fixed 
+     * value</p>
+     * 
      * <p>Designates the concept in DiagnosisValue as a 
      * Diagnosis</p>
-     * 
-     * <p> <i>Condition Type is used for searching and for 
-     * organizing Health Condition records as well as sorting them 
-     * for presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p>Since all diagnosis concepts can be 
-     * represented in a single field, this domain is a fixed 
-     * value</p>
-     * 
-     * <p> <i>Condition Type is used for searching and for 
-     * organizing Health Condition records as well as sorting them 
-     * for presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p>Since all diagnosis concepts can be 
-     * represented in a single field, this domain is a fixed 
-     * value</p>
-     * 
-     * <p> <i>Condition Type is used for searching and for 
-     * organizing Health Condition records as well as sorting them 
-     * for presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p>Since all diagnosis concepts can be 
-     * represented in a single field, this domain is a fixed 
-     * value</p>
      */
     @Hl7XmlMapping({"code"})
     public ActDiagnosisCode getCode() {
@@ -130,36 +112,24 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>B: Condition Type</p>
+     * <p>Business Name: B: Condition Type</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Code is fixed DX if not using SNOMED;</p>
      * 
+     * <p> <i>Condition Type is used for searching and for 
+     * organizing Health Condition records as well as sorting them 
+     * for presentation.</i> </p><p> <i>This is a key attribute for 
+     * understanding the type of record and is therefore 
+     * mandatory.</i> </p><p>Since all diagnosis concepts can be 
+     * represented in a single field, this domain is a fixed 
+     * value</p>
+     * 
      * <p>Designates the concept in DiagnosisValue as a 
      * Diagnosis</p>
-     * 
-     * <p> <i>Condition Type is used for searching and for 
-     * organizing Health Condition records as well as sorting them 
-     * for presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p>Since all diagnosis concepts can be 
-     * represented in a single field, this domain is a fixed 
-     * value</p>
-     * 
-     * <p> <i>Condition Type is used for searching and for 
-     * organizing Health Condition records as well as sorting them 
-     * for presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p>Since all diagnosis concepts can be 
-     * represented in a single field, this domain is a fixed 
-     * value</p>
-     * 
-     * <p> <i>Condition Type is used for searching and for 
-     * organizing Health Condition records as well as sorting them 
-     * for presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p><p>Since all diagnosis concepts can be 
-     * represented in a single field, this domain is a fixed 
-     * value</p>
      */
     public void setCode(ActDiagnosisCode code) {
         this.code.setValue(code);
@@ -167,28 +137,24 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>E: Refuted Indicator</p>
+     * <p>Business Name: E: Refuted Indicator</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>This is primarily used to supersede records where an 
+     * assertion was made that is subsequently determined to be 
+     * false. It is important to be able to make explicit 
+     * statements that something is known to not be true.</i> 
+     * </p><p> <i>This element is mandatory because it should 
+     * always be known whether the record is being refuted or 
+     * not.</i> </p>
      * 
      * <p> <i>When set to true, specifically flags the Health 
      * Condition record as &quot;did not occur&quot;. The default 
      * is false. Additional details about the reasons for refuting 
      * the record may be conveyed in notes.</i> </p>
-     * 
-     * <p> <i>This is primarily used to supersede records where an 
-     * assertion was made that is subsequently determined to be 
-     * false. It is important to be able to make explicit 
-     * statements that something is known to not be true.</i> 
-     * </p><p> <i>This element is mandatory because it should 
-     * always be known whether the record is being refuted or 
-     * not.</i> </p>
-     * 
-     * <p> <i>This is primarily used to supersede records where an 
-     * assertion was made that is subsequently determined to be 
-     * false. It is important to be able to make explicit 
-     * statements that something is known to not be true.</i> 
-     * </p><p> <i>This element is mandatory because it should 
-     * always be known whether the record is being refuted or 
-     * not.</i> </p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -196,28 +162,24 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>E: Refuted Indicator</p>
+     * <p>Business Name: E: Refuted Indicator</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>This is primarily used to supersede records where an 
+     * assertion was made that is subsequently determined to be 
+     * false. It is important to be able to make explicit 
+     * statements that something is known to not be true.</i> 
+     * </p><p> <i>This element is mandatory because it should 
+     * always be known whether the record is being refuted or 
+     * not.</i> </p>
      * 
      * <p> <i>When set to true, specifically flags the Health 
      * Condition record as &quot;did not occur&quot;. The default 
      * is false. Additional details about the reasons for refuting 
      * the record may be conveyed in notes.</i> </p>
-     * 
-     * <p> <i>This is primarily used to supersede records where an 
-     * assertion was made that is subsequently determined to be 
-     * false. It is important to be able to make explicit 
-     * statements that something is known to not be true.</i> 
-     * </p><p> <i>This element is mandatory because it should 
-     * always be known whether the record is being refuted or 
-     * not.</i> </p>
-     * 
-     * <p> <i>This is primarily used to supersede records where an 
-     * assertion was made that is subsequently determined to be 
-     * false. It is important to be able to make explicit 
-     * statements that something is known to not be true.</i> 
-     * </p><p> <i>This element is mandatory because it should 
-     * always be known whether the record is being refuted or 
-     * not.</i> </p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -225,71 +187,11 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Condition Status</p>
+     * <p>Business Name: C:Condition Status</p>
      * 
-     * <p> <i>This identifies the current state of the Health 
-     * Condition record.</i> </p><p>Indicates whether the condition 
-     * is still being monitored as relevant to the patient's health 
-     * ('active') or whether the condition is no longer considered 
-     * a relevant 'problem' ('completed'). It may also be 
-     * 'obsolete' in circumstances where the record has been 
-     * replaced.</p><p>Note that a problem may be considered 
-     * 'active' even if the underlying condition is no longer 
-     * affecting the patient. For example, for a patient who was 
-     * recently pregnant, the pregnancy has ended, but the 
-     * pregnancy would still be an 'active' condition record 
-     * because of it's ongoing impact on the patient's healthcare 
-     * situation.</p><p>To convey the actual clinical status of the 
-     * condition, use SNOMED post-coordination in the Condition 
-     * attribute.</p>
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.statusCode</p>
      * 
-     * <p> <i>This identifies the current state of the Health 
-     * Condition record.</i> </p><p>Indicates whether the condition 
-     * is still being monitored as relevant to the patient's health 
-     * ('active') or whether the condition is no longer considered 
-     * a relevant 'problem' ('completed'). It may also be 
-     * 'obsolete' in circumstances where the record has been 
-     * replaced.</p><p>Note that a problem may be considered 
-     * 'active' even if the underlying condition is no longer 
-     * affecting the patient. For example, for a patient who was 
-     * recently pregnant, the pregnancy has ended, but the 
-     * pregnancy would still be an 'active' condition record 
-     * because of it's ongoing impact on the patient's healthcare 
-     * situation.</p><p>To convey the actual clinical status of the 
-     * condition, use SNOMED post-coordination in the Condition 
-     * attribute.</p>
-     * 
-     * <p> <i>This identifies the current state of the Health 
-     * Condition record.</i> </p><p>Indicates whether the condition 
-     * is still being monitored as relevant to the patient's health 
-     * ('active') or whether the condition is no longer considered 
-     * a relevant 'problem' ('completed'). It may also be 
-     * 'obsolete' in circumstances where the record has been 
-     * replaced.</p><p>Note that a problem may be considered 
-     * 'active' even if the underlying condition is no longer 
-     * affecting the patient. For example, for a patient who was 
-     * recently pregnant, the pregnancy has ended, but the 
-     * pregnancy would still be an 'active' condition record 
-     * because of it's ongoing impact on the patient's healthcare 
-     * situation.</p><p>To convey the actual clinical status of the 
-     * condition, use SNOMED post-coordination in the Condition 
-     * attribute.</p>
-     * 
-     * <p> <i>This identifies the current state of the Health 
-     * Condition record.</i> </p><p>Indicates whether the condition 
-     * is still being monitored as relevant to the patient's health 
-     * ('active') or whether the condition is no longer considered 
-     * a relevant 'problem' ('completed'). It may also be 
-     * 'obsolete' in circumstances where the record has been 
-     * replaced.</p><p>Note that a problem may be considered 
-     * 'active' even if the underlying condition is no longer 
-     * affecting the patient. For example, for a patient who was 
-     * recently pregnant, the pregnancy has ended, but the 
-     * pregnancy would still be an 'active' condition record 
-     * because of it's ongoing impact on the patient's healthcare 
-     * situation.</p><p>To convey the actual clinical status of the 
-     * condition, use SNOMED post-coordination in the Condition 
-     * attribute.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p> <i>Status is frequently used to filter query responses 
      * as well as to sort records for presentation. It also affects 
@@ -298,12 +200,21 @@ public class HealthConditionBean extends MessagePartBean {
      * is marked as 'populated' to allow the use of null 
      * flavors.</i> </p>
      * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Health Condition record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
+     * <p> <i>This identifies the current state of the Health 
+     * Condition record.</i> </p><p>Indicates whether the condition 
+     * is still being monitored as relevant to the patient's health 
+     * ('active') or whether the condition is no longer considered 
+     * a relevant 'problem' ('completed'). It may also be 
+     * 'obsolete' in circumstances where the record has been 
+     * replaced.</p><p>Note that a problem may be considered 
+     * 'active' even if the underlying condition is no longer 
+     * affecting the patient. For example, for a patient who was 
+     * recently pregnant, the pregnancy has ended, but the 
+     * pregnancy would still be an 'active' condition record 
+     * because of it's ongoing impact on the patient's healthcare 
+     * situation.</p><p>To convey the actual clinical status of the 
+     * condition, use SNOMED post-coordination in the Condition 
+     * attribute.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -311,71 +222,11 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Condition Status</p>
+     * <p>Business Name: C:Condition Status</p>
      * 
-     * <p> <i>This identifies the current state of the Health 
-     * Condition record.</i> </p><p>Indicates whether the condition 
-     * is still being monitored as relevant to the patient's health 
-     * ('active') or whether the condition is no longer considered 
-     * a relevant 'problem' ('completed'). It may also be 
-     * 'obsolete' in circumstances where the record has been 
-     * replaced.</p><p>Note that a problem may be considered 
-     * 'active' even if the underlying condition is no longer 
-     * affecting the patient. For example, for a patient who was 
-     * recently pregnant, the pregnancy has ended, but the 
-     * pregnancy would still be an 'active' condition record 
-     * because of it's ongoing impact on the patient's healthcare 
-     * situation.</p><p>To convey the actual clinical status of the 
-     * condition, use SNOMED post-coordination in the Condition 
-     * attribute.</p>
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.statusCode</p>
      * 
-     * <p> <i>This identifies the current state of the Health 
-     * Condition record.</i> </p><p>Indicates whether the condition 
-     * is still being monitored as relevant to the patient's health 
-     * ('active') or whether the condition is no longer considered 
-     * a relevant 'problem' ('completed'). It may also be 
-     * 'obsolete' in circumstances where the record has been 
-     * replaced.</p><p>Note that a problem may be considered 
-     * 'active' even if the underlying condition is no longer 
-     * affecting the patient. For example, for a patient who was 
-     * recently pregnant, the pregnancy has ended, but the 
-     * pregnancy would still be an 'active' condition record 
-     * because of it's ongoing impact on the patient's healthcare 
-     * situation.</p><p>To convey the actual clinical status of the 
-     * condition, use SNOMED post-coordination in the Condition 
-     * attribute.</p>
-     * 
-     * <p> <i>This identifies the current state of the Health 
-     * Condition record.</i> </p><p>Indicates whether the condition 
-     * is still being monitored as relevant to the patient's health 
-     * ('active') or whether the condition is no longer considered 
-     * a relevant 'problem' ('completed'). It may also be 
-     * 'obsolete' in circumstances where the record has been 
-     * replaced.</p><p>Note that a problem may be considered 
-     * 'active' even if the underlying condition is no longer 
-     * affecting the patient. For example, for a patient who was 
-     * recently pregnant, the pregnancy has ended, but the 
-     * pregnancy would still be an 'active' condition record 
-     * because of it's ongoing impact on the patient's healthcare 
-     * situation.</p><p>To convey the actual clinical status of the 
-     * condition, use SNOMED post-coordination in the Condition 
-     * attribute.</p>
-     * 
-     * <p> <i>This identifies the current state of the Health 
-     * Condition record.</i> </p><p>Indicates whether the condition 
-     * is still being monitored as relevant to the patient's health 
-     * ('active') or whether the condition is no longer considered 
-     * a relevant 'problem' ('completed'). It may also be 
-     * 'obsolete' in circumstances where the record has been 
-     * replaced.</p><p>Note that a problem may be considered 
-     * 'active' even if the underlying condition is no longer 
-     * affecting the patient. For example, for a patient who was 
-     * recently pregnant, the pregnancy has ended, but the 
-     * pregnancy would still be an 'active' condition record 
-     * because of it's ongoing impact on the patient's healthcare 
-     * situation.</p><p>To convey the actual clinical status of the 
-     * condition, use SNOMED post-coordination in the Condition 
-     * attribute.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p> <i>Status is frequently used to filter query responses 
      * as well as to sort records for presentation. It also affects 
@@ -384,12 +235,21 @@ public class HealthConditionBean extends MessagePartBean {
      * is marked as 'populated' to allow the use of null 
      * flavors.</i> </p>
      * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Health Condition record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
+     * <p> <i>This identifies the current state of the Health 
+     * Condition record.</i> </p><p>Indicates whether the condition 
+     * is still being monitored as relevant to the patient's health 
+     * ('active') or whether the condition is no longer considered 
+     * a relevant 'problem' ('completed'). It may also be 
+     * 'obsolete' in circumstances where the record has been 
+     * replaced.</p><p>Note that a problem may be considered 
+     * 'active' even if the underlying condition is no longer 
+     * affecting the patient. For example, for a patient who was 
+     * recently pregnant, the pregnancy has ended, but the 
+     * pregnancy would still be an 'active' condition record 
+     * because of it's ongoing impact on the patient's healthcare 
+     * situation.</p><p>To convey the actual clinical status of the 
+     * condition, use SNOMED post-coordination in the Condition 
+     * attribute.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -397,34 +257,25 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>G: Condition Time Period</p>
+     * <p>Business Name: G: Condition Time Period</p>
      * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
+     * <p>Relationship: 
+     * REPC_MT000003CA.ConditionEvent.effectiveTime</p>
      * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
-     * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Identifies the time-period of relevance to the record 
      * that is useful in filtering and organizing 
      * &quot;time-view&quot; presentations of data. Because the 
      * timing information won't always be known, this attribute is 
      * marked as 'populated'.</i> </p>
+     * 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -432,34 +283,25 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>G: Condition Time Period</p>
+     * <p>Business Name: G: Condition Time Period</p>
      * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
+     * <p>Relationship: 
+     * REPC_MT000003CA.ConditionEvent.effectiveTime</p>
      * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
-     * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Identifies the time-period of relevance to the record 
      * that is useful in filtering and organizing 
      * &quot;time-view&quot; presentations of data. Because the 
      * timing information won't always be known, this attribute is 
      * marked as 'populated'.</i> </p>
+     * 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -467,69 +309,38 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>F: Condition Masking Indicators</p>
+     * <p>Business Name: F: Condition Masking Indicators</p>
      * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Health Condition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.).</i> </p><p> <i>Can also be used to communicate that 
-     * the information is deemed to be sensitive and should not be 
-     * communicated or exposed to the patient (at least without the 
-     * guidance of the authoring or other responsible healthcare 
-     * provider).</i> </p><p> <i>Valid values are: 'normal' 
-     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
-     * 'taboo' (denotes 'patient restricted'). The default is 
-     * 'normal' signifying 'Not Masked'. Either or both of the 
-     * other codes can be asserted to indicate masking by the 
-     * patient from providers or masking by a provider from the 
-     * patient, respectively. 'normal' should never be asserted 
-     * with one of the other codes.</i> </p>
+     * <p>Relationship: 
+     * REPC_MT000003CA.ConditionEvent.confidentialityCode</p>
      * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Health Condition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.).</i> </p><p> <i>Can also be used to communicate that 
-     * the information is deemed to be sensitive and should not be 
-     * communicated or exposed to the patient (at least without the 
-     * guidance of the authoring or other responsible healthcare 
-     * provider).</i> </p><p> <i>Valid values are: 'normal' 
-     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
-     * 'taboo' (denotes 'patient restricted'). The default is 
-     * 'normal' signifying 'Not Masked'. Either or both of the 
-     * other codes can be asserted to indicate masking by the 
-     * patient from providers or masking by a provider from the 
-     * patient, respectively. 'normal' should never be asserted 
-     * with one of the other codes.</i> </p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Health Condition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.).</i> </p><p> <i>Can also be used to communicate that 
-     * the information is deemed to be sensitive and should not be 
-     * communicated or exposed to the patient (at least without the 
-     * guidance of the authoring or other responsible healthcare 
-     * provider).</i> </p><p> <i>Valid values are: 'normal' 
-     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
-     * 'taboo' (denotes 'patient restricted'). The default is 
-     * 'normal' signifying 'Not Masked'. Either or both of the 
-     * other codes can be asserted to indicate masking by the 
-     * patient from providers or masking by a provider from the 
-     * patient, respectively. 'normal' should never be asserted 
-     * with one of the other codes.</i> </p>
+     * <p></p>
      * 
      * <p> <i>The value specified for a particular record may be 
      * overridden by a higher level masking applied to an 
      * indication, a care composition, a type of record or even all 
      * patient records.</i> </p>
+     * 
+     * <p> <i>Communicates the desire of the patient to restrict 
+     * access to this Health Condition record. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Methods for 
+     * accessing masked event records will be governed by each 
+     * jurisdiction (e.g. court orders, shared secret/consent, 
+     * etc.).</i> </p><p> <i>Can also be used to communicate that 
+     * the information is deemed to be sensitive and should not be 
+     * communicated or exposed to the patient (at least without the 
+     * guidance of the authoring or other responsible healthcare 
+     * provider).</i> </p><p> <i>Valid values are: 'normal' 
+     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
+     * 'taboo' (denotes 'patient restricted'). The default is 
+     * 'normal' signifying 'Not Masked'. Either or both of the 
+     * other codes can be asserted to indicate masking by the 
+     * patient from providers or masking by a provider from the 
+     * patient, respectively. 'normal' should never be asserted 
+     * with one of the other codes.</i> </p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -538,46 +349,26 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>K:Condition</p>
+     * <p>Business Name: K:Condition</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the central piece of information in recording a 
+     * condition, therefore the attribute is mandatory.</p><p> 
+     * <i>This element makes use of the CD datatype because some 
+     * terminologies used for the domain require use of 
+     * modifiers.</i> </p><p> <i>The element uses CWE to allow for 
+     * the capture of Condition concepts not presently supported by 
+     * the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
      * 
      * <p>A code indicating the specific condition. E.g. 
      * Hypertension, Pregnancy.</p>
-     * 
-     * <p>This is the central piece of information in recording a 
-     * condition, therefore the attribute is mandatory.</p><p> 
-     * <i>This element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Condition concepts not presently supported by 
-     * the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>This is the central piece of information in recording a 
-     * condition, therefore the attribute is mandatory.</p><p> 
-     * <i>This element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Condition concepts not presently supported by 
-     * the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>This is the central piece of information in recording a 
-     * condition, therefore the attribute is mandatory.</p><p> 
-     * <i>This element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Condition concepts not presently supported by 
-     * the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
@@ -585,46 +376,26 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>K:Condition</p>
+     * <p>Business Name: K:Condition</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the central piece of information in recording a 
+     * condition, therefore the attribute is mandatory.</p><p> 
+     * <i>This element makes use of the CD datatype because some 
+     * terminologies used for the domain require use of 
+     * modifiers.</i> </p><p> <i>The element uses CWE to allow for 
+     * the capture of Condition concepts not presently supported by 
+     * the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
      * 
      * <p>A code indicating the specific condition. E.g. 
      * Hypertension, Pregnancy.</p>
-     * 
-     * <p>This is the central piece of information in recording a 
-     * condition, therefore the attribute is mandatory.</p><p> 
-     * <i>This element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Condition concepts not presently supported by 
-     * the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>This is the central piece of information in recording a 
-     * condition, therefore the attribute is mandatory.</p><p> 
-     * <i>This element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Condition concepts not presently supported by 
-     * the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>This is the central piece of information in recording a 
-     * condition, therefore the attribute is mandatory.</p><p> 
-     * <i>This element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p><p> <i>The element uses CWE to allow for 
-     * the capture of Condition concepts not presently supported by 
-     * the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
      */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);

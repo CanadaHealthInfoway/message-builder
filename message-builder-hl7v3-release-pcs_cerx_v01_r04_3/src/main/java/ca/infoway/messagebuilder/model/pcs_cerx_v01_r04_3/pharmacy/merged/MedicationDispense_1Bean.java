@@ -51,64 +51,56 @@ import java.util.List;
  * Dispenses</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
- * not present</p><p>Annotation is only permitted if Annotation 
- * Indicator is not present</p>
+ * not present</p>
  * 
- * <p>Reported Issue is only permitted if Issue Indicator is 
- * not present</p><p>Annotation is only permitted if Annotation 
- * Indicator is not present</p>
- * 
- * <p>This is the detailed information about a medication 
- * dispense that has been performed on behalf of a patient.</p>
+ * <p>Annotation is only permitted if Annotation Indicator is 
+ * not present</p>
  * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>Dispensing is an integral part of the overall medication 
  * process.</p>
  * 
+ * <p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf of a patient.</p>
+ * 
  * <p>PORX_MT060090CA.MedicationDispense: Dispense</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
- * not present</p><p>Annotation is only permitted if Annotation 
- * Indicator is not present</p>
+ * not present</p>
  * 
- * <p>Reported Issue is only permitted if Issue Indicator is 
- * not present</p><p>Annotation is only permitted if Annotation 
- * Indicator is not present</p>
- * 
- * <p>Describes the issuing of a drug in response to an 
- * authorizing prescription.</p>
+ * <p>Annotation is only permitted if Annotation Indicator is 
+ * not present</p>
  * 
  * <p>This is a 'core' class of the medication model and is 
  * important for understanding what drugs the patient is 
  * actually receiving.</p>
  * 
+ * <p>Describes the issuing of a drug in response to an 
+ * authorizing prescription.</p>
+ * 
  * <p>PORX_MT060160CA.MedicationDispense: Prescription 
  * Dispenses</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
- * not present and vice versa</p><p>Annotation is only 
- * permitted if Annotation Indicator is not present and vice 
- * versa</p>
+ * not present and vice versa</p>
  * 
- * <p>Reported Issue is only permitted if Issue Indicator is 
- * not present and vice versa</p><p>Annotation is only 
- * permitted if Annotation Indicator is not present and vice 
- * versa</p>
- * 
- * <p>This is the detailed information about a medication 
- * dispense that has been performed on behalf of a patient.</p>
+ * <p>Annotation is only permitted if Annotation Indicator is 
+ * not present and vice versa</p>
  * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>Dispensing is an integral part of the overall medication 
  * process.</p>
+ * 
+ * <p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf of a patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060090CA.MedicationDispense","PORX_MT060160CA.MedicationDispense","PORX_MT060340CA.MedicationDispense"})
 @Hl7RootType
 public class MedicationDispense_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;
@@ -127,9 +119,50 @@ public class MedicationDispense_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>DispensedItem.dispensedItemKey</p>
+     * 
+     * <p>DispensedItem.externalKey</p>
+     * 
+     * <p>D53(ID for the prescription assigned by pharmacy)</p>
+     * 
+     * <p>D55(ID for the dispense event)</p>
+     * 
+     * <p>D99.01</p>
+     * 
+     * <p>ZDP.5</p>
+     * 
+     * <p>ZDP.6</p>
+     * 
+     * <p>ZDP.22</p>
+     * 
+     * <p>ZRV.5</p>
+     * 
+     * <p>DRU.080-01(extension)</p>
+     * 
+     * <p>DRU.080-02(route)</p>
+     * 
+     * <p>Claim.455-EM (route)</p>
+     * 
+     * <p>Claim.402-D2 (extension)</p>
+     * 
+     * <p>Claim.456-EN</p>
+     * 
+     * <p>Claim.454-EK</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -137,135 +170,16 @@ public class MedicationDispense_1Bean extends MessagePartBean {
      * created by the EHR/DIS once the dispense has passed all 
      * edits and validation.</p>
      * 
-     * <p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a dispense (single fill) by the EHR/DIS 
-     * irrespective of the source of the dispense.</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.id</p>
      * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the referencing of a specific dispense 
      * record.</p><p>Identifier for a dispensed record is needed so 
      * that dispenses may be uniquely referenced. Thus the 
      * mandatory requirement.</p>
-     * 
-     * <p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -273,21 +187,54 @@ public class MedicationDispense_1Bean extends MessagePartBean {
      * created by the EHR/DIS once the dispense has passed all 
      * edits and validation.</p>
      * 
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>DispensedItem.dispensedItemKey</p>
+     * 
+     * <p>DispensedItem.externalKey</p>
+     * 
+     * <p>D53(ID for the prescription assigned by pharmacy)</p>
+     * 
+     * <p>D55(ID for the dispense event)</p>
+     * 
+     * <p>D99.01</p>
+     * 
+     * <p>ZDP.5</p>
+     * 
+     * <p>ZDP.6</p>
+     * 
+     * <p>ZDP.22</p>
+     * 
+     * <p>ZRV.5</p>
+     * 
+     * <p>DRU.080-01(extension)</p>
+     * 
+     * <p>DRU.080-02(route)</p>
+     * 
+     * <p>Claim.455-EM (route)</p>
+     * 
+     * <p>Claim.402-D2 (extension)</p>
+     * 
+     * <p>Claim.456-EN</p>
+     * 
+     * <p>Claim.454-EK</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p>
+     * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
      * irrespective of the source of the dispense.</p><p>It is 
      * created by the EHR/DIS once the dispense has passed all 
      * edits and validation.</p>
-     * 
-     * <p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p>
-     * 
-     * <p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -295,9 +242,50 @@ public class MedicationDispense_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>DispensedItem.dispensedItemKey</p>
+     * 
+     * <p>DispensedItem.externalKey</p>
+     * 
+     * <p>D53(ID for the prescription assigned by pharmacy)</p>
+     * 
+     * <p>D55(ID for the dispense event)</p>
+     * 
+     * <p>D99.01</p>
+     * 
+     * <p>ZDP.5</p>
+     * 
+     * <p>ZDP.6</p>
+     * 
+     * <p>ZDP.22</p>
+     * 
+     * <p>ZRV.5</p>
+     * 
+     * <p>DRU.080-01(extension)</p>
+     * 
+     * <p>DRU.080-02(route)</p>
+     * 
+     * <p>Claim.455-EM (route)</p>
+     * 
+     * <p>Claim.402-D2 (extension)</p>
+     * 
+     * <p>Claim.456-EN</p>
+     * 
+     * <p>Claim.454-EK</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -305,135 +293,16 @@ public class MedicationDispense_1Bean extends MessagePartBean {
      * created by the EHR/DIS once the dispense has passed all 
      * edits and validation.</p>
      * 
-     * <p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a dispense (single fill) by the EHR/DIS 
-     * irrespective of the source of the dispense.</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.id</p>
      * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
-     * for the prescription assigned by pharmacy)</p><p>D55(ID for 
-     * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>Claim.455-EM 
-     * (route)</p><p>Claim.402-D2 
-     * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the referencing of a specific dispense 
      * record.</p><p>Identifier for a dispensed record is needed so 
      * that dispenses may be uniquely referenced. Thus the 
      * mandatory requirement.</p>
-     * 
-     * <p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -441,21 +310,54 @@ public class MedicationDispense_1Bean extends MessagePartBean {
      * created by the EHR/DIS once the dispense has passed all 
      * edits and validation.</p>
      * 
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>DispensedItem.dispensedItemKey</p>
+     * 
+     * <p>DispensedItem.externalKey</p>
+     * 
+     * <p>D53(ID for the prescription assigned by pharmacy)</p>
+     * 
+     * <p>D55(ID for the dispense event)</p>
+     * 
+     * <p>D99.01</p>
+     * 
+     * <p>ZDP.5</p>
+     * 
+     * <p>ZDP.6</p>
+     * 
+     * <p>ZDP.22</p>
+     * 
+     * <p>ZRV.5</p>
+     * 
+     * <p>DRU.080-01(extension)</p>
+     * 
+     * <p>DRU.080-02(route)</p>
+     * 
+     * <p>Claim.455-EM (route)</p>
+     * 
+     * <p>Claim.402-D2 (extension)</p>
+     * 
+     * <p>Claim.456-EN</p>
+     * 
+     * <p>Claim.454-EK</p>
+     * 
+     * <p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p>
+     * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
      * irrespective of the source of the dispense.</p><p>It is 
      * created by the EHR/DIS once the dispense has passed all 
      * edits and validation.</p>
-     * 
-     * <p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p>
-     * 
-     * <p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -463,46 +365,61 @@ public class MedicationDispense_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseStatus</p>
+     * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>C:Dispense Status</p>
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If Active it means that the dispense has been 
      * processed but not yet given to the patient. If Complete, it 
      * indicates that the medication has been delivered to the 
      * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
-     * 
-     * <p>Dispense Status</p>
-     * 
-     * <p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
-     * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
-     * 
-     * <p>C:Dispense Status</p>
-     * 
-     * <p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
-     * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -510,82 +427,239 @@ public class MedicationDispense_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>DispenseStatus</p>
+     * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>C:Dispense Status</p>
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If Active it means that the dispense has been 
      * processed but not yet given to the patient. If Complete, it 
      * indicates that the medication has been delivered to the 
      * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
-     * 
-     * <p>Dispense Status</p>
-     * 
-     * <p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
-     * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
-     * 
-     * <p>C:Dispense Status</p>
-     * 
-     * <p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
-     * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ResponsibleParty4.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ResponsibleParty3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ResponsibleParty4.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ResponsibleParty3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedPerson"})
     public ProviderBean getPerformerAssignedPerson() {
         return this.performerAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
         this.performerAssignedPerson = performerAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/dosageInstruction","component2/dosageInstruction"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060090CA.Component11"),
@@ -598,6 +672,28 @@ public class MedicationDispense_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/substitutionMade","component3/substitutionMade"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component2", type="PORX_MT060090CA.Component13"),
@@ -610,11 +706,52 @@ public class MedicationDispense_1Bean extends MessagePartBean {
         return this.component3SubstitutionMade;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent3SubstitutionMade(SubstitutionBean component3SubstitutionMade) {
         this.component3SubstitutionMade = component3SubstitutionMade;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/supplyEvent","component3/supplyEvent"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component"),
@@ -627,17 +764,74 @@ public class MedicationDispense_1Bean extends MessagePartBean {
         return this.component1SupplyEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
         this.component1SupplyEvent = component1SupplyEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Subject10.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Subject.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Subject.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotation","subjectOf3/annotation","subjectOf4/annotation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060340CA.Subject7"),
@@ -651,6 +845,28 @@ public class MedicationDispense_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator","subjectOf4/detectedIssueIndicator"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060160CA.Subject13"),
@@ -663,11 +879,52 @@ public class MedicationDispense_1Bean extends MessagePartBean {
         return this.subjectOf3DetectedIssueIndicator.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3DetectedIssueIndicator(Boolean subjectOf3DetectedIssueIndicator) {
         this.subjectOf3DetectedIssueIndicator.setValue(subjectOf3DetectedIssueIndicator);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Subject6.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Subject6.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Subject6.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueEvent","subjectOf4/detectedIssueEvent","subjectOf5/detectedIssueEvent"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060090CA.Subject6"),
@@ -681,6 +938,28 @@ public class MedicationDispense_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator","subjectOf5/annotationIndicator"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060160CA.Subject12"),
@@ -693,15 +972,42 @@ public class MedicationDispense_1Bean extends MessagePartBean {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
 
     /**
-     * <p>PrescriptionMaskingIndicator</p>
+     * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -709,20 +1015,41 @@ public class MedicationDispense_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionMaskingIndicator</p>
+     * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.InFulfillmentOf.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
     public SupplyRequest_1Bean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.InFulfillmentOf.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInFulfillmentOfSubstanceAdministrationRequest(SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }

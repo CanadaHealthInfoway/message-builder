@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt010120
 
 
 /**
- * <p>PORX_IN010380CA: Activate prescription request</p>
+ * <p>Business Name: PORX_IN010380CA: Activate prescription 
+ * request</p>
+ * 
+ * <p>Requests that a medication prescription be recorded 
+ * against the patient's record.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt010120
 @Hl7PartTypeMapping({"PORX_IN010380CA"})
 public class ActivatePrescriptionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

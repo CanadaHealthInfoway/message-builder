@@ -32,12 +32,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.ManufacturedMaterialKind"})
 public class DrugFormBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV formCode = new CVImpl();
 
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.ManufacturedMaterialKind.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>required for compounds</p>
      */
@@ -47,7 +52,12 @@ public class DrugFormBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT300000CA.ManufacturedMaterialKind.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>required for compounds</p>
      */

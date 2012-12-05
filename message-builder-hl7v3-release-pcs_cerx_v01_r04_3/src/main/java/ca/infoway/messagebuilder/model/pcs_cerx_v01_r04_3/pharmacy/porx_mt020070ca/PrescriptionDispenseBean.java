@@ -43,21 +43,21 @@ import java.util.List;
 
 
 /**
- * <p>Prescription Dispense</p>
- * 
- * <p>This is the detailed information about a medication 
- * dispense that has been performed on behalf a patient</p>
+ * <p>Business Name: Prescription Dispense</p>
  * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>Dispensing is an integral part of the overall medication 
  * process.</p>
+ * 
+ * <p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf a patient</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.MedicationDispense"})
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
@@ -70,12 +70,16 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Local Dispense Id</p>
+     * <p>Business Name: A:Local Dispense Id</p>
      * 
-     * <p>Identifier assigned by the dispensing facility.</p>
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows formal tracking of centrally recorded dispenses to 
      * local records for audit and related purposes.</p>
+     * 
+     * <p>Identifier assigned by the dispensing facility.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -83,12 +87,16 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Local Dispense Id</p>
+     * <p>Business Name: A:Local Dispense Id</p>
      * 
-     * <p>Identifier assigned by the dispensing facility.</p>
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows formal tracking of centrally recorded dispenses to 
      * local records for audit and related purposes.</p>
+     * 
+     * <p>Identifier assigned by the dispensing facility.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -96,12 +104,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Business Name: E:Prescription Masking Indicator</p>
      * 
-     * <p>Communicates the intent that the dispense should be 
-     * masked if it is created; If the dispense is masked, this 
-     * makes the complete prescription and all dispenses 
-     * masked.</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.MedicationDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>DispensedItem.masked</p>
      * 
@@ -111,6 +119,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>If a dispense is masked, it implicitly masks the 
      * prescription being dispensed. (There's no point in masking a 
      * dispense if the prescription is unmasked.)</p>
+     * 
+     * <p>Communicates the intent that the dispense should be 
+     * masked if it is created; If the dispense is masked, this 
+     * makes the complete prescription and all dispenses 
+     * masked.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -118,12 +131,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Business Name: E:Prescription Masking Indicator</p>
      * 
-     * <p>Communicates the intent that the dispense should be 
-     * masked if it is created; If the dispense is masked, this 
-     * makes the complete prescription and all dispenses 
-     * masked.</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.MedicationDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>DispensedItem.masked</p>
      * 
@@ -133,6 +146,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>If a dispense is masked, it implicitly masks the 
      * prescription being dispensed. (There's no point in masking a 
      * dispense if the prescription is unmasked.)</p>
+     * 
+     * <p>Communicates the intent that the dispense should be 
+     * masked if it is created; If the dispense is masked, this 
+     * makes the complete prescription and all dispenses 
+     * masked.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -193,17 +211,33 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component2/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
         return this.component2DosageInstruction;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component3/supplyEvent"})
     public SupplyEventBean getComponent3SupplyEvent() {
         return this.component3SupplyEvent;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
     }

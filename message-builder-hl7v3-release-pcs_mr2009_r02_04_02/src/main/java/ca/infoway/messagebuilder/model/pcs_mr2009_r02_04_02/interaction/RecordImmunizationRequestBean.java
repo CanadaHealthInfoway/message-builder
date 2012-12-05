@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.
 
 
 /**
- * <p>POIZ_IN010020CA: Record immunization request</p>
+ * <p>Business Name: POIZ_IN010020CA: Record immunization 
+ * request</p>
+ * 
+ * <p>Requests that a particular immunization be added to a 
+ * patient's record.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.
 @Hl7PartTypeMapping({"POIZ_IN010020CA"})
 public class RecordImmunizationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ImmunizationsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

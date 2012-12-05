@@ -36,62 +36,91 @@ import java.util.Set;
 
 
 /**
- * <p>ParentPrescription</p>
+ * <p>Business Name: ParentPrescription</p>
  * 
  * <p>PORX_MT060040CA.PriorSupplyRequest: Parent Prescription</p>
+ * 
+ * <p>Helps link prescriptions together, and subsequently 
+ * indications for prescribing.</p>
  * 
  * <p>This is the original prescription that is being renewed. 
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
- * 
- * <p>Helps link prescriptions together, and subsequently 
- * indications for prescribing.</p>
  * 
  * <p>PORX_MT060340CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
+ * <p>Helps link prescriptions together, and subsequently 
+ * indications for prescribing.</p>
+ * 
  * <p>This is the original prescription that is being renewed. 
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
- * 
- * <p>Helps link prescriptions together, and subsequently 
- * indications for prescribing.</p>
  * 
  * <p>PORX_MT060160CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
+ * <p>Helps link prescriptions together, and subsequently 
+ * indications for prescribing.</p>
+ * 
  * <p>This is the original prescription that is being renewed. 
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
- * 
- * <p>Helps link prescriptions together, and subsequently 
- * indications for prescribing.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060040CA.PriorSupplyRequest","PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
 
 
     /**
-     * <p>PreviousPrescriptionOrderNumber</p>
+     * <p>Business Name: PreviousPrescriptionOrderNumber</p>
      * 
-     * <p>B:Previous Prescription Order Number</p>
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.PriorSupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
      * 
      * <p>A reference to a previous prescription which the current 
      * prescription replaces.</p>
      * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
      * <p>Allows a prescription renewal (this prescription) to note 
      * the previous prescription id that was renewed;</p><p>Allows 
      * tracking a therapy across multiple renewal 
      * prescriptions.</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     * 
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -100,17 +129,37 @@ public class ParentPrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionType</p>
+     * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Prescription Type</p>
+     * <p>Other Business Name: PrescriptionType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This allows for instant identification of the type of 
+     * prescription being replaced/renewed, etc; and is therefore 
+     * mandatory.</p>
      * 
      * <p>It signifies the type of prescription (same as it is on 
      * the prescription pointed to by the Previous Prescription 
      * Order Number )</p>
      * 
+     * <p>Other Business Name: PrescriptionType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>This allows for instant identification of the type of 
      * prescription being replaced/renewed, etc; and is therefore 
      * mandatory.</p>
+     * 
+     * <p>It signifies the type of prescription (same as it is on 
+     * the prescription pointed to by the Previous Prescription 
+     * Order Number )</p>
      */
     @Hl7XmlMapping({"code"})
     public SubstanceAdministrationType getCode() {
@@ -118,17 +167,37 @@ public class ParentPrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionType</p>
+     * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Prescription Type</p>
+     * <p>Other Business Name: PrescriptionType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This allows for instant identification of the type of 
+     * prescription being replaced/renewed, etc; and is therefore 
+     * mandatory.</p>
      * 
      * <p>It signifies the type of prescription (same as it is on 
      * the prescription pointed to by the Previous Prescription 
      * Order Number )</p>
      * 
+     * <p>Other Business Name: PrescriptionType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>This allows for instant identification of the type of 
      * prescription being replaced/renewed, etc; and is therefore 
      * mandatory.</p>
+     * 
+     * <p>It signifies the type of prescription (same as it is on 
+     * the prescription pointed to by the Previous Prescription 
+     * Order Number )</p>
      */
     public void setCode(SubstanceAdministrationType code) {
         this.code.setValue(code);

@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Measured
 
 
 /**
- * <p>REPC_IN000051CA: Record patient measurement obs. request</p>
+ * <p>Business Name: REPC_IN000051CA: Record patient 
+ * measurement obs. request</p>
+ * 
+ * <p>Requests that a measurement observation (for example are: 
+ * height, weight, blood-pressure, temperature) be recorded in 
+ * a patient's record.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Measured
 @Hl7PartTypeMapping({"REPC_IN000051CA"})
 public class RecordPatientMeasurementObsRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MeasuredObservationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -40,34 +40,29 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Structured Dosage Lines</p>
+ * <p>Business Name: Structured Dosage Lines</p>
  * 
  * <p>- moodCode must be DEFN for drug definitions (such as 
  * monographs) - moodCode must be RQO for orders; - moodCode 
  * must be EVN for dispenses and recording of other 
- * medications</p><p>Either an Ad-hoc Dosage Line or (Dosage 
- * Timing/Frequency + Dosage Range + possibly Dosage Rate) may 
- * be specified t one time }</p>
+ * medications</p>
  * 
- * <p>- moodCode must be DEFN for drug definitions (such as 
- * monographs) - moodCode must be RQO for orders; - moodCode 
- * must be EVN for dispenses and recording of other 
- * medications</p><p>Either an Ad-hoc Dosage Line or (Dosage 
- * Timing/Frequency + Dosage Range + possibly Dosage Rate) may 
- * be specified t one time }</p>
- * 
- * <p>This information, along with the order/sequence of the 
- * dosage lines, constitutes the details of a structured dosage 
- * instruction.</p>
+ * <p>Either an Ad-hoc Dosage Line or (Dosage Timing/Frequency 
+ * + Dosage Range + possibly Dosage Rate) may be specified t 
+ * one time }</p>
  * 
  * <p>Enables SIG instructions to be discretely specified. 
  * Also, supports scaling doses and parallel dose 
  * specification.</p>
+ * 
+ * <p>This information, along with the order/sequence of the 
+ * dosage lines, constitutes the details of a structured dosage 
+ * instruction.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980040CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
     private GTS effectiveTime = new GTSImpl();
@@ -78,38 +73,21 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>Business Name: Dosage Usage Context</p>
      * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
+     * <p>Relationship: PORX_MT980040CA.DosageLine.moodCode</p>
      * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
-     * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
-     * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p>
      */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodDefEvnRqo getMoodCode() {
@@ -117,38 +95,21 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>Business Name: Dosage Usage Context</p>
      * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
+     * <p>Relationship: PORX_MT980040CA.DosageLine.moodCode</p>
      * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
-     * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
-     * 
-     * <p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p>
      */
     public void setMoodCode(x_ActMoodDefEvnRqo moodCode) {
         this.moodCode.setValue(moodCode);
@@ -156,27 +117,23 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Ad-hoc Dosage Instruction</p>
+     * <p>Business Name: C:Ad-hoc Dosage Instruction</p>
      * 
-     * <p>A free form description of how the dispensed medication 
-     * is to be administered to the patient.</p>
+     * <p>Relationship: PORX_MT980040CA.DosageLine.text</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>DispensedItem.instruction</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>Prescription.instruction</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>D99.02</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>X0201</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>ZPB3.16</p>
      * 
-     * <p>Not all dosage instructions can easily be expressed in 
-     * formal terms</p><p>Allows dosage instructions to be sent 
-     * across as one string of information without breaking it 
-     * up.</p>
+     * <p>DRU.030-02</p>
      * 
      * <p>Not all dosage instructions can easily be expressed in 
      * formal terms</p><p>Allows dosage instructions to be sent 
@@ -186,6 +143,9 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>This field must not be used for components of the 
      * prescription that are coded elsewhere.(e.g. Coded Dosage 
      * Timing).</p>
+     * 
+     * <p>A free form description of how the dispensed medication 
+     * is to be administered to the patient.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -193,27 +153,23 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Ad-hoc Dosage Instruction</p>
+     * <p>Business Name: C:Ad-hoc Dosage Instruction</p>
      * 
-     * <p>A free form description of how the dispensed medication 
-     * is to be administered to the patient.</p>
+     * <p>Relationship: PORX_MT980040CA.DosageLine.text</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>DispensedItem.instruction</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>Prescription.instruction</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>D99.02</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>X0201</p>
      * 
-     * <p>DispensedItem.instruction</p><p>Prescription.instruction</p><p>D99.02</p><p>X0201</p><p>ZPB3.16</p><p>DRU.030-02</p>
+     * <p>ZPB3.16</p>
      * 
-     * <p>Not all dosage instructions can easily be expressed in 
-     * formal terms</p><p>Allows dosage instructions to be sent 
-     * across as one string of information without breaking it 
-     * up.</p>
+     * <p>DRU.030-02</p>
      * 
      * <p>Not all dosage instructions can easily be expressed in 
      * formal terms</p><p>Allows dosage instructions to be sent 
@@ -223,6 +179,9 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>This field must not be used for components of the 
      * prescription that are coded elsewhere.(e.g. Coded Dosage 
      * Timing).</p>
+     * 
+     * <p>A free form description of how the dispensed medication 
+     * is to be administered to the patient.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -230,116 +189,41 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Business Name: C:Dosage Timing/Frequency</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DosageItem.Duration(OuterInterval.Width)</p>
+     * 
+     * <p>DosageItem.StartDate(OuterInterval.Low)</p>
+     * 
+     * <p>RepeatPattern.PatternCode(PIVL - codes will need to be 
+     * mapped to and from formal GTS expressions)</p>
+     * 
+     * <p>RepeatPattern.uncodedPattern (PIVL.originalText)</p>
+     * 
+     * <p>ZDP.13.2.1 (PIVL.period)</p>
+     * 
+     * <p>DP.13.2.2 (single time or list of times)</p>
+     * 
+     * <p>PID.13.3 (outer IVL&lt;TS&gt;.width)</p>
+     * 
+     * <p>PID.13.4 (outer IVL&lt;TS&gt;.low)</p>
+     * 
+     * <p>PID.13.5 (outer IVL&lt;TS&gt;.high)</p>
+     * 
+     * <p>Frequency</p>
+     * 
+     * <p>Together with the dose quantity, indicates the overall 
+     * quantity of drug.</p>
      * 
      * <p>A structure describing the frequency (how often the drug 
      * is to be administered), offset (elapse time between 
      * administrations) represented by one line of dosage 
      * administration instruction. Includes the overall time-period 
      * the dosage instruction applies.</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>Together with the dose quantity, indicates the overall 
-     * quantity of drug.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public GeneralTimingSpecification getEffectiveTime() {
@@ -347,116 +231,41 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Business Name: C:Dosage Timing/Frequency</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>DosageItem.Duration(OuterInterval.Width)</p>
+     * 
+     * <p>DosageItem.StartDate(OuterInterval.Low)</p>
+     * 
+     * <p>RepeatPattern.PatternCode(PIVL - codes will need to be 
+     * mapped to and from formal GTS expressions)</p>
+     * 
+     * <p>RepeatPattern.uncodedPattern (PIVL.originalText)</p>
+     * 
+     * <p>ZDP.13.2.1 (PIVL.period)</p>
+     * 
+     * <p>DP.13.2.2 (single time or list of times)</p>
+     * 
+     * <p>PID.13.3 (outer IVL&lt;TS&gt;.width)</p>
+     * 
+     * <p>PID.13.4 (outer IVL&lt;TS&gt;.low)</p>
+     * 
+     * <p>PID.13.5 (outer IVL&lt;TS&gt;.high)</p>
+     * 
+     * <p>Frequency</p>
+     * 
+     * <p>Together with the dose quantity, indicates the overall 
+     * quantity of drug.</p>
      * 
      * <p>A structure describing the frequency (how often the drug 
      * is to be administered), offset (elapse time between 
      * administrations) represented by one line of dosage 
      * administration instruction. Includes the overall time-period 
      * the dosage instruction applies.</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>Together with the dose quantity, indicates the overall 
-     * quantity of drug.</p>
      */
     public void setEffectiveTime(GeneralTimingSpecification effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -464,16 +273,17 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Dosage Range</p>
+     * <p>Business Name: D:Dosage Range</p>
      * 
-     * <p>This specifies the minimum and maximum amount of the 
-     * medication to be taken during a single administration.</p>
+     * <p>Relationship: PORX_MT980040CA.DosageLine.doseQuantity</p>
      * 
-     * <p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p>
+     * <p>DosageItem.DosageRange</p>
      * 
-     * <p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p>
+     * <p>ZDP.13.1</p>
+     * 
+     * <p>Dosage</p>
      * 
      * <p>Enables the checking of administration compliance that 
      * could results in fill-too-soon/fill-too-late 
@@ -482,6 +292,9 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * 
      * <p>Where no range is needed, sending the same value in both 
      * the low and the high is the preferred solution.</p>
+     * 
+     * <p>This specifies the minimum and maximum amount of the 
+     * medication to be taken during a single administration.</p>
      */
     @Hl7XmlMapping({"doseQuantity"})
     public UncertainRange<PhysicalQuantity> getDoseQuantity() {
@@ -489,16 +302,17 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Dosage Range</p>
+     * <p>Business Name: D:Dosage Range</p>
      * 
-     * <p>This specifies the minimum and maximum amount of the 
-     * medication to be taken during a single administration.</p>
+     * <p>Relationship: PORX_MT980040CA.DosageLine.doseQuantity</p>
      * 
-     * <p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p>
+     * <p>DosageItem.DosageRange</p>
      * 
-     * <p>DosageItem.DosageRange</p><p>ZDP.13.1</p><p>Dosage</p>
+     * <p>ZDP.13.1</p>
+     * 
+     * <p>Dosage</p>
      * 
      * <p>Enables the checking of administration compliance that 
      * could results in fill-too-soon/fill-too-late 
@@ -507,6 +321,9 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * 
      * <p>Where no range is needed, sending the same value in both 
      * the low and the high is the preferred solution.</p>
+     * 
+     * <p>This specifies the minimum and maximum amount of the 
+     * medication to be taken during a single administration.</p>
      */
     public void setDoseQuantity(UncertainRange<PhysicalQuantity> doseQuantity) {
         this.doseQuantity.setValue(doseQuantity);
@@ -514,14 +331,18 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Dosage Rate</p>
+     * <p>Business Name: E:Dosage Rate</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.rateQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required for intravenous administration</p>
      * 
      * <p>For intravenous and other such routes, this is the time 
      * period over which one dose is to be administered. The flow 
      * rate is determined by dividing the dose quantity by the 
      * Dosage rate.</p>
-     * 
-     * <p>Required for intravenous administration</p>
      */
     @Hl7XmlMapping({"rateQuantity"})
     public UncertainRange<PhysicalQuantity> getRateQuantity() {
@@ -529,35 +350,61 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Dosage Rate</p>
+     * <p>Business Name: E:Dosage Rate</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.rateQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Required for intravenous administration</p>
      * 
      * <p>For intravenous and other such routes, this is the time 
      * period over which one dose is to be administered. The flow 
      * rate is determined by dividing the dose quantity by the 
      * Dosage rate.</p>
-     * 
-     * <p>Required for intravenous administration</p>
      */
     public void setRateQuantity(UncertainRange<PhysicalQuantity> rateQuantity) {
         this.rateQuantity.setValue(rateQuantity);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"trigger/actEventCriterion"})
     public AdministrationPreconditionBean getTriggerActEventCriterion() {
         return this.triggerActEventCriterion;
     }
 
+    /**
+     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
         this.triggerActEventCriterion = triggerActEventCriterion;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/supplementalInstruction"})
     public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
         return this.componentSupplementalInstruction;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
         this.componentSupplementalInstruction = componentSupplementalInstruction;
     }

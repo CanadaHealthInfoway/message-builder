@@ -32,12 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatorPerson"})
 public class AdjudicatorPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>Adjudicator Id</p>
+     * <p>Business Name: Adjudicator Id</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.AdjudicatorPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -45,7 +49,11 @@ public class AdjudicatorPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudicator Id</p>
+     * <p>Business Name: Adjudicator Id</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.AdjudicatorPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

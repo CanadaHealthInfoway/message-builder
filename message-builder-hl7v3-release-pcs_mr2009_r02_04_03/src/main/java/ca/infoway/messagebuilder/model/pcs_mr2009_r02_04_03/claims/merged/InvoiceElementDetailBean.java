@@ -63,7 +63,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementDetail","FICR_MT510201CA.InvoiceElementDetail","FICR_MT600201CA.InvoiceElementDetail","FICR_MT610201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt600201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt500201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
@@ -74,9 +74,31 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>SubmittedInvoiceLineIdentifier</p>
+     * <p>Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
-     * <p>Submitted Invoice Line Identifier</p>
+     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -84,9 +106,31 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>SubmittedInvoiceLineIdentifier</p>
+     * <p>Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
-     * <p>Submitted Invoice Line Identifier</p>
+     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -94,11 +138,31 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>SubmittedProductServiceCode</p>
+     * <p>Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Submitted Product/Service Code</p>
+     * <p>Other Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Submitted product/Service code</p>
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceDetailCode getCode() {
@@ -106,11 +170,31 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>SubmittedProductServiceCode</p>
+     * <p>Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Submitted Product/Service Code</p>
+     * <p>Other Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Submitted product/Service code</p>
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceDetailCode code) {
         this.code.setValue(code);
@@ -118,9 +202,31 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>SubmittedInvoiceLineAmount</p>
+     * <p>Business Name: SubmittedInvoiceLineAmount</p>
      * 
-     * <p>Submitted Invoice Line Amount</p>
+     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -128,15 +234,52 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>SubmittedInvoiceLineAmount</p>
+     * <p>Business Name: SubmittedInvoiceLineAmount</p>
      * 
-     * <p>Submitted Invoice Line Amount</p>
+     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementReason.billableActChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementReason.billableActChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reasonOf/billableActChoice"})
     public List<A_BillableActChoice> getReasonOfBillableActChoice() {
         return this.reasonOfBillableActChoice;
@@ -144,9 +287,21 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>SubmittedUnitQuantity</p>
+     * <p>Business Name: SubmittedUnitQuantity</p>
      * 
-     * <p>Submitted Unit Quantity</p>
+     * <p>Other Business Name: SubmittedUnitQuantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedUnitQuantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"unitQuantity"})
     public PhysicalQuantity getUnitQuantity() {
@@ -154,9 +309,21 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>SubmittedUnitQuantity</p>
+     * <p>Business Name: SubmittedUnitQuantity</p>
      * 
-     * <p>Submitted Unit Quantity</p>
+     * <p>Other Business Name: SubmittedUnitQuantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedUnitQuantity</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.unitQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setUnitQuantity(PhysicalQuantity unitQuantity) {
         this.unitQuantity.setValue(unitQuantity);
@@ -164,9 +331,21 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>SubmittedUnitAmountPrice</p>
+     * <p>Business Name: SubmittedUnitAmountPrice</p>
      * 
-     * <p>Submitted Unit Amount Price</p>
+     * <p>Other Business Name: SubmittedUnitAmountPrice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedUnitAmountPrice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"unitPriceAmt"})
     public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
@@ -174,9 +353,21 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>SubmittedUnitAmountPrice</p>
+     * <p>Business Name: SubmittedUnitAmountPrice</p>
      * 
-     * <p>Submitted Unit Amount Price</p>
+     * <p>Other Business Name: SubmittedUnitAmountPrice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: SubmittedUnitAmountPrice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
         this.unitPriceAmt.setValue(unitPriceAmt);
@@ -184,9 +375,19 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Multiplier, e.g. 0.07</p>
+     * <p>Other Business Name: TaxAppliedToUnitPriceAmt</p>
      * 
-     * <p>Tax % applied to unitPriceAmt.</p>
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MultiplierEG007</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"factorNumber"})
     public BigDecimal getFactorNumber() {
@@ -194,9 +395,19 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Multiplier, e.g. 0.07</p>
+     * <p>Other Business Name: TaxAppliedToUnitPriceAmt</p>
      * 
-     * <p>Tax % applied to unitPriceAmt.</p>
+     * <p>Relationship: 
+     * FICR_MT500201CA.InvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: MultiplierEG007</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementDetail.factorNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setFactorNumber(BigDecimal factorNumber) {
         this.factorNumber.setValue(factorNumber);

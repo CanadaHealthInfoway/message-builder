@@ -47,28 +47,8 @@ import java.util.Set;
  * allow for case where just a reference to an existing 
  * attachment is required.</p>
  * 
- * <p>Used to attach documents, image, etc.</p><p>required to 
- * support a health claim.</p><p>Value is not mandatory to 
- * allow for case where just a reference to an existing 
- * attachment is required.</p>
- * 
- * <p>Used to attach documents, image, etc.</p><p>required to 
- * support a health claim.</p><p>Value is not mandatory to 
- * allow for case where just a reference to an existing 
- * attachment is required.</p>
- * 
  * <p>FICR_MT500201CA.HealthDocumentAttachment: (no business 
  * name)</p>
- * 
- * <p>Used to attach documents, image, etc.</p><p>required to 
- * support a health claim.</p><p>Value is not mandatory to 
- * allow for case where just a reference to an existing 
- * attachment is required.</p>
- * 
- * <p>Used to attach documents, image, etc.</p><p>required to 
- * support a health claim.</p><p>Value is not mandatory to 
- * allow for case where just a reference to an existing 
- * attachment is required.</p>
  * 
  * <p>Used to attach documents, image, etc.</p><p>required to 
  * support a health claim.</p><p>Value is not mandatory to 
@@ -78,16 +58,26 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.HealthDocumentAttachment","FICR_MT600201CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
 
 
     /**
-     * <p>AttachmentIdentifier</p>
+     * <p>Business Name: AttachmentIdentifier</p>
      * 
-     * <p>Attachment identifier</p>
+     * <p>Other Business Name: AttachmentIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
+     * 
+     * <p>Other Business Name: AttachmentIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -96,9 +86,27 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>AttachmentType</p>
+     * <p>Business Name: AttachmentType</p>
      * 
-     * <p>Attachment Type</p>
+     * <p>Other Business Name: AttachmentType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Constrains the type of attachment (document, XRAY, bit 
+     * map image, etc.) included to support a healthcare claim. 
+     * Vocabulary bound to this domain should be a specification 
+     * for the type of document (i.e. WCB First Report of Accident 
+     * - Form 8).</p>
+     * 
+     * <p>Other Business Name: AttachmentType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Constrains the type of attachment (document, XRAY, bit 
      * map image, etc.) included to support a healthcare claim. 
@@ -112,9 +120,27 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AttachmentType</p>
+     * <p>Business Name: AttachmentType</p>
      * 
-     * <p>Attachment Type</p>
+     * <p>Other Business Name: AttachmentType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Constrains the type of attachment (document, XRAY, bit 
+     * map image, etc.) included to support a healthcare claim. 
+     * Vocabulary bound to this domain should be a specification 
+     * for the type of document (i.e. WCB First Report of Accident 
+     * - Form 8).</p>
+     * 
+     * <p>Other Business Name: AttachmentType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Constrains the type of attachment (document, XRAY, bit 
      * map image, etc.) included to support a healthcare claim. 
@@ -128,9 +154,21 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>AttachmentContent</p>
+     * <p>Business Name: AttachmentContent</p>
      * 
-     * <p>Attachment content</p>
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.HealthDocumentAttachment.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.HealthDocumentAttachment.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"value"})
     public EncapsulatedData getValue() {
@@ -138,9 +176,21 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>AttachmentContent</p>
+     * <p>Business Name: AttachmentContent</p>
      * 
-     * <p>Attachment content</p>
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.HealthDocumentAttachment.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: AttachmentContent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.HealthDocumentAttachment.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setValue(EncapsulatedData value) {
         this.value.setValue(value);

@@ -52,14 +52,14 @@ import java.util.Set;
 
 
 /**
- * <p>Placer Group</p>
+ * <p>Business Name: Placer Group</p>
  * 
  * <p>Group(er) of tests requested to be performed.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT001000CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private Patient_1Bean recordTargetPatient;
     private II id = new IIImpl();
@@ -96,22 +96,21 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
 
     /**
-     * <p>A:Placer Group Identifier</p>
+     * <p>Business Name: A:Placer Group Identifier</p>
      * 
-     * <p>Order (requisition) number of placer (requestor). If 
-     * electronic order entry is not supported, then the sending 
-     * organization must enter an Placer Order Identifier.</p><p>A 
-     * unique number assigned to all tests in a requisition.</p>
+     * <p>Relationship: POLB_MT001000CA.PlacerGroup.id</p>
      * 
-     * <p>Order (requisition) number of placer (requestor). If 
-     * electronic order entry is not supported, then the sending 
-     * organization must enter an Placer Order Identifier.</p><p>A 
-     * unique number assigned to all tests in a requisition.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This field allows an order placing application to group 
      * sets of requisitions together and subsequently identify 
      * them. Mandatory for create, revise, cancel, and nullify 
      * actions.</p>
+     * 
+     * <p>Order (requisition) number of placer (requestor). If 
+     * electronic order entry is not supported, then the sending 
+     * organization must enter an Placer Order Identifier.</p><p>A 
+     * unique number assigned to all tests in a requisition.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -119,33 +118,42 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
     /**
-     * <p>A:Placer Group Identifier</p>
+     * <p>Business Name: A:Placer Group Identifier</p>
      * 
-     * <p>Order (requisition) number of placer (requestor). If 
-     * electronic order entry is not supported, then the sending 
-     * organization must enter an Placer Order Identifier.</p><p>A 
-     * unique number assigned to all tests in a requisition.</p>
+     * <p>Relationship: POLB_MT001000CA.PlacerGroup.id</p>
      * 
-     * <p>Order (requisition) number of placer (requestor). If 
-     * electronic order entry is not supported, then the sending 
-     * organization must enter an Placer Order Identifier.</p><p>A 
-     * unique number assigned to all tests in a requisition.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This field allows an order placing application to group 
      * sets of requisitions together and subsequently identify 
      * them. Mandatory for create, revise, cancel, and nullify 
      * actions.</p>
+     * 
+     * <p>Order (requisition) number of placer (requestor). If 
+     * electronic order entry is not supported, then the sending 
+     * organization must enter an Placer Order Identifier.</p><p>A 
+     * unique number assigned to all tests in a requisition.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedEntity"})
     public HealthcareOrganizationBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }
@@ -158,7 +166,16 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
 
     /**
-     * <p>B:Placer Group Masking Indicator</p>
+     * <p>Business Name: B:Placer Group Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT001000CA.PlacerGroup.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>This code allows for privacy control by patients as well 
+     * as flagged for 'not for disclosure to patient' by care 
+     * providers.</p>
      * 
      * <p>Any piece of information is potentially subject to 
      * 'masking', restricting it's availability from providers who 
@@ -167,10 +184,6 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * direct disclosure to patient&quot;. The values in this 
      * attribute enable the above masking to be represented and 
      * messaged.</p>
-     * 
-     * <p>This code allows for privacy control by patients as well 
-     * as flagged for 'not for disclosure to patient' by care 
-     * providers.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -246,6 +259,11 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Component5.requestChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component4/requestChoice"})
     public List<RequestChoice> getComponent4RequestChoice() {
         return this.component4RequestChoice;

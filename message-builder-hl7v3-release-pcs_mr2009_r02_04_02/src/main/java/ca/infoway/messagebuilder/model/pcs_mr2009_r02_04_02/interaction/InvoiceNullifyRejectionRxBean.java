@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>FICR_IN630202CA: Invoice Nullify Rejection, Rx</p>
+ * <p>Business Name: FICR_IN630202CA: Invoice Nullify 
+ * Rejection, Rx</p>
+ * 
+ * <p>The sender sends an ACK to acknowledge of the request and 
+ * indicate that the nullification was rejected and the 
+ * adjudication results not reversed.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"FICR_IN630202CA"})
 public class InvoiceNullifyRejectionRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

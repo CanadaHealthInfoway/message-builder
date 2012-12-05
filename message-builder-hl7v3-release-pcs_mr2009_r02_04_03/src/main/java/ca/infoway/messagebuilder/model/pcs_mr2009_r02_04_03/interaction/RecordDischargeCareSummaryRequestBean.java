@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Discharg
 
 
 /**
- * <p>REPC_IN000076CA: Record discharge/ care summary request</p>
+ * <p>Business Name: REPC_IN000076CA: Record discharge/ care 
+ * summary request</p>
+ * 
+ * <p>Seeks to add a Discharge/Care Summary that has 
+ * occurred.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Discharg
 @Hl7PartTypeMapping({"REPC_IN000076CA"})
 public class RecordDischargeCareSummaryRequestBean extends HL7Message_1Bean<TriggerEventBean<DischargeCareSummaryBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -45,20 +45,20 @@ import java.util.Date;
 
 
 /**
- * <p>Version Information</p>
+ * <p>Business Name: Version Information</p>
+ * 
+ * <p>Provides a record changes, providing deeper clinical 
+ * understanding, particularly of past clinical decisions.</p>
  * 
  * <p>This records the history of changes that have been made 
  * to the record, including why the changes were made, who made 
  * them and when.</p>
- * 
- * <p>Provides a record changes, providing deeper clinical 
- * understanding, particularly of past clinical decisions.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT130001CA.ControlActEvent"})
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -68,13 +68,17 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Change Identifier</p>
+     * <p>Business Name: B:Change Identifier</p>
      * 
-     * <p>A unique identifier for this particular change.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows referencing (and potentially undoing) a specific 
      * change. Every status change has an identifier, thus this 
      * attribute is mandatory.</p>
+     * 
+     * <p>A unique identifier for this particular change.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -82,13 +86,17 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Change Identifier</p>
+     * <p>Business Name: B:Change Identifier</p>
      * 
-     * <p>A unique identifier for this particular change.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows referencing (and potentially undoing) a specific 
      * change. Every status change has an identifier, thus this 
      * attribute is mandatory.</p>
+     * 
+     * <p>A unique identifier for this particular change.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -96,12 +104,16 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Change Type</p>
+     * <p>Business Name: A:Change Type</p>
      * 
-     * <p>Identifies what kind of change occurred.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
+     * 
+     * <p>Identifies what kind of change occurred.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -109,12 +121,16 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Change Type</p>
+     * <p>Business Name: A:Change Type</p>
      * 
-     * <p>Identifies what kind of change occurred.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
+     * 
+     * <p>Identifies what kind of change occurred.</p>
      */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
@@ -122,17 +138,22 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Change Effective Date and End Date</p>
+     * <p>Business Name: C:Change Effective Date and End Date</p>
      * 
-     * <p>The date on which the various changes of an event become 
-     * valid and applicable and potentially when the change is 
-     * supposed to cease.</p>
+     * <p>Relationship: 
+     * COCT_MT130001CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows applications to sort and filter by time. The date 
      * on which a change is effective should always be known and 
      * thus is mandatory. The end date may be left unspecified if 
      * there isn't a specific targetted end date (e.g. with a 
      * suspend including a planned release date).</p>
+     * 
+     * <p>The date on which the various changes of an event become 
+     * valid and applicable and potentially when the change is 
+     * supposed to cease.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -140,17 +161,22 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Change Effective Date and End Date</p>
+     * <p>Business Name: C:Change Effective Date and End Date</p>
      * 
-     * <p>The date on which the various changes of an event become 
-     * valid and applicable and potentially when the change is 
-     * supposed to cease.</p>
+     * <p>Relationship: 
+     * COCT_MT130001CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows applications to sort and filter by time. The date 
      * on which a change is effective should always be known and 
      * thus is mandatory. The end date may be left unspecified if 
      * there isn't a specific targetted end date (e.g. with a 
      * suspend including a planned release date).</p>
+     * 
+     * <p>The date on which the various changes of an event become 
+     * valid and applicable and potentially when the change is 
+     * supposed to cease.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -158,13 +184,17 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Change Reason</p>
+     * <p>Business Name: D:Change Reason</p>
      * 
-     * <p>Denotes the reason the record was modified.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Denotes the reason the record was modified.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -172,13 +202,17 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Change Reason</p>
+     * <p>Business Name: D:Change Reason</p>
      * 
-     * <p>Denotes the reason the record was modified.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Denotes the reason the record was modified.</p>
      */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
@@ -186,16 +220,20 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Change Datetime</p>
+     * <p>Business Name: Change Datetime</p>
      * 
-     * <p>The date on which the change was made. Note that this may 
-     * be earlier or occassionally later than when the change is 
-     * actually effective.</p>
+     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gives other providers the frame of reference in 
      * evaluating any post-change issues with the event. Also used 
      * for sorting and audit purposes. Time of change is always 
      * known and thus the attribute is mandatory.</p>
+     * 
+     * <p>The date on which the change was made. Note that this may 
+     * be earlier or occassionally later than when the change is 
+     * actually effective.</p>
      */
     @Hl7XmlMapping({"author/time"})
     public Date getAuthorTime() {
@@ -203,27 +241,41 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Change Datetime</p>
+     * <p>Business Name: Change Datetime</p>
      * 
-     * <p>The date on which the change was made. Note that this may 
-     * be earlier or occassionally later than when the change is 
-     * actually effective.</p>
+     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gives other providers the frame of reference in 
      * evaluating any post-change issues with the event. Also used 
      * for sorting and audit purposes. Time of change is always 
      * known and thus the attribute is mandatory.</p>
+     * 
+     * <p>The date on which the change was made. Note that this may 
+     * be earlier or occassionally later than when the change is 
+     * actually effective.</p>
      */
     public void setAuthorTime(Date authorTime) {
         this.authorTime.setValue(authorTime);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/actingPerson"})
     public ActingPerson getAuthorActingPerson() {
         return this.authorActingPerson;
     }
 
+    /**
+     * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorActingPerson(ActingPerson authorActingPerson) {
         this.authorActingPerson = authorActingPerson;
     }

@@ -49,18 +49,6 @@ import java.util.List;
  * Adjudication Results</p><p>messages</p><p>Amt must be 
  * negative or 0 for Invoice Cancel Results messages</p>
  * 
- * <p>Amt must be positive or 0 for</p><p>completed 
- * Adjudication Results</p><p>messages</p><p>Amt must be 
- * negative or 0 for Invoice Cancel Results messages</p>
- * 
- * <p>Amt must be positive or 0 for</p><p>completed 
- * Adjudication Results</p><p>messages</p><p>Amt must be 
- * negative or 0 for Invoice Cancel Results messages</p>
- * 
- * <p>Amt must be positive or 0 for</p><p>completed 
- * Adjudication Results</p><p>messages</p><p>Amt must be 
- * negative or 0 for Invoice Cancel Results messages</p>
- * 
  * <p>If an Adjudicator adjudicates for multiple insurance 
  * policies (EOBs) for multiple Payors and/or Payees, there 
  * would be more than 1 Payment Intent payload in the Results 
@@ -70,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private TS effectiveTime = new TSImpl();
@@ -82,7 +70,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Payment Intent Identifier</p>
+     * <p>Business Name: Payment Intent Identifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -90,7 +83,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Payment Intent Identifier</p>
+     * <p>Business Name: Payment Intent Identifier</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -98,7 +96,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Payment Intent Status</p>
+     * <p>Business Name: Payment Intent Status</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -106,7 +109,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Payment Intent Status</p>
+     * <p>Business Name: Payment Intent Status</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -114,7 +122,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Payment Intent Date/Time</p>
+     * <p>Business Name: Payment Intent Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -122,7 +135,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Payment Intent Date/Time</p>
+     * <p>Business Name: Payment Intent Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -130,7 +148,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Total Amount of Payment Intent</p>
+     * <p>Business Name: Total Amount of Payment Intent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.amt</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"amt"})
     public Money getAmt() {
@@ -138,28 +161,53 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Total Amount of Payment Intent</p>
+     * <p>Business Name: Total Amount of Payment Intent</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.amt</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setAmt(Money amt) {
         this.amt.setValue(amt);
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Credit.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
         return this.creditAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Credit.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Debit.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
     }
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Debit.account</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
     }
@@ -171,6 +219,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.FinancialTransactionIntent.reasonOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     */
     @Hl7XmlMapping({"reasonOf"})
     public List<Reason2Bean> getReasonOf() {
         return this.reasonOf;

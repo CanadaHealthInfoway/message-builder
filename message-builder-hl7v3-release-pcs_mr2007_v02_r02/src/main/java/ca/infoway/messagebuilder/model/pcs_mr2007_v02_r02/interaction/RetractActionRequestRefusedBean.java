@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 
 
 /**
- * <p>COMT_IN600003CA: Retract action request refused</p>
+ * <p>Business Name: COMT_IN600003CA: Retract action request 
+ * refused</p>
+ * 
+ * <p>Indicates that the request to nullify an identified 
+ * ControlAct has been denied, leaving the original event in 
+ * force.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 @Hl7PartTypeMapping({"COMT_IN600003CA"})
 public class RetractActionRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

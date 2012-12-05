@@ -33,26 +33,50 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502
 @Hl7PartTypeMapping({"POLB_MT002000CA.PrimaryInformationRecipient"})
 public class PrimaryInformationRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS contextControlCode = new CSImpl();
     private HealthcareOrganizationBean assignedEntity;
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PrimaryInformationRecipient.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PrimaryInformationRecipient.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareOrganizationBean getAssignedEntity() {
         return this.assignedEntity;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAssignedEntity(HealthcareOrganizationBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }

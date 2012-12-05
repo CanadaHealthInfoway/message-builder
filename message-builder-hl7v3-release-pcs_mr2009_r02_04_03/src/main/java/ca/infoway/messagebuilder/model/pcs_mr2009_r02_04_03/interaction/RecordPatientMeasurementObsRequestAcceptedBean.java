@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 
 
 /**
- * <p>REPC_IN000052CA: Record patient measurement obs. request 
- * accepted</p>
+ * <p>Business Name: REPC_IN000052CA: Record patient 
+ * measurement obs. request accepted</p>
+ * 
+ * <p>Indicates that the requested measurement observation (for 
+ * example are: height, weight, blood-pressure, temperature) 
+ * has been successfully recorded in a patient's record.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 @Hl7PartTypeMapping({"REPC_IN000052CA"})
 public class RecordPatientMeasurementObsRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

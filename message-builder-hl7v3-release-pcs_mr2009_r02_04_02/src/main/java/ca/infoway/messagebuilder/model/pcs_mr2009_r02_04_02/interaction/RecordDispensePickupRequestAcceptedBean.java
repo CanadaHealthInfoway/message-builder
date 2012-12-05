@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>PORX_IN020090CA: Record dispense pickup request accepted</p>
+ * <p>Business Name: PORX_IN020090CA: Record dispense pickup 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the pickup of the prescription has been 
+ * recorded as requested</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"PORX_IN020090CA"})
 public class RecordDispensePickupRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

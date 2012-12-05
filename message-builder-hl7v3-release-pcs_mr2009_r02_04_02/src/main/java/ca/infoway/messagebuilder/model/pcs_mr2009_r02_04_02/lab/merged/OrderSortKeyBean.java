@@ -29,56 +29,93 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>OrderSortKey</p>
+ * <p>Business Name: OrderSortKey</p>
  * 
  * <p>POLB_MT001001CA.RequestSortKey: Order Sort Key</p>
  * 
- * <p>String used for sorting of orders.</p>
- * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * request to allow a laboratory to provide sorting information 
  * for test requests within an order.</p>
+ * 
+ * <p>String used for sorting of orders.</p>
  * 
  * <p>POLB_MT001000CA.RequestSortKey: Order Sort Key</p>
  * 
- * <p>String used for sorting of orders.</p>
- * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * request to allow a laboratory to provide sorting information 
  * for test requests within an order.</p>
+ * 
+ * <p>String used for sorting of orders.</p>
  * 
  * <p>POLB_MT001999CA.RequestSortKey: Order Sort Key</p>
  * 
- * <p>String used for sorting of orders.</p>
- * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * request to allow a laboratory to provide sorting information 
  * for test requests within an order.</p>
+ * 
+ * <p>String used for sorting of orders.</p>
  * 
  * <p>POLB_MT001010CA.RequestSortKey: Order Sort Key</p>
  * 
- * <p>String used for sorting of orders.</p>
- * 
  * <p>OLIS needs an alphanumeric sort key string to a test 
  * request to allow a laboratory to provide sorting information 
  * for test requests within an order.</p>
+ * 
+ * <p>String used for sorting of orders.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT001000CA.RequestSortKey","POLB_MT001001CA.RequestSortKey","POLB_MT001010CA.RequestSortKey","POLB_MT001999CA.RequestSortKey"})
 public class OrderSortKeyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
 
 
     /**
-     * <p>SortKeyText</p>
+     * <p>Business Name: SortKeyText</p>
      * 
-     * <p>N:Sort Key Text</p>
+     * <p>Other Business Name: SortKeyText</p>
      * 
-     * <p>Value used for sorting orders.</p>
+     * <p>Relationship: POLB_MT001001CA.RequestSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Attribute for communicating the actual sort key 
      * value.</p>
+     * 
+     * <p>Value used for sorting orders.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.RequestSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Attribute for communicating the actual sort key 
+     * value.</p>
+     * 
+     * <p>Value used for sorting orders.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT001999CA.RequestSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Attribute for communicating the actual sort key 
+     * value.</p>
+     * 
+     * <p>Value used for sorting orders.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.RequestSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Attribute for communicating the actual sort key 
+     * value.</p>
+     * 
+     * <p>Value used for sorting orders.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -86,14 +123,51 @@ public class OrderSortKeyBean extends MessagePartBean {
     }
 
     /**
-     * <p>SortKeyText</p>
+     * <p>Business Name: SortKeyText</p>
      * 
-     * <p>N:Sort Key Text</p>
+     * <p>Other Business Name: SortKeyText</p>
      * 
-     * <p>Value used for sorting orders.</p>
+     * <p>Relationship: POLB_MT001001CA.RequestSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Attribute for communicating the actual sort key 
      * value.</p>
+     * 
+     * <p>Value used for sorting orders.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT001000CA.RequestSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Attribute for communicating the actual sort key 
+     * value.</p>
+     * 
+     * <p>Value used for sorting orders.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT001999CA.RequestSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Attribute for communicating the actual sort key 
+     * value.</p>
+     * 
+     * <p>Value used for sorting orders.</p>
+     * 
+     * <p>Other Business Name: SortKeyText</p>
+     * 
+     * <p>Relationship: POLB_MT001010CA.RequestSortKey.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Attribute for communicating the actual sort key 
+     * value.</p>
+     * 
+     * <p>Value used for sorting orders.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

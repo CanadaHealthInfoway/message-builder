@@ -51,17 +51,10 @@ import java.util.Set;
 
 
 /**
- * <p>Location</p>
+ * <p>Business Name: Location</p>
  * 
  * <p>At least one of address or coordinate must be specified 
  * unless the place is mobile.</p>
- * 
- * <p>Any location where health-related services may be 
- * provided. Note that a single physical place can play 
- * multiple service delivery location roles e.g. a Podiatry 
- * clinic and Research clinic may meet on alternate days in the 
- * same physical location; each clinic uses its own mailing 
- * address and telephone number.</p>
  * 
  * <p>Provides location information which uniquely identifies 
  * where health services are provided. This includes details 
@@ -71,12 +64,19 @@ import java.util.Set;
  * useful when trying to find facilities to meet particular 
  * patient needs, as well as looking up how to contact the 
  * location.</p>
+ * 
+ * <p>Any location where health-related services may be 
+ * provided. Note that a single physical place can play 
+ * multiple service delivery location roles e.g. a Podiatry 
+ * clinic and Research clinic may meet on alternate days in the 
+ * same physical location; each clinic uses its own mailing 
+ * address and telephone number.</p>
  */
 @Hl7PartTypeMapping({"PRPA_MT202302CA.ServiceDeliveryLocation"})
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private SET<ST, String> name = new SETImpl<ST, String>(STImpl.class);
     private AD addr = new ADImpl();
@@ -92,10 +92,11 @@ public class LocationBean extends MessagePartBean {
 
 
     /**
-     * <p>A: Location Identifiers</p>
+     * <p>Business Name: A: Location Identifiers</p>
      * 
-     * <p> <i>A globally unique identifier assigned by the EHR to 
-     * the Location record.</i> </p>
+     * <p>Relationship: PRPA_MT202302CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (2)</p>
      * 
      * <p> <i>Allows for unique identification of the Location and 
      * is therefore mandatory. Supports drill-down queries, linking 
@@ -103,6 +104,9 @@ public class LocationBean extends MessagePartBean {
      * locally-stored PoS records and is necessary when identifying 
      * records for amending (revising)/directional linking 
      * (superseding).</i> </p>
+     * 
+     * <p> <i>A globally unique identifier assigned by the EHR to 
+     * the Location record.</i> </p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -111,24 +115,22 @@ public class LocationBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Location Names</p>
+     * <p>Business Name: D:Location Names</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202302CA.ServiceDeliveryLocation.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Provides a human-readable label for the location. The 
+     * location name is not intended to be parsed or analyzed by 
+     * when processing the record. (E.g. To determine if a location 
+     * is a hospital, look at the location type, don't check the 
+     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
+     * repetitions are allowed to capture historical names</p>
      * 
      * <p>A textual name for the place where the service is 
      * provided e.g. Ottawa General Hospital.</p>
-     * 
-     * <p>Provides a human-readable label for the location. The 
-     * location name is not intended to be parsed or analyzed by 
-     * when processing the record. (E.g. To determine if a location 
-     * is a hospital, look at the location type, don't check the 
-     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
-     * repetitions are allowed to capture historical names</p>
-     * 
-     * <p>Provides a human-readable label for the location. The 
-     * location name is not intended to be parsed or analyzed by 
-     * when processing the record. (E.g. To determine if a location 
-     * is a hospital, look at the location type, don't check the 
-     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
-     * repetitions are allowed to capture historical names</p>
      */
     @Hl7XmlMapping({"name"})
     public Set<String> getName() {
@@ -137,22 +139,14 @@ public class LocationBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Location Address</p>
+     * <p>Business Name: G:Location Address</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202302CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Restricted to physical address only</p>
-     * 
-     * <p>Identifies the physical address for this service delivery 
-     * location, I.e. What is the geographic location of the 
-     * building.</p>
-     * 
-     * <p>Allows location to be visited. May also be used for 
-     * geographic profiling (e.g. a dispatcher may be looking for 
-     * the closest hospital or ambulance that can help a patient in 
-     * need of emergency care).</p><p>Because a physical address 
-     * may not exist for mobile locations, and may not be 
-     * expressible for non-dedicated locations such as water 
-     * resevoirs, this element is only 'populated'. When no address 
-     * exists, the null flavor should be set to NA.</p>
      * 
      * <p>Allows location to be visited. May also be used for 
      * geographic profiling (e.g. a dispatcher may be looking for 
@@ -166,6 +160,10 @@ public class LocationBean extends MessagePartBean {
      * <p>For mobile service delivery location, this can either be 
      * set to the address of the &quot;home&quot; site for the 
      * mobile unit or can be set to a null flavor of N/A.</p>
+     * 
+     * <p>Identifies the physical address for this service delivery 
+     * location, I.e. What is the geographic location of the 
+     * building.</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -173,22 +171,14 @@ public class LocationBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Location Address</p>
+     * <p>Business Name: G:Location Address</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202302CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Restricted to physical address only</p>
-     * 
-     * <p>Identifies the physical address for this service delivery 
-     * location, I.e. What is the geographic location of the 
-     * building.</p>
-     * 
-     * <p>Allows location to be visited. May also be used for 
-     * geographic profiling (e.g. a dispatcher may be looking for 
-     * the closest hospital or ambulance that can help a patient in 
-     * need of emergency care).</p><p>Because a physical address 
-     * may not exist for mobile locations, and may not be 
-     * expressible for non-dedicated locations such as water 
-     * resevoirs, this element is only 'populated'. When no address 
-     * exists, the null flavor should be set to NA.</p>
      * 
      * <p>Allows location to be visited. May also be used for 
      * geographic profiling (e.g. a dispatcher may be looking for 
@@ -202,6 +192,10 @@ public class LocationBean extends MessagePartBean {
      * <p>For mobile service delivery location, this can either be 
      * set to the address of the &quot;home&quot; site for the 
      * mobile unit or can be set to a null flavor of N/A.</p>
+     * 
+     * <p>Identifies the physical address for this service delivery 
+     * location, I.e. What is the geographic location of the 
+     * building.</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
@@ -209,7 +203,19 @@ public class LocationBean extends MessagePartBean {
 
 
     /**
-     * <p>C: Location Status</p>
+     * <p>Business Name: C: Location Status</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202302CA.ServiceDeliveryLocation.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Status is frequently used to filter query responses 
+     * as well as to sort records for presentation. It also affects 
+     * how the Location record is interpreted.</i> </p><p> 
+     * <i>Because the status won't always be known, the attribute 
+     * is marked as 'populated' to allow the use of null 
+     * flavors.</i> </p>
      * 
      * <p> <i>This identifies the current state of the Location 
      * record.</i> </p><p>Allowed status values are 'active' (the 
@@ -219,29 +225,6 @@ public class LocationBean extends MessagePartBean {
      * (the location has permanently ceased delivering 
      * healthcare-related services and may no longer physically 
      * exist.)</p>
-     * 
-     * <p> <i>This identifies the current state of the Location 
-     * record.</i> </p><p>Allowed status values are 'active' (the 
-     * location is actively used to deliver healthcare-related 
-     * services), 'suspended' (the location has temporarily ceased 
-     * delivering healthcare-related services) and 'terminated' 
-     * (the location has permanently ceased delivering 
-     * healthcare-related services and may no longer physically 
-     * exist.)</p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Location record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Location record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ServiceDeliveryRoleStatus getStatusCode() {
@@ -249,7 +232,19 @@ public class LocationBean extends MessagePartBean {
     }
 
     /**
-     * <p>C: Location Status</p>
+     * <p>Business Name: C: Location Status</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT202302CA.ServiceDeliveryLocation.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Status is frequently used to filter query responses 
+     * as well as to sort records for presentation. It also affects 
+     * how the Location record is interpreted.</i> </p><p> 
+     * <i>Because the status won't always be known, the attribute 
+     * is marked as 'populated' to allow the use of null 
+     * flavors.</i> </p>
      * 
      * <p> <i>This identifies the current state of the Location 
      * record.</i> </p><p>Allowed status values are 'active' (the 
@@ -259,29 +254,6 @@ public class LocationBean extends MessagePartBean {
      * (the location has permanently ceased delivering 
      * healthcare-related services and may no longer physically 
      * exist.)</p>
-     * 
-     * <p> <i>This identifies the current state of the Location 
-     * record.</i> </p><p>Allowed status values are 'active' (the 
-     * location is actively used to deliver healthcare-related 
-     * services), 'suspended' (the location has temporarily ceased 
-     * delivering healthcare-related services) and 'terminated' 
-     * (the location has permanently ceased delivering 
-     * healthcare-related services and may no longer physically 
-     * exist.)</p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Location record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Location record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
      */
     public void setStatusCode(ServiceDeliveryRoleStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -308,6 +280,11 @@ public class LocationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT202302CA.Subject.position</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/position"})
     public List<GeographicCoordinatesBean> getSubjectOfPosition() {
         return this.subjectOfPosition;
@@ -342,11 +319,23 @@ public class LocationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202302CA.Part2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"partOf/serviceDeliveryLocation"})
     public LocationBean getPartOfServiceDeliveryLocation() {
         return this.partOfServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202302CA.Part2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPartOfServiceDeliveryLocation(LocationBean partOfServiceDeliveryLocation) {
         this.partOfServiceDeliveryLocation = partOfServiceDeliveryLocation;
     }

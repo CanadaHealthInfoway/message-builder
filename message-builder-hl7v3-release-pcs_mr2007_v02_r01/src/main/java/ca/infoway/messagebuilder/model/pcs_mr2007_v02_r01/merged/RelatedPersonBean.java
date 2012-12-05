@@ -46,53 +46,38 @@ import java.util.Set;
 
 
 /**
- * <p>RelatedPerson</p>
+ * <p>Business Name: RelatedPerson</p>
  * 
  * <p>COCT_MT910107CA.PersonalRelationship: Related Person</p>
  * 
- * <p>Describes a person (other than a health-care provider or 
- * employee) who is providing information and making decision 
- * on behalf of the patient, in relation to the delivery of 
- * healthcare for the patient. E.g. Patient's 
- * mother.</p><p>Used when the person cannot be found in the 
- * Client registry.</p>
- * 
- * <p>Describes a person (other than a health-care provider or 
- * employee) who is providing information and making decision 
- * on behalf of the patient, in relation to the delivery of 
- * healthcare for the patient. E.g. Patient's 
- * mother.</p><p>Used when the person cannot be found in the 
- * Client registry.</p>
- * 
  * <p>Important for tracking source of information for decision 
  * making and other actions taken on behalf of a patient.</p>
+ * 
+ * <p>Describes a person (other than a health-care provider or 
+ * employee) who is providing information and making decision 
+ * on behalf of the patient, in relation to the delivery of 
+ * healthcare for the patient. E.g. Patient's 
+ * mother.</p><p>Used when the person cannot be found in the 
+ * Client registry.</p>
  * 
  * <p>COCT_MT910102CA.PersonalRelationship: Related Person</p>
  * 
- * <p>Describes a person (other than a health-care provider or 
- * employee) who is providing information and making decision 
- * on behalf of the patient, in relation to the delivery of 
- * healthcare for the patient. E.g. Patient's mother. Also used 
- * with a relationship of &quot;self&quot; when the patient 
- * themselves is providing the care.</p><p>The expectation is 
- * that the person can be found in the client registry.</p>
- * 
- * <p>Describes a person (other than a health-care provider or 
- * employee) who is providing information and making decision 
- * on behalf of the patient, in relation to the delivery of 
- * healthcare for the patient. E.g. Patient's mother. Also used 
- * with a relationship of &quot;self&quot; when the patient 
- * themselves is providing the care.</p><p>The expectation is 
- * that the person can be found in the client registry.</p>
- * 
  * <p>Important for tracking source of information for decision 
  * making and other actions taken on behalf of a patient.</p>
+ * 
+ * <p>Describes a person (other than a health-care provider or 
+ * employee) who is providing information and making decision 
+ * on behalf of the patient, in relation to the delivery of 
+ * healthcare for the patient. E.g. Patient's mother. Also used 
+ * with a relationship of &quot;self&quot; when the patient 
+ * themselves is providing the care.</p><p>The expectation is 
+ * that the person can be found in the client registry.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT910102CA.PersonalRelationship","COCT_MT910107CA.PersonalRelationship","FICR_MT600201CA.PersonalRelationship","FICR_MT610201CA.PersonalRelationship"})
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.merged.Consenter, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.coct_mt120600ca.AssignedPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.ActingPerson {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private II id = new IIImpl();
     private PN relationshipHolderName = new PNImpl();
@@ -101,67 +86,61 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>C:Responsible Person Type</p>
+     * <p>Other Business Name: ExamplesAreSpouseChild</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelatedPersonType</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Essential for understanding the authority to perform 
+     * certain actions as well as the context of the information 
+     * and is therefore mandatory. E.g. A 'friend' may not be able 
+     * to make consent decisions, but may be able to pick up 
+     * dispenses.</p><p> <i>The element uses CWE to allow for the 
+     * capture of Related Person Type concepts not presently 
+     * supported by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
+     * <p>A coded value indicating how the related person is 
+     * related to the patient.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ResponsiblePersonType</p>
+     * 
+     * <p>Relationship: COCT_MT910102CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Essential for understanding the authority to perform 
+     * certain actions as well as the context of the information 
+     * and is therefore mandatory. E.g. A 'friend' may not be able 
+     * to make consent decisions, but may be able to pick up 
+     * dispenses.</p><p> <i>The element uses CWE to allow for the 
+     * capture of Responsible Person Type concepts not presently 
+     * supported by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
      * 
      * <p>A coded value indicating how the responsible person is 
      * related to the patient. If the code is &quot;SELF&quot;, it 
      * indicates that the action was performed by the patient 
      * themselves.</p>
-     * 
-     * <p>Essential for understanding the authority to perform 
-     * certain actions as well as the context of the information 
-     * and is therefore mandatory. E.g. A 'friend' may not be able 
-     * to make consent decisions, but may be able to pick up 
-     * dispenses.</p><p> <i>The element uses CWE to allow for the 
-     * capture of Responsible Person Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>Essential for understanding the authority to perform 
-     * certain actions as well as the context of the information 
-     * and is therefore mandatory. E.g. A 'friend' may not be able 
-     * to make consent decisions, but may be able to pick up 
-     * dispenses.</p><p> <i>The element uses CWE to allow for the 
-     * capture of Responsible Person Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>C:Related Person Type</p>
-     * 
-     * <p>A coded value indicating how the related person is 
-     * related to the patient.</p>
-     * 
-     * <p>Essential for understanding the authority to perform 
-     * certain actions as well as the context of the information 
-     * and is therefore mandatory. E.g. A 'friend' may not be able 
-     * to make consent decisions, but may be able to pick up 
-     * dispenses.</p><p> <i>The element uses CWE to allow for the 
-     * capture of Related Person Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>Essential for understanding the authority to perform 
-     * certain actions as well as the context of the information 
-     * and is therefore mandatory. E.g. A 'friend' may not be able 
-     * to make consent decisions, but may be able to pick up 
-     * dispenses.</p><p> <i>The element uses CWE to allow for the 
-     * capture of Related Person Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>Examples are spouse, child</p>
      */
     @Hl7XmlMapping({"code"})
     public x_SimplePersonalRelationship getCode() {
@@ -169,67 +148,61 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>C:Responsible Person Type</p>
+     * <p>Other Business Name: ExamplesAreSpouseChild</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: RelatedPersonType</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Essential for understanding the authority to perform 
+     * certain actions as well as the context of the information 
+     * and is therefore mandatory. E.g. A 'friend' may not be able 
+     * to make consent decisions, but may be able to pick up 
+     * dispenses.</p><p> <i>The element uses CWE to allow for the 
+     * capture of Related Person Type concepts not presently 
+     * supported by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
+     * 
+     * <p>A coded value indicating how the related person is 
+     * related to the patient.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ResponsiblePersonType</p>
+     * 
+     * <p>Relationship: COCT_MT910102CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Essential for understanding the authority to perform 
+     * certain actions as well as the context of the information 
+     * and is therefore mandatory. E.g. A 'friend' may not be able 
+     * to make consent decisions, but may be able to pick up 
+     * dispenses.</p><p> <i>The element uses CWE to allow for the 
+     * capture of Responsible Person Type concepts not presently 
+     * supported by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </p>
      * 
      * <p>A coded value indicating how the responsible person is 
      * related to the patient. If the code is &quot;SELF&quot;, it 
      * indicates that the action was performed by the patient 
      * themselves.</p>
-     * 
-     * <p>Essential for understanding the authority to perform 
-     * certain actions as well as the context of the information 
-     * and is therefore mandatory. E.g. A 'friend' may not be able 
-     * to make consent decisions, but may be able to pick up 
-     * dispenses.</p><p> <i>The element uses CWE to allow for the 
-     * capture of Responsible Person Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>Essential for understanding the authority to perform 
-     * certain actions as well as the context of the information 
-     * and is therefore mandatory. E.g. A 'friend' may not be able 
-     * to make consent decisions, but may be able to pick up 
-     * dispenses.</p><p> <i>The element uses CWE to allow for the 
-     * capture of Responsible Person Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>C:Related Person Type</p>
-     * 
-     * <p>A coded value indicating how the related person is 
-     * related to the patient.</p>
-     * 
-     * <p>Essential for understanding the authority to perform 
-     * certain actions as well as the context of the information 
-     * and is therefore mandatory. E.g. A 'friend' may not be able 
-     * to make consent decisions, but may be able to pick up 
-     * dispenses.</p><p> <i>The element uses CWE to allow for the 
-     * capture of Related Person Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>Essential for understanding the authority to perform 
-     * certain actions as well as the context of the information 
-     * and is therefore mandatory. E.g. A 'friend' may not be able 
-     * to make consent decisions, but may be able to pick up 
-     * dispenses.</p><p> <i>The element uses CWE to allow for the 
-     * capture of Related Person Type concepts not presently 
-     * supported by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </p>
-     * 
-     * <p>Examples are spouse, child</p>
      */
     public void setCode(x_SimplePersonalRelationship code) {
         this.code.setValue(code);
@@ -237,208 +210,148 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>RelatedPersonIdentifier</p>
+     * <p>Business Name: RelatedPersonIdentifier</p>
      * 
-     * <p>B:Related Person Identifier</p>
+     * <p>Other Business Name: RelatedPersonIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.PersonalRelationship.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZPB1.6 (Root)</p>
+     * 
+     * <p>ZPB1.7 (EXtension)</p>
+     * 
+     * <p>ZPB2.8 (Root)</p>
+     * 
+     * <p>ZPB2.9 (EXtension)</p>
+     * 
+     * <p>ZPB3.11 (Root)</p>
+     * 
+     * <p>ZPB3.12 (EXtension)</p>
+     * 
+     * <p>ZPB3.18 (Root)</p>
+     * 
+     * <p>ZPB3.19 (EXtension)</p>
+     * 
+     * <p>D60 (Root)</p>
+     * 
+     * <p>D61 (Extension)</p>
+     * 
+     * <p>D76</p>
+     * 
+     * <p>PVD.020-01 (Extension)</p>
+     * 
+     * <p>PVD.020-02 (Root)</p>
+     * 
+     * <p>PharmacyProvider.444-E9 (Extension)</p>
+     * 
+     * <p>PharmacyProvider.465-E7 (Root)</p>
+     * 
+     * <p>Prescriber.446-EZ (Extension)</p>
+     * 
+     * <p>PharmacyProvider.411-DB (Root)</p>
+     * 
+     * <p>ZDP.18.1 (Extension)</p>
+     * 
+     * <p>ZDP.18.2 (Root)</p>
+     * 
+     * <p>ZDP.19.1 (Extension)</p>
+     * 
+     * <p>ZDP.19.2 (Root)</p>
+     * 
+     * <p>ZDP.10.1 (Extension)</p>
+     * 
+     * <p>ZDP.10.2 (Root)</p>
+     * 
+     * <p>Provider.PproviderExternalKey (Extension)</p>
+     * 
+     * <p>Provider.providerKey (Extension)</p>
+     * 
+     * <p>Provider.wellnetProviderId (Extension)</p>
+     * 
+     * <p>ProviderRegistration.Identifier (Extension)</p>
+     * 
+     * <p>ProviderRegistration.IdentifierDomain (part of 
+     * Extension)</p>
+     * 
+     * <p>ProviderRegistrationjurisdiction (part of Extension)</p>
+     * 
+     * <p>Allows a person to be uniquely referred to.</p>
      * 
      * <p>A unique identifier for the related person. May include 
      * PHNs, drivers license or other identifiers.</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>Other Business Name: RelatedPersonIdentifier</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>Relationship: COCT_MT910102CA.PersonalRelationship.id</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB1.6 (Root)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB1.7 (EXtension)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB2.8 (Root)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB2.9 (EXtension)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB3.11 (Root)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB3.12 (EXtension)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-    
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>ZPB3.18 (Root)</p>
+     * 
+     * <p>ZPB3.19 (EXtension)</p>
+     * 
+     * <p>D60 (Root)</p>
+     * 
+     * <p>D61 (Extension)</p>
+     * 
+     * <p>D76</p>
+     * 
+     * <p>PVD.020-01 (Extension)</p>
+     * 
+     * <p>PVD.020-02 (Root)</p>
+     * 
+     * <p>PharmacyProvider.444-E9 (Extension)</p>
+     * 
+     * <p>PharmacyProvider.465-E7 (Root)</p>
+     * 
+     * <p>Prescriber.446-EZ (Extension)</p>
+     * 
+     * <p>PharmacyProvider.411-DB (Root)</p>
+     * 
+     * <p>ZDP.18.1 (Extension)</p>
+     * 
+     * <p>ZDP.18.2 (Root)</p>
+     * 
+     * <p>ZDP.19.1 (Extension)</p>
+     * 
+     * <p>ZDP.19.2 (Root)</p>
+     * 
+     * <p>ZDP.10.1 (Extension)</p>
+     * 
+     * <p>ZDP.10.2 (Root)</p>
+     * 
+     * <p>Provider.PproviderExternalKey (Extension)</p>
+     * 
+     * <p>Provider.providerKey (Extension)</p>
+     * 
+     * <p>Provider.wellnetProviderId (Extension)</p>
+     * 
+     * <p>ProviderRegistration.Identifier (Extension)</p>
+     * 
+     * <p>ProviderRegistration.IdentifierDomain (part of 
+     * Extension)</p>
+     * 
+     * <p>ProviderRegistrationjurisdiction (part of Extension)</p>
+     * 
+     * <p>Allows a person to be uniquely referred to and retrieved 
+     * from the client registry and is therefore mandatory.</p>
+     * 
+     * <p>A unique identifier for the responsible person (as found 
+     * in a client registry).</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -446,208 +359,148 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>RelatedPersonIdentifier</p>
+     * <p>Business Name: RelatedPersonIdentifier</p>
      * 
-     * <p>B:Related Person Identifier</p>
+     * <p>Other Business Name: RelatedPersonIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.PersonalRelationship.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZPB1.6 (Root)</p>
+     * 
+     * <p>ZPB1.7 (EXtension)</p>
+     * 
+     * <p>ZPB2.8 (Root)</p>
+     * 
+     * <p>ZPB2.9 (EXtension)</p>
+     * 
+     * <p>ZPB3.11 (Root)</p>
+     * 
+     * <p>ZPB3.12 (EXtension)</p>
+     * 
+     * <p>ZPB3.18 (Root)</p>
+     * 
+     * <p>ZPB3.19 (EXtension)</p>
+     * 
+     * <p>D60 (Root)</p>
+     * 
+     * <p>D61 (Extension)</p>
+     * 
+     * <p>D76</p>
+     * 
+     * <p>PVD.020-01 (Extension)</p>
+     * 
+     * <p>PVD.020-02 (Root)</p>
+     * 
+     * <p>PharmacyProvider.444-E9 (Extension)</p>
+     * 
+     * <p>PharmacyProvider.465-E7 (Root)</p>
+     * 
+     * <p>Prescriber.446-EZ (Extension)</p>
+     * 
+     * <p>PharmacyProvider.411-DB (Root)</p>
+     * 
+     * <p>ZDP.18.1 (Extension)</p>
+     * 
+     * <p>ZDP.18.2 (Root)</p>
+     * 
+     * <p>ZDP.19.1 (Extension)</p>
+     * 
+     * <p>ZDP.19.2 (Root)</p>
+     * 
+     * <p>ZDP.10.1 (Extension)</p>
+     * 
+     * <p>ZDP.10.2 (Root)</p>
+     * 
+     * <p>Provider.PproviderExternalKey (Extension)</p>
+     * 
+     * <p>Provider.providerKey (Extension)</p>
+     * 
+     * <p>Provider.wellnetProviderId (Extension)</p>
+     * 
+     * <p>ProviderRegistration.Identifier (Extension)</p>
+     * 
+     * <p>ProviderRegistration.IdentifierDomain (part of 
+     * Extension)</p>
+     * 
+     * <p>ProviderRegistrationjurisdiction (part of Extension)</p>
+     * 
+     * <p>Allows a person to be uniquely referred to.</p>
      * 
      * <p>A unique identifier for the related person. May include 
      * PHNs, drivers license or other identifiers.</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>Other Business Name: RelatedPersonIdentifier</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>Relationship: COCT_MT910102CA.PersonalRelationship.id</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB1.6 (Root)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB1.7 (EXtension)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB2.8 (Root)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB2.9 (EXtension)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB3.11 (Root)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyProvider.444-E9 
-     * (Extension)</p><p>PharmacyProvider.465-E7 
-     * (Root)</p><p>Prescriber.446-EZ 
-     * (Extension)</p><p>PharmacyProvider.411-DB 
-     * (Root)</p><p>ZDP.18.1 (Extension)</p><p>ZDP.18.2 
-     * (Root)</p><p>ZDP.19.1 (Extension)</p><p>ZDP.19.2 
-     * (Root)</p><p>ZDP.10.1 (Extension)</p><p>ZDP.10.2 
-     * (Root)</p><p>Provider.PproviderExternalKey 
-     * (Extension)</p><p>Provider.providerKey 
-     * (Extension)</p><p>Provider.wellnetProviderId 
-     * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
-     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
+     * <p>ZPB3.12 (EXtension)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-    
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>ZPB3.18 (Root)</p>
+     * 
+     * <p>ZPB3.19 (EXtension)</p>
+     * 
+     * <p>D60 (Root)</p>
+     * 
+     * <p>D61 (Extension)</p>
+     * 
+     * <p>D76</p>
+     * 
+     * <p>PVD.020-01 (Extension)</p>
+     * 
+     * <p>PVD.020-02 (Root)</p>
+     * 
+     * <p>PharmacyProvider.444-E9 (Extension)</p>
+     * 
+     * <p>PharmacyProvider.465-E7 (Root)</p>
+     * 
+     * <p>Prescriber.446-EZ (Extension)</p>
+     * 
+     * <p>PharmacyProvider.411-DB (Root)</p>
+     * 
+     * <p>ZDP.18.1 (Extension)</p>
+     * 
+     * <p>ZDP.18.2 (Root)</p>
+     * 
+     * <p>ZDP.19.1 (Extension)</p>
+     * 
+     * <p>ZDP.19.2 (Root)</p>
+     * 
+     * <p>ZDP.10.1 (Extension)</p>
+     * 
+     * <p>ZDP.10.2 (Root)</p>
+     * 
+     * <p>Provider.PproviderExternalKey (Extension)</p>
+     * 
+     * <p>Provider.providerKey (Extension)</p>
+     * 
+     * <p>Provider.wellnetProviderId (Extension)</p>
+     * 
+     * <p>ProviderRegistration.Identifier (Extension)</p>
+     * 
+     * <p>ProviderRegistration.IdentifierDomain (part of 
+     * Extension)</p>
+     * 
+     * <p>ProviderRegistrationjurisdiction (part of Extension)</p>
+     * 
+     * <p>Allows a person to be uniquely referred to and retrieved 
+     * from the client registry and is therefore mandatory.</p>
+     * 
+     * <p>A unique identifier for the responsible person (as found 
+     * in a client registry).</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -655,183 +508,149 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>RelatedPersonName</p>
+     * <p>Business Name: RelatedPersonName</p>
      * 
-     * <p>A:Related Person Name</p>
+     * <p>Other Business Name: RelatedPersonName</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.RelatedPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ZPB3.13</p>
+     * 
+     * <p>PVD.050-01 (PartType = Family)</p>
+     * 
+     * <p>PVD.050-02 (PartType = Given - 1st rep)</p>
+     * 
+     * <p>PVD.050-03 PartType = Given - any rep other than the 
+     * first)</p>
+     * 
+     * <p>PVD.050-04 (PartType = Suffix)</p>
+     * 
+     * <p>PVD.050-05 (PartType = Prefix)</p>
+     * 
+     * <p>PVD.100-01 (PartType = Family; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-02 (PartType = Given - 1st rep; author/performer 
+     * when supervisor is also specified )</p>
+     * 
+     * <p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p>
+     * 
+     * <p>PVD.100-04 (PartType = Suffix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-05 (PartType = Prefix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>D1a</p>
+     * 
+     * <p>Practitioner's Name</p>
+     * 
+     * <p>04.03</p>
+     * 
+     * <p>Prescriber.427-DR</p>
+     * 
+     * <p>Prescribing Physician Name</p>
+     * 
+     * <p>ZPS.18.3</p>
+     * 
+     * <p>ZPS.18.4</p>
+     * 
+     * <p>ZPS.18.5</p>
+     * 
+     * <p>ZPS.19.3</p>
+     * 
+     * <p>ZPS.19.4</p>
+     * 
+     * <p>ZPS.19.5</p>
+     * 
+     * <p>ZPS.10.3</p>
+     * 
+     * <p>ZPS.10.4</p>
+     * 
+     * <p>ZPS.10.5</p>
+     * 
+     * <p>ProviderPreviewInfo.ProviderName</p>
+     * 
+     * <p>Used when contacting or addressing the responsible 
+     * person. Because this will be the principle means of 
+     * identifying the responsible person, it is mandatory.</p>
      * 
      * <p>The name by which the responsible person is known</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>Other Business Name: RelatedPersonName</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>Relationship: COCT_MT910102CA.RelatedPerson.name</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>ZPB3.13</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>PVD.050-01 (PartType = Family)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>PVD.050-02 (PartType = Given - 1st rep)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>PVD.050-03 PartType = Given - any rep other than the 
+     * first)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>PVD.050-04 (PartType = Suffix)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than 
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>PVD.050-05 (PartType = Prefix)</p>
+     * 
+     * <p>PVD.100-01 (PartType = Family; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-02 (PartType = Given - 1st rep; author/performer 
+     * when supervisor is also specified )</p>
+     * 
+     * <p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p>
+     * 
+     * <p>PVD.100-04 (PartType = Suffix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-05 (PartType = Prefix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>D1a</p>
+     * 
+     * <p>Practitioner's Name</p>
+     * 
+     * <p>04.03</p>
+     * 
+     * <p>Prescriber.427-DR</p>
+     * 
+     * <p>Prescribing Physician Name</p>
+     * 
+     * <p>ZPS.18.3</p>
+     * 
+     * <p>ZPS.18.4</p>
+     * 
+     * <p>ZPS.18.5</p>
+     * 
+     * <p>ZPS.19.3</p>
+     * 
+     * <p>ZPS.19.4</p>
+     * 
+     * <p>ZPS.19.5</p>
+     * 
+     * <p>ZPS.10.3</p>
+     * 
+     * <p>ZPS.10.4</p>
+     * 
+     * <p>ZPS.10.5</p>
+     * 
+     * <p>ProviderPreviewInfo.ProviderName</p>
+     * 
+     * <p>Used when contacting or addressing the responsible 
+     * person. Because this will be the principle means of 
+     * identifying the responsible person, it is mandatory.</p>
+     * 
+     * <p>The name by which the responsible person is known</p>
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
     public PersonName getRelationshipHolderName() {
@@ -839,183 +658,149 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>RelatedPersonName</p>
+     * <p>Business Name: RelatedPersonName</p>
      * 
-     * <p>A:Related Person Name</p>
+     * <p>Other Business Name: RelatedPersonName</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.RelatedPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ZPB3.13</p>
+     * 
+     * <p>PVD.050-01 (PartType = Family)</p>
+     * 
+     * <p>PVD.050-02 (PartType = Given - 1st rep)</p>
+     * 
+     * <p>PVD.050-03 PartType = Given - any rep other than the 
+     * first)</p>
+     * 
+     * <p>PVD.050-04 (PartType = Suffix)</p>
+     * 
+     * <p>PVD.050-05 (PartType = Prefix)</p>
+     * 
+     * <p>PVD.100-01 (PartType = Family; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-02 (PartType = Given - 1st rep; author/performer 
+     * when supervisor is also specified )</p>
+     * 
+     * <p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p>
+     * 
+     * <p>PVD.100-04 (PartType = Suffix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-05 (PartType = Prefix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>D1a</p>
+     * 
+     * <p>Practitioner's Name</p>
+     * 
+     * <p>04.03</p>
+     * 
+     * <p>Prescriber.427-DR</p>
+     * 
+     * <p>Prescribing Physician Name</p>
+     * 
+     * <p>ZPS.18.3</p>
+     * 
+     * <p>ZPS.18.4</p>
+     * 
+     * <p>ZPS.18.5</p>
+     * 
+     * <p>ZPS.19.3</p>
+     * 
+     * <p>ZPS.19.4</p>
+     * 
+     * <p>ZPS.19.5</p>
+     * 
+     * <p>ZPS.10.3</p>
+     * 
+     * <p>ZPS.10.4</p>
+     * 
+     * <p>ZPS.10.5</p>
+     * 
+     * <p>ProviderPreviewInfo.ProviderName</p>
+     * 
+     * <p>Used when contacting or addressing the responsible 
+     * person. Because this will be the principle means of 
+     * identifying the responsible person, it is mandatory.</p>
      * 
      * <p>The name by which the responsible person is known</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>Other Business Name: RelatedPersonName</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>Relationship: COCT_MT910102CA.RelatedPerson.name</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>ZPB3.13</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>PVD.050-01 (PartType = Family)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>PVD.050-02 (PartType = Given - 1st rep)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>PVD.050-03 PartType = Given - any rep other than the 
+     * first)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-04 (PartType = Suffix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-05 (PartType = Prefix; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>D1a</p><p>Practitioner's 
-     * Name</p><p>04.03</p><p>Prescriber.427-DR</p><p>Prescribing 
-     * Physician 
-     * Name</p><p>ZPS.18.3</p><p>ZPS.18.4</p><p>ZPS.18.5</p><p>ZPS.19.3</p><p>ZPS.19.4</p><p>ZPS.19.5</p><p>ZPS.10.3</p><p>ZPS.10.4</p><p>ZPS.10.5</p><p>ProviderPreviewInfo.ProviderName</p>
+     * <p>PVD.050-04 (PartType = Suffix)</p>
      * 
-     * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
-     * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
-     * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than 
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>PVD.050-05 (PartType = Prefix)</p>
+     * 
+     * <p>PVD.100-01 (PartType = Family; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-02 (PartType = Given - 1st rep; author/performer 
+     * when supervisor is also specified )</p>
+     * 
+     * <p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p>
+     * 
+     * <p>PVD.100-04 (PartType = Suffix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-05 (PartType = Prefix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>D1a</p>
+     * 
+     * <p>Practitioner's Name</p>
+     * 
+     * <p>04.03</p>
+     * 
+     * <p>Prescriber.427-DR</p>
+     * 
+     * <p>Prescribing Physician Name</p>
+     * 
+     * <p>ZPS.18.3</p>
+     * 
+     * <p>ZPS.18.4</p>
+     * 
+     * <p>ZPS.18.5</p>
+     * 
+     * <p>ZPS.19.3</p>
+     * 
+     * <p>ZPS.19.4</p>
+     * 
+     * <p>ZPS.19.5</p>
+     * 
+     * <p>ZPS.10.3</p>
+     * 
+     * <p>ZPS.10.4</p>
+     * 
+     * <p>ZPS.10.5</p>
+     * 
+     * <p>ProviderPreviewInfo.ProviderName</p>
+     * 
+     * <p>Used when contacting or addressing the responsible 
+     * person. Because this will be the principle means of 
+     * identifying the responsible person, it is mandatory.</p>
+     * 
+     * <p>The name by which the responsible person is known</p>
      */
     public void setRelationshipHolderName(PersonName relationshipHolderName) {
         this.relationshipHolderName.setValue(relationshipHolderName);
@@ -1023,14 +808,18 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>RelatedPersonPhonesAndEmails</p>
+     * <p>Business Name: RelatedPersonPhonesAndEmails</p>
      * 
-     * <p>E:Related Person Phones and Emails</p>
+     * <p>Other Business Name: RelatedPersonPhonesAndEmails</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.RelatedPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Used to contact the related person.</p>
      * 
      * <p>The phone number(s) and email address(s) by which a 
      * related person may be contacted.</p>
-     * 
-     * <p>Used to contact the related person.</p>
      */
     @Hl7XmlMapping({"relationshipHolder/telecom"})
     public Set<TelecommunicationAddress> getRelationshipHolderTelecom() {
@@ -1039,14 +828,18 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>RelatedPersonAddress</p>
+     * <p>Business Name: RelatedPersonAddress</p>
      * 
-     * <p>D:Related Person Address</p>
+     * <p>Other Business Name: RelatedPersonAddress</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.RelatedPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used to contact the related person.</p>
      * 
      * <p>The mail and/or physical address associated with a 
      * related person.</p>
-     * 
-     * <p>Used to contact the related person.</p>
      */
     @Hl7XmlMapping({"relationshipHolder/addr"})
     public PostalAddress getRelationshipHolderAddr() {
@@ -1054,14 +847,18 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>RelatedPersonAddress</p>
+     * <p>Business Name: RelatedPersonAddress</p>
      * 
-     * <p>D:Related Person Address</p>
+     * <p>Other Business Name: RelatedPersonAddress</p>
+     * 
+     * <p>Relationship: COCT_MT910107CA.RelatedPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used to contact the related person.</p>
      * 
      * <p>The mail and/or physical address associated with a 
      * related person.</p>
-     * 
-     * <p>Used to contact the related person.</p>
      */
     public void setRelationshipHolderAddr(PostalAddress relationshipHolderAddr) {
         this.relationshipHolderAddr.setValue(relationshipHolderAddr);

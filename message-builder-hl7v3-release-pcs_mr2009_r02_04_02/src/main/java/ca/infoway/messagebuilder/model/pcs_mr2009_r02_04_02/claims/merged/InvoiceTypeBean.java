@@ -47,7 +47,7 @@ import java.util.List;
 
 
 /**
- * <p>InvoiceType</p>
+ * <p>Business Name: InvoiceType</p>
  * 
  * <p>FICR_MT620000CA.InvoiceElementGroup: Invoice Type</p>
  * 
@@ -57,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt600201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
@@ -73,40 +73,11 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Invoice Group ID</p>
+     * <p>Other Business Name: InvoiceGroupingIdentifiers</p>
      * 
-     * <p>Set of identifiers that uniquely identify the Invoice 
-     * Grouping.</p>
+     * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.id</p>
      * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
-     * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
-     * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
-     * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
-     * 
-     * <p>Invoice Grouping Identifier(s</p>
-     * 
-     * <p>Invoice Grouping Identifier</p>
-     * 
-     * <p>Invoice Grouping Identifiers</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>There are some situations where more than 1 identifier 
      * for this object can be included in a message.</p>
@@ -117,11 +88,11 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * on adjudicator is to return and communicate about this item 
      * with all identifiers (i.e. identifier 1. and 2.).</p>
      * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
+     * <p>Other Business Name: InvoiceGroupID</p>
+     * 
+     * <p>Relationship: QUCR_MT830201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For example:</p><p>1. unique invoice group identifier, 
      * independent of adjudicator recipient.</p><p>2. sequential 
@@ -129,11 +100,20 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * on adjudicator is to return and communicate about this item 
      * with all identifiers (i.e. identifier 1. and 2.).</p>
      * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
+     * <p>Set of identifiers that uniquely identify the Invoice 
+     * Grouping.</p>
+     * 
+     * <p>Other Business Name: InvoiceGroupingIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: InvoiceGroupingIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -141,40 +121,11 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>Invoice Group ID</p>
+     * <p>Other Business Name: InvoiceGroupingIdentifiers</p>
      * 
-     * <p>Set of identifiers that uniquely identify the Invoice 
-     * Grouping.</p>
+     * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.id</p>
      * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
-     * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
-     * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
-     * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
-     * 
-     * <p>Invoice Grouping Identifier(s</p>
-     * 
-     * <p>Invoice Grouping Identifier</p>
-     * 
-     * <p>Invoice Grouping Identifiers</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>There are some situations where more than 1 identifier 
      * for this object can be included in a message.</p>
@@ -185,11 +136,11 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * on adjudicator is to return and communicate about this item 
      * with all identifiers (i.e. identifier 1. and 2.).</p>
      * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
+     * <p>Other Business Name: InvoiceGroupID</p>
+     * 
+     * <p>Relationship: QUCR_MT830201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For example:</p><p>1. unique invoice group identifier, 
      * independent of adjudicator recipient.</p><p>2. sequential 
@@ -197,11 +148,20 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * on adjudicator is to return and communicate about this item 
      * with all identifiers (i.e. identifier 1. and 2.).</p>
      * 
-     * <p>For example:</p><p>1. unique invoice group identifier, 
-     * independent of adjudicator recipient.</p><p>2. sequential 
-     * invoice grouping identifier by adjudicator.</p><p>Obligation 
-     * on adjudicator is to return and communicate about this item 
-     * with all identifiers (i.e. identifier 1. and 2.).</p>
+     * <p>Set of identifiers that uniquely identify the Invoice 
+     * Grouping.</p>
+     * 
+     * <p>Other Business Name: InvoiceGroupingIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: InvoiceGroupingIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -209,47 +169,39 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>InvoiceType</p>
+     * <p>Business Name: InvoiceType</p>
      * 
-     * <p>Invoice Type</p>
+     * <p>Other Business Name: InvoiceType</p>
+     * 
+     * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Each Invoice Type is used to specify 1. vocabulary, 2. 
+     * structure of the Invoice Element Choice and 3. which 
+     * Billable Act(s) can be included for the specified Invoice 
+     * Type.</p><p>Information on constraints for the Invoice Type 
+     * will be found in the NeCST Message Specifications. Each 
+     * Benefit Group will indicate which Invoice Types will be 
+     * supported by that Benefit Group.</p><p>Invoice Types will 
+     * not generate unique and distinct XML schemas that can tested 
+     * independent of each other. They must be tested together 
+     * within an Message Type.</p>
      * 
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
      * 
-     * <p>Each Invoice Type is used to specify 1. vocabulary, 2. 
-     * structure of the Invoice Element Choice and 3. which 
-     * Billable Act(s) can be included for the specified Invoice 
-     * Type.</p><p>Information on constraints for the Invoice Type 
-     * will be found in the NeCST Message Specifications. Each 
-     * Benefit Group will indicate which Invoice Types will be 
-     * supported by that Benefit Group.</p><p>Invoice Types will 
-     * not generate unique and distinct XML schemas that can tested 
-     * independent of each other. They must be tested together 
-     * within an Message Type.</p>
+     * <p>Other Business Name: InvoiceType</p>
      * 
-     * <p>Each Invoice Type is used to specify 1. vocabulary, 2. 
-     * structure of the Invoice Element Choice and 3. which 
-     * Billable Act(s) can be included for the specified Invoice 
-     * Type.</p><p>Information on constraints for the Invoice Type 
-     * will be found in the NeCST Message Specifications. Each 
-     * Benefit Group will indicate which Invoice Types will be 
-     * supported by that Benefit Group.</p><p>Invoice Types will 
-     * not generate unique and distinct XML schemas that can tested 
-     * independent of each other. They must be tested together 
-     * within an Message Type.</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.code</p>
      * 
-     * <p>Each Invoice Type is used to specify 1. vocabulary, 2. 
-     * structure of the Invoice Element Choice and 3. which 
-     * Billable Act(s) can be included for the specified Invoice 
-     * Type.</p><p>Information on constraints for the Invoice Type 
-     * will be found in the NeCST Message Specifications. Each 
-     * Benefit Group will indicate which Invoice Types will be 
-     * supported by that Benefit Group.</p><p>Invoice Types will 
-     * not generate unique and distinct XML schemas that can tested 
-     * independent of each other. They must be tested together 
-     * within an Message Type.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Invoice Type</p>
+     * <p>Other Business Name: InvoiceType</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceGroupType getCode() {
@@ -257,47 +209,39 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>InvoiceType</p>
+     * <p>Business Name: InvoiceType</p>
      * 
-     * <p>Invoice Type</p>
+     * <p>Other Business Name: InvoiceType</p>
+     * 
+     * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Each Invoice Type is used to specify 1. vocabulary, 2. 
+     * structure of the Invoice Element Choice and 3. which 
+     * Billable Act(s) can be included for the specified Invoice 
+     * Type.</p><p>Information on constraints for the Invoice Type 
+     * will be found in the NeCST Message Specifications. Each 
+     * Benefit Group will indicate which Invoice Types will be 
+     * supported by that Benefit Group.</p><p>Invoice Types will 
+     * not generate unique and distinct XML schemas that can tested 
+     * independent of each other. They must be tested together 
+     * within an Message Type.</p>
      * 
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
      * 
-     * <p>Each Invoice Type is used to specify 1. vocabulary, 2. 
-     * structure of the Invoice Element Choice and 3. which 
-     * Billable Act(s) can be included for the specified Invoice 
-     * Type.</p><p>Information on constraints for the Invoice Type 
-     * will be found in the NeCST Message Specifications. Each 
-     * Benefit Group will indicate which Invoice Types will be 
-     * supported by that Benefit Group.</p><p>Invoice Types will 
-     * not generate unique and distinct XML schemas that can tested 
-     * independent of each other. They must be tested together 
-     * within an Message Type.</p>
+     * <p>Other Business Name: InvoiceType</p>
      * 
-     * <p>Each Invoice Type is used to specify 1. vocabulary, 2. 
-     * structure of the Invoice Element Choice and 3. which 
-     * Billable Act(s) can be included for the specified Invoice 
-     * Type.</p><p>Information on constraints for the Invoice Type 
-     * will be found in the NeCST Message Specifications. Each 
-     * Benefit Group will indicate which Invoice Types will be 
-     * supported by that Benefit Group.</p><p>Invoice Types will 
-     * not generate unique and distinct XML schemas that can tested 
-     * independent of each other. They must be tested together 
-     * within an Message Type.</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.code</p>
      * 
-     * <p>Each Invoice Type is used to specify 1. vocabulary, 2. 
-     * structure of the Invoice Element Choice and 3. which 
-     * Billable Act(s) can be included for the specified Invoice 
-     * Type.</p><p>Information on constraints for the Invoice Type 
-     * will be found in the NeCST Message Specifications. Each 
-     * Benefit Group will indicate which Invoice Types will be 
-     * supported by that Benefit Group.</p><p>Invoice Types will 
-     * not generate unique and distinct XML schemas that can tested 
-     * independent of each other. They must be tested together 
-     * within an Message Type.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Invoice Type</p>
+     * <p>Other Business Name: InvoiceType</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceGroupType code) {
         this.code.setValue(code);
@@ -305,27 +249,34 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>InvoiceSubTotal</p>
+     * <p>Business Name: InvoiceSubTotal</p>
      * 
-     * <p>Invoice Sub-total</p>
+     * <p>Other Business Name: InvoiceSubTotal</p>
      * 
-     * <p>Invoice sub-total</p>
+     * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Cancel Request: This would serve as a cross-check for 
+     * the Adjudicator for the Invoice Grouping that is being 
+     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
+     * be present for a Coverage Extension Request.</p>
      * 
      * <p>Invoice sub-total - This is the sum of the Submitted 
      * Invoice Line amounts; Identifies the total monetary amount 
      * billed for the invoice element.</p>
      * 
-     * <p>For Cancel Request: This would serve as a cross-check for 
-     * the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p>
+     * <p>Other Business Name: InvoiceSubTotal</p>
      * 
-     * <p>For Cancel Request: This would serve as a cross-check for 
-     * the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.netAmt</p>
      * 
-     * <p>Invoice SubTotal</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -333,33 +284,48 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>InvoiceSubTotal</p>
+     * <p>Business Name: InvoiceSubTotal</p>
      * 
-     * <p>Invoice Sub-total</p>
+     * <p>Other Business Name: InvoiceSubTotal</p>
      * 
-     * <p>Invoice sub-total</p>
+     * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Cancel Request: This would serve as a cross-check for 
+     * the Adjudicator for the Invoice Grouping that is being 
+     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
+     * be present for a Coverage Extension Request.</p>
      * 
      * <p>Invoice sub-total - This is the sum of the Submitted 
      * Invoice Line amounts; Identifies the total monetary amount 
      * billed for the invoice element.</p>
      * 
-     * <p>For Cancel Request: This would serve as a cross-check for 
-     * the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p>
+     * <p>Other Business Name: InvoiceSubTotal</p>
      * 
-     * <p>For Cancel Request: This would serve as a cross-check for 
-     * the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p>
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.netAmt</p>
      * 
-     * <p>Invoice SubTotal</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementReason.billableActChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reasonOf/billableActChoice"})
     public List<A_BillableActChoice> getReasonOfBillableActChoice() {
         return this.reasonOfBillableActChoice;
@@ -367,9 +333,14 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>TimePeriodForInvoice</p>
+     * <p>Business Name: TimePeriodForInvoice</p>
      * 
-     * <p>Time period for invoice</p>
+     * <p>Other Business Name: TimePeriodForInvoice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -377,55 +348,124 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>TimePeriodForInvoice</p>
+     * <p>Business Name: TimePeriodForInvoice</p>
      * 
-     * <p>Time period for invoice</p>
+     * <p>Other Business Name: TimePeriodForInvoice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupInFulfillmentOf.financialContract</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/financialContract"})
     public FinancialContractBean getInFulfillmentOfFinancialContract() {
         return this.inFulfillmentOfFinancialContract;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupInFulfillmentOf.financialContract</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInFulfillmentOfFinancialContract(FinancialContractBean inFulfillmentOfFinancialContract) {
         this.inFulfillmentOfFinancialContract = inFulfillmentOfFinancialContract;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.Predecessor.invoiceElementCrossReference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
     public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
         return this.predecessorInvoiceElementCrossReference;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.Reference.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementCoverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"coverage/policyOrAccount"})
     public List<PolicyOrAccount_2Bean> getCoveragePolicyOrAccount() {
         return this.coveragePolicyOrAccount;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
     public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
         return this.pertinentInformationHealthDocumentAttachment;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroup.component</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     */
     @Hl7XmlMapping({"component"})
     public List<InvoiceElementComponentBean> getComponent() {
         return this.component;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.Suggests.invoiceElementOverride</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
     public List<InvoiceElementOverrideBean> getTriggerForInvoiceElementOverride() {
         return this.triggerForInvoiceElementOverride;

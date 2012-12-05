@@ -29,48 +29,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Enables the indication of whether the prescription is 
- * ineligible for trial dispensing.</p>
- * 
  * <p>Serves as reminder for dispenser that the prescription is 
  * not to be trial-filled. In some jurisdictions, the 
  * prescription must be so designated by the prescriber for the 
  * dispenser to do trial dispensing.</p>
+ * 
+ * <p>Enables the indication of whether the prescription is 
+ * ineligible for trial dispensing.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.Component2"})
 public class Component2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL negationInd = new BLImpl();
 
 
     /**
-     * <p>G:Not Eligible for Trial?</p>
+     * <p>Business Name: G:Not Eligible for Trial?</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Component2.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The element is mandatory 
+     * because it must always be known whether the element is true 
+     * or false.</p>
      * 
      * <p>An indication that a prescription is or is not eligible 
      * for trial dispensing from a clinical (not financial) 
      * perspective. False = Eligible, True = Not Eligible.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The element is mandatory 
-     * because it must always be known whether the element is true 
-     * or false.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The element is mandatory 
-     * because it must always be known whether the element is true 
-     * or false.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The element is mandatory 
-     * because it must always be known whether the element is true 
-     * or false.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -78,32 +68,22 @@ public class Component2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Not Eligible for Trial?</p>
+     * <p>Business Name: G:Not Eligible for Trial?</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Component2.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The element is mandatory 
+     * because it must always be known whether the element is true 
+     * or false.</p>
      * 
      * <p>An indication that a prescription is or is not eligible 
      * for trial dispensing from a clinical (not financial) 
      * perspective. False = Eligible, True = Not Eligible.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The element is mandatory 
-     * because it must always be known whether the element is true 
-     * or false.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The element is mandatory 
-     * because it must always be known whether the element is true 
-     * or false.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The element is mandatory 
-     * because it must always be known whether the element is true 
-     * or false.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);

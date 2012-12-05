@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Pres
 
 
 /**
- * <p>PORX_IN020080CA: Record dispense pickup request</p>
+ * <p>Business Name: PORX_IN020080CA: Record dispense pickup 
+ * request</p>
+ * 
+ * <p>Requests that the pickup of a previously processed 
+ * prescription be recorded.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Pres
 @Hl7PartTypeMapping({"PORX_IN020080CA"})
 public class RecordDispensePickupRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionDispenseResponseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

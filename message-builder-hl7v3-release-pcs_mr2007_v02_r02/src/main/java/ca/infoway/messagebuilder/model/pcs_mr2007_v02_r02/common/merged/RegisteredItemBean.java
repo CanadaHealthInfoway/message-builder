@@ -27,56 +27,106 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>RegisteredItem</p>
+ * <p>Business Name: RegisteredItem</p>
  * 
  * <p>MFMI_MT700746CA.Subject4: Registered Item</p>
  * 
+ * <p>Defines the content of the registration and is therefore 
+ * mandatory.</p>
+ * 
  * <p>Commonly called the Payload stub. Any interaction that 
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
- * 
- * <p>Defines the content of the registration and is therefore 
- * mandatory.</p>
  * 
  * <p>MFMI_MT700711CA.Subject4: Registered Item</p>
  * 
+ * <p>Defines the content of the registration and is therefore 
+ * mandatory.</p>
+ * 
  * <p>Commonly called the Payload stub. Any interaction that 
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
- * 
- * <p>Defines the content of the registration and is therefore 
- * mandatory.</p>
  * 
  * <p>MFMI_MT700726CA.Subject4: Registered Item</p>
  * 
+ * <p>Defines the content of the registration and is therefore 
+ * mandatory.</p>
+ * 
  * <p>Commonly called the Payload stub. Any interaction that 
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
- * 
- * <p>Defines the content of the registration and is therefore 
- * mandatory.</p>
  * 
  * <p>MFMI_MT700716CA.Subject4: Registered Item</p>
  * 
+ * <p>Defines the content of the registration and is therefore 
+ * mandatory.</p>
+ * 
  * <p>Commonly called the Payload stub. Any interaction that 
  * uses this ControlAct Wrapper will replace this class with a 
  * Role-based domain Message Type</p>
- * 
- * <p>Defines the content of the registration and is therefore 
- * mandatory.</p>
  */
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject4","MFMI_MT700716CA.Subject4","MFMI_MT700726CA.Subject4","MFMI_MT700746CA.Subject4"})
 public class RegisteredItemBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private RR registeredRole;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.Subject4.registeredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Subject4.registeredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.Subject4.registeredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.Subject4.registeredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"registeredRole"})
     public RR getRegisteredRole() {
         return this.registeredRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.Subject4.registeredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Subject4.registeredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.Subject4.registeredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.Subject4.registeredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setRegisteredRole(RR registeredRole) {
         this.registeredRole = registeredRole;
     }

@@ -32,12 +32,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicationResultReason"})
 public class AdjudicationResultReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
 
 
     /**
-     * <p>Adjudicated result reason.</p>
+     * <p>Business Name: Adjudicated result reason.</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultReason.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"value"})
     public EncapsulatedData getValue() {
@@ -45,7 +50,12 @@ public class AdjudicationResultReasonBean extends MessagePartBean implements ca.
     }
 
     /**
-     * <p>Adjudicated result reason.</p>
+     * <p>Business Name: Adjudicated result reason.</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultReason.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setValue(EncapsulatedData value) {
         this.value.setValue(value);

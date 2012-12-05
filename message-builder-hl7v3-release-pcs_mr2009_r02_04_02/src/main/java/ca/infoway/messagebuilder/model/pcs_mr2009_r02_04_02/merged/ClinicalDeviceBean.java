@@ -34,16 +34,44 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.MedicalD
 @Hl7PartTypeMapping({"FICR_MT400001CA.ClinicalDevice","FICR_MT400003CA.ClinicalDevice","FICR_MT400004CA.ClinicalDevice","FICR_MT490101CA.ClinicalDevice","FICR_MT490102CA.ClinicalDevice"})
 public class ClinicalDeviceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private ST desc = new STImpl();
 
 
     /**
-     * <p>DeviceCode</p>
+     * <p>Business Name: DeviceCode</p>
      * 
-     * <p>Device Code</p>
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public MedicalDeviceType getCode() {
@@ -51,9 +79,37 @@ public class ClinicalDeviceBean extends MessagePartBean {
     }
 
     /**
-     * <p>DeviceCode</p>
+     * <p>Business Name: DeviceCode</p>
      * 
-     * <p>Device Code</p>
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: DeviceCode</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(MedicalDeviceType code) {
         this.code.setValue(code);
@@ -61,9 +117,37 @@ public class ClinicalDeviceBean extends MessagePartBean {
 
 
     /**
-     * <p>DeviceName</p>
+     * <p>Business Name: DeviceName</p>
      * 
-     * <p>Device Name</p>
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -71,9 +155,37 @@ public class ClinicalDeviceBean extends MessagePartBean {
     }
 
     /**
-     * <p>DeviceName</p>
+     * <p>Business Name: DeviceName</p>
      * 
-     * <p>Device Name</p>
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: DeviceName</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setName(String name) {
         this.name.setValue(name);
@@ -81,9 +193,37 @@ public class ClinicalDeviceBean extends MessagePartBean {
 
 
     /**
-     * <p>DeviceDescription</p>
+     * <p>Business Name: DeviceDescription</p>
      * 
-     * <p>Device Description</p>
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"desc"})
     public String getDesc() {
@@ -91,9 +231,37 @@ public class ClinicalDeviceBean extends MessagePartBean {
     }
 
     /**
-     * <p>DeviceDescription</p>
+     * <p>Business Name: DeviceDescription</p>
      * 
-     * <p>Device Description</p>
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: DeviceDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setDesc(String desc) {
         this.desc.setValue(desc);

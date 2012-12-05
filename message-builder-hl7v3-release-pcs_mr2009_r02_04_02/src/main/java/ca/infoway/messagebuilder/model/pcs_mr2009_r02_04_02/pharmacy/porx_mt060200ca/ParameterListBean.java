@@ -45,16 +45,16 @@ import java.util.List;
 
 
 /**
+ * <p>Root class for query definition</p>
+ * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060200CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDValue = new ArrayList<II>();
@@ -64,21 +64,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Administration Effective Period</p>
+     * <p>Business Name: Administration Effective Period</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Relationship: 
+     * PORX_MT060200CA.AdministrationEffectivePeriod.value</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the administration period 
      * of interest for the retrieval. Useful for constraining 
@@ -87,6 +78,13 @@ public class ParameterListBean extends MessagePartBean {
      * <p>The determination for applicability for inclusion in the 
      * query response should be considered to be the 'Pick up date 
      * plus the days supply'</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
      */
     @Hl7XmlMapping({"administrationEffectivePeriod/value"})
     public Interval<Date> getAdministrationEffectivePeriodValue() {
@@ -94,21 +92,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Administration Effective Period</p>
+     * <p>Business Name: Administration Effective Period</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Relationship: 
+     * PORX_MT060200CA.AdministrationEffectivePeriod.value</p>
      * 
-     * <p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the administration period 
      * of interest for the retrieval. Useful for constraining 
@@ -117,6 +106,13 @@ public class ParameterListBean extends MessagePartBean {
      * <p>The determination for applicability for inclusion in the 
      * query response should be considered to be the 'Pick up date 
      * plus the days supply'</p>
+     * 
+     * <p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p>
      */
     public void setAdministrationEffectivePeriodValue(Interval<Date> administrationEffectivePeriodValue) {
         this.administrationEffectivePeriodValue.setValue(administrationEffectivePeriodValue);
@@ -124,7 +120,15 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Amended in Time Range</p>
+     * <p>Business Name: Amended in Time Range</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -132,14 +136,6 @@ public class ParameterListBean extends MessagePartBean {
      * etc.) within the indicated time-period. This will commonly 
      * be used to &quot;retrieve everything that has been amended 
      * since xxx&quot;.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
     public Interval<Date> getAmendedInTimeRangeValue() {
@@ -147,7 +143,15 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Amended in Time Range</p>
+     * <p>Business Name: Amended in Time Range</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -155,14 +159,6 @@ public class ParameterListBean extends MessagePartBean {
      * etc.) within the indicated time-period. This will commonly 
      * be used to &quot;retrieve everything that has been amended 
      * since xxx&quot;.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
-     * 
-     * <p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p>
      */
     public void setAmendedInTimeRangeValue(Interval<Date> amendedInTimeRangeValue) {
         this.amendedInTimeRangeValue.setValue(amendedInTimeRangeValue);
@@ -170,30 +166,24 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Care Composition IDs</p>
+     * <p>Business Name: Care Composition IDs</p>
      * 
-     * <p>Desc: Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Relationship: PORX_MT060200CA.CareCompositionID.value</p>
      * 
-     * <p>Desc: Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
+     * 
+     * <p>Desc: Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
     public List<Identifier> getCareCompositionIDValue() {
@@ -202,16 +192,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Care Composition Types</p>
+     * <p>Business Name: Care Composition Types</p>
      * 
-     * <p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p>
+     * <p>Relationship: PORX_MT060200CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows retrieving all records associated with a 
      * particular type of encounter, episode or care event. 
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
+     * 
+     * <p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypeValue() {
@@ -220,7 +214,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -228,12 +232,6 @@ public class ParameterListBean extends MessagePartBean {
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
-     * 
-     * <p>By filtering returned records to include only those which 
-     * have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCodeValue() {
@@ -241,7 +239,17 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060200CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -249,12 +257,6 @@ public class ParameterListBean extends MessagePartBean {
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
-     * 
-     * <p>By filtering returned records to include only those which 
-     * have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p>
      */
     public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
         this.issueFilterCodeValue.setValue(issueFilterCodeValue);
@@ -262,7 +264,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Business Name: Most Recent By Drug Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060200CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not the medication records are to be 
      * retrieved based on the most recent by Drug Code. If true, 
@@ -272,18 +285,6 @@ public class ParameterListBean extends MessagePartBean {
      * retrieval of prescription, dispense and other active 
      * medication records should not be limited to one per 
      * drug.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
     public Boolean getMostRecentByDrugIndicatorValue() {
@@ -291,7 +292,18 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Business Name: Most Recent By Drug Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060200CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all drugs that the patient 
+     * is on.</p><p>Because this is a boolean attribute whose value 
+     * must be known to evaluate the query, the attribute is 
+     * mandatory.</p>
      * 
      * <p>Indicates whether or not the medication records are to be 
      * retrieved based on the most recent by Drug Code. If true, 
@@ -301,18 +313,6 @@ public class ParameterListBean extends MessagePartBean {
      * retrieval of prescription, dispense and other active 
      * medication records should not be limited to one per 
      * drug.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all drugs that the patient 
-     * is on.</p><p>Because this is a boolean attribute whose value 
-     * must be known to evaluate the query, the attribute is 
-     * mandatory.</p>
      */
     public void setMostRecentByDrugIndicatorValue(Boolean mostRecentByDrugIndicatorValue) {
         this.mostRecentByDrugIndicatorValue.setValue(mostRecentByDrugIndicatorValue);

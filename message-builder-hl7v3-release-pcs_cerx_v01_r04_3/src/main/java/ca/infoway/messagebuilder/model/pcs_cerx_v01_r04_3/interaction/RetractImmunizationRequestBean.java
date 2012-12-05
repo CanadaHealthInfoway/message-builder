@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>POIZ_IN010100CA: Retract immunization request</p>
+ * <p>Business Name: POIZ_IN010100CA: Retract immunization 
+ * request</p>
+ * 
+ * <p>Asks that a previously recorded immunization should be 
+ * &quot;&quot;removed&quot;&quot; from the record; 
+ * (Information may be retained for audit purposes).</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"POIZ_IN010100CA"})
 public class RetractImmunizationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

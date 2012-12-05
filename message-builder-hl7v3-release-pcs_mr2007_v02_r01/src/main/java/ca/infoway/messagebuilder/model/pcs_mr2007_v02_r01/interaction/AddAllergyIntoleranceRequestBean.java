@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.iehr.merged.AllergyInt
 
 
 /**
- * <p>REPC_IN000012CA: Add allergy/intolerance request</p>
+ * <p>Business Name: REPC_IN000012CA: Add allergy/intolerance 
+ * request</p>
+ * 
+ * <p>Requests that a new allergy or intolerance record be 
+ * recorded against the specified patient.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.iehr.merged.AllergyInt
 @Hl7PartTypeMapping({"REPC_IN000012CA"})
 public class AddAllergyIntoleranceRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<AllergyIntoleranceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

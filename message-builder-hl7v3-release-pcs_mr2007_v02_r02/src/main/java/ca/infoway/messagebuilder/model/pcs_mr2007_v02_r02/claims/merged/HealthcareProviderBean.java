@@ -49,7 +49,7 @@ import java.util.Set;
 
 
 /**
- * <p>HealthcareProvider</p>
+ * <p>Business Name: HealthcareProvider</p>
  * 
  * <p>COCT_MT290000CA.HealthCareProvider: Healthcare Provider</p>
  * 
@@ -62,7 +62,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT290000CA.HealthCareProvider","COCT_MT490000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PN healthCareProviderPersonName = new PNImpl();
@@ -73,15 +73,23 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderIdentifierS</p>
+     * <p>Business Name: ProviderIdentifierS</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: ProviderIdentifierS</p>
      * 
-     * <p>Provider ID</p>
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.id</p>
      * 
-     * <p>Provider identifier(s</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
      * 
      * <p>Provider ID, eg. Prof. license no.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
+     * 
+     * <p>Provider ID</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -90,11 +98,19 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Provider Type</p>
+     * <p>Other Business Name: ProviderType</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows for crosswalks between speciality code sets</p>
      * 
-     * <p>Healthcare Provider code</p>
+     * <p>Other Business Name: HealthcareProviderCode</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>code denoting healthcare Provider Type</p>
      */
@@ -104,11 +120,19 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Provider Type</p>
+     * <p>Other Business Name: ProviderType</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows for crosswalks between speciality code sets</p>
      * 
-     * <p>Healthcare Provider code</p>
+     * <p>Other Business Name: HealthcareProviderCode</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>code denoting healthcare Provider Type</p>
      */
@@ -118,11 +142,19 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Name of Provider</p>
+     * <p>Other Business Name: NameOfProvider</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of person providing service or drug</p>
      * 
-     * <p>Provider Name</p>
+     * <p>Other Business Name: ProviderName</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of Provider</p>
      */
@@ -132,11 +164,19 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Name of Provider</p>
+     * <p>Other Business Name: NameOfProvider</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of person providing service or drug</p>
      * 
-     * <p>Provider Name</p>
+     * <p>Other Business Name: ProviderName</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of Provider</p>
      */
@@ -146,15 +186,23 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>contact no.</p>
+     * <p>Other Business Name: ContactNo</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>contact info. for Provider</p>
      * 
-     * <p>Provider Telecom</p>
+     * <p>Other Business Name: ProviderTelecom</p>
      * 
-     * <p>Telephone no. of provider</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>only required if provider is not known to the Payor</p>
+     * 
+     * <p>Telephone no. of provider</p>
      */
     @Hl7XmlMapping({"healthCareProviderPerson/telecom"})
     public TelecommunicationAddress getHealthCareProviderPersonTelecom() {
@@ -162,15 +210,23 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>contact no.</p>
+     * <p>Other Business Name: ContactNo</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>contact info. for Provider</p>
      * 
-     * <p>Provider Telecom</p>
+     * <p>Other Business Name: ProviderTelecom</p>
      * 
-     * <p>Telephone no. of provider</p>
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>only required if provider is not known to the Payor</p>
+     * 
+     * <p>Telephone no. of provider</p>
      */
     public void setHealthCareProviderPersonTelecom(TelecommunicationAddress healthCareProviderPersonTelecom) {
         this.healthCareProviderPersonTelecom.setValue(healthCareProviderPersonTelecom);
@@ -178,14 +234,24 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderGender</p>
+     * <p>Business Name: ProviderGender</p>
      * 
-     * <p>Provider Gender</p>
+     * <p>Other Business Name: ProviderGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.ProviderPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
      * 
-     * <p>Provider Gender</p>
+     * <p>Other Business Name: ProviderGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProviderPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>only required if provider is not known to the Payor</p>
      */
@@ -195,14 +261,24 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>ProviderGender</p>
+     * <p>Business Name: ProviderGender</p>
      * 
-     * <p>Provider Gender</p>
+     * <p>Other Business Name: ProviderGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.ProviderPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
      * 
-     * <p>Provider Gender</p>
+     * <p>Other Business Name: ProviderGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProviderPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>only required if provider is not known to the Payor</p>
      */
@@ -212,14 +288,22 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Provider Birth date</p>
+     * <p>Other Business Name: ProviderDateOfBirth</p>
      * 
-     * <p>only required if provider is not known to the Payor</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.birthTime</p>
      * 
-     * <p>Provider Date of Birth</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
+     * 
+     * <p>Other Business Name: ProviderBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>only required if provider is not known to the Payor</p>
      */
     @Hl7XmlMapping({"healthCareProviderPerson/birthTime"})
     public Date getHealthCareProviderPersonBirthTime() {
@@ -227,14 +311,22 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Provider Birth date</p>
+     * <p>Other Business Name: ProviderDateOfBirth</p>
      * 
-     * <p>only required if provider is not known to the Payor</p>
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.birthTime</p>
      * 
-     * <p>Provider Date of Birth</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
+     * 
+     * <p>Other Business Name: ProviderBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>only required if provider is not known to the Payor</p>
      */
     public void setHealthCareProviderPersonBirthTime(Date healthCareProviderPersonBirthTime) {
         this.healthCareProviderPersonBirthTime.setValue(healthCareProviderPersonBirthTime);
@@ -242,16 +334,24 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderAddress</p>
+     * <p>Business Name: ProviderAddress</p>
      * 
-     * <p>Provider Address</p>
+     * <p>Other Business Name: ProviderAddress</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to specify jurisdiction for OOJ providers</p>
      * 
-     * <p>Provider Address</p>
-     * 
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
+     * 
+     * <p>Other Business Name: ProviderAddress</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to specify jurisdiction for OOJ providers</p>
      */
@@ -261,16 +361,24 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>ProviderAddress</p>
+     * <p>Business Name: ProviderAddress</p>
      * 
-     * <p>Provider Address</p>
+     * <p>Other Business Name: ProviderAddress</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ProviderPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to specify jurisdiction for OOJ providers</p>
      * 
-     * <p>Provider Address</p>
-     * 
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
+     * 
+     * <p>Other Business Name: ProviderAddress</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ProviderPerson.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Can be used to specify jurisdiction for OOJ providers</p>
      */

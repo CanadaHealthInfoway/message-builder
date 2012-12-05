@@ -37,22 +37,22 @@ import java.util.List;
 
 
 /**
- * <p>Dispense Instructions</p>
- * 
- * <p>Specification of how the prescribed medication is to be 
- * dispensed to the patient. Dispensed instruction information 
- * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p>
+ * <p>Business Name: Dispense Instructions</p>
  * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>Sets the parameters within which the dispenser must 
  * operate in dispensing the medication to the patient.</p>
+ * 
+ * <p>Specification of how the prescribed medication is to be 
+ * dispensed to the patient. Dispensed instruction information 
+ * includes the quantity to be dispensed, how often the 
+ * quantity is to be dispensed, etc.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
     private RecordedAtBean location;
@@ -61,7 +61,30 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Dispensing Allowed Period</p>
+     * <p>Business Name: A:Dispensing Allowed Period</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZPB3.9</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=07, format=102) 
+     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
+     * HC-SA:Number of days (width) HC-SA:When will drug be 
+     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
+     * dispensed(when summary type is 'most recent')</p>
+     * 
+     * <p>Prescription.dispensingInterval(period)</p>
+     * 
+     * <p>Prescription.effectiveDate (low) 
+     * PIN:Prescription.expiryDate (high)</p>
+     * 
+     * <p>Indicates when the Prescription becomes valid, and when 
+     * it ceases to be a dispensable Prescription.</p><p>Some 
+     * jurisdictions place a 'stale date' on prescriptions that 
+     * cause them to become invalid a certain amount of time after 
+     * they are written. This time may vary by medication.</p>
      * 
      * <p>This indicates the validity period of a prescription 
      * (stale dating the Prescription).</p><p>It reflects the 
@@ -73,61 +96,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * upper-bound is not specified then the Prescription is 
      * open-ended or will default to a stale-date based on 
      * regulations.</p>
-     * 
-     * <p>This indicates the validity period of a prescription 
-     * (stale dating the Prescription).</p><p>It reflects the 
-     * prescriber perspective for the validity of the prescription. 
-     * Dispenses must not be made against the prescription outside 
-     * of this period. The lower-bound of the Prescription 
-     * Effective Period signifies the earliest date that the 
-     * prescription can be filled for the first time. If an 
-     * upper-bound is not specified then the Prescription is 
-     * open-ended or will default to a stale-date based on 
-     * regulations.</p>
-     * 
-     * <p>ZPB3.9</p><p>DRU.040-02 (low, qualifier=07, format=102) 
-     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
-     * HC-SA:Number of days (width) HC-SA:When will drug be 
-     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
-     * dispensed(when summary type is 'most 
-     * recent')</p><p>Prescription.dispensingInterval(period)</p><p>Prescription.effectiveDate 
-     * (low) PIN:Prescription.expiryDate (high)</p>
-     * 
-     * <p>ZPB3.9</p><p>DRU.040-02 (low, qualifier=07, format=102) 
-     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
-     * HC-SA:Number of days (width) HC-SA:When will drug be 
-     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
-     * dispensed(when summary type is 'most 
-     * recent')</p><p>Prescription.dispensingInterval(period)</p><p>Prescription.effectiveDate 
-     * (low) PIN:Prescription.expiryDate (high)</p>
-     * 
-     * <p>ZPB3.9</p><p>DRU.040-02 (low, qualifier=07, format=102) 
-     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
-     * HC-SA:Number of days (width) HC-SA:When will drug be 
-     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
-     * dispensed(when summary type is 'most 
-     * recent')</p><p>Prescription.dispensingInterval(period)</p><p>Prescription.effectiveDate 
-     * (low) PIN:Prescription.expiryDate (high)</p>
-     * 
-     * <p>ZPB3.9</p><p>DRU.040-02 (low, qualifier=07, format=102) 
-     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
-     * HC-SA:Number of days (width) HC-SA:When will drug be 
-     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
-     * dispensed(when summary type is 'most 
-     * recent')</p><p>Prescription.dispensingInterval(period)</p><p>Prescription.effectiveDate 
-     * (low) PIN:Prescription.expiryDate (high)</p>
-     * 
-     * <p>Indicates when the Prescription becomes valid, and when 
-     * it ceases to be a dispensable Prescription.</p><p>Some 
-     * jurisdictions place a 'stale date' on prescriptions that 
-     * cause them to become invalid a certain amount of time after 
-     * they are written. This time may vary by medication.</p>
-     * 
-     * <p>Indicates when the Prescription becomes valid, and when 
-     * it ceases to be a dispensable Prescription.</p><p>Some 
-     * jurisdictions place a 'stale date' on prescriptions that 
-     * cause them to become invalid a certain amount of time after 
-     * they are written. This time may vary by medication.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -135,7 +103,30 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Dispensing Allowed Period</p>
+     * <p>Business Name: A:Dispensing Allowed Period</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>ZPB3.9</p>
+     * 
+     * <p>DRU.040-02 (low, qualifier=07, format=102) 
+     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
+     * HC-SA:Number of days (width) HC-SA:When will drug be 
+     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
+     * dispensed(when summary type is 'most recent')</p>
+     * 
+     * <p>Prescription.dispensingInterval(period)</p>
+     * 
+     * <p>Prescription.effectiveDate (low) 
+     * PIN:Prescription.expiryDate (high)</p>
+     * 
+     * <p>Indicates when the Prescription becomes valid, and when 
+     * it ceases to be a dispensable Prescription.</p><p>Some 
+     * jurisdictions place a 'stale date' on prescriptions that 
+     * cause them to become invalid a certain amount of time after 
+     * they are written. This time may vary by medication.</p>
      * 
      * <p>This indicates the validity period of a prescription 
      * (stale dating the Prescription).</p><p>It reflects the 
@@ -147,67 +138,17 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * upper-bound is not specified then the Prescription is 
      * open-ended or will default to a stale-date based on 
      * regulations.</p>
-     * 
-     * <p>This indicates the validity period of a prescription 
-     * (stale dating the Prescription).</p><p>It reflects the 
-     * prescriber perspective for the validity of the prescription. 
-     * Dispenses must not be made against the prescription outside 
-     * of this period. The lower-bound of the Prescription 
-     * Effective Period signifies the earliest date that the 
-     * prescription can be filled for the first time. If an 
-     * upper-bound is not specified then the Prescription is 
-     * open-ended or will default to a stale-date based on 
-     * regulations.</p>
-     * 
-     * <p>ZPB3.9</p><p>DRU.040-02 (low, qualifier=07, format=102) 
-     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
-     * HC-SA:Number of days (width) HC-SA:When will drug be 
-     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
-     * dispensed(when summary type is 'most 
-     * recent')</p><p>Prescription.dispensingInterval(period)</p><p>Prescription.effectiveDate 
-     * (low) PIN:Prescription.expiryDate (high)</p>
-     * 
-     * <p>ZPB3.9</p><p>DRU.040-02 (low, qualifier=07, format=102) 
-     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
-     * HC-SA:Number of days (width) HC-SA:When will drug be 
-     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
-     * dispensed(when summary type is 'most 
-     * recent')</p><p>Prescription.dispensingInterval(period)</p><p>Prescription.effectiveDate 
-     * (low) PIN:Prescription.expiryDate (high)</p>
-     * 
-     * <p>ZPB3.9</p><p>DRU.040-02 (low, qualifier=07, format=102) 
-     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
-     * HC-SA:Number of days (width) HC-SA:When will drug be 
-     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
-     * dispensed(when summary type is 'most 
-     * recent')</p><p>Prescription.dispensingInterval(period)</p><p>Prescription.effectiveDate 
-     * (low) PIN:Prescription.expiryDate (high)</p>
-     * 
-     * <p>ZPB3.9</p><p>DRU.040-02 (low, qualifier=07, format=102) 
-     * eScript:DRU.040-02 (low, qualifier=36, format=102) 
-     * HC-SA:Number of days (width) HC-SA:When will drug be 
-     * administered?(low) PECS:ZDP.17 (high) PEI:Last date 
-     * dispensed(when summary type is 'most 
-     * recent')</p><p>Prescription.dispensingInterval(period)</p><p>Prescription.effectiveDate 
-     * (low) PIN:Prescription.expiryDate (high)</p>
-     * 
-     * <p>Indicates when the Prescription becomes valid, and when 
-     * it ceases to be a dispensable Prescription.</p><p>Some 
-     * jurisdictions place a 'stale date' on prescriptions that 
-     * cause them to become invalid a certain amount of time after 
-     * they are written. This time may vary by medication.</p>
-     * 
-     * <p>Indicates when the Prescription becomes valid, and when 
-     * it ceases to be a dispensable Prescription.</p><p>Some 
-     * jurisdictions place a 'stale date' on prescriptions that 
-     * cause them to become invalid a certain amount of time after 
-     * they are written. This time may vary by medication.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Receiver.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"receiver/responsibleParty"})
     public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
         return this.receiverResponsibleParty;
@@ -234,6 +175,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Component.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/supplyRequestItem"})
     public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
         return this.componentSupplyRequestItem;

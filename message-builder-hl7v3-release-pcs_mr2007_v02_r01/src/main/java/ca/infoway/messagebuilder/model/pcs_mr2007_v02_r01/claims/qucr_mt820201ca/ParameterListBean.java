@@ -46,7 +46,7 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
     private II adjudResultsGroupIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();
@@ -59,88 +59,178 @@ public class ParameterListBean extends MessagePartBean {
     private II sendingApplicationIdValue = new IIImpl();
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT820201CA.AdjudResultsGroupAuthorTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
     public Date getAdjudResultsGroupAuthorTimeValue() {
         return this.adjudResultsGroupAuthorTimeValue.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT820201CA.AdjudResultsGroupAuthorTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAdjudResultsGroupAuthorTimeValue(Date adjudResultsGroupAuthorTimeValue) {
         this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.AdjudResultsGroupId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"adjudResultsGroupId/value"})
     public Identifier getAdjudResultsGroupIdValue() {
         return this.adjudResultsGroupIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.AdjudResultsGroupId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
         this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.FinancialContractId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"financialContractId/value"})
     public Identifier getFinancialContractIdValue() {
         return this.financialContractIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.FinancialContractId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setFinancialContractIdValue(Identifier financialContractIdValue) {
         this.financialContractIdValue.setValue(financialContractIdValue);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT820201CA.InsuranceCarrierRoleId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
     public Identifier getInsuranceCarrierRoleIdValue() {
         return this.insuranceCarrierRoleIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT820201CA.InsuranceCarrierRoleId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInsuranceCarrierRoleIdValue(Identifier insuranceCarrierRoleIdValue) {
         this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT820201CA.InvoiceElementGroupCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"invoiceElementGroupCode/value"})
     public ActInvoiceGroupCode getInvoiceElementGroupCodeValue() {
         return (ActInvoiceGroupCode) this.invoiceElementGroupCodeValue.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT820201CA.InvoiceElementGroupCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInvoiceElementGroupCodeValue(ActInvoiceGroupCode invoiceElementGroupCodeValue) {
         this.invoiceElementGroupCodeValue.setValue(invoiceElementGroupCodeValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.LocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"locationId/value"})
     public Identifier getLocationIdValue() {
         return this.locationIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.LocationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocationIdValue(Identifier locationIdValue) {
         this.locationIdValue.setValue(locationIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.PayeeId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"payeeId/value"})
     public Identifier getPayeeIdValue() {
         return this.payeeIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.PayeeId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPayeeIdValue(Identifier payeeIdValue) {
         this.payeeIdValue.setValue(payeeIdValue);
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.PayorId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"payorId/value"})
     public Identifier getPayorIdValue() {
         return this.payorIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.PayorId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPayorIdValue(Identifier payorIdValue) {
         this.payorIdValue.setValue(payorIdValue);
     }
 
 
     /**
-     * <p>Provider ID</p>
+     * <p>Business Name: Provider ID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.ProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>eg. Professional registry no.</p>
      */
@@ -150,7 +240,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Provider ID</p>
+     * <p>Business Name: Provider ID</p>
+     * 
+     * <p>Relationship: QUCR_MT820201CA.ProviderId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>eg. Professional registry no.</p>
      */
@@ -159,11 +253,21 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.SendingApplicationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"sendingApplicationId/value"})
     public Identifier getSendingApplicationIdValue() {
         return this.sendingApplicationIdValue.getValue();
     }
 
+    /**
+     * <p>Relationship: QUCR_MT820201CA.SendingApplicationId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
         this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }

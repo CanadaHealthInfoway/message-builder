@@ -28,8 +28,18 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 public interface PayeeChoice {
 
 
+    /**
+     * <p>Relationship: COCT_MT110200CA.PayeeChoice.asRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public PayeeRelationshipRoleBean getAsRole();
 
+    /**
+     * <p>Relationship: COCT_MT110200CA.PayeeChoice.asRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAsRole(PayeeRelationshipRoleBean asRole);
 
 }

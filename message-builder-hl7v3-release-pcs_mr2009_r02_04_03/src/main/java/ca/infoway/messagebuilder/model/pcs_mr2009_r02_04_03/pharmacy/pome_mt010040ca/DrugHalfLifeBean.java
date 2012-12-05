@@ -30,23 +30,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Drug Half-Life</p>
- * 
- * <p>Specification of the length of time a particular drug 
- * remains in the body (as active)</p>
+ * <p>Business Name: Drug Half-Life</p>
  * 
  * <p>Impacts contraindication checking for drugs no longer 
  * being taken by patients.</p>
+ * 
+ * <p>Specification of the length of time a particular drug 
+ * remains in the body (as active)</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.HalfLife"})
 public class DrugHalfLifeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ value = new PQImpl();
 
 
     /**
-     * <p>Half-Life Period</p>
+     * <p>Business Name: Half-Life Period</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.HalfLife.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Depending on the half-life, a drug may remain present and 
+     * active in a patient's system long after they cease taking 
+     * it. Understanding this time period is essential to 
+     * appropriate dosing, and also to identifying when to include 
+     * medications in drug-drug interaction checking.</p>
      * 
      * <p>Different drugs are absorbed and degraded by the body at 
      * different rates. The half-life indicates the length of time 
@@ -54,12 +64,6 @@ public class DrugHalfLifeBean extends MessagePartBean {
      * original potency. The actual time-period will vary from 
      * person to person based on mass, renal function, liver 
      * function, route of administration and other factors</p>
-     * 
-     * <p>Depending on the half-life, a drug may remain present and 
-     * active in a patient's system long after they cease taking 
-     * it. Understanding this time period is essential to 
-     * appropriate dosing, and also to identifying when to include 
-     * medications in drug-drug interaction checking.</p>
      */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getValue() {
@@ -67,7 +71,17 @@ public class DrugHalfLifeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Half-Life Period</p>
+     * <p>Business Name: Half-Life Period</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.HalfLife.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Depending on the half-life, a drug may remain present and 
+     * active in a patient's system long after they cease taking 
+     * it. Understanding this time period is essential to 
+     * appropriate dosing, and also to identifying when to include 
+     * medications in drug-drug interaction checking.</p>
      * 
      * <p>Different drugs are absorbed and degraded by the body at 
      * different rates. The half-life indicates the length of time 
@@ -75,12 +89,6 @@ public class DrugHalfLifeBean extends MessagePartBean {
      * original potency. The actual time-period will vary from 
      * person to person based on mass, renal function, liver 
      * function, route of administration and other factors</p>
-     * 
-     * <p>Depending on the half-life, a drug may remain present and 
-     * active in a patient's system long after they cease taking 
-     * it. Understanding this time period is essential to 
-     * appropriate dosing, and also to identifying when to include 
-     * medications in drug-drug interaction checking.</p>
      */
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);

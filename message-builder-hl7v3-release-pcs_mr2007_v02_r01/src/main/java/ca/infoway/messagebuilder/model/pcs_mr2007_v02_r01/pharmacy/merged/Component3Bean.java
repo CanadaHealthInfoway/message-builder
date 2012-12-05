@@ -27,13 +27,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Includes</p>
+ * <p>Business Name: Includes</p>
  * 
  * <p>PORX_MT060340CA.Component3: a:includes</p>
  * 
- * <p>Identifies the instructions for how the prescribed 
- * medication should be dispensed to the patient.</p>
- * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
  * to accommodate circumstances where multiple drug products 
@@ -46,12 +43,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * over-the-counter medications), or when the patient already 
  * has sufficient supply of the medication on hand to complete 
  * the therapy.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed 
+ * medication should be dispensed to the patient.</p>
  * 
  * <p>PORX_MT060160CA.Component3: g:includes</p>
  * 
- * <p>Identifies the instructions for how the prescribed 
- * medication should be dispensed to the patient.</p>
- * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
  * to accommodate circumstances where multiple drug products 
@@ -64,19 +61,52 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * over-the-counter medications), or when the patient already 
  * has sufficient supply of the medication on hand to complete 
  * the therapy.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed 
+ * medication should be dispensed to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060160CA.Component3","PORX_MT060340CA.Component3"})
 public class Component3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ExtendedDispenseInstructionsBean supplyRequestItem;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"supplyRequestItem"})
     public ExtendedDispenseInstructionsBean getSupplyRequestItem() {
         return this.supplyRequestItem;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSupplyRequestItem(ExtendedDispenseInstructionsBean supplyRequestItem) {
         this.supplyRequestItem = supplyRequestItem;
     }

@@ -34,47 +34,27 @@ import java.util.List;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"PORX_MT050010CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<CV> drugCodeValue = new ArrayList<CV>();
 
 
     /**
-     * <p>Drug Codes</p>
+     * <p>Business Name: Drug Codes</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications involving the specified 
-     * drugs.</p><p>The codes may refer to administerable 
-     * medications, orderable medications or higher level drug 
-     * classifications.</p><p>The set of contraindication records 
-     * retrieved would include all potential DDI between and 
-     * amongst the drugs.</p>
+     * <p>Relationship: PORX_MT050010CA.DrugCode.value</p>
      * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications involving the specified 
-     * drugs.</p><p>The codes may refer to administerable 
-     * medications, orderable medications or higher level drug 
-     * classifications.</p><p>The set of contraindication records 
-     * retrieved would include all potential DDI between and 
-     * amongst the drugs.</p>
-     * 
-     * <p>Indicates that the result set is to be filtered to 
-     * include only those contraindications involving the specified 
-     * drugs.</p><p>The codes may refer to administerable 
-     * medications, orderable medications or higher level drug 
-     * classifications.</p><p>The set of contraindication records 
-     * retrieved would include all potential DDI between and 
-     * amongst the drugs.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the retrieval of all potential 
      * contraindications that would result from drug profile 
@@ -82,11 +62,13 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * providers to test the viability of prescribing/dispensing 
      * medications into profile scenarios.</p>
      * 
-     * <p>Allows for the retrieval of all potential 
-     * contraindications that would result from drug profile 
-     * scenarios.</p><p>This will most commonly be used by 
-     * providers to test the viability of prescribing/dispensing 
-     * medications into profile scenarios.</p>
+     * <p>Indicates that the result set is to be filtered to 
+     * include only those contraindications involving the specified 
+     * drugs.</p><p>The codes may refer to administerable 
+     * medications, orderable medications or higher level drug 
+     * classifications.</p><p>The set of contraindication records 
+     * retrieved would include all potential DDI between and 
+     * amongst the drugs.</p>
      */
     @Hl7XmlMapping({"drugCode/value"})
     public List<ClinicalDrug> getDrugCodeValue() {

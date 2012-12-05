@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInsur
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyOrAccount","FICR_MT400003CA.PolicyOrAccount","FICR_MT400004CA.PolicyOrAccount","FICR_MT490101CA.PolicyOrAccount"})
 public class PolicyOrAccount_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CoveredPartyBean beneficiaryCoveredParty;
@@ -44,9 +44,29 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Policy Identifier(s</p>
+     * <p>Other Business Name: PolicyIdentifier</p>
      * 
-     * <p>Policy Identifier</p>
+     * <p>Relationship: FICR_MT400001CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -54,9 +74,29 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Policy Identifier(s</p>
+     * <p>Other Business Name: PolicyIdentifier</p>
      * 
-     * <p>Policy Identifier</p>
+     * <p>Relationship: FICR_MT400001CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -64,9 +104,31 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PolicyType</p>
+     * <p>Business Name: PolicyType</p>
      * 
-     * <p>Policy Type</p>
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInsurancePolicyType getCode() {
@@ -74,39 +136,171 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PolicyType</p>
+     * <p>Business Name: PolicyType</p>
      * 
-     * <p>Policy Type</p>
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInsurancePolicyType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"beneficiary/coveredParty"})
     public CoveredPartyBean getBeneficiaryCoveredParty() {
         return this.beneficiaryCoveredParty;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
         this.beneficiaryCoveredParty = beneficiaryCoveredParty;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"holder/policyHolder"})
     public PolicyHolderBean getHolderPolicyHolder() {
         return this.holderPolicyHolder;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
         this.holderPolicyHolder = holderPolicyHolder;
     }
 
 
     /**
-     * <p>CarrierIdentifier</p>
+     * <p>Business Name: CarrierIdentifier</p>
      * 
-     * <p>Carrier Identifier</p>
+     * <p>Other Business Name: CarrierIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CarrierIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CarrierIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CarrierIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author/carrierRole/id"})
     public Identifier getAuthorCarrierRoleId() {
@@ -114,9 +308,31 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>CarrierIdentifier</p>
+     * <p>Business Name: CarrierIdentifier</p>
      * 
-     * <p>Carrier Identifier</p>
+     * <p>Other Business Name: CarrierIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CarrierIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CarrierIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CarrierIdentifier</p>
+     * 
+     * <p>Relationship: FICR_MT490101CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
         this.authorCarrierRoleId.setValue(authorCarrierRoleId);

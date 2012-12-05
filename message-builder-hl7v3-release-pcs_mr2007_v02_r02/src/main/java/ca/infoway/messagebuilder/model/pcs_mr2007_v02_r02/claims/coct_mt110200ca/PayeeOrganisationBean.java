@@ -32,31 +32,47 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Payee Organisation</p>
+ * <p>Business Name: Payee Organisation</p>
  * 
  * <p>Organisation receiving payment.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeOrganization"})
 public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PayeeRelationshipRoleBean asPayeeRelationshipRole;
     private ST name = new STImpl();
     private AD addr = new ADImpl();
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT110200CA.PayeeChoice.asPayeeRelationshipRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"asPayeeRelationshipRole"})
     public PayeeRelationshipRoleBean getAsPayeeRelationshipRole() {
         return this.asPayeeRelationshipRole;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT110200CA.PayeeChoice.asPayeeRelationshipRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAsPayeeRelationshipRole(PayeeRelationshipRoleBean asPayeeRelationshipRole) {
         this.asPayeeRelationshipRole = asPayeeRelationshipRole;
     }
 
 
     /**
-     * <p>Payee Organisation name</p>
+     * <p>Business Name: Payee Organisation name</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>name of organisation receiving payment.</p>
      */
@@ -66,7 +82,11 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
     }
 
     /**
-     * <p>Payee Organisation name</p>
+     * <p>Business Name: Payee Organisation name</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>name of organisation receiving payment.</p>
      */
@@ -76,7 +96,11 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
 
 
     /**
-     * <p>Payee Organisation address</p>
+     * <p>Business Name: Payee Organisation address</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeOrganization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -84,7 +108,11 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
     }
 
     /**
-     * <p>Payee Organisation address</p>
+     * <p>Business Name: Payee Organisation address</p>
+     * 
+     * <p>Relationship: COCT_MT110200CA.PayeeOrganization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);

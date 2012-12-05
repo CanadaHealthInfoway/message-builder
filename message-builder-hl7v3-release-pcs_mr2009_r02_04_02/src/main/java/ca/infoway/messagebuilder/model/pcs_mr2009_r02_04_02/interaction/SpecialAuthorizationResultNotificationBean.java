@@ -29,8 +29,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 
 
 /**
- * <p>FICR_IN400011CA: Special Authorization Result 
- * Notification</p>
+ * <p>Business Name: FICR_IN400011CA: Special Authorization 
+ * Result Notification</p>
+ * 
+ * <p>Indicates that adjudication of a previously pended 
+ * Special Authorization has been completed. The Special 
+ * Authorization Request status will either be 
+ * &quot;&quot;active&quot;&quot; if approved or 
+ * &quot;&quot;aborted&quot;&quot; if not approved.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -42,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN400011CA"})
 public class SpecialAuthorizationResultNotificationBean extends HL7Message_1Bean<TriggerEvent_1Bean<SpecialAuthorizationRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -42,18 +42,18 @@ import java.util.List;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
+ * 
+ * <p>Root class for query definition</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
- * 
- * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060030CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDeviceIndicatorValue = new BLImpl();
     private BL mostRecentDispenseForEachRxIndicatorValue = new BLImpl();
@@ -62,7 +62,17 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060030CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -70,12 +80,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
-     * 
-     * <p>By filtering returned records to include only those which 
-     * have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p>
      */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCodeValue() {
@@ -83,7 +87,17 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060030CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>By filtering returned records to include only those which 
+     * have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -91,12 +105,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * persistent un-managed issue (against the record), with at 
      * least one persistent issues or should return all records, 
      * independent of the presence of persistent issues.</p>
-     * 
-     * <p>By filtering returned records to include only those which 
-     * have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p>
      */
     public void setIssueFilterCodeValue(IssueFilterCode issueFilterCodeValue) {
         this.issueFilterCodeValue.setValue(issueFilterCodeValue);
@@ -104,7 +112,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent By Device Indicator</p>
+     * <p>Business Name: Most Recent By Device Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060030CA.MostRecentByDeviceIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all devices that the 
+     * patient is using.</p><p>The element is mandatory because the 
+     * query recipient must know whether the value is true or 
+     * false.</p>
      * 
      * <p>Indicates whether or not the records are to be retrieved 
      * based on the most recent by Device Code. If true, only the 
@@ -112,18 +131,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * device type will be returned. The default is 'FALSE' 
      * indicating that retrieval of prescription and dispense 
      * records should not be limited to one per device type.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>The element is mandatory because the 
-     * query recipient must know whether the value is true or 
-     * false.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>The element is mandatory because the 
-     * query recipient must know whether the value is true or 
-     * false.</p>
      */
     @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
     public Boolean getMostRecentByDeviceIndicatorValue() {
@@ -131,7 +138,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Most Recent By Device Indicator</p>
+     * <p>Business Name: Most Recent By Device Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060030CA.MostRecentByDeviceIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all devices that the 
+     * patient is using.</p><p>The element is mandatory because the 
+     * query recipient must know whether the value is true or 
+     * false.</p>
      * 
      * <p>Indicates whether or not the records are to be retrieved 
      * based on the most recent by Device Code. If true, only the 
@@ -139,18 +157,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * device type will be returned. The default is 'FALSE' 
      * indicating that retrieval of prescription and dispense 
      * records should not be limited to one per device type.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>The element is mandatory because the 
-     * query recipient must know whether the value is true or 
-     * false.</p>
-     * 
-     * <p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>The element is mandatory because the 
-     * query recipient must know whether the value is true or 
-     * false.</p>
      */
     public void setMostRecentByDeviceIndicatorValue(Boolean mostRecentByDeviceIndicatorValue) {
         this.mostRecentByDeviceIndicatorValue.setValue(mostRecentByDeviceIndicatorValue);
@@ -158,31 +164,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Business Name: Most Recent Dispense for each Rx Indicator</p>
      * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Relationship: 
+     * PORX_MT060030CA.MostRecentDispenseForEachRxIndicator.value</p>
      * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple prescription dispenses for the same 
@@ -190,11 +177,13 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * the query recipient must know whether the value is true or 
      * false.</p>
      * 
-     * <p>Helps to trim down volume of query response by 
-     * eliminating multiple prescription dispenses for the same 
-     * prescription order.</p><p>The element is mandatory because 
-     * the query recipient must know whether the value is true or 
-     * false.</p>
+     * <p>Indicates whether or not prescription dispenses returned 
+     * on a query should be limited to only the most recent 
+     * dispense for a prescription order.</p><p>Allows for the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
      */
     @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
     public Boolean getMostRecentDispenseForEachRxIndicatorValue() {
@@ -202,31 +191,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Business Name: Most Recent Dispense for each Rx Indicator</p>
      * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Relationship: 
+     * PORX_MT060030CA.MostRecentDispenseForEachRxIndicator.value</p>
      * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
-     * 
-     * <p>Indicates whether or not prescription dispenses returned 
-     * on a query should be limited to only the most recent 
-     * dispense for a prescription order.</p><p>Allows for the 
-     * returning of at most one prescription dispense record per a 
-     * prescription.</p><p>The default is 'TRUE' indicating that 
-     * retrieval should be for only the most recent dispense for a 
-     * prescription is to be included in a query result.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Helps to trim down volume of query response by 
      * eliminating multiple prescription dispenses for the same 
@@ -234,11 +204,13 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * the query recipient must know whether the value is true or 
      * false.</p>
      * 
-     * <p>Helps to trim down volume of query response by 
-     * eliminating multiple prescription dispenses for the same 
-     * prescription order.</p><p>The element is mandatory because 
-     * the query recipient must know whether the value is true or 
-     * false.</p>
+     * <p>Indicates whether or not prescription dispenses returned 
+     * on a query should be limited to only the most recent 
+     * dispense for a prescription order.</p><p>Allows for the 
+     * returning of at most one prescription dispense record per a 
+     * prescription.</p><p>The default is 'TRUE' indicating that 
+     * retrieval should be for only the most recent dispense for a 
+     * prescription is to be included in a query result.</p>
      */
     public void setMostRecentDispenseForEachRxIndicatorValue(Boolean mostRecentDispenseForEachRxIndicatorValue) {
         this.mostRecentDispenseForEachRxIndicatorValue.setValue(mostRecentDispenseForEachRxIndicatorValue);
@@ -246,26 +218,23 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Rx Dispenser Indicators</p>
+     * <p>Business Name: Rx Dispenser Indicators</p>
      * 
-     * <p>A coded value indicating the dispensing (fill) status of 
-     * the prescription to be included in the result set. The only 
-     * allowable dispense indicators are: CD (Completely Dispensed) 
-     * and DRR (Dispensed with Remaining Refills).</p><p>The 
-     * repetition of 2 allows for retrieval based on both dispense 
-     * indicators.</p>
+     * <p>Relationship: PORX_MT060030CA.RxDispenseIndicator.value</p>
      * 
-     * <p>A coded value indicating the dispensing (fill) status of 
-     * the prescription to be included in the result set. The only 
-     * allowable dispense indicators are: CD (Completely Dispensed) 
-     * and DRR (Dispensed with Remaining Refills).</p><p>The 
-     * repetition of 2 allows for retrieval based on both dispense 
-     * indicators.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating the dispensing (fill) status of 
      * the prescription to be included in Allows for finer sub-set 
      * of prescriptions to be retrieved based on the fill status of 
      * the prescription.</p>
+     * 
+     * <p>A coded value indicating the dispensing (fill) status of 
+     * the prescription to be included in the result set. The only 
+     * allowable dispense indicators are: CD (Completely Dispensed) 
+     * and DRR (Dispensed with Remaining Refills).</p><p>The 
+     * repetition of 2 allows for retrieval based on both dispense 
+     * indicators.</p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
     public List<PrescriptionDispenseFilterCode> getRxDispenseIndicatorValue() {
@@ -274,23 +243,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Usage Effective Period</p>
+     * <p>Business Name: D:Usage Effective Period</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * records (prescription order and prescription dispense) for 
-     * which the patient was deemed to be using the device within 
-     * the specified period.</p>
+     * <p>Relationship: PORX_MT060030CA.UsageEffectivePeriod.value</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * records (prescription order and prescription dispense) for 
-     * which the patient was deemed to be using the device within 
-     * the specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the usage period of 
      * interest for the retrieval. Useful to avoid run-away 
      * queries.</p>
+     * 
+     * <p>Indicates the usage period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * records (prescription order and prescription dispense) for 
+     * which the patient was deemed to be using the device within 
+     * the specified period.</p>
      */
     @Hl7XmlMapping({"usageEffectivePeriod/value"})
     public Interval<Date> getUsageEffectivePeriodValue() {
@@ -298,23 +265,21 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Usage Effective Period</p>
+     * <p>Business Name: D:Usage Effective Period</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * records (prescription order and prescription dispense) for 
-     * which the patient was deemed to be using the device within 
-     * the specified period.</p>
+     * <p>Relationship: PORX_MT060030CA.UsageEffectivePeriod.value</p>
      * 
-     * <p>Indicates the usage period for which the request/query 
-     * applies.</p><p>Filter the result set to include only those 
-     * records (prescription order and prescription dispense) for 
-     * which the patient was deemed to be using the device within 
-     * the specified period.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the requester to specify the usage period of 
      * interest for the retrieval. Useful to avoid run-away 
      * queries.</p>
+     * 
+     * <p>Indicates the usage period for which the request/query 
+     * applies.</p><p>Filter the result set to include only those 
+     * records (prescription order and prescription dispense) for 
+     * which the patient was deemed to be using the device within 
+     * the specified period.</p>
      */
     public void setUsageEffectivePeriodValue(Interval<Date> usageEffectivePeriodValue) {
         this.usageEffectivePeriodValue.setValue(usageEffectivePeriodValue);

@@ -58,24 +58,24 @@ import java.util.Set;
 
 
 /**
- * <p>Clinical Observation Document</p>
+ * <p>Business Name: Clinical Observation Document</p>
  * 
  * <p>Annotation is only permitted if Annotation Indicator is 
  * not present and vice versa</p>
- * 
- * <p>Represents a particular health-related document 
- * pertaining to a single patient.</p>
  * 
  * <p>Allows the capture of patient health data in an 
  * encapsulated, contextualized manner with capability of 
  * displaying rendered content and communication between simple 
  * systems.</p>
+ * 
+ * <p>Represents a particular health-related document 
+ * pertaining to a single patient.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT230003CA.Document"})
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private ST title = new STImpl();
@@ -95,10 +95,11 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>A: Document Identifier</p>
+     * <p>Business Name: A: Document Identifier</p>
      * 
-     * <p> <i>A globally unique identifier assigned by the EHR to 
-     * the Clinical Observation Document record.</i> </p>
+     * <p>Relationship: REPC_MT230003CA.Document.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (2)</p>
      * 
      * <p> <i>Allows for unique identification of the Clinical 
      * Observation Document and is therefore mandatory. Supports 
@@ -106,6 +107,9 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * matching of EHR records to locally-stored PoS records and is 
      * necessary when identifying records for amending 
      * (revising)/directional linking (superseding).</i> </p>
+     * 
+     * <p> <i>A globally unique identifier assigned by the EHR to 
+     * the Clinical Observation Document record.</i> </p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -114,23 +118,21 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>B: Document Category</p>
+     * <p>Business Name: B: Document Category</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Document Category is used for searching and for 
+     * organizing Clinical Observation Document records as well as 
+     * sorting them for presentation.</i> </p><p> <i>This is a key 
+     * attribute for understanding the type of record and is 
+     * therefore mandatory.</i> </p>
      * 
      * <p> <i>Identifies the type of Clinical Observation Document 
      * represented by this record. e.g. procedure note, clinical 
      * note.</i> </p>
-     * 
-     * <p> <i>Document Category is used for searching and for 
-     * organizing Clinical Observation Document records as well as 
-     * sorting them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p>
-     * 
-     * <p> <i>Document Category is used for searching and for 
-     * organizing Clinical Observation Document records as well as 
-     * sorting them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p>
      */
     @Hl7XmlMapping({"code"})
     public ClinicalReportDocumentType getCode() {
@@ -138,23 +140,21 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
     /**
-     * <p>B: Document Category</p>
+     * <p>Business Name: B: Document Category</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Document Category is used for searching and for 
+     * organizing Clinical Observation Document records as well as 
+     * sorting them for presentation.</i> </p><p> <i>This is a key 
+     * attribute for understanding the type of record and is 
+     * therefore mandatory.</i> </p>
      * 
      * <p> <i>Identifies the type of Clinical Observation Document 
      * represented by this record. e.g. procedure note, clinical 
      * note.</i> </p>
-     * 
-     * <p> <i>Document Category is used for searching and for 
-     * organizing Clinical Observation Document records as well as 
-     * sorting them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p>
-     * 
-     * <p> <i>Document Category is used for searching and for 
-     * organizing Clinical Observation Document records as well as 
-     * sorting them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p>
      */
     public void setCode(ClinicalReportDocumentType code) {
         this.code.setValue(code);
@@ -162,9 +162,11 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>J: Document Title</p>
+     * <p>Business Name: J: Document Title</p>
      * 
-     * <p>A human-readable label for this particular document.</p>
+     * <p>Relationship: REPC_MT230003CA.Document.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is a human-recognizable name intended to be 
      * displayed on the screen in list transactions and is 
@@ -176,6 +178,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * document contains. For example &quot;Right Knee Arthroscopy 
      * Report, Jan 3, 2006&quot; would represent a good title. 
      * &quot;Surgery Report&quot; would not.</p>
+     * 
+     * <p>A human-readable label for this particular document.</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
@@ -183,9 +187,11 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
     /**
-     * <p>J: Document Title</p>
+     * <p>Business Name: J: Document Title</p>
      * 
-     * <p>A human-readable label for this particular document.</p>
+     * <p>Relationship: REPC_MT230003CA.Document.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is a human-recognizable name intended to be 
      * displayed on the screen in list transactions and is 
@@ -197,6 +203,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * document contains. For example &quot;Right Knee Arthroscopy 
      * Report, Jan 3, 2006&quot; would represent a good title. 
      * &quot;Surgery Report&quot; would not.</p>
+     * 
+     * <p>A human-readable label for this particular document.</p>
      */
     public void setTitle(String title) {
         this.title.setValue(title);
@@ -204,72 +212,37 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>E: Document Masking Indicators</p>
+     * <p>Business Name: E: Document Masking Indicators</p>
      * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Clinical Observation Document record. 
-     * Provides support for additional confidentiality constraint, 
-     * giving patients a level of control over their information. 
-     * Methods for accessing masked event records will be governed 
-     * by each jurisdiction (e.g. court orders, shared 
-     * secret/consent, etc.).</i> </p><p> <i>Can also be used to 
-     * communicate that the information is deemed to be sensitive 
-     * and should not be communicated or exposed to the patient (at 
-     * least without the guidance of the authoring or other 
-     * responsible healthcare provider).</i> </p><p> <i>Valid 
-     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked') and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</i> 
-     * </p>
+     * <p>Relationship: 
+     * REPC_MT230003CA.Document.confidentialityCode</p>
      * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Clinical Observation Document record. 
-     * Provides support for additional confidentiality constraint, 
-     * giving patients a level of control over their information. 
-     * Methods for accessing masked event records will be governed 
-     * by each jurisdiction (e.g. court orders, shared 
-     * secret/consent, etc.).</i> </p><p> <i>Can also be used to 
-     * communicate that the information is deemed to be sensitive 
-     * and should not be communicated or exposed to the patient (at 
-     * least without the guidance of the authoring or other 
-     * responsible healthcare provider).</i> </p><p> <i>Valid 
-     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked') and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</i> 
-     * </p>
-     * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Clinical Observation Document record. 
-     * Provides support for additional confidentiality constraint, 
-     * giving patients a level of control over their information. 
-     * Methods for accessing masked event records will be governed 
-     * by each jurisdiction (e.g. court orders, shared 
-     * secret/consent, etc.).</i> </p><p> <i>Can also be used to 
-     * communicate that the information is deemed to be sensitive 
-     * and should not be communicated or exposed to the patient (at 
-     * least without the guidance of the authoring or other 
-     * responsible healthcare provider).</i> </p><p> <i>Valid 
-     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked') and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</i> 
-     * </p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p> <i>The value specified for a particular record may be 
      * overridden by a higher level masking applied to an 
      * indication, a care composition, a type of record or even all 
      * patient records.</i> </p>
+     * 
+     * <p> <i>Communicates the desire of the patient to restrict 
+     * access to this Clinical Observation Document record. 
+     * Provides support for additional confidentiality constraint, 
+     * giving patients a level of control over their information. 
+     * Methods for accessing masked event records will be governed 
+     * by each jurisdiction (e.g. court orders, shared 
+     * secret/consent, etc.).</i> </p><p> <i>Can also be used to 
+     * communicate that the information is deemed to be sensitive 
+     * and should not be communicated or exposed to the patient (at 
+     * least without the guidance of the authoring or other 
+     * responsible healthcare provider).</i> </p><p> <i>Valid 
+     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
+     * (denotes 'Masked') and 'taboo' (denotes 'patient 
+     * restricted'). The default is 'normal' signifying 'Not 
+     * Masked'. Either or both of the other codes can be asserted 
+     * to indicate masking by the patient from providers or masking 
+     * by a provider from the patient, respectively. 'normal' 
+     * should never be asserted with one of the other codes.</i> 
+     * </p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -277,11 +250,23 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT230003CA.ResponsibleParty.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
     public ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT230003CA.ResponsibleParty.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setResponsiblePartyActingPerson(ActingPerson responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
@@ -381,11 +366,21 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT230003CA.Component3.section</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/structuredBody/component/section"})
     public SectionBean getComponentStructuredBodyComponentSection() {
         return this.componentStructuredBodyComponentSection;
     }
 
+    /**
+     * <p>Relationship: REPC_MT230003CA.Component3.section</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
         this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
@@ -411,11 +406,23 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT230003CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT230003CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }

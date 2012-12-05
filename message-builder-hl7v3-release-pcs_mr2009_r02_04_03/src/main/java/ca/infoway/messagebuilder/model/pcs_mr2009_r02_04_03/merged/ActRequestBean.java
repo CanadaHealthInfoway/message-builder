@@ -36,88 +36,94 @@ import java.util.Set;
 
 
 /**
- * <p>ReferencedRecord</p>
+ * <p>Business Name: ReferencedRecord</p>
  * 
  * <p>COMT_MT001101CA.ActRequest: Referenced Record</p>
  * 
+ * <p>As a request, refers to the event to be acted upon or 
+ * which has been acted upon.</p><p>As a response, may be used 
+ * to indicate the identifier assigned to a created object.</p>
+ * 
  * <p>References an existing event record by identifier.</p>
- * 
- * <p>As a request, refers to the event to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
- * 
- * <p>As a request, refers to the event to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
  * 
  * <p>COMT_MT001103CA.ActEvent: Referenced Record</p>
  * 
+ * <p>As a request, refers to the event to be acted upon or 
+ * which has been acted upon.</p><p>As a response, may be used 
+ * to indicate the identifier assigned to a created object.</p>
+ * 
  * <p>References an existing event record by identifier.</p>
- * 
- * <p>As a request, refers to the event to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
- * 
- * <p>As a request, refers to the event to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
  * 
  * <p>COMT_MT001201CA.Role: Referenced Record</p>
  * 
+ * <p>As a request, refers to the role to be acted upon or 
+ * which has been acted upon.</p><p>As a response, may be used 
+ * to indicate the identifier assigned to a created object.</p>
+ * 
  * <p>References an existing role record by identifier.</p>
- * 
- * <p>As a request, refers to the role to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
- * 
- * <p>As a request, refers to the role to be acted upon or 
- * which has been acted upon.</p><p>As a response, may be used 
- * to indicate the identifier assigned to a created object.</p>
  */
 @Hl7PartTypeMapping({"COMT_MT001101CA.ActRequest","COMT_MT001103CA.ActEvent","COMT_MT001201CA.Role","PORX_MT010140CA.ActRequest"})
 @Hl7RootType
 public class ActRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
 
 
     /**
-     * <p>Record Ids</p>
+     * <p>Other Business Name: RecordIds</p>
      * 
-     * <p>The identifier assigned by the central system (EHR) to 
-     * the Event record being referred to.</p>
+     * <p>Relationship: COMT_MT001101CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
      * <p>Allows the event record to be uniquely referenced and is 
      * therefore mandatory.</p>
      * 
-     * <p>Record Ids</p>
+     * <p>The identifier assigned by the central system (EHR) to 
+     * the Event record being referred to.</p>
      * 
-     * <p>The identifier assigned by the registry to the role 
-     * record being referred to</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Allows the role record to be uniquely referenced and is 
-     * therefore mandatory.</p>
+     * <p>Relationship: PORX_MT010140CA.ActRequest.id</p>
      * 
-     * <p>A:Prescription Order Number</p>
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced. Multiple 
+     * identifiers are allowed to support assigning of prescription 
+     * ids by the prescriber, EHR, and potentially by 
+     * pharmacies.</p><p>The ID is mandatory to allow every 
+     * prescription record to be uniquely identified.</p>
      * 
      * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
      * 
-     * <p>Allows prescriptions to be uniquely referenced. Multiple 
-     * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
+     * <p>Other Business Name: RecordIds</p>
      * 
-     * <p>Allows prescriptions to be uniquely referenced. Multiple 
-     * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
+     * <p>Relationship: COMT_MT001103CA.ActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
+     * <p>Allows the event record to be uniquely referenced and is 
+     * therefore mandatory.</p>
+     * 
+     * <p>The identifier assigned by the central system (EHR) to 
+     * the Event record being referred to.</p>
+     * 
+     * <p>Other Business Name: RecordIds</p>
+     * 
+     * <p>Relationship: COMT_MT001201CA.Role.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
+     * <p>Allows the role record to be uniquely referenced and is 
+     * therefore mandatory.</p>
+     * 
+     * <p>The identifier assigned by the registry to the role 
+     * record being referred to</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -125,11 +131,27 @@ public class ActRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010140CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010140CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
     }

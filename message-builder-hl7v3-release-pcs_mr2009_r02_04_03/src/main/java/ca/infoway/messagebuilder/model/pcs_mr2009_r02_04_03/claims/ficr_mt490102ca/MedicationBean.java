@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.DrugContainsB
 @Hl7PartTypeMapping({"FICR_MT490102CA.Medication"})
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV administerableMedicineCode = new CVImpl();
     private ST administerableMedicineName = new STImpl();
     private ST administerableMedicineDesc = new STImpl();
@@ -45,7 +45,11 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Code</p>
+     * <p>Business Name: Drug Code</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"administerableMedicine/code"})
     public ClinicalDrug getAdministerableMedicineCode() {
@@ -53,7 +57,11 @@ public class MedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Code</p>
+     * <p>Business Name: Drug Code</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setAdministerableMedicineCode(ClinicalDrug administerableMedicineCode) {
         this.administerableMedicineCode.setValue(administerableMedicineCode);
@@ -61,7 +69,11 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Name</p>
+     * <p>Business Name: Drug Name</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"administerableMedicine/name"})
     public String getAdministerableMedicineName() {
@@ -69,7 +81,11 @@ public class MedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Name</p>
+     * <p>Business Name: Drug Name</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAdministerableMedicineName(String administerableMedicineName) {
         this.administerableMedicineName.setValue(administerableMedicineName);
@@ -77,7 +93,11 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Description</p>
+     * <p>Business Name: Drug Description</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"administerableMedicine/desc"})
     public String getAdministerableMedicineDesc() {
@@ -85,7 +105,11 @@ public class MedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Description</p>
+     * <p>Business Name: Drug Description</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAdministerableMedicineDesc(String administerableMedicineDesc) {
         this.administerableMedicineDesc.setValue(administerableMedicineDesc);
@@ -93,7 +117,11 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared. Examples include: 
@@ -105,7 +133,11 @@ public class MedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared. Examples include: 

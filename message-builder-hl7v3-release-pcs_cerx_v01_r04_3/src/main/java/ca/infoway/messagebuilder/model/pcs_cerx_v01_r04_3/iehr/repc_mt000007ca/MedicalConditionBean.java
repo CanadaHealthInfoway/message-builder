@@ -56,26 +56,24 @@ import java.util.List;
 
 
 /**
- * <p>Medical Condition</p>
+ * <p>Business Name: Medical Condition</p>
  * 
- * <p>Value is mandatory if not using SNOMED</p><p>Code is 
- * fixed to DX if not using SNOMED</p>
+ * <p>Value is mandatory if not using SNOMED</p>
  * 
- * <p>Value is mandatory if not using SNOMED</p><p>Code is 
- * fixed to DX if not using SNOMED</p>
+ * <p>Code is fixed to DX if not using SNOMED</p>
+ * 
+ * <p>Necessary component of a person's overall medication and 
+ * clinical profile. Helps with contraindication checking.</p>
  * 
  * <p>A record of a patient's medical condition. Includes 
  * diseases, disabilities, pregnancy, lactation and other 
  * clinical conditions of interest.</p>
- * 
- * <p>Necessary component of a person's overall medication and 
- * clinical profile. Helps with contraindication checking.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000007CA.MedicalCondition"})
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -93,13 +91,17 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Medical Condition Record Id</p>
+     * <p>Business Name: A:Medical Condition Record Id</p>
      * 
-     * <p>Unique identifier for medical condition record.</p>
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for direct referencing of a medical condition 
      * record when querying or updating and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Unique identifier for medical condition record.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -107,13 +109,17 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Medical Condition Record Id</p>
+     * <p>Business Name: A:Medical Condition Record Id</p>
      * 
-     * <p>Unique identifier for medical condition record.</p>
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for direct referencing of a medical condition 
      * record when querying or updating and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Unique identifier for medical condition record.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -121,9 +127,11 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Condition Type</p>
+     * <p>Business Name: Condition Type</p>
      * 
-     * <p>Indicates what kind of condition is being reported.</p>
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies this observation as reporting a medical 
      * condition and is therefore mandatory. When using SNOMED, the 
@@ -133,6 +141,8 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>If SNOMED is used, the diagnosis will appear here. 
      * Otherwise, a fixed value of &quot;DX&quot; should be 
      * sent.</p>
+     * 
+     * <p>Indicates what kind of condition is being reported.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -140,9 +150,11 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Condition Type</p>
+     * <p>Business Name: Condition Type</p>
      * 
-     * <p>Indicates what kind of condition is being reported.</p>
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies this observation as reporting a medical 
      * condition and is therefore mandatory. When using SNOMED, the 
@@ -152,6 +164,8 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>If SNOMED is used, the diagnosis will appear here. 
      * Otherwise, a fixed value of &quot;DX&quot; should be 
      * sent.</p>
+     * 
+     * <p>Indicates what kind of condition is being reported.</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
@@ -159,17 +173,21 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Condition Status</p>
+     * <p>Business Name: D:Condition Status</p>
      * 
-     * <p>A coded value that indicates whether the condition is 
-     * still impacting the patient. 'ACTIVE' means the condition is 
-     * still affecting the patient. 'COMPLETE' means the condition 
-     * no longer holds</p>
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
      * condition still exists or not. Therefore the status is 
      * treated as 'populated'.</p>
+     * 
+     * <p>A coded value that indicates whether the condition is 
+     * still impacting the patient. 'ACTIVE' means the condition is 
+     * still affecting the patient. 'COMPLETE' means the condition 
+     * no longer holds</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -177,17 +195,21 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Condition Status</p>
+     * <p>Business Name: D:Condition Status</p>
      * 
-     * <p>A coded value that indicates whether the condition is 
-     * still impacting the patient. 'ACTIVE' means the condition is 
-     * still affecting the patient. 'COMPLETE' means the condition 
-     * no longer holds</p>
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
      * condition still exists or not. Therefore the status is 
      * treated as 'populated'.</p>
+     * 
+     * <p>A coded value that indicates whether the condition is 
+     * still impacting the patient. 'ACTIVE' means the condition is 
+     * still affecting the patient. 'COMPLETE' means the condition 
+     * no longer holds</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -195,31 +217,22 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Condition Time Period</p>
+     * <p>Business Name: E:Condition Time Period</p>
      * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
+     * <p>Relationship: 
+     * REPC_MT000007CA.MedicalCondition.effectiveTime</p>
      * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
-     * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows providers to evaluate the period of relevance for 
      * the medical condition.</p>
+     * 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -227,31 +240,22 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Condition Time Period</p>
+     * <p>Business Name: E:Condition Time Period</p>
      * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
+     * <p>Relationship: 
+     * REPC_MT000007CA.MedicalCondition.effectiveTime</p>
      * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
-     * 
-     * <p>The date on which the condition first began and when it 
-     * ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows providers to evaluate the period of relevance for 
      * the medical condition.</p>
+     * 
+     * <p>The date on which the condition first began and when it 
+     * ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -259,29 +263,23 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Condition Masking Indicator</p>
+     * <p>Business Name: F:Condition Masking Indicator</p>
      * 
-     * <p>Denotes access restriction placed on the medical 
-     * condition record. Methods for accessing masked medical 
-     * condition records will be governed by each jurisdiction 
-     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
-     * default confidentiality level is 'NORMAL'.</p>
+     * <p>Relationship: 
+     * REPC_MT000007CA.MedicalCondition.confidentialityCode</p>
      * 
-     * <p>Denotes access restriction placed on the medical 
-     * condition record. Methods for accessing masked medical 
-     * condition records will be governed by each jurisdiction 
-     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
-     * default confidentiality level is 'NORMAL'.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p>
      * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
+     * <p>Denotes access restriction placed on the medical 
+     * condition record. Methods for accessing masked medical 
+     * condition records will be governed by each jurisdiction 
+     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
+     * default confidentiality level is 'NORMAL'.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -289,29 +287,23 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Condition Masking Indicator</p>
+     * <p>Business Name: F:Condition Masking Indicator</p>
      * 
-     * <p>Denotes access restriction placed on the medical 
-     * condition record. Methods for accessing masked medical 
-     * condition records will be governed by each jurisdiction 
-     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
-     * default confidentiality level is 'NORMAL'.</p>
+     * <p>Relationship: 
+     * REPC_MT000007CA.MedicalCondition.confidentialityCode</p>
      * 
-     * <p>Denotes access restriction placed on the medical 
-     * condition record. Methods for accessing masked medical 
-     * condition records will be governed by each jurisdiction 
-     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
-     * default confidentiality level is 'NORMAL'.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p>
      * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p>
+     * <p>Denotes access restriction placed on the medical 
+     * condition record. Methods for accessing masked medical 
+     * condition records will be governed by each jurisdiction 
+     * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
+     * default confidentiality level is 'NORMAL'.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -319,15 +311,19 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Condition</p>
+     * <p>Business Name: C:Condition</p>
      * 
-     * <p>A code indicating the specific condition. E.g. 
-     * Hypertension, Pregnancy.</p>
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the central piece of information in recording a 
      * condition. However because when using SNOMED the actual 
      * diagnosis will be sent in the 'code' attribute, this element 
      * is optional.</p>
+     * 
+     * <p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p>
      */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getValue() {
@@ -335,15 +331,19 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Condition</p>
+     * <p>Business Name: C:Condition</p>
      * 
-     * <p>A code indicating the specific condition. E.g. 
-     * Hypertension, Pregnancy.</p>
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the central piece of information in recording a 
      * condition. However because when using SNOMED the actual 
      * diagnosis will be sent in the 'code' attribute, this element 
      * is optional.</p>
+     * 
+     * <p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p>
      */
     public void setValue(DiagnosisValue value) {
         this.value.setValue(value);
@@ -360,11 +360,23 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000007CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000007CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -400,11 +412,21 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
@@ -416,11 +438,21 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject6.chronicIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/chronicIndicator"})
     public Boolean getSubjectOf3ChronicIndicator() {
         return this.subjectOf3ChronicIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject6.chronicIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ChronicIndicator(Boolean subjectOf3ChronicIndicator) {
         this.subjectOf3ChronicIndicator.setValue(subjectOf3ChronicIndicator);
     }

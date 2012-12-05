@@ -33,135 +33,128 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Request</p>
+ * <p>Business Name: Request</p>
  * 
  * <p>REPC_MT220003CA.ActRequest: Request</p>
- * 
- * <p> <i>A particular request (referral or specific request) 
- * that resulted in the creation of the Discharge-Care 
- * Summary.</i> </p>
  * 
  * <p> <i>There are several pieces of information about a 
  * request that may influence understanding of the record 
  * including when requested, by whom, why, etc.</i> </p>
+ * 
+ * <p> <i>A particular request (referral or specific request) 
+ * that resulted in the creation of the Discharge-Care 
+ * Summary.</i> </p>
  * 
  * <p>REPC_MT500003CA.ActRequest: Request</p>
  * 
  * <p>Must have at least one of Request Id and Requesting 
- * Provider</p><p>Request Type is mandatory when Request Id is 
- * present</p>
+ * Provider</p>
  * 
- * <p>Must have at least one of Request Id and Requesting 
- * Provider</p><p>Request Type is mandatory when Request Id is 
- * present</p>
- * 
- * <p> <i>A particular request (referral or specific request) 
- * that resulted in the creation of the Care Composition.</i> 
- * </p>
+ * <p>Request Type is mandatory when Request Id is present</p>
  * 
  * <p> <i>There are several pieces of information about a 
  * request that may influence understanding of the record 
  * including when requested, by whom, why, etc.</i> </p>
+ * 
+ * <p> <i>A particular request (referral or specific request) 
+ * that resulted in the creation of the Care Composition.</i> 
+ * </p>
  * 
  * <p>REPC_MT500004CA.ActRequest: Request</p>
  * 
  * <p>Must have at least one of Request Id and Requesting 
- * Provider</p><p>Request Type is mandatory when Request Id is 
- * present</p>
+ * Provider</p>
  * 
- * <p>Must have at least one of Request Id and Requesting 
- * Provider</p><p>Request Type is mandatory when Request Id is 
- * present</p>
- * 
- * <p> <i>A particular request (referral or specific request) 
- * that resulted in the creation of the Care Composition.</i> 
- * </p>
+ * <p>Request Type is mandatory when Request Id is present</p>
  * 
  * <p> <i>There are several pieces of information about a 
  * request that may influence understanding of the record 
  * including when requested, by whom, why, etc.</i> </p>
+ * 
+ * <p> <i>A particular request (referral or specific request) 
+ * that resulted in the creation of the Care Composition.</i> 
+ * </p>
  * 
  * <p>REPC_MT500002CA.ActRequest: Request</p>
  * 
  * <p>Must have at least one of Request Id and Requesting 
- * Provider</p><p>Request Type is mandatory when Request Id is 
- * present</p>
+ * Provider</p>
  * 
- * <p>Must have at least one of Request Id and Requesting 
- * Provider</p><p>Request Type is mandatory when Request Id is 
- * present</p>
+ * <p>Request Type is mandatory when Request Id is present</p>
+ * 
+ * <p> <i>There are several pieces of information about a 
+ * request that may influence understanding of the record 
+ * including when requested, by whom, why, etc.</i> </p>
  * 
  * <p> <i>A particular request (referral or specific request) 
  * that resulted in the creation of the Care Composition.</i> 
  * </p>
  * 
+ * <p>REPC_MT220002CA.ActRequest: Request</p>
+ * 
  * <p> <i>There are several pieces of information about a 
  * request that may influence understanding of the record 
  * including when requested, by whom, why, etc.</i> </p>
- * 
- * <p>REPC_MT220002CA.ActRequest: Request</p>
  * 
  * <p> <i>A particular request (referral or specific request) 
  * that resulted in the creation of the Discharge-Care 
  * Summary.</i> </p>
- * 
- * <p> <i>There are several pieces of information about a 
- * request that may influence understanding of the record 
- * including when requested, by whom, why, etc.</i> </p>
  * 
  * <p>REPC_MT220001CA.ActRequest: Request</p>
  * 
- * <p> <i>A particular request (referral or specific request) 
- * that resulted in the creation of the Discharge-Care 
- * Summary.</i> </p>
- * 
  * <p> <i>There are several pieces of information about a 
  * request that may influence understanding of the record 
  * including when requested, by whom, why, etc.</i> </p>
+ * 
+ * <p> <i>A particular request (referral or specific request) 
+ * that resulted in the creation of the Discharge-Care 
+ * Summary.</i> </p>
  * 
  * <p>REPC_MT500001CA.ActRequest: Request</p>
  * 
  * <p>Must have at least one of Request Id and Requesting 
- * Provider</p><p>Request Type is mandatory when Request Id is 
- * present</p>
+ * Provider</p>
  * 
- * <p>Must have at least one of Request Id and Requesting 
- * Provider</p><p>Request Type is mandatory when Request Id is 
- * present</p>
- * 
- * <p> <i>A particular request (referral or specific request) 
- * that resulted in the creation of the Care Composition.</i> 
- * </p>
+ * <p>Request Type is mandatory when Request Id is present</p>
  * 
  * <p> <i>There are several pieces of information about a 
  * request that may influence understanding of the record 
  * including when requested, by whom, why, etc.</i> </p>
+ * 
+ * <p> <i>A particular request (referral or specific request) 
+ * that resulted in the creation of the Care Composition.</i> 
+ * </p>
  */
 @Hl7PartTypeMapping({"REPC_MT220001CA.ActRequest","REPC_MT220002CA.ActRequest","REPC_MT220003CA.ActRequest","REPC_MT500001CA.ActRequest","REPC_MT500002CA.ActRequest","REPC_MT500003CA.ActRequest","REPC_MT500004CA.ActRequest"})
 public class Request_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private RequestedByBean author;
 
 
     /**
-     * <p>RequestType</p>
+     * <p>Business Name: RequestType</p>
      * 
-     * <p>B: Request Type</p>
+     * <p>Other Business Name: RequestType</p>
      * 
-     * <p> <i>This distinguishes between &quot;referral&quot; 
-     * requests and specific orders.</i> </p>
+     * <p>Relationship: REPC_MT220003CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Needed to know what query to execute to retrieve 
      * details about the request. (I.e. Get Patient Referral vs. 
      * Get Discharge-Care Summary Order.)</i> </p>
      * 
-     * <p>Request Type</p>
-     * 
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Needed to know what query to execute to retrieve 
      * details about the request. (I.e. Get Patient Referral vs. 
@@ -171,6 +164,89 @@ public class Request_1Bean extends MessagePartBean {
      * care is via a referral (PCPR). However, in the future, 
      * specific encounter scheduling messages may be defined. 
      * References to those new types of records would use ENC.</p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Care Composition Order.)</i> </p>
+     * 
+     * <p>In the near term, the only way to request delivery of 
+     * care is via a referral (PCPR). However, in the future, 
+     * specific encounter scheduling messages may be defined. 
+     * References to those new types of records would use ENC.</p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Care Composition Order.)</i> </p>
+     * 
+     * <p>In the near term, the only way to request delivery of 
+     * care is via a referral (PCPR). However, in the future, 
+     * specific encounter scheduling messages may be defined. 
+     * References to those new types of records would use ENC.</p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Discharge-Care Summary Order.)</i> </p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Discharge-Care Summary Order.)</i> </p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Care Composition Order.)</i> </p>
+     * 
+     * <p>In the near term, the only way to request delivery of 
+     * care is via a referral (PCPR). However, in the future, 
+     * specific encounter scheduling messages may be defined. 
+     * References to those new types of records would use ENC.</p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
      */
     @Hl7XmlMapping({"classCode"})
     public x_ActClassCareProvisionEncounter getClassCode() {
@@ -178,21 +254,26 @@ public class Request_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>RequestType</p>
+     * <p>Business Name: RequestType</p>
      * 
-     * <p>B: Request Type</p>
+     * <p>Other Business Name: RequestType</p>
      * 
-     * <p> <i>This distinguishes between &quot;referral&quot; 
-     * requests and specific orders.</i> </p>
+     * <p>Relationship: REPC_MT220003CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Needed to know what query to execute to retrieve 
      * details about the request. (I.e. Get Patient Referral vs. 
      * Get Discharge-Care Summary Order.)</i> </p>
      * 
-     * <p>Request Type</p>
-     * 
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Needed to know what query to execute to retrieve 
      * details about the request. (I.e. Get Patient Referral vs. 
@@ -202,6 +283,89 @@ public class Request_1Bean extends MessagePartBean {
      * care is via a referral (PCPR). However, in the future, 
      * specific encounter scheduling messages may be defined. 
      * References to those new types of records would use ENC.</p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Care Composition Order.)</i> </p>
+     * 
+     * <p>In the near term, the only way to request delivery of 
+     * care is via a referral (PCPR). However, in the future, 
+     * specific encounter scheduling messages may be defined. 
+     * References to those new types of records would use ENC.</p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Care Composition Order.)</i> </p>
+     * 
+     * <p>In the near term, the only way to request delivery of 
+     * care is via a referral (PCPR). However, in the future, 
+     * specific encounter scheduling messages may be defined. 
+     * References to those new types of records would use ENC.</p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Discharge-Care Summary Order.)</i> </p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Discharge-Care Summary Order.)</i> </p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
+     * 
+     * <p>Other Business Name: RequestType</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ActRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Needed to know what query to execute to retrieve 
+     * details about the request. (I.e. Get Patient Referral vs. 
+     * Get Care Composition Order.)</i> </p>
+     * 
+     * <p>In the near term, the only way to request delivery of 
+     * care is via a referral (PCPR). However, in the future, 
+     * specific encounter scheduling messages may be defined. 
+     * References to those new types of records would use ENC.</p>
+     * 
+     * <p> <i>This distinguishes between &quot;referral&quot; 
+     * requests and specific orders.</i> </p>
      */
     public void setClassCode(x_ActClassCareProvisionEncounter classCode) {
         this.classCode.setValue(classCode);
@@ -209,24 +373,34 @@ public class Request_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>RequestId</p>
+     * <p>Business Name: RequestId</p>
      * 
-     * <p>A:Request id</p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
      * 
      * <p> <i>This identifies the specific request record (referral 
      * or order) that this Discharge-Care Summary is fulfilling. 
      * The type of request is identified by the Request Type.</i> 
      * </p>
      * 
-     * <p> <i>Associates a request to its results. Allows querying 
-     * for results associated by a request. Also, authors of 
-     * requests are generally authorized to view associated 
-     * results, even if masked. Result records may also be 
-     * automatically retrieved when retrieving the request 
-     * record.</i> </p><p> <i>This attributes is only 
-     * &quot;required&quot; because in some cases there might not 
-     * be a formal electronic request. However, the requesting 
-     * provider may still be known.</i> </p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Associates a request to its results. Allows querying 
      * for results associated by a request. Also, authors of 
@@ -237,22 +411,16 @@ public class Request_1Bean extends MessagePartBean {
      * &quot;required&quot; because in some cases there might not 
      * be a formal electronic request. However, the requesting 
      * provider may still be known.</i> </p>
-     * 
-     * <p>Request Id</p>
      * 
      * <p> <i>This identifies the specific request record (referral 
      * or order) that this Care Composition is fulfilling. The type 
      * of request is identified by the Request Type.</i> </p>
      * 
-     * <p> <i>Associates a request to its results. Allows querying 
-     * for results associated by a request. Also, authors of 
-     * requests are generally authorized to view associated 
-     * results, even if masked. Result records may also be 
-     * automatically retrieved when retrieving the request 
-     * record.</i> </p><p> <i>This attributes is only 
-     * &quot;required&quot; because in some cases there might not 
-     * be a formal electronic request. However, the requesting 
-     * provider may still be known.</i> </p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Associates a request to its results. Allows querying 
      * for results associated by a request. Also, authors of 
@@ -263,6 +431,92 @@ public class Request_1Bean extends MessagePartBean {
      * &quot;required&quot; because in some cases there might not 
      * be a formal electronic request. However, the requesting 
      * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Care Composition is fulfilling. The type 
+     * of request is identified by the Request Type.</i> </p>
+     * 
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Care Composition is fulfilling. The type 
+     * of request is identified by the Request Type.</i> </p>
+     * 
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Discharge-Care Summary is fulfilling. 
+     * The type of request is identified by the Request Type.</i> 
+     * </p>
+     * 
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Discharge-Care Summary is fulfilling. 
+     * The type of request is identified by the Request Type.</i> 
+     * </p>
+     * 
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Care Composition is fulfilling. The type 
+     * of request is identified by the Request Type.</i> </p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -270,24 +524,34 @@ public class Request_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>RequestId</p>
+     * <p>Business Name: RequestId</p>
      * 
-     * <p>A:Request id</p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
      * 
      * <p> <i>This identifies the specific request record (referral 
      * or order) that this Discharge-Care Summary is fulfilling. 
      * The type of request is identified by the Request Type.</i> 
      * </p>
      * 
-     * <p> <i>Associates a request to its results. Allows querying 
-     * for results associated by a request. Also, authors of 
-     * requests are generally authorized to view associated 
-     * results, even if masked. Result records may also be 
-     * automatically retrieved when retrieving the request 
-     * record.</i> </p><p> <i>This attributes is only 
-     * &quot;required&quot; because in some cases there might not 
-     * be a formal electronic request. However, the requesting 
-     * provider may still be known.</i> </p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Associates a request to its results. Allows querying 
      * for results associated by a request. Also, authors of 
@@ -298,22 +562,16 @@ public class Request_1Bean extends MessagePartBean {
      * &quot;required&quot; because in some cases there might not 
      * be a formal electronic request. However, the requesting 
      * provider may still be known.</i> </p>
-     * 
-     * <p>Request Id</p>
      * 
      * <p> <i>This identifies the specific request record (referral 
      * or order) that this Care Composition is fulfilling. The type 
      * of request is identified by the Request Type.</i> </p>
      * 
-     * <p> <i>Associates a request to its results. Allows querying 
-     * for results associated by a request. Also, authors of 
-     * requests are generally authorized to view associated 
-     * results, even if masked. Result records may also be 
-     * automatically retrieved when retrieving the request 
-     * record.</i> </p><p> <i>This attributes is only 
-     * &quot;required&quot; because in some cases there might not 
-     * be a formal electronic request. However, the requesting 
-     * provider may still be known.</i> </p>
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Associates a request to its results. Allows querying 
      * for results associated by a request. Also, authors of 
@@ -324,17 +582,189 @@ public class Request_1Bean extends MessagePartBean {
      * &quot;required&quot; because in some cases there might not 
      * be a formal electronic request. However, the requesting 
      * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Care Composition is fulfilling. The type 
+     * of request is identified by the Request Type.</i> </p>
+     * 
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Care Composition is fulfilling. The type 
+     * of request is identified by the Request Type.</i> </p>
+     * 
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Discharge-Care Summary is fulfilling. 
+     * The type of request is identified by the Request Type.</i> 
+     * </p>
+     * 
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Discharge-Care Summary is fulfilling. 
+     * The type of request is identified by the Request Type.</i> 
+     * </p>
+     * 
+     * <p>Other Business Name: RequestId</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Associates a request to its results. Allows querying 
+     * for results associated by a request. Also, authors of 
+     * requests are generally authorized to view associated 
+     * results, even if masked. Result records may also be 
+     * automatically retrieved when retrieving the request 
+     * record.</i> </p><p> <i>This attributes is only 
+     * &quot;required&quot; because in some cases there might not 
+     * be a formal electronic request. However, the requesting 
+     * provider may still be known.</i> </p>
+     * 
+     * <p> <i>This identifies the specific request record (referral 
+     * or order) that this Care Composition is fulfilling. The type 
+     * of request is identified by the Request Type.</i> </p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RequestedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor(RequestedByBean author) {
         this.author = author;
     }

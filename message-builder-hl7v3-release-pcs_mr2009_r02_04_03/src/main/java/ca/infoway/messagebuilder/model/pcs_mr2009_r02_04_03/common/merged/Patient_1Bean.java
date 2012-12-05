@@ -47,35 +47,35 @@ import java.util.Set;
 
 
 /**
- * <p>Patient</p>
+ * <p>Business Name: Patient</p>
  * 
  * <p>COCT_MT050201CA.Patient: Patient</p>
- * 
- * <p>A person who is receiving or may receive healthcare 
- * services and has had their identity previously confirmed</p>
  * 
  * <p>Used when patienty identity confirmation is handled as a 
  * distinct business process rather than as part of each 
  * transaction. Allows transactions to be linked to a specific 
  * patient.</p>
  * 
- * <p>COCT_MT050007CA.Patient: Patient</p>
- * 
  * <p>A person who is receiving or may receive healthcare 
- * services and has personal attributes (e.g. name, birth 
- * date).</p>
+ * services and has had their identity previously confirmed</p>
+ * 
+ * <p>COCT_MT050007CA.Patient: Patient</p>
  * 
  * <p>Information used to identify the patient and to support 
  * clinical decisions. This information applies to the person 
  * in the context of the associated action only, and should be 
  * stored separately. I.e. the address/phone/email only apply 
  * to the current prescription/dispense/lab order etc.</p>
+ * 
+ * <p>A person who is receiving or may receive healthcare 
+ * services and has personal attributes (e.g. name, birth 
+ * date).</p>
  */
 @Hl7PartTypeMapping({"COCT_MT050007CA.Patient","COCT_MT050201CA.Patient"})
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Patient {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -85,132 +85,43 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
 
 
     /**
-     * <p>PatientIdentifier</p>
+     * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>A:Patient Identifier</p>
+     * <p>Other Business Name: PatientIdentifier</p>
      * 
-     * <p>Unique identifier issued as part of the patient identity 
-     * verification process.</p>
+     * <p>Relationship: COCT_MT050201CA.Patient.id</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1-3)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>C39 (Extension)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PTT.050.01 (Extension)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PTT.050.02 (Root)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>A.1</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PID.2</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Patient.332-CY (Extension)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Patient.331-CX (Root)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Claim.330-CW</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Health Card Number</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PID.2</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>PID.4</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>ZDU.2</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>ZKW.3</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Jurisdiction (Root)</p>
+     * 
+     * <p>Person.PHN (Extension)</p>
      * 
      * <p>Allows a patient to be referred to unambiguously. Because 
      * this is the principal mechanism for identifying patients to 
@@ -220,7 +131,14 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
      * jurisdictional identifier along with the national 
      * identifier.</p>
      * 
-     * <p>A:Patient Identifier</p>
+     * <p>Unique identifier issued as part of the patient identity 
+     * verification process.</p>
+     * 
+     * <p>Other Business Name: PatientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.Patient.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-3)</p>
      * 
      * <p>The cardinality of patient identifiers is up to 3 based 
      * on the use case to support communication of a local and 
@@ -234,9 +152,13 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
 
 
     /**
-     * <p>PatientAddress</p>
+     * <p>Business Name: PatientAddress</p>
      * 
-     * <p>E:Patient Address</p>
+     * <p>Other Business Name: PatientAddress</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.Patient.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -244,9 +166,13 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
     /**
-     * <p>PatientAddress</p>
+     * <p>Business Name: PatientAddress</p>
      * 
-     * <p>E:Patient Address</p>
+     * <p>Other Business Name: PatientAddress</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.Patient.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
@@ -254,9 +180,13 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
 
 
     /**
-     * <p>PatientContactPhoneAndEMails</p>
+     * <p>Business Name: PatientContactPhoneAndEMails</p>
      * 
-     * <p>F:Patient Contact Phone and E-Mails</p>
+     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.Patient.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -265,9 +195,13 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
 
 
     /**
-     * <p>PatientHealthCardVersionCode</p>
+     * <p>Business Name: PatientHealthCardVersionCode</p>
      * 
-     * <p>L:Patient Health Card Version Code</p>
+     * <p>Other Business Name: PatientHealthCardVersionCode</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.Patient.certificateText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"certificateText"})
     public String getCertificateText() {
@@ -275,30 +209,64 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
     /**
-     * <p>PatientHealthCardVersionCode</p>
+     * <p>Business Name: PatientHealthCardVersionCode</p>
      * 
-     * <p>L:Patient Health Card Version Code</p>
+     * <p>Other Business Name: PatientHealthCardVersionCode</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.Patient.certificateText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setCertificateText(String certificateText) {
         this.certificateText.setValue(certificateText);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.Patient.patientPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"patientPerson"})
     public ActingPersonBean getPatientPerson() {
         return this.patientPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT050007CA.Patient.patientPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPatientPerson(ActingPersonBean patientPerson) {
         this.patientPerson = patientPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050007CA.Subject.identifyingCharacteristicsObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/identifyingCharacteristicsObservationEvent"})
     public PatientIdentifyingCharacteristicsBean getSubjectOfIdentifyingCharacteristicsObservationEvent() {
         return this.subjectOfIdentifyingCharacteristicsObservationEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050007CA.Subject.identifyingCharacteristicsObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfIdentifyingCharacteristicsObservationEvent(PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent) {
         this.subjectOfIdentifyingCharacteristicsObservationEvent = subjectOfIdentifyingCharacteristicsObservationEvent;
     }

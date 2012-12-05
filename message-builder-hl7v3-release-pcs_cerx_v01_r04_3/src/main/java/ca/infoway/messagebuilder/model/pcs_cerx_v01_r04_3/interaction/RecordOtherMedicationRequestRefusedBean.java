@@ -28,7 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 
 
 /**
- * <p>PORX_IN040040CA: Record other medication request refused</p>
+ * <p>Business Name: PORX_IN040040CA: Record other medication 
+ * request refused</p>
+ * 
+ * <p>Indicates that the request to add the medication has been 
+ * denied.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -37,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 @Hl7PartTypeMapping({"PORX_IN040040CA"})
 public class RecordOtherMedicationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

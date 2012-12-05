@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.Profession
 
 
 /**
- * <p>REPC_IN000044CA: Record pharmacy prof. service request</p>
+ * <p>Business Name: REPC_IN000044CA: Record pharmacy prof. 
+ * service request</p>
+ * 
+ * <p>Seeks to add a record of a professional service 
+ * (training, counseling, medication reviews, etc.) which has 
+ * been delivered to a patient.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.Profession
 @Hl7PartTypeMapping({"REPC_IN000044CA"})
 public class RecordPharmacyProfServiceRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ProfessionalServiceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

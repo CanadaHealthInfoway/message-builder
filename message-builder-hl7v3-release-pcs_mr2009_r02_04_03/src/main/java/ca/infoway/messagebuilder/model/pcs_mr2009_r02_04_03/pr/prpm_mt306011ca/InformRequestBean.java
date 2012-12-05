@@ -35,21 +35,21 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.merged.ServiceDel
 
 
 /**
- * <p>Inform Request</p>
- * 
- * <p>Class communicates request for routing of information to 
- * a provider or service delivery location provider.</p>
+ * <p>Business Name: Inform Request</p>
  * 
  * <p>The use case for including this class is for requesting 
  * routing of health information where the code equals the 
  * information type. Examples include ECG results, DI - 
  * Diagnostic Image interpretation reports, Lab Test Results 
  * Transcripts</p>
+ * 
+ * <p>Class communicates request for routing of information to 
+ * a provider or service delivery location provider.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private CE subjectModeCode = new CEImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
@@ -57,14 +57,18 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Inform Request Code</p>
+     * <p>Business Name: Inform Request Code</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated - Allows providers to request that specific 
+     * document(s) be routed from an SDL to them.</p>
      * 
      * <p>A coded value denoting a specific document type that a 
      * provider expresses to have routed to them from the Service 
      * Delivery Location to which they are associated.</p>
-     * 
-     * <p>Populated - Allows providers to request that specific 
-     * document(s) be routed from an SDL to them.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInformRequestType getCode() {
@@ -72,14 +76,18 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Inform Request Code</p>
+     * <p>Business Name: Inform Request Code</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated - Allows providers to request that specific 
+     * document(s) be routed from an SDL to them.</p>
      * 
      * <p>A coded value denoting a specific document type that a 
      * provider expresses to have routed to them from the Service 
      * Delivery Location to which they are associated.</p>
-     * 
-     * <p>Populated - Allows providers to request that specific 
-     * document(s) be routed from an SDL to them.</p>
      */
     public void setCode(ActInformRequestType code) {
         this.code.setValue(code);
@@ -87,7 +95,12 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Service Delivery Location Participation Mode</p>
+     * <p>Business Name: Service Delivery Location Participation 
+     * Mode</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code specifying the modality by which the Entity 
      * playing the Role is participating in the Act.</p>
@@ -98,7 +111,12 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Service Delivery Location Participation Mode</p>
+     * <p>Business Name: Service Delivery Location Participation 
+     * Mode</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code specifying the modality by which the Entity 
      * playing the Role is participating in the Act.</p>
@@ -127,11 +145,11 @@ public class InformRequestBean extends MessagePartBean {
         this.indirectTargetChoice = indirectTargetChoice;
     }
 
-    public RoleChoice getIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return this.indirectTargetChoice instanceof RoleChoice ? (RoleChoice) this.indirectTargetChoice : null;
+    public ServiceDeliveryLocationBean getIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return this.indirectTargetChoice instanceof ServiceDeliveryLocationBean ? (ServiceDeliveryLocationBean) this.indirectTargetChoice : null;
     }
     public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return (this.indirectTargetChoice instanceof RoleChoice);
+        return (this.indirectTargetChoice instanceof ServiceDeliveryLocationBean);
     }
 
     public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {

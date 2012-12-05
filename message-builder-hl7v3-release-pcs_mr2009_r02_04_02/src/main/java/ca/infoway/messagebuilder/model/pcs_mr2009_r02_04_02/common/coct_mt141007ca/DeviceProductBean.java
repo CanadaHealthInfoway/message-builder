@@ -35,22 +35,22 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.MedicalD
 
 
 /**
- * <p>Device Product</p>
- * 
- * <p>A medical device product intended to be supplied and/or 
- * used by a patient. Encompasses supplies, aids, etc.</p>
+ * <p>Business Name: Device Product</p>
  * 
  * <p>A_BillablePharmacyDispense</p>
  * 
  * <p>Allows devices to be clearly described and referenced. 
  * Also allows searching for and examining information about 
  * devices that can be or are being used by a patient.</p>
+ * 
+ * <p>A medical device product intended to be supplied and/or 
+ * used by a patient. Encompasses supplies, aids, etc.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT141007CA.ManufacturedProduct"})
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV manufacturedClinicalDeviceCode = new CVImpl();
     private ST manufacturedClinicalDeviceName = new STImpl();
     private ST manufacturedClinicalDeviceDesc = new STImpl();
@@ -58,15 +58,19 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Device Code</p>
+     * <p>Business Name: A:Device Code</p>
      * 
-     * <p>An identifier for a type of device.</p>
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to ensure clear communication by uniquely 
      * identifying a particular device product when prescribing or 
      * dispensing. This attribute is only marked as 'populated' 
      * because some devices will not have codes associated with 
      * them.</p>
+     * 
+     * <p>An identifier for a type of device.</p>
      */
     @Hl7XmlMapping({"manufacturedClinicalDevice/code"})
     public MedicalDeviceType getManufacturedClinicalDeviceCode() {
@@ -74,15 +78,19 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Device Code</p>
+     * <p>Business Name: A:Device Code</p>
      * 
-     * <p>An identifier for a type of device.</p>
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Used to ensure clear communication by uniquely 
      * identifying a particular device product when prescribing or 
      * dispensing. This attribute is only marked as 'populated' 
      * because some devices will not have codes associated with 
      * them.</p>
+     * 
+     * <p>An identifier for a type of device.</p>
      */
     public void setManufacturedClinicalDeviceCode(MedicalDeviceType manufacturedClinicalDeviceCode) {
         this.manufacturedClinicalDeviceCode.setValue(manufacturedClinicalDeviceCode);
@@ -90,9 +98,11 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Device Name</p>
+     * <p>Business Name: B:Device Name</p>
      * 
-     * <p>The name assigned to a type of device.</p>
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Names are used for human reference communication, to 
      * allow selection from dropdowns and for local searching. If a 
@@ -101,6 +111,8 @@ public class DeviceProductBean extends MessagePartBean {
      * identifier. The attribute is therefore mandatory.</p>
      * 
      * <p>First occurrence is preferred for display.</p>
+     * 
+     * <p>The name assigned to a type of device.</p>
      */
     @Hl7XmlMapping({"manufacturedClinicalDevice/name"})
     public String getManufacturedClinicalDeviceName() {
@@ -108,9 +120,11 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Device Name</p>
+     * <p>Business Name: B:Device Name</p>
      * 
-     * <p>The name assigned to a type of device.</p>
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Names are used for human reference communication, to 
      * allow selection from dropdowns and for local searching. If a 
@@ -119,6 +133,8 @@ public class DeviceProductBean extends MessagePartBean {
      * identifier. The attribute is therefore mandatory.</p>
      * 
      * <p>First occurrence is preferred for display.</p>
+     * 
+     * <p>The name assigned to a type of device.</p>
      */
     public void setManufacturedClinicalDeviceName(String manufacturedClinicalDeviceName) {
         this.manufacturedClinicalDeviceName.setValue(manufacturedClinicalDeviceName);
@@ -126,15 +142,19 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Device Description</p>
+     * <p>Business Name: C:Device Description</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows description of characteristics of the device not 
+     * necessarily conveyed by the code or name.</p>
      * 
      * <p>A free form textual description of a device and its 
      * characteristics (e.g. size, shape, etc.). This is used when 
      * additional information must be conveyed that is not apparent 
      * by just specifying code and name.</p>
-     * 
-     * <p>Allows description of characteristics of the device not 
-     * necessarily conveyed by the code or name.</p>
      */
     @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
     public String getManufacturedClinicalDeviceDesc() {
@@ -142,15 +162,19 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Device Description</p>
+     * <p>Business Name: C:Device Description</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows description of characteristics of the device not 
+     * necessarily conveyed by the code or name.</p>
      * 
      * <p>A free form textual description of a device and its 
      * characteristics (e.g. size, shape, etc.). This is used when 
      * additional information must be conveyed that is not apparent 
      * by just specifying code and name.</p>
-     * 
-     * <p>Allows description of characteristics of the device not 
-     * necessarily conveyed by the code or name.</p>
      */
     public void setManufacturedClinicalDeviceDesc(String manufacturedClinicalDeviceDesc) {
         this.manufacturedClinicalDeviceDesc.setValue(manufacturedClinicalDeviceDesc);
@@ -158,22 +182,20 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Device Package Quantity</p>
+     * <p>Business Name: F:Device Package Quantity</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p><p>Attribute is marked 
+     * as &quot;mandatory&quot; to ensure that quantity in a 
+     * package is always known.</p>
      * 
      * <p>The quantity of devices contained in the package given or 
      * to be given to the patient.</p>
-     * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p><p>Attribute is marked 
-     * as &quot;mandatory&quot; to ensure that quantity in a 
-     * package is always known.</p>
-     * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p><p>Attribute is marked 
-     * as &quot;mandatory&quot; to ensure that quantity in a 
-     * package is always known.</p>
      */
     @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
     public Integer getManufacturedClinicalDeviceAsContentQuantity() {
@@ -181,22 +203,20 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Device Package Quantity</p>
+     * <p>Business Name: F:Device Package Quantity</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p><p>Attribute is marked 
+     * as &quot;mandatory&quot; to ensure that quantity in a 
+     * package is always known.</p>
      * 
      * <p>The quantity of devices contained in the package given or 
      * to be given to the patient.</p>
-     * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p><p>Attribute is marked 
-     * as &quot;mandatory&quot; to ensure that quantity in a 
-     * package is always known.</p>
-     * 
-     * <p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p><p>Attribute is marked 
-     * as &quot;mandatory&quot; to ensure that quantity in a 
-     * package is always known.</p>
      */
     public void setManufacturedClinicalDeviceAsContentQuantity(Integer manufacturedClinicalDeviceAsContentQuantity) {
         this.manufacturedClinicalDeviceAsContentQuantity.setValue(manufacturedClinicalDeviceAsContentQuantity);

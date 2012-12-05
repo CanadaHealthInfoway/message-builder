@@ -45,7 +45,7 @@ import java.util.List;
 
 
 /**
- * <p>AdjudicatedInvoiceElementGroup</p>
+ * <p>Business Name: AdjudicatedInvoiceElementGroup</p>
  * 
  * <p>FICR_MT630000CA.AdjudicatedInvoiceElementGroup: 
  * Adjudicated Invoice Element Group</p>
@@ -57,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -72,15 +72,20 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>AdjudicationResultId</p>
+     * <p>Business Name: AdjudicationResultId</p>
      * 
-     * <p>Adjudication Result Id</p>
+     * <p>Other Business Name: AdjudicationResultId</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>May include data centre and sequence numbers</p>
      * 
      * <p>Adjudication Result Id - Technique to identify that the 
      * EOB was not electronic (manual) is through the participation 
      * mode code for the adjudicator.</p>
-     * 
-     * <p>May include data centre and sequence numbers</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -88,15 +93,20 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>AdjudicationResultId</p>
+     * <p>Business Name: AdjudicationResultId</p>
      * 
-     * <p>Adjudication Result Id</p>
+     * <p>Other Business Name: AdjudicationResultId</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>May include data centre and sequence numbers</p>
      * 
      * <p>Adjudication Result Id - Technique to identify that the 
      * EOB was not electronic (manual) is through the participation 
      * mode code for the adjudicator.</p>
-     * 
-     * <p>May include data centre and sequence numbers</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -104,48 +114,31 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Invoice Type</p>
+     * <p>Other Business Name: InvoiceType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
+     * different from submitted invoice. This would be a cause for 
+     * rejecting the invoice.</p><p>For Adjudication Results: code 
+     * must match to the corresponding invoice element that was 
+     * submitted.</p><p>For Invoice Nullify Results: this is the 
+     * identifier of the EOB that was previously messaged to the 
+     * Provider.</p><p>Modifiers for the codes are taken from the 
+     * same domain (i.e ActInvoiceGroupCode).</p>
      * 
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound</p>
      * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
+     * <p>Other Business Name: InvoiceElementGroupCode</p>
      * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.code</p>
      * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>Invoice element group Code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>(Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
@@ -156,48 +149,31 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Invoice Type</p>
+     * <p>Other Business Name: InvoiceType</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
+     * different from submitted invoice. This would be a cause for 
+     * rejecting the invoice.</p><p>For Adjudication Results: code 
+     * must match to the corresponding invoice element that was 
+     * submitted.</p><p>For Invoice Nullify Results: this is the 
+     * identifier of the EOB that was previously messaged to the 
+     * Provider.</p><p>Modifiers for the codes are taken from the 
+     * same domain (i.e ActInvoiceGroupCode).</p>
      * 
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound</p>
      * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
+     * <p>Other Business Name: InvoiceElementGroupCode</p>
      * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.code</p>
      * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>For Invoice (COB) : Invoice type (for root) cannot be 
-     * different from submitted invoice. This would be a cause for 
-     * rejecting the invoice.</p><p>For Adjudication Results: code 
-     * must match to the corresponding invoice element that was 
-     * submitted.</p><p>For Invoice Nullify Results: this is the 
-     * identifier of the EOB that was previously messaged to the 
-     * Provider.</p><p>Modifiers for the codes are taken from the 
-     * same domain (i.e ActInvoiceGroupCode).</p>
-     * 
-     * <p>Invoice element group Code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>(Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
@@ -208,104 +184,46 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>InvoiceStatusCode</p>
+     * <p>Business Name: InvoiceStatusCode</p>
      * 
-     * <p>Invoice Status Code</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>(Completed when done, Suspended if waiting for external 
-     * )(information, Active if delayed by Adjudicator or the EOB 
-     * is an estimate</p>
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Active EOBs are used to convey interim or preliminary 
+     * adjudication results. They can also be used, with 
+     * information codes, to indicate that the invoice grouping is 
+     * held for manual review by the adjudicator, waiting for other 
+     * third party information (e.g. from another provider, 
+     * employer, etc.).</p><p>Suspended EOBs are used to convey 
+     * adjudication results that are awaiting additional 
+     * information from the submitting Provider.</p><p>Complete 
+     * EOBs are used to convey final adjudication results, with an 
+     * associated intent to pay.</p><p>For Invoice (COB): Status 
+     * code must be complete in order for EOB to be sent to 
+     * downstream Adjudicators. If a Provider receives a 
+     * non-complete EOB, this cannot be forwarded to a downstream 
+     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
+     * not included in Payment Advice Detail messages (only 
+     * completed EOBs can be included in a Payment Advice).</p>
      * 
      * <p>Invoice Status - Completed when done, Suspended if 
      * waiting for external information, Active if delayed by 
      * Adjudicator</p>
      * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
+     * <p>Other Business Name: InvoiceStatusCode</p>
      * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
      * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
-     * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
+     * <p>(Completed when done, Suspended if waiting for external 
+     * )(information, Active if delayed by Adjudicator or the EOB 
+     * is an estimate</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -313,104 +231,46 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>InvoiceStatusCode</p>
+     * <p>Business Name: InvoiceStatusCode</p>
      * 
-     * <p>Invoice Status Code</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>(Completed when done, Suspended if waiting for external 
-     * )(information, Active if delayed by Adjudicator or the EOB 
-     * is an estimate</p>
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Active EOBs are used to convey interim or preliminary 
+     * adjudication results. They can also be used, with 
+     * information codes, to indicate that the invoice grouping is 
+     * held for manual review by the adjudicator, waiting for other 
+     * third party information (e.g. from another provider, 
+     * employer, etc.).</p><p>Suspended EOBs are used to convey 
+     * adjudication results that are awaiting additional 
+     * information from the submitting Provider.</p><p>Complete 
+     * EOBs are used to convey final adjudication results, with an 
+     * associated intent to pay.</p><p>For Invoice (COB): Status 
+     * code must be complete in order for EOB to be sent to 
+     * downstream Adjudicators. If a Provider receives a 
+     * non-complete EOB, this cannot be forwarded to a downstream 
+     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
+     * not included in Payment Advice Detail messages (only 
+     * completed EOBs can be included in a Payment Advice).</p>
      * 
      * <p>Invoice Status - Completed when done, Suspended if 
      * waiting for external information, Active if delayed by 
      * Adjudicator</p>
      * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
+     * <p>Other Business Name: InvoiceStatusCode</p>
      * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
      * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
-     * 
-     * <p>Active EOBs are used to convey interim or preliminary 
-     * adjudication results. They can also be used, with 
-     * information codes, to indicate that the invoice grouping is 
-     * held for manual review by the adjudicator, waiting for other 
-     * third party information (e.g. from another provider, 
-     * employer, etc.).</p><p>Suspended EOBs are used to convey 
-     * adjudication results that are awaiting additional 
-     * information from the submitting Provider.</p><p>Complete 
-     * EOBs are used to convey final adjudication results, with an 
-     * associated intent to pay.</p><p>For Invoice (COB): Status 
-     * code must be complete in order for EOB to be sent to 
-     * downstream Adjudicators. If a Provider receives a 
-     * non-complete EOB, this cannot be forwarded to a downstream 
-     * Adjudicator.</p><p>Field cannot be made mandatory, as it is 
-     * not included in Payment Advice Detail messages (only 
-     * completed EOBs can be included in a Payment Advice).</p>
+     * <p>(Completed when done, Suspended if waiting for external 
+     * )(information, Active if delayed by Adjudicator or the EOB 
+     * is an estimate</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -418,19 +278,29 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Invoice Element amount billed</p>
+     * <p>Other Business Name: PaidAmount</p>
      * 
-     * <p>Identifies the total monetary amount billed for the 
-     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
-     * points_nbr. E.g. $150 CAD</p>
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
      * 
-     * <p>Paid Amount</p>
-     * 
-     * <p>Paid Amount</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For Coverage Extension Results, this is typically not 
      * specified, as dollar limits are noted as information 
      * codes</p>
+     * 
+     * <p>Paid Amount</p>
+     * 
+     * <p>Other Business Name: InvoiceElementAmountBilled</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the total monetary amount billed for the 
+     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
+     * points_nbr. E.g. $150 CAD</p>
      */
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -438,81 +308,187 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Invoice Element amount billed</p>
+     * <p>Other Business Name: PaidAmount</p>
      * 
-     * <p>Identifies the total monetary amount billed for the 
-     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
-     * points_nbr. E.g. $150 CAD</p>
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
      * 
-     * <p>Paid Amount</p>
-     * 
-     * <p>Paid Amount</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>For Coverage Extension Results, this is typically not 
      * specified, as dollar limits are noted as information 
      * codes</p>
+     * 
+     * <p>Paid Amount</p>
+     * 
+     * <p>Other Business Name: InvoiceElementAmountBilled</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the total monetary amount billed for the 
+     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
+     * points_nbr. E.g. $150 CAD</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.PaymentIntentReason.paymentIntent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reason/paymentIntent"})
     public PaymentIntentBean getReasonPaymentIntent() {
         return this.reasonPaymentIntent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.PaymentIntentReason.paymentIntent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReasonPaymentIntent(PaymentIntentBean reasonPaymentIntent) {
         this.reasonPaymentIntent = reasonPaymentIntent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.Reference.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.Reference.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReferenceAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
         this.referenceAdjudicatedInvoiceElementGroup = referenceAdjudicatedInvoiceElementGroup;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsRef.adjudResultsGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
     public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
         return this.referencedByAdjudResultsGroup;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT630000CA.AdjudResultsRef.adjudResultsGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
         this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"outcomeOf"})
     public AdjudicatedResultOutcomeBean getOutcomeOf() {
         return this.outcomeOf;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
         this.outcomeOf = outcomeOf;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public AdjudicatedInvoiceAuthorBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     */
     @Hl7XmlMapping({"coverage"})
     public List<AdjudicatedInvoiceCoverageBean> getCoverage() {
         return this.coverage;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementComponent.adjudicatedInvoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
     public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
         return this.componentAdjudicatedInvoiceElementChoice;

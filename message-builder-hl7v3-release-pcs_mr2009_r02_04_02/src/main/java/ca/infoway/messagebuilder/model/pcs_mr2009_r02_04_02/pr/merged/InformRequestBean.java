@@ -33,34 +33,34 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDelive
 
 
 /**
- * <p>InformRequest</p>
+ * <p>Business Name: InformRequest</p>
  * 
  * <p>PRPM_MT301010CA.InformRequest: Inform Request</p>
+ * 
+ * <p>The use case for including this class is for requesting 
+ * routing of health information where the code equals the 
+ * information type. Examples include ECG results, DI - 
+ * Diagnostic Image interpretation reports, Lab Test Results 
+ * Transcripts</p>
  * 
  * <p>Class communicates request for routing of information to 
  * a provider or service delivery location.</p>
  * 
+ * <p>PRPM_MT303010CA.InformRequest: Inform Request</p>
+ * 
  * <p>The use case for including this class is for requesting 
  * routing of health information where the code equals the 
  * information type. Examples include ECG results, DI - 
  * Diagnostic Image interpretation reports, Lab Test Results 
  * Transcripts</p>
- * 
- * <p>PRPM_MT303010CA.InformRequest: Inform Request</p>
  * 
  * <p>Class communicates request for routing of information to 
  * a provider or service delivery location provider.</p>
- * 
- * <p>The use case for including this class is for requesting 
- * routing of health information where the code equals the 
- * information type. Examples include ECG results, DI - 
- * Diagnostic Image interpretation reports, Lab Test Results 
- * Transcripts</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT301010CA.InformRequest","PRPM_MT303010CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV subjectModeCode = new CVImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
@@ -68,16 +68,33 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>InformRequestCode</p>
+     * <p>Business Name: InformRequestCode</p>
      * 
-     * <p>Inform Request Code</p>
+     * <p>Other Business Name: InformRequestCode</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated - Allows providers to request that specific 
+     * document(s) be routed from an SDL to them.</p>
      * 
      * <p>A coded value denoting a specific document type that a 
      * provider expresses to have routed to them from the Service 
      * Delivery Location to which they are associated.</p>
      * 
+     * <p>Other Business Name: InformRequestCode</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Populated - Allows providers to request that specific 
      * document(s) be routed from an SDL to them.</p>
+     * 
+     * <p>A coded value denoting a specific document type that a 
+     * provider expresses to have routed to them from the Service 
+     * Delivery Location to which they are associated.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInformRequestType getCode() {
@@ -85,16 +102,33 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>InformRequestCode</p>
+     * <p>Business Name: InformRequestCode</p>
      * 
-     * <p>Inform Request Code</p>
+     * <p>Other Business Name: InformRequestCode</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Populated - Allows providers to request that specific 
+     * document(s) be routed from an SDL to them.</p>
      * 
      * <p>A coded value denoting a specific document type that a 
      * provider expresses to have routed to them from the Service 
      * Delivery Location to which they are associated.</p>
      * 
+     * <p>Other Business Name: InformRequestCode</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Populated - Allows providers to request that specific 
      * document(s) be routed from an SDL to them.</p>
+     * 
+     * <p>A coded value denoting a specific document type that a 
+     * provider expresses to have routed to them from the Service 
+     * Delivery Location to which they are associated.</p>
      */
     public void setCode(ActInformRequestType code) {
         this.code.setValue(code);
@@ -102,19 +136,29 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>ServiceDeliveryLocationParticipationMode</p>
+     * <p>Business Name: ServiceDeliveryLocationParticipationMode</p>
      * 
-     * <p>Service Delivery Location Participation Mode</p>
+     * <p>Other Business Name: 
+     * ServiceDeliveryLocationParticipationMode</p>
      * 
-     * <p>A code specifying the modality by which the Entity 
-     * playing the Role is participating in the Act.</p>
+     * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
      * 
-     * <p>Service Delivery Location Participation Mode</p>
-     * 
-     * <p>A code specifying the modality by which the Entity 
-     * playing the Role is participating in the Act.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated</p>
+     * 
+     * <p>A code specifying the modality by which the Entity 
+     * playing the Role is participating in the Act.</p>
+     * 
+     * <p>Other Business Name: 
+     * ServiceDeliveryLocationParticipationMode</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A code specifying the modality by which the Entity 
+     * playing the Role is participating in the Act.</p>
      */
     @Hl7XmlMapping({"subject/modeCode"})
     public ParticipationMode getSubjectModeCode() {
@@ -122,40 +166,106 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>ServiceDeliveryLocationParticipationMode</p>
+     * <p>Business Name: ServiceDeliveryLocationParticipationMode</p>
      * 
-     * <p>Service Delivery Location Participation Mode</p>
+     * <p>Other Business Name: 
+     * ServiceDeliveryLocationParticipationMode</p>
      * 
-     * <p>A code specifying the modality by which the Entity 
-     * playing the Role is participating in the Act.</p>
+     * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
      * 
-     * <p>Service Delivery Location Participation Mode</p>
-     * 
-     * <p>A code specifying the modality by which the Entity 
-     * playing the Role is participating in the Act.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated</p>
+     * 
+     * <p>A code specifying the modality by which the Entity 
+     * playing the Role is participating in the Act.</p>
+     * 
+     * <p>Other Business Name: 
+     * ServiceDeliveryLocationParticipationMode</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A code specifying the modality by which the Entity 
+     * playing the Role is participating in the Act.</p>
      */
     public void setSubjectModeCode(ParticipationMode subjectModeCode) {
         this.subjectModeCode.setValue(subjectModeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
     public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"indirectTarget/choice"})
     public Choice getIndirectTargetChoice() {
         return this.indirectTargetChoice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setIndirectTargetChoice(Choice indirectTargetChoice) {
         this.indirectTargetChoice = indirectTargetChoice;
     }

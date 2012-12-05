@@ -30,52 +30,62 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>AmendmentSummary</p>
+ * <p>Business Name: AmendmentSummary</p>
  * 
  * <p>REPC_MT500004CA.ControlActEvent: Amendment Summary</p>
  * 
+ * <p> <i>Provides context information about the record.</i> 
+ * </p>
+ * 
  * <p> <i>Identifies information about the most recent change 
  * to the Care Composition including when it was made, by whom 
  * and why.</i> </p>
- * 
- * <p> <i>Provides context information about the record.</i> 
- * </p>
  * 
  * <p>REPC_MT500003CA.ControlActEvent: Amendment Summary</p>
  * 
+ * <p> <i>Provides context information about the record.</i> 
+ * </p>
+ * 
  * <p> <i>Identifies information about the most recent change 
  * to the Care Composition including when it was made, by whom 
  * and why.</i> </p>
- * 
- * <p> <i>Provides context information about the record.</i> 
- * </p>
  */
 @Hl7PartTypeMapping({"REPC_MT500003CA.ControlActEvent","REPC_MT500004CA.ControlActEvent"})
 public class ControlActEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV reasonCode = new CVImpl();
     private RequestedByBean author;
 
 
     /**
-     * <p>AmendReason</p>
+     * <p>Business Name: AmendReason</p>
      * 
-     * <p>Amend Reason</p>
+     * <p>Other Business Name: AmendReason</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Understanding the reason for the most recent 
+     * amendment provides context for the current state of the 
+     * record.</i> </p><p> <i> <i>The element uses CWE to allow for 
+     * the capture of Amend Reason concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </i> </p>
      * 
      * <p> <i>This indicates the reason for most recent amendment 
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p> <i>Understanding the reason for the most recent 
-     * amendment provides context for the current state of the 
-     * record.</i> </p><p> <i> <i>The element uses CWE to allow for 
-     * the capture of Amend Reason concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </i> </p>
+     * <p>Other Business Name: AmendReason</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Understanding the reason for the most recent 
      * amendment provides context for the current state of the 
@@ -86,6 +96,10 @@ public class ControlActEventBean extends MessagePartBean {
      * values outweighs the penalties of capturing some information 
      * that will not be amenable to searching or categorizing.</i> 
      * </i> </p>
+     * 
+     * <p> <i>This indicates the reason for most recent amendment 
+     * to the record as indicated by the person who made the 
+     * change.</i> </p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -93,23 +107,33 @@ public class ControlActEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>AmendReason</p>
+     * <p>Business Name: AmendReason</p>
      * 
-     * <p>Amend Reason</p>
+     * <p>Other Business Name: AmendReason</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p> <i>Understanding the reason for the most recent 
+     * amendment provides context for the current state of the 
+     * record.</i> </p><p> <i> <i>The element uses CWE to allow for 
+     * the capture of Amend Reason concepts not presently supported 
+     * by the approved code system(s). In this case, the 
+     * human-to-human benefit of capturing additional non-coded 
+     * values outweighs the penalties of capturing some information 
+     * that will not be amenable to searching or categorizing.</i> 
+     * </i> </p>
      * 
      * <p> <i>This indicates the reason for most recent amendment 
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p> <i>Understanding the reason for the most recent 
-     * amendment provides context for the current state of the 
-     * record.</i> </p><p> <i> <i>The element uses CWE to allow for 
-     * the capture of Amend Reason concepts not presently supported 
-     * by the approved code system(s). In this case, the 
-     * human-to-human benefit of capturing additional non-coded 
-     * values outweighs the penalties of capturing some information 
-     * that will not be amenable to searching or categorizing.</i> 
-     * </i> </p>
+     * <p>Other Business Name: AmendReason</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p> <i>Understanding the reason for the most recent 
      * amendment provides context for the current state of the 
@@ -120,17 +144,47 @@ public class ControlActEventBean extends MessagePartBean {
      * values outweighs the penalties of capturing some information 
      * that will not be amenable to searching or categorizing.</i> 
      * </i> </p>
+     * 
+     * <p> <i>This indicates the reason for most recent amendment 
+     * to the record as indicated by the person who made the 
+     * change.</i> </p>
      */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RequestedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RequestedByBean author) {
         this.author = author;
     }

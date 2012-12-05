@@ -39,22 +39,22 @@ import java.util.Date;
 
 
 /**
- * <p>DispenseInstructions</p>
+ * <p>Business Name: DispenseInstructions</p>
  * 
  * <p>PORX_MT030040CA.SupplyRequest: Dispense Instructions</p>
+ * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
  * 
  * <p>Specification of how the prescribed medication is to be 
  * dispensed to the patient. Dispensed instruction information 
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyRequest","PORX_MT030040CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS statusCode = new CSImpl();
     private PQ quantity = new PQImpl();
     private CreatedAtBean location;
@@ -62,7 +62,16 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>A:Prescription Dispensable Indicator</p>
+     * <p>Other Business Name: PrescriptionDispensableIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the dispensing authorization of the prescription 
+     * to be controlled/manipulates as needed.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the dispensing authority 
+     * of the prescription will always be known.</p>
      * 
      * <p>This generally mirrors the status for the prescription, 
      * but in some circumstances may be changed to 'aborted' while 
@@ -70,31 +79,21 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * the prescription may no longer be dispensed, though it may 
      * still be administered.</p>
      * 
-     * <p>Allows the dispensing authorization of the prescription 
-     * to be controlled/manipulates as needed.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the dispensing authority 
-     * of the prescription will always be known.</p>
+     * <p>Other Business Name: PrescriptionDispenseIndicator</p>
      * 
-     * <p>Allows the dispensing authorization of the prescription 
-     * to be controlled/manipulates as needed.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the dispensing authority 
-     * of the prescription will always be known.</p>
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.statusCode</p>
      * 
-     * <p>A:Prescription Dispense Indicator</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a prescriber to say &quot;Finish what you have on 
+     * hand, but don't get any more.&quot;</p><p>Because the status 
+     * should always be known, this element is mandatory.</p>
      * 
      * <p>This generally mirrors the status for the prescription, 
      * but in some circumstances may be changed to 'aborted' while 
      * the prescription is still active. When this occurs, it means 
      * the prescription may no longer be dispensed, though it may 
      * still be administered.</p>
-     * 
-     * <p>Allows a prescriber to say &quot;Finish what you have on 
-     * hand, but don't get any more.&quot;</p><p>Because the status 
-     * should always be known, this element is mandatory.</p>
-     * 
-     * <p>Allows a prescriber to say &quot;Finish what you have on 
-     * hand, but don't get any more.&quot;</p><p>Because the status 
-     * should always be known, this element is mandatory.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -102,7 +101,16 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Prescription Dispensable Indicator</p>
+     * <p>Other Business Name: PrescriptionDispensableIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the dispensing authorization of the prescription 
+     * to be controlled/manipulates as needed.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the dispensing authority 
+     * of the prescription will always be known.</p>
      * 
      * <p>This generally mirrors the status for the prescription, 
      * but in some circumstances may be changed to 'aborted' while 
@@ -110,31 +118,21 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * the prescription may no longer be dispensed, though it may 
      * still be administered.</p>
      * 
-     * <p>Allows the dispensing authorization of the prescription 
-     * to be controlled/manipulates as needed.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the dispensing authority 
-     * of the prescription will always be known.</p>
+     * <p>Other Business Name: PrescriptionDispenseIndicator</p>
      * 
-     * <p>Allows the dispensing authorization of the prescription 
-     * to be controlled/manipulates as needed.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the dispensing authority 
-     * of the prescription will always be known.</p>
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.statusCode</p>
      * 
-     * <p>A:Prescription Dispense Indicator</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a prescriber to say &quot;Finish what you have on 
+     * hand, but don't get any more.&quot;</p><p>Because the status 
+     * should always be known, this element is mandatory.</p>
      * 
      * <p>This generally mirrors the status for the prescription, 
      * but in some circumstances may be changed to 'aborted' while 
      * the prescription is still active. When this occurs, it means 
      * the prescription may no longer be dispensed, though it may 
      * still be administered.</p>
-     * 
-     * <p>Allows a prescriber to say &quot;Finish what you have on 
-     * hand, but don't get any more.&quot;</p><p>Because the status 
-     * should always be known, this element is mandatory.</p>
-     * 
-     * <p>Allows a prescriber to say &quot;Finish what you have on 
-     * hand, but don't get any more.&quot;</p><p>Because the status 
-     * should always be known, this element is mandatory.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -142,35 +140,13 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>TotalPrescribedQuantity</p>
+     * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
      * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total quantity.</p>
-     * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total quantity.</p>
-     * 
-     * <p>B:Total Prescribed Quantity</p>
-     * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sets upper limit for medication to be dispensed. Can be 
      * used to verify the intention of the prescriber with respect 
@@ -178,17 +154,44 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p>
      * 
-     * <p>Total Prescribed Quantity</p>
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total quantity.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Critical in understanding the patient's medication 
      * profile, both past and current. This also allows 
      * determination of the amount that remains to be dispensed 
      * against the prescription.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -196,35 +199,13 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>TotalPrescribedQuantity</p>
+     * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
      * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total quantity.</p>
-     * 
-     * <p>Sets upper limit for medication to be dispensed. Can be 
-     * used to verify the intention of the prescriber with respect 
-     * to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total quantity.</p>
-     * 
-     * <p>B:Total Prescribed Quantity</p>
-     * 
-     * <p>The overall amount of amount medication to be dispensed 
-     * under this prescription. Includes any first fills (trials, 
-     * aligning quantities), the initial standard fill plus all 
-     * refills.</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sets upper limit for medication to be dispensed. Can be 
      * used to verify the intention of the prescriber with respect 
@@ -232,46 +213,104 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * determining whether additional quantity may be dispensed in 
      * the context of a part-fill prescription.</p>
      * 
-     * <p>Total Prescribed Quantity</p>
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
+     * 
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets upper limit for medication to be dispensed. Can be 
+     * used to verify the intention of the prescriber with respect 
+     * to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total quantity.</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
+     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Critical in understanding the patient's medication 
      * profile, both past and current. This also allows 
      * determination of the amount that remains to be dispensed 
      * against the prescription.</p>
+     * 
+     * <p>The overall amount of amount medication to be dispensed 
+     * under this prescription. Includes any first fills (trials, 
+     * aligning quantities), the initial standard fill plus all 
+     * refills.</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
 
 
     /**
-     * <p>TotalDaysSupply</p>
+     * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>Total Days Supply</p>
+     * <p>Other Business Name: TotalDaysSupply</p>
      * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
      * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
      * Therapy').</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -279,18 +318,23 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>TotalDaysSupply</p>
+     * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>Total Days Supply</p>
+     * <p>Other Business Name: TotalDaysSupply</p>
      * 
-     * <p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
      * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
      * Therapy').</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);

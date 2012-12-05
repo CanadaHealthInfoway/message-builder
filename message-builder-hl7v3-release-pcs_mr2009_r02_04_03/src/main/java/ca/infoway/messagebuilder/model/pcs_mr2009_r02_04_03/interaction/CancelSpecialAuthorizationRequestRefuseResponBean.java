@@ -29,8 +29,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 
 
 /**
- * <p>FICR_IN400007CA: Cancel Special Authorization Request 
- * Refuse Respon</p>
+ * <p>Business Name: FICR_IN400007CA: Cancel Special 
+ * Authorization Request Refuse Respon</p>
+ * 
+ * <p>Indicates that the Special Authorization Request has not 
+ * been cancelled. Supplementary reasons such as 
+ * &quot;&quot;unable to cancel&quot;&quot;, &quot;&quot;unable 
+ * to find&quot;&quot; may be provided.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
 @Hl7PartTypeMapping({"FICR_IN400007CA"})
 public class CancelSpecialAuthorizationRequestRefuseResponBean extends HL7Message_1Bean<TriggerEvent_2Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

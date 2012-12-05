@@ -29,8 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>PORX_IN010570CA: Abort dispense authorization request 
- * accepted</p>
+ * <p>Business Name: PORX_IN010570CA: Abort dispense 
+ * authorization request accepted</p>
+ * 
+ * <p>Indicates that the requests prescription has been marked 
+ * as &quot;&quot;no longer dispensable but still 
+ * administrable&quot;&quot;.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -41,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"PORX_IN010570CA"})
 public class AbortDispenseAuthorizationRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

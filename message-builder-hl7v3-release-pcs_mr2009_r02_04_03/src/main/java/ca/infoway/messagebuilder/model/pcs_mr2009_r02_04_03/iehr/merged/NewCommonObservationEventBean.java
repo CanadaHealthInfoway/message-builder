@@ -32,23 +32,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410003CA.NewCommonObservationEvent","REPC_MT420003CA.NewCommonObservationEvent"})
 public class NewCommonObservationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>ReplaceByRecordId</p>
+     * <p>Business Name: ReplaceByRecordId</p>
      * 
-     * <p>G:Replace by Record Id</p>
+     * <p>Other Business Name: ReplaceByRecordId</p>
      * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Relationship: 
+     * REPC_MT410003CA.NewCommonObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ReplaceByRecordId</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT420003CA.NewCommonObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Used in circumstances where a newer or corrected 
      * version of the record of this event exists.</i> </p>
      * 
-     * <p>G:Replace by Record Id</p>
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -56,18 +66,28 @@ public class NewCommonObservationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReplaceByRecordId</p>
+     * <p>Business Name: ReplaceByRecordId</p>
      * 
-     * <p>G:Replace by Record Id</p>
+     * <p>Other Business Name: ReplaceByRecordId</p>
      * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Relationship: 
+     * REPC_MT410003CA.NewCommonObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ReplaceByRecordId</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT420003CA.NewCommonObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Used in circumstances where a newer or corrected 
      * version of the record of this event exists.</i> </p>
      * 
-     * <p>G:Replace by Record Id</p>
+     * <p> <i>Used to identify the record that supersedes the 
+     * current record. This attribute is set when a new record 
+     * identifies the current record as being replaced.</i> </p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

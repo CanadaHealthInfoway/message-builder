@@ -37,7 +37,10 @@ import java.util.Set;
 
 
 /**
- * <p>Qualified Entity</p>
+ * <p>Business Name: Qualified Entity</p>
+ * 
+ * <p>Roleclass required to provide additional information for 
+ * the person responsible for providing healthcare services</p>
  * 
  * <p>This role describes specific qualifications that may be 
  * held the provider as a result of training or experience, but 
@@ -45,14 +48,11 @@ import java.util.Set;
  * The current model does not include role attributes such as 
  * name, addr and telecom because there are no known use cases 
  * in this domain where this role is contactable.</p>
- * 
- * <p>Roleclass required to provide additional information for 
- * the person responsible for providing healthcare services</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
@@ -60,12 +60,16 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>Expertise or Credentials Role Identifier</p>
+     * <p>Business Name: Expertise or Credentials Role Identifier</p>
      * 
-     * <p>Unique identifier for the Expertise or Credential.</p>
+     * <p>Relationship: PRPM_MT306051CA.QualifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-50)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>Unique identifier for the Expertise or Credential.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -74,17 +78,21 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise or Credentials Role Type</p>
      * 
-     * <p>A code for the degree or educational rank that the 
-     * credential specifies. May also apply to an Expertise 
-     * type.</p>
+     * <p>Relationship: PRPM_MT306051CA.QualifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
      * <p>If Expertise or Credentials are included in the message, 
      * then Role Type Must Exist.</p>
+     * 
+     * <p>A code for the degree or educational rank that the 
+     * credential specifies. May also apply to an Expertise 
+     * type.</p>
      */
     @Hl7XmlMapping({"code"})
     public QualifiedRoleType getCode() {
@@ -92,17 +100,21 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise or Credentials Role Type</p>
      * 
-     * <p>A code for the degree or educational rank that the 
-     * credential specifies. May also apply to an Expertise 
-     * type.</p>
+     * <p>Relationship: PRPM_MT306051CA.QualifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
      * <p>If Expertise or Credentials are included in the message, 
      * then Role Type Must Exist.</p>
+     * 
+     * <p>A code for the degree or educational rank that the 
+     * credential specifies. May also apply to an Expertise 
+     * type.</p>
      */
     public void setCode(QualifiedRoleType code) {
         this.code.setValue(code);
@@ -119,11 +131,23 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"qualificationGrantingOrganization"})
     public OrganizationBean getQualificationGrantingOrganization() {
         return this.qualificationGrantingOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
         this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }

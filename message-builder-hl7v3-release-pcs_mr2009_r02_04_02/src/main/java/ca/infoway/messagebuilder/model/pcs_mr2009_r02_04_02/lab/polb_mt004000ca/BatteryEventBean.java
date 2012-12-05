@@ -62,7 +62,7 @@ import java.util.Set;
 
 
 /**
- * <p>Battery Event</p>
+ * <p>Business Name: Battery Event</p>
  * 
  * <p>Used to group Observation Events by the batteries that 
  * were ordered by the lab.</p>
@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private Patient_1Bean recordTargetPatient;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
@@ -109,7 +109,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
 
     /**
-     * <p>Battery Event Identifier</p>
+     * <p>Business Name: Battery Event Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.BatteryEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-2)</p>
      * 
      * <p>This is a unique identifier for the Battery Event.</p>
      */
@@ -126,7 +130,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
 
     /**
-     * <p>Type of Battery Event</p>
+     * <p>Business Name: Type of Battery Event</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.BatteryEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code drawn from the pCLOCD to identify the battery 
      * ordered by the lab.</p>
@@ -137,7 +145,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
     /**
-     * <p>Type of Battery Event</p>
+     * <p>Business Name: Type of Battery Event</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.BatteryEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code drawn from the pCLOCD to identify the battery 
      * ordered by the lab.</p>
@@ -153,18 +165,34 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient"})
     public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
         return this.primaryInformationRecipient;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
         this.primaryInformationRecipient = primaryInformationRecipient;
     }
 
 
     /**
-     * <p>Battery Event Status</p>
+     * <p>Business Name: Battery Event Status</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.BatteryEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Status associated with all ObservationEvents that are 
      * components of this Battery Event.</p>
@@ -175,7 +203,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
     /**
-     * <p>Battery Event Status</p>
+     * <p>Business Name: Battery Event Status</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.BatteryEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Status associated with all ObservationEvents that are 
      * components of this Battery Event.</p>
@@ -186,7 +218,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
 
     /**
-     * <p>Battery Event Effective Time</p>
+     * <p>Business Name: Battery Event Effective Time</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.BatteryEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Effective time associated with the lab order battery.</p>
      */
@@ -196,7 +232,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
     /**
-     * <p>Battery Event Effective Time</p>
+     * <p>Business Name: Battery Event Effective Time</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.BatteryEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Effective time associated with the lab order battery.</p>
      */
@@ -212,7 +252,12 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
 
     /**
-     * <p>Battery Event Confidentiality</p>
+     * <p>Business Name: Battery Event Confidentiality</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.BatteryEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>Level of confidentiality assoicated with the reporting of 
      * the Observation Events that are components of this 
@@ -256,17 +301,32 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Component1.resultChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/resultChoice"})
     public List<ResultChoice> getComponent3ResultChoice() {
         return this.component3ResultChoice;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

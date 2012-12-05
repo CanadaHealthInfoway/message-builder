@@ -34,23 +34,56 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CarrierRole","FICR_MT600201CA.CarrierRole","FICR_MT610201CA.CarrierRole","PORX_MT060160CA.CarrierRole","PORX_MT060340CA.CarrierRole"})
 public class CarrierRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST underwritingCarrierOrganizationName = new STImpl();
     private ST underwritingOrganizationName = new STImpl();
 
 
     /**
-     * <p>Payor Identifier</p>
+     * <p>Other Business Name: CarrierID</p>
      * 
-     * <p>A unique identifier for the payor organization 
-     * responsible for the coverage extension.</p>
+     * <p>Relationship: FICR_MT600201CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gives context to the coverage extension identifier and 
      * therefore mandatory. Allows the dispensing service delivery 
      * location to know where to send a claim.</p>
      * 
-     * <p>Carrier ID</p>
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p>
+     * 
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
+     * 
+     * <p>Other Business Name: CarrierID</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CarrierID</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -58,16 +91,49 @@ public class CarrierRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Payor Identifier</p>
+     * <p>Other Business Name: CarrierID</p>
      * 
-     * <p>A unique identifier for the payor organization 
-     * responsible for the coverage extension.</p>
+     * <p>Relationship: FICR_MT600201CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gives context to the coverage extension identifier and 
      * therefore mandatory. Allows the dispensing service delivery 
      * location to know where to send a claim.</p>
      * 
-     * <p>Carrier ID</p>
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p>
+     * 
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
+     * 
+     * <p>Other Business Name: CarrierID</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CarrierID</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.CarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -75,14 +141,18 @@ public class CarrierRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>PayorName</p>
+     * <p>Business Name: PayorName</p>
      * 
-     * <p>Payor Name</p>
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.CarrierOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
      * 
      * <p>The name of the organization responsible for issuing the 
      * coverage extension.</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
      */
     @Hl7XmlMapping({"underwritingCarrierOrganization/name"})
     public String getUnderwritingCarrierOrganizationName() {
@@ -90,14 +160,18 @@ public class CarrierRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>PayorName</p>
+     * <p>Business Name: PayorName</p>
      * 
-     * <p>Payor Name</p>
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.CarrierOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
      * 
      * <p>The name of the organization responsible for issuing the 
      * coverage extension.</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
      */
     public void setUnderwritingCarrierOrganizationName(String underwritingCarrierOrganizationName) {
         this.underwritingCarrierOrganizationName.setValue(underwritingCarrierOrganizationName);
@@ -105,14 +179,18 @@ public class CarrierRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>PayorName</p>
+     * <p>Business Name: PayorName</p>
      * 
-     * <p>Payor Name</p>
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
      * 
      * <p>The name of the organization responsible for issuing the 
      * coverage extension.</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
      */
     @Hl7XmlMapping({"underwritingOrganization/name"})
     public String getUnderwritingOrganizationName() {
@@ -120,14 +198,18 @@ public class CarrierRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>PayorName</p>
+     * <p>Business Name: PayorName</p>
      * 
-     * <p>Payor Name</p>
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
      * 
      * <p>The name of the organization responsible for issuing the 
      * coverage extension.</p>
-     * 
-     * <p>Mandatory for display purposes.</p>
      */
     public void setUnderwritingOrganizationName(String underwritingOrganizationName) {
         this.underwritingOrganizationName.setValue(underwritingOrganizationName);

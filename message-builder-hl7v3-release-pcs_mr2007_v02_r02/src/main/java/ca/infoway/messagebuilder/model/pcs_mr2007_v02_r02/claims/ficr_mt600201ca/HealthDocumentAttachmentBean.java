@@ -39,42 +39,36 @@ import java.util.Set;
 
 
 /**
- * <p>Health Document Attachment</p>
+ * <p>Business Name: Health Document Attachment</p>
+ * 
+ * <p>Used to attach documents, image, etc.</p><p>required to 
+ * support a health claim.</p><p>Value is not mandatory to 
+ * allow for case where just a reference to an existing 
+ * attachment is required.</p>
  * 
  * <p>Healthcare Documents used in diagnosis, eg. x-ray.</p>
- * 
- * <p>Used to attach documents, image, etc.</p><p>required to 
- * support a health claim.</p><p>Value is not mandatory to 
- * allow for case where just a reference to an existing 
- * attachment is required.</p>
- * 
- * <p>Used to attach documents, image, etc.</p><p>required to 
- * support a health claim.</p><p>Value is not mandatory to 
- * allow for case where just a reference to an existing 
- * attachment is required.</p>
- * 
- * <p>Used to attach documents, image, etc.</p><p>required to 
- * support a health claim.</p><p>Value is not mandatory to 
- * allow for case where just a reference to an existing 
- * attachment is required.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachmentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
 
 
     /**
-     * <p>Attachment identifier</p>
+     * <p>Business Name: Attachment identifier</p>
      * 
-     * <p>Set of identifiers that uniquely identify the 
-     * Attachment.</p>
+     * <p>Relationship: FICR_MT600201CA.HealthDocumentAttachment.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      * 
      * <p>RxS1: Not permitted, as attachments are not included in 
      * this scenario</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the 
+     * Attachment.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -83,14 +77,19 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
 
 
     /**
-     * <p>Attachment Type</p>
+     * <p>Business Name: Attachment Type</p>
      * 
-     * <p>The type of attachment. I.e.. Health document type, image 
-     * type.</p>
+     * <p>Relationship: 
+     * FICR_MT600201CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Domain has not been defined for attachment types. RxS1: 
      * Not permitted, as attachments are not included in this 
      * scenario.</p>
+     * 
+     * <p>The type of attachment. I.e.. Health document type, image 
+     * type.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActClaimAttachmentCode getCode() {
@@ -98,14 +97,19 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Attachment Type</p>
+     * <p>Business Name: Attachment Type</p>
      * 
-     * <p>The type of attachment. I.e.. Health document type, image 
-     * type.</p>
+     * <p>Relationship: 
+     * FICR_MT600201CA.HealthDocumentAttachment.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Domain has not been defined for attachment types. RxS1: 
      * Not permitted, as attachments are not included in this 
      * scenario.</p>
+     * 
+     * <p>The type of attachment. I.e.. Health document type, image 
+     * type.</p>
      */
     public void setCode(ActClaimAttachmentCode code) {
         this.code.setValue(code);
@@ -113,7 +117,18 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
 
 
     /**
-     * <p>Attachment content</p>
+     * <p>Business Name: Attachment content</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.HealthDocumentAttachment.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>To reference a previously submitted attachment, only 
+     * require the identifier of the attachment</p>
+     * 
+     * <p>RxS1: Not permitted, as attachments are not included in 
+     * this scenario.</p>
      * 
      * <p>The content of the attachment that is intended either for 
      * human interpretation or further machine processing. i.e. The 
@@ -123,12 +138,6 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
      * content. Instead of the attachment content this may contain 
      * only a reference to the information that may be located 
      * inline or remote.</p>
-     * 
-     * <p>To reference a previously submitted attachment, only 
-     * require the identifier of the attachment</p>
-     * 
-     * <p>RxS1: Not permitted, as attachments are not included in 
-     * this scenario.</p>
      */
     @Hl7XmlMapping({"value"})
     public EncapsulatedData getValue() {
@@ -136,7 +145,18 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Attachment content</p>
+     * <p>Business Name: Attachment content</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.HealthDocumentAttachment.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>To reference a previously submitted attachment, only 
+     * require the identifier of the attachment</p>
+     * 
+     * <p>RxS1: Not permitted, as attachments are not included in 
+     * this scenario.</p>
      * 
      * <p>The content of the attachment that is intended either for 
      * human interpretation or further machine processing. i.e. The 
@@ -146,12 +166,6 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
      * content. Instead of the attachment content this may contain 
      * only a reference to the information that may be located 
      * inline or remote.</p>
-     * 
-     * <p>To reference a previously submitted attachment, only 
-     * require the identifier of the attachment</p>
-     * 
-     * <p>RxS1: Not permitted, as attachments are not included in 
-     * this scenario.</p>
      */
     public void setValue(EncapsulatedData value) {
         this.value.setValue(value);

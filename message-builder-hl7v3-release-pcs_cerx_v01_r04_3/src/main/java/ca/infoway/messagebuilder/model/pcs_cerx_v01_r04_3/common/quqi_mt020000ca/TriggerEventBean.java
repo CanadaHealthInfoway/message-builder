@@ -44,10 +44,7 @@ import java.util.List;
 
 
 /**
- * <p>Trigger Event</p>
- * 
- * <p>Identifies the action that resulted in this message being 
- * sent.</p>
+ * <p>Business Name: Trigger Event</p>
  * 
  * <p>Key to understanding what action a message 
  * represents.</p>
@@ -55,12 +52,15 @@ import java.util.List;
  * <p>There may be constraints on the usage of the reasonCode 
  * attribute in the definition of the interaction or the 
  * trigger events which are conveyed with this wrapper.</p>
+ * 
+ * <p>Identifies the action that resulted in this message being 
+ * sent.</p>
  */
 @Hl7PartTypeMapping({"QUQI_MT020000CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
@@ -74,15 +74,19 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>B:Event Identifier</p>
+     * <p>Business Name: B:Event Identifier</p>
      * 
-     * <p>A unique identifier for this particular event assigned by 
-     * the system in which the event occurred.</p>
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used for audit purposes and is therefore mandatory.</p>
      * 
      * <p>Queries cannot be retracted, so this event identifier 
      * does not need to be locally persisted.</p>
+     * 
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -90,15 +94,19 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>B:Event Identifier</p>
+     * <p>Business Name: B:Event Identifier</p>
      * 
-     * <p>A unique identifier for this particular event assigned by 
-     * the system in which the event occurred.</p>
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used for audit purposes and is therefore mandatory.</p>
      * 
      * <p>Queries cannot be retracted, so this event identifier 
      * does not need to be locally persisted.</p>
+     * 
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -106,12 +114,16 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>A:Event Type</p>
+     * <p>Business Name: A:Event Type</p>
      * 
-     * <p>Identifies the trigger event that occurred.</p>
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -119,12 +131,16 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>A:Event Type</p>
+     * <p>Business Name: A:Event Type</p>
      * 
-     * <p>Identifies the trigger event that occurred.</p>
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
      */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
@@ -132,9 +148,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>Business Name: E:Event Reason</p>
      * 
-     * <p>Identifies why this specific query occurred.</p>
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows identifying the reason for accessing information 
      * via a query.</p>
@@ -142,6 +160,8 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>The domain associated with this attribute will vary for 
      * each interaction and will be noted as part of the 
      * interaction description.</p>
+     * 
+     * <p>Identifies why this specific query occurred.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -149,9 +169,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>Business Name: E:Event Reason</p>
      * 
-     * <p>Identifies why this specific query occurred.</p>
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows identifying the reason for accessing information 
      * via a query.</p>
@@ -159,6 +181,8 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>The domain associated with this attribute will vary for 
      * each interaction and will be noted as part of the 
      * interaction description.</p>
+     * 
+     * <p>Identifies why this specific query occurred.</p>
      */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
@@ -175,21 +199,43 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: QUQI_MT020000CA.DataEnterer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"dataEnterer/assignedPerson"})
     public ProviderBean getDataEntererAssignedPerson() {
         return this.dataEntererAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: QUQI_MT020000CA.DataEnterer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDataEntererAssignedPerson(ProviderBean dataEntererAssignedPerson) {
         this.dataEntererAssignedPerson = dataEntererAssignedPerson;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUQI_MT020000CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
     public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * QUQI_MT020000CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
         this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }

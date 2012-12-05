@@ -30,8 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
 
 
 /**
- * <p>REPC_IN000026CA: Patient health condition details query 
- * response</p>
+ * <p>Business Name: REPC_IN000026CA: Patient health condition 
+ * details query response</p>
+ * 
+ * <p>Returns the details of a patient health conditions 
+ * (symptoms, health problems, diagnosis). Including past 
+ * changes.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -44,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
 @Hl7PartTypeMapping({"REPC_IN000026CA"})
 public class PatientHealthConditionDetailsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<HealthConditionBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -28,7 +28,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 
 
 /**
- * <p>COMT_IN301002CA: Add note to record request accepted</p>
+ * <p>Business Name: COMT_IN301002CA: Add note to record 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the specified annotation has been 
+ * successfully recorded against the requested record.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -37,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
 @Hl7PartTypeMapping({"COMT_IN301002CA"})
 public class AddNoteToRecordRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

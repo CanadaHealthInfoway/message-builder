@@ -45,34 +45,49 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.NextImmunizationPlan","POIZ_MT030060CA.NextImmunizationPlan","POIZ_MT060150CA.NextImmunizationPlan"})
 public class NextImmunizationPlanBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS effectiveTime = new TSImpl();
 
 
     /**
-     * <p>Renewal Date</p>
+     * <p>Other Business Name: RenewalDate</p>
      * 
-     * <p>Indicates the date on which the next course of 
-     * immunization is to be undertaken.</p>
+     * <p>Relationship: 
+     * POIZ_MT060150CA.NextImmunizationPlan.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Necessary reminder to a patient and his/or provider for a 
      * follow-up therapy.</p>
      * 
-     * <p>Next Planned Series Repeat Date</p>
+     * <p>Indicates the date on which the next course of 
+     * immunization is to be undertaken.</p>
      * 
-     * <p>The date on which the overall immunization therapy is to 
-     * be repeated.</p>
+     * <p>Other Business Name: NextPlannedSeriesRepeatDate</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.NextImmunizationPlan.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for immunization therapy planning for a 
      * patient.</p>
      * 
-     * <p>Next Planned Series Repeat Date</p>
+     * <p>The date on which the overall immunization therapy is to 
+     * be repeated.</p>
      * 
-     * <p>Indicates the date on which the next series is scheduled 
-     * to be administered.</p>
+     * <p>Other Business Name: NextPlannedSeriesRepeatDate</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.NextImmunizationPlan.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the scheduling of a multi-dose immunization 
      * course.</p>
+     * 
+     * <p>Indicates the date on which the next series is scheduled 
+     * to be administered.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -80,29 +95,44 @@ public class NextImmunizationPlanBean extends MessagePartBean {
     }
 
     /**
-     * <p>Renewal Date</p>
+     * <p>Other Business Name: RenewalDate</p>
      * 
-     * <p>Indicates the date on which the next course of 
-     * immunization is to be undertaken.</p>
+     * <p>Relationship: 
+     * POIZ_MT060150CA.NextImmunizationPlan.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Necessary reminder to a patient and his/or provider for a 
      * follow-up therapy.</p>
      * 
-     * <p>Next Planned Series Repeat Date</p>
+     * <p>Indicates the date on which the next course of 
+     * immunization is to be undertaken.</p>
      * 
-     * <p>The date on which the overall immunization therapy is to 
-     * be repeated.</p>
+     * <p>Other Business Name: NextPlannedSeriesRepeatDate</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.NextImmunizationPlan.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for immunization therapy planning for a 
      * patient.</p>
      * 
-     * <p>Next Planned Series Repeat Date</p>
+     * <p>The date on which the overall immunization therapy is to 
+     * be repeated.</p>
      * 
-     * <p>Indicates the date on which the next series is scheduled 
-     * to be administered.</p>
+     * <p>Other Business Name: NextPlannedSeriesRepeatDate</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.NextImmunizationPlan.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the scheduling of a multi-dose immunization 
      * course.</p>
+     * 
+     * <p>Indicates the date on which the next series is scheduled 
+     * to be administered.</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);

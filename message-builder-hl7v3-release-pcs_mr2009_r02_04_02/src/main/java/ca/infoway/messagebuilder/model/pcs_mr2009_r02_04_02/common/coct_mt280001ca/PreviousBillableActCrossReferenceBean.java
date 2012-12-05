@@ -33,7 +33,7 @@ import java.util.Set;
 
 
 /**
- * <p>Previous Billable Act Cross Reference</p>
+ * <p>Business Name: Previous Billable Act Cross Reference</p>
  * 
  * <p>Used to reference a previous act (e.g. billable act) by 
  * including its Act.id. May only be used to reference a 
@@ -50,21 +50,25 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT280001CA.CrossReference"})
 public class PreviousBillableActCrossReferenceBean extends MessagePartBean implements A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
-     * <p>) (Act.id.</p>
+     * <p>Business Name: ) (Act.id.</p>
      * 
-     * <p>Act.id. referencing a previous act (e.g. billable act) in 
-     * the SAME message,</p>
+     * <p>Relationship: COCT_MT280001CA.CrossReference.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to reference a previous act (e.g. billable act) by 
      * including its Act.id. May only be used to reference a 
      * billable act in the SAME message, not for past messages 
      * (this would require adjudicators to keep a lot of 
      * history).</p>
+     * 
+     * <p>Act.id. referencing a previous act (e.g. billable act) in 
+     * the SAME message,</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {

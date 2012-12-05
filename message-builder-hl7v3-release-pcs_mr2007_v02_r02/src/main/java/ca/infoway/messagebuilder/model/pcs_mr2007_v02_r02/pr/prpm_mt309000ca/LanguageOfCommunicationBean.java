@@ -36,19 +36,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Language of Communication</p>
+ * <p>Business Name: Language of Communication</p>
+ * 
+ * <p>Supports the business requirement to identify languages 
+ * used by client for the purposes of communication</p>
  * 
  * <p>Information about what language(s) should be used to 
  * communicate with the focal person can be sent in the 
  * LanguageCommunication class.</p>
- * 
- * <p>Supports the business requirement to identify languages 
- * used by client for the purposes of communication</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT309000CA.LanguageCommunication"})
 public class LanguageOfCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CE languageCode = new CEImpl();
     private CV modeCode = new CVImpl();
     private CV proficiencyLevelCode = new CVImpl();
@@ -56,12 +56,17 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Code</p>
+     * <p>Business Name: Language of Communication Code</p>
      * 
-     * <p>A code indicating the language of communication</p>
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
      */
     @Hl7XmlMapping({"languageCode"})
     public HumanLanguage getLanguageCode() {
@@ -69,12 +74,17 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Code</p>
+     * <p>Business Name: Language of Communication Code</p>
      * 
-     * <p>A code indicating the language of communication</p>
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in</p>
+     * 
+     * <p>A code indicating the language of communication</p>
      */
     public void setLanguageCode(HumanLanguage languageCode) {
         this.languageCode.setValue(languageCode);
@@ -82,15 +92,20 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Skills Code</p>
+     * <p>Business Name: Language of Communication Skills Code</p>
      * 
-     * <p>Indicates the healthcare provider's ability to 
-     * communicate in the indicated language i.e. written, spoken, 
-     * read</p>
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute provides additional information about 
      * the healthcare provider's communication skills in a given 
      * language</p>
+     * 
+     * <p>Indicates the healthcare provider's ability to 
+     * communicate in the indicated language i.e. written, spoken, 
+     * read</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public LanguageAbilityMode getModeCode() {
@@ -98,15 +113,20 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Skills Code</p>
+     * <p>Business Name: Language of Communication Skills Code</p>
      * 
-     * <p>Indicates the healthcare provider's ability to 
-     * communicate in the indicated language i.e. written, spoken, 
-     * read</p>
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute provides additional information about 
      * the healthcare provider's communication skills in a given 
      * language</p>
+     * 
+     * <p>Indicates the healthcare provider's ability to 
+     * communicate in the indicated language i.e. written, spoken, 
+     * read</p>
      */
     public void setModeCode(LanguageAbilityMode modeCode) {
         this.modeCode.setValue(modeCode);
@@ -114,15 +134,21 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Proficiency Level Code</p>
+     * <p>Business Name: Language of Communication Proficiency 
+     * Level Code</p>
      * 
-     * <p>Indicates the proficiency level at which healthcare 
-     * provider is able to communicate in the indicated language of 
-     * communication</p>
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.proficiencyLevelCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute provides additional information about 
      * the healthcare provider's communication skills in a given 
      * language</p>
+     * 
+     * <p>Indicates the proficiency level at which healthcare 
+     * provider is able to communicate in the indicated language of 
+     * communication</p>
      */
     @Hl7XmlMapping({"proficiencyLevelCode"})
     public LanguageAbilityProficiency getProficiencyLevelCode() {
@@ -130,15 +156,21 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Proficiency Level Code</p>
+     * <p>Business Name: Language of Communication Proficiency 
+     * Level Code</p>
      * 
-     * <p>Indicates the proficiency level at which healthcare 
-     * provider is able to communicate in the indicated language of 
-     * communication</p>
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.proficiencyLevelCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute provides additional information about 
      * the healthcare provider's communication skills in a given 
      * language</p>
+     * 
+     * <p>Indicates the proficiency level at which healthcare 
+     * provider is able to communicate in the indicated language of 
+     * communication</p>
      */
     public void setProficiencyLevelCode(LanguageAbilityProficiency proficiencyLevelCode) {
         this.proficiencyLevelCode.setValue(proficiencyLevelCode);
@@ -146,13 +178,19 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Business Name: Language of Communication Preference 
+     * Indicator</p>
      * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute that supports the business requirement 
      * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
      * communications.</p>
      */
     @Hl7XmlMapping({"preferenceInd"})
@@ -161,13 +199,19 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Business Name: Language of Communication Preference 
+     * Indicator</p>
      * 
-     * <p>Indicates the preferred language for all 
-     * communications.</p>
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute that supports the business requirement 
      * to indicate the preferred language for all 
+     * communications.</p>
+     * 
+     * <p>Indicates the preferred language for all 
      * communications.</p>
      */
     public void setPreferenceInd(Boolean preferenceInd) {

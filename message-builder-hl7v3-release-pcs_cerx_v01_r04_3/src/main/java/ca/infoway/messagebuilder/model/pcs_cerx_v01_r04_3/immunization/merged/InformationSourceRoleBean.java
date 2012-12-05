@@ -32,21 +32,40 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030060CA.InformationSourceRole","POIZ_MT060150CA.InformationSourceRole"})
 public class InformationSourceRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
 
 
     /**
-     * <p>InformationSource</p>
+     * <p>Business Name: InformationSource</p>
      * 
-     * <p>Information Source</p>
+     * <p>Other Business Name: InformationSource</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InformationSourceRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the explicit identification of the source of 
+     * the recorded information.</p>
      * 
      * <p>A coded value denoting a patient, patient's agent, or a 
      * provider as the source of the recorded immunization 
      * information.</p>
      * 
+     * <p>Other Business Name: InformationSource</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InformationSourceRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the explicit identification of the source of 
      * the recorded information.</p>
+     * 
+     * <p>A coded value denoting a patient, patient's agent, or a 
+     * provider as the source of the recorded immunization 
+     * information.</p>
      */
     @Hl7XmlMapping({"classCode"})
     public x_InformationSource getClassCode() {
@@ -54,16 +73,35 @@ public class InformationSourceRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>InformationSource</p>
+     * <p>Business Name: InformationSource</p>
      * 
-     * <p>Information Source</p>
+     * <p>Other Business Name: InformationSource</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InformationSourceRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the explicit identification of the source of 
+     * the recorded information.</p>
      * 
      * <p>A coded value denoting a patient, patient's agent, or a 
      * provider as the source of the recorded immunization 
      * information.</p>
      * 
+     * <p>Other Business Name: InformationSource</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InformationSourceRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Allows for the explicit identification of the source of 
      * the recorded information.</p>
+     * 
+     * <p>A coded value denoting a patient, patient's agent, or a 
+     * provider as the source of the recorded immunization 
+     * information.</p>
      */
     public void setClassCode(x_InformationSource classCode) {
         this.classCode.setValue(classCode);

@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt301010ca.R
 
 
 /**
- * <p>PRPM_IN301010CA: Add Provider Request</p>
+ * <p>Business Name: PRPM_IN301010CA: Add Provider Request</p>
+ * 
+ * <p>This interaction is used to request that a new provider 
+ * record be added to a provider registry system.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +50,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt301010ca.R
 @Hl7PartTypeMapping({"PRPM_IN301010CA"})
 public class AddProviderRequestBean extends HL7Message_1Bean<TriggerEvent_4Bean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

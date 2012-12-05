@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 
 
 /**
- * <p>PORX_IN010520CA: Resume prescription request</p>
+ * <p>Business Name: PORX_IN010520CA: Resume prescription 
+ * request</p>
+ * 
+ * <p>Requests that the specified prescription be released.</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
 @Hl7PartTypeMapping({"PORX_IN010520CA"})
 public class ResumePrescriptionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -29,8 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Disp
 
 
 /**
- * <p>PORX_IN010090CA: Revise assigned dispense responsibility 
- * notif.</p>
+ * <p>Business Name: PORX_IN010090CA: Revise assigned dispense 
+ * responsibility notif.</p>
+ * 
+ * <p>Indicates that the responsibility for fulfilling the 
+ * dispense portion of a prescription has changed.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Disp
 @Hl7PartTypeMapping({"PORX_IN010090CA"})
 public class ReviseAssignedDispenseResponsibilityNotifBean extends HL7Message_1Bean<TriggerEvent_1Bean<DispenseInstructionsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

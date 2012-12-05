@@ -52,8 +52,18 @@ public interface RequestChoice {
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public HealthcareOrganizationBean getPerformerAssignedEntity();
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity);
 
 
@@ -94,6 +104,11 @@ public interface RequestChoice {
     public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator);
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Component5.requestChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RequestChoice> getComponent4RequestChoice();
 
 

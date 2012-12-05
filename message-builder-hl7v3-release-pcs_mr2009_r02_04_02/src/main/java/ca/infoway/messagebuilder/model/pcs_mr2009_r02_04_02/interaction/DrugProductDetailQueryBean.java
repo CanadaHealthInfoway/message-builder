@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Drug
 
 
 /**
- * <p>POME_IN010050CA: Drug product detail query</p>
+ * <p>Business Name: POME_IN010050CA: Drug product detail query</p>
+ * 
+ * <p>Requests retrieval of detailed information about a single 
+ * drug product by product code.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Drug
 @Hl7PartTypeMapping({"POME_IN010050CA"})
 public class DrugProductDetailQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

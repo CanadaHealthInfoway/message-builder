@@ -32,27 +32,22 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActCommo
 @Hl7PartTypeMapping({"REPC_MT410003CA.WorkingListEvent","REPC_MT420003CA.WorkingListEvent","REPC_MT610002CA.WorkingListEvent"})
 public class WorkingListEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
 
 
     /**
-     * <p>K:Service Categories</p>
+     * <p>Other Business Name: ObservationCategories</p>
      * 
-     * <p>Describes the categorization of the service. E.g. 
-     * Psychological Counseling, Smoking Cessation, Cardiac 
-     * Surgeries, etc.</p>
+     * <p>Relationship: REPC_MT410003CA.WorkingListEvent.code</p>
      * 
-     * <p>Allows categorizing professional services for 
-     * presentation. A given person may have had numerous 
-     * procedures related to a particular area. By associating 
-     * categories with procedures, a person viewing the EHR 
-     * information can first look at a list of categories and then 
-     * drill down to the specific procedures.</p><p>The presence of 
-     * this field is essential to prevent users from being 
-     * overwhelmed, however not all services will necessarily be 
-     * categorizable. Therefore this element is marked as 
-     * 'populated'.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: ServiceCategories</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows categorizing professional services for 
      * presentation. A given person may have had numerous 
@@ -69,25 +64,15 @@ public class WorkingListEventBean extends MessagePartBean {
      * and thus aren't specified as part of the 'record' 
      * message.</p>
      * 
-     * <p>J:Observation Categories</p>
+     * <p>Describes the categorization of the service. E.g. 
+     * Psychological Counseling, Smoking Cessation, Cardiac 
+     * Surgeries, etc.</p>
      * 
-     * <p>Describes the categorization of the 
-     * observation.</p><p>E.g. signs and symptoms, history 
-     * observations, etc.</p>
+     * <p>Other Business Name: ObservationCategories</p>
      * 
-     * <p>Describes the categorization of the 
-     * observation.</p><p>E.g. signs and symptoms, history 
-     * observations, etc.</p>
+     * <p>Relationship: REPC_MT420003CA.WorkingListEvent.code</p>
      * 
-     * <p>Allows categorizing of observations for presentation. A 
-     * given person may have had numerous observations related to a 
-     * particular area. By associating categories, a person viewing 
-     * the EHR information can first look at a list of categories 
-     * and then drill down to the specific observation.</p><p>The 
-     * presence of this field is essential to prevent users from 
-     * being overwhelmed, however not all observations will 
-     * necessarily be categorizable. Therefore this element is 
-     * marked as 'populated'.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows categorizing of observations for presentation. A 
      * given person may have had numerous observations related to a 
@@ -99,7 +84,9 @@ public class WorkingListEventBean extends MessagePartBean {
      * necessarily be categorizable. Therefore this element is 
      * marked as 'populated'.</p>
      * 
-     * <p>J:Observation Categories</p>
+     * <p>Describes the categorization of the 
+     * observation.</p><p>E.g. signs and symptoms, history 
+     * observations, etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCommonCodedClinicalObservationCategoryListCode getCode() {
@@ -107,22 +94,17 @@ public class WorkingListEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>K:Service Categories</p>
+     * <p>Other Business Name: ObservationCategories</p>
      * 
-     * <p>Describes the categorization of the service. E.g. 
-     * Psychological Counseling, Smoking Cessation, Cardiac 
-     * Surgeries, etc.</p>
+     * <p>Relationship: REPC_MT410003CA.WorkingListEvent.code</p>
      * 
-     * <p>Allows categorizing professional services for 
-     * presentation. A given person may have had numerous 
-     * procedures related to a particular area. By associating 
-     * categories with procedures, a person viewing the EHR 
-     * information can first look at a list of categories and then 
-     * drill down to the specific procedures.</p><p>The presence of 
-     * this field is essential to prevent users from being 
-     * overwhelmed, however not all services will necessarily be 
-     * categorizable. Therefore this element is marked as 
-     * 'populated'.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: ServiceCategories</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows categorizing professional services for 
      * presentation. A given person may have had numerous 
@@ -139,25 +121,15 @@ public class WorkingListEventBean extends MessagePartBean {
      * and thus aren't specified as part of the 'record' 
      * message.</p>
      * 
-     * <p>J:Observation Categories</p>
+     * <p>Describes the categorization of the service. E.g. 
+     * Psychological Counseling, Smoking Cessation, Cardiac 
+     * Surgeries, etc.</p>
      * 
-     * <p>Describes the categorization of the 
-     * observation.</p><p>E.g. signs and symptoms, history 
-     * observations, etc.</p>
+     * <p>Other Business Name: ObservationCategories</p>
      * 
-     * <p>Describes the categorization of the 
-     * observation.</p><p>E.g. signs and symptoms, history 
-     * observations, etc.</p>
+     * <p>Relationship: REPC_MT420003CA.WorkingListEvent.code</p>
      * 
-     * <p>Allows categorizing of observations for presentation. A 
-     * given person may have had numerous observations related to a 
-     * particular area. By associating categories, a person viewing 
-     * the EHR information can first look at a list of categories 
-     * and then drill down to the specific observation.</p><p>The 
-     * presence of this field is essential to prevent users from 
-     * being overwhelmed, however not all observations will 
-     * necessarily be categorizable. Therefore this element is 
-     * marked as 'populated'.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Allows categorizing of observations for presentation. A 
      * given person may have had numerous observations related to a 
@@ -169,7 +141,9 @@ public class WorkingListEventBean extends MessagePartBean {
      * necessarily be categorizable. Therefore this element is 
      * marked as 'populated'.</p>
      * 
-     * <p>J:Observation Categories</p>
+     * <p>Describes the categorization of the 
+     * observation.</p><p>E.g. signs and symptoms, history 
+     * observations, etc.</p>
      */
     public void setCode(ActCommonCodedClinicalObservationCategoryListCode code) {
         this.code.setValue(code);

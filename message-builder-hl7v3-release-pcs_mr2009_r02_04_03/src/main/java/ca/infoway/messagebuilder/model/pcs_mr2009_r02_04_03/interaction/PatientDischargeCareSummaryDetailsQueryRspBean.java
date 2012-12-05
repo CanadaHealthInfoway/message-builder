@@ -30,8 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.QueryDef
 
 
 /**
- * <p>REPC_IN000093CA: Patient discharge / care summary details 
- * query rsp</p>
+ * <p>Business Name: REPC_IN000093CA: Patient discharge / care 
+ * summary details query rsp</p>
+ * 
+ * <p>Returns a specific discharge / care summary record by 
+ * id</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -44,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.QueryDef
 @Hl7PartTypeMapping({"REPC_IN000093CA"})
 public class PatientDischargeCareSummaryDetailsQueryRspBean extends HL7Message_1Bean<TriggerEvent_6Bean<DischargeCareSummaryBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private DocumentContent_3 component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
@@ -46,15 +46,11 @@ public class SectionBean extends MessagePartBean {
 
 
     /**
-     * <p>M: Document Overview Content</p>
+     * <p>Business Name: M: Document Overview Content</p>
      * 
-     * <p>Provides the primary rendered textual content of the 
-     * document.</p><p>E.g. The cover letter for a referral, the 
-     * overview portion of a report, etc.</p>
+     * <p>Relationship: REPC_MT230003CA.Section.text</p>
      * 
-     * <p>Provides the primary rendered textual content of the 
-     * document.</p><p>E.g. The cover letter for a referral, the 
-     * overview portion of a report, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the principle content of the document and 
      * therefore is mandatory.</p>
@@ -63,6 +59,10 @@ public class SectionBean extends MessagePartBean {
      * report content should be organized or formatted. Guidance 
      * may be provided by professional colleges, specialty groups 
      * or others.</p>
+     * 
+     * <p>Provides the primary rendered textual content of the 
+     * document.</p><p>E.g. The cover letter for a referral, the 
+     * overview portion of a report, etc.</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getText() {
@@ -70,15 +70,11 @@ public class SectionBean extends MessagePartBean {
     }
 
     /**
-     * <p>M: Document Overview Content</p>
+     * <p>Business Name: M: Document Overview Content</p>
      * 
-     * <p>Provides the primary rendered textual content of the 
-     * document.</p><p>E.g. The cover letter for a referral, the 
-     * overview portion of a report, etc.</p>
+     * <p>Relationship: REPC_MT230003CA.Section.text</p>
      * 
-     * <p>Provides the primary rendered textual content of the 
-     * document.</p><p>E.g. The cover letter for a referral, the 
-     * overview portion of a report, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the principle content of the document and 
      * therefore is mandatory.</p>
@@ -87,6 +83,10 @@ public class SectionBean extends MessagePartBean {
      * report content should be organized or formatted. Guidance 
      * may be provided by professional colleges, specialty groups 
      * or others.</p>
+     * 
+     * <p>Provides the primary rendered textual content of the 
+     * document.</p><p>E.g. The cover letter for a referral, the 
+     * overview portion of a report, etc.</p>
      */
     public void setText(EncapsulatedData text) {
         this.text.setValue(text);

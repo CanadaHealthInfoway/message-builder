@@ -36,13 +36,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PresriberRole"})
 public class PresriberRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PersonPrescribingBean playingPrescriberPerson;
 
 
     /**
-     * <p>Prescriber ID</p>
+     * <p>Business Name: Prescriber ID</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.PresriberRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>This is mandatory for Invoices and required with 
      * nullFlavor for Pre-Determinations.</p>
@@ -53,7 +57,11 @@ public class PresriberRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescriber ID</p>
+     * <p>Business Name: Prescriber ID</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.PresriberRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>This is mandatory for Invoices and required with 
      * nullFlavor for Pre-Determinations.</p>
@@ -63,11 +71,23 @@ public class PresriberRoleBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.PresriberRole.playingPrescriberPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"playingPrescriberPerson"})
     public PersonPrescribingBean getPlayingPrescriberPerson() {
         return this.playingPrescriberPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.PresriberRole.playingPrescriberPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPlayingPrescriberPerson(PersonPrescribingBean playingPrescriberPerson) {
         this.playingPrescriberPerson = playingPrescriberPerson;
     }

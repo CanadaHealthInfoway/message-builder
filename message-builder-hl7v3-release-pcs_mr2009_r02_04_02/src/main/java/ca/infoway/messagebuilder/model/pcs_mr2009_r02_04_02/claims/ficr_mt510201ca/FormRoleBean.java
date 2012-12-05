@@ -33,15 +33,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.FormRole"})
 public class FormRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private FormBean playingForm;
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.FormRole.playingForm</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"playingForm"})
     public FormBean getPlayingForm() {
         return this.playingForm;
     }
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.FormRole.playingForm</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPlayingForm(FormBean playingForm) {
         this.playingForm = playingForm;
     }

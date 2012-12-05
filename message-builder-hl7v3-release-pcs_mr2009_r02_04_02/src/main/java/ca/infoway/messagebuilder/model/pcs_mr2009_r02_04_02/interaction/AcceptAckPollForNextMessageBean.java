@@ -27,13 +27,19 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Mes
 
 
 /**
- * <p>MCCI_IN100004CA: Accept Ack Poll for Next Message</p>
+ * <p>Business Name: MCCI_IN100004CA: Accept Ack Poll for Next 
+ * Message</p>
+ * 
+ * <p>Communication level acknowledgement that polled message 
+ * received and immediately making a poll request for the next 
+ * message in the queue. Note: This interaction is invoked, 
+ * where appropriate, as a receiver responsibility.</p>
  * 
  * <p>Message: MCCI_MT002200CA.Message</p>
  */
 @Hl7PartTypeMapping({"MCCI_IN100004CA"})
 public class AcceptAckPollForNextMessageBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

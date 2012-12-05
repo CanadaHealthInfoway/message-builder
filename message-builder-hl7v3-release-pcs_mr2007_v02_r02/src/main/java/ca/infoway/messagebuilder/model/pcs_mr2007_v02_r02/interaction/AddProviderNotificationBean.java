@@ -29,7 +29,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt301010ca.Rol
 
 
 /**
- * <p>PRPM_IN301030CA: Add Provider Notification</p>
+ * <p>Business Name: PRPM_IN301030CA: Add Provider Notification</p>
+ * 
+ * <p>This interaction notifies of a new provider 
+ * registration.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +50,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt301010ca.Rol
 @Hl7PartTypeMapping({"PRPM_IN301030CA"})
 public class AddProviderNotificationBean extends HL7Message_1Bean<TriggerEvent_3Bean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -33,42 +33,35 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Substanc
 
 
 /**
- * <p>Links the current order to a previous order</p>
- * 
  * <p>Links prescriptions into a 'chain', allowing easier 
  * monitoring.</p>
+ * 
+ * <p>Links the current order to a previous order</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest"})
 public class PriorCombinedMedicationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
 
     /**
-     * <p>B:Previous Prescription Order Number</p>
+     * <p>Business Name: B:Previous Prescription Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p><p>As this is the direct link to the 
+     * previous prescription, it is Mandatory.</p>
      * 
      * <p>A reference to a previous prescription which the current 
      * prescription replaces.</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p><p>As this is the direct link to the 
-     * previous prescription, it is Mandatory.</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p><p>As this is the direct link to the 
-     * previous prescription, it is Mandatory.</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p><p>As this is the direct link to the 
-     * previous prescription, it is Mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -76,28 +69,21 @@ public class PriorCombinedMedicationRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Previous Prescription Order Number</p>
+     * <p>Business Name: B:Previous Prescription Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p><p>As this is the direct link to the 
+     * previous prescription, it is Mandatory.</p>
      * 
      * <p>A reference to a previous prescription which the current 
      * prescription replaces.</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p><p>As this is the direct link to the 
-     * previous prescription, it is Mandatory.</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p><p>As this is the direct link to the 
-     * previous prescription, it is Mandatory.</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p><p>As this is the direct link to the 
-     * previous prescription, it is Mandatory.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -105,15 +91,20 @@ public class PriorCombinedMedicationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Prescription type</p>
+     * <p>Business Name: Prescription type</p>
      * 
-     * <p>It signifies the type of prescription (same as it is on 
-     * the prescription pointed to by the Previous Prescription 
-     * Order Number )</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.PriorCombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This allows for instant identification of the type of 
      * prescription being replaced/renewed, etc; and is therefore 
      * mandatory.</p>
+     * 
+     * <p>It signifies the type of prescription (same as it is on 
+     * the prescription pointed to by the Previous Prescription 
+     * Order Number )</p>
      */
     @Hl7XmlMapping({"code"})
     public SubstanceAdministrationType getCode() {
@@ -121,15 +112,20 @@ public class PriorCombinedMedicationRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescription type</p>
+     * <p>Business Name: Prescription type</p>
      * 
-     * <p>It signifies the type of prescription (same as it is on 
-     * the prescription pointed to by the Previous Prescription 
-     * Order Number )</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.PriorCombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This allows for instant identification of the type of 
      * prescription being replaced/renewed, etc; and is therefore 
      * mandatory.</p>
+     * 
+     * <p>It signifies the type of prescription (same as it is on 
+     * the prescription pointed to by the Previous Prescription 
+     * Order Number )</p>
      */
     public void setCode(SubstanceAdministrationType code) {
         this.code.setValue(code);

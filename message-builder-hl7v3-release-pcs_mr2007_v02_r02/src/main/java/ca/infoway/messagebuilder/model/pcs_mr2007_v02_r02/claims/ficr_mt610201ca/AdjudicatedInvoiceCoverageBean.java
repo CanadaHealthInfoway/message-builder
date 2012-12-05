@@ -34,8 +34,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.PolicyId
  * Element Group and may not be specified for any other 
  * Adjudicated Invoice Element Group.</p>
  * 
- * <p>Allows Payor to adj &amp; pay on different policy</p>
- * 
  * <p>For Adjudication Results: On net new policies (i.e. 
  * adjudicated policies for which the provider did not request 
  * adjudication on the Invoice), any policy holder information 
@@ -43,17 +41,24 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.PolicyId
  * information codes. A required action could be used to 
  * instruct the provider s/w to communicate this information to 
  * the patient.</p>
+ * 
+ * <p>Allows Payor to adj &amp; pay on different policy</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private PolicyIdentifierBean policyOrAccount;
 
 
     /**
-     * <p>COB Sequence as Adjudicated</p>
+     * <p>Business Name: COB Sequence as Adjudicated</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceCoverage.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Coordination of Benefits order of the insurance 
      * policy as determined by the adjudicator.</p>
@@ -64,7 +69,12 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
     }
 
     /**
-     * <p>COB Sequence as Adjudicated</p>
+     * <p>Business Name: COB Sequence as Adjudicated</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceCoverage.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Coordination of Benefits order of the insurance 
      * policy as determined by the adjudicator.</p>

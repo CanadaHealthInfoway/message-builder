@@ -52,8 +52,20 @@ public interface ObservationChoice extends ca.infoway.messagebuilder.model.pcs_m
     public List<WasPerformedByBean> getPerformer();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity);
 
 
@@ -76,14 +88,36 @@ public interface ObservationChoice extends ca.infoway.messagebuilder.model.pcs_m
     public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Component4.reportLevelObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Component1.observationChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<ObservationChoice> getComponent4ObservationChoice();
 
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public VersionInformationBean getSubjectOf1ControlActEvent();
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
 
 

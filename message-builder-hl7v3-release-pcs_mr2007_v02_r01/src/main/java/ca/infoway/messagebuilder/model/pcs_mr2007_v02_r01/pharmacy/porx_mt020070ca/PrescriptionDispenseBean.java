@@ -46,19 +46,19 @@ import java.util.Set;
 
 
 /**
- * <p>Prescription Dispense</p>
- * 
- * <p>This is the detailed information about a medication 
- * dispense that has been performed on behalf a patient.</p>
+ * <p>Business Name: Prescription Dispense</p>
  * 
  * <p>Dispensing is an integral part of the overall medication 
  * process.</p>
+ * 
+ * <p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf a patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.MedicationDispense"})
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private BL subject = new BLImpl(false);
@@ -70,12 +70,16 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Local Dispense Id</p>
+     * <p>Business Name: A:Local Dispense Id</p>
      * 
-     * <p>Identifier assigned by the dispensing facility.</p>
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows formal tracking of centrally recorded dispenses to 
      * local records for audit and related purposes.</p>
+     * 
+     * <p>Identifier assigned by the dispensing facility.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -83,12 +87,16 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Local Dispense Id</p>
+     * <p>Business Name: A:Local Dispense Id</p>
      * 
-     * <p>Identifier assigned by the dispensing facility.</p>
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows formal tracking of centrally recorded dispenses to 
      * local records for audit and related purposes.</p>
+     * 
+     * <p>Identifier assigned by the dispensing facility.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -96,48 +104,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Prescription Masking Indicators</p>
+     * <p>Business Name: E:Prescription Masking Indicators</p>
      * 
-     * <p>Communicates the intent that the dispense should be 
-     * masked if it is created; If the dispense is masked, this 
-     * makes the complete prescription and all dispenses 
-     * masked.</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.MedicationDispense.confidentialityCode</p>
      * 
-     * <p>Can be used to set a mask for a new dispense, if present 
-     * in a new dispense request.</p><p>Allows the patient to have 
-     * discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Cant have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p>
-     * 
-     * <p>Can be used to set a mask for a new dispense, if present 
-     * in a new dispense request.</p><p>Allows the patient to have 
-     * discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Cant have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p>
-     * 
-     * <p>Can be used to set a mask for a new dispense, if present 
-     * in a new dispense request.</p><p>Allows the patient to have 
-     * discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Cant have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p>
-     * 
-     * <p>Can be used to set a mask for a new dispense, if present 
-     * in a new dispense request.</p><p>Allows the patient to have 
-     * discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Cant have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Can be used to set a mask for a new dispense, if present 
      * in a new dispense request.</p><p>Allows the patient to have 
@@ -151,6 +123,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>If a dispense is masked, it implicitly masks the 
      * prescription being dispensed. (There's no point in masking a 
      * dispense if the prescription is unmasked.)</p>
+     * 
+     * <p>Communicates the intent that the dispense should be 
+     * masked if it is created; If the dispense is masked, this 
+     * makes the complete prescription and all dispenses 
+     * masked.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getConfidentialityCode() {
@@ -158,11 +135,21 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public Boolean getSubject() {
         return this.subject.getValue();
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubject(Boolean subject) {
         this.subject.setValue(subject);
     }
@@ -188,27 +175,53 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component2/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
         return this.component2DosageInstruction;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component3/supplyEvent"})
     public SupplyEventBean getComponent3SupplyEvent() {
         return this.component3SupplyEvent;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public NotesBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

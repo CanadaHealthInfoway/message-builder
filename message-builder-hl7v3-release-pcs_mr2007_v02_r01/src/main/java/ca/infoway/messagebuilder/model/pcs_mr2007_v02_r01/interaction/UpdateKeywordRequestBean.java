@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.rcmr_mt010002ca.Key
 
 
 /**
- * <p>RCMR_IN010006CA: Update keyword request</p>
+ * <p>Business Name: RCMR_IN010006CA: Update keyword request</p>
+ * 
+ * <p>Requests that the keyword used to control patient access 
+ * to a all or a portion of the patient's record be revised to 
+ * the specified value.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.si.rcmr_mt010002ca.Key
 @Hl7PartTypeMapping({"RCMR_IN010006CA"})
 public class UpdateKeywordRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<KeywordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

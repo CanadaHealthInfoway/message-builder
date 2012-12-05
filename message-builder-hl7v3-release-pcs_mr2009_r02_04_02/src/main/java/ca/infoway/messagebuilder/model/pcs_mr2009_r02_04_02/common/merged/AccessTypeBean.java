@@ -34,60 +34,76 @@ import java.util.List;
 
 
 /**
- * <p>AccessType</p>
+ * <p>Business Name: AccessType</p>
  * 
  * <p>COCT_MT470012CA.InformDefinition: Access Type</p>
  * 
- * <p>Defines the types of information permission is being 
- * granted to access.</p>
- * 
  * <p>Allows discrete control over different types of 
  * information.</p>
+ * 
+ * <p>Defines the types of information permission is being 
+ * granted to access.</p>
  * 
  * <p>COCT_MT470002CA.InformDefinition: Access Type</p>
  * 
- * <p>Defines the types of information permission is being 
- * granted to access.</p>
- * 
  * <p>Allows discrete control over different types of 
  * information.</p>
+ * 
+ * <p>Defines the types of information permission is being 
+ * granted to access.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470002CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
     }
 
 
     /**
-     * <p>ConsentInformationTypes</p>
+     * <p>Business Name: ConsentInformationTypes</p>
      * 
-     * <p>B:Consent Information Types</p>
+     * <p>Other Business Name: ConsentInformationTypes</p>
      * 
-     * <p>The type of patient information that can be accessed or 
-     * modified.</p>
+     * <p>Relationship: COCT_MT470012CA.ActDefinition.code</p>
      * 
-     * <p>Different consents (or even keywords) may be needed to 
-     * access different types of patient information (e.g. 
-     * demographics, medications, allergies, lab results). 
-     * Understanding the type of information the consent applies to 
-     * is critical, and therefore the attribute is mandatory.</p>
-     * 
-     * <p>B:Consent Information Types</p>
-     * 
-     * <p>The type of patient, client, or provider information that 
-     * can be accessed or modified.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Different consents (or even keywords) may be needed to 
      * access different types of patient, client, or provider 
@@ -95,6 +111,24 @@ public class AccessTypeBean extends MessagePartBean {
      * results). Understanding the type of information the consent 
      * applies to is critical, and therefore the attribute is 
      * mandatory.</p>
+     * 
+     * <p>The type of patient, client, or provider information that 
+     * can be accessed or modified.</p>
+     * 
+     * <p>Other Business Name: ConsentInformationTypes</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Different consents (or even keywords) may be needed to 
+     * access different types of patient information (e.g. 
+     * demographics, medications, allergies, lab results). 
+     * Understanding the type of information the consent applies to 
+     * is critical, and therefore the attribute is mandatory.</p>
+     * 
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
      */
     @Hl7XmlMapping({"subject/actDefinition/code"})
     public List<ActInformationAccessCode> getSubjectActDefinitionCode() {

@@ -69,7 +69,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<AD> addressValue = new ArrayList<AD>();
     private CV administrativeGenderValue = new CVImpl();
     private List<CV> assignedRoleTypeValue = new ArrayList<CV>();
@@ -93,13 +93,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Address</p>
+     * <p>Business Name: Healthcare Provider Role Address</p>
      * 
-     * <p>The address for the provider when playing the role of 
-     * healthcare provider.</p>
+     * <p>Relationship: PRPM_MT306010CA.Address.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The address for the provider when playing the role of 
+     * healthcare provider.</p>
      */
     @Hl7XmlMapping({"address/value"})
     public List<PostalAddress> getAddressValue() {
@@ -108,12 +112,16 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Gender</p>
+     * <p>Business Name: Principal Person Gender</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>Relationship: PRPM_MT306010CA.AdministrativeGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The principal persons gender.</p>
      */
     @Hl7XmlMapping({"administrativeGender/value"})
     public AdministrativeGender getAdministrativeGenderValue() {
@@ -121,12 +129,16 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Principal Person Gender</p>
+     * <p>Business Name: Principal Person Gender</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>Relationship: PRPM_MT306010CA.AdministrativeGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The principal persons gender.</p>
      */
     public void setAdministrativeGenderValue(AdministrativeGender administrativeGenderValue) {
         this.administrativeGenderValue.setValue(administrativeGenderValue);
@@ -134,12 +146,16 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Assigned Role Type Value</p>
+     * <p>Business Name: Assigned Role Type Value</p>
      * 
-     * <p>The code identifying the specific functional role.</p>
+     * <p>Relationship: PRPM_MT306010CA.AssignedRoleType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The code identifying the specific functional role.</p>
      */
     @Hl7XmlMapping({"assignedRoleType/value"})
     public List<AssignedRoleType> getAssignedRoleTypeValue() {
@@ -148,14 +164,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Confidence Value</p>
+     * <p>Business Name: Confidence Value</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Confidence.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Required attribute to provide information about success 
+     * of query</p>
      * 
      * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target provider 
      * i.e. the value would be the computed confidence value.</p>
-     * 
-     * <p>Required attribute to provide information about success 
-     * of query</p>
      */
     @Hl7XmlMapping({"confidence/value"})
     public BigDecimal getConfidenceValue() {
@@ -163,14 +183,18 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Confidence Value</p>
+     * <p>Business Name: Confidence Value</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Confidence.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Required attribute to provide information about success 
+     * of query</p>
      * 
      * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target provider 
      * i.e. the value would be the computed confidence value.</p>
-     * 
-     * <p>Required attribute to provide information about success 
-     * of query</p>
      */
     public void setConfidenceValue(BigDecimal confidenceValue) {
         this.confidenceValue.setValue(confidenceValue);
@@ -178,12 +202,16 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Date of Birth</p>
+     * <p>Business Name: Principal Person Date of Birth</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>Relationship: PRPM_MT306010CA.DOB.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The principal persons date of birth.</p>
      */
     @Hl7XmlMapping({"dOB/value"})
     public Date getDOBValue() {
@@ -191,12 +219,16 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Principal Person Date of Birth</p>
+     * <p>Business Name: Principal Person Date of Birth</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>Relationship: PRPM_MT306010CA.DOB.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The principal persons date of birth.</p>
      */
     public void setDOBValue(Date dOBValue) {
         this.dOBValue.setValue(dOBValue);
@@ -204,12 +236,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>History Indicator Value</p>
+     * <p>Business Name: History Indicator Value</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306010CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute when queried upon</p>
      * 
      * <p>Indicates whether or not historical records should be 
      * included in this query response</p>
-     * 
-     * <p>Mandatory attribute when queried upon</p>
      */
     @Hl7XmlMapping({"includeHistoryIndicator/value"})
     public Boolean getIncludeHistoryIndicatorValue() {
@@ -217,12 +254,17 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>History Indicator Value</p>
+     * <p>Business Name: History Indicator Value</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306010CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute when queried upon</p>
      * 
      * <p>Indicates whether or not historical records should be 
      * included in this query response</p>
-     * 
-     * <p>Mandatory attribute when queried upon</p>
      */
     public void setIncludeHistoryIndicatorValue(Boolean includeHistoryIndicatorValue) {
         this.includeHistoryIndicatorValue.setValue(includeHistoryIndicatorValue);
@@ -230,14 +272,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Jurisdiction Type</p>
+     * <p>Business Name: Jurisdiction Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Jurisdiction.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p>
      * 
      * <p>A character value that represents the Canadian provincial 
      * or territorial geographical area within which the Provider 
      * is operating.</p>
-     * 
-     * <p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p>
      */
     @Hl7XmlMapping({"jurisdiction/value"})
     public List<JurisdictionTypeCode> getJurisdictionValue() {
@@ -246,13 +292,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Name</p>
+     * <p>Business Name: Healthcare Provider Role Name</p>
      * 
-     * <p>The providers name pertaining to the specific healthcare 
-     * provider role.</p>
+     * <p>Relationship: PRPM_MT306010CA.Name.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The providers name pertaining to the specific healthcare 
+     * provider role.</p>
      */
     @Hl7XmlMapping({"name/value"})
     public PersonName getNameValue() {
@@ -260,13 +310,17 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Healthcare Provider Role Name</p>
+     * <p>Business Name: Healthcare Provider Role Name</p>
      * 
-     * <p>The providers name pertaining to the specific healthcare 
-     * provider role.</p>
+     * <p>Relationship: PRPM_MT306010CA.Name.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The providers name pertaining to the specific healthcare 
+     * provider role.</p>
      */
     public void setNameValue(PersonName nameValue) {
         this.nameValue.setValue(nameValue);
@@ -274,13 +328,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Identification</p>
+     * <p>Business Name: Healthcare Provider Role Identification</p>
      * 
-     * <p>A unique identifier for a provider in a specific 
-     * healthcare role.</p>
+     * <p>Relationship: PRPM_MT306010CA.ProviderID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>A unique identifier for a provider in a specific 
+     * healthcare role.</p>
      */
     @Hl7XmlMapping({"providerID/value"})
     public List<Identifier> getProviderIDValue() {
@@ -289,12 +347,16 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise or Credentials Role Type</p>
      * 
-     * <p>Unique identifier for the Expertise or Credential.</p>
+     * <p>Relationship: PRPM_MT306010CA.Qualification.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider credentials</p>
+     * 
+     * <p>Unique identifier for the Expertise or Credential.</p>
      */
     @Hl7XmlMapping({"qualification/value"})
     public List<QualifiedRoleType> getQualificationValue() {
@@ -303,14 +365,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Provider Query Response Object</p>
+     * <p>Business Name: Provider Query Response Object</p>
      * 
-     * <p>Outlines the values expected to be received by this 
-     * query</p>
+     * <p>Relationship: PRPM_MT306010CA.ResponseObject.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated attribute provides tremendous value in giving 
      * the organization issuing the query the flexibility to 
      * request particular items in the response.</p>
+     * 
+     * <p>Outlines the values expected to be received by this 
+     * query</p>
      */
     @Hl7XmlMapping({"responseObject/value"})
     public List<ProviderQueryResponseObject> getResponseObjectValue() {
@@ -319,11 +385,15 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Role Class Value</p>
+     * <p>Business Name: Role Class Value</p>
      * 
-     * <p>Indicates Role Class being queried upon</p>
+     * <p>Relationship: PRPM_MT306010CA.RoleClass.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute where queried upon</p>
+     * 
+     * <p>Indicates Role Class being queried upon</p>
      */
     @Hl7XmlMapping({"roleClass/value"})
     public List<x_RoleClassAssignedQualifiedProvider> getRoleClassValue() {
@@ -332,13 +402,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Effective Date</p>
+     * <p>Business Name: Healthcare Provider Role Effective Date</p>
      * 
-     * <p>The effective date of the provider in the healthcare 
-     * provider role.</p>
+     * <p>Relationship: PRPM_MT306010CA.RoleEffectiveDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The effective date of the provider in the healthcare 
+     * provider role.</p>
      */
     @Hl7XmlMapping({"roleEffectiveDate/value"})
     public Interval<Date> getRoleEffectiveDateValue() {
@@ -346,13 +420,17 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Healthcare Provider Role Effective Date</p>
+     * <p>Business Name: Healthcare Provider Role Effective Date</p>
      * 
-     * <p>The effective date of the provider in the healthcare 
-     * provider role.</p>
+     * <p>Relationship: PRPM_MT306010CA.RoleEffectiveDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The effective date of the provider in the healthcare 
+     * provider role.</p>
      */
     public void setRoleEffectiveDateValue(Interval<Date> roleEffectiveDateValue) {
         this.roleEffectiveDateValue.setValue(roleEffectiveDateValue);
@@ -360,13 +438,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Business Name: Healthcare Provider Role Type</p>
      * 
-     * <p>The code identifying the specific healthcare provider 
-     * role.</p>
+     * <p>Relationship: PRPM_MT306010CA.RoleType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The code identifying the specific healthcare provider 
+     * role.</p>
      */
     @Hl7XmlMapping({"roleType/value"})
     public List<HealthcareProviderRoleType> getRoleTypeValue() {
@@ -375,7 +457,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Routed Document Type</p>
+     * <p>Business Name: Routed Document Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.RoutedDocType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Supports the business requirement to identify the 
      * specified roleClass being queried upon</p>
@@ -389,7 +475,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Routed Document Type</p>
+     * <p>Business Name: Routed Document Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.RoutedDocType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Supports the business requirement to identify the 
      * specified roleClass being queried upon</p>
@@ -403,11 +493,16 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Service Delivery Location Address Detail</p>
+     * <p>Business Name: Service Delivery Location Address Detail</p>
      * 
-     * <p>Address for the Service Delivery Location</p>
+     * <p>Relationship: 
+     * PRPM_MT306010CA.ServiceDeliveryLocationAddress.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute when queried upon</p>
+     * 
+     * <p>Address for the Service Delivery Location</p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocationAddress/value"})
     public List<PostalAddress> getServiceDeliveryLocationAddressValue() {
@@ -416,13 +511,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Business Name: Service Delivery Location Identifier</p>
      * 
-     * <p>A unique identifier for the service delivery 
-     * location.</p>
+     * <p>Relationship: 
+     * PRPM_MT306010CA.ServiceDeliveryLocationID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>A unique identifier for the service delivery 
+     * location.</p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocationID/value"})
     public List<Identifier> getServiceDeliveryLocationIDValue() {
@@ -431,13 +531,18 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Service Delivery Location Type Value</p>
+     * <p>Business Name: Service Delivery Location Type Value</p>
      * 
-     * <p>A unique value for the service delivery location 
-     * type.</p>
+     * <p>Relationship: 
+     * PRPM_MT306010CA.ServiceDeliveryLocationType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
+     * 
+     * <p>A unique value for the service delivery location 
+     * type.</p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocationType/value"})
     public List<ServiceDeliveryLocationRoleType> getServiceDeliveryLocationTypeValue() {
@@ -446,13 +551,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Status Code</p>
+     * <p>Business Name: Healthcare Provider Role Status Code</p>
      * 
-     * <p>The status of the provider in the healthcare provider 
-     * role i.e. Active</p>
+     * <p>Relationship: PRPM_MT306010CA.Status.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The status of the provider in the healthcare provider 
+     * role i.e. Active</p>
      */
     @Hl7XmlMapping({"status/value"})
     public List<RoleStatus> getStatusValue() {
@@ -461,13 +570,17 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Telecom</p>
+     * <p>Business Name: Healthcare Provider Role Telecom</p>
      * 
-     * <p>The telecom for the provider when playing the role of 
-     * healthcare provider.</p>
+     * <p>Relationship: PRPM_MT306010CA.Telecom.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
+     * 
+     * <p>The telecom for the provider when playing the role of 
+     * healthcare provider.</p>
      */
     @Hl7XmlMapping({"telecom/value"})
     public List<TelecommunicationAddress> getTelecomValue() {

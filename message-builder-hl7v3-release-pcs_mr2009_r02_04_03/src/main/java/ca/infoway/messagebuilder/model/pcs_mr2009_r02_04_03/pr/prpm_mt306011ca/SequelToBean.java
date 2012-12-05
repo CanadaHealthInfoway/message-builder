@@ -31,13 +31,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.SequelTo"})
 public class SequelToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private InformRequestBean informRequest;
 
 
     /**
-     * <p>Order of Inform Requests</p>
+     * <p>Business Name: Order of Inform Requests</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows each Inform Request to be sequentially listed.</p>
      */
@@ -47,7 +51,11 @@ public class SequelToBean extends MessagePartBean {
     }
 
     /**
-     * <p>Order of Inform Requests</p>
+     * <p>Business Name: Order of Inform Requests</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Allows each Inform Request to be sequentially listed.</p>
      */
@@ -56,11 +64,21 @@ public class SequelToBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.informRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informRequest"})
     public InformRequestBean getInformRequest() {
         return this.informRequest;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.informRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformRequest(InformRequestBean informRequest) {
         this.informRequest = informRequest;
     }

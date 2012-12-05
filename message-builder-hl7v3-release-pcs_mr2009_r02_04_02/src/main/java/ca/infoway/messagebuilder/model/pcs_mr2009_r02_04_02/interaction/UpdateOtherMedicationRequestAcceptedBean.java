@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 
 
 /**
- * <p>PORX_IN040080CA: Update other medication request accepted</p>
+ * <p>Business Name: PORX_IN040080CA: Update other medication 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the requested status, comments and/or 
+ * other information about an existing medication record have 
+ * been successfully modified.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActRequestBea
 @Hl7PartTypeMapping({"PORX_IN040080CA"})
 public class UpdateOtherMedicationRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

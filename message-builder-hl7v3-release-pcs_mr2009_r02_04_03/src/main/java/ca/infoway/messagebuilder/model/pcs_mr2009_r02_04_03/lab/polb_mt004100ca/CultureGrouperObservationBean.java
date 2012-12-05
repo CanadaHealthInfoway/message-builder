@@ -62,22 +62,22 @@ import java.util.Set;
 
 
 /**
- * <p>Culture Grouper Observation</p>
- * 
- * <p>This culture observation is the grouping observation for 
- * all information related to the culturing of the collected 
- * specimen to identify micro-organisms and the further, 
- * optional testing for antibiotic sensitivities.</p>
+ * <p>Business Name: Culture Grouper Observation</p>
  * 
  * <p>This mandatory culture observation is the grouping 
  * observation for all information related to the culturing of 
  * the collected specimen to identify micro-organisms and the 
  * further, optional testing for antibiotic sensitivities.</p>
+ * 
+ * <p>This culture observation is the grouping observation for 
+ * all information related to the culturing of the collected 
+ * specimen to identify micro-organisms and the further, 
+ * optional testing for antibiotic sensitivities.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.Culture"})
 public class CultureGrouperObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -100,7 +100,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Identifier</p>
+     * <p>Business Name: Culture Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Culture.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>Unique to identify this culture test.</p>
      */
@@ -111,7 +115,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Type</p>
+     * <p>Business Name: Culture Type</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Culture.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of culture. LOINC codes are used for 
      * this attribute which also &quot;carry&quot; the specimen 
@@ -123,7 +131,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Culture Type</p>
+     * <p>Business Name: Culture Type</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Culture.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of culture. LOINC codes are used for 
      * this attribute which also &quot;carry&quot; the specimen 
@@ -135,7 +147,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Status</p>
+     * <p>Business Name: Culture Status</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Culture.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status of the Culture.</p>
      */
@@ -145,7 +161,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Culture Status</p>
+     * <p>Business Name: Culture Status</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Culture.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Status of the Culture.</p>
      */
@@ -155,7 +175,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Effective Time</p>
+     * <p>Business Name: Culture Effective Time</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Culture.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective time associated with the Culture.</p>
      */
@@ -165,7 +189,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Culture Effective Time</p>
+     * <p>Business Name: Culture Effective Time</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Culture.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective time associated with the Culture.</p>
      */
@@ -175,7 +203,15 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Result Masking Indicator</p>
+     * <p>Business Name: Result Masking Indicator</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Culture.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>This code allows for privacy control by patients as well 
+     * as flagged for 'not for disclosure to patient' by care 
+     * providers.</p>
      * 
      * <p>Any piece of information is potentially subject to 
      * 'masking', restricting it's availability from providers who 
@@ -184,10 +220,6 @@ public class CultureGrouperObservationBean extends MessagePartBean {
      * direct disclosure to patient&quot;. The values in this 
      * attribute enable the above masking to be represented and 
      * messaged.</p>
-     * 
-     * <p>This code allows for privacy control by patients as well 
-     * as flagged for 'not for disclosure to patient' by care 
-     * providers.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -217,11 +249,23 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
     public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
         return this.primaryInformationRecipientAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
         this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
@@ -249,6 +293,12 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component1.cultureObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/cultureObservationEvent"})
     public List<CultureObservationsBean> getComponent1CultureObservationEvent() {
         return this.component1CultureObservationEvent;
@@ -265,6 +315,11 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Culture.component3</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-100)</p>
+     */
     @Hl7XmlMapping({"component3"})
     public List<HasAComponentBean> getComponent3() {
         return this.component3;
@@ -277,11 +332,21 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }

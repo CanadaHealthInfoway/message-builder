@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -91,7 +91,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-100)</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -100,7 +104,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public RoleStatus getStatusCode() {
@@ -108,7 +116,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setStatusCode(RoleStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -116,7 +128,12 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -124,7 +141,12 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -132,7 +154,12 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_NormalRestrictedTabooConfidentialityKind getConfidentialityCode() {
@@ -140,7 +167,12 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setConfidentialityCode(x_NormalRestrictedTabooConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
@@ -148,7 +180,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Name</p>
+     * <p>Business Name: Client Name</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
      */
     @Hl7XmlMapping({"identifiedPerson/name"})
     public List<PersonName> getIdentifiedPersonName() {
@@ -157,7 +193,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Telecom</p>
+     * <p>Business Name: Client Telecom</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
      */
     @Hl7XmlMapping({"identifiedPerson/telecom"})
     public List<TelecommunicationAddress> getIdentifiedPersonTelecom() {
@@ -166,7 +206,12 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
     public AdministrativeGender getIdentifiedPersonAdministrativeGenderCode() {
@@ -174,7 +219,12 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setIdentifiedPersonAdministrativeGenderCode(AdministrativeGender identifiedPersonAdministrativeGenderCode) {
         this.identifiedPersonAdministrativeGenderCode.setValue(identifiedPersonAdministrativeGenderCode);
@@ -182,7 +232,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"identifiedPerson/birthTime"})
     public Date getIdentifiedPersonBirthTime() {
@@ -190,7 +244,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setIdentifiedPersonBirthTime(Date identifiedPersonBirthTime) {
         this.identifiedPersonBirthTime.setValue(identifiedPersonBirthTime);
@@ -198,7 +256,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Deceased Indicator</p>
+     * <p>Business Name: Client Deceased Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"identifiedPerson/deceasedInd"})
     public Boolean getIdentifiedPersonDeceasedInd() {
@@ -206,7 +268,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Deceased Indicator</p>
+     * <p>Business Name: Client Deceased Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setIdentifiedPersonDeceasedInd(Boolean identifiedPersonDeceasedInd) {
         this.identifiedPersonDeceasedInd.setValue(identifiedPersonDeceasedInd);
@@ -214,7 +280,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Deceased Date</p>
+     * <p>Business Name: Client Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>deceasedTime only present if deceasedInd is = TRUE</p>
      */
@@ -224,7 +294,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Deceased Date</p>
+     * <p>Business Name: Client Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>deceasedTime only present if deceasedInd is = TRUE</p>
      */
@@ -234,7 +308,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"identifiedPerson/multipleBirthInd"})
     public Boolean getIdentifiedPersonMultipleBirthInd() {
@@ -242,7 +320,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setIdentifiedPersonMultipleBirthInd(Boolean identifiedPersonMultipleBirthInd) {
         this.identifiedPersonMultipleBirthInd.setValue(identifiedPersonMultipleBirthInd);
@@ -250,7 +332,12 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"identifiedPerson/multipleBirthOrderNumber"})
     public Integer getIdentifiedPersonMultipleBirthOrderNumber() {
@@ -258,7 +345,12 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setIdentifiedPersonMultipleBirthOrderNumber(Integer identifiedPersonMultipleBirthOrderNumber) {
         this.identifiedPersonMultipleBirthOrderNumber.setValue(identifiedPersonMultipleBirthOrderNumber);
@@ -266,7 +358,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Address</p>
+     * <p>Business Name: Client Address</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
      */
     @Hl7XmlMapping({"identifiedPerson/addr"})
     public List<PostalAddress> getIdentifiedPersonAddr() {
@@ -274,6 +370,11 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101102CA.Person.asOtherIDs</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
     public List<OtherIDsBean> getIdentifiedPersonAsOtherIDs() {
         return this.identifiedPersonAsOtherIDs;

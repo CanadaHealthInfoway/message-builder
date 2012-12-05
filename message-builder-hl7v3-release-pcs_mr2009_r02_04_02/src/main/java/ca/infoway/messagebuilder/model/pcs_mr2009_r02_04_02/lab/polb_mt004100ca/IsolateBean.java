@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Microorg
 
 
 /**
- * <p>Isolate</p>
+ * <p>Business Name: Isolate</p>
  * 
  * <p>The isolated micro-organism is represented by this 
  * role.</p>
@@ -43,14 +43,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Microorg
 @Hl7PartTypeMapping({"POLB_MT004100CA.Isolate2"})
 public class IsolateBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD isolateMicroorganismCode = new CDImpl();
     private ST isolateMicroorganismDesc = new STImpl();
 
 
     /**
-     * <p>Isolate Identifier</p>
+     * <p>Business Name: Isolate Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Isolate2.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier for the isolated microorganism.</p>
      */
@@ -60,7 +64,11 @@ public class IsolateBean extends MessagePartBean {
     }
 
     /**
-     * <p>Isolate Identifier</p>
+     * <p>Business Name: Isolate Identifier</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Isolate2.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier for the isolated microorganism.</p>
      */
@@ -70,7 +78,11 @@ public class IsolateBean extends MessagePartBean {
 
 
     /**
-     * <p>Microorganism</p>
+     * <p>Business Name: Microorganism</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Microorganism.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code for the microorganism.</p>
      */
@@ -80,7 +92,11 @@ public class IsolateBean extends MessagePartBean {
     }
 
     /**
-     * <p>Microorganism</p>
+     * <p>Business Name: Microorganism</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Microorganism.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code for the microorganism.</p>
      */
@@ -90,7 +106,11 @@ public class IsolateBean extends MessagePartBean {
 
 
     /**
-     * <p>Microorganism Description</p>
+     * <p>Business Name: Microorganism Description</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Microorganism.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Text name or description of the Microorganism. Only to be 
      * used if SNOMED is not supported.</p>
@@ -101,7 +121,11 @@ public class IsolateBean extends MessagePartBean {
     }
 
     /**
-     * <p>Microorganism Description</p>
+     * <p>Business Name: Microorganism Description</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Microorganism.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Text name or description of the Microorganism. Only to be 
      * used if SNOMED is not supported.</p>

@@ -28,7 +28,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>QUQI_IN000003CA: Query Continuation</p>
+ * <p>Business Name: QUQI_IN000003CA: Query Continuation</p>
+ * 
+ * <p>Message to indicate to the query responder to send the 
+ * next set of responses; continue the query.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -37,6 +40,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"QUQI_IN000003CA"})
 public class QueryContinuationBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

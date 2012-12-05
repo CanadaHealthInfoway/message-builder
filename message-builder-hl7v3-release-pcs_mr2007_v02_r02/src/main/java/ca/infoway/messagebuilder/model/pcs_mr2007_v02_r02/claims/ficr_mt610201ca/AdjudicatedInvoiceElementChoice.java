@@ -29,8 +29,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.Adjudica
 public interface AdjudicatedInvoiceElementChoice {
 
 
+    /**
+     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public AllowableAmountBean getReference1Allowable();
 
+    /**
+     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReference1Allowable(AllowableAmountBean reference1Allowable);
 
 

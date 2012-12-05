@@ -29,7 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 
 
 /**
- * <p>COMT_IN300002CA: Add patient note request accepted</p>
+ * <p>Business Name: COMT_IN300002CA: Add patient note request 
+ * accepted</p>
+ * 
+ * <p>Indicates that the specified annotation has been 
+ * successfully recorded against the requested patient.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.common.merged.TriggerE
 @Hl7PartTypeMapping({"COMT_IN300002CA"})
 public class AddPatientNoteRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

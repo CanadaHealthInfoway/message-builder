@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.OtherSpecimenId
 
 
 /**
- * <p>PRPA_IN101999CA: Person Nullified</p>
+ * <p>Business Name: PRPA_IN101999CA: Person Nullified</p>
+ * 
+ * <p>This interaction occurs after an erroneously entered 
+ * person record is nullified in a person registry. An informer 
+ * sends to a tracker enough information to identify the 
+ * nullified record.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.OtherSpecimenId
 @Hl7PartTypeMapping({"PRPA_IN101999CA"})
 public class PersonNullifiedBean extends HL7Message_1Bean<TriggerEvent_3Bean<OtherSpecimenIdentificationsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

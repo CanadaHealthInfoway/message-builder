@@ -38,13 +38,17 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PrescriberPerson"})
 public class PersonPrescribingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PN name = new PNImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
-     * <p>Prescriber Name</p>
+     * <p>Business Name: Prescriber Name</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.PrescriberPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Name of person prescribing</p>
      */
@@ -54,7 +58,11 @@ public class PersonPrescribingBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescriber Name</p>
+     * <p>Business Name: Prescriber Name</p>
+     * 
+     * <p>Relationship: COCT_MT300000CA.PrescriberPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Name of person prescribing</p>
      */
@@ -64,11 +72,15 @@ public class PersonPrescribingBean extends MessagePartBean {
 
 
     /**
-     * <p>Prescriber Telephone Number</p>
+     * <p>Business Name: Prescriber Telephone Number</p>
      * 
-     * <p>Telephone no. of the prescriber</p>
+     * <p>Relationship: COCT_MT300000CA.PrescriberPerson.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-3)</p>
      * 
      * <p>used for Coverage Extension to contact prescriber</p>
+     * 
+     * <p>Telephone no. of the prescriber</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {

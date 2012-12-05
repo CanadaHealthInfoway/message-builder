@@ -34,32 +34,46 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActImmun
 /**
  * <p>POIZ_MT030060CA.ImmunizationReason: (no business name)</p>
  * 
- * <p>The reason why an immunization event occurred.</p>
- * 
  * <p>Needed for explicitly communicating the reason why a 
  * patient was administered as vaccine.</p>
+ * 
+ * <p>The reason why an immunization event occurred.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.ImmunizationReason","POIZ_MT030060CA.ImmunizationReason","POIZ_MT060150CA.ImmunizationReason"})
 public class ImmunizationReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
     private CV reasonCode = new CVImpl();
 
 
     /**
-     * <p>ImmunizationReasonText</p>
+     * <p>Business Name: ImmunizationReasonText</p>
      * 
-     * <p>Immunization Reason Text</p>
+     * <p>Other Business Name: ImmunizationReasonText</p>
      * 
-     * <p>A textual or multimedia description (or reference to a 
-     * description) of the reason.</p>
+     * <p>Relationship: POIZ_MT030050CA.ImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: ImmunizationReasonText</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.ImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Provides additional context and description relating to 
      * the reason for immunization. Not all implementations will 
      * support text. As a result, this attribute is optional.</p>
      * 
-     * <p>Immunization Reason Text</p>
+     * <p>A textual or multimedia description (or reference to a 
+     * description) of the reason.</p>
+     * 
+     * <p>Other Business Name: ImmunizationReasonText</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.ImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -67,18 +81,32 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
     }
 
     /**
-     * <p>ImmunizationReasonText</p>
+     * <p>Business Name: ImmunizationReasonText</p>
      * 
-     * <p>Immunization Reason Text</p>
+     * <p>Other Business Name: ImmunizationReasonText</p>
      * 
-     * <p>A textual or multimedia description (or reference to a 
-     * description) of the reason.</p>
+     * <p>Relationship: POIZ_MT030050CA.ImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: ImmunizationReasonText</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.ImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Provides additional context and description relating to 
      * the reason for immunization. Not all implementations will 
      * support text. As a result, this attribute is optional.</p>
      * 
-     * <p>Immunization Reason Text</p>
+     * <p>A textual or multimedia description (or reference to a 
+     * description) of the reason.</p>
+     * 
+     * <p>Other Business Name: ImmunizationReasonText</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.ImmunizationReason.text</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -86,19 +114,36 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>ImmunizationReason</p>
+     * <p>Business Name: ImmunizationReason</p>
      * 
-     * <p>Immunization Reason</p>
+     * <p>Other Business Name: ImmunizationReason</p>
      * 
-     * <p>A coded value denoting a reason for immunizing a 
-     * patient.</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.ImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ImmunizationReason</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.ImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows sorting and categorizing different kinds of 
      * immunization reasons. Ensures that reasons are gathered in a 
      * consistent analyzable manner. As a result, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Immunization Reason</p>
+     * <p>A coded value denoting a reason for immunizing a 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: ImmunizationReason</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.ImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ActImmunizationReason getReasonCode() {
@@ -106,19 +151,36 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
     }
 
     /**
-     * <p>ImmunizationReason</p>
+     * <p>Business Name: ImmunizationReason</p>
      * 
-     * <p>Immunization Reason</p>
+     * <p>Other Business Name: ImmunizationReason</p>
      * 
-     * <p>A coded value denoting a reason for immunizing a 
-     * patient.</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.ImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ImmunizationReason</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.ImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows sorting and categorizing different kinds of 
      * immunization reasons. Ensures that reasons are gathered in a 
      * consistent analyzable manner. As a result, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Immunization Reason</p>
+     * <p>A coded value denoting a reason for immunizing a 
+     * patient.</p>
+     * 
+     * <p>Other Business Name: ImmunizationReason</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.ImmunizationReason.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setReasonCode(ActImmunizationReason reasonCode) {
         this.reasonCode.setValue(reasonCode);

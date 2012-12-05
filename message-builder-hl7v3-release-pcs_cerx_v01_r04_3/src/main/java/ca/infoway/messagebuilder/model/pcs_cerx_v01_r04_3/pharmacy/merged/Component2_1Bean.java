@@ -27,45 +27,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Includes</p>
+ * <p>Business Name: Includes</p>
  * 
  * <p>PORX_MT060060CA.Component6: f:includes</p>
  * 
  * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p><p>An essential part 
+ * of most prescriptions is the authorization to 
+ * dispense.</p><p>The association is marked as Populated 
+ * because the authorization to dispense is a critical portion 
+ * of a prescription. However the association is allowed to be 
+ * 'null' when the order is for a device which requires no 
+ * dispense authorization, or when the patient already has 
+ * sufficient supply of the device on hand to complete the 
+ * therapy.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed device 
  * should be dispensed to the patient.</p>
- * 
- * <p>Identifies the instructions for how the prescribed device 
- * should be dispensed to the patient.</p><p>An essential part 
- * of most prescriptions is the authorization to 
- * dispense.</p><p>The association is marked as Populated 
- * because the authorization to dispense is a critical portion 
- * of a prescription. However the association is allowed to be 
- * 'null' when the order is for a device which requires no 
- * dispense authorization, or when the patient already has 
- * sufficient supply of the device on hand to complete the 
- * therapy.</p>
- * 
- * <p>Identifies the instructions for how the prescribed device 
- * should be dispensed to the patient.</p><p>An essential part 
- * of most prescriptions is the authorization to 
- * dispense.</p><p>The association is marked as Populated 
- * because the authorization to dispense is a critical portion 
- * of a prescription. However the association is allowed to be 
- * 'null' when the order is for a device which requires no 
- * dispense authorization, or when the patient already has 
- * sufficient supply of the device on hand to complete the 
- * therapy.</p>
- * 
- * <p>Identifies the instructions for how the prescribed device 
- * should be dispensed to the patient.</p><p>An essential part 
- * of most prescriptions is the authorization to 
- * dispense.</p><p>The association is marked as Populated 
- * because the authorization to dispense is a critical portion 
- * of a prescription. However the association is allowed to be 
- * 'null' when the order is for a device which requires no 
- * dispense authorization, or when the patient already has 
- * sufficient supply of the device on hand to complete the 
- * therapy.</p>
  * 
  * <p>PORX_MT020060CA.Component2: (no business name)</p>
  * 
@@ -74,32 +52,82 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>PORX_MT060040CA.Component6: f:includes</p>
  * 
- * <p>Identifies the instructions for how the prescribed device 
- * should be dispensed to the patient.</p>
- * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p>
  * 
  * <p>PORX_MT010110CA.Component6: f:includes</p>
  * 
- * <p>Identifies the instructions for how the prescribed device 
- * should be dispensed to the patient.</p>
- * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed device 
+ * should be dispensed to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.Component6","PORX_MT020060CA.Component2","PORX_MT060040CA.Component6","PORX_MT060060CA.Component6"})
 public class Component2_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DispenseInstructions_1Bean supplyRequest;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"supplyRequest"})
     public DispenseInstructions_1Bean getSupplyRequest() {
         return this.supplyRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSupplyRequest(DispenseInstructions_1Bean supplyRequest) {
         this.supplyRequest = supplyRequest;
     }

@@ -33,28 +33,32 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ProblemV
 
 
 /**
- * <p>Diagnosis Indications</p>
- * 
- * <p>Describes diagnosis-related indications</p>
+ * <p>Business Name: Diagnosis Indications</p>
  * 
  * <p>Allows separation of conditions from symptoms from other 
  * forms of indication.</p>
+ * 
+ * <p>Describes diagnosis-related indications</p>
  */
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationProblem"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CD value = new CDImpl();
 
 
     /**
-     * <p>Problem Type</p>
+     * <p>Business Name: Problem Type</p>
      * 
-     * <p>Identifies the type of problem described.</p>
+     * <p>Relationship: COCT_MT120402CA.ObservationProblem.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies this measurement as a type of diagnosis and is 
      * therefore mandatory.</p>
+     * 
+     * <p>Identifies the type of problem described.</p>
      */
     @Hl7XmlMapping({"code"})
     public ProblemType getCode() {
@@ -62,12 +66,16 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
 
     /**
-     * <p>Problem Type</p>
+     * <p>Business Name: Problem Type</p>
      * 
-     * <p>Identifies the type of problem described.</p>
+     * <p>Relationship: COCT_MT120402CA.ObservationProblem.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies this measurement as a type of diagnosis and is 
      * therefore mandatory.</p>
+     * 
+     * <p>Identifies the type of problem described.</p>
      */
     public void setCode(ProblemType code) {
         this.code.setValue(code);
@@ -75,26 +83,22 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
 
 
     /**
-     * <p>A:Problem Code</p>
+     * <p>Business Name: A:Problem Code</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.ObservationProblem.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows cross-checking the use of a therapy against its 
+     * indication. Also allows analysis of best practices, etc. 
+     * This is the attribute that actually identifies the 
+     * indication and is therefore mandatory.</p><p> <i>This 
+     * element makes use of the CD datatype because some 
+     * terminologies used for the domain require use of 
+     * modifiers.</i> </p>
      * 
      * <p>A coded form of the problem that is the reason for the 
      * current action.</p>
-     * 
-     * <p>Allows cross-checking the use of a therapy against its 
-     * indication. Also allows analysis of best practices, etc. 
-     * This is the attribute that actually identifies the 
-     * indication and is therefore mandatory.</p><p> <i>This 
-     * element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p>
-     * 
-     * <p>Allows cross-checking the use of a therapy against its 
-     * indication. Also allows analysis of best practices, etc. 
-     * This is the attribute that actually identifies the 
-     * indication and is therefore mandatory.</p><p> <i>This 
-     * element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p>
      */
     @Hl7XmlMapping({"value"})
     public ProblemValue getValue() {
@@ -102,26 +106,22 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
 
     /**
-     * <p>A:Problem Code</p>
+     * <p>Business Name: A:Problem Code</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.ObservationProblem.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows cross-checking the use of a therapy against its 
+     * indication. Also allows analysis of best practices, etc. 
+     * This is the attribute that actually identifies the 
+     * indication and is therefore mandatory.</p><p> <i>This 
+     * element makes use of the CD datatype because some 
+     * terminologies used for the domain require use of 
+     * modifiers.</i> </p>
      * 
      * <p>A coded form of the problem that is the reason for the 
      * current action.</p>
-     * 
-     * <p>Allows cross-checking the use of a therapy against its 
-     * indication. Also allows analysis of best practices, etc. 
-     * This is the attribute that actually identifies the 
-     * indication and is therefore mandatory.</p><p> <i>This 
-     * element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p>
-     * 
-     * <p>Allows cross-checking the use of a therapy against its 
-     * indication. Also allows analysis of best practices, etc. 
-     * This is the attribute that actually identifies the 
-     * indication and is therefore mandatory.</p><p> <i>This 
-     * element makes use of the CD datatype because some 
-     * terminologies used for the domain require use of 
-     * modifiers.</i> </p>
      */
     public void setValue(ProblemValue value) {
         this.value.setValue(value);

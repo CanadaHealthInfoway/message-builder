@@ -44,18 +44,48 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.LabResul
 @Hl7PartTypeMapping({"POLB_MT002000CA.ResultStatusProcessStep","POLB_MT004000CA.ResultStatusProcessStep","POLB_MT004100CA.ResultStatusProcessStep","POLB_MT004200CA.ResultStatusProcessStep"})
 public class ResultStatusProcessStepBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
 
 
     /**
-     * <p>ResultStatusProcessStepCode</p>
+     * <p>Business Name: ResultStatusProcessStepCode</p>
      * 
-     * <p>Result Status Process Step Code</p>
+     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to designate &quot;preliminary&quot; and 
+     * &quot;final&quot; result statuses.</p>
+     * 
+     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Preliminary or Final.</p>
      * 
-     * <p>Result Status Process Step Code</p>
+     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to designate &quot;preliminary&quot; and 
+     * &quot;final&quot; result statuses.</p>
+     * 
+     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to designate &quot;preliminary&quot; and 
      * &quot;final&quot; result statuses.</p>
@@ -66,13 +96,43 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
     }
 
     /**
-     * <p>ResultStatusProcessStepCode</p>
+     * <p>Business Name: ResultStatusProcessStepCode</p>
      * 
-     * <p>Result Status Process Step Code</p>
+     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to designate &quot;preliminary&quot; and 
+     * &quot;final&quot; result statuses.</p>
+     * 
+     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT002000CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Preliminary or Final.</p>
      * 
-     * <p>Result Status Process Step Code</p>
+     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004200CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used to designate &quot;preliminary&quot; and 
+     * &quot;final&quot; result statuses.</p>
+     * 
+     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to designate &quot;preliminary&quot; and 
      * &quot;final&quot; result statuses.</p>

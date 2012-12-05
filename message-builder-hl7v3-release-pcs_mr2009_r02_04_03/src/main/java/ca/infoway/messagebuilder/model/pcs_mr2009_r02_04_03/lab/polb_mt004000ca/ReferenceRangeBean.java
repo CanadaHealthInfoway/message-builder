@@ -34,7 +34,7 @@ import java.util.List;
 
 
 /**
- * <p>Reference Range</p>
+ * <p>Business Name: Reference Range</p>
  * 
  * <p>Reference ranges are generally presented as a pair of 
  * values (Lo - Hi) of the same datatype as the observation to 
@@ -44,14 +44,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004000CA.InterpretationRange"})
 public class ReferenceRangeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ANY<Object> value = new ANYImpl<Object>();
     private CV interpretationCode = new CVImpl();
     private List<ReferenceRangeCriteriaBean> preconditionObservationEventCriterion = new ArrayList<ReferenceRangeCriteriaBean>();
 
 
     /**
-     * <p>Reference Range Value</p>
+     * <p>Business Name: Reference Range Value</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.InterpretationRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Reference ranges are generally presented as a pair of 
      * values (Lo - Hi) of the same datatype as the observation to 
@@ -66,7 +70,11 @@ public class ReferenceRangeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Reference Range Value</p>
+     * <p>Business Name: Reference Range Value</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.InterpretationRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Reference ranges are generally presented as a pair of 
      * values (Lo - Hi) of the same datatype as the observation to 
@@ -81,7 +89,12 @@ public class ReferenceRangeBean extends MessagePartBean {
 
 
     /**
-     * <p>Reference Range Interpretation Type</p>
+     * <p>Business Name: Reference Range Interpretation Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.InterpretationRange.interpretationCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Describes the type of range e.g. normal, high, etc.</p>
      */
@@ -91,7 +104,12 @@ public class ReferenceRangeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Reference Range Interpretation Type</p>
+     * <p>Business Name: Reference Range Interpretation Type</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.InterpretationRange.interpretationCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Describes the type of range e.g. normal, high, etc.</p>
      */
@@ -100,6 +118,12 @@ public class ReferenceRangeBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.Precondition.observationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"precondition/observationEventCriterion"})
     public List<ReferenceRangeCriteriaBean> getPreconditionObservationEventCriterion() {
         return this.preconditionObservationEventCriterion;

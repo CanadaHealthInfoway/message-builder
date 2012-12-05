@@ -32,11 +32,16 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActAdjudic
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicationResultRequiredAct"})
 public class RequiredActionTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
 
 
     /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultRequiredAct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Required Action Type -e.g. print on EOB, allow override. 
      * Only specify a URL to instruct the Rx s/w vendor to pick up 
      * the form from the adjudicator's web site.</p>
@@ -47,6 +52,11 @@ public class RequiredActionTypeBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicationResultRequiredAct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Required Action Type -e.g. print on EOB, allow override. 
      * Only specify a URL to instruct the Rx s/w vendor to pick up 
      * the form from the adjudicator's web site.</p>

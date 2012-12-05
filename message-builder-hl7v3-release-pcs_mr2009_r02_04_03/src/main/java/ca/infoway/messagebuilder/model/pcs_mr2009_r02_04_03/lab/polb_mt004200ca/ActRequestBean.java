@@ -32,12 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ActRequest"})
 public class ActRequestBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.FulfillmentChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>Act Request Reference</p>
+     * <p>Business Name: Act Request Reference</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -45,7 +49,11 @@ public class ActRequestBean extends MessagePartBean implements ca.infoway.messag
     }
 
     /**
-     * <p>Act Request Reference</p>
+     * <p>Business Name: Act Request Reference</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

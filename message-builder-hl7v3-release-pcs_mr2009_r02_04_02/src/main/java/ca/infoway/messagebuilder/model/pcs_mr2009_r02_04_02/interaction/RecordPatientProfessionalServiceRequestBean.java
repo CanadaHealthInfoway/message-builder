@@ -29,8 +29,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt610001ca
 
 
 /**
- * <p>REPC_IN000044CA: Record patient professional service 
- * request</p>
+ * <p>Business Name: REPC_IN000044CA: Record patient 
+ * professional service request</p>
+ * 
+ * <p>Seeks to add a record of a professional service which has 
+ * been delivered to a patient.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt610001ca
 @Hl7PartTypeMapping({"REPC_IN000044CA"})
 public class RecordPatientProfessionalServiceRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ProfessionalServiceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

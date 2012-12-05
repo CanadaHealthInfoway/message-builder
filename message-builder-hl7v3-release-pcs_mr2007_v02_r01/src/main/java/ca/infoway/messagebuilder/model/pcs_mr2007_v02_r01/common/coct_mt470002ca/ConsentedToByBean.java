@@ -33,35 +33,39 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.RelatedPersonBe
 
 
 /**
- * <p>b:consented to by</p>
+ * <p>Business Name: b:consented to by</p>
  * 
- * <p>Indicates that the consent was provided by the patient or 
- * representative.</p>
+ * <p>Authorization.Person</p>
  * 
- * <p>Authorization.Person</p><p>Authorization.signatory(PT)</p>
- * 
- * <p>Authorization.Person</p><p>Authorization.signatory(PT)</p>
+ * <p>Authorization.signatory(PT)</p>
  * 
  * <p>Consent can be provided by the patient or representative 
  * or the provider.</p>
+ * 
+ * <p>Indicates that the consent was provided by the patient or 
+ * representative.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
     private RelatedPersonBean personalRelationship;
 
 
     /**
-     * <p>Patient Consent Mechanism</p>
+     * <p>Business Name: Patient Consent Mechanism</p>
      * 
-     * <p>Indicates whether the patient's consent is written or 
-     * verbal.</p>
+     * <p>Relationship: COCT_MT470002CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Verbal consents may trigger a higher level of 
      * auditing.</p>
+     * 
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
      */
     @Hl7XmlMapping({"modeCode"})
     public x_PhysicalVerbalParticipationMode getModeCode() {
@@ -69,13 +73,17 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Consent Mechanism</p>
+     * <p>Business Name: Patient Consent Mechanism</p>
      * 
-     * <p>Indicates whether the patient's consent is written or 
-     * verbal.</p>
+     * <p>Relationship: COCT_MT470002CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Verbal consents may trigger a higher level of 
      * auditing.</p>
+     * 
+     * <p>Indicates whether the patient's consent is written or 
+     * verbal.</p>
      */
     public void setModeCode(x_PhysicalVerbalParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
@@ -83,13 +91,17 @@ public class ConsentedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>Keyword</p>
+     * <p>Business Name: Keyword</p>
      * 
-     * <p>Indicates the keyword appropriate to the action being 
-     * performed by the message.</p>
+     * <p>Relationship: COCT_MT470002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows providers who know the keyword to access 
      * information protected by patient keywords.</p>
+     * 
+     * <p>Indicates the keyword appropriate to the action being 
+     * performed by the message.</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
@@ -97,13 +109,17 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Keyword</p>
+     * <p>Business Name: Keyword</p>
      * 
-     * <p>Indicates the keyword appropriate to the action being 
-     * performed by the message.</p>
+     * <p>Relationship: COCT_MT470002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows providers who know the keyword to access 
      * information protected by patient keywords.</p>
+     * 
+     * <p>Indicates the keyword appropriate to the action being 
+     * performed by the message.</p>
      */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);

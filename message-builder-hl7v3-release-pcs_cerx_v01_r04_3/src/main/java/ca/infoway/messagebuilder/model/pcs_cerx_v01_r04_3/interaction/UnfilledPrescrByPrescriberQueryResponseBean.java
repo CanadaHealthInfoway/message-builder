@@ -30,8 +30,13 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Prescr
 
 
 /**
- * <p>PORX_IN060480CA: Unfilled prescr. by prescriber query 
- * response</p>
+ * <p>Business Name: PORX_IN060480CA: Unfilled prescr. by 
+ * prescriber query response</p>
+ * 
+ * <p>Returns basic information about all prescriptions 
+ * provided to a single patient, prescribed by the specified 
+ * prescriber which have not yet been dispensed, optionally 
+ * filtered by date and status.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -50,6 +55,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Prescr
 @Hl7PartTypeMapping({"PORX_IN060480CA"})
 public class UnfilledPrescrByPrescriberQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<Prescription_1,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

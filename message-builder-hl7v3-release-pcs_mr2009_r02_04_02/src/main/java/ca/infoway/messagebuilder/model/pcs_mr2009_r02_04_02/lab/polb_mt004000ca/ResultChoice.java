@@ -57,8 +57,20 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
     public List<RoleChoice> getPerformerRoleChoice();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public PrimaryInformationRecipientBean getPrimaryInformationRecipient();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient);
 
 
@@ -81,11 +93,26 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
     public List<ReportableHealthIndicatorBean> getComponent2ReportableTestIndicator();
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Component1.resultChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<ResultChoice> getComponent3ResultChoice();
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public VersionInformationBean getSubjectOf1ControlActEvent();
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
 
 

@@ -36,29 +36,27 @@ import java.util.Date;
 /**
  * <p>REPC_MT230002CA.Author: *a: authored by</p>
  * 
+ * <p> <i>Used to identify responsibility for accuracy and 
+ * relevance of the information. This association reflects 
+ * primary responsibility, and is therefore mandatory.</i> 
+ * </p><p> <i>The author is generally the person to contact 
+ * with requests for additional information. In some cases, 
+ * this information may also be used for filtering or 
+ * sorting.</i> </p>
+ * 
  * <p> <i>This identifies the provider who is responsible for 
  * the decision to capture the Clinical Observation Document in 
  * the patient's EHR. Note that while the author is frequently 
  * the data-enterer, this will not always be the case, for 
  * example where transcribers are involved.</i> </p>
  * 
- * <p> <i>Used to identify responsibility for accuracy and 
- * relevance of the information. This association reflects 
- * primary responsibility, and is therefore mandatory.</i> 
- * </p><p> <i>The author is generally the person to contact 
- * with requests for additional information. In some cases, 
- * this information may also be used for filtering or 
- * sorting.</i> </p>
- * 
- * <p> <i>Used to identify responsibility for accuracy and 
- * relevance of the information. This association reflects 
- * primary responsibility, and is therefore mandatory.</i> 
- * </p><p> <i>The author is generally the person to contact 
- * with requests for additional information. In some cases, 
- * this information may also be used for filtering or 
- * sorting.</i> </p>
- * 
  * <p>REPC_MT220001CA.Author3: *a: requested by</p>
+ * 
+ * <p> <i>By requesting the action, the provider takes a level 
+ * of responsibility for it. The attribute may also be used to 
+ * search or filter records. Requesting providers generally 
+ * have authorization to view masked information as well.</i> 
+ * </p>
  * 
  * <p> <i>This identifies the provider who requested the 
  * Discharge-Care Summary to be performed. The request may have 
@@ -67,15 +65,15 @@ import java.util.Date;
  * &quot;record&quot; and &quot;amend&quot; messages where a 
  * request id is captured, as the requesting provider can be 
  * looked up by retrieving the request.</i> </p>
- * 
- * <p> <i>By requesting the action, the provider takes a level 
- * of responsibility for it. The attribute may also be used to 
- * search or filter records. Requesting providers generally 
- * have authorization to view masked information as well.</i> 
- * </p>
  * 
  * <p>REPC_MT230002CA.Author2: *a: requested by</p>
  * 
+ * <p> <i>By requesting the action, the provider takes a level 
+ * of responsibility for it. The attribute may also be used to 
+ * search or filter records. Requesting providers generally 
+ * have authorization to view masked information as well.</i> 
+ * </p>
+ * 
  * <p> <i>This identifies the provider who requested the 
  * Clinical Observation Document to be performed. The request 
  * may have been verbal, electronic, as part of a referral or 
@@ -84,13 +82,13 @@ import java.util.Date;
  * request id is captured, as the requesting provider can be 
  * looked up by retrieving the request.</i> </p>
  * 
+ * <p>REPC_MT500001CA.Author2: *requested by</p>
+ * 
  * <p> <i>By requesting the action, the provider takes a level 
  * of responsibility for it. The attribute may also be used to 
  * search or filter records. Requesting providers generally 
  * have authorization to view masked information as well.</i> 
  * </p>
- * 
- * <p>REPC_MT500001CA.Author2: *requested by</p>
  * 
  * <p> <i>This identifies the provider who requested the Care 
  * Composition to be performed. The request may have been 
@@ -100,13 +98,13 @@ import java.util.Date;
  * request id is captured, as the requesting provider can be 
  * looked up by retrieving the request.</i> </p>
  * 
+ * <p>REPC_MT220002CA.Author3: *a: requested by</p>
+ * 
  * <p> <i>By requesting the action, the provider takes a level 
  * of responsibility for it. The attribute may also be used to 
  * search or filter records. Requesting providers generally 
  * have authorization to view masked information as well.</i> 
  * </p>
- * 
- * <p>REPC_MT220002CA.Author3: *a: requested by</p>
  * 
  * <p> <i>This identifies the provider who requested the 
  * Discharge-Care Summary to be performed. The request may have 
@@ -116,13 +114,13 @@ import java.util.Date;
  * request id is captured, as the requesting provider can be 
  * looked up by retrieving the request.</i> </p>
  * 
+ * <p>REPC_MT500002CA.Author2: *requested by</p>
+ * 
  * <p> <i>By requesting the action, the provider takes a level 
  * of responsibility for it. The attribute may also be used to 
  * search or filter records. Requesting providers generally 
  * have authorization to view masked information as well.</i> 
  * </p>
- * 
- * <p>REPC_MT500002CA.Author2: *requested by</p>
  * 
  * <p> <i>This identifies the provider who requested the Care 
  * Composition to be performed. The request may have been 
@@ -132,13 +130,13 @@ import java.util.Date;
  * request id is captured, as the requesting provider can be 
  * looked up by retrieving the request.</i> </p>
  * 
+ * <p>REPC_MT230003CA.Author2: *a: requested by</p>
+ * 
  * <p> <i>By requesting the action, the provider takes a level 
  * of responsibility for it. The attribute may also be used to 
  * search or filter records. Requesting providers generally 
  * have authorization to view masked information as well.</i> 
  * </p>
- * 
- * <p>REPC_MT230003CA.Author2: *a: requested by</p>
  * 
  * <p> <i>This identifies the provider who requested the 
  * Clinical Observation Document to be performed. The request 
@@ -148,13 +146,13 @@ import java.util.Date;
  * request id is captured, as the requesting provider can be 
  * looked up by retrieving the request.</i> </p>
  * 
+ * <p>REPC_MT500003CA.Author2: *requested by</p>
+ * 
  * <p> <i>By requesting the action, the provider takes a level 
  * of responsibility for it. The attribute may also be used to 
  * search or filter records. Requesting providers generally 
  * have authorization to view masked information as well.</i> 
  * </p>
- * 
- * <p>REPC_MT500003CA.Author2: *requested by</p>
  * 
  * <p> <i>This identifies the provider who requested the Care 
  * Composition to be performed. The request may have been 
@@ -164,13 +162,15 @@ import java.util.Date;
  * request id is captured, as the requesting provider can be 
  * looked up by retrieving the request.</i> </p>
  * 
- * <p> <i>By requesting the action, the provider takes a level 
- * of responsibility for it. The attribute may also be used to 
- * search or filter records. Requesting providers generally 
- * have authorization to view masked information as well.</i> 
- * </p>
- * 
  * <p>REPC_MT220002CA.Author: *a: authored by</p>
+ * 
+ * <p> <i>Used to identify responsibility for accuracy and 
+ * relevance of the information. This association reflects 
+ * primary responsibility, and is therefore mandatory.</i> 
+ * </p><p> <i>The author is generally the person to contact 
+ * with requests for additional information. In some cases, 
+ * this information may also be used for filtering or 
+ * sorting.</i> </p>
  * 
  * <p> <i>This identifies the provider who is responsible for 
  * the decision to capture the Discharge-Care Summary in the 
@@ -178,23 +178,15 @@ import java.util.Date;
  * data-enterer, this will not always be the case, for example 
  * where transcribers are involved.</i> </p>
  * 
- * <p> <i>Used to identify responsibility for accuracy and 
- * relevance of the information. This association reflects 
- * primary responsibility, and is therefore mandatory.</i> 
- * </p><p> <i>The author is generally the person to contact 
- * with requests for additional information. In some cases, 
- * this information may also be used for filtering or 
- * sorting.</i> </p>
- * 
- * <p> <i>Used to identify responsibility for accuracy and 
- * relevance of the information. This association reflects 
- * primary responsibility, and is therefore mandatory.</i> 
- * </p><p> <i>The author is generally the person to contact 
- * with requests for additional information. In some cases, 
- * this information may also be used for filtering or 
- * sorting.</i> </p>
- * 
  * <p>REPC_MT210003CA.Author: *a: authored by</p>
+ * 
+ * <p> <i>Used to identify responsibility for accuracy and 
+ * relevance of the information. This association reflects 
+ * primary responsibility, and is therefore mandatory.</i> 
+ * </p><p> <i>The author is generally the person to contact 
+ * with requests for additional information. In some cases, 
+ * this information may also be used for filtering or 
+ * sorting.</i> </p>
  * 
  * <p> <i>This identifies the provider who is responsible for 
  * the decision to capture the Referral in the patient's EHR. 
@@ -202,23 +194,15 @@ import java.util.Date;
  * this will not always be the case, for example where 
  * transcribers are involved.</i> </p>
  * 
- * <p> <i>Used to identify responsibility for accuracy and 
- * relevance of the information. This association reflects 
- * primary responsibility, and is therefore mandatory.</i> 
- * </p><p> <i>The author is generally the person to contact 
- * with requests for additional information. In some cases, 
- * this information may also be used for filtering or 
- * sorting.</i> </p>
- * 
- * <p> <i>Used to identify responsibility for accuracy and 
- * relevance of the information. This association reflects 
- * primary responsibility, and is therefore mandatory.</i> 
- * </p><p> <i>The author is generally the person to contact 
- * with requests for additional information. In some cases, 
- * this information may also be used for filtering or 
- * sorting.</i> </p>
- * 
  * <p>REPC_MT230003CA.Author: *a: authored by</p>
+ * 
+ * <p> <i>Used to identify responsibility for accuracy and 
+ * relevance of the information. This association reflects 
+ * primary responsibility, and is therefore mandatory.</i> 
+ * </p><p> <i>The author is generally the person to contact 
+ * with requests for additional information. In some cases, 
+ * this information may also be used for filtering or 
+ * sorting.</i> </p>
  * 
  * <p> <i>This identifies the provider who is responsible for 
  * the decision to capture the Clinical Observation Document in 
@@ -226,23 +210,15 @@ import java.util.Date;
  * the data-enterer, this will not always be the case, for 
  * example where transcribers are involved.</i> </p>
  * 
- * <p> <i>Used to identify responsibility for accuracy and 
- * relevance of the information. This association reflects 
- * primary responsibility, and is therefore mandatory.</i> 
- * </p><p> <i>The author is generally the person to contact 
- * with requests for additional information. In some cases, 
- * this information may also be used for filtering or 
- * sorting.</i> </p>
- * 
- * <p> <i>Used to identify responsibility for accuracy and 
- * relevance of the information. This association reflects 
- * primary responsibility, and is therefore mandatory.</i> 
- * </p><p> <i>The author is generally the person to contact 
- * with requests for additional information. In some cases, 
- * this information may also be used for filtering or 
- * sorting.</i> </p>
- * 
  * <p>REPC_MT210002CA.Author: *a: authored by</p>
+ * 
+ * <p> <i>Used to identify responsibility for accuracy and 
+ * relevance of the information. This association reflects 
+ * primary responsibility, and is therefore mandatory.</i> 
+ * </p><p> <i>The author is generally the person to contact 
+ * with requests for additional information. In some cases, 
+ * this information may also be used for filtering or 
+ * sorting.</i> </p>
  * 
  * <p> <i>This identifies the provider who is responsible for 
  * the decision to capture the Referral in the patient's EHR. 
@@ -250,39 +226,45 @@ import java.util.Date;
  * this will not always be the case, for example where 
  * transcribers are involved.</i> </p>
  * 
- * <p> <i>Used
+ * <p>REPC_MT500004CA.Author: *amended by</p>
+ * 
+ * <p> <i>The most recent Amending Provider has significant 
+ * responsibility for the &quot;current appearance&quot; of the 
+ * record and can have considerable influence on how other 
+ * providers will interpret the validity and significance of 
+ * the record. The element is mandatory because it should 
+ * always be known by the EHR.</i> </p>
+ * 
+ * <p> <i>This identifies the provider who most recently 
+ * amended the Care Composition.</i> </p>
+ * 
+ * <p>REPC_MT420001CA.Author2: *i:requested by</p>
+ * 
+ * <p> <i>By requesting the action, the provider takes a level 
+ * of responsibility for it. The attribute may also be used to 
+ * search or filter records. Requesting providers generally 
+ * have authorization to view masked information as well.</i> 
+ * </p>
+ * 
+ * <p> <i>This identifies the provider who requested the Coded 
+ * Observation to be performed. The request may have been 
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"REPC_MT210001CA.Author","REPC_MT210002CA.Author","REPC_MT210003CA.Author","REPC_MT220001CA.Author","REPC_MT220001CA.Author3","REPC_MT220002CA.Author","REPC_MT220002CA.Author3","REPC_MT220003CA.Author","REPC_MT220003CA.Author3","REPC_MT230001CA.Author2","REPC_MT230002CA.Author","REPC_MT230002CA.Author2","REPC_MT230003CA.Author","REPC_MT230003CA.Author2","REPC_MT410001CA.Author","REPC_MT410003CA.Author2","REPC_MT410003CA.Author3","REPC_MT420001CA.Author2","REPC_MT420003CA.Author2","REPC_MT500001CA.Author2","REPC_MT500002CA.Author2","REPC_MT500003CA.Author","REPC_MT500003CA.Author2","REPC_MT500004CA.Author","REPC_MT500004CA.Author2","REPC_MT610001CA.Author","REPC_MT610002CA.Author"})
 public class RequestedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private CV signatureCode = new CVImpl();
     private ActingPerson actingPerson;
 
 
     /**
-     * <p>X: Authored Datetime</p>
+     * <p>Other Business Name: AuthoredDatetime</p>
      * 
-     * <p> <i>Indicates the time the decision to record when the 
-     * Clinical Observation Document was made. This will usually be 
-     * simultaneous with the time the record is submitted to the 
-     * EHR, but in some circumstances may be before.</i> </p>
+     * <p>Relationship: REPC_MT220002CA.Author.time</p>
      * 
-     * <p> <i>Used to allow for historical sequencing of records in 
-     * the EHR, which facilitates auditing, sorting etc. This 
-     * attribute is populated because it won't always be known in 
-     * the circumstance where the data is being entered by a person 
-     * other than the original &quot;creator&quot; of the 
-     * record.</i> </p>
-     * 
-     * <p>X: Authored Datetime</p>
-     * 
-     * <p> <i>Indicates the time the decision to record when the 
-     * Referral was made. This will usually be simultaneous with 
-     * the time the record is submitted to the EHR, but in some 
-     * circumstances may be before.</i> </p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p> <i>Used to allow for historical sequencing of records in 
      * the EHR, which facilitates auditing, sorting etc. This 
@@ -290,39 +272,141 @@ public class RequestedByBean extends MessagePartBean {
      * the circumstance where the data is being entered by a person 
      * other than the original &quot;creator&quot; of the 
      * record.</i> </p>
-     * 
-     * <p>Authored Datetime</p>
-     * 
-     * <p>X: Authored Datetime</p>
-     * 
-     * <p>G:Amend Datetime</p>
-     * 
-     * <p> <i>This indicates the last time a change was made to the 
-     * Care Composition.</i> </p>
-     * 
-     * <p> <i>It can be used by PoS applications to sort or filter 
-     * records. Also provides information on how recently the 
-     * record has changed.</i> </p><p> <i>Because the element 
-     * should always be known by the EHR, it is mandatory.</i> </p>
-     * 
-     * <p> <i>It can be used by PoS applications to sort or filter 
-     * records. Also provides information on how recently the 
-     * record has changed.</i> </p><p> <i>Because the element 
-     * should always be known by the EHR, it is mandatory.</i> </p>
-     * 
-     * <p>X: Authored Datetime</p>
      * 
      * <p> <i>Indicates the time the decision to record when the 
      * Discharge-Care Summary was made. This will usually be 
      * simultaneous with the time the record is submitted to the 
      * EHR, but in some circumstances may be before.</i> </p>
      * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p> <i>Used to allow for historical sequencing of records in 
      * the EHR, which facilitates auditing, sorting etc. This 
      * attribute is populated because it won't always be known in 
      * the circumstance where the data is being entered by a person 
      * other than the original &quot;creator&quot; of the 
      * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Clinical Observation Document was made. This will usually be 
+     * simultaneous with the time the record is submitted to the 
+     * EHR, but in some circumstances may be before.</i> </p>
+     * 
+     * <p>Other Business Name: AmendDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>It can be used by PoS applications to sort or filter 
+     * records. Also provides information on how recently the 
+     * record has changed.</i> </p><p> <i>Because the element 
+     * should always be known by the EHR, it is mandatory.</i> </p>
+     * 
+     * <p> <i>This indicates the last time a change was made to the 
+     * Care Composition.</i> </p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Used to allow for historical sequencing of records in 
+     * the EHR, which facilitates auditing, sorting etc. This 
+     * attribute is populated because it won't always be known in 
+     * the circumstance where the data is being entered by a person 
+     * other than the original &quot;creator&quot; of the 
+     * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Referral was made. This will usually be simultaneous with 
+     * the time the record is submitted to the EHR, but in some 
+     * circumstances may be before.</i> </p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Used to allow for historical sequencing of records in 
+     * the EHR, which facilitates auditing, sorting etc. This 
+     * attribute is populated because it won't always be known in 
+     * the circumstance where the data is being entered by a person 
+     * other than the original &quot;creator&quot; of the 
+     * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Referral was made. This will usually be simultaneous with 
+     * the time the record is submitted to the EHR, but in some 
+     * circumstances may be before.</i> </p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Used to allow for historical sequencing of records in 
+     * the EHR, which facilitates auditing, sorting etc. This 
+     * attribute is populated because it won't always be known in 
+     * the circumstance where the data is being entered by a person 
+     * other than the original &quot;creator&quot; of the 
+     * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Clinical Observation Document was made. This will usually be 
+     * simultaneous with the time the record is submitted to the 
+     * EHR, but in some circumstances may be before.</i> </p>
+     * 
+     * <p>Other Business Name: AmendDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>It can be used by PoS applications to sort or filter 
+     * records. Also provides information on how recently the 
+     * record has changed.</i> </p><p> <i>Because the element 
+     * should always be known by the EHR, it is mandatory.</i> </p>
+     * 
+     * <p> <i>This indicates the last time a change was made to the 
+     * Care Composition.</i> </p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT410003CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Used to allow for historical sequencing of records in 
+     * the EHR, which facilitates auditing, sorting etc. This 
+     * attribute is populated because it won't always be known in 
+     * the circumstance where the data is being entered by a person 
+     * other than the original &quot;creator&quot; of the 
+     * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Discharge-Care Summary was made. This will usually be 
+     * simultaneous with the time the record is submitted to the 
+     * EHR, but in some circumstances may be before.</i> </p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -330,26 +414,11 @@ public class RequestedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>X: Authored Datetime</p>
+     * <p>Other Business Name: AuthoredDatetime</p>
      * 
-     * <p> <i>Indicates the time the decision to record when the 
-     * Clinical Observation Document was made. This will usually be 
-     * simultaneous with the time the record is submitted to the 
-     * EHR, but in some circumstances may be before.</i> </p>
+     * <p>Relationship: REPC_MT220002CA.Author.time</p>
      * 
-     * <p> <i>Used to allow for historical sequencing of records in 
-     * the EHR, which facilitates auditing, sorting etc. This 
-     * attribute is populated because it won't always be known in 
-     * the circumstance where the data is being entered by a person 
-     * other than the original &quot;creator&quot; of the 
-     * record.</i> </p>
-     * 
-     * <p>X: Authored Datetime</p>
-     * 
-     * <p> <i>Indicates the time the decision to record when the 
-     * Referral was made. This will usually be simultaneous with 
-     * the time the record is submitted to the EHR, but in some 
-     * circumstances may be before.</i> </p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p> <i>Used to allow for historical sequencing of records in 
      * the EHR, which facilitates auditing, sorting etc. This 
@@ -357,39 +426,141 @@ public class RequestedByBean extends MessagePartBean {
      * the circumstance where the data is being entered by a person 
      * other than the original &quot;creator&quot; of the 
      * record.</i> </p>
-     * 
-     * <p>Authored Datetime</p>
-     * 
-     * <p>X: Authored Datetime</p>
-     * 
-     * <p>G:Amend Datetime</p>
-     * 
-     * <p> <i>This indicates the last time a change was made to the 
-     * Care Composition.</i> </p>
-     * 
-     * <p> <i>It can be used by PoS applications to sort or filter 
-     * records. Also provides information on how recently the 
-     * record has changed.</i> </p><p> <i>Because the element 
-     * should always be known by the EHR, it is mandatory.</i> </p>
-     * 
-     * <p> <i>It can be used by PoS applications to sort or filter 
-     * records. Also provides information on how recently the 
-     * record has changed.</i> </p><p> <i>Because the element 
-     * should always be known by the EHR, it is mandatory.</i> </p>
-     * 
-     * <p>X: Authored Datetime</p>
      * 
      * <p> <i>Indicates the time the decision to record when the 
      * Discharge-Care Summary was made. This will usually be 
      * simultaneous with the time the record is submitted to the 
      * EHR, but in some circumstances may be before.</i> </p>
      * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p> <i>Used to allow for historical sequencing of records in 
      * the EHR, which facilitates auditing, sorting etc. This 
      * attribute is populated because it won't always be known in 
      * the circumstance where the data is being entered by a person 
      * other than the original &quot;creator&quot; of the 
      * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Clinical Observation Document was made. This will usually be 
+     * simultaneous with the time the record is submitted to the 
+     * EHR, but in some circumstances may be before.</i> </p>
+     * 
+     * <p>Other Business Name: AmendDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>It can be used by PoS applications to sort or filter 
+     * records. Also provides information on how recently the 
+     * record has changed.</i> </p><p> <i>Because the element 
+     * should always be known by the EHR, it is mandatory.</i> </p>
+     * 
+     * <p> <i>This indicates the last time a change was made to the 
+     * Care Composition.</i> </p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Used to allow for historical sequencing of records in 
+     * the EHR, which facilitates auditing, sorting etc. This 
+     * attribute is populated because it won't always be known in 
+     * the circumstance where the data is being entered by a person 
+     * other than the original &quot;creator&quot; of the 
+     * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Referral was made. This will usually be simultaneous with 
+     * the time the record is submitted to the EHR, but in some 
+     * circumstances may be before.</i> </p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Used to allow for historical sequencing of records in 
+     * the EHR, which facilitates auditing, sorting etc. This 
+     * attribute is populated because it won't always be known in 
+     * the circumstance where the data is being entered by a person 
+     * other than the original &quot;creator&quot; of the 
+     * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Referral was made. This will usually be simultaneous with 
+     * the time the record is submitted to the EHR, but in some 
+     * circumstances may be before.</i> </p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Used to allow for historical sequencing of records in 
+     * the EHR, which facilitates auditing, sorting etc. This 
+     * attribute is populated because it won't always be known in 
+     * the circumstance where the data is being entered by a person 
+     * other than the original &quot;creator&quot; of the 
+     * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Clinical Observation Document was made. This will usually be 
+     * simultaneous with the time the record is submitted to the 
+     * EHR, but in some circumstances may be before.</i> </p>
+     * 
+     * <p>Other Business Name: AmendDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>It can be used by PoS applications to sort or filter 
+     * records. Also provides information on how recently the 
+     * record has changed.</i> </p><p> <i>Because the element 
+     * should always be known by the EHR, it is mandatory.</i> </p>
+     * 
+     * <p> <i>This indicates the last time a change was made to the 
+     * Care Composition.</i> </p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT410003CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: AuthoredDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Used to allow for historical sequencing of records in 
+     * the EHR, which facilitates auditing, sorting etc. This 
+     * attribute is populated because it won't always be known in 
+     * the circumstance where the data is being entered by a person 
+     * other than the original &quot;creator&quot; of the 
+     * record.</i> </p>
+     * 
+     * <p> <i>Indicates the time the decision to record when the 
+     * Discharge-Care Summary was made. This will usually be 
+     * simultaneous with the time the record is submitted to the 
+     * EHR, but in some circumstances may be before.</i> </p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -397,18 +568,97 @@ public class RequestedByBean extends MessagePartBean {
 
 
     /**
-     * <p>AttestedIndicator</p>
+     * <p>Business Name: AttestedIndicator</p>
      * 
-     * <p>K:Attested Indicator</p>
+     * <p>Other Business Name: AttestedIndicator</p>
      * 
-     * <p>K:Attested Indicator</p>
+     * <p>Relationship: REPC_MT220002CA.Author.signatureCode</p>
      * 
-     * <p>An indication that the provider attests to the 
-     * authenticity of the document that he/she has authored.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important for assessing the level of 'officialness' of a 
      * document. Because it must always be known whether a document 
      * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
      */
     @Hl7XmlMapping({"signatureCode"})
     public ParticipationSignature getSignatureCode() {
@@ -416,29 +666,434 @@ public class RequestedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>AttestedIndicator</p>
+     * <p>Business Name: AttestedIndicator</p>
      * 
-     * <p>K:Attested Indicator</p>
+     * <p>Other Business Name: AttestedIndicator</p>
      * 
-     * <p>K:Attested Indicator</p>
+     * <p>Relationship: REPC_MT220002CA.Author.signatureCode</p>
      * 
-     * <p>An indication that the provider attests to the 
-     * authenticity of the document that he/she has authored.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Important for assessing the level of 'officialness' of a 
      * document. Because it must always be known whether a document 
      * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AttestedIndicator</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Author.signatureCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important for assessing the level of 'officialness' of a 
+     * document. Because it must always be known whether a document 
+     * has been attested or not, the attribute is mandatory.</p>
+     * 
+     * <p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p>
      */
     public void setSignatureCode(ParticipationSignature signatureCode) {
         this.signatureCode.setValue(signatureCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT410001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT420001CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT610001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT410003CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT410003CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT420003CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"actingPerson"})
     public ActingPerson getActingPerson() {
         return this.actingPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230002CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500002CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220002CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT410001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210003CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230003CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT210002CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT420001CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT610001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT500003CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220001CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT220003CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT410003CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT410003CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT610002CA.Author.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT420003CA.Author2.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setActingPerson(ActingPerson actingPerson) {
         this.actingPerson = actingPerson;
     }

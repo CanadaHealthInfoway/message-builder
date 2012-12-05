@@ -48,24 +48,24 @@ import java.util.Set;
 
 
 /**
- * <p>Clinical Observation Document</p>
+ * <p>Business Name: Clinical Observation Document</p>
  * 
  * <p>Annotation is only permitted if Annotation Indicator is 
  * not present and vice versa</p>
- * 
- * <p>Represents a particular health-related document 
- * pertaining to a single patient.</p>
  * 
  * <p>Allows the capture of patient health data in an 
  * encapsulated, contextualized manner with capability of 
  * displaying rendered content and communication between simple 
  * systems.</p>
+ * 
+ * <p>Represents a particular health-related document 
+ * pertaining to a single patient.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT230001CA.Document"})
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -79,23 +79,21 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>B: Document Category</p>
+     * <p>Business Name: B: Document Category</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Document Category is used for searching and for 
+     * organizing Clinical Observation Document records as well as 
+     * sorting them for presentation.</i> </p><p> <i>This is a key 
+     * attribute for understanding the type of record and is 
+     * therefore mandatory.</i> </p>
      * 
      * <p> <i>Identifies the type of Clinical Observation Document 
      * represented by this record. e.g. procedure note, clinical 
      * note.</i> </p>
-     * 
-     * <p> <i>Document Category is used for searching and for 
-     * organizing Clinical Observation Document records as well as 
-     * sorting them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p>
-     * 
-     * <p> <i>Document Category is used for searching and for 
-     * organizing Clinical Observation Document records as well as 
-     * sorting them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p>
      */
     @Hl7XmlMapping({"code"})
     public ClinicalReportDocumentType getCode() {
@@ -103,23 +101,21 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
     /**
-     * <p>B: Document Category</p>
+     * <p>Business Name: B: Document Category</p>
+     * 
+     * <p>Relationship: REPC_MT230001CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <i>Document Category is used for searching and for 
+     * organizing Clinical Observation Document records as well as 
+     * sorting them for presentation.</i> </p><p> <i>This is a key 
+     * attribute for understanding the type of record and is 
+     * therefore mandatory.</i> </p>
      * 
      * <p> <i>Identifies the type of Clinical Observation Document 
      * represented by this record. e.g. procedure note, clinical 
      * note.</i> </p>
-     * 
-     * <p> <i>Document Category is used for searching and for 
-     * organizing Clinical Observation Document records as well as 
-     * sorting them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p>
-     * 
-     * <p> <i>Document Category is used for searching and for 
-     * organizing Clinical Observation Document records as well as 
-     * sorting them for presentation.</i> </p><p> <i>This is a key 
-     * attribute for understanding the type of record and is 
-     * therefore mandatory.</i> </p>
      */
     public void setCode(ClinicalReportDocumentType code) {
         this.code.setValue(code);
@@ -127,9 +123,11 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>J: Document Title</p>
+     * <p>Business Name: J: Document Title</p>
      * 
-     * <p>A human-readable label for this particular document.</p>
+     * <p>Relationship: REPC_MT230001CA.Document.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is a human-recognizable name intended to be 
      * displayed on the screen in list transactions and is 
@@ -141,6 +139,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * document contains. For example &quot;Right Knee Arthroscopy 
      * Report, Jan 3, 2006&quot; would represent a good title. 
      * &quot;Surgery Report&quot; would not.</p>
+     * 
+     * <p>A human-readable label for this particular document.</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
@@ -148,9 +148,11 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
     /**
-     * <p>J: Document Title</p>
+     * <p>Business Name: J: Document Title</p>
      * 
-     * <p>A human-readable label for this particular document.</p>
+     * <p>Relationship: REPC_MT230001CA.Document.title</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is a human-recognizable name intended to be 
      * displayed on the screen in list transactions and is 
@@ -162,6 +164,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * document contains. For example &quot;Right Knee Arthroscopy 
      * Report, Jan 3, 2006&quot; would represent a good title. 
      * &quot;Surgery Report&quot; would not.</p>
+     * 
+     * <p>A human-readable label for this particular document.</p>
      */
     public void setTitle(String title) {
         this.title.setValue(title);
@@ -169,41 +173,12 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>E: Document Masking Indicators</p>
+     * <p>Business Name: E: Document Masking Indicators</p>
      * 
-     * <p> <i>Allows the patient to have discrete control over 
-     * access to their health data. Awareness of the patient's 
-     * desire for confidentiality is important even for providers 
-     * who have access to the data because it indicates a need for 
-     * extra caution before disclosing the information to other 
-     * care providers.</i> </p><p> <i>Also allows providers to mark 
-     * records as &quot;not for patient display&quot; for 
-     * circumstances where the patient has access to their own EHR 
-     * or where another healthcare provider discusses or provides 
-     * them with a copy of information from their EHR. (There are 
-     * some pieces of information where it would be detrimental to 
-     * a patient's health or ongoing care were they to be aware of 
-     * those records without careful guidance.)</i> </p><p> <i>Two 
-     * repetitions are supported to allow indicating that the 
-     * record is masked from both a provider and a patient 
-     * perspective.</i> </p>
+     * <p>Relationship: 
+     * REPC_MT230001CA.Document.confidentialityCode</p>
      * 
-     * <p> <i>Allows the patient to have discrete control over 
-     * access to their health data. Awareness of the patient's 
-     * desire for confidentiality is important even for providers 
-     * who have access to the data because it indicates a need for 
-     * extra caution before disclosing the information to other 
-     * care providers.</i> </p><p> <i>Also allows providers to mark 
-     * records as &quot;not for patient display&quot; for 
-     * circumstances where the patient has access to their own EHR 
-     * or where another healthcare provider discusses or provides 
-     * them with a copy of information from their EHR. (There are 
-     * some pieces of information where it would be detrimental to 
-     * a patient's health or ongoing care were they to be aware of 
-     * those records without careful guidance.)</i> </p><p> <i>Two 
-     * repetitions are supported to allow indicating that the 
-     * record is masked from both a provider and a patient 
-     * perspective.</i> </p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p> <i>Allows the patient to have discrete control over 
      * access to their health data. Awareness of the patient's 
@@ -226,6 +201,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
      * overridden by a higher level masking applied to an 
      * indication, a care composition, a type of record or even all 
      * patient records.</i> </p>
+     * 
+     * <p></p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -233,11 +210,21 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT230001CA.Document.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public AuthorBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: REPC_MT230001CA.Document.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(AuthorBean author) {
         this.author = author;
     }
@@ -286,11 +273,21 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT230001CA.Component3.section</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/structuredBody/component/section"})
     public SectionBean getComponentStructuredBodyComponentSection() {
         return this.componentStructuredBodyComponentSection;
     }
 
+    /**
+     * <p>Relationship: REPC_MT230001CA.Component3.section</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
         this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }

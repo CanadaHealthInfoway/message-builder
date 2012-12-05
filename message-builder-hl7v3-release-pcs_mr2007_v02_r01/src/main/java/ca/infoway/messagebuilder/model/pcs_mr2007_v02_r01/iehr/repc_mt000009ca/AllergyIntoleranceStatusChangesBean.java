@@ -38,20 +38,20 @@ import java.util.Date;
 
 
 /**
- * <p>Allergy/Intolerance Status Changes</p>
- * 
- * <p>This records the history of changes that have been made 
- * to the allergy/intolerance, including why the changes were 
- * made, who made them and when.</p>
+ * <p>Business Name: Allergy/Intolerance Status Changes</p>
  * 
  * <p>Provides a record of a patient's allergy changes, 
  * providing deeper clinical understanding, particularly of 
  * past clinical decisions.</p>
+ * 
+ * <p>This records the history of changes that have been made 
+ * to the allergy/intolerance, including why the changes were 
+ * made, who made them and when.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -60,14 +60,18 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>Business Name: A:Allergy/Intolerance Status Change Type</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
      * 
      * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
      * Complete.</p>
-     * 
-     * <p>This attribute is mandatory to ensure that change types 
-     * are distinguishable.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -75,14 +79,18 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>Business Name: A:Allergy/Intolerance Status Change Type</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
      * 
      * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
      * Complete.</p>
-     * 
-     * <p>This attribute is mandatory to ensure that change types 
-     * are distinguishable.</p>
      */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
@@ -90,14 +98,20 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * <p>Business Name: B:Allergy/intolerance Status Change 
+     * Effective Date</p>
      * 
-     * <p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p>
+     * <p>Relationship: 
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows applications to sort and filter by time. The date 
      * on which a change is effective should always be known and 
      * thus is mandatory.</p>
+     * 
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -105,14 +119,20 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * <p>Business Name: B:Allergy/intolerance Status Change 
+     * Effective Date</p>
      * 
-     * <p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p>
+     * <p>Relationship: 
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows applications to sort and filter by time. The date 
      * on which a change is effective should always be known and 
      * thus is mandatory.</p>
+     * 
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -120,14 +140,18 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>Business Name: C:Allergy/Intolerance Status Change Reason</p>
      * 
-     * <p>Denotes the reason the the allergy/intolerance was 
-     * changed.</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Denotes the reason the the allergy/intolerance was 
+     * changed.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -135,14 +159,18 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>Business Name: C:Allergy/Intolerance Status Change Reason</p>
      * 
-     * <p>Denotes the reason the the allergy/intolerance was 
-     * changed.</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Denotes the reason the the allergy/intolerance was 
+     * changed.</p>
      */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);

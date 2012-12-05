@@ -29,7 +29,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 
 
 /**
- * <p>FICR_IN500102CA: Pre-Determination Request, Rx</p>
+ * <p>Business Name: FICR_IN500102CA: Pre-Determination 
+ * Request, Rx</p>
+ * 
+ * <p>The sender sends a Pre-Determination Request message for 
+ * Pharmacy services and/or products. The receiver will provide 
+ * completed Pre-Determination Results, NOT initial results. 
+ * Pre-Determination Results indicate adjudication results for 
+ * specified services and/or products, but does not generate a 
+ * payment.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN500102CA"})
 public class PreDeterminationRequestRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<PaymentRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

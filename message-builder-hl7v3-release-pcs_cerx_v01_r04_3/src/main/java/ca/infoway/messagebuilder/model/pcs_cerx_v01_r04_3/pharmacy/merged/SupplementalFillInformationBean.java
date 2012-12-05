@@ -31,15 +31,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT repeatNumber = new INTImpl();
     private INT quantity = new INTImpl();
 
 
     /**
-     * <p>NumberOfFills</p>
+     * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>G:Number of Fills</p>
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRepeatNumber() {
@@ -47,9 +59,21 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>NumberOfFills</p>
+     * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>G:Number of Fills</p>
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
@@ -57,9 +81,21 @@ public class SupplementalFillInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>FillQuantity</p>
+     * <p>Business Name: FillQuantity</p>
      * 
-     * <p>D:Fill Quantity</p>
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
@@ -67,9 +103,21 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>FillQuantity</p>
+     * <p>Business Name: FillQuantity</p>
      * 
-     * <p>D:Fill Quantity</p>
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplementalFillInformation.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);

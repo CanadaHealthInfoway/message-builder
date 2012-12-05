@@ -40,24 +40,24 @@ import java.util.Set;
 /**
  * <p>PORX_MT060020CA.SupplyRequest: Prescription Reference</p>
  * 
- * <p>A reference to the prescription order being dispensed</p>
- * 
  * <p>Links a dispense with its parent prescription.</p>
  * 
- * <p>PORX_MT020050CA.SupplyRequest: Supply Order</p>
+ * <p>A reference to the prescription order being dispensed</p>
  * 
- * <p>Identification of the supply information. This 
- * prescription will have a supply order portion but no 
- * administration part.</p>
+ * <p>PORX_MT020050CA.SupplyRequest: Supply Order</p>
  * 
  * <p>Ensures that dispenses to offices (non-patient 
  * identifiable dispenses) follow the normal dispensing 
  * rules.</p>
+ * 
+ * <p>Identification of the supply information. This 
+ * prescription will have a supply order portion but no 
+ * administration part.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
@@ -65,24 +65,23 @@ public class SupplyOrderBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionIdentifier</p>
+     * <p>Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>A:Prescription Identifier</p>
+     * <p>Other Business Name: PrescriptionIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
+     * <p>Allows prescriptions to be uniquely referenced and 
+     * associated with the dispense.</p><p>The ID is mandatory 
+     * because the DIS would always assign a Prescription 
+     * Number.</p>
      * 
      * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS would always assign a Prescription 
-     * Number.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced and 
-     * associated with the dispense.</p><p>The ID is mandatory 
-     * because the DIS would always assign a Prescription 
-     * Number.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -91,14 +90,18 @@ public class SupplyOrderBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionStatus</p>
+     * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>Prescription Status</p>
+     * <p>Other Business Name: PrescriptionStatus</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed in some jurisdictions</p>
      * 
      * <p>Provides the status of the prescription without requiring 
      * additional queries</p>
-     * 
-     * <p>Needed in some jurisdictions</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -106,35 +109,95 @@ public class SupplyOrderBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionStatus</p>
+     * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>Prescription Status</p>
+     * <p>Other Business Name: PrescriptionStatus</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Needed in some jurisdictions</p>
      * 
      * <p>Provides the status of the prescription without requiring 
      * additional queries</p>
-     * 
-     * <p>Needed in some jurisdictions</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public PrescribedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthor(PrescribedByBean author) {
         this.author = author;
     }

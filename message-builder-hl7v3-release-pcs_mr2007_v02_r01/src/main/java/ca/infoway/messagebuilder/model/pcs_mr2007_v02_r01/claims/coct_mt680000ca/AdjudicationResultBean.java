@@ -34,13 +34,17 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
     private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
 
 
     /**
+     * <p>Relationship: COCT_MT680000CA.AdjudicationResult.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>(Summary of the adjudication processing - as submitted, 
      * w/ adjust, refuse adjust, refuse</p>
      */
@@ -50,6 +54,10 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: COCT_MT680000CA.AdjudicationResult.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>(Summary of the adjudication processing - as submitted, 
      * w/ adjust, refuse adjust, refuse</p>
      */
@@ -58,12 +66,24 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdditionalPertinentInformation.adjudicationCodeChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
     public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
         return this.pertinentInformationAdjudicationCodeChoice;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicationResult.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     */
     @Hl7XmlMapping({"reference"})
     public List<AdjudicationResultReferenceBean> getReference() {
         return this.reference;

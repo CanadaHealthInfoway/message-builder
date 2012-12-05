@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Provider ID</p>
+ * <p>Business Name: Provider ID</p>
  * 
  * <p>Provider is the health care practitioner or goods 
  * provider that is providing the service or good that is being 
@@ -39,12 +39,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsProviderRole"})
 public class ProviderIDBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>Summary Breakdown Provider ID</p>
+     * <p>Business Name: Summary Breakdown Provider ID</p>
+     * 
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsProviderRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identity of provider for summary breakdowns.</p>
      */
@@ -54,7 +58,11 @@ public class ProviderIDBean extends MessagePartBean {
     }
 
     /**
-     * <p>Summary Breakdown Provider ID</p>
+     * <p>Business Name: Summary Breakdown Provider ID</p>
+     * 
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsProviderRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identity of provider for summary breakdowns.</p>
      */

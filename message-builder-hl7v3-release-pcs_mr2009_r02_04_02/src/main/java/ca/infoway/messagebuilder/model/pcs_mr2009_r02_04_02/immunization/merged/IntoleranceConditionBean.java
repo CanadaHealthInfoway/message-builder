@@ -43,16 +43,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>POIZ_MT030060CA.IntoleranceCondition: (no business name)</p>
  * 
- * <p>A record of a patient's allergy or intolerance.</p>
- * 
  * <p>Necessary component of a person's overall medication and 
  * clinical profile. Helps with drug contraindication 
  * checking.</p>
+ * 
+ * <p>A record of a patient's allergy or intolerance.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.IntoleranceCondition","POIZ_MT030060CA.IntoleranceCondition","POIZ_MT060150CA.IntoleranceCondition"})
 public class IntoleranceConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -61,17 +61,31 @@ public class IntoleranceConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceRecordID</p>
+     * <p>Business Name: AllergyIntoleranceRecordID</p>
      * 
-     * <p>Allergy/Intolerance Record ID</p>
+     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
      * 
-     * <p>Unique identifier for the intolerance condition.</p>
+     * <p>Relationship: POIZ_MT030060CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to reference allergy and intolerance records 
      * stored in a patient's logitudinal electronic health record. 
      * As a result, this attribute is mandatory.</p>
      * 
-     * <p>Allergy/Intolerance Record ID</p>
+     * <p>Unique identifier for the intolerance condition.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -79,17 +93,31 @@ public class IntoleranceConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceRecordID</p>
+     * <p>Business Name: AllergyIntoleranceRecordID</p>
      * 
-     * <p>Allergy/Intolerance Record ID</p>
+     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
      * 
-     * <p>Unique identifier for the intolerance condition.</p>
+     * <p>Relationship: POIZ_MT030060CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Needed to reference allergy and intolerance records 
      * stored in a patient's logitudinal electronic health record. 
      * As a result, this attribute is mandatory.</p>
      * 
-     * <p>Allergy/Intolerance Record ID</p>
+     * <p>Unique identifier for the intolerance condition.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -97,20 +125,34 @@ public class IntoleranceConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceType</p>
+     * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Allergy Intolerance Type</p>
+     * <p>Other Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>A coded value denoting whether the record pertains to an 
-     * intolerance or a true allergy. (Allergies result from 
-     * immunologic reactions. Intolerances do not.)</p>
+     * <p>Relationship: POIZ_MT030060CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the separation of allergy and intolerance 
      * records. The type of condition is critical to understanding 
      * the record and is therefore mandatory. It is expressed as a 
      * CD to allow for SNOMED post-coordination.</p>
      * 
-     * <p>Allergy Intolerance Type</p>
+     * <p>A coded value denoting whether the record pertains to an 
+     * intolerance or a true allergy. (Allergies result from 
+     * immunologic reactions. Intolerances do not.)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ObservationIntoleranceType getCode() {
@@ -118,20 +160,34 @@ public class IntoleranceConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceType</p>
+     * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Allergy Intolerance Type</p>
+     * <p>Other Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>A coded value denoting whether the record pertains to an 
-     * intolerance or a true allergy. (Allergies result from 
-     * immunologic reactions. Intolerances do not.)</p>
+     * <p>Relationship: POIZ_MT030060CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for the separation of allergy and intolerance 
      * records. The type of condition is critical to understanding 
      * the record and is therefore mandatory. It is expressed as a 
      * CD to allow for SNOMED post-coordination.</p>
      * 
-     * <p>Allergy Intolerance Type</p>
+     * <p>A coded value denoting whether the record pertains to an 
+     * intolerance or a true allergy. (Allergies result from 
+     * immunologic reactions. Intolerances do not.)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: POIZ_MT030050CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ObservationIntoleranceType code) {
         this.code.setValue(code);
@@ -139,20 +195,37 @@ public class IntoleranceConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceRefuted</p>
+     * <p>Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>Allergy/Intolerance Refuted</p>
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * essential to know whether a record is refuted or not.</p>
      * 
      * <p>An indication that the allergy/intolerance has been 
      * refuted. I.e. A clinician has positively determined that the 
      * patient does not suffer from a particular allergy or 
      * intolerance.</p>
      * 
-     * <p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * essential to know whether a record is refuted or not.</p>
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>Allergy/Intolerance Refuted</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -160,20 +233,37 @@ public class IntoleranceConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceRefuted</p>
+     * <p>Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>Allergy/Intolerance Refuted</p>
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * essential to know whether a record is refuted or not.</p>
      * 
      * <p>An indication that the allergy/intolerance has been 
      * refuted. I.e. A clinician has positively determined that the 
      * patient does not suffer from a particular allergy or 
      * intolerance.</p>
      * 
-     * <p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * essential to know whether a record is refuted or not.</p>
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>Allergy/Intolerance Refuted</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -181,19 +271,36 @@ public class IntoleranceConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Allergy/Intolerance Status</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to evaluate the relevance of a recorded 
+     * allergy/intolerance. The status has a default value of 
+     * 'ACTIVE' and is therefore mandatory.</p>
      * 
      * <p>A coded value that indicates whether an 
      * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
      * longer active).</p>
      * 
-     * <p>Allows providers to evaluate the relevance of a recorded 
-     * allergy/intolerance. The status has a default value of 
-     * 'ACTIVE' and is therefore mandatory.</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -201,19 +308,36 @@ public class IntoleranceConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Allergy/Intolerance Status</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows providers to evaluate the relevance of a recorded 
+     * allergy/intolerance. The status has a default value of 
+     * 'ACTIVE' and is therefore mandatory.</p>
      * 
      * <p>A coded value that indicates whether an 
      * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
      * longer active).</p>
      * 
-     * <p>Allows providers to evaluate the relevance of a recorded 
-     * allergy/intolerance. The status has a default value of 
-     * 'ACTIVE' and is therefore mandatory.</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -221,11 +345,20 @@ public class IntoleranceConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>ConfirmedIndicator</p>
+     * <p>Business Name: ConfirmedIndicator</p>
      * 
-     * <p>Confirmed Indicator</p>
+     * <p>Other Business Name: ConfirmedIndicator</p>
      * 
-     * <p>Confirmed Indicator</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps other providers to make appropriate decisions in 
+     * their management of allergy or intolerance 
+     * contraindications. Attribute is mandatory because an allergy 
+     * or intolerance record must be tagged as either 'confirmed' 
+     * or 'suspected'.</p>
      * 
      * <p>An indication of the level of confidence/surety placed in 
      * the recorded information. The two valid confirmation 
@@ -234,11 +367,19 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * contraindication checking whether the record is tagged as 
      * 'confirmed' or 'suspected'.</p>
      * 
-     * <p>Helps other providers to make appropriate decisions in 
-     * their management of allergy or intolerance 
-     * contraindications. Attribute is mandatory because an allergy 
-     * or intolerance record must be tagged as either 'confirmed' 
-     * or 'suspected'.</p>
+     * <p>Other Business Name: ConfirmedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ConfirmedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"uncertaintyCode"})
     public ActUncertainty getUncertaintyCode() {
@@ -246,11 +387,20 @@ public class IntoleranceConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConfirmedIndicator</p>
+     * <p>Business Name: ConfirmedIndicator</p>
      * 
-     * <p>Confirmed Indicator</p>
+     * <p>Other Business Name: ConfirmedIndicator</p>
      * 
-     * <p>Confirmed Indicator</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps other providers to make appropriate decisions in 
+     * their management of allergy or intolerance 
+     * contraindications. Attribute is mandatory because an allergy 
+     * or intolerance record must be tagged as either 'confirmed' 
+     * or 'suspected'.</p>
      * 
      * <p>An indication of the level of confidence/surety placed in 
      * the recorded information. The two valid confirmation 
@@ -259,11 +409,19 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * contraindication checking whether the record is tagged as 
      * 'confirmed' or 'suspected'.</p>
      * 
-     * <p>Helps other providers to make appropriate decisions in 
-     * their management of allergy or intolerance 
-     * contraindications. Attribute is mandatory because an allergy 
-     * or intolerance record must be tagged as either 'confirmed' 
-     * or 'suspected'.</p>
+     * <p>Other Business Name: ConfirmedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: ConfirmedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
         this.uncertaintyCode.setValue(uncertaintyCode);

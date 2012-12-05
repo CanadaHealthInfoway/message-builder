@@ -35,19 +35,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Query response information</p>
- * 
- * <p>Describes the results of a particular query.</p>
+ * <p>Business Name: Query response information</p>
  * 
  * <p>Links a query response to the query that invoked it, and 
  * provides information about the overall result-set (which may 
  * not have been completely returned as part of the 
  * response.)</p>
+ * 
+ * <p>Describes the results of a particular query.</p>
  */
 @Hl7PartTypeMapping({"QUQI_MT120000CA.QueryAck"})
 public class QueryResponseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II queryId = new IIImpl();
     private CS queryResponseCode = new CSImpl();
     private INT resultTotalQuantity = new INTImpl();
@@ -56,14 +56,18 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>M:Query Identifier</p>
+     * <p>Business Name: M:Query Identifier</p>
      * 
-     * <p>The identifier of the query this response is related 
-     * to.</p>
+     * <p>Relationship: QUQI_MT120000CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A single query may involve multiple messages. (Multiple 
      * continuations.). This attribute links all messages related 
      * to the same query and is therefore mandatory.</p>
+     * 
+     * <p>The identifier of the query this response is related 
+     * to.</p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
@@ -71,14 +75,18 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>M:Query Identifier</p>
+     * <p>Business Name: M:Query Identifier</p>
      * 
-     * <p>The identifier of the query this response is related 
-     * to.</p>
+     * <p>Relationship: QUQI_MT120000CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A single query may involve multiple messages. (Multiple 
      * continuations.). This attribute links all messages related 
      * to the same query and is therefore mandatory.</p>
+     * 
+     * <p>The identifier of the query this response is related 
+     * to.</p>
      */
     public void setQueryId(Identifier queryId) {
         this.queryId.setValue(queryId);
@@ -86,12 +94,16 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>N:Query Result Status</p>
+     * <p>Business Name: N:Query Result Status</p>
      * 
-     * <p>Indicates the overall result status of the query.</p>
+     * <p>Relationship: QUQI_MT120000CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether the query was successful and is 
      * therefore mandatory</p>
+     * 
+     * <p>Indicates the overall result status of the query.</p>
      */
     @Hl7XmlMapping({"queryResponseCode"})
     public QueryResponse getQueryResponseCode() {
@@ -99,12 +111,16 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>N:Query Result Status</p>
+     * <p>Business Name: N:Query Result Status</p>
      * 
-     * <p>Indicates the overall result status of the query.</p>
+     * <p>Relationship: QUQI_MT120000CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether the query was successful and is 
      * therefore mandatory</p>
+     * 
+     * <p>Indicates the overall result status of the query.</p>
      */
     public void setQueryResponseCode(QueryResponse queryResponseCode) {
         this.queryResponseCode.setValue(queryResponseCode);
@@ -112,15 +128,20 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>O:Query Result-set Size</p>
+     * <p>Business Name: O:Query Result-set Size</p>
      * 
-     * <p>The total number of matching rows found by the query. 
-     * (This may differ from the number of rows actually 
-     * returned.)</p>
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether additional content exists that may need 
      * to be retrieved by query continuations and is therefore 
      * mandatory</p>
+     * 
+     * <p>The total number of matching rows found by the query. 
+     * (This may differ from the number of rows actually 
+     * returned.)</p>
      */
     @Hl7XmlMapping({"resultTotalQuantity"})
     public Integer getResultTotalQuantity() {
@@ -128,15 +149,20 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>O:Query Result-set Size</p>
+     * <p>Business Name: O:Query Result-set Size</p>
      * 
-     * <p>The total number of matching rows found by the query. 
-     * (This may differ from the number of rows actually 
-     * returned.)</p>
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether additional content exists that may need 
      * to be retrieved by query continuations and is therefore 
      * mandatory</p>
+     * 
+     * <p>The total number of matching rows found by the query. 
+     * (This may differ from the number of rows actually 
+     * returned.)</p>
      */
     public void setResultTotalQuantity(Integer resultTotalQuantity) {
         this.resultTotalQuantity.setValue(resultTotalQuantity);
@@ -144,14 +170,19 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>P:Query Items Returned</p>
+     * <p>Business Name: P:Query Items Returned</p>
      * 
-     * <p>The number of item repetitions returned in the current 
-     * response.</p>
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a quick overview of the number of items without 
      * having to go through and count the data and is therefore 
      * mandatory.</p>
+     * 
+     * <p>The number of item repetitions returned in the current 
+     * response.</p>
      */
     @Hl7XmlMapping({"resultCurrentQuantity"})
     public Integer getResultCurrentQuantity() {
@@ -159,14 +190,19 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>P:Query Items Returned</p>
+     * <p>Business Name: P:Query Items Returned</p>
      * 
-     * <p>The number of item repetitions returned in the current 
-     * response.</p>
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a quick overview of the number of items without 
      * having to go through and count the data and is therefore 
      * mandatory.</p>
+     * 
+     * <p>The number of item repetitions returned in the current 
+     * response.</p>
      */
     public void setResultCurrentQuantity(Integer resultCurrentQuantity) {
         this.resultCurrentQuantity.setValue(resultCurrentQuantity);
@@ -174,13 +210,18 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Q:Query Items Remaining</p>
+     * <p>Business Name: Q:Query Items Remaining</p>
      * 
-     * <p>The number of item repetitions yet to be returned in the 
-     * current response.</p>
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a means of evaluating the magnitude of the 
      * result and is therefore mandatory.</p>
+     * 
+     * <p>The number of item repetitions yet to be returned in the 
+     * current response.</p>
      */
     @Hl7XmlMapping({"resultRemainingQuantity"})
     public Integer getResultRemainingQuantity() {
@@ -188,13 +229,18 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Q:Query Items Remaining</p>
+     * <p>Business Name: Q:Query Items Remaining</p>
      * 
-     * <p>The number of item repetitions yet to be returned in the 
-     * current response.</p>
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides a means of evaluating the magnitude of the 
      * result and is therefore mandatory.</p>
+     * 
+     * <p>The number of item repetitions yet to be returned in the 
+     * current response.</p>
      */
     public void setResultRemainingQuantity(Integer resultRemainingQuantity) {
         this.resultRemainingQuantity.setValue(resultRemainingQuantity);

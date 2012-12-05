@@ -35,13 +35,17 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT500201CA.PolicyHolder"})
 public class PolicyHolderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PN policyHolderPersonName = new PNImpl();
     private TS policyHolderPersonBirthTime = new TSImpl();
 
 
     /**
-     * <p>Policy Holder Name</p>
+     * <p>Business Name: Policy Holder Name</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PolicyHolderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"policyHolderPerson/name"})
     public PersonName getPolicyHolderPersonName() {
@@ -49,7 +53,11 @@ public class PolicyHolderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Policy Holder Name</p>
+     * <p>Business Name: Policy Holder Name</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PolicyHolderPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setPolicyHolderPersonName(PersonName policyHolderPersonName) {
         this.policyHolderPersonName.setValue(policyHolderPersonName);
@@ -57,7 +65,12 @@ public class PolicyHolderBean extends MessagePartBean {
 
 
     /**
-     * <p>Policy Holder Date of birth</p>
+     * <p>Business Name: Policy Holder Date of birth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.PolicyHolderPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"policyHolderPerson/birthTime"})
     public Date getPolicyHolderPersonBirthTime() {
@@ -65,7 +78,12 @@ public class PolicyHolderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Policy Holder Date of birth</p>
+     * <p>Business Name: Policy Holder Date of birth</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.PolicyHolderPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setPolicyHolderPersonBirthTime(Date policyHolderPersonBirthTime) {
         this.policyHolderPersonBirthTime.setValue(policyHolderPersonBirthTime);

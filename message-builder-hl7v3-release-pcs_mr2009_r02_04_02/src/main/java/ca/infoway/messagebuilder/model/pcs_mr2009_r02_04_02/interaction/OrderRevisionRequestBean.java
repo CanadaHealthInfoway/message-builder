@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001000ca.
 
 
 /**
- * <p>POLB_IN111102CA: Order Revision Request</p>
+ * <p>Business Name: POLB_IN111102CA: Order Revision Request</p>
+ * 
+ * <p>This interaction is used when a revision request is 
+ * communicated. If the receiving role is a filler, the 
+ * expectation is to confirm, reject, or respond with a 
+ * revision to the filler's promise.</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -47,6 +52,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001000ca.
 @Hl7PartTypeMapping({"POLB_IN111102CA"})
 public class OrderRevisionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<RequestChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

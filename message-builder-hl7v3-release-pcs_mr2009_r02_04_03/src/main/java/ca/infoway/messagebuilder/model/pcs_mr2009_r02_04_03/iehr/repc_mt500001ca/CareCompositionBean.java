@@ -64,67 +64,35 @@ import java.util.Set;
 
 
 /**
- * <p>Care Composition</p>
- * 
- * <p>A care composition is a record with two purposes. It 
- * indicates that care of a given type has occurred or is 
- * occurring. It also acts as a collector for the events that 
- * happened during care, including who is responsible for the 
- * care provided.</p><p>Care composition messages may be sent 
- * during the course of care to describe the progress of care 
- * or may be sent at the termination of care to describe all 
- * the activities that occurred during the provision of care. 
- * Note that this record merely captures the existence of care 
- * and the locations and people involved. The actual discrete 
- * events and any care summary documentation that results are 
- * captured using other messages.</p><p>Examples include: 
- * encounters, condition-related care (episodes) and 
- * longer-term care collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
- * <p>A care composition is a record with two purposes. It 
- * indicates that care of a given type has occurred or is 
- * occurring. It also acts as a collector for the events that 
- * happened during care, including who is responsible for the 
- * care provided.</p><p>Care composition messages may be sent 
- * during the course of care to describe the progress of care 
- * or may be sent at the termination of care to describe all 
- * the activities that occurred during the provision of care. 
- * Note that this record merely captures the existence of care 
- * and the locations and people involved. The actual discrete 
- * events and any care summary documentation that results are 
- * captured using other messages.</p><p>Examples include: 
- * encounters, condition-related care (episodes) and 
- * longer-term care collections such as &quot;gynecological 
- * care&quot;.</p>
- * 
- * <p>A care composition is a record with two purposes. It 
- * indicates that care of a given type has occurred or is 
- * occurring. It also acts as a collector for the events that 
- * happened during care, including who is responsible for the 
- * care provided.</p><p>Care composition messages may be sent 
- * during the course of care to describe the progress of care 
- * or may be sent at the termination of care to describe all 
- * the activities that occurred during the provision of care. 
- * Note that this record merely captures the existence of care 
- * and the locations and people involved. The actual discrete 
- * events and any care summary documentation that results are 
- * captured using other messages.</p><p>Examples include: 
- * encounters, condition-related care (episodes) and 
- * longer-term care collections such as &quot;gynecological 
- * care&quot;.</p>
+ * <p>Business Name: Care Composition</p>
  * 
  * <p>Care compositions allow grouping together numerous 
  * related records which aids searching and navigation. Also, 
  * the mere knowledge that a type of care has occurred or is 
  * occurring (e.g. an in-patient hospital encounter) can be 
  * useful information when delivering subsequent care.</p>
+ * 
+ * <p>A care composition is a record with two purposes. It 
+ * indicates that care of a given type has occurred or is 
+ * occurring. It also acts as a collector for the events that 
+ * happened during care, including who is responsible for the 
+ * care provided.</p><p>Care composition messages may be sent 
+ * during the course of care to describe the progress of care 
+ * or may be sent at the termination of care to describe all 
+ * the activities that occurred during the provision of care. 
+ * Note that this record merely captures the existence of care 
+ * and the locations and people involved. The actual discrete 
+ * events and any care summary documentation that results are 
+ * captured using other messages.</p><p>Examples include: 
+ * encounters, condition-related care (episodes) and 
+ * longer-term care collections such as &quot;gynecological 
+ * care&quot;.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT500001CA.PatientCareProvisionEvent"})
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -147,117 +115,12 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>B: Care Composition Type</p>
+     * <p>Business Name: B: Care Composition Type</p>
      * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.code</p>
      * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
-     * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
-     * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
-     * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Care Composition Type is used for searching and for 
      * organizing Care Composition records as well as sorting them 
@@ -265,11 +128,27 @@ public class CareCompositionBean extends MessagePartBean {
      * understanding the type of record and is therefore 
      * mandatory.</i> </p>
      * 
-     * <p> <i>Care Composition Type is used for searching and for 
-     * organizing Care Composition records as well as sorting them 
-     * for presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p>
+     * <p> <i>Identifies the type of Care Composition represented 
+     * by this record.</i> </p><p>Care Composition is the generic 
+     * name given to event 'containers' such as Encounters, 
+     * Health-Condition-based Collections (Episodes) and Care-based 
+     * Collections. The &quot;type&quot; of care composition places 
+     * constraints on what elements are 
+     * supported.</p><p>Encounter-based collection: a series of 
+     * health care events that occur during an interaction between 
+     * one or more health care providers and one or more patients 
+     * where the providers and the patient remain in the same 
+     * location over a contiguous period of time; the providers and 
+     * patient may be at different locations (telehealth). e.g. 
+     * Inpatient encounter, Community 
+     * encounter.</p><p>Condition-based collection (Episode): a 
+     * series of interactions between a patient and one or more 
+     * health care providers over time in one or more locations and 
+     * tied together by a common diagnosis or 
+     * problem.</p><p>Care-based collection: a high level grouping 
+     * of health events, encounters, and/or episodes related to a 
+     * particular area of healthcare. e.g. Gynecology care, 
+     * Cardiology Care, etc.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCareEventType getCode() {
@@ -277,117 +156,12 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>B: Care Composition Type</p>
+     * <p>Business Name: B: Care Composition Type</p>
      * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.code</p>
      * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
-     * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
-     * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
-     * 
-     * <p> <i>Identifies the type of Care Composition represented 
-     * by this record.</i> </p><p>Care Composition is the generic 
-     * name given to event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p> <i>Care Composition Type is used for searching and for 
      * organizing Care Composition records as well as sorting them 
@@ -395,11 +169,27 @@ public class CareCompositionBean extends MessagePartBean {
      * understanding the type of record and is therefore 
      * mandatory.</i> </p>
      * 
-     * <p> <i>Care Composition Type is used for searching and for 
-     * organizing Care Composition records as well as sorting them 
-     * for presentation.</i> </p><p> <i>This is a key attribute for 
-     * understanding the type of record and is therefore 
-     * mandatory.</i> </p>
+     * <p> <i>Identifies the type of Care Composition represented 
+     * by this record.</i> </p><p>Care Composition is the generic 
+     * name given to event 'containers' such as Encounters, 
+     * Health-Condition-based Collections (Episodes) and Care-based 
+     * Collections. The &quot;type&quot; of care composition places 
+     * constraints on what elements are 
+     * supported.</p><p>Encounter-based collection: a series of 
+     * health care events that occur during an interaction between 
+     * one or more health care providers and one or more patients 
+     * where the providers and the patient remain in the same 
+     * location over a contiguous period of time; the providers and 
+     * patient may be at different locations (telehealth). e.g. 
+     * Inpatient encounter, Community 
+     * encounter.</p><p>Condition-based collection (Episode): a 
+     * series of interactions between a patient and one or more 
+     * health care providers over time in one or more locations and 
+     * tied together by a common diagnosis or 
+     * problem.</p><p>Care-based collection: a high level grouping 
+     * of health events, encounters, and/or episodes related to a 
+     * particular area of healthcare. e.g. Gynecology care, 
+     * Cardiology Care, etc.</p>
      */
     public void setCode(ActCareEventType code) {
         this.code.setValue(code);
@@ -407,32 +197,29 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Refuted Indicator</p>
+     * <p>Business Name: D:Refuted Indicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Refuted Indicator cannot be specified unless Care 
      * Composition Type is Encounter or a specialization 
      * there-of.</p>
      * 
+     * <p> <i>This is primarily used to supersede records where an 
+     * assertion was made that is subsequently determined to be 
+     * false. It is important to be able to make explicit 
+     * statements that something is known to not be true.</i> 
+     * </p><p> <i>This element is mandatory because it should 
+     * always be known whether the record is being refuted or 
+     * not.</i> </p>
+     * 
      * <p> <i>When set to true, specifically flags the Care 
      * Composition record as &quot;did not occur&quot;. The default 
      * is false. Additional details about the reasons for refuting 
      * the record may be conveyed in notes.</i> </p>
-     * 
-     * <p> <i>This is primarily used to supersede records where an 
-     * assertion was made that is subsequently determined to be 
-     * false. It is important to be able to make explicit 
-     * statements that something is known to not be true.</i> 
-     * </p><p> <i>This element is mandatory because it should 
-     * always be known whether the record is being refuted or 
-     * not.</i> </p>
-     * 
-     * <p> <i>This is primarily used to supersede records where an 
-     * assertion was made that is subsequently determined to be 
-     * false. It is important to be able to make explicit 
-     * statements that something is known to not be true.</i> 
-     * </p><p> <i>This element is mandatory because it should 
-     * always be known whether the record is being refuted or 
-     * not.</i> </p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -440,32 +227,29 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Refuted Indicator</p>
+     * <p>Business Name: D:Refuted Indicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Refuted Indicator cannot be specified unless Care 
      * Composition Type is Encounter or a specialization 
      * there-of.</p>
      * 
+     * <p> <i>This is primarily used to supersede records where an 
+     * assertion was made that is subsequently determined to be 
+     * false. It is important to be able to make explicit 
+     * statements that something is known to not be true.</i> 
+     * </p><p> <i>This element is mandatory because it should 
+     * always be known whether the record is being refuted or 
+     * not.</i> </p>
+     * 
      * <p> <i>When set to true, specifically flags the Care 
      * Composition record as &quot;did not occur&quot;. The default 
      * is false. Additional details about the reasons for refuting 
      * the record may be conveyed in notes.</i> </p>
-     * 
-     * <p> <i>This is primarily used to supersede records where an 
-     * assertion was made that is subsequently determined to be 
-     * false. It is important to be able to make explicit 
-     * statements that something is known to not be true.</i> 
-     * </p><p> <i>This element is mandatory because it should 
-     * always be known whether the record is being refuted or 
-     * not.</i> </p>
-     * 
-     * <p> <i>This is primarily used to supersede records where an 
-     * assertion was made that is subsequently determined to be 
-     * false. It is important to be able to make explicit 
-     * statements that something is known to not be true.</i> 
-     * </p><p> <i>This element is mandatory because it should 
-     * always be known whether the record is being refuted or 
-     * not.</i> </p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -473,27 +257,25 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>C: Care Composition Status</p>
+     * <p>Business Name: C: Care Composition Status</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Status is frequently used to filter query responses 
+     * as well as to sort records for presentation. It also affects 
+     * how the Care Composition record is interpreted.</i> </p><p> 
+     * <i>Because the status won't always be known, the attribute 
+     * is marked as 'populated' to allow the use of null 
+     * flavors.</i> </p>
      * 
      * <p> <i>This identifies the current state of the Care 
      * Composition record. Allowed status values are 'active' (the 
      * encounter, episode or general delivery of care ongoing) and 
      * 'completed' (the encounter, episode or general care has 
      * ended).</i> </p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Care Composition record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Care Composition record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -501,27 +283,25 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>C: Care Composition Status</p>
+     * <p>Business Name: C: Care Composition Status</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p> <i>Status is frequently used to filter query responses 
+     * as well as to sort records for presentation. It also affects 
+     * how the Care Composition record is interpreted.</i> </p><p> 
+     * <i>Because the status won't always be known, the attribute 
+     * is marked as 'populated' to allow the use of null 
+     * flavors.</i> </p>
      * 
      * <p> <i>This identifies the current state of the Care 
      * Composition record. Allowed status values are 'active' (the 
      * encounter, episode or general delivery of care ongoing) and 
      * 'completed' (the encounter, episode or general care has 
      * ended).</i> </p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Care Composition record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
-     * 
-     * <p> <i>Status is frequently used to filter query responses 
-     * as well as to sort records for presentation. It also affects 
-     * how the Care Composition record is interpreted.</i> </p><p> 
-     * <i>Because the status won't always be known, the attribute 
-     * is marked as 'populated' to allow the use of null 
-     * flavors.</i> </p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -529,43 +309,28 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>F: Care Composition Period</p>
+     * <p>Business Name: F: Care Composition Period</p>
      * 
-     * <p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p>
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
-     * <p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p>
-     * 
-     * <p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p> <i>Identifies the time-period of relevance to the record 
      * that is useful in filtering and organizing 
      * &quot;time-view&quot; presentations of data. Because the 
      * timing information won't always be known, this attribute is 
      * marked as 'populated'.</i> </p>
+     * 
+     * <p>Represents the start and end of the date/time interval 
+     * during which the care described by the composition was/is 
+     * being provided.</p><p>E.g. The admission and discharge 
+     * date/time; the date on which the episode began and ended; 
+     * etc.</p><p>Please note that it is possible for many episodes 
+     * and care events to not have an end date; in these 
+     * situations, only the start date will be specified. Even 
+     * encounters will not have an end date until the encounter is 
+     * completed/patient is discharged.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -573,43 +338,28 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>F: Care Composition Period</p>
+     * <p>Business Name: F: Care Composition Period</p>
      * 
-     * <p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p>
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.effectiveTime</p>
      * 
-     * <p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p>
-     * 
-     * <p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p> <i>Identifies the time-period of relevance to the record 
      * that is useful in filtering and organizing 
      * &quot;time-view&quot; presentations of data. Because the 
      * timing information won't always be known, this attribute is 
      * marked as 'populated'.</i> </p>
+     * 
+     * <p>Represents the start and end of the date/time interval 
+     * during which the care described by the composition was/is 
+     * being provided.</p><p>E.g. The admission and discharge 
+     * date/time; the date on which the episode began and ended; 
+     * etc.</p><p>Please note that it is possible for many episodes 
+     * and care events to not have an end date; in these 
+     * situations, only the start date will be specified. Even 
+     * encounters will not have an end date until the encounter is 
+     * completed/patient is discharged.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -617,127 +367,42 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>E: Care Composition Masking Indicators</p>
+     * <p>Business Name: E: Care Composition Masking Indicators</p>
      * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Care Composition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.).</i> </p><p> <i>Can also be used to communicate that 
-     * the information is deemed to be sensitive and should not be 
-     * communicated or exposed to the patient (at least without the 
-     * guidance of the authoring or other responsible healthcare 
-     * provider).</i> </p><p> <i>Valid values are: 'normal' 
-     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
-     * 'taboo' (denotes 'patient restricted'). The default is 
-     * 'normal' signifying 'Not Masked'. Either or both of the 
-     * other codes can be asserted to indicate masking by the 
-     * patient from providers or masking by a provider from the 
-     * patient, respectively. 'normal' should never be asserted 
-     * with one of the other codes.</i> </p><p>Masking a care 
-     * composition record masks it for all associated patients 
-     * (i.e. all patients involved in the care composition as a 
-     * group).</p><p>Also, masking a care composition implicitly 
-     * masks all records associated with that care composition.</p>
+     * <p>Relationship: 
+     * REPC_MT500001CA.PatientCareProvisionEvent.confidentialityCode</p>
      * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Care Composition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.).</i> </p><p> <i>Can also be used to communicate that 
-     * the information is deemed to be sensitive and should not be 
-     * communicated or exposed to the patient (at least without the 
-     * guidance of the authoring or other responsible healthcare 
-     * provider).</i> </p><p> <i>Valid values are: 'normal' 
-     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
-     * 'taboo' (denotes 'patient restricted'). The default is 
-     * 'normal' signifying 'Not Masked'. Either or both of the 
-     * other codes can be asserted to indicate masking by the 
-     * patient from providers or masking by a provider from the 
-     * patient, respectively. 'normal' should never be asserted 
-     * with one of the other codes.</i> </p><p>Masking a care 
-     * composition record masks it for all associated patients 
-     * (i.e. all patients involved in the care composition as a 
-     * group).</p><p>Also, masking a care composition implicitly 
-     * masks all records associated with that care composition.</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Care Composition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.).</i> </p><p> <i>Can also be used to communicate that 
-     * the information is deemed to be sensitive and should not be 
-     * communicated or exposed to the patient (at least without the 
-     * guidance of the authoring or other responsible healthcare 
-     * provider).</i> </p><p> <i>Valid values are: 'normal' 
-     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
-     * 'taboo' (denotes 'patient restricted'). The default is 
-     * 'normal' signifying 'Not Masked'. Either or both of the 
-     * other codes can be asserted to indicate masking by the 
-     * patient from providers or masking by a provider from the 
-     * patient, respectively. 'normal' should never be asserted 
-     * with one of the other codes.</i> </p><p>Masking a care 
-     * composition record masks it for all associated patients 
-     * (i.e. all patients involved in the care composition as a 
-     * group).</p><p>Also, masking a care composition implicitly 
-     * masks all records associated with that care composition.</p>
-     * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Care Composition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.).</i> </p><p> <i>Can also be used to communicate that 
-     * the information is deemed to be sensitive and should not be 
-     * communicated or exposed to the patient (at least without the 
-     * guidance of the authoring or other responsible healthcare 
-     * provider).</i> </p><p> <i>Valid values are: 'normal' 
-     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
-     * 'taboo' (denotes 'patient restricted'). The default is 
-     * 'normal' signifying 'Not Masked'. Either or both of the 
-     * other codes can be asserted to indicate masking by the 
-     * patient from providers or masking by a provider from the 
-     * patient, respectively. 'normal' should never be asserted 
-     * with one of the other codes.</i> </p><p>Masking a care 
-     * composition record masks it for all associated patients 
-     * (i.e. all patients involved in the care composition as a 
-     * group).</p><p>Also, masking a care composition implicitly 
-     * masks all records associated with that care composition.</p>
-     * 
-     * <p> <i>Communicates the desire of the patient to restrict 
-     * access to this Care Composition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.).</i> </p><p> <i>Can also be used to communicate that 
-     * the information is deemed to be sensitive and should not be 
-     * communicated or exposed to the patient (at least without the 
-     * guidance of the authoring or other responsible healthcare 
-     * provider).</i> </p><p> <i>Valid values are: 'normal' 
-     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
-     * 'taboo' (denotes 'patient restricted'). The default is 
-     * 'normal' signifying 'Not Masked'. Either or both of the 
-     * other codes can be asserted to indicate masking by the 
-     * patient from providers or masking by a provider from the 
-     * patient, respectively. 'normal' should never be asserted 
-     * with one of the other codes.</i> </p><p>Masking a care 
-     * composition record masks it for all associated patients 
-     * (i.e. all patients involved in the care composition as a 
-     * group).</p><p>Also, masking a care composition implicitly 
-     * masks all records associated with that care composition.</p>
+     * <p></p>
      * 
      * <p> <i>The value specified for a particular record may be 
      * overridden by a higher level masking applied to an 
      * indication, a care composition, a type of record or even all 
      * patient records.</i> </p>
+     * 
+     * <p> <i>Communicates the desire of the patient to restrict 
+     * access to this Care Composition record. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Methods for 
+     * accessing masked event records will be governed by each 
+     * jurisdiction (e.g. court orders, shared secret/consent, 
+     * etc.).</i> </p><p> <i>Can also be used to communicate that 
+     * the information is deemed to be sensitive and should not be 
+     * communicated or exposed to the patient (at least without the 
+     * guidance of the authoring or other responsible healthcare 
+     * provider).</i> </p><p> <i>Valid values are: 'normal' 
+     * (denotes 'Not Masked'); 'restricted' (denotes 'Masked') and 
+     * 'taboo' (denotes 'patient restricted'). The default is 
+     * 'normal' signifying 'Not Masked'. Either or both of the 
+     * other codes can be asserted to indicate masking by the 
+     * patient from providers or masking by a provider from the 
+     * patient, respectively. 'normal' should never be asserted 
+     * with one of the other codes.</i> </p><p>Masking a care 
+     * composition record masks it for all associated patients 
+     * (i.e. all patients involved in the care composition as a 
+     * group).</p><p>Also, masking a care composition implicitly 
+     * masks all records associated with that care composition.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -755,12 +420,22 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500001CA.Subject7.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject2/patient"})
     public List<PatientBean> getSubject2Patient() {
         return this.subject2Patient;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500001CA.Performer3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/actingPerson"})
     public List<ActingPerson> getPerformerActingPerson() {
         return this.performerActingPerson;
@@ -798,11 +473,21 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500001CA.Discharger.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"discharger/actingPerson"})
     public ActingPerson getDischargerActingPerson() {
         return this.dischargerActingPerson;
     }
 
+    /**
+     * <p>Relationship: REPC_MT500001CA.Discharger.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDischargerActingPerson(ActingPerson dischargerActingPerson) {
         this.dischargerActingPerson = dischargerActingPerson;
     }

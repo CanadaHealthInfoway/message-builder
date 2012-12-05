@@ -36,14 +36,18 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Author1"})
 public class Author1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private AdjudicatorIdBean adjudicatorRole;
 
 
     /**
-     * <p>Adjudication date/time</p>
+     * <p>Business Name: Adjudication date/time</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -51,18 +55,32 @@ public class Author1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Adjudication date/time</p>
+     * <p>Business Name: Adjudication date/time</p>
+     * 
+     * <p>Relationship: FICR_MT510201CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Author1.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"modeCode"})
     public ParticipationMode getModeCode() {
         return (ParticipationMode) this.modeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Author1.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setModeCode(ParticipationMode modeCode) {
         this.modeCode.setValue(modeCode);
     }

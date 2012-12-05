@@ -30,7 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt300002ca.Gen
 
 
 /**
- * <p>COMT_IN300202CA: Patient note query response</p>
+ * <p>Business Name: COMT_IN300202CA: Patient note query 
+ * response</p>
+ * 
+ * <p>Returns the notes that have been recorded against a 
+ * particular patient, potentially filtered by note type and/or 
+ * date.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -43,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt300002ca.Gen
 @Hl7PartTypeMapping({"COMT_IN300202CA"})
 public class PatientNoteQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<CommentBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

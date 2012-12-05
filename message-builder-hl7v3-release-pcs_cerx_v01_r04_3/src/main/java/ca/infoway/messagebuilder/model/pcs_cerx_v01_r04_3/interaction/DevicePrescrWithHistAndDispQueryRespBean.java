@@ -30,8 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt060040
 
 
 /**
- * <p>PORX_IN060020CA: Device prescr. with hist. and disp. 
- * query resp.</p>
+ * <p>Business Name: PORX_IN060020CA: Device prescr. with hist. 
+ * and disp. query resp.</p>
+ * 
+ * <p>Returns detailed information about a single identified 
+ * device prescription, including history of changes and all 
+ * fulfilling dispense events.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -44,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt060040
 @Hl7PartTypeMapping({"PORX_IN060020CA"})
 public class DevicePrescrWithHistAndDispQueryRespBean extends HL7Message_1Bean<TriggerEventBean<PrescriptionBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

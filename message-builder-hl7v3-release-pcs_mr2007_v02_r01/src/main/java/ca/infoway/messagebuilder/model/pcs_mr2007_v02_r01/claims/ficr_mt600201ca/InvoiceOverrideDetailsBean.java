@@ -30,17 +30,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActInvoice
 
 
 /**
- * <p>Invoice Override details</p>
- * 
- * <p>The reason or rationale for an Invoice Element 
- * override.</p>
- * 
- * <p>Some overrides will require a text note component to 
- * fully explain the override.</p><p>If an adjudicator does not 
- * support the override (e.g. repeated service), the override 
- * code should not be ignored. In other words, the Invoice 
- * Grouping will likely be refused with a message &quot;we 
- * don't support this type of override&quot;.</p>
+ * <p>Business Name: Invoice Override details</p>
  * 
  * <p>Some overrides will require a text note component to 
  * fully explain the override.</p><p>If an adjudicator does not 
@@ -50,27 +40,34 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActInvoice
  * don't support this type of override&quot;.</p>
  * 
  * <p>RxS1: Not permitted for this scenario.</p>
+ * 
+ * <p>The reason or rationale for an Invoice Element 
+ * override.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementOverride"})
 public class InvoiceOverrideDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
 
 
     /**
-     * <p>Invoice override code</p>
+     * <p>Business Name: Invoice override code</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementOverride.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This can be used for Xray to follow, paper to follow, 
+     * etc.</p>
+     * 
+     * <p>RxS1: Not permitted for this scenario.</p>
      * 
      * <p>Coded responses that may occur as a result of the 
      * adjudication of an electronic invoice at a summary level and 
      * provides guidance on interpretation of the referenced 
      * adjudication results. i.e.. Subscriber Coverage Problem, 
      * Good Faith Indicator, Late Invoice</p>
-     * 
-     * <p>This can be used for Xray to follow, paper to follow, 
-     * etc.</p>
-     * 
-     * <p>RxS1: Not permitted for this scenario.</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceOverrideCode getCode() {
@@ -78,18 +75,22 @@ public class InvoiceOverrideDetailsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Invoice override code</p>
+     * <p>Business Name: Invoice override code</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementOverride.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This can be used for Xray to follow, paper to follow, 
+     * etc.</p>
+     * 
+     * <p>RxS1: Not permitted for this scenario.</p>
      * 
      * <p>Coded responses that may occur as a result of the 
      * adjudication of an electronic invoice at a summary level and 
      * provides guidance on interpretation of the referenced 
      * adjudication results. i.e.. Subscriber Coverage Problem, 
      * Good Faith Indicator, Late Invoice</p>
-     * 
-     * <p>This can be used for Xray to follow, paper to follow, 
-     * etc.</p>
-     * 
-     * <p>RxS1: Not permitted for this scenario.</p>
      */
     public void setCode(ActInvoiceOverrideCode code) {
         this.code.setValue(code);

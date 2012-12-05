@@ -34,15 +34,25 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInvoi
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementOverride","FICR_MT600201CA.InvoiceElementOverride"})
 public class InvoiceElementOverrideBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
 
     /**
-     * <p>InvoiceOverrideCode</p>
+     * <p>Business Name: InvoiceOverrideCode</p>
      * 
-     * <p>Invoice override code</p>
+     * <p>Other Business Name: InvoiceOverrideCode</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementOverride.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: InvoiceOverrideCode</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementOverride.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInvoiceOverrideType getCode() {
@@ -50,9 +60,19 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
     }
 
     /**
-     * <p>InvoiceOverrideCode</p>
+     * <p>Business Name: InvoiceOverrideCode</p>
      * 
-     * <p>Invoice override code</p>
+     * <p>Other Business Name: InvoiceOverrideCode</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementOverride.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: InvoiceOverrideCode</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementOverride.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setCode(ActInvoiceOverrideType code) {
         this.code.setValue(code);
@@ -60,9 +80,13 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
 
 
     /**
-     * <p>InvoiceOverrideNote</p>
+     * <p>Business Name: InvoiceOverrideNote</p>
      * 
-     * <p>Invoice Override Note</p>
+     * <p>Other Business Name: InvoiceOverrideNote</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementOverride.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -70,9 +94,13 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
     }
 
     /**
-     * <p>InvoiceOverrideNote</p>
+     * <p>Business Name: InvoiceOverrideNote</p>
      * 
-     * <p>Invoice Override Note</p>
+     * <p>Other Business Name: InvoiceOverrideNote</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.InvoiceElementOverride.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);

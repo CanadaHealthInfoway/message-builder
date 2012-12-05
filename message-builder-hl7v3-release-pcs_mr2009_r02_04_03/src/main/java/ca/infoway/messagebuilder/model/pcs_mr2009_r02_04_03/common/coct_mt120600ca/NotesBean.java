@@ -37,18 +37,10 @@ import java.util.Date;
 
 
 /**
- * <p>Notes</p>
+ * <p>Business Name: Notes</p>
  * 
  * <p>Identified-confirmable is used on requests 
  * Identified-information is used on responses</p>
- * 
- * <p>This is a list of comments made about the record by 
- * providers. Information captured here includes the provider 
- * making the comments; and excludes information that would 
- * render the record invalid. This information will only be 
- * seen when another provider reviews the record. Urgent or 
- * targeted messages should be sent using a different mechanism 
- * (e.g. phone).</p>
  * 
  * <p>Public Health requires all clinical notes to be 
  * 'verified' by a responsible party if not created by 
@@ -61,34 +53,40 @@ import java.util.Date;
  * <p>Allows various Providers to attach comments to an 
  * existing record, and thus improving cross-provider 
  * communications.</p>
+ * 
+ * <p>This is a list of comments made about the record by 
+ * providers. Information captured here includes the provider 
+ * making the comments; and excludes information that would 
+ * render the record invalid. This information will only be 
+ * seen when another provider reviews the record. Urgent or 
+ * targeted messages should be sent using a different mechanism 
+ * (e.g. phone).</p>
  */
 @Hl7PartTypeMapping({"COCT_MT120600CA.Annotation"})
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
     private TS authorTime = new TSImpl();
     private AssignedPerson authorAssignedPerson;
 
 
     /**
-     * <p>B: Note Text</p>
+     * <p>Business Name: B: Note Text</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a provider to attach comments to objects for 
+     * communication. This attribute is mandatory because there's 
+     * no point in having a note class unless there's actually 
+     * content in the note.</p><p>Language is supported to allow 
+     * grouping or filtering comments based on language</p>
      * 
      * <p>Free text comments. Additional textual iinformation 
      * entered about an object.</p>
-     * 
-     * <p>Allows a provider to attach comments to objects for 
-     * communication. This attribute is mandatory because there's 
-     * no point in having a note class unless there's actually 
-     * content in the note.</p><p>Language is supported to allow 
-     * grouping or filtering comments based on language</p>
-     * 
-     * <p>Allows a provider to attach comments to objects for 
-     * communication. This attribute is mandatory because there's 
-     * no point in having a note class unless there's actually 
-     * content in the note.</p><p>Language is supported to allow 
-     * grouping or filtering comments based on language</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -96,22 +94,20 @@ public class NotesBean extends MessagePartBean {
     }
 
     /**
-     * <p>B: Note Text</p>
+     * <p>Business Name: B: Note Text</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows a provider to attach comments to objects for 
+     * communication. This attribute is mandatory because there's 
+     * no point in having a note class unless there's actually 
+     * content in the note.</p><p>Language is supported to allow 
+     * grouping or filtering comments based on language</p>
      * 
      * <p>Free text comments. Additional textual iinformation 
      * entered about an object.</p>
-     * 
-     * <p>Allows a provider to attach comments to objects for 
-     * communication. This attribute is mandatory because there's 
-     * no point in having a note class unless there's actually 
-     * content in the note.</p><p>Language is supported to allow 
-     * grouping or filtering comments based on language</p>
-     * 
-     * <p>Allows a provider to attach comments to objects for 
-     * communication. This attribute is mandatory because there's 
-     * no point in having a note class unless there's actually 
-     * content in the note.</p><p>Language is supported to allow 
-     * grouping or filtering comments based on language</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -119,19 +115,18 @@ public class NotesBean extends MessagePartBean {
 
 
     /**
-     * <p>A: Note Timestamp</p>
+     * <p>Business Name: A: Note Timestamp</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies timing of the annotation for sorting and for 
+     * audit purposes.</p><p>This attribute is mandatory because 
+     * the time of creation of the annotation will always be 
+     * known.</p>
      * 
      * <p>The date and time at which the note was posted.</p>
-     * 
-     * <p>Identifies timing of the annotation for sorting and for 
-     * audit purposes.</p><p>This attribute is mandatory because 
-     * the time of creation of the annotation will always be 
-     * known.</p>
-     * 
-     * <p>Identifies timing of the annotation for sorting and for 
-     * audit purposes.</p><p>This attribute is mandatory because 
-     * the time of creation of the annotation will always be 
-     * known.</p>
      */
     @Hl7XmlMapping({"author/time"})
     public Date getAuthorTime() {
@@ -139,30 +134,39 @@ public class NotesBean extends MessagePartBean {
     }
 
     /**
-     * <p>A: Note Timestamp</p>
+     * <p>Business Name: A: Note Timestamp</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies timing of the annotation for sorting and for 
+     * audit purposes.</p><p>This attribute is mandatory because 
+     * the time of creation of the annotation will always be 
+     * known.</p>
      * 
      * <p>The date and time at which the note was posted.</p>
-     * 
-     * <p>Identifies timing of the annotation for sorting and for 
-     * audit purposes.</p><p>This attribute is mandatory because 
-     * the time of creation of the annotation will always be 
-     * known.</p>
-     * 
-     * <p>Identifies timing of the annotation for sorting and for 
-     * audit purposes.</p><p>This attribute is mandatory because 
-     * the time of creation of the annotation will always be 
-     * known.</p>
      */
     public void setAuthorTime(Date authorTime) {
         this.authorTime.setValue(authorTime);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT120600CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedPerson"})
     public AssignedPerson getAuthorAssignedPerson() {
         return this.authorAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: COCT_MT120600CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorAssignedPerson(AssignedPerson authorAssignedPerson) {
         this.authorAssignedPerson = authorAssignedPerson;
     }

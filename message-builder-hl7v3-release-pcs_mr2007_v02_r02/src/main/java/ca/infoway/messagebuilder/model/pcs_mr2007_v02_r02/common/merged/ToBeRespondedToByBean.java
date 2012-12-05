@@ -33,71 +33,72 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ToBeRespondedToBy</p>
+ * <p>Business Name: ToBeRespondedToBy</p>
  * 
  * <p>MCCI_MT102001CA.RespondTo: to be responded to by</p>
  * 
- * <p>Indicates the interaction that should receive the 
- * response to this interaction. Used when different from the 
- * sender of the original interaction.</p>
- * 
  * <p>In complex routing environments, the acknowledgements may 
  * need to be sent to a system other than the one which 
  * constructed the original message. This association is 
  * optional because not all environments will support responses 
  * to systems other than the original sender.</p>
+ * 
+ * <p>Indicates the interaction that should receive the 
+ * response to this interaction. Used when different from the 
+ * sender of the original interaction.</p>
  * 
  * <p>MCCI_MT002300CA.RespondTo: to be responded to by</p>
  * 
- * <p>Indicates the interaction that should receive the 
- * response to this interaction. Used when different from the 
- * sender of the original interaction.</p>
- * 
  * <p>In complex routing environments, the acknowledgements may 
  * need to be sent to a system other than the one which 
  * constructed the original message. This association is 
  * optional because not all environments will support responses 
  * to systems other than the original sender.</p>
+ * 
+ * <p>Indicates the interaction that should receive the 
+ * response to this interaction. Used when different from the 
+ * sender of the original interaction.</p>
  * 
  * <p>MCCI_MT002200CA.RespondTo: to be responded to by</p>
  * 
- * <p>Indicates the interaction that should receive the 
- * response to this interaction. Used when different from the 
- * sender of the original interaction.</p>
- * 
  * <p>In complex routing environments, the acknowledgements may 
  * need to be sent to a system other than the one which 
  * constructed the original message. This association is 
  * optional because not all environments will support responses 
  * to systems other than the original sender.</p>
+ * 
+ * <p>Indicates the interaction that should receive the 
+ * response to this interaction. Used when different from the 
+ * sender of the original interaction.</p>
  * 
  * <p>MCCI_MT002100CA.RespondTo: to be responded to by</p>
  * 
- * <p>Indicates the interaction that should receive the 
- * response to this interaction. Used when different from the 
- * sender of the original interaction.</p>
- * 
  * <p>In complex routing environments, the acknowledgements may 
  * need to be sent to a system other than the one which 
  * constructed the original message. This association is 
  * optional because not all environments will support responses 
  * to systems other than the original sender.</p>
+ * 
+ * <p>Indicates the interaction that should receive the 
+ * response to this interaction. Used when different from the 
+ * sender of the original interaction.</p>
  */
 @Hl7PartTypeMapping({"MCCI_MT002100CA.RespondTo","MCCI_MT002200CA.RespondTo","MCCI_MT002300CA.RespondTo","MCCI_MT102001CA.RespondTo"})
 public class ToBeRespondedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
 
 
     /**
-     * <p>RespondToNetworkAddress</p>
+     * <p>Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>KB:Respond to Network Address</p>
+     * <p>Other Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Indicates the address to send acknowledgments of this 
-     * message to.</p>
+     * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>soap:Header\wsa:ReplyTo</p>
      * 
@@ -105,6 +106,57 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * that of the sender. This is optional because not all 
      * environments require network addresses. It is required when 
      * communicating using SOAP.</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses. It is required when 
+     * communicating using SOAP.</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses. It is required when 
+     * communicating using SOAP.</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses. It is required when 
+     * communicating using SOAP.</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -112,12 +164,13 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>RespondToNetworkAddress</p>
+     * <p>Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>KB:Respond to Network Address</p>
+     * <p>Other Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Indicates the address to send acknowledgments of this 
-     * message to.</p>
+     * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>soap:Header\wsa:ReplyTo</p>
      * 
@@ -125,6 +178,57 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * that of the sender. This is optional because not all 
      * environments require network addresses. It is required when 
      * communicating using SOAP.</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses. It is required when 
+     * communicating using SOAP.</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses. It is required when 
+     * communicating using SOAP.</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses. It is required when 
+     * communicating using SOAP.</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
@@ -132,13 +236,13 @@ public class ToBeRespondedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>RespondToApplicationIdentifier</p>
+     * <p>Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>KA:Respond to Application Identifier</p>
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>The unique identifier of the applications to which 
-     * responses should be sent. Only populated when different from 
-     * the sending application id.</p>
+     * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>soap:Header\wsa:ReplyTo\@endpointID</p>
      * 
@@ -146,6 +250,61 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * application to be responded to. This attribute is mandatory 
      * be cause it is the principal identifier of the application 
      * to respond to.</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo\@endpointID</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo\@endpointID</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo\@endpointID</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
      */
     @Hl7XmlMapping({"device/id"})
     public Identifier getDeviceId() {
@@ -153,13 +312,13 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>RespondToApplicationIdentifier</p>
+     * <p>Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>KA:Respond to Application Identifier</p>
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>The unique identifier of the applications to which 
-     * responses should be sent. Only populated when different from 
-     * the sending application id.</p>
+     * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>soap:Header\wsa:ReplyTo\@endpointID</p>
      * 
@@ -167,6 +326,61 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * application to be responded to. This attribute is mandatory 
      * be cause it is the principal identifier of the application 
      * to respond to.</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo\@endpointID</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo\@endpointID</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>soap:Header\wsa:ReplyTo\@endpointID</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
      */
     public void setDeviceId(Identifier deviceId) {
         this.deviceId.setValue(deviceId);

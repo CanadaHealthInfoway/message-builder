@@ -31,18 +31,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MultipleBirthIndicator"})
 public class MultipleBirthIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL value = new BLImpl();
 
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
      * 
-     * <p>An indication as to whether the client is part of a 
-     * multiple birth.</p>
+     * <p>Relationship: 
+     * PRPA_MT101103CA.MultipleBirthIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>An indication as to whether the client is part of a 
+     * multiple birth.</p>
      */
     @Hl7XmlMapping({"value"})
     public Boolean getValue() {
@@ -50,13 +55,18 @@ public class MultipleBirthIndicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
      * 
-     * <p>An indication as to whether the client is part of a 
-     * multiple birth.</p>
+     * <p>Relationship: 
+     * PRPA_MT101103CA.MultipleBirthIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
+     * 
+     * <p>An indication as to whether the client is part of a 
+     * multiple birth.</p>
      */
     public void setValue(Boolean value) {
         this.value.setValue(value);

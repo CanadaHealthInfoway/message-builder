@@ -42,12 +42,9 @@ import java.util.Set;
 
 
 /**
- * <p>HealthcareOrganization</p>
+ * <p>Business Name: HealthcareOrganization</p>
  * 
  * <p>COCT_MT090508CA.AssignedEntity: Healthcare Organization</p>
- * 
- * <p>The organization under whose authority the associated 
- * (linked by a participation) action is performed</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up.</p>
@@ -55,19 +52,22 @@ import java.util.Set;
  * <p>All attributes other than the various identifiers are 
  * expected to be retrieved from the provider registry.</p>
  * 
- * <p>COCT_MT090502CA.AssignedEntity: Healthcare Organization</p>
- * 
  * <p>The organization under whose authority the associated 
- * action (linked by a participation) was performed.</p>
+ * (linked by a participation) action is performed</p>
+ * 
+ * <p>COCT_MT090502CA.AssignedEntity: Healthcare Organization</p>
  * 
  * <p>Critical to tracking responsibility and performing 
  * follow-up.</p>
+ * 
+ * <p>The organization under whose authority the associated 
+ * action (linked by a participation) was performed.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT090502CA.AssignedEntity","COCT_MT090508CA.AssignedEntity"})
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson, EntererChoice, ActingPerson {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II representedOrganizationId = new IIImpl();
     private ST representedOrganizationName = new STImpl();
     private CV representedOrganizationAssignedOrganizationCode = new CVImpl();
@@ -75,25 +75,33 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
 
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>E: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
      * 
      * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>D: Organization identifier</p>
-     * 
      * <p>A unique identifier for the organization</p>
-     * 
-     * <p>Allows the organization to be referenced when determining 
-     * privileges and for drill-downs to retrieve additional 
-     * information. Because of its importance, the attribute is 
-     * mandatory.</p>
      */
     @Hl7XmlMapping({"representedOrganization/id"})
     public Identifier getRepresentedOrganizationId() {
@@ -101,25 +109,33 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     }
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>E: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
      * 
      * <p>A unique identifier for the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows the organization to be referenced when determining 
      * privileges and for drill-downs to retrieve additional 
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>D: Organization identifier</p>
-     * 
      * <p>A unique identifier for the organization</p>
-     * 
-     * <p>Allows the organization to be referenced when determining 
-     * privileges and for drill-downs to retrieve additional 
-     * information. Because of its importance, the attribute is 
-     * mandatory.</p>
      */
     public void setRepresentedOrganizationId(Identifier representedOrganizationId) {
         this.representedOrganizationId.setValue(representedOrganizationId);
@@ -127,23 +143,31 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
 
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>E: Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
      * 
      * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
      * 
-     * <p>G: Organization Name</p>
-     * 
      * <p>Identifies the name of the organization</p>
-     * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"representedOrganization/name"})
     public String getRepresentedOrganizationName() {
@@ -151,23 +175,31 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     }
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>E: Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
      * 
      * <p>Identifies the name of the organization</p>
+     * 
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Allows for human recognition of the organization as well 
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
      * 
-     * <p>G: Organization Name</p>
-     * 
      * <p>Identifies the name of the organization</p>
-     * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
      */
     public void setRepresentedOrganizationName(String representedOrganizationName) {
         this.representedOrganizationName.setValue(representedOrganizationName);
@@ -175,15 +207,19 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
 
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>F: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
      * 
-     * <p>Identifies the type of organization on whose behalf the 
-     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
+     * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides context to the action and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
     public HealthcareOrganizationRoleType getRepresentedOrganizationAssignedOrganizationCode() {
@@ -191,15 +227,19 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     }
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>F: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
      * 
-     * <p>Identifies the type of organization on whose behalf the 
-     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
+     * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides context to the action and is therefore 
      * mandatory.</p>
+     * 
+     * <p>Identifies the type of organization on whose behalf the 
+     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      */
     public void setRepresentedOrganizationAssignedOrganizationCode(HealthcareOrganizationRoleType representedOrganizationAssignedOrganizationCode) {
         this.representedOrganizationAssignedOrganizationCode.setValue(representedOrganizationAssignedOrganizationCode);
@@ -207,16 +247,21 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
 
 
     /**
-     * <p>OrganizationPhoneAndEmails</p>
+     * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>H: Organization Phone and Emails</p>
+     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Identifies contact information for the responsible 
-     * organization.</p>
+     * <p>Relationship: 
+     * COCT_MT090508CA.AssignedOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>This is the most commonly used contact information and is 
      * returned to avoid unnecessary queries against the client 
      * registry.</p>
+     * 
+     * <p>Identifies contact information for the responsible 
+     * organization.</p>
      */
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getRepresentedOrganizationAssignedOrganizationTelecom() {

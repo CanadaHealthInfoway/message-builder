@@ -29,7 +29,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 
 
 /**
- * <p>REPC_IN000009CA: Update adverse reaction request accepted</p>
+ * <p>Business Name: REPC_IN000009CA: Update adverse reaction 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the requested severity, outcome, suspected 
+ * cause or other information about a previously-recorded 
+ * adverse reaction has been successfully updated.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
 @Hl7PartTypeMapping({"REPC_IN000009CA"})
 public class UpdateAdverseReactionRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

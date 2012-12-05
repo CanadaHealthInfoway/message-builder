@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Payment Reason</p>
+ * <p>Business Name: Payment Reason</p>
  * 
  * <p>For spontaneous EOBs, there may be more than 1 EOB for 
  * the same Payment Intent.</p>
@@ -40,15 +40,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.PaymentIntentReason"})
 public class PaymentReasonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private AdjudicatedInvoiceBean adjudicatedInvoiceElementGroup;
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.PaymentIntentReason.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"adjudicatedInvoiceElementGroup"})
     public AdjudicatedInvoiceBean getAdjudicatedInvoiceElementGroup() {
         return this.adjudicatedInvoiceElementGroup;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.PaymentIntentReason.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceBean adjudicatedInvoiceElementGroup) {
         this.adjudicatedInvoiceElementGroup = adjudicatedInvoiceElementGroup;
     }

@@ -48,7 +48,7 @@ import java.util.List;
 
 
 /**
- * <p>Billable Clinical Product</p>
+ * <p>Business Name: Billable Clinical Product</p>
  * 
  * <p>Patient classes are not referenced in the billable acts, 
  * as they are noted in the parent model (e.g. Invoice message) 
@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
@@ -73,18 +73,34 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodIntentEvent getMoodCode() {
         return (x_ActMoodIntentEvent) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setMoodCode(x_ActMoodIntentEvent moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
     /**
-     * <p>Billable Clinical Product ID</p>
+     * <p>Business Name: Billable Clinical Product ID</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.BillableClinicalProduct.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>receipt number for the sale or rental</p>
      */
@@ -94,7 +110,11 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Billable Clinical Product ID</p>
+     * <p>Business Name: Billable Clinical Product ID</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.BillableClinicalProduct.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>receipt number for the sale or rental</p>
      */
@@ -104,7 +124,12 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Billable Clinical Product Code</p>
+     * <p>Business Name: Billable Clinical Product Code</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Acquistion Code PO #</p>
      */
@@ -114,7 +139,12 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Billable Clinical Product Code</p>
+     * <p>Business Name: Billable Clinical Product Code</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Acquistion Code PO #</p>
      */
@@ -124,12 +154,12 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>Time of Sale</p>
+     * <p>Business Name: Time of Sale</p>
      * 
-     * <p>Date that the sale is transacted (change of ownership for 
-     * a sale) and could be different than the date that it is 
-     * invoiced. Similar in concept to the service date.</p><p>For 
-     * rentals, this is the rental period.</p>
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date that the sale is transacted (change of ownership for 
      * a sale) and could be different than the date that it is 
@@ -142,12 +172,12 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
     /**
-     * <p>Time of Sale</p>
+     * <p>Business Name: Time of Sale</p>
      * 
-     * <p>Date that the sale is transacted (change of ownership for 
-     * a sale) and could be different than the date that it is 
-     * invoiced. Similar in concept to the service date.</p><p>For 
-     * rentals, this is the rental period.</p>
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date that the sale is transacted (change of ownership for 
      * a sale) and could be different than the date that it is 

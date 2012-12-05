@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt490000ca
 
 
 /**
- * <p>ManufacturedProduct</p>
+ * <p>Business Name: ManufacturedProduct</p>
  * 
  * <p>COCT_MT490000CA.ManufacturedProduct: Manufactured Product</p>
  * 
@@ -60,7 +60,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt490000ca
 @Hl7PartTypeMapping({"COCT_MT290000CA.ManufacturedProduct","COCT_MT490000CA.ManufacturedProduct"})
 public class ManufacturedProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ManufacturedMaterialKindBean manufacturedMaterialKind;
@@ -70,11 +70,19 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Product ID</p>
+     * <p>Other Business Name: ProductID</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ManufacturedProduct.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>serial number</p>
      * 
-     * <p>Product Number</p>
+     * <p>Other Business Name: ProductNumber</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ManufacturedProduct.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>serial number</p>
      */
@@ -84,11 +92,19 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Product ID</p>
+     * <p>Other Business Name: ProductID</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ManufacturedProduct.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>serial number</p>
      * 
-     * <p>Product Number</p>
+     * <p>Other Business Name: ProductNumber</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ManufacturedProduct.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>serial number</p>
      */
@@ -98,14 +114,22 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Product number code</p>
+     * <p>Other Business Name: ProductCode</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ManufacturedProduct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>code denoting product type</p>
+     * 
+     * <p>Other Business Name: ProductNumberCode</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ManufacturedProduct.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>(UPC/GTIN/pseudo UPC number manufacturers item/catalogue 
      * number</p>
-     * 
-     * <p>Product Code</p>
-     * 
-     * <p>code denoting product type</p>
      */
     @Hl7XmlMapping({"code"})
     public RoleCode getCode() {
@@ -113,36 +137,70 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Product number code</p>
+     * <p>Other Business Name: ProductCode</p>
+     * 
+     * <p>Relationship: COCT_MT490000CA.ManufacturedProduct.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>code denoting product type</p>
+     * 
+     * <p>Other Business Name: ProductNumberCode</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ManufacturedProduct.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>(UPC/GTIN/pseudo UPC number manufacturers item/catalogue 
      * number</p>
-     * 
-     * <p>Product Code</p>
-     * 
-     * <p>code denoting product type</p>
      */
     public void setCode(RoleCode code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedProduct.manufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"manufacturedMaterialKind"})
     public ManufacturedMaterialKindBean getManufacturedMaterialKind() {
         return this.manufacturedMaterialKind;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedProduct.manufacturedMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setManufacturedMaterialKind(ManufacturedMaterialKindBean manufacturedMaterialKind) {
         this.manufacturedMaterialKind = manufacturedMaterialKind;
     }
 
 
     /**
-     * <p>Organisation Name</p>
+     * <p>Other Business Name: OrganisationName</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedProductOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Manufacturer Name</p>
      * 
-     * <p>Manufacturer Name</p>
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.ManufacturedProductOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of manufacturer.</p>
      */
@@ -152,11 +210,21 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Organisation Name</p>
+     * <p>Other Business Name: OrganisationName</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedProductOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Manufacturer Name</p>
      * 
-     * <p>Manufacturer Name</p>
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.ManufacturedProductOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of manufacturer.</p>
      */
@@ -166,15 +234,25 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>ManufacturerTelecom</p>
+     * <p>Business Name: ManufacturerTelecom</p>
      * 
-     * <p>Manufacturer Telecom</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>Telephone no. for manufacturer</p>
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedProductOrganization.telecom</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Organisation telephone/email</p>
+     * 
+     * <p>Other Business Name: ManufacturerTelecom</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.ManufacturedProductOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Telephone no. for manufacturer</p>
      */
     @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
     public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
@@ -182,15 +260,25 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>ManufacturerTelecom</p>
+     * <p>Business Name: ManufacturerTelecom</p>
      * 
-     * <p>Manufacturer Telecom</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>Telephone no. for manufacturer</p>
+     * <p>Relationship: 
+     * COCT_MT490000CA.ManufacturedProductOrganization.telecom</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Organisation telephone/email</p>
+     * 
+     * <p>Other Business Name: ManufacturerTelecom</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.ManufacturedProductOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Telephone no. for manufacturer</p>
      */
     public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
         this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
@@ -198,9 +286,13 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>ProductNumber</p>
+     * <p>Business Name: ProductNumber</p>
      * 
-     * <p>Product Number</p>
+     * <p>Other Business Name: ProductNumber</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ManufacturedMaterial.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code for manufactured material eg. DIN/PIN</p>
      */
@@ -210,9 +302,13 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>ProductNumber</p>
+     * <p>Business Name: ProductNumber</p>
      * 
-     * <p>Product Number</p>
+     * <p>Other Business Name: ProductNumber</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.ManufacturedMaterial.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Code for manufactured material eg. DIN/PIN</p>
      */

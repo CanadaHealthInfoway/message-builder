@@ -28,7 +28,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 
 
 /**
- * <p>COMT_IN400002CA: Change item masking request accepted</p>
+ * <p>Business Name: COMT_IN400002CA: Change item masking 
+ * request accepted</p>
+ * 
+ * <p>Indicates that the confidentiality code has been 
+ * successfully revised for the requested identified item, 
+ * group of items (identified by act type, medication, 
+ * indication) or all items for a particular patient.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -37,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"COMT_IN400002CA"})
 public class ChangeItemMaskingRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

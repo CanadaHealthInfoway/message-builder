@@ -68,19 +68,19 @@ import java.util.Set;
 
 
 /**
- * <p>Result Observation</p>
+ * <p>Business Name: Result Observation</p>
+ * 
+ * <p>This observation event contains the atomic result 
+ * observation information.</p>
  * 
  * <p>This observation event act is used to 
  * document/communicate individual result observation 
  * values.</p>
- * 
- * <p>This observation event contains the atomic result 
- * observation information.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationEvent"})
 public class ResultObservationBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private Patient_1Bean recordTargetPatient;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
@@ -125,12 +125,16 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Result Observation Identifier</p>
+     * <p>Business Name: Result Observation Identifier</p>
      * 
-     * <p>Unique identifier for this lab result observation.</p>
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-2)</p>
      * 
      * <p>Unique identifiers are required for result revisions, 
      * etc.</p>
+     * 
+     * <p>Unique identifier for this lab result observation.</p>
      */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
@@ -145,7 +149,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Result Observation Type</p>
+     * <p>Business Name: Result Observation Type</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of lab result observation e.g. 
      * analyte. The code is bound to the LOINC domain. The LOINC 
@@ -162,7 +170,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Result Observation Type</p>
+     * <p>Business Name: Result Observation Type</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of lab result observation e.g. 
      * analyte. The code is bound to the LOINC domain. The LOINC 
@@ -184,24 +196,40 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient"})
     public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
         return this.primaryInformationRecipient;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
         this.primaryInformationRecipient = primaryInformationRecipient;
     }
 
 
     /**
-     * <p>Result Observation Text</p>
+     * <p>Business Name: Result Observation Text</p>
      * 
-     * <p>Contains any text-based descriptive text regarding or in 
-     * support of this observation.</p>
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used to document any act information not covered by the 
      * other attribution or value sets.</p>
+     * 
+     * <p>Contains any text-based descriptive text regarding or in 
+     * support of this observation.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -209,13 +237,17 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Result Observation Text</p>
+     * <p>Business Name: Result Observation Text</p>
      * 
-     * <p>Contains any text-based descriptive text regarding or in 
-     * support of this observation.</p>
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used to document any act information not covered by the 
      * other attribution or value sets.</p>
+     * 
+     * <p>Contains any text-based descriptive text regarding or in 
+     * support of this observation.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -229,17 +261,21 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Result Observation Status</p>
+     * <p>Business Name: Result Observation Status</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * act e.g. active=in progress or not yet started, 
+     * complete=final.</p>
      * 
      * <p>The status or state of the result observation. The 
      * statusCode is not as fine-grained as lab reporting statuses 
      * such as preliminary. A &quot;preliminary&quot; result is a 
      * result whose statusCode=active and ProcessStep (procedure 
      * event) valued &quot;preliminary&quot;.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * act e.g. active=in progress or not yet started, 
-     * complete=final.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -247,17 +283,21 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Result Observation Status</p>
+     * <p>Business Name: Result Observation Status</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The statusCode represents the &quot;state&quot; of the 
+     * act e.g. active=in progress or not yet started, 
+     * complete=final.</p>
      * 
      * <p>The status or state of the result observation. The 
      * statusCode is not as fine-grained as lab reporting statuses 
      * such as preliminary. A &quot;preliminary&quot; result is a 
      * result whose statusCode=active and ProcessStep (procedure 
      * event) valued &quot;preliminary&quot;.</p>
-     * 
-     * <p>The statusCode represents the &quot;state&quot; of the 
-     * act e.g. active=in progress or not yet started, 
-     * complete=final.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -265,7 +305,12 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Result Observation Date/Time</p>
+     * <p>Business Name: Result Observation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time interval over which this lab test 
      * observation was performed.</p>
@@ -276,7 +321,12 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Result Observation Date/Time</p>
+     * <p>Business Name: Result Observation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time interval over which this lab test 
      * observation was performed.</p>
@@ -297,7 +347,16 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Result Masking Indicator</p>
+     * <p>Business Name: Result Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
+     * 
+     * <p>This code allows for privacy control by patients as well 
+     * as flagged for 'not for disclosure to patient' by care 
+     * providers.</p>
      * 
      * <p>Any piece of information is potentially subject to 
      * 'masking', restricting it's availability from providers who 
@@ -306,10 +365,6 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
      * direct disclosure to patient&quot;. The values in this 
      * attribute enable the above masking to be represented and 
      * messaged.</p>
-     * 
-     * <p>This code allows for privacy control by patients as well 
-     * as flagged for 'not for disclosure to patient' by care 
-     * providers.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
@@ -334,7 +389,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Result Observation Value</p>
+     * <p>Business Name: Result Observation Value</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The result value. If a coded value applies, the value 
      * must be selected from the LaboratoryResultCodeValue Concept 
@@ -346,7 +405,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Result Observation Value</p>
+     * <p>Business Name: Result Observation Value</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The result value. If a coded value applies, the value 
      * must be selected from the LaboratoryResultCodeValue Concept 
@@ -364,13 +427,18 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Observation Interpretation Code</p>
+     * <p>Business Name: Observation Interpretation Code</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEvent.interpretationCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>In v2.x, this was the abnormal flag.</p>
      * 
      * <p>Communicates the performer's interpretation of the result 
      * based on some established baseline (normal, high, low, 
      * panic, etc.).</p>
-     * 
-     * <p>In v2.x, this was the abnormal flag.</p>
      */
     @Hl7XmlMapping({"interpretationCode"})
     public ObservationInterpretation getInterpretationCode() {
@@ -378,19 +446,29 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Observation Interpretation Code</p>
+     * <p>Business Name: Observation Interpretation Code</p>
+     * 
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEvent.interpretationCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>In v2.x, this was the abnormal flag.</p>
      * 
      * <p>Communicates the performer's interpretation of the result 
      * based on some established baseline (normal, high, low, 
      * panic, etc.).</p>
-     * 
-     * <p>In v2.x, this was the abnormal flag.</p>
      */
     public void setInterpretationCode(ObservationInterpretation interpretationCode) {
         this.interpretationCode.setValue(interpretationCode);
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Component1.resultChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/resultChoice"})
     public List<ResultChoice> getComponent3ResultChoice() {
         return this.component3ResultChoice;
@@ -398,7 +476,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
 
 
     /**
-     * <p>Result Observation Method</p>
+     * <p>Business Name: Result Observation Method</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.methodCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The code attribute is bound to LOINC. Some LOINC codes 
      * &quot;carry&quot; the method as part of the code. The 
@@ -413,7 +495,11 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
     /**
-     * <p>Result Observation Method</p>
+     * <p>Business Name: Result Observation Method</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.ObservationEvent.methodCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The code attribute is bound to LOINC. Some LOINC codes 
      * &quot;carry&quot; the method as part of the code. The 
@@ -427,22 +513,44 @@ public class ResultObservationBean extends MessagePartBean implements ResultChoi
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ObservationEvent.derivedFrom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"derivedFrom"})
     public List<DerivationBean> getDerivedFrom() {
         return this.derivedFrom;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public VersionInformationBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Subject1.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.ReferenceRange.interpretationRange</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"referenceRange/interpretationRange"})
     public List<ReferenceRangeBean> getReferenceRangeInterpretationRange() {
         return this.referenceRangeInterpretationRange;

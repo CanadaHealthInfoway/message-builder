@@ -30,8 +30,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004999ca.
 
 
 /**
- * <p>POLB_IN364006CA: Lab Results Query Response Provider or 
- * Location</p>
+ * <p>Business Name: POLB_IN364006CA: Lab Results Query 
+ * Response Provider or Location</p>
+ * 
+ * <p>This interaction is used in response to a lab result 
+ * query, by location or provider.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -53,6 +56,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004999ca.
 @Hl7PartTypeMapping({"POLB_IN364006CA"})
 public class LabResultsQueryResponseProviderOrLocationBean extends HL7Message_1Bean<TriggerEvent_6Bean<ResultInstancePayloadChoice,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

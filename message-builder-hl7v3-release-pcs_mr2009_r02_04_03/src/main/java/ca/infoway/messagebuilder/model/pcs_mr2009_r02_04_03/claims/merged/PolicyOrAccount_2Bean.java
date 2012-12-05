@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PolicyUnderwr
 @Hl7PartTypeMapping({"FICR_MT500201CA.PolicyOrAccount","FICR_MT600201CA.PolicyOrAccount","FICR_MT610201CA.PolicyOrAccount"})
 public class PolicyOrAccount_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
@@ -61,9 +61,23 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Policy ID</p>
+     * <p>Other Business Name: PolicyID</p>
      * 
-     * <p>Policy Identifier(s</p>
+     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: PolicyID</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -71,9 +85,23 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Policy ID</p>
+     * <p>Other Business Name: PolicyID</p>
      * 
-     * <p>Policy Identifier(s</p>
+     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: PolicyID</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -81,9 +109,13 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>PolicyType</p>
+     * <p>Business Name: PolicyType</p>
      * 
-     * <p>Policy Type</p>
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"code"})
     public ActInsurancePolicyType getCode() {
@@ -91,40 +123,140 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PolicyType</p>
+     * <p>Business Name: PolicyType</p>
      * 
-     * <p>Policy Type</p>
+     * <p>Other Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setCode(ActInsurancePolicyType code) {
         this.code.setValue(code);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
     public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
         return this.beneficiaryCoveredPartyAsPatient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT500201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
         this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public PolicyUnderwriterBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthor(PolicyUnderwriterBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"holder/policyHolder"})
     public PolicyHolderBean getHolderPolicyHolder() {
         return this.holderPolicyHolder;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
         this.holderPolicyHolder = holderPolicyHolder;
     }

@@ -33,34 +33,38 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.HealthcareWorke
 
 
 /**
- * <p>Formularies</p>
+ * <p>Business Name: Formularies</p>
  * 
  * <p>At least One of Id or Title must be specified</p>
+ * 
+ * <p>Used to ascertain/ensure what drugs can be 
+ * prescribed/dispensed within a specific jurisdiction or which 
+ * will be covered by a patient's insurance.</p>
  * 
  * <p>List of drugs available from (or carried by) a particular 
  * organization. For example, University Hospital formulary, 
  * East Side Long Term Care formulary, Alberta Blue Cross 
  * formulary</p>
- * 
- * <p>Used to ascertain/ensure what drugs can be 
- * prescribed/dispensed within a specific jurisdiction or which 
- * will be covered by a patient's insurance.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST title = new STImpl();
     private HealthcareWorkerBean performerAssignedEntity;
 
 
     /**
-     * <p>Formulary Id</p>
+     * <p>Business Name: Formulary Id</p>
      * 
-     * <p>A unique identifier for a specific formulary.</p>
+     * <p>Relationship: POME_MT010040CA.PotentialSupply.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows the formulary to be unambiguously referenced</p>
+     * 
+     * <p>A unique identifier for a specific formulary.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -68,11 +72,15 @@ public class FormulariesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Formulary Id</p>
+     * <p>Business Name: Formulary Id</p>
      * 
-     * <p>A unique identifier for a specific formulary.</p>
+     * <p>Relationship: POME_MT010040CA.PotentialSupply.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows the formulary to be unambiguously referenced</p>
+     * 
+     * <p>A unique identifier for a specific formulary.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -80,12 +88,16 @@ public class FormulariesBean extends MessagePartBean {
 
 
     /**
-     * <p>Formulary Name</p>
+     * <p>Business Name: Formulary Name</p>
      * 
-     * <p>The name by which the formulary is commonly known.</p>
+     * <p>Relationship: POME_MT010040CA.PotentialSupply.title</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Gives a provider-recognizable label for the 
      * formulary.</p>
+     * 
+     * <p>The name by which the formulary is commonly known.</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
@@ -93,12 +105,16 @@ public class FormulariesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Formulary Name</p>
+     * <p>Business Name: Formulary Name</p>
      * 
-     * <p>The name by which the formulary is commonly known.</p>
+     * <p>Relationship: POME_MT010040CA.PotentialSupply.title</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Gives a provider-recognizable label for the 
      * formulary.</p>
+     * 
+     * <p>The name by which the formulary is commonly known.</p>
      */
     public void setTitle(String title) {
         this.title.setValue(title);
