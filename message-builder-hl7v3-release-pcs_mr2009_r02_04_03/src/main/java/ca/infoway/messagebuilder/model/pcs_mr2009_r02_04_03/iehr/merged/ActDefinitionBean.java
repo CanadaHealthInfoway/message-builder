@@ -39,7 +39,7 @@ public class ActDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ProtocolIds</p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ActDefinition.id</p>
      * 
@@ -61,13 +61,13 @@ public class ActDefinitionBean extends MessagePartBean {
      * Professional Service record was performed as part of a 
      * particular protocol.</i> </p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT410003CA.ActDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT420001CA.ActDefinition.id</p>
      * 
@@ -89,7 +89,7 @@ public class ActDefinitionBean extends MessagePartBean {
      * Observation record was performed as part of a particular 
      * protocol.</i> </p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT420003CA.ActDefinition.id</p>
      * 
@@ -111,7 +111,7 @@ public class ActDefinitionBean extends MessagePartBean {
      * Observation record was performed as part of a particular 
      * protocol.</i> </p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT410001CA.ActDefinition.id</p>
      * 
@@ -133,7 +133,7 @@ public class ActDefinitionBean extends MessagePartBean {
      * Observation record was performed as part of a particular 
      * protocol.</i> </p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ActDefinition.id</p>
      * 
@@ -163,7 +163,7 @@ public class ActDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ProtocolIds</p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ActDefinition.id</p>
      * 
@@ -185,13 +185,13 @@ public class ActDefinitionBean extends MessagePartBean {
      * Professional Service record was performed as part of a 
      * particular protocol.</i> </p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT410003CA.ActDefinition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT420001CA.ActDefinition.id</p>
      * 
@@ -213,7 +213,7 @@ public class ActDefinitionBean extends MessagePartBean {
      * Observation record was performed as part of a particular 
      * protocol.</i> </p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT420003CA.ActDefinition.id</p>
      * 
@@ -235,7 +235,7 @@ public class ActDefinitionBean extends MessagePartBean {
      * Observation record was performed as part of a particular 
      * protocol.</i> </p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT410001CA.ActDefinition.id</p>
      * 
@@ -257,7 +257,7 @@ public class ActDefinitionBean extends MessagePartBean {
      * Observation record was performed as part of a particular 
      * protocol.</i> </p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ActDefinition.id</p>
      * 

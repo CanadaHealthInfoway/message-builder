@@ -68,7 +68,7 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ManufacturedProduct.id</p>
      * 
@@ -76,7 +76,7 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>serial number</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ManufacturedProduct.id</p>
      * 
@@ -90,7 +90,7 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ManufacturedProduct.id</p>
      * 
@@ -98,7 +98,7 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>serial number</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ManufacturedProduct.id</p>
      * 
@@ -112,13 +112,13 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ManufacturedProduct.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ManufacturedProduct.code</p>
      * 
@@ -133,13 +133,13 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ManufacturedProduct.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ManufacturedProduct.code</p>
      * 
@@ -154,7 +154,7 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.ManufacturedProduct.manufacturedMaterialKind</p>
@@ -167,7 +167,7 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.ManufacturedProduct.manufacturedMaterialKind</p>
@@ -180,7 +180,7 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.ManufacturedProductOrganization.name</p>
@@ -189,7 +189,7 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>Organisation Name</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.ManufacturedProductOrganization.name</p>
@@ -202,7 +202,7 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.ManufacturedProductOrganization.name</p>
@@ -211,7 +211,7 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>Organisation Name</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.ManufacturedProductOrganization.name</p>
@@ -224,7 +224,7 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.ManufacturedProductOrganization.telecom</p>
@@ -233,7 +233,7 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>Organisation telephone/email</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.ManufacturedProductOrganization.telecom</p>
@@ -246,7 +246,7 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.ManufacturedProductOrganization.telecom</p>
@@ -255,7 +255,7 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>Organisation telephone/email</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.ManufacturedProductOrganization.telecom</p>
@@ -268,7 +268,7 @@ public class ManufacturedProductBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ManufacturedMaterial.code</p>
      * 
@@ -282,7 +282,7 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ManufacturedMaterial.code</p>
      * 

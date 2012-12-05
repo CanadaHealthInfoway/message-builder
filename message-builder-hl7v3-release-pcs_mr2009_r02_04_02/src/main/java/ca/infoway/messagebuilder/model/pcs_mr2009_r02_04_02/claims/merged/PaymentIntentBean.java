@@ -67,13 +67,13 @@ public class PaymentIntentBean extends MessagePartBean {
     /**
      * <p>Business Name: PaymentIntentDateTime</p>
      * 
-     * <p>Other Business Name: PaymentIntentDateTime</p>
+     * <p>Un-merged Business Name: PaymentIntentDateTime</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: PaymentIntentDateTime</p>
+     * <p>Un-merged Business Name: PaymentIntentDateTime</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntent.effectiveTime</p>
      * 
@@ -95,13 +95,13 @@ public class PaymentIntentBean extends MessagePartBean {
     /**
      * <p>Business Name: PaymentIntentDateTime</p>
      * 
-     * <p>Other Business Name: PaymentIntentDateTime</p>
+     * <p>Un-merged Business Name: PaymentIntentDateTime</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: PaymentIntentDateTime</p>
+     * <p>Un-merged Business Name: PaymentIntentDateTime</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntent.effectiveTime</p>
      * 
@@ -121,13 +121,13 @@ public class PaymentIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: TotalIntentPaymentAmount</p>
+     * <p>Un-merged Business Name: TotalIntentPaymentAmount</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntent.amt</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: PaymentAmount</p>
+     * <p>Un-merged Business Name: PaymentAmount</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntent.amt</p>
      * 
@@ -151,13 +151,13 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: TotalIntentPaymentAmount</p>
+     * <p>Un-merged Business Name: TotalIntentPaymentAmount</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntent.amt</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: PaymentAmount</p>
+     * <p>Un-merged Business Name: PaymentAmount</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntent.amt</p>
      * 
@@ -181,13 +181,13 @@ public class PaymentIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntentPayee.account</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntentPayee.account</p>
      * 
@@ -199,13 +199,13 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntentPayee.account</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntentPayee.account</p>
      * 
@@ -217,13 +217,13 @@ public class PaymentIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntentPayor.account</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntentPayor.account</p>
      * 
@@ -235,13 +235,13 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntentPayor.account</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntentPayor.account</p>
      * 
@@ -253,7 +253,7 @@ public class PaymentIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.PertinentInformation.adjudicatorBillingTaxAccount</p>
@@ -267,7 +267,7 @@ public class PaymentIntentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntent.reasonOf</p>
      * 

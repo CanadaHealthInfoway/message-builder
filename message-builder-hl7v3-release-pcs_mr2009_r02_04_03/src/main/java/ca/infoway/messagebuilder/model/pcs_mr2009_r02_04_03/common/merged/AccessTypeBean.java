@@ -61,13 +61,13 @@ public class AccessTypeBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
      * 
@@ -79,13 +79,13 @@ public class AccessTypeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
      * 
@@ -99,7 +99,7 @@ public class AccessTypeBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentInformationTypes</p>
      * 
-     * <p>Other Business Name: ConsentInformationTypes</p>
+     * <p>Un-merged Business Name: ConsentInformationTypes</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ActDefinition.code</p>
      * 
@@ -115,7 +115,7 @@ public class AccessTypeBean extends MessagePartBean {
      * <p>The type of patient, client, or provider information that 
      * can be accessed or modified.</p>
      * 
-     * <p>Other Business Name: ConsentInformationTypes</p>
+     * <p>Un-merged Business Name: ConsentInformationTypes</p>
      * 
      * <p>Relationship: COCT_MT470002CA.ActDefinition.code</p>
      * 

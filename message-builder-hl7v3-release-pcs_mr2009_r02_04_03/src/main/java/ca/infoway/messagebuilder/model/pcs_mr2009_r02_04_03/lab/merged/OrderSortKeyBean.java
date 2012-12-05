@@ -73,7 +73,7 @@ public class OrderSortKeyBean extends MessagePartBean {
     /**
      * <p>Business Name: SortKeyText</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT001001CA.RequestSortKey.text</p>
      * 
@@ -84,7 +84,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting orders.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT001000CA.RequestSortKey.text</p>
      * 
@@ -95,7 +95,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting orders.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT001999CA.RequestSortKey.text</p>
      * 
@@ -106,7 +106,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting orders.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT001010CA.RequestSortKey.text</p>
      * 
@@ -125,7 +125,7 @@ public class OrderSortKeyBean extends MessagePartBean {
     /**
      * <p>Business Name: SortKeyText</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT001001CA.RequestSortKey.text</p>
      * 
@@ -136,7 +136,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting orders.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT001000CA.RequestSortKey.text</p>
      * 
@@ -147,7 +147,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting orders.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT001999CA.RequestSortKey.text</p>
      * 
@@ -158,7 +158,7 @@ public class OrderSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting orders.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT001010CA.RequestSortKey.text</p>
      * 

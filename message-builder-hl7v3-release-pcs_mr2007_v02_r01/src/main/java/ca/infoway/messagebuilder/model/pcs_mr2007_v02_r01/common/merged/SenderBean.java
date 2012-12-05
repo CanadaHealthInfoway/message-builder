@@ -55,7 +55,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingNetworkAddress</p>
      * 
-     * <p>Other Business Name: SendingNetworkAddress</p>
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Sender.telecom</p>
      * 
@@ -71,7 +71,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The network address of the application which sent the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingNetworkAddress</p>
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Sender.telecom</p>
      * 
@@ -87,7 +87,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The network address of the application which sent the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingNetworkAddress</p>
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Sender.telecom</p>
      * 
@@ -103,7 +103,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The network address of the application which sent the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingNetworkAddress</p>
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Sender.telecom</p>
      * 
@@ -127,7 +127,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingNetworkAddress</p>
      * 
-     * <p>Other Business Name: SendingNetworkAddress</p>
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Sender.telecom</p>
      * 
@@ -143,7 +143,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The network address of the application which sent the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingNetworkAddress</p>
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Sender.telecom</p>
      * 
@@ -159,7 +159,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The network address of the application which sent the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingNetworkAddress</p>
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Sender.telecom</p>
      * 
@@ -175,7 +175,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The network address of the application which sent the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingNetworkAddress</p>
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Sender.telecom</p>
      * 
@@ -199,7 +199,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.id</p>
      * 
@@ -213,7 +213,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
      * 
-     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.id</p>
      * 
@@ -227,7 +227,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
      * 
-     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.id</p>
      * 
@@ -241,7 +241,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
      * 
-     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.id</p>
      * 
@@ -263,7 +263,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.id</p>
      * 
@@ -277,7 +277,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
      * 
-     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.id</p>
      * 
@@ -291,7 +291,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
      * 
-     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.id</p>
      * 
@@ -305,7 +305,7 @@ public class SenderBean extends MessagePartBean {
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
      * 
-     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.id</p>
      * 
@@ -327,7 +327,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationName</p>
      * 
-     * <p>Other Business Name: SendingApplicationName</p>
+     * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.name</p>
      * 
@@ -338,7 +338,7 @@ public class SenderBean extends MessagePartBean {
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationName</p>
+     * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.name</p>
      * 
@@ -349,7 +349,7 @@ public class SenderBean extends MessagePartBean {
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationName</p>
+     * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.name</p>
      * 
@@ -360,7 +360,7 @@ public class SenderBean extends MessagePartBean {
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationName</p>
+     * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.name</p>
      * 
@@ -379,7 +379,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationName</p>
      * 
-     * <p>Other Business Name: SendingApplicationName</p>
+     * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.name</p>
      * 
@@ -390,7 +390,7 @@ public class SenderBean extends MessagePartBean {
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationName</p>
+     * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.name</p>
      * 
@@ -401,7 +401,7 @@ public class SenderBean extends MessagePartBean {
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationName</p>
+     * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.name</p>
      * 
@@ -412,7 +412,7 @@ public class SenderBean extends MessagePartBean {
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationName</p>
+     * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.name</p>
      * 
@@ -431,7 +431,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.desc</p>
@@ -444,7 +444,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.desc</p>
@@ -457,7 +457,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.desc</p>
@@ -470,7 +470,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.desc</p>
@@ -491,7 +491,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationConfigurationInformation</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.desc</p>
@@ -504,7 +504,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.desc</p>
@@ -517,7 +517,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.desc</p>
@@ -530,7 +530,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.desc</p>
@@ -551,7 +551,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.existenceTime</p>
      * 
@@ -563,7 +563,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
      * 
-     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.existenceTime</p>
      * 
@@ -575,7 +575,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
      * 
-     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.existenceTime</p>
      * 
@@ -587,7 +587,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
      * 
-     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.existenceTime</p>
      * 
@@ -607,7 +607,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.existenceTime</p>
      * 
@@ -619,7 +619,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
      * 
-     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.existenceTime</p>
      * 
@@ -631,7 +631,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
      * 
-     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.existenceTime</p>
      * 
@@ -643,7 +643,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
      * 
-     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.existenceTime</p>
      * 
@@ -663,7 +663,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingSoftwareVersionNumber</p>
      * 
-     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.Device1.manufacturerModelName</p>
@@ -676,7 +676,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
      * 
-     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
      * MCCI_MT102001CA.Device1.manufacturerModelName</p>
@@ -689,7 +689,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
      * 
-     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002100CA.Device1.manufacturerModelName</p>
@@ -702,7 +702,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
      * 
-     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.Device1.manufacturerModelName</p>
@@ -723,7 +723,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingSoftwareVersionNumber</p>
      * 
-     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.Device1.manufacturerModelName</p>
@@ -736,7 +736,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
      * 
-     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
      * MCCI_MT102001CA.Device1.manufacturerModelName</p>
@@ -749,7 +749,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
      * 
-     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002100CA.Device1.manufacturerModelName</p>
@@ -762,7 +762,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
      * 
-     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.Device1.manufacturerModelName</p>
@@ -783,7 +783,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.softwareName</p>
      * 
@@ -795,7 +795,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.softwareName</p>
      * 
@@ -807,7 +807,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.softwareName</p>
      * 
@@ -819,7 +819,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.softwareName</p>
      * 
@@ -839,7 +839,7 @@ public class SenderBean extends MessagePartBean {
     /**
      * <p>Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device1.softwareName</p>
      * 
@@ -851,7 +851,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device1.softwareName</p>
      * 
@@ -863,7 +863,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device1.softwareName</p>
      * 
@@ -875,7 +875,7 @@ public class SenderBean extends MessagePartBean {
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
      * 
-     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device1.softwareName</p>
      * 

@@ -99,7 +99,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.id</p>
@@ -150,7 +150,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * once the prescription has passed all edits and 
      * validation.</p>
      * 
-     * <p>Other Business Name: PrescriptionIdentifier</p>
+     * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.SubstanceAdministrationRequest.id</p>
@@ -205,7 +205,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.id</p>
@@ -256,7 +256,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * once the prescription has passed all edits and 
      * validation.</p>
      * 
-     * <p>Other Business Name: PrescriptionIdentifier</p>
+     * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.SubstanceAdministrationRequest.id</p>
@@ -313,7 +313,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.code</p>
@@ -336,7 +336,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.code</p>
@@ -359,7 +359,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>Other Business Name: PrescriptionStatus</p>
+     * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.statusCode</p>
@@ -390,7 +390,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>Other Business Name: PrescriptionStatus</p>
+     * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.statusCode</p>
@@ -421,7 +421,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.confidentialityCode</p>
@@ -450,7 +450,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.confidentialityCode</p>
@@ -477,7 +477,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
      * 
@@ -489,7 +489,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
      * 
@@ -501,7 +501,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
      * 
@@ -513,7 +513,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
      * 
@@ -525,14 +525,14 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
@@ -545,14 +545,14 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
@@ -565,14 +565,14 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.SubstanceAdministrationRequest.author</p>
@@ -585,14 +585,14 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.SubstanceAdministrationRequest.author</p>
@@ -605,7 +605,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.reason</p>
@@ -619,7 +619,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
@@ -632,7 +632,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
@@ -645,7 +645,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
      * 
@@ -657,7 +657,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
      * 
@@ -671,7 +671,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.AdministrationInstructions.text</p>
@@ -701,7 +701,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.AdministrationInstructions.text</p>
@@ -729,7 +729,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.component2</p>
@@ -742,7 +742,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.component2</p>
@@ -755,7 +755,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf4.supplyEventFutureSummary</p>
@@ -768,7 +768,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf4.supplyEventFutureSummary</p>
@@ -781,7 +781,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf5.supplyEventFirstSummary</p>
@@ -794,7 +794,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf5.supplyEventFirstSummary</p>
@@ -807,7 +807,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf6.supplyEventLastSummary</p>
@@ -820,7 +820,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf6.supplyEventLastSummary</p>
@@ -833,7 +833,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf2.supplyEventPastSummary</p>
@@ -846,7 +846,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf2.supplyEventPastSummary</p>
@@ -859,7 +859,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Subject.annotationIndicator</p>
      * 
@@ -871,7 +871,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Subject.annotationIndicator</p>
      * 
@@ -883,7 +883,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.Subject2.detectedIssueIndicator</p>
@@ -896,7 +896,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.Subject2.detectedIssueIndicator</p>
@@ -909,7 +909,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Subject3.refusalToFill</p>
      * 
@@ -922,7 +922,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
@@ -935,7 +935,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>

@@ -71,7 +71,7 @@ public class ManufacturerBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: POME_MT010040CA.Manufacturer.id</p>
      * 
@@ -83,7 +83,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
-     * <p>Other Business Name: OrganizationId</p>
+     * <p>Un-merged Business Name: OrganizationId</p>
      * 
      * <p>Relationship: POME_MT010100CA.Manufacturer.id</p>
      * 
@@ -95,7 +95,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Manufacturer.id</p>
      * 
@@ -107,7 +107,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Manufacturer.id</p>
      * 
@@ -125,7 +125,7 @@ public class ManufacturerBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: POME_MT010040CA.Manufacturer.id</p>
      * 
@@ -137,7 +137,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
-     * <p>Other Business Name: OrganizationId</p>
+     * <p>Un-merged Business Name: OrganizationId</p>
      * 
      * <p>Relationship: POME_MT010100CA.Manufacturer.id</p>
      * 
@@ -149,7 +149,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Manufacturer.id</p>
      * 
@@ -161,7 +161,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Manufacturer.id</p>
      * 
@@ -181,7 +181,7 @@ public class ManufacturerBean extends MessagePartBean {
     /**
      * <p>Business Name: ManufacturerName</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Manufacturer.name</p>
      * 
@@ -203,7 +203,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>The name of the drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010100CA.Manufacturer.name</p>
      * 
@@ -215,7 +215,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>The name of the drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Manufacturer.name</p>
      * 
@@ -227,7 +227,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>The name of the drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Manufacturer.name</p>
      * 
@@ -247,7 +247,7 @@ public class ManufacturerBean extends MessagePartBean {
     /**
      * <p>Business Name: ManufacturerName</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Manufacturer.name</p>
      * 
@@ -269,7 +269,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>The name of the drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010100CA.Manufacturer.name</p>
      * 
@@ -281,7 +281,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>The name of the drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Manufacturer.name</p>
      * 
@@ -293,7 +293,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>The name of the drug manufacturer.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Manufacturer.name</p>
      * 

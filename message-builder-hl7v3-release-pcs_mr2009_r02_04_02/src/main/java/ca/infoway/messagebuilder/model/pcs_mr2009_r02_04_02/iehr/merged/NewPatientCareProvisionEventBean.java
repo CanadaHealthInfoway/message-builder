@@ -39,7 +39,7 @@ public class NewPatientCareProvisionEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.NewPatientCareProvisionEvent.id</p>
@@ -53,7 +53,7 @@ public class NewPatientCareProvisionEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: 
      * REPC_MT500003CA.NewPatientCareProvisionEvent.id</p>
@@ -75,7 +75,7 @@ public class NewPatientCareProvisionEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.NewPatientCareProvisionEvent.id</p>
@@ -89,7 +89,7 @@ public class NewPatientCareProvisionEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: 
      * REPC_MT500003CA.NewPatientCareProvisionEvent.id</p>

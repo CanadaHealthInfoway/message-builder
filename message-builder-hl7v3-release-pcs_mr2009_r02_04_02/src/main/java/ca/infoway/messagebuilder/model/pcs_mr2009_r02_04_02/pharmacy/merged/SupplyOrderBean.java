@@ -67,7 +67,7 @@ public class SupplyOrderBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>Other Business Name: PrescriptionIdentifier</p>
+     * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
      * 
@@ -92,7 +92,7 @@ public class SupplyOrderBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>Other Business Name: PrescriptionStatus</p>
+     * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
      * <p>Relationship: PORX_MT060020CA.SupplyRequest.statusCode</p>
      * 
@@ -111,7 +111,7 @@ public class SupplyOrderBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>Other Business Name: PrescriptionStatus</p>
+     * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
      * <p>Relationship: PORX_MT060020CA.SupplyRequest.statusCode</p>
      * 
@@ -128,14 +128,14 @@ public class SupplyOrderBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
@@ -148,14 +148,14 @@ public class SupplyOrderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
@@ -168,13 +168,13 @@ public class SupplyOrderBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
      * 
@@ -186,13 +186,13 @@ public class SupplyOrderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
      * 

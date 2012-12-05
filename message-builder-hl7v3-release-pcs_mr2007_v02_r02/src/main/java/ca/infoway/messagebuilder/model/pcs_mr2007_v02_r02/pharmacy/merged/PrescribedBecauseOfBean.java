@@ -183,7 +183,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     /**
      * <p>Business Name: IndicationPriority</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Reason.priorityNumber</p>
      * 
@@ -199,7 +199,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Reason2.priorityNumber</p>
      * 
@@ -215,7 +215,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Reason.priorityNumber</p>
      * 
@@ -231,7 +231,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Reason2.priorityNumber</p>
      * 
@@ -247,7 +247,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Reason2.priorityNumber</p>
      * 
@@ -263,7 +263,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Reason2.priorityNumber</p>
      * 
@@ -279,7 +279,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Reason.priorityNumber</p>
      * 
@@ -295,7 +295,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Reason2.priorityNumber</p>
      * 
@@ -319,7 +319,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     /**
      * <p>Business Name: IndicationPriority</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Reason.priorityNumber</p>
      * 
@@ -335,7 +335,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Reason2.priorityNumber</p>
      * 
@@ -351,7 +351,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Reason.priorityNumber</p>
      * 
@@ -367,7 +367,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Reason2.priorityNumber</p>
      * 
@@ -383,7 +383,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Reason2.priorityNumber</p>
      * 
@@ -399,7 +399,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Reason2.priorityNumber</p>
      * 
@@ -415,7 +415,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Reason.priorityNumber</p>
      * 
@@ -431,7 +431,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
      * Multiple indications are permitted to have the same priority 
      * if they're considered of equivalent importance.</p>
      * 
-     * <p>Other Business Name: IndicationPriority</p>
+     * <p>Un-merged Business Name: IndicationPriority</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Reason2.priorityNumber</p>
      * 
@@ -453,43 +453,43 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Reason2.indications</p>
      * 
@@ -501,43 +501,43 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Reason2.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Reason2.indications</p>
      * 
@@ -549,7 +549,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Reason.dosageInstruction</p>
      * 
@@ -561,7 +561,7 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Reason.dosageInstruction</p>
      * 

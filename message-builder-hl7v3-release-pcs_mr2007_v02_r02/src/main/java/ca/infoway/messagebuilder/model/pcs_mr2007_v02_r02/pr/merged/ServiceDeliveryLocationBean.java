@@ -129,7 +129,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.ServiceDeliveryLocation.id</p>
      * 
@@ -141,7 +141,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.ServiceDeliveryLocation.id</p>
      * 
@@ -162,7 +162,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ServiceDeliveryLocation.code</p>
@@ -183,7 +183,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ServiceDeliveryLocation.code</p>
@@ -204,7 +204,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ServiceDeliveryLocation.addr</p>
@@ -225,7 +225,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ServiceDeliveryLocation.telecom</p>
@@ -247,7 +247,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -268,7 +268,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -289,7 +289,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Place.name</p>
      * 
@@ -308,7 +308,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Place.name</p>
      * 

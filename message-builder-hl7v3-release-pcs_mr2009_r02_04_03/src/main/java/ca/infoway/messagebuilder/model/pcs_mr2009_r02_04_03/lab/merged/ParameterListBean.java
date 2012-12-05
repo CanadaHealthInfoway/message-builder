@@ -98,7 +98,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: AssignedPatientLocationType</p>
      * 
-     * <p>Other Business Name: AssignedPatientLocationType</p>
+     * <p>Un-merged Business Name: AssignedPatientLocationType</p>
      * 
      * <p>Relationship: 
      * POLB_MT320000CA.AssignedPatientLocation.value</p>
@@ -121,7 +121,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: AssignedPatientLocationType</p>
      * 
-     * <p>Other Business Name: AssignedPatientLocationType</p>
+     * <p>Un-merged Business Name: AssignedPatientLocationType</p>
      * 
      * <p>Relationship: 
      * POLB_MT320000CA.AssignedPatientLocation.value</p>
@@ -144,7 +144,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT320000CA.IncludeHistoryIndicator.value</p>
@@ -159,7 +159,7 @@ public class ParameterListBean extends MessagePartBean {
      * trigger event). True=include records, the default is 
      * false.</p>
      * 
-     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.IncludeHistoryIndicator.value</p>
@@ -180,7 +180,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT320000CA.IncludeHistoryIndicator.value</p>
@@ -195,7 +195,7 @@ public class ParameterListBean extends MessagePartBean {
      * trigger event). True=include records, the default is 
      * false.</p>
      * 
-     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.IncludeHistoryIndicator.value</p>
@@ -216,7 +216,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: JLISReceivedEffectiveTimeRange</p>
      * 
-     * <p>Other Business Name: JLISReceivedEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: JLISReceivedEffectiveTimeRange</p>
      * 
      * <p>Relationship: POLB_MT320000CA.JLISReceivedDateTime.value</p>
      * 
@@ -241,7 +241,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: JLISReceivedEffectiveTimeRange</p>
      * 
-     * <p>Other Business Name: JLISReceivedEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: JLISReceivedEffectiveTimeRange</p>
      * 
      * <p>Relationship: POLB_MT320000CA.JLISReceivedDateTime.value</p>
      * 
@@ -264,7 +264,7 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ObservationAvailabilityTimeRange</p>
+     * <p>Un-merged Business Name: ObservationAvailabilityTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT320000CA.ObservationAvailabilityDateTimeRange.value</p>
@@ -282,7 +282,7 @@ public class ParameterListBean extends MessagePartBean {
      * overlap between the specified time-range and the order entry 
      * date/time, the record will be returned.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ObservationAvailabilityEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
@@ -307,7 +307,7 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ObservationAvailabilityTimeRange</p>
+     * <p>Un-merged Business Name: ObservationAvailabilityTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT320000CA.ObservationAvailabilityDateTimeRange.value</p>
@@ -325,7 +325,7 @@ public class ParameterListBean extends MessagePartBean {
      * overlap between the specified time-range and the order entry 
      * date/time, the record will be returned.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ObservationAvailabilityEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
@@ -352,7 +352,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderingProviderIdentfier</p>
      * 
-     * <p>Other Business Name: OrderingProviderIdentfier</p>
+     * <p>Un-merged Business Name: OrderingProviderIdentfier</p>
      * 
      * <p>Relationship: POLB_MT320000CA.OrderingProvider.value</p>
      * 
@@ -372,7 +372,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderingProviderIdentfier</p>
      * 
-     * <p>Other Business Name: OrderingProviderIdentfier</p>
+     * <p>Un-merged Business Name: OrderingProviderIdentfier</p>
      * 
      * <p>Relationship: POLB_MT320000CA.OrderingProvider.value</p>
      * 
@@ -392,7 +392,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ResultCopiesToIdentfier</p>
      * 
-     * <p>Other Business Name: ResultCopiesToIdentfier</p>
+     * <p>Un-merged Business Name: ResultCopiesToIdentfier</p>
      * 
      * <p>Relationship: POLB_MT320000CA.ResultCopiesTo.value</p>
      * 
@@ -413,7 +413,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ResultCopiesToIdentfier</p>
      * 
-     * <p>Other Business Name: ResultCopiesToIdentfier</p>
+     * <p>Un-merged Business Name: ResultCopiesToIdentfier</p>
      * 
      * <p>Relationship: POLB_MT320000CA.ResultCopiesTo.value</p>
      * 
@@ -434,7 +434,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: BatteryIdentifier</p>
      * 
-     * <p>Other Business Name: BatteryIdentifier</p>
+     * <p>Un-merged Business Name: BatteryIdentifier</p>
      * 
      * <p>Relationship: POLB_MT310000CA.BatteryIdentifier.value</p>
      * 
@@ -455,7 +455,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: BatteryIdentifier</p>
      * 
-     * <p>Other Business Name: BatteryIdentifier</p>
+     * <p>Un-merged Business Name: BatteryIdentifier</p>
      * 
      * <p>Relationship: POLB_MT310000CA.BatteryIdentifier.value</p>
      * 
@@ -476,7 +476,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNullifiedResultsIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNullifiedResultsIndicator</p>
+     * <p>Un-merged Business Name: IncludeNullifiedResultsIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.IncludeNullifiedIndicator.value</p>
@@ -497,7 +497,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNullifiedResultsIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNullifiedResultsIndicator</p>
+     * <p>Un-merged Business Name: IncludeNullifiedResultsIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.IncludeNullifiedIndicator.value</p>
@@ -518,7 +518,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ResultCode</p>
      * 
-     * <p>Other Business Name: ResultCode</p>
+     * <p>Un-merged Business Name: ResultCode</p>
      * 
      * <p>Relationship: POLB_MT310000CA.ObservationCode.value</p>
      * 
@@ -538,7 +538,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationEffectiveTimeRange</p>
      * 
-     * <p>Other Business Name: ObservationEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: ObservationEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.ObservationDateTimeRange.value</p>
@@ -564,7 +564,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationEffectiveTimeRange</p>
      * 
-     * <p>Other Business Name: ObservationEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: ObservationEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.ObservationDateTimeRange.value</p>
@@ -590,7 +590,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: POLB_MT310000CA.ObservationIdentifier.value</p>
      * 
@@ -611,7 +611,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: POLB_MT310000CA.ObservationIdentifier.value</p>
      * 
@@ -632,7 +632,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationReportIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationReportIdentifier</p>
+     * <p>Un-merged Business Name: ObservationReportIdentifier</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.ObservationReportIdentifier.value</p>
@@ -653,7 +653,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationReportIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationReportIdentifier</p>
+     * <p>Un-merged Business Name: ObservationReportIdentifier</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.ObservationReportIdentifier.value</p>
@@ -674,7 +674,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderTestCode</p>
      * 
-     * <p>Other Business Name: OrderTestCode</p>
+     * <p>Un-merged Business Name: OrderTestCode</p>
      * 
      * <p>Relationship: POLB_MT310000CA.OrderTestCode.value</p>
      * 
@@ -694,7 +694,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientDOB</p>
      * 
-     * <p>Other Business Name: PatientDOB</p>
+     * <p>Un-merged Business Name: PatientDOB</p>
      * 
      * <p>Relationship: POLB_MT310000CA.PatientDateofBirth.value</p>
      * 
@@ -713,7 +713,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientDOB</p>
      * 
-     * <p>Other Business Name: PatientDOB</p>
+     * <p>Un-merged Business Name: PatientDOB</p>
      * 
      * <p>Relationship: POLB_MT310000CA.PatientDateofBirth.value</p>
      * 
@@ -732,7 +732,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: POLB_MT310000CA.PatientGender.value</p>
      * 
@@ -751,7 +751,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: POLB_MT310000CA.PatientGender.value</p>
      * 
@@ -770,7 +770,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientId</p>
      * 
-     * <p>Other Business Name: PatientId</p>
+     * <p>Un-merged Business Name: PatientId</p>
      * 
      * <p>Relationship: POLB_MT310000CA.PatientID.value</p>
      * 
@@ -790,7 +790,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientId</p>
      * 
-     * <p>Other Business Name: PatientId</p>
+     * <p>Un-merged Business Name: PatientId</p>
      * 
      * <p>Relationship: POLB_MT310000CA.PatientID.value</p>
      * 
@@ -810,7 +810,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: POLB_MT310000CA.PatientName.value</p>
      * 
@@ -829,7 +829,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: POLB_MT310000CA.PatientName.value</p>
      * 
@@ -848,7 +848,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenCollectionEffectiveTimeRange</p>
      * 
-     * <p>Other Business Name: SpecimenCollectionEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: SpecimenCollectionEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.SpecimenCollectedDateTimeRange.value</p>
@@ -874,7 +874,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenCollectionEffectiveTimeRange</p>
      * 
-     * <p>Other Business Name: SpecimenCollectionEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: SpecimenCollectionEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.SpecimenCollectedDateTimeRange.value</p>
@@ -900,7 +900,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenReceivedEffectiveTimeRange</p>
      * 
-     * <p>Other Business Name: SpecimenReceivedEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: SpecimenReceivedEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.SpecimenReceivedDateTimeRange.value</p>
@@ -926,7 +926,7 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenReceivedEffectiveTimeRange</p>
      * 
-     * <p>Other Business Name: SpecimenReceivedEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: SpecimenReceivedEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.SpecimenReceivedDateTimeRange.value</p>

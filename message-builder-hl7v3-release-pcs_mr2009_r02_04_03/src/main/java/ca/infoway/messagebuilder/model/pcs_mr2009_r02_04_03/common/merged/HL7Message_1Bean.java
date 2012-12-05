@@ -87,7 +87,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: MessageIdentifier</p>
      * 
-     * <p>Other Business Name: MessageIdentifier</p>
+     * <p>Un-merged Business Name: MessageIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.id</p>
      * 
@@ -101,7 +101,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>A unique identifier for the message.</p>
      * 
-     * <p>Other Business Name: MessageIdentifier</p>
+     * <p>Un-merged Business Name: MessageIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.id</p>
      * 
@@ -123,7 +123,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: MessageIdentifier</p>
      * 
-     * <p>Other Business Name: MessageIdentifier</p>
+     * <p>Un-merged Business Name: MessageIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.id</p>
      * 
@@ -137,7 +137,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>A unique identifier for the message.</p>
      * 
-     * <p>Other Business Name: MessageIdentifier</p>
+     * <p>Un-merged Business Name: MessageIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.id</p>
      * 
@@ -159,7 +159,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: MessageTimestamp</p>
      * 
-     * <p>Other Business Name: MessageTimestamp</p>
+     * <p>Un-merged Business Name: MessageTimestamp</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.creationTime</p>
      * 
@@ -173,7 +173,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Indicates the time this particular message instance was 
      * constructed.</p>
      * 
-     * <p>Other Business Name: MessageTimestamp</p>
+     * <p>Un-merged Business Name: MessageTimestamp</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.creationTime</p>
      * 
@@ -195,7 +195,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: MessageTimestamp</p>
      * 
-     * <p>Other Business Name: MessageTimestamp</p>
+     * <p>Un-merged Business Name: MessageTimestamp</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.creationTime</p>
      * 
@@ -209,7 +209,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Indicates the time this particular message instance was 
      * constructed.</p>
      * 
-     * <p>Other Business Name: MessageTimestamp</p>
+     * <p>Un-merged Business Name: MessageTimestamp</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.creationTime</p>
      * 
@@ -231,7 +231,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: SecurityToken</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.securityText</p>
      * 
@@ -246,7 +246,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * identify a user, and/or perform some other function related 
      * to authenticating the message source.</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.securityText</p>
      * 
@@ -269,7 +269,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: SecurityToken</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.securityText</p>
      * 
@@ -284,7 +284,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * identify a user, and/or perform some other function related 
      * to authenticating the message source.</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.securityText</p>
      * 
@@ -307,7 +307,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: ResponseType</p>
      * 
-     * <p>Other Business Name: ResponseType</p>
+     * <p>Un-merged Business Name: ResponseType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.responseModeCode</p>
      * 
@@ -324,7 +324,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * subsequent independent interaction) or via queue using 
      * polling.</p>
      * 
-     * <p>Other Business Name: ResponseType</p>
+     * <p>Un-merged Business Name: ResponseType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.responseModeCode</p>
      * 
@@ -349,7 +349,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: ResponseType</p>
      * 
-     * <p>Other Business Name: ResponseType</p>
+     * <p>Un-merged Business Name: ResponseType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.responseModeCode</p>
      * 
@@ -366,7 +366,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * subsequent independent interaction) or via queue using 
      * polling.</p>
      * 
-     * <p>Other Business Name: ResponseType</p>
+     * <p>Un-merged Business Name: ResponseType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.responseModeCode</p>
      * 
@@ -391,7 +391,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: InteractionType</p>
      * 
-     * <p>Other Business Name: InteractionType</p>
+     * <p>Un-merged Business Name: InteractionType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.interactionId</p>
      * 
@@ -406,7 +406,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Indicates the interaction conveyed by this message.</p>
      * 
-     * <p>Other Business Name: InteractionType</p>
+     * <p>Un-merged Business Name: InteractionType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.interactionId</p>
      * 
@@ -429,7 +429,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: InteractionType</p>
      * 
-     * <p>Other Business Name: InteractionType</p>
+     * <p>Un-merged Business Name: InteractionType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.interactionId</p>
      * 
@@ -444,7 +444,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Indicates the interaction conveyed by this message.</p>
      * 
-     * <p>Other Business Name: InteractionType</p>
+     * <p>Un-merged Business Name: InteractionType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.interactionId</p>
      * 
@@ -467,7 +467,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: ConformanceProfileIdentifiers</p>
      * 
-     * <p>Other Business Name: ConformanceProfileIdentifiers</p>
+     * <p>Un-merged Business Name: ConformanceProfileIdentifiers</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.profileId</p>
      * 
@@ -480,7 +480,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Identifies the conformance profile(s) this message 
      * complies with.</p>
      * 
-     * <p>Other Business Name: ConformanceProfileIdentifiers</p>
+     * <p>Un-merged Business Name: ConformanceProfileIdentifiers</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.profileId</p>
      * 
@@ -502,7 +502,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: ProcessingCode</p>
      * 
-     * <p>Other Business Name: ProcessingCode</p>
+     * <p>Un-merged Business Name: ProcessingCode</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.processingCode</p>
      * 
@@ -517,7 +517,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p>
      * 
-     * <p>Other Business Name: ProcessingCode</p>
+     * <p>Un-merged Business Name: ProcessingCode</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.processingCode</p>
      * 
@@ -540,7 +540,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: ProcessingCode</p>
      * 
-     * <p>Other Business Name: ProcessingCode</p>
+     * <p>Un-merged Business Name: ProcessingCode</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.processingCode</p>
      * 
@@ -555,7 +555,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p>
      * 
-     * <p>Other Business Name: ProcessingCode</p>
+     * <p>Un-merged Business Name: ProcessingCode</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.processingCode</p>
      * 
@@ -578,7 +578,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: DesiredAcknowledgmentType</p>
      * 
-     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * <p>Un-merged Business Name: DesiredAcknowledgmentType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.acceptAckCode</p>
      * 
@@ -595,7 +595,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Indicates how the message is expected to be 
      * acknowledged.</p>
      * 
-     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * <p>Un-merged Business Name: DesiredAcknowledgmentType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.acceptAckCode</p>
      * 
@@ -620,7 +620,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: DesiredAcknowledgmentType</p>
      * 
-     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * <p>Un-merged Business Name: DesiredAcknowledgmentType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.acceptAckCode</p>
      * 
@@ -637,7 +637,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Indicates how the message is expected to be 
      * acknowledged.</p>
      * 
-     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * <p>Un-merged Business Name: DesiredAcknowledgmentType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.acceptAckCode</p>
      * 
@@ -660,13 +660,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.receiver</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.receiver</p>
      * 
@@ -678,13 +678,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.receiver</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.receiver</p>
      * 
@@ -696,13 +696,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.respondTo</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.respondTo</p>
      * 
@@ -714,13 +714,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.respondTo</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.respondTo</p>
      * 
@@ -732,13 +732,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.sender</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.sender</p>
      * 
@@ -750,13 +750,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.sender</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.sender</p>
      * 
@@ -768,13 +768,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.attentionLine</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.attentionLine</p>
      * 
@@ -787,7 +787,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.acknowledgement</p>
      * 
@@ -799,7 +799,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.acknowledgement</p>
      * 
@@ -811,13 +811,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.controlActEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.controlActEvent</p>
      * 
@@ -829,13 +829,13 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Message.controlActEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.controlActEvent</p>
      * 
@@ -849,7 +849,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: ProcessingMode</p>
      * 
-     * <p>Other Business Name: ProcessingMode</p>
+     * <p>Un-merged Business Name: ProcessingMode</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.processingModeCode</p>
      * 
@@ -871,7 +871,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     /**
      * <p>Business Name: ProcessingMode</p>
      * 
-     * <p>Other Business Name: ProcessingMode</p>
+     * <p>Un-merged Business Name: ProcessingMode</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Message.processingModeCode</p>
      * 

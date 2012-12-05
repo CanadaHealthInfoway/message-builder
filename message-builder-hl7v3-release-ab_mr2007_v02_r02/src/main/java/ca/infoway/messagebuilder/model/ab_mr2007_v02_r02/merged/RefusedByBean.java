@@ -131,67 +131,67 @@ public class RefusedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000006CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.Author.assignedEntity</p>
      * 
@@ -203,67 +203,67 @@ public class RefusedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000006CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.Author.assignedEntity</p>
      * 
@@ -275,7 +275,7 @@ public class RefusedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: CreateTimestamp</p>
+     * <p>Un-merged Business Name: CreateTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Author.time</p>
      * 
@@ -289,7 +289,7 @@ public class RefusedByBean extends MessagePartBean {
      * source of the data may not be through the 'record common 
      * observation' interaction.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Author.time</p>
      * 
@@ -310,7 +310,7 @@ public class RefusedByBean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p>
      * 
-     * <p>Other Business Name: CreateTimestamp</p>
+     * <p>Un-merged Business Name: CreateTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Author.time</p>
      * 
@@ -324,7 +324,7 @@ public class RefusedByBean extends MessagePartBean {
      * source of the data may not be through the 'record 
      * allergy/intolerance' interaction.</p>
      * 
-     * <p>Other Business Name: CreateTimestamp</p>
+     * <p>Un-merged Business Name: CreateTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000006CA.Author.time</p>
      * 
@@ -338,7 +338,7 @@ public class RefusedByBean extends MessagePartBean {
      * the data may not be through the 'record common observation' 
      * interaction.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT020060CA.Author.time</p>
      * 
@@ -365,7 +365,7 @@ public class RefusedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: CreateTimestamp</p>
+     * <p>Un-merged Business Name: CreateTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Author.time</p>
      * 
@@ -379,7 +379,7 @@ public class RefusedByBean extends MessagePartBean {
      * source of the data may not be through the 'record common 
      * observation' interaction.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Author.time</p>
      * 
@@ -400,7 +400,7 @@ public class RefusedByBean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p>
      * 
-     * <p>Other Business Name: CreateTimestamp</p>
+     * <p>Un-merged Business Name: CreateTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Author.time</p>
      * 
@@ -414,7 +414,7 @@ public class RefusedByBean extends MessagePartBean {
      * source of the data may not be through the 'record 
      * allergy/intolerance' interaction.</p>
      * 
-     * <p>Other Business Name: CreateTimestamp</p>
+     * <p>Un-merged Business Name: CreateTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000006CA.Author.time</p>
      * 
@@ -428,7 +428,7 @@ public class RefusedByBean extends MessagePartBean {
      * the data may not be through the 'record common observation' 
      * interaction.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT020060CA.Author.time</p>
      * 

@@ -99,7 +99,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: InvoiceGroupingIdentifiers</p>
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifiers</p>
      * 
      * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.id</p>
      * 
@@ -114,7 +114,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * on adjudicator is to return and communicate about this item 
      * with all identifiers (i.e. identifier 1. and 2.).</p>
      * 
-     * <p>Other Business Name: InvoiceGroupID</p>
+     * <p>Un-merged Business Name: InvoiceGroupID</p>
      * 
      * <p>Relationship: QUCR_MT830201CA.InvoiceElementGroup.id</p>
      * 
@@ -129,7 +129,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * <p>Set of identifiers that uniquely identify the Invoice 
      * Grouping.</p>
      * 
-     * <p>Other Business Name: InvoiceGroupingIdentifierS</p>
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.id</p>
      * 
@@ -156,7 +156,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * <p>Set of identifiers that uniquely identify the Invoice 
      * Grouping.</p>
      * 
-     * <p>Other Business Name: InvoiceGroupingIdentifier</p>
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifier</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.id</p>
      * 
@@ -189,7 +189,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
     }
 
     /**
-     * <p>Other Business Name: InvoiceGroupingIdentifiers</p>
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifiers</p>
      * 
      * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.id</p>
      * 
@@ -204,7 +204,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * on adjudicator is to return and communicate about this item 
      * with all identifiers (i.e. identifier 1. and 2.).</p>
      * 
-     * <p>Other Business Name: InvoiceGroupID</p>
+     * <p>Un-merged Business Name: InvoiceGroupID</p>
      * 
      * <p>Relationship: QUCR_MT830201CA.InvoiceElementGroup.id</p>
      * 
@@ -219,7 +219,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * <p>Set of identifiers that uniquely identify the Invoice 
      * Grouping.</p>
      * 
-     * <p>Other Business Name: InvoiceGroupingIdentifierS</p>
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.id</p>
      * 
@@ -246,7 +246,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * <p>Set of identifiers that uniquely identify the Invoice 
      * Grouping.</p>
      * 
-     * <p>Other Business Name: InvoiceGroupingIdentifier</p>
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifier</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.id</p>
      * 
@@ -281,7 +281,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
     /**
      * <p>Business Name: InvoiceType</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.code</p>
      * 
@@ -301,7 +301,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.code</p>
      * 
@@ -333,7 +333,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.code</p>
      * 
@@ -369,7 +369,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
     /**
      * <p>Business Name: InvoiceType</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.code</p>
      * 
@@ -389,7 +389,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.code</p>
      * 
@@ -421,7 +421,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.code</p>
      * 
@@ -457,7 +457,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
     /**
      * <p>Business Name: InvoiceSubTotal</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.netAmt</p>
      * 
@@ -472,7 +472,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * Invoice Line amounts; Identifies the total monetary amount 
      * billed for the invoice element.</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.netAmt</p>
      * 
@@ -494,7 +494,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * invoice element. This is the sum of the Submitted Invoice 
      * Line amounts.</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.netAmt</p>
      * 
@@ -524,7 +524,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
     /**
      * <p>Business Name: InvoiceSubTotal</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT620000CA.InvoiceElementGroup.netAmt</p>
      * 
@@ -539,7 +539,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * Invoice Line amounts; Identifies the total monetary amount 
      * billed for the invoice element.</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.netAmt</p>
      * 
@@ -561,7 +561,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
      * invoice element. This is the sum of the Submitted Invoice 
      * Line amounts.</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.netAmt</p>
      * 
@@ -589,7 +589,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementReason.billableActChoice</p>
@@ -605,7 +605,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
     /**
      * <p>Business Name: TimePeriodForInvoice</p>
      * 
-     * <p>Other Business Name: TimePeriodForInvoice</p>
+     * <p>Un-merged Business Name: TimePeriodForInvoice</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementGroup.effectiveTime</p>
@@ -635,7 +635,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
     /**
      * <p>Business Name: TimePeriodForInvoice</p>
      * 
-     * <p>Other Business Name: TimePeriodForInvoice</p>
+     * <p>Un-merged Business Name: TimePeriodForInvoice</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementGroup.effectiveTime</p>
@@ -663,7 +663,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementGroupInFulfillmentOf.financialContract</p>
@@ -676,7 +676,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementGroupInFulfillmentOf.financialContract</p>
@@ -689,7 +689,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.Predecessor.invoiceElementCrossReference</p>
@@ -703,7 +703,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.Reference.adjudicatedInvoiceElementGroup</p>
@@ -717,7 +717,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementCoverage.policyOrAccount</p>
@@ -731,7 +731,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementGroup.pertinentInformation</p>
@@ -745,7 +745,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementGroup.component</p>
@@ -759,7 +759,7 @@ public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.inf
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.Suggests.invoiceElementOverride</p>

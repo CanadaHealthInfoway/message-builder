@@ -74,7 +74,7 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: MonographId</p>
+     * <p>Un-merged Business Name: MonographId</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.id</p>
      * 
@@ -90,7 +90,7 @@ public class MonographsBean extends MessagePartBean {
      * monographs.</p><p>This attribute is marked as 'mandatory', 
      * as it is always available.</p>
      * 
-     * <p>Other Business Name: MedicationDocumentId</p>
+     * <p>Un-merged Business Name: MedicationDocumentId</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Document.id</p>
      * 
@@ -113,7 +113,7 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: MonographId</p>
+     * <p>Un-merged Business Name: MonographId</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.id</p>
      * 
@@ -129,7 +129,7 @@ public class MonographsBean extends MessagePartBean {
      * monographs.</p><p>This attribute is marked as 'mandatory', 
      * as it is always available.</p>
      * 
-     * <p>Other Business Name: MedicationDocumentId</p>
+     * <p>Un-merged Business Name: MedicationDocumentId</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Document.id</p>
      * 
@@ -152,7 +152,7 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: MonographType</p>
+     * <p>Un-merged Business Name: MonographType</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.code</p>
      * 
@@ -172,7 +172,7 @@ public class MonographsBean extends MessagePartBean {
      * application can't know what to do with a monograph without 
      * knowing its type.</p>
      * 
-     * <p>Other Business Name: MedicationDocumentType</p>
+     * <p>Un-merged Business Name: MedicationDocumentType</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Document.code</p>
      * 
@@ -194,7 +194,7 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: MonographType</p>
+     * <p>Un-merged Business Name: MonographType</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.code</p>
      * 
@@ -214,7 +214,7 @@ public class MonographsBean extends MessagePartBean {
      * application can't know what to do with a monograph without 
      * knowing its type.</p>
      * 
-     * <p>Other Business Name: MedicationDocumentType</p>
+     * <p>Un-merged Business Name: MedicationDocumentType</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Document.code</p>
      * 
@@ -238,7 +238,7 @@ public class MonographsBean extends MessagePartBean {
     /**
      * <p>Business Name: MonographContent</p>
      * 
-     * <p>Other Business Name: MonographContent</p>
+     * <p>Un-merged Business Name: MonographContent</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.text</p>
      * 
@@ -260,7 +260,7 @@ public class MonographsBean extends MessagePartBean {
     /**
      * <p>Business Name: MonographContent</p>
      * 
-     * <p>Other Business Name: MonographContent</p>
+     * <p>Un-merged Business Name: MonographContent</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.text</p>
      * 
@@ -280,7 +280,7 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: MonographEffectiveExpiryDate</p>
+     * <p>Un-merged Business Name: MonographEffectiveExpiryDate</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.effectiveTime</p>
      * 
@@ -306,7 +306,7 @@ public class MonographsBean extends MessagePartBean {
      * should be available in most situations and is clinically 
      * relevant; thus attribute is marked as 'populated'.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * MedicationDocumentEffectiveExpiryDate</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Document.effectiveTime</p>
@@ -339,7 +339,7 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: MonographEffectiveExpiryDate</p>
+     * <p>Un-merged Business Name: MonographEffectiveExpiryDate</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.effectiveTime</p>
      * 
@@ -365,7 +365,7 @@ public class MonographsBean extends MessagePartBean {
      * should be available in most situations and is clinically 
      * relevant; thus attribute is marked as 'populated'.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * MedicationDocumentEffectiveExpiryDate</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Document.effectiveTime</p>
@@ -400,7 +400,7 @@ public class MonographsBean extends MessagePartBean {
     /**
      * <p>Business Name: WrittenIn</p>
      * 
-     * <p>Other Business Name: WrittenIn</p>
+     * <p>Un-merged Business Name: WrittenIn</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.languageCode</p>
      * 
@@ -429,7 +429,7 @@ public class MonographsBean extends MessagePartBean {
     /**
      * <p>Business Name: WrittenIn</p>
      * 
-     * <p>Other Business Name: WrittenIn</p>
+     * <p>Un-merged Business Name: WrittenIn</p>
      * 
      * <p>Relationship: POME_MT010040CA.Document.languageCode</p>
      * 
@@ -456,13 +456,13 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POME_MT010040CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Author.assignedEntity</p>
      * 
@@ -474,13 +474,13 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POME_MT010040CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Author.assignedEntity</p>
      * 
@@ -494,7 +494,7 @@ public class MonographsBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentContentLanguage</p>
      * 
-     * <p>Other Business Name: MedicationDocumentContentLanguage</p>
+     * <p>Un-merged Business Name: MedicationDocumentContentLanguage</p>
      * 
      * <p>Relationship: PORR_MT050016CA.DocumentBodyEvent.text</p>
      * 
@@ -543,7 +543,7 @@ public class MonographsBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentContentLanguage</p>
      * 
-     * <p>Other Business Name: MedicationDocumentContentLanguage</p>
+     * <p>Un-merged Business Name: MedicationDocumentContentLanguage</p>
      * 
      * <p>Relationship: PORR_MT050016CA.DocumentBodyEvent.text</p>
      * 

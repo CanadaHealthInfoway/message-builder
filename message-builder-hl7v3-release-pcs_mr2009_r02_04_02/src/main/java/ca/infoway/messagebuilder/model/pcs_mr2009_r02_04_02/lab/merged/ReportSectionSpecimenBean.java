@@ -56,25 +56,25 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POLB_MT004100CA.Specimen1.specimen</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POLB_MT002000CA.Specimen.specimen</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POLB_MT004200CA.Specimen.specimen</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POLB_MT004000CA.Specimen.specimen</p>
      * 
@@ -86,25 +86,25 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POLB_MT004100CA.Specimen1.specimen</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POLB_MT002000CA.Specimen.specimen</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POLB_MT004200CA.Specimen.specimen</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POLB_MT004000CA.Specimen.specimen</p>
      * 
@@ -118,7 +118,7 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenSequenceNumber</p>
      * 
-     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * <p>Un-merged Business Name: SpecimenSequenceNumber</p>
      * 
      * <p>Relationship: POLB_MT002000CA.Specimen.sequenceNumber</p>
      * 
@@ -127,7 +127,7 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
      * <p>Order in which the specimen is to appear in the 
      * message.</p>
      * 
-     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * <p>Un-merged Business Name: SpecimenSequenceNumber</p>
      * 
      * <p>Relationship: POLB_MT004200CA.Specimen.sequenceNumber</p>
      * 
@@ -136,7 +136,7 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
      * <p>Order in which the specimen is to appear in the 
      * message.</p>
      * 
-     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * <p>Un-merged Business Name: SpecimenSequenceNumber</p>
      * 
      * <p>Relationship: POLB_MT004000CA.Specimen.sequenceNumber</p>
      * 
@@ -153,7 +153,7 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenSequenceNumber</p>
      * 
-     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * <p>Un-merged Business Name: SpecimenSequenceNumber</p>
      * 
      * <p>Relationship: POLB_MT002000CA.Specimen.sequenceNumber</p>
      * 
@@ -162,7 +162,7 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
      * <p>Order in which the specimen is to appear in the 
      * message.</p>
      * 
-     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * <p>Un-merged Business Name: SpecimenSequenceNumber</p>
      * 
      * <p>Relationship: POLB_MT004200CA.Specimen.sequenceNumber</p>
      * 
@@ -171,7 +171,7 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
      * <p>Order in which the specimen is to appear in the 
      * message.</p>
      * 
-     * <p>Other Business Name: SpecimenSequenceNumber</p>
+     * <p>Un-merged Business Name: SpecimenSequenceNumber</p>
      * 
      * <p>Relationship: POLB_MT004000CA.Specimen.sequenceNumber</p>
      * 

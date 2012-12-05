@@ -61,7 +61,7 @@ public class PolicyIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PolicyID</p>
+     * <p>Un-merged Business Name: PolicyID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
      * 
@@ -102,7 +102,7 @@ public class PolicyIdentifierBean extends MessagePartBean {
      * I.e. WCB Number, Auto Number, Certificate Number, combined 
      * identifier (Group+Section+Coverage Number)</p>
      * 
-     * <p>Other Business Name: PolicyIdentifierS</p>
+     * <p>Un-merged Business Name: PolicyIdentifierS</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
      * 
@@ -148,7 +148,7 @@ public class PolicyIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PolicyID</p>
+     * <p>Un-merged Business Name: PolicyID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
      * 
@@ -189,7 +189,7 @@ public class PolicyIdentifierBean extends MessagePartBean {
      * I.e. WCB Number, Auto Number, Certificate Number, combined 
      * identifier (Group+Section+Coverage Number)</p>
      * 
-     * <p>Other Business Name: PolicyIdentifierS</p>
+     * <p>Un-merged Business Name: PolicyIdentifierS</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
      * 
@@ -237,7 +237,7 @@ public class PolicyIdentifierBean extends MessagePartBean {
     /**
      * <p>Business Name: PolicyType</p>
      * 
-     * <p>Other Business Name: PolicyType</p>
+     * <p>Un-merged Business Name: PolicyType</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.code</p>
      * 
@@ -264,7 +264,7 @@ public class PolicyIdentifierBean extends MessagePartBean {
     /**
      * <p>Business Name: PolicyType</p>
      * 
-     * <p>Other Business Name: PolicyType</p>
+     * <p>Un-merged Business Name: PolicyType</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.code</p>
      * 
@@ -289,14 +289,14 @@ public class PolicyIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
@@ -309,14 +309,14 @@ public class PolicyIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
@@ -329,14 +329,14 @@ public class PolicyIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.PolicyUnderwriter.carrierRole</p>
@@ -349,14 +349,14 @@ public class PolicyIdentifierBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.PolicyUnderwriter.carrierRole</p>

@@ -38,7 +38,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: MedicationDocumentAuthorName</p>
+     * <p>Un-merged Business Name: MedicationDocumentAuthorName</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Organization4.name</p>
      * 
@@ -49,7 +49,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>The name of the organization responsible for creating the 
      * medication document.</p>
      * 
-     * <p>Other Business Name: FormularyOwnerName</p>
+     * <p>Un-merged Business Name: FormularyOwnerName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Organization3.name</p>
      * 
@@ -61,7 +61,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>The name of the organization or facility responsible for 
      * the formulary.</p>
      * 
-     * <p>Other Business Name: MonitoringOrganizationName</p>
+     * <p>Un-merged Business Name: MonitoringOrganizationName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Organization2.name</p>
      * 
@@ -73,7 +73,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>The name of the organization responsible for the 
      * monitoring program</p>
      * 
-     * <p>Other Business Name: MonographAuthorName</p>
+     * <p>Un-merged Business Name: MonographAuthorName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Organization1.name</p>
      * 
@@ -95,7 +95,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: MedicationDocumentAuthorName</p>
+     * <p>Un-merged Business Name: MedicationDocumentAuthorName</p>
      * 
      * <p>Relationship: PORR_MT050016CA.Organization4.name</p>
      * 
@@ -106,7 +106,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>The name of the organization responsible for creating the 
      * medication document.</p>
      * 
-     * <p>Other Business Name: FormularyOwnerName</p>
+     * <p>Un-merged Business Name: FormularyOwnerName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Organization3.name</p>
      * 
@@ -118,7 +118,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>The name of the organization or facility responsible for 
      * the formulary.</p>
      * 
-     * <p>Other Business Name: MonitoringOrganizationName</p>
+     * <p>Un-merged Business Name: MonitoringOrganizationName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Organization2.name</p>
      * 
@@ -130,7 +130,7 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>The name of the organization responsible for the 
      * monitoring program</p>
      * 
-     * <p>Other Business Name: MonographAuthorName</p>
+     * <p>Un-merged Business Name: MonographAuthorName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Organization1.name</p>
      * 

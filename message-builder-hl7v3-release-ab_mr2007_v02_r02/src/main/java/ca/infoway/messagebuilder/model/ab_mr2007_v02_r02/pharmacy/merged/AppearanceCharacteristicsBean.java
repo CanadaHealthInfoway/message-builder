@@ -63,7 +63,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     /**
      * <p>Business Name: CharacteristicType</p>
      * 
-     * <p>Other Business Name: CharacteristicType</p>
+     * <p>Un-merged Business Name: CharacteristicType</p>
      * 
      * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
      * 
@@ -78,7 +78,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * characteristic alone without specifying the type can result 
      * in ambiguity.</p>
      * 
-     * <p>Other Business Name: CharacteristicType</p>
+     * <p>Un-merged Business Name: CharacteristicType</p>
      * 
      * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
      * 
@@ -101,7 +101,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     /**
      * <p>Business Name: CharacteristicType</p>
      * 
-     * <p>Other Business Name: CharacteristicType</p>
+     * <p>Un-merged Business Name: CharacteristicType</p>
      * 
      * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
      * 
@@ -116,7 +116,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * characteristic alone without specifying the type can result 
      * in ambiguity.</p>
      * 
-     * <p>Other Business Name: CharacteristicType</p>
+     * <p>Un-merged Business Name: CharacteristicType</p>
      * 
      * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
      * 
@@ -139,7 +139,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     /**
      * <p>Business Name: Characteristic</p>
      * 
-     * <p>Other Business Name: Characteristic</p>
+     * <p>Un-merged Business Name: Characteristic</p>
      * 
      * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
      * 
@@ -160,7 +160,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * &quot;mandatory&quot; as there must be a value for a 
      * mandatory code.</p>
      * 
-     * <p>Other Business Name: Characteristic</p>
+     * <p>Un-merged Business Name: Characteristic</p>
      * 
      * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
      * 
@@ -187,7 +187,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     /**
      * <p>Business Name: Characteristic</p>
      * 
-     * <p>Other Business Name: Characteristic</p>
+     * <p>Un-merged Business Name: Characteristic</p>
      * 
      * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
      * 
@@ -208,7 +208,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * &quot;mandatory&quot; as there must be a value for a 
      * mandatory code.</p>
      * 
-     * <p>Other Business Name: Characteristic</p>
+     * <p>Un-merged Business Name: Characteristic</p>
      * 
      * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
      * 

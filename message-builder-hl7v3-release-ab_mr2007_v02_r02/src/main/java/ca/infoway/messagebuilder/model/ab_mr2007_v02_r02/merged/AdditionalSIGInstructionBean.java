@@ -75,7 +75,7 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.SupplementalInstruction.moodCode</p>
@@ -113,7 +113,7 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.SupplementalInstruction.moodCode</p>
@@ -159,7 +159,7 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.SupplementalInstruction.moodCode</p>
@@ -197,7 +197,7 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.SupplementalInstruction.moodCode</p>
@@ -243,7 +243,7 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
     /**
      * <p>Business Name: AdditionalDosageInstruction</p>
      * 
-     * <p>Other Business Name: AdditionalDosageInstruction</p>
+     * <p>Un-merged Business Name: AdditionalDosageInstruction</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.SupplementalInstruction.text</p>
@@ -267,7 +267,7 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * attribute is marked as 'mandatory' as it is the only 
      * information that can be specified here.</p>
      * 
-     * <p>Other Business Name: AdditionalDosageInstruction</p>
+     * <p>Un-merged Business Name: AdditionalDosageInstruction</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.SupplementalInstruction.text</p>
@@ -299,7 +299,7 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
     /**
      * <p>Business Name: AdditionalDosageInstruction</p>
      * 
-     * <p>Other Business Name: AdditionalDosageInstruction</p>
+     * <p>Un-merged Business Name: AdditionalDosageInstruction</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.SupplementalInstruction.text</p>
@@ -323,7 +323,7 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * attribute is marked as 'mandatory' as it is the only 
      * information that can be specified here.</p>
      * 
-     * <p>Other Business Name: AdditionalDosageInstruction</p>
+     * <p>Un-merged Business Name: AdditionalDosageInstruction</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.SupplementalInstruction.text</p>

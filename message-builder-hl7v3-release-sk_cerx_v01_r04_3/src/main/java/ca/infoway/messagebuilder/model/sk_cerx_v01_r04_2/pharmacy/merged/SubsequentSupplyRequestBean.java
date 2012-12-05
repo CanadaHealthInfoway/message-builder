@@ -62,7 +62,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: DispenseInterval</p>
      * 
-     * <p>Other Business Name: DispenseInterval</p>
+     * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubsequentSupplyRequest.effectiveTime</p>
@@ -76,7 +76,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * ever receive more than the appropriate amount of medication 
      * in a particular timeframe.</p>
      * 
-     * <p>Other Business Name: DispenseInterval</p>
+     * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubsequentSupplyRequest.effectiveTime</p>
@@ -90,7 +90,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * ever receive more than the appropriate amount of medication 
      * in a particular timeframe.</p>
      * 
-     * <p>Other Business Name: DispenseInterval</p>
+     * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubsequentSupplyRequest.effectiveTime</p>
@@ -112,7 +112,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: DispenseInterval</p>
      * 
-     * <p>Other Business Name: DispenseInterval</p>
+     * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubsequentSupplyRequest.effectiveTime</p>
@@ -126,7 +126,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * ever receive more than the appropriate amount of medication 
      * in a particular timeframe.</p>
      * 
-     * <p>Other Business Name: DispenseInterval</p>
+     * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubsequentSupplyRequest.effectiveTime</p>
@@ -140,7 +140,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * ever receive more than the appropriate amount of medication 
      * in a particular timeframe.</p>
      * 
-     * <p>Other Business Name: DispenseInterval</p>
+     * <p>Un-merged Business Name: DispenseInterval</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubsequentSupplyRequest.effectiveTime</p>
@@ -162,7 +162,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubsequentSupplyRequest.repeatNumber</p>
@@ -192,7 +192,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * Fills rather than number of refills due to HL7 modeling 
      * constraints.</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubsequentSupplyRequest.repeatNumber</p>
@@ -222,7 +222,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * Fills rather than number of refills due to HL7 modeling 
      * constraints.</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubsequentSupplyRequest.repeatNumber</p>
@@ -260,7 +260,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubsequentSupplyRequest.repeatNumber</p>
@@ -290,7 +290,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * Fills rather than number of refills due to HL7 modeling 
      * constraints.</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubsequentSupplyRequest.repeatNumber</p>
@@ -320,7 +320,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * Fills rather than number of refills due to HL7 modeling 
      * constraints.</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubsequentSupplyRequest.repeatNumber</p>
@@ -358,7 +358,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: FillQuantity</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubsequentSupplyRequest.quantity</p>
@@ -384,7 +384,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Limits the quantity of medication in patient's possession 
      * at a time. Used in compliance checking</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubsequentSupplyRequest.quantity</p>
@@ -416,7 +416,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * mandatory, since PIN uses this value, it should be specified 
      * if at all possible.</strong></p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubsequentSupplyRequest.quantity</p>
@@ -450,7 +450,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: FillQuantity</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubsequentSupplyRequest.quantity</p>
@@ -476,7 +476,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Limits the quantity of medication in patient's possession 
      * at a time. Used in compliance checking</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubsequentSupplyRequest.quantity</p>
@@ -508,7 +508,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * mandatory, since PIN uses this value, it should be specified 
      * if at all possible.</strong></p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubsequentSupplyRequest.quantity</p>
@@ -542,7 +542,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: DaysSupply</p>
      * 
-     * <p>Other Business Name: DaysSupply</p>
+     * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubsequentSupplyRequest.expectedUseTime</p>
@@ -562,7 +562,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * pharmacy on how much to dispense. Also useful in 
      * research.</p>
      * 
-     * <p>Other Business Name: DaysSupply</p>
+     * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubsequentSupplyRequest.expectedUseTime</p>
@@ -588,7 +588,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * Instead, it will not report Number of Fills Remaining in any 
      * query responses.</strong></p>
      * 
-     * <p>Other Business Name: DaysSupply</p>
+     * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubsequentSupplyRequest.expectedUseTime</p>
@@ -616,7 +616,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: DaysSupply</p>
      * 
-     * <p>Other Business Name: DaysSupply</p>
+     * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubsequentSupplyRequest.expectedUseTime</p>
@@ -636,7 +636,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * pharmacy on how much to dispense. Also useful in 
      * research.</p>
      * 
-     * <p>Other Business Name: DaysSupply</p>
+     * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubsequentSupplyRequest.expectedUseTime</p>
@@ -662,7 +662,7 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * Instead, it will not report Number of Fills Remaining in any 
      * query responses.</strong></p>
      * 
-     * <p>Other Business Name: DaysSupply</p>
+     * <p>Un-merged Business Name: DaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubsequentSupplyRequest.expectedUseTime</p>

@@ -97,7 +97,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationCode</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.LanguageCommunication.languageCode</p>
@@ -109,7 +109,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Required attribute conveying the expected language 
      * message elements are to be transmitted in</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101001CA.LanguageCommunication.languageCode</p>
@@ -121,7 +121,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in.</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.LanguageCommunication.languageCode</p>
@@ -133,7 +133,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.LanguageCommunication.languageCode</p>
@@ -145,7 +145,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.LanguageCommunication.languageCode</p>
@@ -165,7 +165,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationCode</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.LanguageCommunication.languageCode</p>
@@ -177,7 +177,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Required attribute conveying the expected language 
      * message elements are to be transmitted in</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101001CA.LanguageCommunication.languageCode</p>
@@ -189,7 +189,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in.</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.LanguageCommunication.languageCode</p>
@@ -201,7 +201,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.LanguageCommunication.languageCode</p>
@@ -213,7 +213,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Mandatory attribute conveying the expected language 
      * message elements are to be transmitted in</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.LanguageCommunication.languageCode</p>
@@ -233,7 +233,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.LanguageCommunication.modeCode</p>
@@ -248,7 +248,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.LanguageCommunication.modeCode</p>
@@ -263,7 +263,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.LanguageCommunication.modeCode</p>
@@ -286,7 +286,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.LanguageCommunication.modeCode</p>
@@ -301,7 +301,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.LanguageCommunication.modeCode</p>
@@ -316,7 +316,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.LanguageCommunication.modeCode</p>
@@ -340,7 +340,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Business Name: 
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
@@ -356,7 +356,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
@@ -372,7 +372,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
@@ -397,7 +397,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * <p>Business Name: 
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
@@ -413,7 +413,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
@@ -429,7 +429,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationProficiencyLevelCode</p>
      * 
      * <p>Relationship: 
@@ -453,7 +453,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -468,7 +468,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -483,7 +483,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -498,7 +498,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -513,7 +513,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -536,7 +536,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -551,7 +551,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -566,7 +566,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -581,7 +581,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -596,7 +596,7 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 

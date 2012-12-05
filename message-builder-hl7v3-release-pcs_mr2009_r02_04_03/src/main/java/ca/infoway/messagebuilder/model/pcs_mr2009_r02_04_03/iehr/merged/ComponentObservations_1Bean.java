@@ -64,7 +64,7 @@ public class ComponentObservations_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ComponentObservationType</p>
      * 
-     * <p>Other Business Name: ComponentObservationType</p>
+     * <p>Un-merged Business Name: ComponentObservationType</p>
      * 
      * <p>Relationship: REPC_MT410001CA.SubObservationEvent.code</p>
      * 
@@ -98,7 +98,7 @@ public class ComponentObservations_1Bean extends MessagePartBean {
      * <p>Identifies the type of sub-observation being 
      * made.</p><p>E.g. systolic blood pressure.</p>
      * 
-     * <p>Other Business Name: ComponentObservationType</p>
+     * <p>Un-merged Business Name: ComponentObservationType</p>
      * 
      * <p>Relationship: REPC_MT410003CA.SubObservationEvent.code</p>
      * 
@@ -140,7 +140,7 @@ public class ComponentObservations_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ComponentObservationType</p>
      * 
-     * <p>Other Business Name: ComponentObservationType</p>
+     * <p>Un-merged Business Name: ComponentObservationType</p>
      * 
      * <p>Relationship: REPC_MT410001CA.SubObservationEvent.code</p>
      * 
@@ -174,7 +174,7 @@ public class ComponentObservations_1Bean extends MessagePartBean {
      * <p>Identifies the type of sub-observation being 
      * made.</p><p>E.g. systolic blood pressure.</p>
      * 
-     * <p>Other Business Name: ComponentObservationType</p>
+     * <p>Un-merged Business Name: ComponentObservationType</p>
      * 
      * <p>Relationship: REPC_MT410003CA.SubObservationEvent.code</p>
      * 
@@ -216,7 +216,7 @@ public class ComponentObservations_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ComponentObservationValue</p>
      * 
-     * <p>Other Business Name: ComponentObservationValue</p>
+     * <p>Un-merged Business Name: ComponentObservationValue</p>
      * 
      * <p>Relationship: REPC_MT410001CA.SubObservationEvent.value</p>
      * 
@@ -239,7 +239,7 @@ public class ComponentObservations_1Bean extends MessagePartBean {
      * sub-observation was made.</p><p>E.g. 120 mmHg for systolic 
      * blood pressure.</p>
      * 
-     * <p>Other Business Name: ComponentObservationValue</p>
+     * <p>Un-merged Business Name: ComponentObservationValue</p>
      * 
      * <p>Relationship: REPC_MT410003CA.SubObservationEvent.value</p>
      * 
@@ -270,7 +270,7 @@ public class ComponentObservations_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ComponentObservationValue</p>
      * 
-     * <p>Other Business Name: ComponentObservationValue</p>
+     * <p>Un-merged Business Name: ComponentObservationValue</p>
      * 
      * <p>Relationship: REPC_MT410001CA.SubObservationEvent.value</p>
      * 
@@ -293,7 +293,7 @@ public class ComponentObservations_1Bean extends MessagePartBean {
      * sub-observation was made.</p><p>E.g. 120 mmHg for systolic 
      * blood pressure.</p>
      * 
-     * <p>Other Business Name: ComponentObservationValue</p>
+     * <p>Un-merged Business Name: ComponentObservationValue</p>
      * 
      * <p>Relationship: REPC_MT410003CA.SubObservationEvent.value</p>
      * 

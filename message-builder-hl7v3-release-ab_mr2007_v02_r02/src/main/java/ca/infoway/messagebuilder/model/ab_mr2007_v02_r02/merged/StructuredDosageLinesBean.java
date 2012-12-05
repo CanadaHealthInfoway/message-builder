@@ -106,7 +106,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.moodCode</p>
      * 
@@ -143,7 +143,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.moodCode</p>
      * 
@@ -188,7 +188,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.moodCode</p>
      * 
@@ -225,7 +225,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.moodCode</p>
      * 
@@ -270,7 +270,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: AdHocDosageInstruction</p>
      * 
-     * <p>Other Business Name: AdHocDosageInstruction</p>
+     * <p>Un-merged Business Name: AdHocDosageInstruction</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.text</p>
      * 
@@ -305,7 +305,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * prescription that are coded elsewhere.(e.g. Coded Dosage 
      * Timing).</p>
      * 
-     * <p>Other Business Name: AdHocDosageInstruction</p>
+     * <p>Un-merged Business Name: AdHocDosageInstruction</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.text</p>
      * 
@@ -348,7 +348,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: AdHocDosageInstruction</p>
      * 
-     * <p>Other Business Name: AdHocDosageInstruction</p>
+     * <p>Un-merged Business Name: AdHocDosageInstruction</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.text</p>
      * 
@@ -383,7 +383,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * prescription that are coded elsewhere.(e.g. Coded Dosage 
      * Timing).</p>
      * 
-     * <p>Other Business Name: AdHocDosageInstruction</p>
+     * <p>Un-merged Business Name: AdHocDosageInstruction</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.text</p>
      * 
@@ -426,7 +426,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageTimingFrequency</p>
      * 
-     * <p>Other Business Name: DosageTimingFrequency</p>
+     * <p>Un-merged Business Name: DosageTimingFrequency</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.effectiveTime</p>
      * 
@@ -541,7 +541,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Together with the dose quantity, indicates the overall 
      * quantity of drug.</p>
      * 
-     * <p>Other Business Name: DosageTimingFrequency</p>
+     * <p>Un-merged Business Name: DosageTimingFrequency</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.effectiveTime</p>
      * 
@@ -618,7 +618,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageTimingFrequency</p>
      * 
-     * <p>Other Business Name: DosageTimingFrequency</p>
+     * <p>Un-merged Business Name: DosageTimingFrequency</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.effectiveTime</p>
      * 
@@ -733,7 +733,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Together with the dose quantity, indicates the overall 
      * quantity of drug.</p>
      * 
-     * <p>Other Business Name: DosageTimingFrequency</p>
+     * <p>Un-merged Business Name: DosageTimingFrequency</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.effectiveTime</p>
      * 
@@ -810,7 +810,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageRange</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.doseQuantity</p>
      * 
@@ -833,7 +833,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Where no range is needed, a single value should be 
      * specified as the center, with a width of 0.</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.doseQuantity</p>
      * 
@@ -864,7 +864,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageRange</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.doseQuantity</p>
      * 
@@ -887,7 +887,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Where no range is needed, a single value should be 
      * specified as the center, with a width of 0.</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.doseQuantity</p>
      * 
@@ -918,7 +918,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageRate</p>
      * 
-     * <p>Other Business Name: DosageRate</p>
+     * <p>Un-merged Business Name: DosageRate</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.rateQuantity</p>
      * 
@@ -931,7 +931,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * 
      * <p>Required for intravenous administration</p>
      * 
-     * <p>Other Business Name: DosageRate</p>
+     * <p>Un-merged Business Name: DosageRate</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.rateQuantity</p>
      * 
@@ -952,7 +952,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageRate</p>
      * 
-     * <p>Other Business Name: DosageRate</p>
+     * <p>Un-merged Business Name: DosageRate</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageLine.rateQuantity</p>
      * 
@@ -965,7 +965,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * 
      * <p>Required for intravenous administration</p>
      * 
-     * <p>Other Business Name: DosageRate</p>
+     * <p>Un-merged Business Name: DosageRate</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageLine.rateQuantity</p>
      * 
@@ -984,13 +984,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT270010CA.Trigger.actEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
      * 
@@ -1002,13 +1002,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT270010CA.Trigger.actEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
      * 
@@ -1020,14 +1020,14 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.Component18.supplementalInstruction</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.Component18.supplementalInstruction</p>
@@ -1040,14 +1040,14 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.Component18.supplementalInstruction</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.Component18.supplementalInstruction</p>

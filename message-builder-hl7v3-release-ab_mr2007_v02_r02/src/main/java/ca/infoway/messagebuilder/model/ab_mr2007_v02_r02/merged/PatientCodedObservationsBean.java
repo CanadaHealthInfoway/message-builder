@@ -112,7 +112,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     /**
      * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.id</p>
      * 
@@ -127,7 +127,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.id</p>
      * 
@@ -142,7 +142,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.id</p>
      * 
@@ -157,7 +157,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.id</p>
      * 
@@ -172,7 +172,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.id</p>
      * 
@@ -187,7 +187,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.id</p>
      * 
@@ -210,7 +210,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     /**
      * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.id</p>
      * 
@@ -225,7 +225,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.id</p>
      * 
@@ -240,7 +240,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.id</p>
      * 
@@ -255,7 +255,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.id</p>
      * 
@@ -270,7 +270,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.id</p>
      * 
@@ -285,7 +285,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * additional details when evaluating appropriateness of issue 
      * management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.id</p>
      * 
@@ -308,7 +308,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     /**
      * <p>Business Name: ObservationType</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.code</p>
      * 
@@ -339,7 +339,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.code</p>
      * 
@@ -370,7 +370,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.code</p>
      * 
@@ -401,7 +401,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.code</p>
      * 
@@ -432,7 +432,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.code</p>
      * 
@@ -463,7 +463,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.code</p>
      * 
@@ -502,7 +502,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     /**
      * <p>Business Name: ObservationType</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.code</p>
      * 
@@ -533,7 +533,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.code</p>
      * 
@@ -564,7 +564,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.code</p>
      * 
@@ -595,7 +595,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: COCT_MT260010CA.ObservationCodedEvent.code</p>
      * 
@@ -626,7 +626,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: COCT_MT260030CA.ObservationCodedEvent.code</p>
      * 
@@ -657,7 +657,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: COCT_MT260020CA.ObservationCodedEvent.code</p>
      * 
@@ -694,7 +694,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
 
 
     /**
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationCodedEvent.confidentialityCode</p>
@@ -718,7 +718,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationCodedEvent.confidentialityCode</p>
@@ -742,7 +742,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationCodedEvent.confidentialityCode</p>
@@ -766,7 +766,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation.</p><p>The attribute is optional because 
      * not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationCodedEvent.confidentialityCode</p>
@@ -790,7 +790,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationCodedEvent.confidentialityCode</p>
@@ -814,7 +814,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationCodedEvent.confidentialityCode</p>
@@ -844,7 +844,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
 
     /**
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationCodedEvent.confidentialityCode</p>
@@ -868,7 +868,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationCodedEvent.confidentialityCode</p>
@@ -892,7 +892,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationCodedEvent.confidentialityCode</p>
@@ -916,7 +916,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation.</p><p>The attribute is optional because 
      * not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationCodedEvent.confidentialityCode</p>
@@ -940,7 +940,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationCodedEvent.confidentialityCode</p>
@@ -964,7 +964,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationCodedEvent.confidentialityCode</p>
@@ -996,7 +996,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     /**
      * <p>Business Name: ObservationValue</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.value</p>
      * 
@@ -1072,7 +1072,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * <p>Provides unambiguous reference to the related coded 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.value</p>
      * 
@@ -1148,7 +1148,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * <p>Provides unambiguous reference to the related coded 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.value</p>
      * 
@@ -1203,7 +1203,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     /**
      * <p>Business Name: ObservationValue</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.value</p>
      * 
@@ -1279,7 +1279,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * <p>Provides unambiguous reference to the related coded 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.value</p>
      * 
@@ -1355,7 +1355,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * <p>Provides unambiguous reference to the related coded 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.value</p>
      * 

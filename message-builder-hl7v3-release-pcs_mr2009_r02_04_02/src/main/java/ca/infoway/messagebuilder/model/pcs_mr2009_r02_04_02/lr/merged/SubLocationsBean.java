@@ -81,7 +81,7 @@ public class SubLocationsBean extends MessagePartBean {
     /**
      * <p>Business Name: SubLocationIdentifier</p>
      * 
-     * <p>Other Business Name: SubLocationIdentifier</p>
+     * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.SubLocation.id</p>
      * 
@@ -94,7 +94,7 @@ public class SubLocationsBean extends MessagePartBean {
      * <p>Unique identifier for the contained service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: SubLocationIdentifier</p>
+     * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.SubLocation.id</p>
      * 
@@ -107,7 +107,7 @@ public class SubLocationsBean extends MessagePartBean {
      * <p>Unique identifier for the contained service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: SubLocationIdentifier</p>
+     * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.SubLocation.id</p>
      * 
@@ -128,7 +128,7 @@ public class SubLocationsBean extends MessagePartBean {
     /**
      * <p>Business Name: SubLocationIdentifier</p>
      * 
-     * <p>Other Business Name: SubLocationIdentifier</p>
+     * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.SubLocation.id</p>
      * 
@@ -141,7 +141,7 @@ public class SubLocationsBean extends MessagePartBean {
      * <p>Unique identifier for the contained service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: SubLocationIdentifier</p>
+     * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.SubLocation.id</p>
      * 
@@ -154,7 +154,7 @@ public class SubLocationsBean extends MessagePartBean {
      * <p>Unique identifier for the contained service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: SubLocationIdentifier</p>
+     * <p>Un-merged Business Name: SubLocationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.SubLocation.id</p>
      * 
@@ -175,7 +175,7 @@ public class SubLocationsBean extends MessagePartBean {
     /**
      * <p>Business Name: SubLocationType</p>
      * 
-     * <p>Other Business Name: SubLocationType</p>
+     * <p>Un-merged Business Name: SubLocationType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.SubLocation.code</p>
      * 
@@ -190,7 +190,7 @@ public class SubLocationsBean extends MessagePartBean {
      * location. For example, a hospital might contain a laboratory 
      * or a community clinic.</p>
      * 
-     * <p>Other Business Name: SubLocationType</p>
+     * <p>Un-merged Business Name: SubLocationType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.SubLocation.code</p>
      * 
@@ -205,7 +205,7 @@ public class SubLocationsBean extends MessagePartBean {
      * location. For example, a hospital might contain a laboratory 
      * or a community clinic.</p>
      * 
-     * <p>Other Business Name: SubLocationType</p>
+     * <p>Un-merged Business Name: SubLocationType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.SubLocation.code</p>
      * 
@@ -228,7 +228,7 @@ public class SubLocationsBean extends MessagePartBean {
     /**
      * <p>Business Name: SubLocationType</p>
      * 
-     * <p>Other Business Name: SubLocationType</p>
+     * <p>Un-merged Business Name: SubLocationType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.SubLocation.code</p>
      * 
@@ -243,7 +243,7 @@ public class SubLocationsBean extends MessagePartBean {
      * location. For example, a hospital might contain a laboratory 
      * or a community clinic.</p>
      * 
-     * <p>Other Business Name: SubLocationType</p>
+     * <p>Un-merged Business Name: SubLocationType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.SubLocation.code</p>
      * 
@@ -258,7 +258,7 @@ public class SubLocationsBean extends MessagePartBean {
      * location. For example, a hospital might contain a laboratory 
      * or a community clinic.</p>
      * 
-     * <p>Other Business Name: SubLocationType</p>
+     * <p>Un-merged Business Name: SubLocationType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.SubLocation.code</p>
      * 
@@ -281,7 +281,7 @@ public class SubLocationsBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationName</p>
      * 
-     * <p>Other Business Name: LocationName</p>
+     * <p>Un-merged Business Name: LocationName</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.SubLocation.name</p>
      * 
@@ -293,7 +293,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>A descriptive name for the sub-location.</p>
      * 
-     * <p>Other Business Name: LocationName</p>
+     * <p>Un-merged Business Name: LocationName</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.SubLocation.name</p>
      * 
@@ -305,7 +305,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>A descriptive name for the sub-location.</p>
      * 
-     * <p>Other Business Name: LocationName</p>
+     * <p>Un-merged Business Name: LocationName</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.SubLocation.name</p>
      * 
@@ -325,7 +325,7 @@ public class SubLocationsBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationName</p>
      * 
-     * <p>Other Business Name: LocationName</p>
+     * <p>Un-merged Business Name: LocationName</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.SubLocation.name</p>
      * 
@@ -337,7 +337,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>A descriptive name for the sub-location.</p>
      * 
-     * <p>Other Business Name: LocationName</p>
+     * <p>Un-merged Business Name: LocationName</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.SubLocation.name</p>
      * 
@@ -349,7 +349,7 @@ public class SubLocationsBean extends MessagePartBean {
      * 
      * <p>A descriptive name for the sub-location.</p>
      * 
-     * <p>Other Business Name: LocationName</p>
+     * <p>Un-merged Business Name: LocationName</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.SubLocation.name</p>
      * 
@@ -369,7 +369,7 @@ public class SubLocationsBean extends MessagePartBean {
     /**
      * <p>Business Name: SubLocationPlaceType</p>
      * 
-     * <p>Other Business Name: SubLocationPlaceType</p>
+     * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.SubPlace.code</p>
      * 
@@ -384,7 +384,7 @@ public class SubLocationsBean extends MessagePartBean {
      * For example, a campus may contain a building, a building may 
      * contain a ward, etc.</p>
      * 
-     * <p>Other Business Name: SubLocationPlaceType</p>
+     * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.SubPlace.code</p>
      * 
@@ -399,7 +399,7 @@ public class SubLocationsBean extends MessagePartBean {
      * For example, a campus may contain a building, a building may 
      * contain a ward, etc.</p>
      * 
-     * <p>Other Business Name: SubLocationPlaceType</p>
+     * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.SubPlace.code</p>
      * 
@@ -422,7 +422,7 @@ public class SubLocationsBean extends MessagePartBean {
     /**
      * <p>Business Name: SubLocationPlaceType</p>
      * 
-     * <p>Other Business Name: SubLocationPlaceType</p>
+     * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.SubPlace.code</p>
      * 
@@ -437,7 +437,7 @@ public class SubLocationsBean extends MessagePartBean {
      * For example, a campus may contain a building, a building may 
      * contain a ward, etc.</p>
      * 
-     * <p>Other Business Name: SubLocationPlaceType</p>
+     * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.SubPlace.code</p>
      * 
@@ -452,7 +452,7 @@ public class SubLocationsBean extends MessagePartBean {
      * For example, a campus may contain a building, a building may 
      * contain a ward, etc.</p>
      * 
-     * <p>Other Business Name: SubLocationPlaceType</p>
+     * <p>Un-merged Business Name: SubLocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.SubPlace.code</p>
      * 

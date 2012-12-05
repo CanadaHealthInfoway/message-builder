@@ -85,7 +85,7 @@ public class SubstitutionBean extends MessagePartBean {
     /**
      * <p>Business Name: SubstitutionCode</p>
      * 
-     * <p>Other Business Name: SubstitutionCode</p>
+     * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SubstitutionMade.code</p>
      * 
@@ -104,7 +104,7 @@ public class SubstitutionBean extends MessagePartBean {
      * attribute is mandatory because it is essential to 
      * understanding the substitution.</p>
      * 
-     * <p>Other Business Name: SubstitutionCode</p>
+     * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SubstitutionMade.code</p>
      * 
@@ -123,7 +123,7 @@ public class SubstitutionBean extends MessagePartBean {
      * attribute is mandatory because it is essential to 
      * understanding the substitution.</p>
      * 
-     * <p>Other Business Name: SubstitutionCode</p>
+     * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SubstitutionMade.code</p>
      * 
@@ -142,7 +142,7 @@ public class SubstitutionBean extends MessagePartBean {
      * attribute is mandatory because it is essential to 
      * understanding the substitution.</p>
      * 
-     * <p>Other Business Name: SubstitutionCode</p>
+     * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SubstitutionMade.code</p>
      * 
@@ -169,7 +169,7 @@ public class SubstitutionBean extends MessagePartBean {
     /**
      * <p>Business Name: SubstitutionCode</p>
      * 
-     * <p>Other Business Name: SubstitutionCode</p>
+     * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SubstitutionMade.code</p>
      * 
@@ -188,7 +188,7 @@ public class SubstitutionBean extends MessagePartBean {
      * attribute is mandatory because it is essential to 
      * understanding the substitution.</p>
      * 
-     * <p>Other Business Name: SubstitutionCode</p>
+     * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SubstitutionMade.code</p>
      * 
@@ -207,7 +207,7 @@ public class SubstitutionBean extends MessagePartBean {
      * attribute is mandatory because it is essential to 
      * understanding the substitution.</p>
      * 
-     * <p>Other Business Name: SubstitutionCode</p>
+     * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SubstitutionMade.code</p>
      * 
@@ -226,7 +226,7 @@ public class SubstitutionBean extends MessagePartBean {
      * attribute is mandatory because it is essential to 
      * understanding the substitution.</p>
      * 
-     * <p>Other Business Name: SubstitutionCode</p>
+     * <p>Un-merged Business Name: SubstitutionCode</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SubstitutionMade.code</p>
      * 
@@ -251,7 +251,7 @@ public class SubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ProductSelectionReasonCode</p>
+     * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SubstitutionMade.reasonCode</p>
      * 
@@ -275,7 +275,7 @@ public class SubstitutionBean extends MessagePartBean {
      * <div>prescriber identifier, or the dispenser 
      * identifier.</div>
      * 
-     * <p>Other Business Name: ProductSelectionCode</p>
+     * <p>Un-merged Business Name: ProductSelectionCode</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SubstitutionMade.reasonCode</p>
      * 
@@ -295,7 +295,7 @@ public class SubstitutionBean extends MessagePartBean {
      * <p>Standardized reasons for substitution performed (or not 
      * performed). Useful in analysis of dispensing patterns.</p>
      * 
-     * <p>Other Business Name: ProductSelectionCode</p>
+     * <p>Un-merged Business Name: ProductSelectionCode</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SubstitutionMade.reasonCode</p>
      * 
@@ -315,7 +315,7 @@ public class SubstitutionBean extends MessagePartBean {
      * <p>Standardized reasons for substitution performed (or not 
      * performed). Useful in analysis of dispensing patterns.</p>
      * 
-     * <p>Other Business Name: ProductSelectionReasonCode</p>
+     * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SubstitutionMade.reasonCode</p>
      * 
@@ -345,7 +345,7 @@ public class SubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ProductSelectionReasonCode</p>
+     * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SubstitutionMade.reasonCode</p>
      * 
@@ -369,7 +369,7 @@ public class SubstitutionBean extends MessagePartBean {
      * <div>prescriber identifier, or the dispenser 
      * identifier.</div>
      * 
-     * <p>Other Business Name: ProductSelectionCode</p>
+     * <p>Un-merged Business Name: ProductSelectionCode</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SubstitutionMade.reasonCode</p>
      * 
@@ -389,7 +389,7 @@ public class SubstitutionBean extends MessagePartBean {
      * <p>Standardized reasons for substitution performed (or not 
      * performed). Useful in analysis of dispensing patterns.</p>
      * 
-     * <p>Other Business Name: ProductSelectionCode</p>
+     * <p>Un-merged Business Name: ProductSelectionCode</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SubstitutionMade.reasonCode</p>
      * 
@@ -409,7 +409,7 @@ public class SubstitutionBean extends MessagePartBean {
      * <p>Standardized reasons for substitution performed (or not 
      * performed). Useful in analysis of dispensing patterns.</p>
      * 
-     * <p>Other Business Name: ProductSelectionReasonCode</p>
+     * <p>Un-merged Business Name: ProductSelectionReasonCode</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SubstitutionMade.reasonCode</p>
      * 
@@ -439,25 +439,25 @@ public class SubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020070CA.ResponsibleParty.agent</p>
      * 
@@ -469,25 +469,25 @@ public class SubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.ResponsibleParty.agent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020070CA.ResponsibleParty.agent</p>
      * 

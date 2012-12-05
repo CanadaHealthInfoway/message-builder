@@ -76,7 +76,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: Identifier</p>
      * 
-     * <p>Other Business Name: Identifier</p>
+     * <p>Un-merged Business Name: Identifier</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.IdentifiedLocation.id</p>
      * 
@@ -90,7 +90,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>An identifier by which the location is known.</p>
      * 
-     * <p>Other Business Name: Identifier</p>
+     * <p>Un-merged Business Name: Identifier</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.IdentifiedLocation.id</p>
      * 
@@ -104,7 +104,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>An identifier by which the location is known.</p>
      * 
-     * <p>Other Business Name: Identifier</p>
+     * <p>Un-merged Business Name: Identifier</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.IdentifiedLocation.id</p>
      * 
@@ -126,7 +126,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: Identifier</p>
      * 
-     * <p>Other Business Name: Identifier</p>
+     * <p>Un-merged Business Name: Identifier</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.IdentifiedLocation.id</p>
      * 
@@ -140,7 +140,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>An identifier by which the location is known.</p>
      * 
-     * <p>Other Business Name: Identifier</p>
+     * <p>Un-merged Business Name: Identifier</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.IdentifiedLocation.id</p>
      * 
@@ -154,7 +154,7 @@ public class HasBean extends MessagePartBean {
      * 
      * <p>An identifier by which the location is known.</p>
      * 
-     * <p>Other Business Name: Identifier</p>
+     * <p>Un-merged Business Name: Identifier</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.IdentifiedLocation.id</p>
      * 
@@ -176,7 +176,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: IdentifierType</p>
      * 
-     * <p>Other Business Name: IdentifierType</p>
+     * <p>Un-merged Business Name: IdentifierType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.IdentifiedLocation.code</p>
      * 
@@ -189,7 +189,7 @@ public class HasBean extends MessagePartBean {
      * example, billing identifier, regional identifier, public 
      * health identifier, etc.</p>
      * 
-     * <p>Other Business Name: IdentifierType</p>
+     * <p>Un-merged Business Name: IdentifierType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.IdentifiedLocation.code</p>
      * 
@@ -202,7 +202,7 @@ public class HasBean extends MessagePartBean {
      * example, billing identifier, regional identifier, public 
      * health identifier, etc.</p>
      * 
-     * <p>Other Business Name: IdentifierType</p>
+     * <p>Un-merged Business Name: IdentifierType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.IdentifiedLocation.code</p>
      * 
@@ -223,7 +223,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: IdentifierType</p>
      * 
-     * <p>Other Business Name: IdentifierType</p>
+     * <p>Un-merged Business Name: IdentifierType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.IdentifiedLocation.code</p>
      * 
@@ -236,7 +236,7 @@ public class HasBean extends MessagePartBean {
      * example, billing identifier, regional identifier, public 
      * health identifier, etc.</p>
      * 
-     * <p>Other Business Name: IdentifierType</p>
+     * <p>Un-merged Business Name: IdentifierType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.IdentifiedLocation.code</p>
      * 
@@ -249,7 +249,7 @@ public class HasBean extends MessagePartBean {
      * example, billing identifier, regional identifier, public 
      * health identifier, etc.</p>
      * 
-     * <p>Other Business Name: IdentifierType</p>
+     * <p>Un-merged Business Name: IdentifierType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.IdentifiedLocation.code</p>
      * 
@@ -270,7 +270,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: IdentifyingOrganization</p>
      * 
-     * <p>Other Business Name: IdentifyingOrganization</p>
+     * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.IdentifierOrganization.name</p>
      * 
@@ -285,7 +285,7 @@ public class HasBean extends MessagePartBean {
      * <p>This is the name of the organization which issued and/or 
      * uses the identifier for the location.</p>
      * 
-     * <p>Other Business Name: IdentifyingOrganization</p>
+     * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.IdentifierOrganization.name</p>
      * 
@@ -300,7 +300,7 @@ public class HasBean extends MessagePartBean {
      * <p>This is the name of the organization which issued and/or 
      * uses the identifier for the location.</p>
      * 
-     * <p>Other Business Name: IdentifyingOrganization</p>
+     * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.IdentifierOrganization.name</p>
      * 
@@ -323,7 +323,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: IdentifyingOrganization</p>
      * 
-     * <p>Other Business Name: IdentifyingOrganization</p>
+     * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.IdentifierOrganization.name</p>
      * 
@@ -338,7 +338,7 @@ public class HasBean extends MessagePartBean {
      * <p>This is the name of the organization which issued and/or 
      * uses the identifier for the location.</p>
      * 
-     * <p>Other Business Name: IdentifyingOrganization</p>
+     * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.IdentifierOrganization.name</p>
      * 
@@ -353,7 +353,7 @@ public class HasBean extends MessagePartBean {
      * <p>This is the name of the organization which issued and/or 
      * uses the identifier for the location.</p>
      * 
-     * <p>Other Business Name: IdentifyingOrganization</p>
+     * <p>Un-merged Business Name: IdentifyingOrganization</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.IdentifierOrganization.name</p>
      * 

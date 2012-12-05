@@ -124,7 +124,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ExposureEvent.id</p>
      * 
@@ -137,7 +137,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000006CA.ExposureEvent.id</p>
      * 
@@ -150,7 +150,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ExposureEvent.id</p>
      * 
@@ -163,7 +163,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ExposureEvent.id</p>
      * 
@@ -176,7 +176,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000012CA.ExposureEvent.id</p>
      * 
@@ -189,7 +189,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ExposureEvent.id</p>
      * 
@@ -202,7 +202,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000002CA.ExposureEvent.id</p>
      * 
@@ -223,7 +223,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ExposureEvent.id</p>
      * 
@@ -236,7 +236,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000006CA.ExposureEvent.id</p>
      * 
@@ -249,7 +249,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ExposureEvent.id</p>
      * 
@@ -262,7 +262,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ExposureEvent.id</p>
      * 
@@ -275,7 +275,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000012CA.ExposureEvent.id</p>
      * 
@@ -288,7 +288,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ExposureEvent.id</p>
      * 
@@ -301,7 +301,7 @@ public class ExposuresBean extends MessagePartBean {
      * reaction. This could be an identifier for a prescription, 
      * immunization, or other active medication record.</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000002CA.ExposureEvent.id</p>
      * 
@@ -322,7 +322,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposureMethod</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ExposureEvent.routeCode</p>
      * 
@@ -333,7 +333,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000006CA.ExposureEvent.routeCode</p>
      * 
@@ -344,7 +344,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ExposureEvent.routeCode</p>
      * 
@@ -355,7 +355,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ExposureEvent.routeCode</p>
      * 
@@ -366,7 +366,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000012CA.ExposureEvent.routeCode</p>
      * 
@@ -377,7 +377,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ExposureEvent.routeCode</p>
      * 
@@ -388,7 +388,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000002CA.ExposureEvent.routeCode</p>
      * 
@@ -407,7 +407,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposureMethod</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ExposureEvent.routeCode</p>
      * 
@@ -418,7 +418,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000006CA.ExposureEvent.routeCode</p>
      * 
@@ -429,7 +429,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ExposureEvent.routeCode</p>
      * 
@@ -440,7 +440,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ExposureEvent.routeCode</p>
      * 
@@ -451,7 +451,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000012CA.ExposureEvent.routeCode</p>
      * 
@@ -462,7 +462,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ExposureEvent.routeCode</p>
      * 
@@ -473,7 +473,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>The method by which the patient was exposed to the 
      * substance.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000002CA.ExposureEvent.routeCode</p>
      * 
@@ -492,7 +492,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposedMaterialType</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
      * 
@@ -510,7 +510,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
      * 
@@ -529,7 +529,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
      * 
@@ -547,7 +547,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000012CA.MaterialKind.code</p>
      * 
@@ -565,7 +565,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
      * 
@@ -583,7 +583,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000002CA.MaterialKind.code</p>
      * 
@@ -629,7 +629,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposedMaterialType</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
      * 
@@ -647,7 +647,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
      * 
@@ -666,7 +666,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
      * 
@@ -684,7 +684,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000012CA.MaterialKind.code</p>
      * 
@@ -702,7 +702,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
      * 
@@ -720,7 +720,7 @@ public class ExposuresBean extends MessagePartBean {
      * to which caused the adverse reaction. This includes Drug, 
      * Food, Latex, Dust, etc.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000002CA.MaterialKind.code</p>
      * 
@@ -745,7 +745,7 @@ public class ExposuresBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000006CA.AdministrableMaterial.administerableMaterialKind</p>
@@ -758,7 +758,7 @@ public class ExposuresBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000006CA.AdministrableMaterial.administerableMaterialKind</p>

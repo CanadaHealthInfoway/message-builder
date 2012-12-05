@@ -103,7 +103,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
@@ -115,7 +115,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
@@ -127,7 +127,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
@@ -142,7 +142,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Indicates the location the dispensed medication should be 
      * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
@@ -157,7 +157,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Indicates the location the dispensed medication should be 
      * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
@@ -172,7 +172,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Indicates the location the dispensed device should be 
      * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
@@ -184,7 +184,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
@@ -196,7 +196,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
@@ -208,7 +208,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
@@ -223,7 +223,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Indicates the location the dispensed medication should be 
      * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
@@ -235,7 +235,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
@@ -247,7 +247,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
@@ -268,7 +268,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
@@ -280,7 +280,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
@@ -292,7 +292,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
@@ -307,7 +307,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Indicates the location the dispensed medication should be 
      * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
@@ -322,7 +322,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Indicates the location the dispensed medication should be 
      * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
@@ -337,7 +337,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Indicates the location the dispensed device should be 
      * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
@@ -349,7 +349,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
@@ -361,7 +361,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
@@ -373,7 +373,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
@@ -388,7 +388,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * <p>Indicates the location the dispensed medication should be 
      * shipped to, at the request of the patient or provider.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
@@ -400,7 +400,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
@@ -412,7 +412,7 @@ public class DispenseShipToLocationBean extends MessagePartBean {
      * 
      * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>

@@ -74,7 +74,7 @@ public class AdministrationPreconditionBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageCondition</p>
      * 
-     * <p>Other Business Name: DosageCondition</p>
+     * <p>Un-merged Business Name: DosageCondition</p>
      * 
      * <p>Relationship: COCT_MT270010CA.ActEventCriterion.text</p>
      * 
@@ -102,7 +102,7 @@ public class AdministrationPreconditionBean extends MessagePartBean {
      * <p>Allows un-coded specifications of conditions in which the 
      * medication should be taken.</p>
      * 
-     * <p>Other Business Name: DosageCondition</p>
+     * <p>Un-merged Business Name: DosageCondition</p>
      * 
      * <p>Relationship: PORX_MT980040CA.ActEventCriterion.text</p>
      * 
@@ -138,7 +138,7 @@ public class AdministrationPreconditionBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageCondition</p>
      * 
-     * <p>Other Business Name: DosageCondition</p>
+     * <p>Un-merged Business Name: DosageCondition</p>
      * 
      * <p>Relationship: COCT_MT270010CA.ActEventCriterion.text</p>
      * 
@@ -166,7 +166,7 @@ public class AdministrationPreconditionBean extends MessagePartBean {
      * <p>Allows un-coded specifications of conditions in which the 
      * medication should be taken.</p>
      * 
-     * <p>Other Business Name: DosageCondition</p>
+     * <p>Un-merged Business Name: DosageCondition</p>
      * 
      * <p>Relationship: PORX_MT980040CA.ActEventCriterion.text</p>
      * 

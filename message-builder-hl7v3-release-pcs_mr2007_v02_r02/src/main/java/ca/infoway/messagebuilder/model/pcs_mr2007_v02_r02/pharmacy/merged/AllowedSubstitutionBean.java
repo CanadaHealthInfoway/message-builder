@@ -70,7 +70,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: SubstitutionNotAllowedIndicator</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.negationInd</p>
@@ -85,7 +85,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>If true, indicates that the drug must be dispensed 
      * exactly as prescribed</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowed</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowed</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstitutionPermission.negationInd</p>
@@ -99,7 +99,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>If true, indicates that the prescriber has prohibited 
      * substitution. Default is that substitution is allowed.</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedIndicator</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstitutionPermission.negationInd</p>
@@ -120,7 +120,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: SubstitutionNotAllowedIndicator</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.negationInd</p>
@@ -135,7 +135,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>If true, indicates that the drug must be dispensed 
      * exactly as prescribed</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowed</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowed</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstitutionPermission.negationInd</p>
@@ -149,7 +149,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>If true, indicates that the prescriber has prohibited 
      * substitution. Default is that substitution is allowed.</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedIndicator</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstitutionPermission.negationInd</p>
@@ -170,7 +170,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: NotAllowedReason</p>
+     * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.reasonCode</p>
@@ -187,7 +187,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>The reason why the prescriber has indicated that 
      * substitution is not allowed by the dispensing pharmacy.</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedReason</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstitutionPermission.reasonCode</p>
@@ -204,7 +204,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>The reason why the prescriber has indicated that 
      * substitution is not allowed by the dispensing pharmacy.</p>
      * 
-     * <p>Other Business Name: NotAllowedReason</p>
+     * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstitutionPermission.reasonCode</p>
@@ -227,7 +227,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: NotAllowedReason</p>
+     * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.reasonCode</p>
@@ -244,7 +244,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>The reason why the prescriber has indicated that 
      * substitution is not allowed by the dispensing pharmacy.</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedReason</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstitutionPermission.reasonCode</p>
@@ -261,7 +261,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>The reason why the prescriber has indicated that 
      * substitution is not allowed by the dispensing pharmacy.</p>
      * 
-     * <p>Other Business Name: NotAllowedReason</p>
+     * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstitutionPermission.reasonCode</p>

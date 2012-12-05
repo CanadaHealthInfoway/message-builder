@@ -218,7 +218,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.ControlActEvent.id</p>
      * 
@@ -235,7 +235,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.id</p>
      * 
@@ -252,7 +252,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.ControlActEvent.id</p>
      * 
@@ -269,7 +269,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.id</p>
      * 
@@ -286,7 +286,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.id</p>
      * 
@@ -303,7 +303,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.ControlActEvent.id</p>
      * 
@@ -320,7 +320,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.id</p>
      * 
@@ -337,7 +337,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.ControlActEvent.id</p>
      * 
@@ -354,7 +354,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.ControlActEvent.id</p>
      * 
@@ -371,7 +371,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.id</p>
      * 
@@ -388,7 +388,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.id</p>
      * 
@@ -413,7 +413,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.ControlActEvent.id</p>
      * 
@@ -430,7 +430,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.id</p>
      * 
@@ -447,7 +447,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.ControlActEvent.id</p>
      * 
@@ -464,7 +464,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.id</p>
      * 
@@ -481,7 +481,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.id</p>
      * 
@@ -498,7 +498,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.ControlActEvent.id</p>
      * 
@@ -515,7 +515,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.id</p>
      * 
@@ -532,7 +532,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.ControlActEvent.id</p>
      * 
@@ -549,7 +549,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.ControlActEvent.id</p>
      * 
@@ -566,7 +566,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.id</p>
      * 
@@ -583,7 +583,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.id</p>
      * 
@@ -608,7 +608,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: EventType</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.ControlActEvent.code</p>
      * 
@@ -619,7 +619,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.code</p>
      * 
@@ -630,7 +630,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.ControlActEvent.code</p>
      * 
@@ -641,7 +641,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.code</p>
      * 
@@ -652,7 +652,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.code</p>
      * 
@@ -663,7 +663,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.ControlActEvent.code</p>
      * 
@@ -674,7 +674,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.code</p>
      * 
@@ -685,7 +685,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.ControlActEvent.code</p>
      * 
@@ -696,7 +696,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.ControlActEvent.code</p>
      * 
@@ -707,7 +707,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.code</p>
      * 
@@ -718,7 +718,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.code</p>
      * 
@@ -737,7 +737,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: EventType</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.ControlActEvent.code</p>
      * 
@@ -748,7 +748,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.code</p>
      * 
@@ -759,7 +759,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.ControlActEvent.code</p>
      * 
@@ -770,7 +770,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.code</p>
      * 
@@ -781,7 +781,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.code</p>
      * 
@@ -792,7 +792,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.ControlActEvent.code</p>
      * 
@@ -803,7 +803,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.code</p>
      * 
@@ -814,7 +814,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.ControlActEvent.code</p>
      * 
@@ -825,7 +825,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.ControlActEvent.code</p>
      * 
@@ -836,7 +836,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.code</p>
      * 
@@ -847,7 +847,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.code</p>
      * 
@@ -866,7 +866,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700227CA.ControlActEvent.effectiveTime</p>
@@ -882,7 +882,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.ControlActEvent.effectiveTime</p>
@@ -898,7 +898,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700218CA.ControlActEvent.effectiveTime</p>
@@ -914,7 +914,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.ControlActEvent.effectiveTime</p>
@@ -930,7 +930,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.ControlActEvent.effectiveTime</p>
@@ -946,7 +946,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700217CA.ControlActEvent.effectiveTime</p>
@@ -962,7 +962,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.ControlActEvent.effectiveTime</p>
@@ -978,7 +978,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700226CA.ControlActEvent.effectiveTime</p>
@@ -994,7 +994,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700216CA.ControlActEvent.effectiveTime</p>
@@ -1010,7 +1010,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.ControlActEvent.effectiveTime</p>
@@ -1026,7 +1026,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.ControlActEvent.effectiveTime</p>
@@ -1050,7 +1050,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700227CA.ControlActEvent.effectiveTime</p>
@@ -1066,7 +1066,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.ControlActEvent.effectiveTime</p>
@@ -1082,7 +1082,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700218CA.ControlActEvent.effectiveTime</p>
@@ -1098,7 +1098,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.ControlActEvent.effectiveTime</p>
@@ -1114,7 +1114,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.ControlActEvent.effectiveTime</p>
@@ -1130,7 +1130,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700217CA.ControlActEvent.effectiveTime</p>
@@ -1146,7 +1146,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.ControlActEvent.effectiveTime</p>
@@ -1162,7 +1162,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700226CA.ControlActEvent.effectiveTime</p>
@@ -1178,7 +1178,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700216CA.ControlActEvent.effectiveTime</p>
@@ -1194,7 +1194,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.ControlActEvent.effectiveTime</p>
@@ -1210,7 +1210,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.ControlActEvent.effectiveTime</p>
@@ -1234,7 +1234,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: EventReason</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.ControlActEvent.reasonCode</p>
      * 
@@ -1252,7 +1252,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.reasonCode</p>
      * 
@@ -1270,7 +1270,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.ControlActEvent.reasonCode</p>
      * 
@@ -1288,7 +1288,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.reasonCode</p>
      * 
@@ -1306,7 +1306,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.reasonCode</p>
      * 
@@ -1324,7 +1324,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.ControlActEvent.reasonCode</p>
      * 
@@ -1342,7 +1342,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.reasonCode</p>
      * 
@@ -1360,7 +1360,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.ControlActEvent.reasonCode</p>
      * 
@@ -1378,7 +1378,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.ControlActEvent.reasonCode</p>
      * 
@@ -1396,7 +1396,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.reasonCode</p>
      * 
@@ -1414,7 +1414,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.reasonCode</p>
      * 
@@ -1440,7 +1440,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: EventReason</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.ControlActEvent.reasonCode</p>
      * 
@@ -1458,7 +1458,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.reasonCode</p>
      * 
@@ -1476,7 +1476,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.ControlActEvent.reasonCode</p>
      * 
@@ -1494,7 +1494,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.reasonCode</p>
      * 
@@ -1512,7 +1512,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.reasonCode</p>
      * 
@@ -1530,7 +1530,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.ControlActEvent.reasonCode</p>
      * 
@@ -1548,7 +1548,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.reasonCode</p>
      * 
@@ -1566,7 +1566,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.ControlActEvent.reasonCode</p>
      * 
@@ -1584,7 +1584,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.ControlActEvent.reasonCode</p>
      * 
@@ -1602,7 +1602,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.reasonCode</p>
      * 
@@ -1620,7 +1620,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.reasonCode</p>
      * 
@@ -1644,56 +1644,56 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700227CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700217CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700226CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700216CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.ControlActEvent.recordTarget</p>
@@ -1706,56 +1706,56 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700227CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700217CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700226CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700216CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.ControlActEvent.recordTarget</p>
@@ -1768,67 +1768,67 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.subject</p>
      * 
@@ -1840,67 +1840,67 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.subject</p>
      * 
@@ -1912,67 +1912,67 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.Subject.detectedIssueEvent</p>
      * 
@@ -2003,42 +2003,42 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.ResponsibleParty.assignedEntity</p>
@@ -2051,42 +2051,42 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.ResponsibleParty.assignedEntity</p>
@@ -2099,37 +2099,37 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.author</p>
      * 
@@ -2141,37 +2141,37 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.author</p>
      * 
@@ -2183,37 +2183,37 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.DataEnterer.actingPerson</p>
      * 
@@ -2225,37 +2225,37 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.DataEnterer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.DataEnterer.actingPerson</p>
      * 
@@ -2267,37 +2267,37 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.location</p>
      * 
@@ -2309,37 +2309,37 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.ControlActEvent.location</p>
      * 
@@ -2351,42 +2351,42 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.DataEntryLocation.serviceDeliveryLocation</p>
@@ -2399,42 +2399,42 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.DataEntryLocation.serviceDeliveryLocation</p>
@@ -2447,42 +2447,42 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.PertinentInformation.authorizationToken</p>
@@ -2495,42 +2495,42 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.PertinentInformation.authorizationToken</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700220CA.PertinentInformation.authorizationToken</p>
@@ -2543,19 +2543,19 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.subjectOf2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.subjectOf2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.subjectOf2</p>
      * 
@@ -2567,19 +2567,19 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.subjectOf2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.subjectOf2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.subjectOf2</p>
      * 
@@ -2591,19 +2591,19 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.ControlActEvent.componentOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.componentOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.ControlActEvent.componentOf</p>
      * 

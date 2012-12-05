@@ -39,7 +39,7 @@ public class InformationSourceRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: InformationSource</p>
      * 
-     * <p>Other Business Name: InformationSource</p>
+     * <p>Un-merged Business Name: InformationSource</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InformationSourceRole.classCode</p>
@@ -53,7 +53,7 @@ public class InformationSourceRoleBean extends MessagePartBean {
      * <p>Allows for the explicit identification of the source of 
      * the recorded information.</p>
      * 
-     * <p>Other Business Name: InformationSource</p>
+     * <p>Un-merged Business Name: InformationSource</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InformationSourceRole.classCode</p>
@@ -75,7 +75,7 @@ public class InformationSourceRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: InformationSource</p>
      * 
-     * <p>Other Business Name: InformationSource</p>
+     * <p>Un-merged Business Name: InformationSource</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InformationSourceRole.classCode</p>
@@ -89,7 +89,7 @@ public class InformationSourceRoleBean extends MessagePartBean {
      * <p>Allows for the explicit identification of the source of 
      * the recorded information.</p>
      * 
-     * <p>Other Business Name: InformationSource</p>
+     * <p>Un-merged Business Name: InformationSource</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InformationSourceRole.classCode</p>

@@ -41,13 +41,13 @@ public class SubjectBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientKeyword</p>
      * 
-     * <p>Other Business Name: PatientKeyword</p>
+     * <p>Un-merged Business Name: PatientKeyword</p>
      * 
      * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PatientKeyword</p>
+     * <p>Un-merged Business Name: PatientKeyword</p>
      * 
      * <p>Relationship: FICR_MT500201CA.Subject.signatureText</p>
      * 
@@ -61,13 +61,13 @@ public class SubjectBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientKeyword</p>
      * 
-     * <p>Other Business Name: PatientKeyword</p>
+     * <p>Un-merged Business Name: PatientKeyword</p>
      * 
      * <p>Relationship: FICR_MT600201CA.Subject.signatureText</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PatientKeyword</p>
+     * <p>Un-merged Business Name: PatientKeyword</p>
      * 
      * <p>Relationship: FICR_MT500201CA.Subject.signatureText</p>
      * 
@@ -79,13 +79,13 @@ public class SubjectBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT500201CA.Subject.patientConsent</p>
      * 
@@ -97,13 +97,13 @@ public class SubjectBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT500201CA.Subject.patientConsent</p>
      * 

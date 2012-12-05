@@ -82,19 +82,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.DocumentContent.reason</p>
      * 
@@ -109,7 +109,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     /**
      * <p>Business Name: ClinicalObservationDocumentType</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentType</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Observation.code</p>
      * 
@@ -129,7 +129,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * represented by this record.</i> </p><p>e.g. family history, 
      * environmental history, social history, etc.</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentType</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Observation.code</p>
      * 
@@ -149,7 +149,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * represented by this record.</i> </p><p>e.g. family history, 
      * environmental history, social history, etc.</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentType</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Observation.code</p>
      * 
@@ -177,7 +177,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     /**
      * <p>Business Name: ClinicalObservationDocumentType</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentType</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Observation.code</p>
      * 
@@ -197,7 +197,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * represented by this record.</i> </p><p>e.g. family history, 
      * environmental history, social history, etc.</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentType</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Observation.code</p>
      * 
@@ -217,7 +217,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * represented by this record.</i> </p><p>e.g. family history, 
      * environmental history, social history, etc.</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentType</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentType</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Observation.code</p>
      * 
@@ -245,7 +245,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     /**
      * <p>Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Observation.effectiveTime</p>
      * 
@@ -263,7 +263,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Observation.effectiveTime</p>
      * 
@@ -281,7 +281,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Observation.effectiveTime</p>
      * 
@@ -307,7 +307,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     /**
      * <p>Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Observation.effectiveTime</p>
      * 
@@ -325,7 +325,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Observation.effectiveTime</p>
      * 
@@ -343,7 +343,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
-     * <p>Other Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Observation.effectiveTime</p>
      * 
@@ -367,19 +367,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Observation.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.DocumentContent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.DocumentContent.location</p>
      * 
@@ -391,19 +391,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Observation.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.DocumentContent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.DocumentContent.location</p>
      * 
@@ -415,19 +415,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.InFulfillmentOf3.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.InFulfillmentOf3.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.InFulfillmentOf3.actRequest</p>
      * 
@@ -439,19 +439,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.InFulfillmentOf3.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.InFulfillmentOf3.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.InFulfillmentOf3.actRequest</p>
      * 
@@ -463,19 +463,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Subject.actEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Subject.actEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Subject.actEvent</p>
      * 
@@ -487,19 +487,19 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Subject.actEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Subject.actEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Subject.actEvent</p>
      * 

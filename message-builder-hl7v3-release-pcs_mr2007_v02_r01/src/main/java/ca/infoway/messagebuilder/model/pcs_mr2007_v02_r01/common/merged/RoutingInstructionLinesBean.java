@@ -69,7 +69,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: RoutingType</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.AttentionLine.keyWordText</p>
      * 
@@ -82,7 +82,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * <p>A particular type of guidance for routing the 
      * message.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AttentionLine.keyWordText</p>
      * 
@@ -95,7 +95,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * <p>A particular type of guidance for routing the 
      * message.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.AttentionLine.keyWordText</p>
      * 
@@ -116,7 +116,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: RoutingType</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.AttentionLine.keyWordText</p>
      * 
@@ -129,7 +129,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * <p>A particular type of guidance for routing the 
      * message.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AttentionLine.keyWordText</p>
      * 
@@ -142,7 +142,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * <p>A particular type of guidance for routing the 
      * message.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.AttentionLine.keyWordText</p>
      * 
@@ -163,7 +163,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: RoutingName</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.AttentionLine.value</p>
      * 
@@ -173,7 +173,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Indicates the specific value used to route the item.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AttentionLine.value</p>
      * 
@@ -183,7 +183,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Indicates the specific value used to route the item.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.AttentionLine.value</p>
      * 
@@ -201,7 +201,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: RoutingName</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.AttentionLine.value</p>
      * 
@@ -211,7 +211,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Indicates the specific value used to route the item.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AttentionLine.value</p>
      * 
@@ -221,7 +221,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Indicates the specific value used to route the item.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.AttentionLine.value</p>
      * 

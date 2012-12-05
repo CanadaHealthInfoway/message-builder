@@ -39,7 +39,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
      * 
@@ -48,7 +48,7 @@ public class LocationBean extends MessagePartBean {
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
      * 
-     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
      * 
@@ -65,7 +65,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
      * 
@@ -74,7 +74,7 @@ public class LocationBean extends MessagePartBean {
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
      * 
-     * <p>Other Business Name: OrderOfServiceDeliveryLocations</p>
+     * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
      * 
@@ -89,14 +89,14 @@ public class LocationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
@@ -109,14 +109,14 @@ public class LocationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>

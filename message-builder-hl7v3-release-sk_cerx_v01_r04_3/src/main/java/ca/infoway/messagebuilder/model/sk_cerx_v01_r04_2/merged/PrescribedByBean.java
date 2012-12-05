@@ -146,49 +146,49 @@ public class PrescribedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470000CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020050CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060100CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Author2.assignedPerson</p>
      * 
@@ -200,49 +200,49 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470000CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020050CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060100CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Author2.assignedPerson</p>
      * 
@@ -254,7 +254,7 @@ public class PrescribedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Author2.time</p>
      * 
@@ -307,7 +307,7 @@ public class PrescribedByBean extends MessagePartBean {
      * will not always be known (as in the case of 'inferred 
      * prescription').</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT060020CA.Author2.time</p>
      * 
@@ -358,7 +358,7 @@ public class PrescribedByBean extends MessagePartBean {
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT060100CA.Author2.time</p>
      * 
@@ -409,7 +409,7 @@ public class PrescribedByBean extends MessagePartBean {
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Author2.time</p>
      * 
@@ -428,7 +428,7 @@ public class PrescribedByBean extends MessagePartBean {
      * inferred prescription, and is therefore marked as 
      * &quot;populated&quot;.</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Author2.time</p>
      * 
@@ -465,7 +465,7 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Author2.time</p>
      * 
@@ -518,7 +518,7 @@ public class PrescribedByBean extends MessagePartBean {
      * will not always be known (as in the case of 'inferred 
      * prescription').</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT060020CA.Author2.time</p>
      * 
@@ -569,7 +569,7 @@ public class PrescribedByBean extends MessagePartBean {
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT060100CA.Author2.time</p>
      * 
@@ -620,7 +620,7 @@ public class PrescribedByBean extends MessagePartBean {
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Author2.time</p>
      * 
@@ -639,7 +639,7 @@ public class PrescribedByBean extends MessagePartBean {
      * inferred prescription, and is therefore marked as 
      * &quot;populated&quot;.</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Author2.time</p>
      * 

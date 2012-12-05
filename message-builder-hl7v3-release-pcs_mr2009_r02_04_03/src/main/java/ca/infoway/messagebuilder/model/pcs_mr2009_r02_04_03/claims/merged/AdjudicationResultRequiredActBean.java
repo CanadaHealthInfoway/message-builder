@@ -54,14 +54,14 @@ public class AdjudicationResultRequiredActBean extends MessagePartBean {
     /**
      * <p>Business Name: RequiredActionType</p>
      * 
-     * <p>Other Business Name: RequiredActionType</p>
+     * <p>Un-merged Business Name: RequiredActionType</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.AdjudicationResultRequiredAct.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RequiredActionType</p>
+     * <p>Un-merged Business Name: RequiredActionType</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicationResultRequiredAct.code</p>
@@ -76,14 +76,14 @@ public class AdjudicationResultRequiredActBean extends MessagePartBean {
     /**
      * <p>Business Name: RequiredActionType</p>
      * 
-     * <p>Other Business Name: RequiredActionType</p>
+     * <p>Un-merged Business Name: RequiredActionType</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.AdjudicationResultRequiredAct.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RequiredActionType</p>
+     * <p>Un-merged Business Name: RequiredActionType</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicationResultRequiredAct.code</p>
@@ -96,7 +96,7 @@ public class AdjudicationResultRequiredActBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT510201CA.DirectTarget.formRole</p>
      * 
@@ -108,7 +108,7 @@ public class AdjudicationResultRequiredActBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT510201CA.DirectTarget.formRole</p>
      * 

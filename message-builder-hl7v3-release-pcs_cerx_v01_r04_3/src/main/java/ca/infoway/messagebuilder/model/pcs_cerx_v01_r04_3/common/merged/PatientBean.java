@@ -91,7 +91,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientID</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Patient.id</p>
      * 
@@ -139,7 +139,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * EHR will define which identifier to use within a 
      * jurisdiction.</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Patient.id</p>
      * 
@@ -195,7 +195,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientID</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Patient.id</p>
      * 
@@ -243,7 +243,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * EHR will define which identifier to use within a 
      * jurisdiction.</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Patient.id</p>
      * 
@@ -299,7 +299,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Patient.addr</p>
      * 
@@ -378,7 +378,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Patient.addr</p>
      * 
@@ -457,7 +457,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientContactPhoneAndEMails</p>
      * 
-     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * <p>Un-merged Business Name: PatientContactPhoneAndEMails</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Patient.telecom</p>
      * 
@@ -509,7 +509,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Person.name</p>
      * 
@@ -576,7 +576,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * a particular clinical action that has been reported or 
      * recorded.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Person.name</p>
      * 
@@ -653,7 +653,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Person.name</p>
      * 
@@ -720,7 +720,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * a particular clinical action that has been reported or 
      * recorded.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Person.name</p>
      * 
@@ -797,7 +797,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050202CA.Person.administrativeGenderCode</p>
@@ -814,7 +814,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * genetic genders are handled as observations if they are 
      * considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050203CA.Person.administrativeGenderCode</p>
@@ -851,7 +851,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050202CA.Person.administrativeGenderCode</p>
@@ -868,7 +868,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * genetic genders are handled as observations if they are 
      * considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050203CA.Person.administrativeGenderCode</p>
@@ -905,7 +905,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
      * 
@@ -919,7 +919,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Person.birthTime</p>
      * 
@@ -955,7 +955,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     /**
      * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
      * 
@@ -969,7 +969,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050203CA.Person.birthTime</p>
      * 

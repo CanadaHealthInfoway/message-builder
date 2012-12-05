@@ -73,7 +73,7 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ProviderIdentifiers</p>
+     * <p>Un-merged Business Name: ProviderIdentifiers</p>
      * 
      * <p>Relationship: COCT_MT290000CA.HealthCareProvider.id</p>
      * 
@@ -84,7 +84,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Provider ID, eg. Prof. license no.</p>
      * 
-     * <p>Other Business Name: ProviderID</p>
+     * <p>Un-merged Business Name: ProviderID</p>
      * 
      * <p>Relationship: COCT_MT490000CA.HealthCareProvider.id</p>
      * 
@@ -102,7 +102,7 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ProviderType</p>
+     * <p>Un-merged Business Name: ProviderType</p>
      * 
      * <p>Relationship: COCT_MT290000CA.HealthCareProvider.code</p>
      * 
@@ -110,7 +110,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Allows for crosswalks between speciality code sets</p>
      * 
-     * <p>Other Business Name: HealthcareProviderCode</p>
+     * <p>Un-merged Business Name: HealthcareProviderCode</p>
      * 
      * <p>Relationship: COCT_MT490000CA.HealthCareProvider.code</p>
      * 
@@ -124,7 +124,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ProviderType</p>
+     * <p>Un-merged Business Name: ProviderType</p>
      * 
      * <p>Relationship: COCT_MT290000CA.HealthCareProvider.code</p>
      * 
@@ -132,7 +132,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Allows for crosswalks between speciality code sets</p>
      * 
-     * <p>Other Business Name: HealthcareProviderCode</p>
+     * <p>Un-merged Business Name: HealthcareProviderCode</p>
      * 
      * <p>Relationship: COCT_MT490000CA.HealthCareProvider.code</p>
      * 
@@ -146,7 +146,7 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: NameOfProvider</p>
+     * <p>Un-merged Business Name: NameOfProvider</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ProviderPerson.name</p>
      * 
@@ -154,7 +154,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Name of person providing service or drug</p>
      * 
-     * <p>Other Business Name: ProviderName</p>
+     * <p>Un-merged Business Name: ProviderName</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ProviderPerson.name</p>
      * 
@@ -168,7 +168,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: NameOfProvider</p>
+     * <p>Un-merged Business Name: NameOfProvider</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ProviderPerson.name</p>
      * 
@@ -176,7 +176,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>Name of person providing service or drug</p>
      * 
-     * <p>Other Business Name: ProviderName</p>
+     * <p>Un-merged Business Name: ProviderName</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ProviderPerson.name</p>
      * 
@@ -190,7 +190,7 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ContactNo</p>
+     * <p>Un-merged Business Name: ContactNo</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ProviderPerson.telecom</p>
      * 
@@ -198,7 +198,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>contact info. for Provider</p>
      * 
-     * <p>Other Business Name: ProviderTelecom</p>
+     * <p>Un-merged Business Name: ProviderTelecom</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ProviderPerson.telecom</p>
      * 
@@ -214,7 +214,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ContactNo</p>
+     * <p>Un-merged Business Name: ContactNo</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ProviderPerson.telecom</p>
      * 
@@ -222,7 +222,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * 
      * <p>contact info. for Provider</p>
      * 
-     * <p>Other Business Name: ProviderTelecom</p>
+     * <p>Un-merged Business Name: ProviderTelecom</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ProviderPerson.telecom</p>
      * 
@@ -240,7 +240,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Business Name: ProviderGender</p>
      * 
-     * <p>Other Business Name: ProviderGender</p>
+     * <p>Un-merged Business Name: ProviderGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.ProviderPerson.administrativeGenderCode</p>
@@ -250,7 +250,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
      * 
-     * <p>Other Business Name: ProviderGender</p>
+     * <p>Un-merged Business Name: ProviderGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.ProviderPerson.administrativeGenderCode</p>
@@ -267,7 +267,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Business Name: ProviderGender</p>
      * 
-     * <p>Other Business Name: ProviderGender</p>
+     * <p>Un-merged Business Name: ProviderGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.ProviderPerson.administrativeGenderCode</p>
@@ -277,7 +277,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
      * 
-     * <p>Other Business Name: ProviderGender</p>
+     * <p>Un-merged Business Name: ProviderGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.ProviderPerson.administrativeGenderCode</p>
@@ -292,7 +292,7 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ProviderDateOfBirth</p>
+     * <p>Un-merged Business Name: ProviderDateOfBirth</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ProviderPerson.birthTime</p>
      * 
@@ -301,7 +301,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
      * 
-     * <p>Other Business Name: ProviderBirthDate</p>
+     * <p>Un-merged Business Name: ProviderBirthDate</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ProviderPerson.birthTime</p>
      * 
@@ -315,7 +315,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ProviderDateOfBirth</p>
+     * <p>Un-merged Business Name: ProviderDateOfBirth</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ProviderPerson.birthTime</p>
      * 
@@ -324,7 +324,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
      * 
-     * <p>Other Business Name: ProviderBirthDate</p>
+     * <p>Un-merged Business Name: ProviderBirthDate</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ProviderPerson.birthTime</p>
      * 
@@ -340,7 +340,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Business Name: ProviderAddress</p>
      * 
-     * <p>Other Business Name: ProviderAddress</p>
+     * <p>Un-merged Business Name: ProviderAddress</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ProviderPerson.addr</p>
      * 
@@ -351,7 +351,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
      * 
-     * <p>Other Business Name: ProviderAddress</p>
+     * <p>Un-merged Business Name: ProviderAddress</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ProviderPerson.addr</p>
      * 
@@ -367,7 +367,7 @@ public class HealthcareProviderBean extends MessagePartBean {
     /**
      * <p>Business Name: ProviderAddress</p>
      * 
-     * <p>Other Business Name: ProviderAddress</p>
+     * <p>Un-merged Business Name: ProviderAddress</p>
      * 
      * <p>Relationship: COCT_MT290000CA.ProviderPerson.addr</p>
      * 
@@ -378,7 +378,7 @@ public class HealthcareProviderBean extends MessagePartBean {
      * <p>Telecom, gender, birth time, addr are only required if 
      * provider is not known to the Payor</p>
      * 
-     * <p>Other Business Name: ProviderAddress</p>
+     * <p>Un-merged Business Name: ProviderAddress</p>
      * 
      * <p>Relationship: COCT_MT490000CA.ProviderPerson.addr</p>
      * 

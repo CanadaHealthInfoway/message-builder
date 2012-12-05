@@ -87,7 +87,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: RoutingType</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.AttentionLine.keyWordText</p>
      * 
@@ -100,7 +100,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.AttentionLine.keyWordText</p>
      * 
@@ -113,7 +113,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.AttentionLine.keyWordText</p>
      * 
@@ -126,7 +126,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AttentionLine.keyWordText</p>
      * 
@@ -139,7 +139,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.AttentionLine.keyWordText</p>
      * 
@@ -160,7 +160,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: RoutingType</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.AttentionLine.keyWordText</p>
      * 
@@ -173,7 +173,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.AttentionLine.keyWordText</p>
      * 
@@ -186,7 +186,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.AttentionLine.keyWordText</p>
      * 
@@ -199,7 +199,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AttentionLine.keyWordText</p>
      * 
@@ -212,7 +212,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * multiple route pieces. Mandatory to understand the routing 
      * information.</p>
      * 
-     * <p>Other Business Name: RoutingType</p>
+     * <p>Un-merged Business Name: RoutingType</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.AttentionLine.keyWordText</p>
      * 
@@ -233,7 +233,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: RoutingName</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.AttentionLine.value</p>
      * 
@@ -243,7 +243,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Allows internal routing within an application.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.AttentionLine.value</p>
      * 
@@ -253,7 +253,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Allows internal routing within an application.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.AttentionLine.value</p>
      * 
@@ -263,7 +263,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Allows internal routing within an application.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AttentionLine.value</p>
      * 
@@ -273,7 +273,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Allows internal routing within an application.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.AttentionLine.value</p>
      * 
@@ -291,7 +291,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
     /**
      * <p>Business Name: RoutingName</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.AttentionLine.value</p>
      * 
@@ -301,7 +301,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Allows internal routing within an application.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.AttentionLine.value</p>
      * 
@@ -311,7 +311,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Allows internal routing within an application.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.AttentionLine.value</p>
      * 
@@ -321,7 +321,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Allows internal routing within an application.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AttentionLine.value</p>
      * 
@@ -331,7 +331,7 @@ public class RoutingInstructionLinesBean extends MessagePartBean {
      * 
      * <p>Allows internal routing within an application.</p>
      * 
-     * <p>Other Business Name: RoutingName</p>
+     * <p>Un-merged Business Name: RoutingName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.AttentionLine.value</p>
      * 

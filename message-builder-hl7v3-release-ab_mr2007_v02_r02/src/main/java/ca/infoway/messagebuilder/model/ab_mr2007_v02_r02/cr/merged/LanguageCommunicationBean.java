@@ -68,7 +68,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationPreferenceIndicator</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -83,7 +83,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * to indicate the preferred language for all 
      * communications.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * LanguageOfCommunicationPreferenceIndicator</p>
      * 
      * <p>Relationship: 
@@ -107,7 +107,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationCode</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.LanguageCommunication.languageCode</p>
@@ -127,7 +127,7 @@ public class LanguageCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationCode</p>
      * 
-     * <p>Other Business Name: LanguageOfCommunicationCode</p>
+     * <p>Un-merged Business Name: LanguageOfCommunicationCode</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.LanguageCommunication.languageCode</p>

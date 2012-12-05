@@ -75,21 +75,21 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientImmunizationObservationType</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationType</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationType</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.PatientImmunizationObservations.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationType</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationType</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.PatientImmunizationObservations.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationType</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationType</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.PatientImmunizationObservations.code</p>
@@ -104,21 +104,21 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientImmunizationObservationType</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationType</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationType</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.PatientImmunizationObservations.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationType</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationType</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.PatientImmunizationObservations.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationType</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationType</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.PatientImmunizationObservations.code</p>
@@ -133,7 +133,7 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientImmunizationObservationValue</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationValue</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationValue</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.PatientImmunizationObservations.value</p>
@@ -146,7 +146,7 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * <p>Allows the specification of a value related to the 
      * patient immunization observation in question.</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationValue</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationValue</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.PatientImmunizationObservations.value</p>
@@ -159,7 +159,7 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * <p>Allows the specification of a value related to the 
      * patient immunization observation in question.</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationValue</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationValue</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.PatientImmunizationObservations.value</p>
@@ -180,7 +180,7 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientImmunizationObservationValue</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationValue</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationValue</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.PatientImmunizationObservations.value</p>
@@ -193,7 +193,7 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * <p>Allows the specification of a value related to the 
      * patient immunization observation in question.</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationValue</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationValue</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.PatientImmunizationObservations.value</p>
@@ -206,7 +206,7 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
      * <p>Allows the specification of a value related to the 
      * patient immunization observation in question.</p>
      * 
-     * <p>Other Business Name: PatientImmunizationObservationValue</p>
+     * <p>Un-merged Business Name: PatientImmunizationObservationValue</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.PatientImmunizationObservations.value</p>

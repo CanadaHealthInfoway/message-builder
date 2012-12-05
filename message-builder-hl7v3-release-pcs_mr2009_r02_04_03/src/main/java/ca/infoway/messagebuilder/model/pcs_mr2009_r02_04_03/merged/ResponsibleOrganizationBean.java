@@ -93,7 +93,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Organization.name</p>
      * 
@@ -105,7 +105,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Organization.name</p>
      * 
@@ -118,7 +118,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Organization.name</p>
      * 
@@ -129,7 +129,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension.</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.name</p>
      * 
@@ -141,7 +141,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Organization.name</p>
      * 
@@ -152,7 +152,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Organization.name</p>
      * 
@@ -164,7 +164,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.name</p>
      * 
@@ -176,7 +176,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Organization.name</p>
      * 
@@ -188,7 +188,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Organization.name</p>
      * 
@@ -199,7 +199,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Organization.name</p>
      * 
@@ -212,13 +212,13 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Organization.name</p>
      * 
@@ -235,7 +235,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Organization.name</p>
      * 
@@ -247,7 +247,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Organization.name</p>
      * 
@@ -260,7 +260,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Organization.name</p>
      * 
@@ -271,7 +271,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension.</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.name</p>
      * 
@@ -283,7 +283,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Organization.name</p>
      * 
@@ -294,7 +294,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Organization.name</p>
      * 
@@ -306,7 +306,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.name</p>
      * 
@@ -318,7 +318,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Organization.name</p>
      * 
@@ -330,7 +330,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Organization.name</p>
      * 
@@ -341,7 +341,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Organization.name</p>
      * 
@@ -354,13 +354,13 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Organization.name</p>
      * 
@@ -379,7 +379,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Organization.id</p>
      * 
@@ -392,7 +392,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.id</p>
      * 
@@ -405,7 +405,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Organization.id</p>
      * 
@@ -418,7 +418,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.id</p>
      * 
@@ -431,7 +431,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Organization.id</p>
      * 
@@ -452,7 +452,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Organization.id</p>
      * 
@@ -465,7 +465,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.id</p>
      * 
@@ -478,7 +478,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Organization.id</p>
      * 
@@ -491,7 +491,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.id</p>
      * 
@@ -504,7 +504,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Organization.id</p>
      * 
@@ -525,7 +525,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
      * 
@@ -545,7 +545,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
      * 
@@ -565,7 +565,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * <p>Un-merged Business Name: OrganizationPhoneAndEmails</p>
      * 
      * <p>Relationship: 
      * COCT_MT090508CA.AssignedOrganization.telecom</p>

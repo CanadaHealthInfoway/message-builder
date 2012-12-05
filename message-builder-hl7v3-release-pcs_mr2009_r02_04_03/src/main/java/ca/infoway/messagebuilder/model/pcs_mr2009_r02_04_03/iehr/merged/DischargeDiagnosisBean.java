@@ -74,7 +74,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT500001CA.DiagnosisEvent.code</p>
      * 
@@ -91,7 +91,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * 
      * <p>Identifies the type of diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT500003CA.DiagnosisEvent.code</p>
      * 
@@ -108,7 +108,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * 
      * <p>Identifies the type of diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT500002CA.DiagnosisEvent.code</p>
      * 
@@ -125,7 +125,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * 
      * <p>Identifies the type of diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT500004CA.DiagnosisEvent.code</p>
      * 
@@ -150,7 +150,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT500001CA.DiagnosisEvent.code</p>
      * 
@@ -167,7 +167,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * 
      * <p>Identifies the type of diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT500003CA.DiagnosisEvent.code</p>
      * 
@@ -184,7 +184,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * 
      * <p>Identifies the type of diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT500002CA.DiagnosisEvent.code</p>
      * 
@@ -201,7 +201,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * 
      * <p>Identifies the type of diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT500004CA.DiagnosisEvent.code</p>
      * 
@@ -226,7 +226,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT500001CA.DiagnosisEvent.value</p>
      * 
@@ -242,7 +242,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * <p>A coded form of the condition that was identified as part 
      * of the care delivery described by this Care Composition.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT500003CA.DiagnosisEvent.value</p>
      * 
@@ -258,7 +258,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * <p>A coded form of the condition that was identified as part 
      * of the care delivery described by this Care Composition.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT500002CA.DiagnosisEvent.value</p>
      * 
@@ -274,7 +274,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * <p>A coded form of the condition that was identified as part 
      * of the care delivery described by this Care Composition.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT500004CA.DiagnosisEvent.value</p>
      * 
@@ -298,7 +298,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT500001CA.DiagnosisEvent.value</p>
      * 
@@ -314,7 +314,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * <p>A coded form of the condition that was identified as part 
      * of the care delivery described by this Care Composition.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT500003CA.DiagnosisEvent.value</p>
      * 
@@ -330,7 +330,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * <p>A coded form of the condition that was identified as part 
      * of the care delivery described by this Care Composition.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT500002CA.DiagnosisEvent.value</p>
      * 
@@ -346,7 +346,7 @@ public class DischargeDiagnosisBean extends MessagePartBean {
      * <p>A coded form of the condition that was identified as part 
      * of the care delivery described by this Care Composition.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: REPC_MT500004CA.DiagnosisEvent.value</p>
      * 

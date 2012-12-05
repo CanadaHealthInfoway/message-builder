@@ -107,7 +107,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionRecordId</p>
      * 
-     * <p>Other Business Name: ReactionRecordId</p>
+     * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ObservationEvent.id</p>
      * 
@@ -119,7 +119,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for direct referencing of an adverse reaction 
      * record which was previously recorded.</p>
      * 
-     * <p>Other Business Name: ReactionRecordId</p>
+     * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ObservationEvent.id</p>
      * 
@@ -131,7 +131,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for direct referencing of an adverse reaction 
      * record which was previously recorded.</p>
      * 
-     * <p>Other Business Name: ReactionRecordId</p>
+     * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ObservationEvent.id</p>
      * 
@@ -151,7 +151,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionRecordId</p>
      * 
-     * <p>Other Business Name: ReactionRecordId</p>
+     * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ObservationEvent.id</p>
      * 
@@ -163,7 +163,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for direct referencing of an adverse reaction 
      * record which was previously recorded.</p>
      * 
-     * <p>Other Business Name: ReactionRecordId</p>
+     * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ObservationEvent.id</p>
      * 
@@ -175,7 +175,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for direct referencing of an adverse reaction 
      * record which was previously recorded.</p>
      * 
-     * <p>Other Business Name: ReactionRecordId</p>
+     * <p>Un-merged Business Name: ReactionRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ObservationEvent.id</p>
      * 
@@ -195,7 +195,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ObservationEvent.code</p>
      * 
@@ -210,7 +210,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ObservationEvent.code</p>
      * 
@@ -225,7 +225,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ObservationEvent.code</p>
      * 
@@ -248,7 +248,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ObservationEvent.code</p>
      * 
@@ -263,7 +263,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ObservationEvent.code</p>
      * 
@@ -278,7 +278,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>If using SNOMED, this will contain the diagnosis. 
      * Otherwise it will be a fixed value of 'DX'.</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ObservationEvent.code</p>
      * 
@@ -301,7 +301,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: NoReactionOccurred</p>
      * 
-     * <p>Other Business Name: NoReactionOccurred</p>
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.ObservationEvent.negationInd</p>
@@ -328,7 +328,7 @@ public class ObservationEventBean extends MessagePartBean {
      * attribute is mandatory because it is essential to know 
      * whether the reaction occurred or not.</p>
      * 
-     * <p>Other Business Name: NoReactionOccurred</p>
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.ObservationEvent.negationInd</p>
@@ -354,7 +354,7 @@ public class ObservationEventBean extends MessagePartBean {
      * element is mandatory because it is essential to know for a 
      * given record whether the reaction occurred or not.</p>
      * 
-     * <p>Other Business Name: NoReactionOccurred</p>
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.ObservationEvent.negationInd</p>
@@ -383,7 +383,7 @@ public class ObservationEventBean extends MessagePartBean {
      * record reflects a reaction that did or did not occur, this 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: NoReactionOccurred</p>
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.ObservationEvent.negationInd</p>
@@ -418,7 +418,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: NoReactionOccurred</p>
      * 
-     * <p>Other Business Name: NoReactionOccurred</p>
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.ObservationEvent.negationInd</p>
@@ -445,7 +445,7 @@ public class ObservationEventBean extends MessagePartBean {
      * attribute is mandatory because it is essential to know 
      * whether the reaction occurred or not.</p>
      * 
-     * <p>Other Business Name: NoReactionOccurred</p>
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.ObservationEvent.negationInd</p>
@@ -471,7 +471,7 @@ public class ObservationEventBean extends MessagePartBean {
      * element is mandatory because it is essential to know for a 
      * given record whether the reaction occurred or not.</p>
      * 
-     * <p>Other Business Name: NoReactionOccurred</p>
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.ObservationEvent.negationInd</p>
@@ -500,7 +500,7 @@ public class ObservationEventBean extends MessagePartBean {
      * record reflects a reaction that did or did not occur, this 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: NoReactionOccurred</p>
+     * <p>Un-merged Business Name: NoReactionOccurred</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.ObservationEvent.negationInd</p>
@@ -535,7 +535,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: Description</p>
      * 
-     * <p>Other Business Name: Description</p>
+     * <p>Un-merged Business Name: Description</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ObservationEvent.text</p>
      * 
@@ -548,7 +548,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
      * 
-     * <p>Other Business Name: Description</p>
+     * <p>Un-merged Business Name: Description</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ObservationEvent.text</p>
      * 
@@ -561,7 +561,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
      * 
-     * <p>Other Business Name: Description</p>
+     * <p>Un-merged Business Name: Description</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ObservationEvent.text</p>
      * 
@@ -574,7 +574,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
      * 
-     * <p>Other Business Name: Description</p>
+     * <p>Un-merged Business Name: Description</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ObservationEvent.text</p>
      * 
@@ -595,7 +595,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: Description</p>
      * 
-     * <p>Other Business Name: Description</p>
+     * <p>Un-merged Business Name: Description</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ObservationEvent.text</p>
      * 
@@ -608,7 +608,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
      * 
-     * <p>Other Business Name: Description</p>
+     * <p>Un-merged Business Name: Description</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ObservationEvent.text</p>
      * 
@@ -621,7 +621,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
      * 
-     * <p>Other Business Name: Description</p>
+     * <p>Un-merged Business Name: Description</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ObservationEvent.text</p>
      * 
@@ -634,7 +634,7 @@ public class ObservationEventBean extends MessagePartBean {
      * <p>Allows for flexibility in the recording and reporting of 
      * the reaction.</p>
      * 
-     * <p>Other Business Name: Description</p>
+     * <p>Un-merged Business Name: Description</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ObservationEvent.text</p>
      * 
@@ -655,7 +655,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionOnsetDate</p>
      * 
-     * <p>Other Business Name: ReactionOnsetDate</p>
+     * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.ObservationEvent.effectiveTime</p>
@@ -668,7 +668,7 @@ public class ObservationEventBean extends MessagePartBean {
      * May also provide information on the duration of the 
      * reaction.</p>
      * 
-     * <p>Other Business Name: ReactionOnsetDate</p>
+     * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.ObservationEvent.effectiveTime</p>
@@ -681,7 +681,7 @@ public class ObservationEventBean extends MessagePartBean {
      * May also provide information on the duration of the 
      * reaction.</p>
      * 
-     * <p>Other Business Name: ReactionOnsetDate</p>
+     * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.ObservationEvent.effectiveTime</p>
@@ -694,7 +694,7 @@ public class ObservationEventBean extends MessagePartBean {
      * May also provide information on the duration of the 
      * reaction.</p>
      * 
-     * <p>Other Business Name: ReactionOnsetDate</p>
+     * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.ObservationEvent.effectiveTime</p>
@@ -715,7 +715,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionOnsetDate</p>
      * 
-     * <p>Other Business Name: ReactionOnsetDate</p>
+     * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.ObservationEvent.effectiveTime</p>
@@ -728,7 +728,7 @@ public class ObservationEventBean extends MessagePartBean {
      * May also provide information on the duration of the 
      * reaction.</p>
      * 
-     * <p>Other Business Name: ReactionOnsetDate</p>
+     * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.ObservationEvent.effectiveTime</p>
@@ -741,7 +741,7 @@ public class ObservationEventBean extends MessagePartBean {
      * May also provide information on the duration of the 
      * reaction.</p>
      * 
-     * <p>Other Business Name: ReactionOnsetDate</p>
+     * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.ObservationEvent.effectiveTime</p>
@@ -754,7 +754,7 @@ public class ObservationEventBean extends MessagePartBean {
      * May also provide information on the duration of the 
      * reaction.</p>
      * 
-     * <p>Other Business Name: ReactionOnsetDate</p>
+     * <p>Un-merged Business Name: ReactionOnsetDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.ObservationEvent.effectiveTime</p>
@@ -775,7 +775,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: Reaction</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ObservationEvent.value</p>
      * 
@@ -793,7 +793,7 @@ public class ObservationEventBean extends MessagePartBean {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ObservationEvent.value</p>
      * 
@@ -815,7 +815,7 @@ public class ObservationEventBean extends MessagePartBean {
      * the patient. Because PIN does not support ADRs, this field 
      * is now mandatory.</strong></p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ObservationEvent.value</p>
      * 
@@ -833,7 +833,7 @@ public class ObservationEventBean extends MessagePartBean {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ObservationEvent.value</p>
      * 
@@ -859,7 +859,7 @@ public class ObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: Reaction</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ObservationEvent.value</p>
      * 
@@ -877,7 +877,7 @@ public class ObservationEventBean extends MessagePartBean {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ObservationEvent.value</p>
      * 
@@ -899,7 +899,7 @@ public class ObservationEventBean extends MessagePartBean {
      * the patient. Because PIN does not support ADRs, this field 
      * is now mandatory.</strong></p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ObservationEvent.value</p>
      * 
@@ -917,7 +917,7 @@ public class ObservationEventBean extends MessagePartBean {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ObservationEvent.value</p>
      * 
@@ -941,25 +941,25 @@ public class ObservationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Subject.severityObservation</p>
      * 
@@ -971,25 +971,25 @@ public class ObservationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Subject.severityObservation</p>
      * 

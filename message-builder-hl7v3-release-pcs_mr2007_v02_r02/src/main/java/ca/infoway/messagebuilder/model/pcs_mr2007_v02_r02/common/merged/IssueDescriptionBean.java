@@ -76,7 +76,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueMonographId</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: COCT_MT260020CA.DetectedIssueDefinition.id</p>
      * 
@@ -102,7 +102,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Knowledgebase organization specific identifier for the 
      * issue definition.</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: COCT_MT260030CA.DetectedIssueDefinition.id</p>
      * 
@@ -128,7 +128,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Knowledgebase organization specific identifier for the 
      * issue definition.</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: COCT_MT260010CA.DetectedIssueDefinition.id</p>
      * 
@@ -162,7 +162,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueMonographId</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: COCT_MT260020CA.DetectedIssueDefinition.id</p>
      * 
@@ -188,7 +188,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Knowledgebase organization specific identifier for the 
      * issue definition.</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: COCT_MT260030CA.DetectedIssueDefinition.id</p>
      * 
@@ -214,7 +214,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Knowledgebase organization specific identifier for the 
      * issue definition.</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: COCT_MT260010CA.DetectedIssueDefinition.id</p>
      * 
@@ -248,7 +248,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueDescription</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueDefinition.text</p>
@@ -265,7 +265,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>A free form textual description of the issue. This is 
      * usually in the form of a monograph.</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueDefinition.text</p>
@@ -282,7 +282,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>A free form textual description of the issue. This is 
      * usually in the form of a monograph.</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueDefinition.text</p>
@@ -307,7 +307,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueDescription</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueDefinition.text</p>
@@ -324,7 +324,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>A free form textual description of the issue. This is 
      * usually in the form of a monograph.</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueDefinition.text</p>
@@ -341,7 +341,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>A free form textual description of the issue. This is 
      * usually in the form of a monograph.</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueDefinition.text</p>
@@ -364,21 +364,21 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueDefinition.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueDefinition.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueDefinition.author</p>
@@ -391,21 +391,21 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueDefinition.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueDefinition.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueDefinition.author</p>
@@ -418,21 +418,21 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Component.substanceAdministrationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Component.substanceAdministrationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
@@ -445,21 +445,21 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Component.substanceAdministrationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Component.substanceAdministrationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>

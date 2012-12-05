@@ -59,7 +59,7 @@ public class ResultSortKeyBean extends MessagePartBean {
     /**
      * <p>Business Name: SortKeyText</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
      * 
@@ -70,7 +70,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting results.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT004200CA.ResultSortKey.text</p>
      * 
@@ -81,7 +81,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting results.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT004100CA.ResultSortKey.text</p>
      * 
@@ -95,7 +95,7 @@ public class ResultSortKeyBean extends MessagePartBean {
     /**
      * <p>Business Name: SortKeyText</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
      * 
@@ -106,7 +106,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting results.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT004200CA.ResultSortKey.text</p>
      * 
@@ -117,7 +117,7 @@ public class ResultSortKeyBean extends MessagePartBean {
      * 
      * <p>Value used for sorting results.</p>
      * 
-     * <p>Other Business Name: SortKeyText</p>
+     * <p>Un-merged Business Name: SortKeyText</p>
      * 
      * <p>Relationship: POLB_MT004100CA.ResultSortKey.text</p>
      * 

@@ -62,7 +62,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
      * 
@@ -73,7 +73,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.QueryByParameter.queryId</p>
      * 
@@ -84,7 +84,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.QueryByParameter.queryId</p>
      * 
@@ -95,7 +95,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.QueryByParameter.queryId</p>
      * 
@@ -106,7 +106,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.QueryByParameter.queryId</p>
      * 
@@ -117,7 +117,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.QueryByParameter.queryId</p>
      * 
@@ -136,7 +136,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
      * 
@@ -147,7 +147,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.QueryByParameter.queryId</p>
      * 
@@ -158,7 +158,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.QueryByParameter.queryId</p>
      * 
@@ -169,7 +169,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.QueryByParameter.queryId</p>
      * 
@@ -180,7 +180,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.QueryByParameter.queryId</p>
      * 
@@ -191,7 +191,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to allow continuation of queries and linking of 
      * query requests and responses and therefore mandatory.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.QueryByParameter.queryId</p>
      * 
@@ -210,7 +210,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: ExpeditedQueryIndicator</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.responseModalityCode</p>
@@ -228,7 +228,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * of response messages (notifications) each identifying itself 
      * as a response to a query request.</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.responseModalityCode</p>
@@ -248,7 +248,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>R=Real Time</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.responseModalityCode</p>
@@ -266,7 +266,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * response messages (notifications) each identifying itself as 
      * a response to a query request.</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020002CA.QueryByParameter.responseModalityCode</p>
@@ -284,7 +284,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * response messages (notifications) each identifying itself as 
      * a response to a query request.</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryByParameter.responseModalityCode</p>
@@ -302,7 +302,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * response messages (notifications) each identifying itself as 
      * a response to a query request.</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryByParameter.responseModalityCode</p>
@@ -328,7 +328,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: ExpeditedQueryIndicator</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.responseModalityCode</p>
@@ -346,7 +346,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * of response messages (notifications) each identifying itself 
      * as a response to a query request.</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.responseModalityCode</p>
@@ -366,7 +366,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>R=Real Time</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.responseModalityCode</p>
@@ -384,7 +384,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * response messages (notifications) each identifying itself as 
      * a response to a query request.</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020002CA.QueryByParameter.responseModalityCode</p>
@@ -402,7 +402,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * response messages (notifications) each identifying itself as 
      * a response to a query request.</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryByParameter.responseModalityCode</p>
@@ -420,7 +420,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * response messages (notifications) each identifying itself as 
      * a response to a query request.</p>
      * 
-     * <p>Other Business Name: ExpeditedQueryIndicator</p>
+     * <p>Un-merged Business Name: ExpeditedQueryIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryByParameter.responseModalityCode</p>
@@ -446,7 +446,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryLimit</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
@@ -468,7 +468,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.initialQuantity</p>
@@ -490,7 +490,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.initialQuantity</p>
@@ -505,7 +505,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * be returned with further data retrieved by using query 
      * continuations.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020002CA.QueryByParameter.initialQuantity</p>
@@ -527,7 +527,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryByParameter.initialQuantity</p>
@@ -549,7 +549,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryByParameter.initialQuantity</p>
@@ -579,7 +579,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryLimit</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
@@ -601,7 +601,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.initialQuantity</p>
@@ -623,7 +623,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.initialQuantity</p>
@@ -638,7 +638,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * be returned with further data retrieved by using query 
      * continuations.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020002CA.QueryByParameter.initialQuantity</p>
@@ -660,7 +660,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryByParameter.initialQuantity</p>
@@ -682,7 +682,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryByParameter.initialQuantity</p>
@@ -712,7 +712,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryLimitType</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
@@ -726,7 +726,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.initialQuantityCode</p>
@@ -742,7 +742,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>RD=Record</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.initialQuantityCode</p>
@@ -756,7 +756,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020002CA.QueryByParameter.initialQuantityCode</p>
@@ -770,7 +770,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryByParameter.initialQuantityCode</p>
@@ -784,7 +784,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryByParameter.initialQuantityCode</p>
@@ -806,7 +806,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryLimitType</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
@@ -820,7 +820,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.initialQuantityCode</p>
@@ -836,7 +836,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * 
      * <p>RD=Record</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.initialQuantityCode</p>
@@ -850,7 +850,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020002CA.QueryByParameter.initialQuantityCode</p>
@@ -864,7 +864,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryByParameter.initialQuantityCode</p>
@@ -878,7 +878,7 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      * <p>Needed to quantify the types of records requested to be 
      * returned in the query.</p>
      * 
-     * <p>Other Business Name: QueryLimitType</p>
+     * <p>Un-merged Business Name: QueryLimitType</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryByParameter.initialQuantityCode</p>
@@ -898,42 +898,42 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020002CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryByParameter.parameterList</p>
@@ -946,42 +946,42 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020002CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryByParameter.parameterList</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryByParameter.parameterList</p>
@@ -994,14 +994,14 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700751CA.QueryByParameter.sortControl</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryByParameter.sortControl</p>

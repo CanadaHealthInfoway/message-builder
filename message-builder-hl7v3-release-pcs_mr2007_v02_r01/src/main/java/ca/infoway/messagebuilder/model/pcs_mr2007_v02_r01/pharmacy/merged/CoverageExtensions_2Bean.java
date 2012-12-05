@@ -64,7 +64,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Coverage.moodCode</p>
      * 
@@ -77,7 +77,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * <p>If set to 'EVN', then coverage has been requested. 
      * Otherwise it has merely been requested.</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Coverage.moodCode</p>
      * 
@@ -98,7 +98,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Coverage.moodCode</p>
      * 
@@ -111,7 +111,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * <p>If set to 'EVN', then coverage has been requested. 
      * Otherwise it has merely been requested.</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Coverage.moodCode</p>
      * 
@@ -132,7 +132,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: CoverageExtensionId</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Coverage.id</p>
      * 
@@ -147,7 +147,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * <p>Unique identification for a specific coverage 
      * extension.</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Coverage.id</p>
      * 
@@ -170,7 +170,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: CoverageExtensionId</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Coverage.id</p>
      * 
@@ -185,7 +185,7 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * <p>Unique identification for a specific coverage 
      * extension.</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Coverage.id</p>
      * 
@@ -206,13 +206,13 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author2.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author2.carrierRole</p>
      * 
@@ -224,13 +224,13 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author2.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author2.carrierRole</p>
      * 

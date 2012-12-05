@@ -38,13 +38,13 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.PrimaryPerformer3.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.PrimaryPerformer3.typeCode</p>
      * 
@@ -56,13 +56,13 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.PrimaryPerformer3.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.PrimaryPerformer3.typeCode</p>
      * 
@@ -74,14 +74,14 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.PrimaryPerformer3.actDefinitionOrEvent</p>
@@ -94,14 +94,14 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.PrimaryPerformer3.actDefinitionOrEvent</p>

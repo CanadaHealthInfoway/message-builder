@@ -55,7 +55,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: DispenseType</p>
      * 
-     * <p>Other Business Name: DispenseType</p>
+     * <p>Un-merged Business Name: DispenseType</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.code</p>
      * 
@@ -81,7 +81,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DispenseType</p>
+     * <p>Un-merged Business Name: DispenseType</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.code</p>
      * 
@@ -107,7 +107,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DispenseType</p>
+     * <p>Un-merged Business Name: DispenseType</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.code</p>
      * 
@@ -141,7 +141,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: DispenseType</p>
      * 
-     * <p>Other Business Name: DispenseType</p>
+     * <p>Un-merged Business Name: DispenseType</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.code</p>
      * 
@@ -167,7 +167,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DispenseType</p>
+     * <p>Un-merged Business Name: DispenseType</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.code</p>
      * 
@@ -193,7 +193,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DispenseType</p>
+     * <p>Un-merged Business Name: DispenseType</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.code</p>
      * 
@@ -225,7 +225,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DispenseProcessingAndPickupDate</p>
+     * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.effectiveTime</p>
      * 
@@ -307,7 +307,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * mandatory because an existing dispense record must at least 
      * indicate the date it was processed.</p>
      * 
-     * <p>Other Business Name: DispensedProcessingAndPickupDate</p>
+     * <p>Un-merged Business Name: DispensedProcessingAndPickupDate</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.effectiveTime</p>
      * 
@@ -394,7 +394,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * is mandatory because an existing dispense record must at 
      * least indicate the date it was processed.</p>
      * 
-     * <p>Other Business Name: DispenseProcessingAndPickupDate</p>
+     * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.effectiveTime</p>
      * 
@@ -441,7 +441,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DispenseProcessingAndPickupDate</p>
+     * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.effectiveTime</p>
      * 
@@ -523,7 +523,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * mandatory because an existing dispense record must at least 
      * indicate the date it was processed.</p>
      * 
-     * <p>Other Business Name: DispensedProcessingAndPickupDate</p>
+     * <p>Un-merged Business Name: DispensedProcessingAndPickupDate</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.effectiveTime</p>
      * 
@@ -610,7 +610,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * is mandatory because an existing dispense record must at 
      * least indicate the date it was processed.</p>
      * 
-     * <p>Other Business Name: DispenseProcessingAndPickupDate</p>
+     * <p>Un-merged Business Name: DispenseProcessingAndPickupDate</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.effectiveTime</p>
      * 
@@ -659,7 +659,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: DispensedQuantity</p>
      * 
-     * <p>Other Business Name: DispensedQuantity</p>
+     * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.quantity</p>
      * 
@@ -793,7 +793,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * allow determination of the amount that remains to be 
      * dispensed against the prescription.</p>
      * 
-     * <p>Other Business Name: DispensedQuantity</p>
+     * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.quantity</p>
      * 
@@ -823,7 +823,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: DispensedQuantity</p>
      * 
-     * <p>Other Business Name: DispensedQuantity</p>
+     * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.quantity</p>
      * 
@@ -957,7 +957,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * allow determination of the amount that remains to be 
      * dispensed against the prescription.</p>
      * 
-     * <p>Other Business Name: DispensedQuantity</p>
+     * <p>Un-merged Business Name: DispensedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.quantity</p>
      * 
@@ -985,7 +985,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DispenseDaysSupply</p>
+     * <p>Un-merged Business Name: DispenseDaysSupply</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.expectedUseTime</p>
      * 
@@ -1043,7 +1043,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * total dispensed quantity, it is made a 'populated' 
      * field.</p>
      * 
-     * <p>Other Business Name: DispensedDaysSupply</p>
+     * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.expectedUseTime</p>
      * 
@@ -1092,7 +1092,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
      * Therapy'). Thus the attribute is marked as 'populated'.</p>
      * 
-     * <p>Other Business Name: DispensedDaysSupply</p>
+     * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.expectedUseTime</p>
      * 
@@ -1145,7 +1145,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * total dispensed quantity, it is made a 'populated' 
      * field.</p>
      * 
-     * <p>Other Business Name: DispensedDaysSupply</p>
+     * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
      * <p>Relationship: PORX_MT060100CA.SupplyEvent.expectedUseTime</p>
      * 
@@ -1204,7 +1204,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DispenseDaysSupply</p>
+     * <p>Un-merged Business Name: DispenseDaysSupply</p>
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.expectedUseTime</p>
      * 
@@ -1262,7 +1262,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * total dispensed quantity, it is made a 'populated' 
      * field.</p>
      * 
-     * <p>Other Business Name: DispensedDaysSupply</p>
+     * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.expectedUseTime</p>
      * 
@@ -1311,7 +1311,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
      * Therapy'). Thus the attribute is marked as 'populated'.</p>
      * 
-     * <p>Other Business Name: DispensedDaysSupply</p>
+     * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.expectedUseTime</p>
      * 
@@ -1364,7 +1364,7 @@ public class SupplyEvent_1Bean extends MessagePartBean {
      * total dispensed quantity, it is made a 'populated' 
      * field.</p>
      * 
-     * <p>Other Business Name: DispensedDaysSupply</p>
+     * <p>Un-merged Business Name: DispensedDaysSupply</p>
      * 
      * <p>Relationship: PORX_MT060100CA.SupplyEvent.expectedUseTime</p>
      * 
@@ -1423,25 +1423,25 @@ public class SupplyEvent_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060100CA.Product2.medication</p>
      * 
@@ -1453,25 +1453,25 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Product2.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060100CA.Product2.medication</p>
      * 
@@ -1483,19 +1483,19 @@ public class SupplyEvent_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Receiver2.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Receiver2.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Receiver2.responsibleParty</p>
      * 
@@ -1507,19 +1507,19 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Receiver2.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Receiver2.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Receiver2.responsibleParty</p>
      * 
@@ -1531,21 +1531,21 @@ public class SupplyEvent_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.Destination2.serviceDeliveryLocation</p>
@@ -1558,21 +1558,21 @@ public class SupplyEvent_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.Destination2.serviceDeliveryLocation</p>

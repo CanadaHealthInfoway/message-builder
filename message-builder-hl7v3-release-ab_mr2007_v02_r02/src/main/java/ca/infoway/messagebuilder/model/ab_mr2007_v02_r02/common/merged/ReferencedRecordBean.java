@@ -71,7 +71,7 @@ public class ReferencedRecordBean extends MessagePartBean {
     /**
      * <p>Business Name: RecordIds</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: COMT_MT001101CA.ActRequest.id</p>
      * 
@@ -83,7 +83,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * <p>Allows the event record to be uniquely referenced and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: COMT_MT001103CA.ActEvent.id</p>
      * 

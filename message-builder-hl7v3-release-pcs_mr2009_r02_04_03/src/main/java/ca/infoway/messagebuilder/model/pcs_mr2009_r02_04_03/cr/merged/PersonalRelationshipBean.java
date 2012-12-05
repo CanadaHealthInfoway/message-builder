@@ -131,7 +131,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientNextOfKin</p>
      * 
-     * <p>Other Business Name: ClientNextOfKin</p>
+     * <p>Un-merged Business Name: ClientNextOfKin</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.PersonalRelationship.code</p>
      * 
@@ -143,7 +143,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
      * 
-     * <p>Other Business Name: ClientNextOfKin</p>
+     * <p>Un-merged Business Name: ClientNextOfKin</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.PersonalRelationship.code</p>
      * 
@@ -155,7 +155,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
      * 
-     * <p>Other Business Name: ClientNextOfKin</p>
+     * <p>Un-merged Business Name: ClientNextOfKin</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.PersonalRelationship.code</p>
      * 
@@ -167,7 +167,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
      * 
-     * <p>Other Business Name: ClientNextOfKin</p>
+     * <p>Un-merged Business Name: ClientNextOfKin</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.PersonalRelationship.code</p>
      * 
@@ -187,7 +187,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientNextOfKin</p>
      * 
-     * <p>Other Business Name: ClientNextOfKin</p>
+     * <p>Un-merged Business Name: ClientNextOfKin</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.PersonalRelationship.code</p>
      * 
@@ -199,7 +199,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
      * 
-     * <p>Other Business Name: ClientNextOfKin</p>
+     * <p>Un-merged Business Name: ClientNextOfKin</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.PersonalRelationship.code</p>
      * 
@@ -211,7 +211,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
      * 
-     * <p>Other Business Name: ClientNextOfKin</p>
+     * <p>Un-merged Business Name: ClientNextOfKin</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.PersonalRelationship.code</p>
      * 
@@ -223,7 +223,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
      * 
-     * <p>Other Business Name: ClientNextOfKin</p>
+     * <p>Un-merged Business Name: ClientNextOfKin</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.PersonalRelationship.code</p>
      * 
@@ -243,7 +243,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
     /**
      * <p>Business Name: NextOfKinIdentifier</p>
      * 
-     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * <p>Un-merged Business Name: NextOfKinIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.ParentPerson.id</p>
      * 
@@ -255,7 +255,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * <p>Un-merged Business Name: NextOfKinIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ParentPerson.id</p>
      * 
@@ -267,7 +267,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * <p>Un-merged Business Name: NextOfKinIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ParentPerson.id</p>
      * 
@@ -279,7 +279,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * <p>Un-merged Business Name: NextOfKinIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.ParentPerson.id</p>
      * 
@@ -299,7 +299,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
     /**
      * <p>Business Name: NextOfKinIdentifier</p>
      * 
-     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * <p>Un-merged Business Name: NextOfKinIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.ParentPerson.id</p>
      * 
@@ -311,7 +311,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * <p>Un-merged Business Name: NextOfKinIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ParentPerson.id</p>
      * 
@@ -323,7 +323,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * <p>Un-merged Business Name: NextOfKinIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ParentPerson.id</p>
      * 
@@ -335,7 +335,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * <p>Un-merged Business Name: NextOfKinIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.ParentPerson.id</p>
      * 
@@ -355,7 +355,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
     /**
      * <p>Business Name: NextOfKinName</p>
      * 
-     * <p>Other Business Name: NextOfKinName</p>
+     * <p>Un-merged Business Name: NextOfKinName</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.ParentPerson.name</p>
      * 
@@ -366,7 +366,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A name for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinName</p>
+     * <p>Un-merged Business Name: NextOfKinName</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ParentPerson.name</p>
      * 
@@ -377,7 +377,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A name for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinName</p>
+     * <p>Un-merged Business Name: NextOfKinName</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ParentPerson.name</p>
      * 
@@ -388,7 +388,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A name for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinName</p>
+     * <p>Un-merged Business Name: NextOfKinName</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.ParentPerson.name</p>
      * 
@@ -407,7 +407,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
     /**
      * <p>Business Name: NextOfKinName</p>
      * 
-     * <p>Other Business Name: NextOfKinName</p>
+     * <p>Un-merged Business Name: NextOfKinName</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.ParentPerson.name</p>
      * 
@@ -418,7 +418,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A name for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinName</p>
+     * <p>Un-merged Business Name: NextOfKinName</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ParentPerson.name</p>
      * 
@@ -429,7 +429,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A name for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinName</p>
+     * <p>Un-merged Business Name: NextOfKinName</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ParentPerson.name</p>
      * 
@@ -440,7 +440,7 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * 
      * <p>A name for the next of kin</p>
      * 
-     * <p>Other Business Name: NextOfKinName</p>
+     * <p>Un-merged Business Name: NextOfKinName</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.ParentPerson.name</p>
      * 

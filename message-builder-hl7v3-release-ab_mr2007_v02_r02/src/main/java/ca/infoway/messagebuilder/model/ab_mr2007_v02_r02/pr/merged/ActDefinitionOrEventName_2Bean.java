@@ -93,7 +93,7 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: ActDefinitionOrEventNameEffectiveTime</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ActDefinitionOrEventNameEffectiveTime</p>
      * 
      * <p>Relationship: 
@@ -106,7 +106,7 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
      * <p>Required attribute indicating effective time of this 
      * act</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ActDefinitionOrEventNameEffectiveTime</p>
      * 
      * <p>Relationship: 
@@ -127,7 +127,7 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: ActDefinitionOrEventNameEffectiveTime</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ActDefinitionOrEventNameEffectiveTime</p>
      * 
      * <p>Relationship: 
@@ -140,7 +140,7 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
      * <p>Required attribute indicating effective time of this 
      * act</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ActDefinitionOrEventNameEffectiveTime</p>
      * 
      * <p>Relationship: 
@@ -159,14 +159,14 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ActDefinitionOrEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.ActDefinitionOrEvent.location</p>
@@ -180,7 +180,7 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.ActDefinitionOrEvent.sequel</p>
      * 

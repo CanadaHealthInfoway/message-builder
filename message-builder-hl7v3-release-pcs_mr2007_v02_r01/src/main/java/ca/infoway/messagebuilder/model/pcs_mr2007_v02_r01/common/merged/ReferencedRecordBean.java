@@ -71,7 +71,7 @@ public class ReferencedRecordBean extends MessagePartBean {
     /**
      * <p>Business Name: RecordIds</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: COMT_MT001101CA.ActRequest.id</p>
      * 
@@ -83,7 +83,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * <p>The identifier assigned by the central system (EHR) to 
      * the Event record being referred to.</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: COMT_MT001103CA.ActEvent.id</p>
      * 
@@ -95,7 +95,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * <p>The identifier assigned by the central system (EHR) to 
      * the Event record being referred to.</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: COMT_MT001201CA.Role.id</p>
      * 

@@ -48,7 +48,7 @@ public class MergedDocumentation extends Documentation {
 				businessName = BusinessNameUtil.cleanUpBusinessName(documentation.getBusinessName());
 				businessNames.add(businessName);
 			}
-			this.annotations.add(new Annotation("Other Business Name: " + businessName));
+			this.annotations.add(new Annotation("Un-merged Business Name: " + businessName));
 			this.annotations.add(new Annotation("Relationship: " + rel.getParentType() + "." + rel.getName()));
 			this.annotations.add(new Annotation("Conformance/Cardinality: " + rel.getConformance() + " (" + rel.getCardinality() + ")"));
 			

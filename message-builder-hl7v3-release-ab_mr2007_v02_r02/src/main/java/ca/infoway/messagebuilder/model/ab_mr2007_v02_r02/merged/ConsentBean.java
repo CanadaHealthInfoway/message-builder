@@ -127,7 +127,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentFormNumber</p>
      * 
-     * <p>Other Business Name: ConsentFormNumber</p>
+     * <p>Un-merged Business Name: ConsentFormNumber</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.id</p>
      * 
@@ -141,7 +141,7 @@ public class ConsentBean extends MessagePartBean {
      * <p>Provides a traceable audit link between a physical 
      * consent form and its electronic record</p>
      * 
-     * <p>Other Business Name: ConsentFormNumber</p>
+     * <p>Un-merged Business Name: ConsentFormNumber</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.id</p>
      * 
@@ -161,7 +161,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentFormNumber</p>
      * 
-     * <p>Other Business Name: ConsentFormNumber</p>
+     * <p>Un-merged Business Name: ConsentFormNumber</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.id</p>
      * 
@@ -175,7 +175,7 @@ public class ConsentBean extends MessagePartBean {
      * <p>Provides a traceable audit link between a physical 
      * consent form and its electronic record</p>
      * 
-     * <p>Other Business Name: ConsentFormNumber</p>
+     * <p>Un-merged Business Name: ConsentFormNumber</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.id</p>
      * 
@@ -195,7 +195,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentType</p>
      * 
-     * <p>Other Business Name: ConsentType</p>
+     * <p>Un-merged Business Name: ConsentType</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.code</p>
      * 
@@ -215,7 +215,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentType</p>
      * 
-     * <p>Other Business Name: ConsentType</p>
+     * <p>Un-merged Business Name: ConsentType</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.code</p>
      * 
@@ -235,7 +235,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentRefusedIndicator</p>
      * 
-     * <p>Other Business Name: ConsentRefusedIndicator</p>
+     * <p>Un-merged Business Name: ConsentRefusedIndicator</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.negationInd</p>
      * 
@@ -270,7 +270,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentRefusedIndicator</p>
      * 
-     * <p>Other Business Name: ConsentRefusedIndicator</p>
+     * <p>Un-merged Business Name: ConsentRefusedIndicator</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.negationInd</p>
      * 
@@ -305,7 +305,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentEffectiveAndEndTime</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.effectiveTime</p>
      * 
@@ -319,7 +319,7 @@ public class ConsentBean extends MessagePartBean {
      * <p>Most consents are not open-ended, to ensure the patient, 
      * client, or provider retains a level of control.</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.effectiveTime</p>
      * 
@@ -339,7 +339,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentEffectiveAndEndTime</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.effectiveTime</p>
      * 
@@ -353,7 +353,7 @@ public class ConsentBean extends MessagePartBean {
      * <p>Most consents are not open-ended, to ensure the patient, 
      * client, or provider retains a level of control.</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.effectiveTime</p>
      * 
@@ -373,7 +373,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentOverrideReason</p>
      * 
-     * <p>Other Business Name: ConsentOverrideReason</p>
+     * <p>Un-merged Business Name: ConsentOverrideReason</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.reasonCode</p>
      * 
@@ -390,7 +390,7 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Important for audit purposes</p>
      * 
-     * <p>Other Business Name: ConsentOverrideReason</p>
+     * <p>Un-merged Business Name: ConsentOverrideReason</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.reasonCode</p>
      * 
@@ -409,7 +409,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentOverrideReason</p>
      * 
-     * <p>Other Business Name: ConsentOverrideReason</p>
+     * <p>Un-merged Business Name: ConsentOverrideReason</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.reasonCode</p>
      * 
@@ -426,7 +426,7 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Important for audit purposes</p>
      * 
-     * <p>Other Business Name: ConsentOverrideReason</p>
+     * <p>Un-merged Business Name: ConsentOverrideReason</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.reasonCode</p>
      * 
@@ -443,13 +443,13 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.author1</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author1</p>
      * 
@@ -461,13 +461,13 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.author1</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author1</p>
      * 
@@ -479,13 +479,13 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.author2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author2</p>
      * 
@@ -497,13 +497,13 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.author2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author2</p>
      * 
@@ -515,7 +515,7 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * RCMR_MT010001CA.Component.permissionToInform</p>
@@ -528,7 +528,7 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * RCMR_MT010001CA.Component.permissionToInform</p>
@@ -541,7 +541,7 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.subject1</p>
      * 
@@ -553,7 +553,7 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.subject1</p>
      * 
@@ -565,7 +565,7 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.subject2</p>
      * 
@@ -577,7 +577,7 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ConsentEvent.subject2</p>
      * 

@@ -96,19 +96,19 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220002CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.DocumentContent.reason</p>
      * 
@@ -123,7 +123,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: ReportedOnCareCompositionLink</p>
      * 
-     * <p>Other Business Name: ReportedOnCareCompositionLink</p>
+     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.id</p>
@@ -136,7 +136,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Provides the identifier of the discrete encounter, 
      * episode or care event being reported on.</p>
      * 
-     * <p>Other Business Name: ReportedOnCareCompositionLink</p>
+     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.id</p>
@@ -149,7 +149,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Provides the identifier of the discrete encounter, 
      * episode or care event being reported on.</p>
      * 
-     * <p>Other Business Name: ReportedOnCareCompositionLink</p>
+     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.id</p>
@@ -170,7 +170,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: ReportedOnCareCompositionLink</p>
      * 
-     * <p>Other Business Name: ReportedOnCareCompositionLink</p>
+     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.id</p>
@@ -183,7 +183,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Provides the identifier of the discrete encounter, 
      * episode or care event being reported on.</p>
      * 
-     * <p>Other Business Name: ReportedOnCareCompositionLink</p>
+     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.id</p>
@@ -196,7 +196,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Provides the identifier of the discrete encounter, 
      * episode or care event being reported on.</p>
      * 
-     * <p>Other Business Name: ReportedOnCareCompositionLink</p>
+     * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.id</p>
@@ -217,7 +217,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: DischargeCareSummaryReportType</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportType</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.code</p>
@@ -243,7 +243,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * provider.</p><p>Examples: Inpatient stay, cardiology, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportType</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.code</p>
@@ -269,7 +269,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * provider.</p><p>Examples: Inpatient stay, cardiology, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportType</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.code</p>
@@ -303,7 +303,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: DischargeCareSummaryReportType</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportType</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.code</p>
@@ -329,7 +329,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * provider.</p><p>Examples: Inpatient stay, cardiology, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportType</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.code</p>
@@ -355,7 +355,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * provider.</p><p>Examples: Inpatient stay, cardiology, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportType</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportType</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.code</p>
@@ -389,7 +389,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: PreliminaryFinalIndicator</p>
      * 
-     * <p>Other Business Name: PreliminaryFinalIndicator</p>
+     * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.statusCode</p>
@@ -410,7 +410,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * that the assessment is finished and the report is considered 
      * complete.</p>
      * 
-     * <p>Other Business Name: PreliminaryFinalIndicator</p>
+     * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.statusCode</p>
@@ -431,7 +431,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * that the assessment is finished and the report is considered 
      * complete.</p>
      * 
-     * <p>Other Business Name: PreliminaryFinalIndicator</p>
+     * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.statusCode</p>
@@ -460,7 +460,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: PreliminaryFinalIndicator</p>
      * 
-     * <p>Other Business Name: PreliminaryFinalIndicator</p>
+     * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.statusCode</p>
@@ -481,7 +481,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * that the assessment is finished and the report is considered 
      * complete.</p>
      * 
-     * <p>Other Business Name: PreliminaryFinalIndicator</p>
+     * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.statusCode</p>
@@ -502,7 +502,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * that the assessment is finished and the report is considered 
      * complete.</p>
      * 
-     * <p>Other Business Name: PreliminaryFinalIndicator</p>
+     * <p>Un-merged Business Name: PreliminaryFinalIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.statusCode</p>
@@ -531,7 +531,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: DischargeCareSummaryReportPeriod</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportPeriod</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -548,7 +548,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * care report applies. For an encounter discharge assessment, 
      * this would be the admission and discharge date.</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportPeriod</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -565,7 +565,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * care report applies. For an encounter discharge assessment, 
      * this would be the admit and discharge date.</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportPeriod</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -590,7 +590,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: DischargeCareSummaryReportPeriod</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportPeriod</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -607,7 +607,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * care report applies. For an encounter discharge assessment, 
      * this would be the admission and discharge date.</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportPeriod</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -624,7 +624,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * care report applies. For an encounter discharge assessment, 
      * this would be the admit and discharge date.</p>
      * 
-     * <p>Other Business Name: DischargeCareSummaryReportPeriod</p>
+     * <p>Un-merged Business Name: DischargeCareSummaryReportPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -649,7 +649,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: DischargeDisposition</p>
      * 
-     * <p>Other Business Name: DischargeDisposition</p>
+     * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
@@ -665,7 +665,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * encounter or other care event. E.g. 'Deceased', 'Discharged 
      * to home', 'Discharged to isolation'</p>
      * 
-     * <p>Other Business Name: DischargeDisposition</p>
+     * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
@@ -681,7 +681,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * encounter or other care event. E.g. 'Deceased', 'Discharged 
      * to home', 'Discharged to isolation'</p>
      * 
-     * <p>Other Business Name: DischargeDisposition</p>
+     * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
@@ -705,7 +705,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     /**
      * <p>Business Name: DischargeDisposition</p>
      * 
-     * <p>Other Business Name: DischargeDisposition</p>
+     * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
@@ -721,7 +721,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * encounter or other care event. E.g. 'Deceased', 'Discharged 
      * to home', 'Discharged to isolation'</p>
      * 
-     * <p>Other Business Name: DischargeDisposition</p>
+     * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
@@ -737,7 +737,7 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * encounter or other care event. E.g. 'Deceased', 'Discharged 
      * to home', 'Discharged to isolation'</p>
      * 
-     * <p>Other Business Name: DischargeDisposition</p>
+     * <p>Un-merged Business Name: DischargeDisposition</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.dischargeDispositionCode</p>
@@ -759,21 +759,21 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.location</p>
@@ -786,21 +786,21 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220002CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.PatientCareProvisionEvent.location</p>
@@ -813,19 +813,19 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Outcome.conditionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Outcome.conditionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Outcome.conditionEvent</p>
      * 
@@ -838,19 +838,19 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220002CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.InFulfillmentOf.actRequest</p>
      * 
@@ -862,19 +862,19 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220002CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.InFulfillmentOf.actRequest</p>
      * 

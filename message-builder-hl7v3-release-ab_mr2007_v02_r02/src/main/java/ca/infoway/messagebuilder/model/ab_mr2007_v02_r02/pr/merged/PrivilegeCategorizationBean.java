@@ -88,7 +88,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsCategorizationType</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationType</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.PrivilegeCategorization.code</p>
@@ -102,7 +102,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationType</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.PrivilegeCategorization.code</p>
@@ -116,7 +116,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationType</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrivilegeCategorization.code</p>
@@ -130,7 +130,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationType</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrivilegeCategorization.code</p>
@@ -149,7 +149,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsCategorizationType</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationType</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.PrivilegeCategorization.code</p>
@@ -163,7 +163,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationType</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.PrivilegeCategorization.code</p>
@@ -177,7 +177,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationType</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrivilegeCategorization.code</p>
@@ -191,7 +191,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationType</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrivilegeCategorization.code</p>
@@ -210,7 +210,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsCategorizationValue</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationValue</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.PrivilegeCategorization.value</p>
@@ -224,7 +224,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationValue</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.PrivilegeCategorization.value</p>
@@ -238,7 +238,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationValue</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrivilegeCategorization.value</p>
@@ -252,7 +252,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationValue</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrivilegeCategorization.value</p>
@@ -274,7 +274,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsCategorizationValue</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationValue</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.PrivilegeCategorization.value</p>
@@ -288,7 +288,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationValue</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.PrivilegeCategorization.value</p>
@@ -302,7 +302,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationValue</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrivilegeCategorization.value</p>
@@ -316,7 +316,7 @@ public class PrivilegeCategorizationBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Other Business Name: RestrictionsCategorizationValue</p>
+     * <p>Un-merged Business Name: RestrictionsCategorizationValue</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrivilegeCategorization.value</p>

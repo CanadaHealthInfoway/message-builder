@@ -63,7 +63,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceRecordID</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRecordID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.IntoleranceCondition.id</p>
      * 
@@ -75,13 +75,13 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the intolerance condition.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRecordID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.IntoleranceCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRecordID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.IntoleranceCondition.id</p>
      * 
@@ -95,7 +95,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceRecordID</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRecordID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.IntoleranceCondition.id</p>
      * 
@@ -107,13 +107,13 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the intolerance condition.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRecordID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.IntoleranceCondition.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRecordID</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRecordID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.IntoleranceCondition.id</p>
      * 
@@ -127,7 +127,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.IntoleranceCondition.code</p>
      * 
@@ -142,13 +142,13 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * intolerance or a true allergy. (Allergies result from 
      * immunologic reactions. Intolerances do not.)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.IntoleranceCondition.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.IntoleranceCondition.code</p>
      * 
@@ -162,7 +162,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.IntoleranceCondition.code</p>
      * 
@@ -177,13 +177,13 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * intolerance or a true allergy. (Allergies result from 
      * immunologic reactions. Intolerances do not.)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.IntoleranceCondition.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.IntoleranceCondition.code</p>
      * 
@@ -197,7 +197,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.IntoleranceCondition.negationInd</p>
@@ -213,14 +213,14 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * patient does not suffer from a particular allergy or 
      * intolerance.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.IntoleranceCondition.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.IntoleranceCondition.negationInd</p>
@@ -235,7 +235,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.IntoleranceCondition.negationInd</p>
@@ -251,14 +251,14 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * patient does not suffer from a particular allergy or 
      * intolerance.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.IntoleranceCondition.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.IntoleranceCondition.negationInd</p>
@@ -273,7 +273,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.IntoleranceCondition.statusCode</p>
@@ -288,14 +288,14 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
      * longer active).</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.IntoleranceCondition.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.IntoleranceCondition.statusCode</p>
@@ -310,7 +310,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.IntoleranceCondition.statusCode</p>
@@ -325,14 +325,14 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
      * longer active).</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.IntoleranceCondition.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.IntoleranceCondition.statusCode</p>
@@ -347,7 +347,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ConfirmedIndicator</p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.IntoleranceCondition.uncertaintyCode</p>
@@ -367,14 +367,14 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * contraindication checking whether the record is tagged as 
      * 'confirmed' or 'suspected'.</p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.IntoleranceCondition.uncertaintyCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.IntoleranceCondition.uncertaintyCode</p>
@@ -389,7 +389,7 @@ public class IntoleranceConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ConfirmedIndicator</p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.IntoleranceCondition.uncertaintyCode</p>
@@ -409,14 +409,14 @@ public class IntoleranceConditionBean extends MessagePartBean {
      * contraindication checking whether the record is tagged as 
      * 'confirmed' or 'suspected'.</p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.IntoleranceCondition.uncertaintyCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.IntoleranceCondition.uncertaintyCode</p>

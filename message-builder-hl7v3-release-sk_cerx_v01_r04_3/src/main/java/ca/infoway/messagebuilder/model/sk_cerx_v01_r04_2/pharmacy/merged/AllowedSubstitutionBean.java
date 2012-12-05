@@ -78,7 +78,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     /**
      * <p>Business Name: SubstitutionNotAllowedIndicator</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedIndicator</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.negationInd</p>
@@ -98,7 +98,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * want substitution.</p><p>The attribute is mandatory because 
      * it must be known whether the indicator is true or false.</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedIndicator</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstitutionPermission.negationInd</p>
@@ -121,7 +121,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     /**
      * <p>Business Name: SubstitutionNotAllowedIndicator</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedIndicator</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.negationInd</p>
@@ -141,7 +141,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * want substitution.</p><p>The attribute is mandatory because 
      * it must be known whether the indicator is true or false.</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedIndicator</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstitutionPermission.negationInd</p>
@@ -162,7 +162,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: NotAllowedReason</p>
+     * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.reasonCode</p>
@@ -186,7 +186,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * prescription is being recorded in the pharmacy, the 
      * information may not be available.</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedReason</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstitutionPermission.reasonCode</p>
@@ -206,7 +206,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>&nbsp;May be marked as &lsquo;UNK&rsquo; if the reason 
      * is&nbsp;unknown.</p>
      * 
-     * <p>Other Business Name: NotAllowedReason</p>
+     * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstitutionPermission.reasonCode</p>
@@ -236,7 +236,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: NotAllowedReason</p>
+     * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstitutionPermission.reasonCode</p>
@@ -260,7 +260,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * prescription is being recorded in the pharmacy, the 
      * information may not be available.</p>
      * 
-     * <p>Other Business Name: SubstitutionNotAllowedReason</p>
+     * <p>Un-merged Business Name: SubstitutionNotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstitutionPermission.reasonCode</p>
@@ -280,7 +280,7 @@ public class AllowedSubstitutionBean extends MessagePartBean {
      * <p>&nbsp;May be marked as &lsquo;UNK&rsquo; if the reason 
      * is&nbsp;unknown.</p>
      * 
-     * <p>Other Business Name: NotAllowedReason</p>
+     * <p>Un-merged Business Name: NotAllowedReason</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstitutionPermission.reasonCode</p>

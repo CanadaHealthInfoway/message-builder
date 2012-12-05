@@ -39,7 +39,7 @@ public class AgentBean extends MessagePartBean {
     /**
      * <p>Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Agent.id</p>
      * 
@@ -55,7 +55,7 @@ public class AgentBean extends MessagePartBean {
      * for the drug substitution.</p><p>This is either the patient, 
      * the prescriber of the dispenser.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Agent.id</p>
      * 
@@ -71,7 +71,7 @@ public class AgentBean extends MessagePartBean {
      * for the drug substitution.</p><p>This is either the patient, 
      * the prescriber of the dispenser.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Agent.id</p>
      * 
@@ -87,7 +87,7 @@ public class AgentBean extends MessagePartBean {
      * <p>Identity of the person who ultimately made the 
      * substitution decision.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Agent.id</p>
      * 
@@ -111,7 +111,7 @@ public class AgentBean extends MessagePartBean {
     /**
      * <p>Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Agent.id</p>
      * 
@@ -127,7 +127,7 @@ public class AgentBean extends MessagePartBean {
      * for the drug substitution.</p><p>This is either the patient, 
      * the prescriber of the dispenser.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Agent.id</p>
      * 
@@ -143,7 +143,7 @@ public class AgentBean extends MessagePartBean {
      * for the drug substitution.</p><p>This is either the patient, 
      * the prescriber of the dispenser.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Agent.id</p>
      * 
@@ -159,7 +159,7 @@ public class AgentBean extends MessagePartBean {
      * <p>Identity of the person who ultimately made the 
      * substitution decision.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Agent.id</p>
      * 

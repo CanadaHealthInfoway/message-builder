@@ -74,7 +74,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.id</p>
      * 
@@ -87,7 +87,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * <p>Unique identifier of the dispensed event that triggered 
      * the issue.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.id</p>
      * 
@@ -101,7 +101,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.id</p>
      * 
@@ -114,7 +114,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * <p>Unique identifier of the dispensed event that triggered 
      * the issue.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.id</p>
      * 
@@ -128,7 +128,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.statusCode</p>
      * 
@@ -145,7 +145,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * it indicates that the medication has been delivered to the 
      * patient.</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.statusCode</p>
      * 
@@ -159,7 +159,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.statusCode</p>
      * 
@@ -176,7 +176,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * it indicates that the medication has been delivered to the 
      * patient.</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.statusCode</p>
      * 
@@ -190,7 +190,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Business Name: DispensedDate</p>
      * 
-     * <p>Other Business Name: DispensedDate</p>
+     * <p>Un-merged Business Name: DispensedDate</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.effectiveTime</p>
      * 
@@ -209,7 +209,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * <p>The date and time on which the product was issued to the 
      * patient.</p>
      * 
-     * <p>Other Business Name: DispensedDate</p>
+     * <p>Un-merged Business Name: DispensedDate</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.effectiveTime</p>
      * 
@@ -223,7 +223,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Business Name: DispensedDate</p>
      * 
-     * <p>Other Business Name: DispensedDate</p>
+     * <p>Un-merged Business Name: DispensedDate</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.effectiveTime</p>
      * 
@@ -242,7 +242,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * <p>The date and time on which the product was issued to the 
      * patient.</p>
      * 
-     * <p>Other Business Name: DispensedDate</p>
+     * <p>Un-merged Business Name: DispensedDate</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.effectiveTime</p>
      * 
@@ -254,7 +254,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>Other Business Name: DispenseMaskingIndicator</p>
+     * <p>Un-merged Business Name: DispenseMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SupplyEvent.confidentialityCode</p>
@@ -269,7 +269,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      * 
-     * <p>Other Business Name: DispenseMaskedIndicator</p>
+     * <p>Un-merged Business Name: DispenseMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SupplyEvent.confidentialityCode</p>
@@ -283,13 +283,13 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
      * 
@@ -301,13 +301,13 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
      * 
@@ -319,13 +319,13 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.location</p>
      * 
@@ -337,13 +337,13 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SupplyEvent.location</p>
      * 
@@ -357,7 +357,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministrationEvent.id</p>

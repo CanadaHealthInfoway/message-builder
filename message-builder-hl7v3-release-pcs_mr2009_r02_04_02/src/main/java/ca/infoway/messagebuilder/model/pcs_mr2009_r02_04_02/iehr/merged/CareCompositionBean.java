@@ -160,7 +160,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionIds</p>
      * 
-     * <p>Other Business Name: CareCompositionIds</p>
+     * <p>Un-merged Business Name: CareCompositionIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.id</p>
@@ -177,7 +177,7 @@ public class CareCompositionBean extends MessagePartBean {
      * <p> <i>A globally unique identifier assigned by the EHR to 
      * the Care Composition record.</i> </p>
      * 
-     * <p>Other Business Name: CareCompositionIds</p>
+     * <p>Un-merged Business Name: CareCompositionIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.PatientCareProvisionEvent.id</p>
@@ -203,7 +203,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionType</p>
      * 
-     * <p>Other Business Name: CareCompositionType</p>
+     * <p>Un-merged Business Name: CareCompositionType</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.code</p>
@@ -246,7 +246,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionType</p>
      * 
-     * <p>Other Business Name: CareCompositionType</p>
+     * <p>Un-merged Business Name: CareCompositionType</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.code</p>
@@ -289,7 +289,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: RefutedIndicator</p>
      * 
-     * <p>Other Business Name: RefutedIndicator</p>
+     * <p>Un-merged Business Name: RefutedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.negationInd</p>
@@ -321,7 +321,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: RefutedIndicator</p>
      * 
-     * <p>Other Business Name: RefutedIndicator</p>
+     * <p>Un-merged Business Name: RefutedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.negationInd</p>
@@ -353,7 +353,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionStatus</p>
      * 
-     * <p>Other Business Name: CareCompositionStatus</p>
+     * <p>Un-merged Business Name: CareCompositionStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.statusCode</p>
@@ -373,7 +373,7 @@ public class CareCompositionBean extends MessagePartBean {
      * 'completed' (the encounter, episode or general care has 
      * ended).</i> </p>
      * 
-     * <p>Other Business Name: CareCompositionStatus</p>
+     * <p>Un-merged Business Name: CareCompositionStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.PatientCareProvisionEvent.statusCode</p>
@@ -404,7 +404,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionStatus</p>
      * 
-     * <p>Other Business Name: CareCompositionStatus</p>
+     * <p>Un-merged Business Name: CareCompositionStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.statusCode</p>
@@ -424,7 +424,7 @@ public class CareCompositionBean extends MessagePartBean {
      * 'completed' (the encounter, episode or general care has 
      * ended).</i> </p>
      * 
-     * <p>Other Business Name: CareCompositionStatus</p>
+     * <p>Un-merged Business Name: CareCompositionStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.PatientCareProvisionEvent.statusCode</p>
@@ -455,7 +455,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionPeriod</p>
      * 
-     * <p>Other Business Name: CareCompositionPeriod</p>
+     * <p>Un-merged Business Name: CareCompositionPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -478,7 +478,7 @@ public class CareCompositionBean extends MessagePartBean {
      * encounters will not have an end date until the encounter is 
      * completed/patient is discharged.</p>
      * 
-     * <p>Other Business Name: CareCompositionPeriod</p>
+     * <p>Un-merged Business Name: CareCompositionPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -509,7 +509,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionPeriod</p>
      * 
-     * <p>Other Business Name: CareCompositionPeriod</p>
+     * <p>Un-merged Business Name: CareCompositionPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -532,7 +532,7 @@ public class CareCompositionBean extends MessagePartBean {
      * encounters will not have an end date until the encounter is 
      * completed/patient is discharged.</p>
      * 
-     * <p>Other Business Name: CareCompositionPeriod</p>
+     * <p>Un-merged Business Name: CareCompositionPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -563,7 +563,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionMaskingIndicators</p>
      * 
-     * <p>Other Business Name: CareCompositionMaskingIndicators</p>
+     * <p>Un-merged Business Name: CareCompositionMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.confidentialityCode</p>
@@ -598,7 +598,7 @@ public class CareCompositionBean extends MessagePartBean {
      * group).</p><p>Also, masking a care composition implicitly 
      * masks all records associated with that care composition.</p>
      * 
-     * <p>Other Business Name: CareCompositionMaskingIndicators</p>
+     * <p>Un-merged Business Name: CareCompositionMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.PatientCareProvisionEvent.confidentialityCode</p>
@@ -640,13 +640,13 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject6.specimen</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Subject6.specimen</p>
      * 
@@ -658,13 +658,13 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject6.specimen</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Subject6.specimen</p>
      * 
@@ -676,13 +676,13 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject7.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Subject7.patient</p>
      * 
@@ -697,7 +697,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfPatients</p>
      * 
-     * <p>Other Business Name: NumberOfPatients</p>
+     * <p>Un-merged Business Name: NumberOfPatients</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.EntityQuantifiedKind.quantity</p>
@@ -723,7 +723,7 @@ public class CareCompositionBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfPatients</p>
      * 
-     * <p>Other Business Name: NumberOfPatients</p>
+     * <p>Un-merged Business Name: NumberOfPatients</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.EntityQuantifiedKind.quantity</p>
@@ -747,7 +747,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.ResponsibleParty.actingPerson</p>
@@ -760,7 +760,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.ResponsibleParty.actingPerson</p>
@@ -773,13 +773,13 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Performer3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Performer3.actingPerson</p>
      * 
@@ -792,7 +792,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.author</p>
@@ -805,7 +805,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.author</p>
@@ -818,13 +818,13 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Informant.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Informant.actingPerson</p>
      * 
@@ -836,13 +836,13 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Informant.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Informant.actingPerson</p>
      * 
@@ -854,13 +854,13 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Discharger.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Discharger.actingPerson</p>
      * 
@@ -872,13 +872,13 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Discharger.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Discharger.actingPerson</p>
      * 
@@ -890,7 +890,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Custodian.assignedDevice</p>
      * 
@@ -902,7 +902,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Custodian.assignedDevice</p>
      * 
@@ -914,7 +914,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.Custodian2.serviceDeliveryLocation</p>
@@ -927,7 +927,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.Custodian2.serviceDeliveryLocation</p>
@@ -940,14 +940,14 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.PatientCareProvisionEvent.location</p>
@@ -961,13 +961,13 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Outcome.diagnosisEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Outcome.diagnosisEvent</p>
      * 
@@ -980,13 +980,13 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.InFulfillmentOf.actRequest</p>
      * 
@@ -998,13 +998,13 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.InFulfillmentOf.actRequest</p>
      * 
@@ -1016,7 +1016,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.Predecessor.oldPatientCareProvisionEvent</p>
@@ -1030,7 +1030,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.ReplacementOf.patientCareProvisionEvent</p>
@@ -1043,7 +1043,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.ReplacementOf.patientCareProvisionEvent</p>
@@ -1056,14 +1056,14 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.PatientCareProvisionEvent.reason</p>
@@ -1077,13 +1077,13 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Component3.actEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Component3.actEvent</p>
      * 
@@ -1096,14 +1096,14 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.Component2.patientCareProvisionEventPortion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.Component2.patientCareProvisionEventPortion</p>
@@ -1117,7 +1117,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.Predecessor2.newPatientCareProvisionEvent</p>
@@ -1130,7 +1130,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.Predecessor2.newPatientCareProvisionEvent</p>
@@ -1143,7 +1143,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.PatientCareProvisionEvent.subjectOf1</p>
@@ -1157,7 +1157,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject3.controlActEvent</p>
      * 
@@ -1169,7 +1169,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject3.controlActEvent</p>
      * 
@@ -1181,7 +1181,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject.annotationIndicator</p>
      * 
@@ -1193,7 +1193,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject.annotationIndicator</p>
      * 
@@ -1205,7 +1205,7 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject4.controlActEvent</p>
      * 
@@ -1217,7 +1217,7 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Subject4.controlActEvent</p>
      * 
@@ -1229,14 +1229,14 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.Component.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT500002CA.Component.patientCareProvisionEvent</p>

@@ -97,7 +97,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.IntoleranceCondition.code</p>
      * 
@@ -118,7 +118,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * leaf-level codes are sent, i.e. OINT is not allowed while 
      * EALG is.</strong></p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.IntoleranceCondition.code</p>
      * 
@@ -147,7 +147,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.IntoleranceCondition.code</p>
      * 
@@ -168,7 +168,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * leaf-level codes are sent, i.e. OINT is not allowed while 
      * EALG is.</strong></p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.IntoleranceCondition.code</p>
      * 
@@ -197,7 +197,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.negationInd</p>
@@ -213,7 +213,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * suspected allergy. The attribute is mandatory because it is 
      * essential to know whether a record is refuted or not.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.negationInd</p>
@@ -238,7 +238,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.negationInd</p>
@@ -254,7 +254,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * suspected allergy. The attribute is mandatory because it is 
      * essential to know whether a record is refuted or not.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRefuted</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.negationInd</p>
@@ -279,7 +279,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.statusCode</p>
@@ -298,7 +298,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * error issue will be returned if not set to either 'active' 
      * or 'completed'.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.statusCode</p>
@@ -326,7 +326,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.statusCode</p>
@@ -345,7 +345,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * error issue will be returned if not set to either 'active' 
      * or 'completed'.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.statusCode</p>
@@ -373,7 +373,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceDate</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceDate</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.effectiveTime</p>
@@ -386,7 +386,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Allows providers to evaluate the period of relevance for 
      * the allergy/intolerance record.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceDate</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.effectiveTime</p>
@@ -408,7 +408,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceDate</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceDate</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.effectiveTime</p>
@@ -421,7 +421,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Allows providers to evaluate the period of relevance for 
      * the allergy/intolerance record.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceDate</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.effectiveTime</p>
@@ -443,7 +443,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceMaskingIndicator</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceMaskingIndicator</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.confidentialityCode</p>
@@ -470,7 +470,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * this must be </strong><strong>NORMAL or a CODE_INVAL error 
      * issue will be returned.</strong></p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceMaskingIndicator</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.confidentialityCode</p>
@@ -506,7 +506,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceMaskingIndicator</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceMaskingIndicator</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.confidentialityCode</p>
@@ -533,7 +533,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * this must be </strong><strong>NORMAL or a CODE_INVAL error 
      * issue will be returned.</strong></p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceMaskingIndicator</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.confidentialityCode</p>
@@ -569,7 +569,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: ConfirmedIndicator</p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.uncertaintyCode</p>
@@ -666,7 +666,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>This can be 'N' or 'U'. <strong>CODE_INVAL error issue 
      * will be returned if not.</strong></p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.uncertaintyCode</p>
@@ -749,7 +749,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: ConfirmedIndicator</p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.uncertaintyCode</p>
@@ -846,7 +846,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>This can be 'N' or 'U'. <strong>CODE_INVAL error issue 
      * will be returned if not.</strong></p>
      * 
-     * <p>Other Business Name: ConfirmedIndicator</p>
+     * <p>Un-merged Business Name: ConfirmedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.uncertaintyCode</p>
@@ -929,7 +929,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: Agent</p>
      * 
-     * <p>Other Business Name: Agent</p>
+     * <p>Un-merged Business Name: Agent</p>
      * 
      * <p>Relationship: REPC_MT000001CA.IntoleranceCondition.value</p>
      * 
@@ -955,7 +955,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: Agent</p>
      * 
-     * <p>Other Business Name: Agent</p>
+     * <p>Un-merged Business Name: Agent</p>
      * 
      * <p>Relationship: REPC_MT000001CA.IntoleranceCondition.value</p>
      * 
@@ -981,13 +981,13 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: SufferedBy</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Subject2.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SufferedBy</p>
+     * <p>Un-merged Business Name: SufferedBy</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Subject2.patient</p>
      * 
@@ -1004,13 +1004,13 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: SufferedBy</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Subject2.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SufferedBy</p>
+     * <p>Un-merged Business Name: SufferedBy</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Subject2.patient</p>
      * 
@@ -1027,7 +1027,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: ReportedBy</p>
      * 
-     * <p>Other Business Name: ReportedBy</p>
+     * <p>Un-merged Business Name: ReportedBy</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.informant</p>
@@ -1037,7 +1037,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p><strong>Indicates where the information that led to the 
      * recording of this information came from.</strong></p>
      * 
-     * <p>Other Business Name: ReportedBy</p>
+     * <p>Un-merged Business Name: ReportedBy</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.informant</p>
@@ -1055,7 +1055,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: ReportedBy</p>
      * 
-     * <p>Other Business Name: ReportedBy</p>
+     * <p>Un-merged Business Name: ReportedBy</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.informant</p>
@@ -1065,7 +1065,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p><strong>Indicates where the information that led to the 
      * recording of this information came from.</strong></p>
      * 
-     * <p>Other Business Name: ReportedBy</p>
+     * <p>Un-merged Business Name: ReportedBy</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.informant</p>
@@ -1083,7 +1083,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: SupportedBy</p>
      * 
-     * <p>Other Business Name: SupportedBy</p>
+     * <p>Un-merged Business Name: SupportedBy</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Support.records</p>
      * 
@@ -1098,7 +1098,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * non-existence) of the allergy/intolerance.</p> 
      * </font></font></font></p>
      * 
-     * <p>Other Business Name: SupportedBy</p>
+     * <p>Un-merged Business Name: SupportedBy</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Support.records</p>
      * 
@@ -1116,7 +1116,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Subject3.annotation</p>
      * 
@@ -1134,7 +1134,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Subject3.annotation</p>
      * 
@@ -1152,14 +1152,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.Subject1.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.Subject1.severityObservation</p>
@@ -1177,14 +1177,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.Subject1.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.Subject1.severityObservation</p>
@@ -1199,7 +1199,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceRecordId</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRecordId</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.IntoleranceCondition.id</p>
      * 
@@ -1222,7 +1222,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceRecordId</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceRecordId</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.IntoleranceCondition.id</p>
      * 

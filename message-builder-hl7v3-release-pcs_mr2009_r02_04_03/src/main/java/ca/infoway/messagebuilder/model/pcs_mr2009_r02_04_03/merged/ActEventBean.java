@@ -50,7 +50,7 @@ public class ActEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ContainedServiceEventIds</p>
+     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
      * <p>Relationship: REPC_MT500001CA.ActEvent.id</p>
      * 
@@ -64,7 +64,7 @@ public class ActEventBean extends MessagePartBean {
      * should be associated with this care composition when it is 
      * created</p>
      * 
-     * <p>Other Business Name: RecordIdentifier</p>
+     * <p>Un-merged Business Name: RecordIdentifier</p>
      * 
      * <p>Relationship: COMT_MT001104CA.ActEvent.id</p>
      * 
@@ -78,7 +78,7 @@ public class ActEventBean extends MessagePartBean {
      * interaction, the identfier of the control act requested to 
      * be nullified.</p>
      * 
-     * <p>Other Business Name: ReportedOnServiceLink</p>
+     * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
      * <p>Relationship: REPC_MT230002CA.ActEvent.id</p>
      * 
@@ -92,7 +92,7 @@ public class ActEventBean extends MessagePartBean {
      * associated with the procedure or observation being reported 
      * upon.</p>
      * 
-     * <p>Other Business Name: ReportedOnServiceLink</p>
+     * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
      * <p>Relationship: REPC_MT230003CA.ActEvent.id</p>
      * 
@@ -106,7 +106,7 @@ public class ActEventBean extends MessagePartBean {
      * associated with the procedure or observation being reported 
      * upon.</p>
      * 
-     * <p>Other Business Name: ContainedServiceEventIds</p>
+     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
      * <p>Relationship: REPC_MT500004CA.ActEvent.id</p>
      * 
@@ -119,7 +119,7 @@ public class ActEventBean extends MessagePartBean {
      * <p>References existing health service event records that are 
      * associated this care composition</p>
      * 
-     * <p>Other Business Name: ReportedOnServiceLink</p>
+     * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
      * <p>Relationship: REPC_MT230001CA.ActEvent.id</p>
      * 
@@ -133,7 +133,7 @@ public class ActEventBean extends MessagePartBean {
      * associated with the procedure or observation being reported 
      * upon.</p>
      * 
-     * <p>Other Business Name: ContainedServiceEventIds</p>
+     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
      * <p>Relationship: REPC_MT500002CA.ActEvent.id</p>
      * 
@@ -152,7 +152,7 @@ public class ActEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ContainedServiceEventIds</p>
+     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
      * <p>Relationship: REPC_MT500001CA.ActEvent.id</p>
      * 
@@ -166,7 +166,7 @@ public class ActEventBean extends MessagePartBean {
      * should be associated with this care composition when it is 
      * created</p>
      * 
-     * <p>Other Business Name: RecordIdentifier</p>
+     * <p>Un-merged Business Name: RecordIdentifier</p>
      * 
      * <p>Relationship: COMT_MT001104CA.ActEvent.id</p>
      * 
@@ -180,7 +180,7 @@ public class ActEventBean extends MessagePartBean {
      * interaction, the identfier of the control act requested to 
      * be nullified.</p>
      * 
-     * <p>Other Business Name: ReportedOnServiceLink</p>
+     * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
      * <p>Relationship: REPC_MT230002CA.ActEvent.id</p>
      * 
@@ -194,7 +194,7 @@ public class ActEventBean extends MessagePartBean {
      * associated with the procedure or observation being reported 
      * upon.</p>
      * 
-     * <p>Other Business Name: ReportedOnServiceLink</p>
+     * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
      * <p>Relationship: REPC_MT230003CA.ActEvent.id</p>
      * 
@@ -208,7 +208,7 @@ public class ActEventBean extends MessagePartBean {
      * associated with the procedure or observation being reported 
      * upon.</p>
      * 
-     * <p>Other Business Name: ContainedServiceEventIds</p>
+     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
      * <p>Relationship: REPC_MT500004CA.ActEvent.id</p>
      * 
@@ -221,7 +221,7 @@ public class ActEventBean extends MessagePartBean {
      * <p>References existing health service event records that are 
      * associated this care composition</p>
      * 
-     * <p>Other Business Name: ReportedOnServiceLink</p>
+     * <p>Un-merged Business Name: ReportedOnServiceLink</p>
      * 
      * <p>Relationship: REPC_MT230001CA.ActEvent.id</p>
      * 
@@ -235,7 +235,7 @@ public class ActEventBean extends MessagePartBean {
      * associated with the procedure or observation being reported 
      * upon.</p>
      * 
-     * <p>Other Business Name: ContainedServiceEventIds</p>
+     * <p>Un-merged Business Name: ContainedServiceEventIds</p>
      * 
      * <p>Relationship: REPC_MT500002CA.ActEvent.id</p>
      * 

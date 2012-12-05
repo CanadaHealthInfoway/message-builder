@@ -72,7 +72,7 @@ public class DrugUseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060340CA.WorkingListEvent.code</p>
      * 
@@ -102,7 +102,7 @@ public class DrugUseBean extends MessagePartBean {
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
      * 
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060160CA.WorkingListEvent.code</p>
      * 
@@ -124,7 +124,7 @@ public class DrugUseBean extends MessagePartBean {
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
      * 
-     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
      * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
      * 
@@ -146,7 +146,7 @@ public class DrugUseBean extends MessagePartBean {
      * is marked mandatory because the intended duration of the 
      * therapy should be known at prescribe time.</p>
      * 
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
      * 
@@ -162,7 +162,7 @@ public class DrugUseBean extends MessagePartBean {
      * mandatory as this information should be known at prescribe 
      * time.</p>
      * 
-     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060190CA.WorkingListEvent.code</p>
      * 
@@ -185,7 +185,7 @@ public class DrugUseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060340CA.WorkingListEvent.code</p>
      * 
@@ -215,7 +215,7 @@ public class DrugUseBean extends MessagePartBean {
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
      * 
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060160CA.WorkingListEvent.code</p>
      * 
@@ -237,7 +237,7 @@ public class DrugUseBean extends MessagePartBean {
      * prescribe time. However in some circumstances, it may not be 
      * known whether a therapy will be short-term or long-term.</p>
      * 
-     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
      * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
      * 
@@ -259,7 +259,7 @@ public class DrugUseBean extends MessagePartBean {
      * is marked mandatory because the intended duration of the 
      * therapy should be known at prescribe time.</p>
      * 
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
      * 
@@ -275,7 +275,7 @@ public class DrugUseBean extends MessagePartBean {
      * mandatory as this information should be known at prescribe 
      * time.</p>
      * 
-     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060190CA.WorkingListEvent.code</p>
      * 

@@ -48,7 +48,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.QueryAck.queryId</p>
      * 
@@ -60,7 +60,7 @@ public class QueryAckBean extends MessagePartBean {
      * triggered it and is therefore mandatory. Particularly useful 
      * when responses are deferred or queued.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.QueryAck.queryId</p>
      * 
@@ -72,7 +72,7 @@ public class QueryAckBean extends MessagePartBean {
      * triggered it and is therefore mandatory. Particularly useful 
      * when responses are deferred or queued.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.QueryAck.queryId</p>
      * 
@@ -92,7 +92,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.QueryAck.queryId</p>
      * 
@@ -104,7 +104,7 @@ public class QueryAckBean extends MessagePartBean {
      * triggered it and is therefore mandatory. Particularly useful 
      * when responses are deferred or queued.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.QueryAck.queryId</p>
      * 
@@ -116,7 +116,7 @@ public class QueryAckBean extends MessagePartBean {
      * triggered it and is therefore mandatory. Particularly useful 
      * when responses are deferred or queued.</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.QueryAck.queryId</p>
      * 
@@ -136,7 +136,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: QueryStatus</p>
      * 
-     * <p>Other Business Name: QueryStatus</p>
+     * <p>Un-merged Business Name: QueryStatus</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.QueryAck.queryResponseCode</p>
      * 
@@ -147,7 +147,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Used to control receiver logic and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: QueryStatus</p>
+     * <p>Un-merged Business Name: QueryStatus</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.QueryAck.queryResponseCode</p>
      * 
@@ -158,7 +158,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Used to control receiver logic and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: QueryStatus</p>
+     * <p>Un-merged Business Name: QueryStatus</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.QueryAck.queryResponseCode</p>
      * 
@@ -177,7 +177,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: QueryStatus</p>
      * 
-     * <p>Other Business Name: QueryStatus</p>
+     * <p>Un-merged Business Name: QueryStatus</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.QueryAck.queryResponseCode</p>
      * 
@@ -188,7 +188,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Used to control receiver logic and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: QueryStatus</p>
+     * <p>Un-merged Business Name: QueryStatus</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.QueryAck.queryResponseCode</p>
      * 
@@ -199,7 +199,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Used to control receiver logic and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: QueryStatus</p>
+     * <p>Un-merged Business Name: QueryStatus</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.QueryAck.queryResponseCode</p>
      * 
@@ -218,7 +218,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: TotalMatchingRows</p>
      * 
-     * <p>Other Business Name: TotalMatchingRows</p>
+     * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryAck.resultTotalQuantity</p>
@@ -232,7 +232,7 @@ public class QueryAckBean extends MessagePartBean {
      * therefore mandatory. Particularly useful when only part of 
      * the result set is actually returned.</p>
      * 
-     * <p>Other Business Name: TotalMatchingRows</p>
+     * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryAck.resultTotalQuantity</p>
@@ -246,7 +246,7 @@ public class QueryAckBean extends MessagePartBean {
      * therefore mandatory. Particularly useful when only part of 
      * the result set is actually returned.</p>
      * 
-     * <p>Other Business Name: TotalMatchingRows</p>
+     * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryAck.resultTotalQuantity</p>
@@ -268,7 +268,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: TotalMatchingRows</p>
      * 
-     * <p>Other Business Name: TotalMatchingRows</p>
+     * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryAck.resultTotalQuantity</p>
@@ -282,7 +282,7 @@ public class QueryAckBean extends MessagePartBean {
      * therefore mandatory. Particularly useful when only part of 
      * the result set is actually returned.</p>
      * 
-     * <p>Other Business Name: TotalMatchingRows</p>
+     * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryAck.resultTotalQuantity</p>
@@ -296,7 +296,7 @@ public class QueryAckBean extends MessagePartBean {
      * therefore mandatory. Particularly useful when only part of 
      * the result set is actually returned.</p>
      * 
-     * <p>Other Business Name: TotalMatchingRows</p>
+     * <p>Un-merged Business Name: TotalMatchingRows</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryAck.resultTotalQuantity</p>
@@ -318,7 +318,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: ReturnedRows</p>
      * 
-     * <p>Other Business Name: ReturnedRows</p>
+     * <p>Un-merged Business Name: ReturnedRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryAck.resultCurrentQuantity</p>
@@ -331,7 +331,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Provides a quick overview of the results of the query and 
      * is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: ReturnedRows</p>
+     * <p>Un-merged Business Name: ReturnedRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryAck.resultCurrentQuantity</p>
@@ -344,7 +344,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Provides a quick overview of the results of the query and 
      * is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: ReturnedRows</p>
+     * <p>Un-merged Business Name: ReturnedRows</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryAck.resultCurrentQuantity</p>
@@ -365,7 +365,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: ReturnedRows</p>
      * 
-     * <p>Other Business Name: ReturnedRows</p>
+     * <p>Un-merged Business Name: ReturnedRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryAck.resultCurrentQuantity</p>
@@ -378,7 +378,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Provides a quick overview of the results of the query and 
      * is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: ReturnedRows</p>
+     * <p>Un-merged Business Name: ReturnedRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryAck.resultCurrentQuantity</p>
@@ -391,7 +391,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Provides a quick overview of the results of the query and 
      * is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: ReturnedRows</p>
+     * <p>Un-merged Business Name: ReturnedRows</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryAck.resultCurrentQuantity</p>
@@ -412,7 +412,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: RemainingRows</p>
      * 
-     * <p>Other Business Name: RemainingRows</p>
+     * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryAck.resultRemainingQuantity</p>
@@ -425,7 +425,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Identifies how much data remains to be queried and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: RemainingRows</p>
+     * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryAck.resultRemainingQuantity</p>
@@ -438,7 +438,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Identifies how much data remains to be queried and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: RemainingRows</p>
+     * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryAck.resultRemainingQuantity</p>
@@ -459,7 +459,7 @@ public class QueryAckBean extends MessagePartBean {
     /**
      * <p>Business Name: RemainingRows</p>
      * 
-     * <p>Other Business Name: RemainingRows</p>
+     * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.QueryAck.resultRemainingQuantity</p>
@@ -472,7 +472,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Identifies how much data remains to be queried and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: RemainingRows</p>
+     * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.QueryAck.resultRemainingQuantity</p>
@@ -485,7 +485,7 @@ public class QueryAckBean extends MessagePartBean {
      * <p>Identifies how much data remains to be queried and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: RemainingRows</p>
+     * <p>Un-merged Business Name: RemainingRows</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700746CA.QueryAck.resultRemainingQuantity</p>

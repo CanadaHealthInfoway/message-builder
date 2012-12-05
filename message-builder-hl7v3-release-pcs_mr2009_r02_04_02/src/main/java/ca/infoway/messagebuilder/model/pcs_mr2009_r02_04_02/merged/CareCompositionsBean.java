@@ -71,7 +71,7 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: CareCompositionIdentifier</p>
+     * <p>Un-merged Business Name: CareCompositionIdentifier</p>
      * 
      * <p>Relationship: 
      * COCT_MT011001CA.PatientCareProvisionEvent.id</p>
@@ -86,7 +86,7 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Unique identifier of an encounter, condition or 
      * care-based collection.</p>
      * 
-     * <p>Other Business Name: ReferralReportLink</p>
+     * <p>Un-merged Business Name: ReferralReportLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
@@ -103,14 +103,14 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>A unique identifier for the report resulting from the 
      * action requested by this referral.</p>
      * 
-     * <p>Other Business Name: ReferralReportLink</p>
+     * <p>Un-merged Business Name: ReferralReportLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionEvent2.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ReferralReportLink</p>
+     * <p>Un-merged Business Name: ReferralReportLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
@@ -133,7 +133,7 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: CareCompositionIdentifier</p>
+     * <p>Un-merged Business Name: CareCompositionIdentifier</p>
      * 
      * <p>Relationship: 
      * COCT_MT011001CA.PatientCareProvisionEvent.id</p>
@@ -148,7 +148,7 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Unique identifier of an encounter, condition or 
      * care-based collection.</p>
      * 
-     * <p>Other Business Name: ReferralReportLink</p>
+     * <p>Un-merged Business Name: ReferralReportLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
@@ -165,14 +165,14 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>A unique identifier for the report resulting from the 
      * action requested by this referral.</p>
      * 
-     * <p>Other Business Name: ReferralReportLink</p>
+     * <p>Un-merged Business Name: ReferralReportLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionEvent2.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ReferralReportLink</p>
+     * <p>Un-merged Business Name: ReferralReportLink</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
@@ -197,7 +197,7 @@ public class CareCompositionsBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionType</p>
      * 
-     * <p>Other Business Name: CareCompositionType</p>
+     * <p>Un-merged Business Name: CareCompositionType</p>
      * 
      * <p>Relationship: 
      * COCT_MT011001CA.PatientCareProvisionEvent.code</p>
@@ -228,7 +228,7 @@ public class CareCompositionsBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionType</p>
      * 
-     * <p>Other Business Name: CareCompositionType</p>
+     * <p>Un-merged Business Name: CareCompositionType</p>
      * 
      * <p>Relationship: 
      * COCT_MT011001CA.PatientCareProvisionEvent.code</p>
@@ -259,7 +259,7 @@ public class CareCompositionsBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionEffectiveDate</p>
      * 
-     * <p>Other Business Name: CareCompositionEffectiveDate</p>
+     * <p>Un-merged Business Name: CareCompositionEffectiveDate</p>
      * 
      * <p>Relationship: 
      * COCT_MT011001CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -274,7 +274,7 @@ public class CareCompositionsBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionEffectiveDate</p>
      * 
-     * <p>Other Business Name: CareCompositionEffectiveDate</p>
+     * <p>Un-merged Business Name: CareCompositionEffectiveDate</p>
      * 
      * <p>Relationship: 
      * COCT_MT011001CA.PatientCareProvisionEvent.effectiveTime</p>
@@ -287,7 +287,7 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT011001CA.Admitter.assignees</p>
      * 
@@ -300,7 +300,7 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT011001CA.Attender.assignees</p>
      * 
@@ -313,7 +313,7 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT011001CA.PatientCareProvisionEvent.location</p>
@@ -326,7 +326,7 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT011001CA.PatientCareProvisionEvent.location</p>

@@ -83,7 +83,7 @@ public class ParentTestBean extends MessagePartBean {
     /**
      * <p>Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Other Business Name: ParentTestIdentifier</p>
+     * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001010CA.ActParentPointer.id</p>
      * 
@@ -95,7 +95,7 @@ public class ParentTestBean extends MessagePartBean {
      * <p>Communicates the parent order (id) in a repeating child 
      * order.</p>
      * 
-     * <p>Other Business Name: ParentTestIdentifier</p>
+     * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001999CA.ActParentPointer.id</p>
      * 
@@ -107,7 +107,7 @@ public class ParentTestBean extends MessagePartBean {
      * <p>Communicates the parent order (id) in a repeating child 
      * order.</p>
      * 
-     * <p>Other Business Name: ParentTestIdentifier</p>
+     * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001001CA.ActParentPointer.id</p>
      * 
@@ -119,7 +119,7 @@ public class ParentTestBean extends MessagePartBean {
      * <p>Communicates the parent order (id) in a repeating child 
      * order.</p>
      * 
-     * <p>Other Business Name: ParentTestIdentifier</p>
+     * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001000CA.ActParentPointer.id</p>
      * 
@@ -139,7 +139,7 @@ public class ParentTestBean extends MessagePartBean {
     /**
      * <p>Business Name: ParentTestIdentifier</p>
      * 
-     * <p>Other Business Name: ParentTestIdentifier</p>
+     * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001010CA.ActParentPointer.id</p>
      * 
@@ -151,7 +151,7 @@ public class ParentTestBean extends MessagePartBean {
      * <p>Communicates the parent order (id) in a repeating child 
      * order.</p>
      * 
-     * <p>Other Business Name: ParentTestIdentifier</p>
+     * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001999CA.ActParentPointer.id</p>
      * 
@@ -163,7 +163,7 @@ public class ParentTestBean extends MessagePartBean {
      * <p>Communicates the parent order (id) in a repeating child 
      * order.</p>
      * 
-     * <p>Other Business Name: ParentTestIdentifier</p>
+     * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001001CA.ActParentPointer.id</p>
      * 
@@ -175,7 +175,7 @@ public class ParentTestBean extends MessagePartBean {
      * <p>Communicates the parent order (id) in a repeating child 
      * order.</p>
      * 
-     * <p>Other Business Name: ParentTestIdentifier</p>
+     * <p>Un-merged Business Name: ParentTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001000CA.ActParentPointer.id</p>
      * 

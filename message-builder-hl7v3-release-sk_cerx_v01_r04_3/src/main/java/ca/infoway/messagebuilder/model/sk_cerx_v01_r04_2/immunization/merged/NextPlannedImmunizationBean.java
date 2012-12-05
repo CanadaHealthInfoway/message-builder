@@ -39,7 +39,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: RenewalDate</p>
+     * <p>Un-merged Business Name: RenewalDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.NextPlannedImmunization.effectiveTime</p>
@@ -52,7 +52,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Necessary reminder to a patient and his/or provider for a 
      * follow-up therapy.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.NextPlannedImmunization.effectiveTime</p>
@@ -65,7 +65,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Allows for the scheduling of a multi-dose immunization 
      * course.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.NextPlannedImmunization.effectiveTime</p>
@@ -84,7 +84,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: RenewalDate</p>
+     * <p>Un-merged Business Name: RenewalDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.NextPlannedImmunization.effectiveTime</p>
@@ -97,7 +97,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Necessary reminder to a patient and his/or provider for a 
      * follow-up therapy.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.NextPlannedImmunization.effectiveTime</p>
@@ -110,7 +110,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Allows for the scheduling of a multi-dose immunization 
      * course.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.NextPlannedImmunization.effectiveTime</p>

@@ -89,7 +89,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
@@ -134,7 +134,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * local system or some other non-client-registry 
      * identifier.</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.id</p>
      * 
@@ -188,7 +188,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
@@ -233,7 +233,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * local system or some other non-client-registry 
      * identifier.</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.id</p>
      * 
@@ -287,7 +287,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.addr</p>
      * 
@@ -356,7 +356,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * <p>Physical address for the patient where they may be 
      * visited or found.</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.addr</p>
      * 
@@ -435,7 +435,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.addr</p>
      * 
@@ -504,7 +504,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * <p>Physical address for the patient where they may be 
      * visited or found.</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.addr</p>
      * 
@@ -583,7 +583,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientContactPhoneAndEMails</p>
      * 
-     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * <p>Un-merged Business Name: PatientContactPhoneAndEMails</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.telecom</p>
      * 
@@ -622,7 +622,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * <p>Telephone, fax and/or e-mail addresses intended as the 
      * principal means of contact for the patient.</p>
      * 
-     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * <p>Un-merged Business Name: PatientContactPhoneAndEMails</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.telecom</p>
      * 
@@ -671,7 +671,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
@@ -736,7 +736,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>The name by which the patient is known.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.name</p>
      * 
@@ -811,7 +811,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
@@ -876,7 +876,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>The name by which the patient is known.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.name</p>
      * 
@@ -951,7 +951,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050207CA.Person.administrativeGenderCode</p>
@@ -981,7 +981,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * client registry. Complex genetic genders are handled as 
      * observations if they are considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050208CA.Person.administrativeGenderCode</p>
@@ -1019,7 +1019,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050207CA.Person.administrativeGenderCode</p>
@@ -1049,7 +1049,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * client registry. Complex genetic genders are handled as 
      * observations if they are considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050208CA.Person.administrativeGenderCode</p>
@@ -1087,7 +1087,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
      * 
@@ -1117,7 +1117,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * <p>Indicates the date on which the patient was born as known 
      * by the client registry.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
      * 
@@ -1156,7 +1156,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     /**
      * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
      * 
@@ -1186,7 +1186,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * <p>Indicates the date on which the patient was born as known 
      * by the client registry.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
      * 

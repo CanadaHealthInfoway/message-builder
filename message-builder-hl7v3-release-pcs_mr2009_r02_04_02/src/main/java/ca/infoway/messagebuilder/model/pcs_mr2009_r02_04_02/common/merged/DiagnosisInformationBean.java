@@ -40,7 +40,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisPriority</p>
      * 
-     * <p>Other Business Name: DiagnosisPriority</p>
+     * <p>Un-merged Business Name: DiagnosisPriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.DiagnosisInformation.sequenceNumber</p>
@@ -51,7 +51,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * 
      * <p>1 = Primary, 2 = Secondary, etc.</p>
      * 
-     * <p>Other Business Name: DiagnosisPriority</p>
+     * <p>Un-merged Business Name: DiagnosisPriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.DiagnosisInformation.sequenceNumber</p>
@@ -68,7 +68,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisPriority</p>
      * 
-     * <p>Other Business Name: DiagnosisPriority</p>
+     * <p>Un-merged Business Name: DiagnosisPriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.DiagnosisInformation.sequenceNumber</p>
@@ -79,7 +79,7 @@ public class DiagnosisInformationBean extends MessagePartBean {
      * 
      * <p>1 = Primary, 2 = Secondary, etc.</p>
      * 
-     * <p>Other Business Name: DiagnosisPriority</p>
+     * <p>Un-merged Business Name: DiagnosisPriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.DiagnosisInformation.sequenceNumber</p>
@@ -94,14 +94,14 @@ public class DiagnosisInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.DiagnosisInformation.diagnosis</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.DiagnosisInformation.diagnosis</p>
@@ -114,14 +114,14 @@ public class DiagnosisInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.DiagnosisInformation.diagnosis</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT490000CA.DiagnosisInformation.diagnosis</p>

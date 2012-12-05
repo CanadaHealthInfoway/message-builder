@@ -51,7 +51,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
     /**
      * <p>Business Name: ResultStatusProcessStepCode</p>
      * 
-     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * <p>Un-merged Business Name: ResultStatusProcessStepCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.ResultStatusProcessStep.code</p>
@@ -61,7 +61,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * <p>Used to designate &quot;preliminary&quot; and 
      * &quot;final&quot; result statuses.</p>
      * 
-     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * <p>Un-merged Business Name: ResultStatusProcessStepCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT002000CA.ResultStatusProcessStep.code</p>
@@ -70,7 +70,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * 
      * <p>Preliminary or Final.</p>
      * 
-     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * <p>Un-merged Business Name: ResultStatusProcessStepCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.ResultStatusProcessStep.code</p>
@@ -80,7 +80,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * <p>Used to designate &quot;preliminary&quot; and 
      * &quot;final&quot; result statuses.</p>
      * 
-     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * <p>Un-merged Business Name: ResultStatusProcessStepCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.ResultStatusProcessStep.code</p>
@@ -98,7 +98,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
     /**
      * <p>Business Name: ResultStatusProcessStepCode</p>
      * 
-     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * <p>Un-merged Business Name: ResultStatusProcessStepCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.ResultStatusProcessStep.code</p>
@@ -108,7 +108,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * <p>Used to designate &quot;preliminary&quot; and 
      * &quot;final&quot; result statuses.</p>
      * 
-     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * <p>Un-merged Business Name: ResultStatusProcessStepCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT002000CA.ResultStatusProcessStep.code</p>
@@ -117,7 +117,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * 
      * <p>Preliminary or Final.</p>
      * 
-     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * <p>Un-merged Business Name: ResultStatusProcessStepCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.ResultStatusProcessStep.code</p>
@@ -127,7 +127,7 @@ public class ResultStatusProcessStepBean extends MessagePartBean {
      * <p>Used to designate &quot;preliminary&quot; and 
      * &quot;final&quot; result statuses.</p>
      * 
-     * <p>Other Business Name: ResultStatusProcessStepCode</p>
+     * <p>Un-merged Business Name: ResultStatusProcessStepCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.ResultStatusProcessStep.code</p>

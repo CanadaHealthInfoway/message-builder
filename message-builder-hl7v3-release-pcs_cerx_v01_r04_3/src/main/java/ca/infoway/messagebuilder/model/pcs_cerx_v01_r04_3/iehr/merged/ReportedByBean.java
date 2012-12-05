@@ -159,7 +159,7 @@ public class ReportedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Informant.time</p>
      * 
@@ -172,7 +172,7 @@ public class ReportedByBean extends MessagePartBean {
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Informant.time</p>
      * 
@@ -184,7 +184,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the medical condition was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Informant.time</p>
      * 
@@ -197,7 +197,7 @@ public class ReportedByBean extends MessagePartBean {
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Informant.time</p>
      * 
@@ -210,7 +210,7 @@ public class ReportedByBean extends MessagePartBean {
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
      * 
-     * <p>Other Business Name: ReportedTimestamp</p>
+     * <p>Un-merged Business Name: ReportedTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000006CA.Informant.time</p>
      * 
@@ -222,7 +222,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the adverse reaction was reported.</p>
      * 
-     * <p>Other Business Name: ReportedTimestamp</p>
+     * <p>Un-merged Business Name: ReportedTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000007CA.Informant.time</p>
      * 
@@ -233,7 +233,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the medical condition was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000012CA.Informant.time</p>
      * 
@@ -245,7 +245,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the adverse reaction was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Informant.time</p>
      * 
@@ -258,7 +258,7 @@ public class ReportedByBean extends MessagePartBean {
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Informant.time</p>
      * 
@@ -270,7 +270,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the medical condition was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000010CA.Informant.time</p>
      * 
@@ -282,7 +282,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the medical condition was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000002CA.Informant.time</p>
      * 
@@ -300,7 +300,7 @@ public class ReportedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Informant.time</p>
      * 
@@ -313,7 +313,7 @@ public class ReportedByBean extends MessagePartBean {
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Informant.time</p>
      * 
@@ -325,7 +325,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the medical condition was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Informant.time</p>
      * 
@@ -338,7 +338,7 @@ public class ReportedByBean extends MessagePartBean {
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Informant.time</p>
      * 
@@ -351,7 +351,7 @@ public class ReportedByBean extends MessagePartBean {
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
      * 
-     * <p>Other Business Name: ReportedTimestamp</p>
+     * <p>Un-merged Business Name: ReportedTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000006CA.Informant.time</p>
      * 
@@ -363,7 +363,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the adverse reaction was reported.</p>
      * 
-     * <p>Other Business Name: ReportedTimestamp</p>
+     * <p>Un-merged Business Name: ReportedTimestamp</p>
      * 
      * <p>Relationship: REPC_MT000007CA.Informant.time</p>
      * 
@@ -374,7 +374,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the medical condition was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000012CA.Informant.time</p>
      * 
@@ -386,7 +386,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the adverse reaction was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Informant.time</p>
      * 
@@ -399,7 +399,7 @@ public class ReportedByBean extends MessagePartBean {
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Informant.time</p>
      * 
@@ -411,7 +411,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the medical condition was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000010CA.Informant.time</p>
      * 
@@ -423,7 +423,7 @@ public class ReportedByBean extends MessagePartBean {
      * 
      * <p>The date on which the medical condition was reported.</p>
      * 
-     * <p>Other Business Name: ReportedDate</p>
+     * <p>Un-merged Business Name: ReportedDate</p>
      * 
      * <p>Relationship: REPC_MT000002CA.Informant.time</p>
      * 
@@ -441,55 +441,55 @@ public class ReportedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000006CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000010CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000002CA.Informant.party</p>
      * 
@@ -501,55 +501,55 @@ public class ReportedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000006CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000010CA.Informant.party</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000002CA.Informant.party</p>
      * 
@@ -561,7 +561,7 @@ public class ReportedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000007CA.Informant.consenter</p>
      * 
@@ -573,7 +573,7 @@ public class ReportedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000007CA.Informant.consenter</p>
      * 
@@ -585,7 +585,7 @@ public class ReportedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000012CA.Informant.choice</p>
      * 
@@ -597,7 +597,7 @@ public class ReportedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000012CA.Informant.choice</p>
      * 

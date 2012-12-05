@@ -96,7 +96,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
      * 
@@ -109,7 +109,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * that of the sender. This is optional because not all 
      * environments require network addresses.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.RespondTo.telecom</p>
      * 
@@ -122,7 +122,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * that of the sender. This is optional because not all 
      * environments require network addresses.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT000200CA.RespondTo.telecom</p>
      * 
@@ -135,7 +135,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * that of the sender. This is optional because not all 
      * environments require network addresses.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.RespondTo.telecom</p>
      * 
@@ -156,7 +156,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
      * 
@@ -169,7 +169,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * that of the sender. This is optional because not all 
      * environments require network addresses.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.RespondTo.telecom</p>
      * 
@@ -182,7 +182,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * that of the sender. This is optional because not all 
      * environments require network addresses.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT000200CA.RespondTo.telecom</p>
      * 
@@ -195,7 +195,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * that of the sender. This is optional because not all 
      * environments require network addresses.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.RespondTo.telecom</p>
      * 
@@ -216,7 +216,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
      * 
@@ -231,7 +231,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * be cause it is the principal identifier of the application 
      * to respond to.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.Device3.id</p>
      * 
@@ -246,7 +246,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * be cause it is the principal identifier of the application 
      * to respond to.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT000200CA.Device3.id</p>
      * 
@@ -261,7 +261,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * be cause it is the principal identifier of the application 
      * to respond to.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.Device3.id</p>
      * 
@@ -284,7 +284,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
      * 
@@ -299,7 +299,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * be cause it is the principal identifier of the application 
      * to respond to.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.Device3.id</p>
      * 
@@ -314,7 +314,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * be cause it is the principal identifier of the application 
      * to respond to.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT000200CA.Device3.id</p>
      * 
@@ -329,7 +329,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * be cause it is the principal identifier of the application 
      * to respond to.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.Device3.id</p>
      * 
@@ -352,7 +352,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToOrganizationId</p>
      * 
-     * <p>Other Business Name: RespondToOrganizationId</p>
+     * <p>Un-merged Business Name: RespondToOrganizationId</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Organization3.id</p>
      * 
@@ -366,7 +366,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * This attribute is optional because not all environments 
      * require communicating this information.</p>
      * 
-     * <p>Other Business Name: RespondToOrganizationId</p>
+     * <p>Un-merged Business Name: RespondToOrganizationId</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.Organization3.id</p>
      * 
@@ -380,7 +380,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * This attribute is optional because not all environments 
      * require communicating this information.</p>
      * 
-     * <p>Other Business Name: RespondToOrganizationId</p>
+     * <p>Un-merged Business Name: RespondToOrganizationId</p>
      * 
      * <p>Relationship: MCCI_MT000200CA.Organization3.id</p>
      * 
@@ -394,7 +394,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * This attribute is optional because not all environments 
      * require communicating this information.</p>
      * 
-     * <p>Other Business Name: RespondToOrganizationId</p>
+     * <p>Un-merged Business Name: RespondToOrganizationId</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.Organization3.id</p>
      * 
@@ -416,7 +416,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToOrganizationId</p>
      * 
-     * <p>Other Business Name: RespondToOrganizationId</p>
+     * <p>Un-merged Business Name: RespondToOrganizationId</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Organization3.id</p>
      * 
@@ -430,7 +430,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * This attribute is optional because not all environments 
      * require communicating this information.</p>
      * 
-     * <p>Other Business Name: RespondToOrganizationId</p>
+     * <p>Un-merged Business Name: RespondToOrganizationId</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.Organization3.id</p>
      * 
@@ -444,7 +444,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * This attribute is optional because not all environments 
      * require communicating this information.</p>
      * 
-     * <p>Other Business Name: RespondToOrganizationId</p>
+     * <p>Un-merged Business Name: RespondToOrganizationId</p>
      * 
      * <p>Relationship: MCCI_MT000200CA.Organization3.id</p>
      * 
@@ -458,7 +458,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * This attribute is optional because not all environments 
      * require communicating this information.</p>
      * 
-     * <p>Other Business Name: RespondToOrganizationId</p>
+     * <p>Un-merged Business Name: RespondToOrganizationId</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.Organization3.id</p>
      * 
@@ -480,7 +480,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToFacilityId</p>
      * 
-     * <p>Other Business Name: RespondToFacilityId</p>
+     * <p>Un-merged Business Name: RespondToFacilityId</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Place3.id</p>
      * 
@@ -493,7 +493,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * optional because not all environments require communicating 
      * this information.</p>
      * 
-     * <p>Other Business Name: RespondToFacilityId</p>
+     * <p>Un-merged Business Name: RespondToFacilityId</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.Place3.id</p>
      * 
@@ -506,7 +506,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * optional because not all environments require communicating 
      * this information.</p>
      * 
-     * <p>Other Business Name: RespondToFacilityId</p>
+     * <p>Un-merged Business Name: RespondToFacilityId</p>
      * 
      * <p>Relationship: MCCI_MT000200CA.Place3.id</p>
      * 
@@ -519,7 +519,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * optional because not all environments require communicating 
      * this information.</p>
      * 
-     * <p>Other Business Name: RespondToFacilityId</p>
+     * <p>Un-merged Business Name: RespondToFacilityId</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.Place3.id</p>
      * 
@@ -540,7 +540,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToFacilityId</p>
      * 
-     * <p>Other Business Name: RespondToFacilityId</p>
+     * <p>Un-merged Business Name: RespondToFacilityId</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Place3.id</p>
      * 
@@ -553,7 +553,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * optional because not all environments require communicating 
      * this information.</p>
      * 
-     * <p>Other Business Name: RespondToFacilityId</p>
+     * <p>Un-merged Business Name: RespondToFacilityId</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.Place3.id</p>
      * 
@@ -566,7 +566,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * optional because not all environments require communicating 
      * this information.</p>
      * 
-     * <p>Other Business Name: RespondToFacilityId</p>
+     * <p>Un-merged Business Name: RespondToFacilityId</p>
      * 
      * <p>Relationship: MCCI_MT000200CA.Place3.id</p>
      * 
@@ -579,7 +579,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * optional because not all environments require communicating 
      * this information.</p>
      * 
-     * <p>Other Business Name: RespondToFacilityId</p>
+     * <p>Un-merged Business Name: RespondToFacilityId</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.Place3.id</p>
      * 

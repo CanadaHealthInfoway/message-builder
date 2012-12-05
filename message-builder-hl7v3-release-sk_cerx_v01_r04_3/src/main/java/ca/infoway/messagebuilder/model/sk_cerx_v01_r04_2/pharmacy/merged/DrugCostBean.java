@@ -56,7 +56,7 @@ public class DrugCostBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCost</p>
      * 
-     * <p>Other Business Name: DrugCost</p>
+     * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
      * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
@@ -70,7 +70,7 @@ public class DrugCostBean extends MessagePartBean {
      * <p>May influence prescriber and pharmacists decisions as 
      * cost can impact compliance.</p>
      * 
-     * <p>Other Business Name: DrugCost</p>
+     * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
      * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>
@@ -92,7 +92,7 @@ public class DrugCostBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCost</p>
      * 
-     * <p>Other Business Name: DrugCost</p>
+     * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
      * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
@@ -106,7 +106,7 @@ public class DrugCostBean extends MessagePartBean {
      * <p>May influence prescriber and pharmacists decisions as 
      * cost can impact compliance.</p>
      * 
-     * <p>Other Business Name: DrugCost</p>
+     * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
      * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>

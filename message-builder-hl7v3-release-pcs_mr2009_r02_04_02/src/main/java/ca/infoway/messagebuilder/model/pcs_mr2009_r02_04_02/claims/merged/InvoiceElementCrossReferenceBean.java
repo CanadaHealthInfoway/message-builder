@@ -39,14 +39,14 @@ public class InvoiceElementCrossReferenceBean extends MessagePartBean {
     /**
      * <p>Business Name: CrossReferenceIdentifier</p>
      * 
-     * <p>Other Business Name: CrossReferenceIdentifier</p>
+     * <p>Un-merged Business Name: CrossReferenceIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementCrossReference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CrossReferenceIdentifier</p>
+     * <p>Un-merged Business Name: CrossReferenceIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementCrossReference.id</p>
@@ -61,14 +61,14 @@ public class InvoiceElementCrossReferenceBean extends MessagePartBean {
     /**
      * <p>Business Name: CrossReferenceIdentifier</p>
      * 
-     * <p>Other Business Name: CrossReferenceIdentifier</p>
+     * <p>Un-merged Business Name: CrossReferenceIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementCrossReference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CrossReferenceIdentifier</p>
+     * <p>Un-merged Business Name: CrossReferenceIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementCrossReference.id</p>

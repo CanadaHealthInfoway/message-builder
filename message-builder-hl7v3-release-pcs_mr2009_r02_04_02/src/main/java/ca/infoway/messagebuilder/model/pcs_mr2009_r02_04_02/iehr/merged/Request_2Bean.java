@@ -107,7 +107,7 @@ public class Request_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestType</p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT230003CA.ActRequest.classCode</p>
      * 
@@ -120,7 +120,7 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT230001CA.ActRequest.classCode</p>
      * 
@@ -133,7 +133,7 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT410001CA.ActRequest.classCode</p>
      * 
@@ -146,7 +146,7 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT420001CA.ActRequest.classCode</p>
      * 
@@ -159,13 +159,13 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT410003CA.ActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT230002CA.ActRequest.classCode</p>
      * 
@@ -178,7 +178,7 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT420003CA.ActRequest.classCode</p>
      * 
@@ -199,7 +199,7 @@ public class Request_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestType</p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT230003CA.ActRequest.classCode</p>
      * 
@@ -212,7 +212,7 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT230001CA.ActRequest.classCode</p>
      * 
@@ -225,7 +225,7 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT410001CA.ActRequest.classCode</p>
      * 
@@ -238,7 +238,7 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT420001CA.ActRequest.classCode</p>
      * 
@@ -251,13 +251,13 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT410003CA.ActRequest.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT230002CA.ActRequest.classCode</p>
      * 
@@ -270,7 +270,7 @@ public class Request_2Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT420003CA.ActRequest.classCode</p>
      * 
@@ -291,7 +291,7 @@ public class Request_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestId</p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT230003CA.ActRequest.id</p>
      * 
@@ -312,7 +312,7 @@ public class Request_2Bean extends MessagePartBean {
      * fulfilling. The type of request is identified by the Request 
      * Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT230001CA.ActRequest.id</p>
      * 
@@ -333,7 +333,7 @@ public class Request_2Bean extends MessagePartBean {
      * fulfilling. The type of request is identified by the Request 
      * Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT410001CA.ActRequest.id</p>
      * 
@@ -353,7 +353,7 @@ public class Request_2Bean extends MessagePartBean {
      * or order) that this Measured Observation is fulfilling. The 
      * type of request is identified by the Request Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT420001CA.ActRequest.id</p>
      * 
@@ -373,13 +373,13 @@ public class Request_2Bean extends MessagePartBean {
      * or order) that this Coded Observation is fulfilling. The 
      * type of request is identified by the Request Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT410003CA.ActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT230002CA.ActRequest.id</p>
      * 
@@ -400,7 +400,7 @@ public class Request_2Bean extends MessagePartBean {
      * fulfilling. The type of request is identified by the Request 
      * Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT420003CA.ActRequest.id</p>
      * 
@@ -428,7 +428,7 @@ public class Request_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestId</p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT230003CA.ActRequest.id</p>
      * 
@@ -449,7 +449,7 @@ public class Request_2Bean extends MessagePartBean {
      * fulfilling. The type of request is identified by the Request 
      * Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT230001CA.ActRequest.id</p>
      * 
@@ -470,7 +470,7 @@ public class Request_2Bean extends MessagePartBean {
      * fulfilling. The type of request is identified by the Request 
      * Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT410001CA.ActRequest.id</p>
      * 
@@ -490,7 +490,7 @@ public class Request_2Bean extends MessagePartBean {
      * or order) that this Measured Observation is fulfilling. The 
      * type of request is identified by the Request Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT420001CA.ActRequest.id</p>
      * 
@@ -510,13 +510,13 @@ public class Request_2Bean extends MessagePartBean {
      * or order) that this Coded Observation is fulfilling. The 
      * type of request is identified by the Request Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT410003CA.ActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT230002CA.ActRequest.id</p>
      * 
@@ -537,7 +537,7 @@ public class Request_2Bean extends MessagePartBean {
      * fulfilling. The type of request is identified by the Request 
      * Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT420003CA.ActRequest.id</p>
      * 
@@ -563,43 +563,43 @@ public class Request_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT420001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT420003CA.ActRequest.author</p>
      * 
@@ -611,43 +611,43 @@ public class Request_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT420001CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT420003CA.ActRequest.author</p>
      * 

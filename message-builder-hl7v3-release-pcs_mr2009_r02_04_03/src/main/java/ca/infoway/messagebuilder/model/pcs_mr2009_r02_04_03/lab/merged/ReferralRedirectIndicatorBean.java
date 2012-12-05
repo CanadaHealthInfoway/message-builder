@@ -110,7 +110,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: ReferralRedirectIndicator</p>
      * 
-     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001000CA.ReferralRedirectIndicator.code</p>
@@ -120,7 +120,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Describes this act event as a referral or redirect 
      * indicator act.</p>
      * 
-     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001001CA.ReferralRedirectIndicator.code</p>
@@ -130,7 +130,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Describes this act event as a referral or redirect 
      * indicator act.</p>
      * 
-     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001010CA.ReferralRedirectIndicator.code</p>
@@ -140,7 +140,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Describes this act event as a referral or redirect 
      * indicator act.</p>
      * 
-     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001999CA.ReferralRedirectIndicator.code</p>
@@ -158,7 +158,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: ReferralRedirectIndicator</p>
      * 
-     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001000CA.ReferralRedirectIndicator.code</p>
@@ -168,7 +168,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Describes this act event as a referral or redirect 
      * indicator act.</p>
      * 
-     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001001CA.ReferralRedirectIndicator.code</p>
@@ -178,7 +178,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Describes this act event as a referral or redirect 
      * indicator act.</p>
      * 
-     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001010CA.ReferralRedirectIndicator.code</p>
@@ -188,7 +188,7 @@ public class ReferralRedirectIndicatorBean extends MessagePartBean {
      * <p>Describes this act event as a referral or redirect 
      * indicator act.</p>
      * 
-     * <p>Other Business Name: ReferralRedirectIndicator</p>
+     * <p>Un-merged Business Name: ReferralRedirectIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001999CA.ReferralRedirectIndicator.code</p>

@@ -75,14 +75,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
@@ -95,14 +95,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
@@ -115,7 +115,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Other Business Name: ProductServiceCode</p>
+     * <p>Un-merged Business Name: ProductServiceCode</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.code</p>
@@ -126,7 +126,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * Dispense, including Product/Service Code Modifier e.g. 
      * northern isolation, off hours specialty, on call</p>
      * 
-     * <p>Other Business Name: AdjudicatedProductServiceCode</p>
+     * <p>Un-merged Business Name: AdjudicatedProductServiceCode</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.code</p>
@@ -152,7 +152,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Other Business Name: ProductServiceCode</p>
+     * <p>Un-merged Business Name: ProductServiceCode</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.code</p>
@@ -163,7 +163,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * Dispense, including Product/Service Code Modifier e.g. 
      * northern isolation, off hours specialty, on call</p>
      * 
-     * <p>Other Business Name: AdjudicatedProductServiceCode</p>
+     * <p>Un-merged Business Name: AdjudicatedProductServiceCode</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.code</p>
@@ -189,7 +189,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Other Business Name: QuantityPerUnit</p>
+     * <p>Un-merged Business Name: QuantityPerUnit</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
@@ -198,7 +198,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * 
      * <p>e.g. 3 {boxes}</p>
      * 
-     * <p>Other Business Name: AdjudicatedUnitQuantity</p>
+     * <p>Un-merged Business Name: AdjudicatedUnitQuantity</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
@@ -215,7 +215,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Other Business Name: QuantityPerUnit</p>
+     * <p>Un-merged Business Name: QuantityPerUnit</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
@@ -224,7 +224,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * 
      * <p>e.g. 3 {boxes}</p>
      * 
-     * <p>Other Business Name: AdjudicatedUnitQuantity</p>
+     * <p>Un-merged Business Name: AdjudicatedUnitQuantity</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitQuantity</p>
@@ -241,7 +241,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Other Business Name: PricePerUnit</p>
+     * <p>Un-merged Business Name: PricePerUnit</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
@@ -250,7 +250,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * 
      * <p>e.g. $50 CAD/ 1 {box}</p>
      * 
-     * <p>Other Business Name: AdjudicatedUnitPrice</p>
+     * <p>Un-merged Business Name: AdjudicatedUnitPrice</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
@@ -269,7 +269,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Other Business Name: PricePerUnit</p>
+     * <p>Un-merged Business Name: PricePerUnit</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
@@ -278,7 +278,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * 
      * <p>e.g. $50 CAD/ 1 {box}</p>
      * 
-     * <p>Other Business Name: AdjudicatedUnitPrice</p>
+     * <p>Un-merged Business Name: AdjudicatedUnitPrice</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.unitPriceAmt</p>
@@ -297,7 +297,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Other Business Name: InvoiceElementAmountBilled</p>
+     * <p>Un-merged Business Name: InvoiceElementAmountBilled</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.netAmt</p>
@@ -307,7 +307,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
      * 
-     * <p>Other Business Name: AdjudicatedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: AdjudicatedInvoiceLineAmount</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.netAmt</p>
@@ -327,7 +327,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Other Business Name: InvoiceElementAmountBilled</p>
+     * <p>Un-merged Business Name: InvoiceElementAmountBilled</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.netAmt</p>
@@ -337,7 +337,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
      * E.g. $150 CAD</p>
      * 
-     * <p>Other Business Name: AdjudicatedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: AdjudicatedInvoiceLineAmount</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.netAmt</p>
@@ -359,7 +359,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
@@ -369,7 +369,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
      * 
-     * <p>Other Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * <p>Un-merged Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
@@ -387,7 +387,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
@@ -397,7 +397,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
      * 
-     * <p>Other Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * <p>Un-merged Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
@@ -413,7 +413,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
      * 
@@ -425,7 +425,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
      * 
@@ -439,7 +439,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
-     * <p>Other Business Name: AdjudicatedInvoiceElementIdentifier</p>
+     * <p>Un-merged Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.id</p>
@@ -470,7 +470,7 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
-     * <p>Other Business Name: AdjudicatedInvoiceElementIdentifier</p>
+     * <p>Un-merged Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.id</p>

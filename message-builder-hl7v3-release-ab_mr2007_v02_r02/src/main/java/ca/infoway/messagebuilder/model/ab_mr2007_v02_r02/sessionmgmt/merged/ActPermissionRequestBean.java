@@ -76,7 +76,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: LogonApplication</p>
      * 
-     * <p>Other Business Name: LogonApplication</p>
+     * <p>Un-merged Business Name: LogonApplication</p>
      * 
      * <p>Relationship: COMT_MT900001AB.Device.id</p>
      * 
@@ -94,7 +94,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
      * physical systems, or might only provide access to a part of 
      * a physical system.</p>
      * 
-     * <p>Other Business Name: LogonApplication</p>
+     * <p>Un-merged Business Name: LogonApplication</p>
      * 
      * <p>Relationship: COMT_MT900003AB.Device.id</p>
      * 
@@ -117,7 +117,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: LogonApplication</p>
      * 
-     * <p>Other Business Name: LogonApplication</p>
+     * <p>Un-merged Business Name: LogonApplication</p>
      * 
      * <p>Relationship: COMT_MT900001AB.Device.id</p>
      * 
@@ -135,7 +135,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
      * physical systems, or might only provide access to a part of 
      * a physical system.</p>
      * 
-     * <p>Other Business Name: LogonApplication</p>
+     * <p>Un-merged Business Name: LogonApplication</p>
      * 
      * <p>Relationship: COMT_MT900003AB.Device.id</p>
      * 
@@ -158,7 +158,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: Password</p>
      * 
-     * <p>Other Business Name: Password</p>
+     * <p>Un-merged Business Name: Password</p>
      * 
      * <p>Relationship: COMT_MT900001AB.Performer.signatureText</p>
      * 
@@ -178,7 +178,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: Password</p>
      * 
-     * <p>Other Business Name: Password</p>
+     * <p>Un-merged Business Name: Password</p>
      * 
      * <p>Relationship: COMT_MT900001AB.Performer.signatureText</p>
      * 
@@ -198,7 +198,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: LogonUser</p>
      * 
-     * <p>Other Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: LogonUser</p>
      * 
      * <p>Relationship: COMT_MT900001AB.AssignedEntity.id</p>
      * 
@@ -217,7 +217,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: LogonUser</p>
      * 
-     * <p>Other Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: LogonUser</p>
      * 
      * <p>Relationship: COMT_MT900001AB.AssignedEntity.id</p>
      * 
@@ -234,7 +234,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COMT_MT900001AB.ActPermissionRequest.location</p>
@@ -247,7 +247,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COMT_MT900001AB.ActPermissionRequest.location</p>
@@ -262,7 +262,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: OldPassword</p>
      * 
-     * <p>Other Business Name: OldPassword</p>
+     * <p>Un-merged Business Name: OldPassword</p>
      * 
      * <p>Relationship: COMT_MT900003AB.Performer.signatureText</p>
      * 
@@ -283,7 +283,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: OldPassword</p>
      * 
-     * <p>Other Business Name: OldPassword</p>
+     * <p>Un-merged Business Name: OldPassword</p>
      * 
      * <p>Relationship: COMT_MT900003AB.Performer.signatureText</p>
      * 
@@ -304,7 +304,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: LogonUser</p>
      * 
-     * <p>Other Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: LogonUser</p>
      * 
      * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
      * 
@@ -323,7 +323,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: LogonUser</p>
      * 
-     * <p>Other Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: LogonUser</p>
      * 
      * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
      * 
@@ -342,7 +342,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: NewPassword</p>
      * 
-     * <p>Other Business Name: NewPassword</p>
+     * <p>Un-merged Business Name: NewPassword</p>
      * 
      * <p>Relationship: COMT_MT900003AB.Performer2.signatureText</p>
      * 
@@ -360,7 +360,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: NewPassword</p>
      * 
-     * <p>Other Business Name: NewPassword</p>
+     * <p>Un-merged Business Name: NewPassword</p>
      * 
      * <p>Relationship: COMT_MT900003AB.Performer2.signatureText</p>
      * 
@@ -378,7 +378,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: LogonUser</p>
      * 
-     * <p>Other Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: LogonUser</p>
      * 
      * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
      * 
@@ -397,7 +397,7 @@ public class ActPermissionRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: LogonUser</p>
      * 
-     * <p>Other Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: LogonUser</p>
      * 
      * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
      * 

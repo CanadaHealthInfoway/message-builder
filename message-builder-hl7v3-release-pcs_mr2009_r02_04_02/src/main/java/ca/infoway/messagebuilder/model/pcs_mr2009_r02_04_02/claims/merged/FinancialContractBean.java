@@ -54,13 +54,13 @@ public class FinancialContractBean extends MessagePartBean {
     /**
      * <p>Business Name: FinancialContractID</p>
      * 
-     * <p>Other Business Name: FinancialContractID</p>
+     * <p>Un-merged Business Name: FinancialContractID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: FinancialContractID</p>
+     * <p>Un-merged Business Name: FinancialContractID</p>
      * 
      * <p>Relationship: FICR_MT500201CA.FinancialContract.id</p>
      * 
@@ -74,13 +74,13 @@ public class FinancialContractBean extends MessagePartBean {
     /**
      * <p>Business Name: FinancialContractID</p>
      * 
-     * <p>Other Business Name: FinancialContractID</p>
+     * <p>Un-merged Business Name: FinancialContractID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: FinancialContractID</p>
+     * <p>Un-merged Business Name: FinancialContractID</p>
      * 
      * <p>Relationship: FICR_MT500201CA.FinancialContract.id</p>
      * 
@@ -94,13 +94,13 @@ public class FinancialContractBean extends MessagePartBean {
     /**
      * <p>Business Name: BillingArrangementType</p>
      * 
-     * <p>Other Business Name: BillingArrangementType</p>
+     * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
      * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: BillingArrangementType</p>
+     * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
      * <p>Relationship: FICR_MT500201CA.FinancialContract.code</p>
      * 
@@ -114,13 +114,13 @@ public class FinancialContractBean extends MessagePartBean {
     /**
      * <p>Business Name: BillingArrangementType</p>
      * 
-     * <p>Other Business Name: BillingArrangementType</p>
+     * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
      * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: BillingArrangementType</p>
+     * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
      * <p>Relationship: FICR_MT500201CA.FinancialContract.code</p>
      * 

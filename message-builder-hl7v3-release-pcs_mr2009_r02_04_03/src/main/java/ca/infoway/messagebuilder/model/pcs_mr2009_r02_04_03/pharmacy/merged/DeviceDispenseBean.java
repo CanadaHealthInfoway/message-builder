@@ -110,7 +110,7 @@ public class DeviceDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: PORX_MT060010CA.DeviceDispense.id</p>
      * 
@@ -125,7 +125,7 @@ public class DeviceDispenseBean extends MessagePartBean {
      * created by the EHR/DIS once the dispense has passed all 
      * edits and validation.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: PORX_MT060040CA.DeviceDispense.id</p>
      * 
@@ -150,7 +150,7 @@ public class DeviceDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: PORX_MT060010CA.DeviceDispense.id</p>
      * 
@@ -165,7 +165,7 @@ public class DeviceDispenseBean extends MessagePartBean {
      * created by the EHR/DIS once the dispense has passed all 
      * edits and validation.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: PORX_MT060040CA.DeviceDispense.id</p>
      * 
@@ -190,7 +190,7 @@ public class DeviceDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: PORX_MT060010CA.DeviceDispense.statusCode</p>
      * 
@@ -203,7 +203,7 @@ public class DeviceDispenseBean extends MessagePartBean {
      * <p>Indicates whether the dispense has been picked up 
      * ('complete') or has just been processed ('active').</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: PORX_MT060040CA.DeviceDispense.statusCode</p>
      * 
@@ -228,7 +228,7 @@ public class DeviceDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: PORX_MT060010CA.DeviceDispense.statusCode</p>
      * 
@@ -241,7 +241,7 @@ public class DeviceDispenseBean extends MessagePartBean {
      * <p>Indicates whether the dispense has been picked up 
      * ('complete') or has just been processed ('active').</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: PORX_MT060040CA.DeviceDispense.statusCode</p>
      * 
@@ -266,7 +266,7 @@ public class DeviceDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionMaskingIndicators</p>
      * 
-     * <p>Other Business Name: PrescriptionMaskingIndicators</p>
+     * <p>Un-merged Business Name: PrescriptionMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.DeviceDispense.confidentialityCode</p>
@@ -300,14 +300,14 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ResponsibleParty3.assignedEntity</p>
@@ -320,14 +320,14 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ResponsibleParty3.assignedEntity</p>
@@ -340,13 +340,13 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Performer3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Performer3.assignedEntity</p>
      * 
@@ -358,13 +358,13 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Performer3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Performer3.assignedEntity</p>
      * 
@@ -376,13 +376,13 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.DeviceDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.DeviceDispense.location</p>
      * 
@@ -394,13 +394,13 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.DeviceDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.DeviceDispense.location</p>
      * 
@@ -412,14 +412,14 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.Component11.procedureRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.Component11.procedureRequest</p>
@@ -432,14 +432,14 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.Component11.procedureRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.Component11.procedureRequest</p>
@@ -452,13 +452,13 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Component.supplyEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Component.supplyEvent</p>
      * 
@@ -470,13 +470,13 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Component.supplyEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Component.supplyEvent</p>
      * 
@@ -488,7 +488,7 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.InFulfillmentOf.supplyRequest</p>
@@ -501,7 +501,7 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.InFulfillmentOf.supplyRequest</p>
@@ -514,13 +514,13 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Subject.controlActEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Subject10.controlActEvent</p>
      * 
@@ -533,13 +533,13 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Subject6.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Subject6.detectedIssueEvent</p>
      * 
@@ -557,14 +557,14 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.Subject12.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.Subject12.annotationIndicator</p>
@@ -582,14 +582,14 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.Subject12.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.Subject12.annotationIndicator</p>
@@ -602,14 +602,14 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.Subject13.detectedIssueIndicator</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.Subject13.detectedIssueIndicator</p>
@@ -627,14 +627,14 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.Subject13.detectedIssueIndicator</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.Subject13.detectedIssueIndicator</p>
@@ -647,13 +647,13 @@ public class DeviceDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.DeviceDispense.subjectOf5</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.DeviceDispense.subjectOf5</p>
      * 

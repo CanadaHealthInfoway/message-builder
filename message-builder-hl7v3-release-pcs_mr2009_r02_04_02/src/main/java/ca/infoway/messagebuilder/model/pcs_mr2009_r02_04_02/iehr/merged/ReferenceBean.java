@@ -39,7 +39,7 @@ public class ReferenceBean extends MessagePartBean {
     /**
      * <p>Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Reference.id</p>
      * 
@@ -56,7 +56,7 @@ public class ReferenceBean extends MessagePartBean {
      * records within the EHR which are considered relevant to the 
      * document as a whole or a particular section.</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Reference.id</p>
      * 
@@ -73,7 +73,7 @@ public class ReferenceBean extends MessagePartBean {
      * records within the EHR which are considered relevant to the 
      * document as a whole or a particular section.</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Reference.id</p>
      * 
@@ -90,7 +90,7 @@ public class ReferenceBean extends MessagePartBean {
      * records within the EHR which are considered relevant to the 
      * document as a whole or a particular section.</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Reference.id</p>
      * 
@@ -107,13 +107,13 @@ public class ReferenceBean extends MessagePartBean {
      * records within the EHR which are considered relevant to the 
      * document as a whole or a particular section.</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Reference.id</p>
      * 
@@ -138,7 +138,7 @@ public class ReferenceBean extends MessagePartBean {
     /**
      * <p>Business Name: ReferenceRecordLinks</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Reference.id</p>
      * 
@@ -155,7 +155,7 @@ public class ReferenceBean extends MessagePartBean {
      * records within the EHR which are considered relevant to the 
      * document as a whole or a particular section.</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Reference.id</p>
      * 
@@ -172,7 +172,7 @@ public class ReferenceBean extends MessagePartBean {
      * records within the EHR which are considered relevant to the 
      * document as a whole or a particular section.</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Reference.id</p>
      * 
@@ -189,7 +189,7 @@ public class ReferenceBean extends MessagePartBean {
      * records within the EHR which are considered relevant to the 
      * document as a whole or a particular section.</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Reference.id</p>
      * 
@@ -206,13 +206,13 @@ public class ReferenceBean extends MessagePartBean {
      * records within the EHR which are considered relevant to the 
      * document as a whole or a particular section.</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Reference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Reference.id</p>
      * 

@@ -82,7 +82,7 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
     /**
      * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
@@ -131,7 +131,7 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * local system or some other non-client-registry 
      * identifier.</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.id</p>
      * 
@@ -190,7 +190,7 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
     /**
      * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.addr</p>
      * 
@@ -259,7 +259,7 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * <p>Physical address for the patient where they may be 
      * visited or found.</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.addr</p>
      * 
@@ -338,7 +338,7 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
     /**
      * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.addr</p>
      * 
@@ -407,7 +407,7 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * <p>Physical address for the patient where they may be 
      * visited or found.</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.addr</p>
      * 
@@ -486,7 +486,7 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
     /**
      * <p>Business Name: PatientContactPhoneAndEMails</p>
      * 
-     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * <p>Un-merged Business Name: PatientContactPhoneAndEMails</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.telecom</p>
      * 
@@ -525,7 +525,7 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
      * <p>Telephone, fax and/or e-mail addresses intended as the 
      * principal means of contact for the patient.</p>
      * 
-     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * <p>Un-merged Business Name: PatientContactPhoneAndEMails</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.telecom</p>
      * 
@@ -572,13 +572,13 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.patientPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.patientPerson</p>
      * 
@@ -590,13 +590,13 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.patientPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.patientPerson</p>
      * 

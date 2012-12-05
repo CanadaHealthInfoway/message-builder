@@ -78,7 +78,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: PreviousPrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT060040CA.PriorSupplyRequest.id</p>
      * 
@@ -92,7 +92,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>A reference to a previous prescription which the current 
      * prescription replaces.</p>
      * 
-     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.PriorCombinedMedicationRequest.id</p>
@@ -107,7 +107,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * <p>A reference to a previous prescription which the current 
      * prescription replaces.</p>
      * 
-     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.PriorCombinedMedicationRequest.id</p>
@@ -131,7 +131,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.PriorCombinedMedicationRequest.code</p>
@@ -146,7 +146,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * the prescription pointed to by the Previous Prescription 
      * Order Number )</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.PriorCombinedMedicationRequest.code</p>
@@ -169,7 +169,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.PriorCombinedMedicationRequest.code</p>
@@ -184,7 +184,7 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * the prescription pointed to by the Previous Prescription 
      * Order Number )</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.PriorCombinedMedicationRequest.code</p>

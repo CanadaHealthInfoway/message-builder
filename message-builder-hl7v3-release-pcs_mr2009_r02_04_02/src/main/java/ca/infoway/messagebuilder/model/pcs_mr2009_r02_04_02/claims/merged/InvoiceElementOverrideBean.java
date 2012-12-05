@@ -42,13 +42,13 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
     /**
      * <p>Business Name: InvoiceOverrideCode</p>
      * 
-     * <p>Other Business Name: InvoiceOverrideCode</p>
+     * <p>Un-merged Business Name: InvoiceOverrideCode</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementOverride.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: InvoiceOverrideCode</p>
+     * <p>Un-merged Business Name: InvoiceOverrideCode</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementOverride.code</p>
      * 
@@ -62,13 +62,13 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
     /**
      * <p>Business Name: InvoiceOverrideCode</p>
      * 
-     * <p>Other Business Name: InvoiceOverrideCode</p>
+     * <p>Un-merged Business Name: InvoiceOverrideCode</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementOverride.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: InvoiceOverrideCode</p>
+     * <p>Un-merged Business Name: InvoiceOverrideCode</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementOverride.code</p>
      * 
@@ -82,7 +82,7 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
     /**
      * <p>Business Name: InvoiceOverrideNote</p>
      * 
-     * <p>Other Business Name: InvoiceOverrideNote</p>
+     * <p>Un-merged Business Name: InvoiceOverrideNote</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementOverride.text</p>
      * 
@@ -96,7 +96,7 @@ public class InvoiceElementOverrideBean extends MessagePartBean {
     /**
      * <p>Business Name: InvoiceOverrideNote</p>
      * 
-     * <p>Other Business Name: InvoiceOverrideNote</p>
+     * <p>Un-merged Business Name: InvoiceOverrideNote</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementOverride.text</p>
      * 

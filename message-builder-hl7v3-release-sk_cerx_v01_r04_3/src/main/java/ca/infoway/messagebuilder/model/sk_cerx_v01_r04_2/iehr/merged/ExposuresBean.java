@@ -165,7 +165,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ExposureEvent.id</p>
      * 
@@ -178,7 +178,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000006CA.ExposureEvent.id</p>
      * 
@@ -191,7 +191,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ExposureEvent.id</p>
      * 
@@ -207,7 +207,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p><strong>A KEY204 error issue will be returned if this 
      * record identifier is not found in PIN.</strong></p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ExposureEvent.id</p>
      * 
@@ -220,7 +220,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000012CA.ExposureEvent.id</p>
      * 
@@ -233,7 +233,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ExposureEvent.id</p>
      * 
@@ -246,7 +246,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000002CA.ExposureEvent.id</p>
      * 
@@ -267,7 +267,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: IncidenceIdentifier</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ExposureEvent.id</p>
      * 
@@ -280,7 +280,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000006CA.ExposureEvent.id</p>
      * 
@@ -293,7 +293,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ExposureEvent.id</p>
      * 
@@ -309,7 +309,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p><strong>A KEY204 error issue will be returned if this 
      * record identifier is not found in PIN.</strong></p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ExposureEvent.id</p>
      * 
@@ -322,7 +322,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000012CA.ExposureEvent.id</p>
      * 
@@ -335,7 +335,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ExposureEvent.id</p>
      * 
@@ -348,7 +348,7 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Allows for drilling down to retrieve further information 
      * about the exposure</p>
      * 
-     * <p>Other Business Name: IncidenceIdentifier</p>
+     * <p>Un-merged Business Name: IncidenceIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000002CA.ExposureEvent.id</p>
      * 
@@ -369,7 +369,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposureMethod</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ExposureEvent.routeCode</p>
      * 
@@ -380,7 +380,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000006CA.ExposureEvent.routeCode</p>
      * 
@@ -391,7 +391,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ExposureEvent.routeCode</p>
      * 
@@ -402,7 +402,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ExposureEvent.routeCode</p>
      * 
@@ -413,7 +413,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000012CA.ExposureEvent.routeCode</p>
      * 
@@ -424,7 +424,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ExposureEvent.routeCode</p>
      * 
@@ -435,7 +435,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000002CA.ExposureEvent.routeCode</p>
      * 
@@ -454,7 +454,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposureMethod</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000005CA.ExposureEvent.routeCode</p>
      * 
@@ -465,7 +465,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000006CA.ExposureEvent.routeCode</p>
      * 
@@ -476,7 +476,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000001CA.ExposureEvent.routeCode</p>
      * 
@@ -487,7 +487,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ExposureEvent.routeCode</p>
      * 
@@ -498,7 +498,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000012CA.ExposureEvent.routeCode</p>
      * 
@@ -509,7 +509,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000013CA.ExposureEvent.routeCode</p>
      * 
@@ -520,7 +520,7 @@ public class ExposuresBean extends MessagePartBean {
      * 
      * <p>Helps evaluate the cause of the reaction.</p>
      * 
-     * <p>Other Business Name: ExposureMethod</p>
+     * <p>Un-merged Business Name: ExposureMethod</p>
      * 
      * <p>Relationship: REPC_MT000002CA.ExposureEvent.routeCode</p>
      * 
@@ -539,7 +539,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposedMaterialType</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
      * 
@@ -557,7 +557,7 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
      * 
@@ -581,7 +581,7 @@ public class ExposuresBean extends MessagePartBean {
      * Food, Latex, Dust, etc. <strong>Send "UNK" if the material 
      * is unknown.</strong></p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
      * 
@@ -599,7 +599,7 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
      * 
@@ -638,7 +638,7 @@ public class ExposuresBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposedMaterialType</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
      * 
@@ -656,7 +656,7 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
      * 
@@ -680,7 +680,7 @@ public class ExposuresBean extends MessagePartBean {
      * Food, Latex, Dust, etc. <strong>Send "UNK" if the material 
      * is unknown.</strong></p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
      * 
@@ -698,7 +698,7 @@ public class ExposuresBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
      * 
@@ -722,21 +722,21 @@ public class ExposuresBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000006CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000012CA.AdministerableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000002CA.AdministrableMaterial.administerableMaterialKind</p>
@@ -759,21 +759,21 @@ public class ExposuresBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000006CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000012CA.AdministerableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000002CA.AdministrableMaterial.administerableMaterialKind</p>

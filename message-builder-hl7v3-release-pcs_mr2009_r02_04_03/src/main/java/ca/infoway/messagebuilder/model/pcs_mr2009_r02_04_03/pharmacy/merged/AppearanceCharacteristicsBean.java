@@ -63,7 +63,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     /**
      * <p>Business Name: CharacteristicType</p>
      * 
-     * <p>Other Business Name: CharacteristicType</p>
+     * <p>Un-merged Business Name: CharacteristicType</p>
      * 
      * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
      * 
@@ -78,7 +78,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * characteristic being documented. Kinds of characteristics 
      * include: Color, Shape, Markings, Size, etc.</p>
      * 
-     * <p>Other Business Name: CharacteristicType</p>
+     * <p>Un-merged Business Name: CharacteristicType</p>
      * 
      * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
      * 
@@ -101,7 +101,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     /**
      * <p>Business Name: CharacteristicType</p>
      * 
-     * <p>Other Business Name: CharacteristicType</p>
+     * <p>Un-merged Business Name: CharacteristicType</p>
      * 
      * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
      * 
@@ -116,7 +116,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * characteristic being documented. Kinds of characteristics 
      * include: Color, Shape, Markings, Size, etc.</p>
      * 
-     * <p>Other Business Name: CharacteristicType</p>
+     * <p>Un-merged Business Name: CharacteristicType</p>
      * 
      * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
      * 
@@ -139,7 +139,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     /**
      * <p>Business Name: Characteristic</p>
      * 
-     * <p>Other Business Name: Characteristic</p>
+     * <p>Un-merged Business Name: Characteristic</p>
      * 
      * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
      * 
@@ -154,7 +154,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc).</p>
      * 
-     * <p>Other Business Name: Characteristic</p>
+     * <p>Un-merged Business Name: Characteristic</p>
      * 
      * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
      * 
@@ -176,7 +176,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     /**
      * <p>Business Name: Characteristic</p>
      * 
-     * <p>Other Business Name: Characteristic</p>
+     * <p>Un-merged Business Name: Characteristic</p>
      * 
      * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
      * 
@@ -191,7 +191,7 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc).</p>
      * 
-     * <p>Other Business Name: Characteristic</p>
+     * <p>Un-merged Business Name: Characteristic</p>
      * 
      * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
      * 

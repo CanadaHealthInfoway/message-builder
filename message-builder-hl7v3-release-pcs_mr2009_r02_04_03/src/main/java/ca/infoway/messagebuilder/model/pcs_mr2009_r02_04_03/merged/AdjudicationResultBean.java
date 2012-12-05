@@ -52,7 +52,7 @@ public class AdjudicationResultBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: CodeDenotingAdjudicationResults</p>
+     * <p>Un-merged Business Name: CodeDenotingAdjudicationResults</p>
      * 
      * <p>Relationship: COCT_MT680000CA.AdjudicationResult.code</p>
      * 
@@ -61,7 +61,7 @@ public class AdjudicationResultBean extends MessagePartBean {
      * <p>(Summary of the adjudication processing - as submitted, 
      * w/ adjust, refuse adjust, refuse</p>
      * 
-     * <p>Other Business Name: ResultExplanation</p>
+     * <p>Un-merged Business Name: ResultExplanation</p>
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudicationResult.code</p>
      * 
@@ -73,7 +73,7 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: CodeDenotingAdjudicationResults</p>
+     * <p>Un-merged Business Name: CodeDenotingAdjudicationResults</p>
      * 
      * <p>Relationship: COCT_MT680000CA.AdjudicationResult.code</p>
      * 
@@ -82,7 +82,7 @@ public class AdjudicationResultBean extends MessagePartBean {
      * <p>(Summary of the adjudication processing - as submitted, 
      * w/ adjust, refuse adjust, refuse</p>
      * 
-     * <p>Other Business Name: ResultExplanation</p>
+     * <p>Un-merged Business Name: ResultExplanation</p>
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudicationResult.code</p>
      * 
@@ -94,14 +94,14 @@ public class AdjudicationResultBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicationResult.reference</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1-10)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicationResult.reference</p>
@@ -115,14 +115,14 @@ public class AdjudicationResultBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdditionalPertinentInformation.adjudicationCodeChoice</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdditionalPertinentInformation.adjudicationCodeChoice</p>
@@ -136,7 +136,7 @@ public class AdjudicationResultBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicationResultTrigger.adjudicationResultRequiredAct</p>
@@ -150,7 +150,7 @@ public class AdjudicationResultBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicationObservationReason.detectedIssueEvent</p>

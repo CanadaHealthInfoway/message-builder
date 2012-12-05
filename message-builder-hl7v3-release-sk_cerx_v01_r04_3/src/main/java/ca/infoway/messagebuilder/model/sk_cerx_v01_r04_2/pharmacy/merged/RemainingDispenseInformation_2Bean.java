@@ -66,7 +66,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: FillsRemaining</p>
      * 
-     * <p>Other Business Name: FillsRemaining</p>
+     * <p>Un-merged Business Name: FillsRemaining</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventFutureSummary.repeatNumber</p>
@@ -80,7 +80,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Indicates the number of dispenses that may still 
      * occur.</p>
      * 
-     * <p>Other Business Name: FillsRemaining</p>
+     * <p>Un-merged Business Name: FillsRemaining</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventFutureSummary.repeatNumber</p>
@@ -102,7 +102,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: FillsRemaining</p>
      * 
-     * <p>Other Business Name: FillsRemaining</p>
+     * <p>Un-merged Business Name: FillsRemaining</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventFutureSummary.repeatNumber</p>
@@ -116,7 +116,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * <p>Indicates the number of dispenses that may still 
      * occur.</p>
      * 
-     * <p>Other Business Name: FillsRemaining</p>
+     * <p>Un-merged Business Name: FillsRemaining</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventFutureSummary.repeatNumber</p>
@@ -138,7 +138,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: RemainingTotalQuantity</p>
      * 
-     * <p>Other Business Name: RemainingTotalQuantity</p>
+     * <p>Un-merged Business Name: RemainingTotalQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventFutureSummary.quantity</p>
@@ -150,7 +150,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * 
      * <p>Indicates how much can still be dispensed.</p>
      * 
-     * <p>Other Business Name: RemainingTotalQuantity</p>
+     * <p>Un-merged Business Name: RemainingTotalQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventFutureSummary.quantity</p>
@@ -170,7 +170,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: RemainingTotalQuantity</p>
      * 
-     * <p>Other Business Name: RemainingTotalQuantity</p>
+     * <p>Un-merged Business Name: RemainingTotalQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventFutureSummary.quantity</p>
@@ -182,7 +182,7 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
      * 
      * <p>Indicates how much can still be dispensed.</p>
      * 
-     * <p>Other Business Name: RemainingTotalQuantity</p>
+     * <p>Un-merged Business Name: RemainingTotalQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventFutureSummary.quantity</p>

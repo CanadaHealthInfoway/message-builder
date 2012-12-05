@@ -56,19 +56,19 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentID</p>
      * 
-     * <p>Other Business Name: ConsentID</p>
+     * <p>Un-merged Business Name: ConsentID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Consent.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: ConsentID</p>
+     * <p>Un-merged Business Name: ConsentID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Consent.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: ConsentID</p>
+     * <p>Un-merged Business Name: ConsentID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Consent.id</p>
      * 
@@ -82,19 +82,19 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentID</p>
      * 
-     * <p>Other Business Name: ConsentID</p>
+     * <p>Un-merged Business Name: ConsentID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Consent.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: ConsentID</p>
+     * <p>Un-merged Business Name: ConsentID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Consent.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: ConsentID</p>
+     * <p>Un-merged Business Name: ConsentID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Consent.id</p>
      * 
@@ -108,19 +108,19 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentWitheldIndicator</p>
      * 
-     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * <p>Un-merged Business Name: ConsentWitheldIndicator</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Consent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * <p>Un-merged Business Name: ConsentWitheldIndicator</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Consent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * <p>Un-merged Business Name: ConsentWitheldIndicator</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Consent.negationInd</p>
      * 
@@ -134,19 +134,19 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentWitheldIndicator</p>
      * 
-     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * <p>Un-merged Business Name: ConsentWitheldIndicator</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Consent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * <p>Un-merged Business Name: ConsentWitheldIndicator</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Consent.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ConsentWitheldIndicator</p>
+     * <p>Un-merged Business Name: ConsentWitheldIndicator</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Consent.negationInd</p>
      * 
@@ -160,19 +160,19 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentEffectiveAndEndTime</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Consent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Consent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Consent.effectiveTime</p>
      * 
@@ -186,19 +186,19 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentEffectiveAndEndTime</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Consent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Consent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * <p>Un-merged Business Name: ConsentEffectiveAndEndTime</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Consent.effectiveTime</p>
      * 
@@ -210,19 +210,19 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Consent.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Consent.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Consent.receiver</p>
      * 
@@ -234,19 +234,19 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Consent.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Consent.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Consent.receiver</p>
      * 
@@ -260,19 +260,19 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentMethod</p>
      * 
-     * <p>Other Business Name: ConsentMethod</p>
+     * <p>Un-merged Business Name: ConsentMethod</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.ResponsibleParty2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ConsentMethod</p>
+     * <p>Un-merged Business Name: ConsentMethod</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.ResponsibleParty2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ConsentMethod</p>
+     * <p>Un-merged Business Name: ConsentMethod</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.ResponsibleParty2.modeCode</p>
      * 
@@ -291,19 +291,19 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentMethod</p>
      * 
-     * <p>Other Business Name: ConsentMethod</p>
+     * <p>Un-merged Business Name: ConsentMethod</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.ResponsibleParty2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ConsentMethod</p>
+     * <p>Un-merged Business Name: ConsentMethod</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.ResponsibleParty2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ConsentMethod</p>
+     * <p>Un-merged Business Name: ConsentMethod</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.ResponsibleParty2.modeCode</p>
      * 
@@ -320,19 +320,19 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.ResponsibleParty2.consenter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.ResponsibleParty2.consenter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.ResponsibleParty2.consenter</p>
      * 
@@ -344,19 +344,19 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.ResponsibleParty2.consenter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.ResponsibleParty2.consenter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.ResponsibleParty2.consenter</p>
      * 

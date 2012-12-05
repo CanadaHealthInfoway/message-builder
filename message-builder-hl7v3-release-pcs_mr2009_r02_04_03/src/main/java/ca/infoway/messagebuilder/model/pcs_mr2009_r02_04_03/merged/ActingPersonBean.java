@@ -77,7 +77,7 @@ public class ActingPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Person.name</p>
      * 
@@ -144,7 +144,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The name by which the patient is known to the underlying 
      * client registry application</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Person.name</p>
      * 
@@ -156,7 +156,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Person.name</p>
      * 
@@ -168,7 +168,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Person.name</p>
      * 
@@ -180,7 +180,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the involved person.</p>
      * 
-     * <p>Other Business Name: RelatedPersonName</p>
+     * <p>Un-merged Business Name: RelatedPersonName</p>
      * 
      * <p>Relationship: COCT_MT910108CA.Person.name</p>
      * 
@@ -251,7 +251,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name by which the responsible person is known</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Person.name</p>
      * 
@@ -263,7 +263,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Person.name</p>
      * 
@@ -275,7 +275,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.name</p>
      * 
@@ -291,7 +291,7 @@ public class ActingPersonBean extends MessagePartBean {
      * a particular clinical action that has been reported or 
      * recorded.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
@@ -356,7 +356,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name by which the patient is known.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.name</p>
      * 
@@ -418,7 +418,7 @@ public class ActingPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Person.name</p>
      * 
@@ -485,7 +485,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The name by which the patient is known to the underlying 
      * client registry application</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Person.name</p>
      * 
@@ -497,7 +497,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Person.name</p>
      * 
@@ -509,7 +509,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Person.name</p>
      * 
@@ -521,7 +521,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the involved person.</p>
      * 
-     * <p>Other Business Name: RelatedPersonName</p>
+     * <p>Un-merged Business Name: RelatedPersonName</p>
      * 
      * <p>Relationship: COCT_MT910108CA.Person.name</p>
      * 
@@ -592,7 +592,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name by which the responsible person is known</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Person.name</p>
      * 
@@ -604,7 +604,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Person.name</p>
      * 
@@ -616,7 +616,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.name</p>
      * 
@@ -632,7 +632,7 @@ public class ActingPersonBean extends MessagePartBean {
      * a particular clinical action that has been reported or 
      * recorded.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
@@ -697,7 +697,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>The name by which the patient is known.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.name</p>
      * 
@@ -761,7 +761,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050202CA.Person.administrativeGenderCode</p>
@@ -777,7 +777,7 @@ public class ActingPersonBean extends MessagePartBean {
      * client registry. Complex genetic genders are handled as 
      * observations if they are considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050007CA.Person.administrativeGenderCode</p>
@@ -790,7 +790,7 @@ public class ActingPersonBean extends MessagePartBean {
      * genetic genders are handled as observations if they are 
      * considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050207CA.Person.administrativeGenderCode</p>
@@ -820,7 +820,7 @@ public class ActingPersonBean extends MessagePartBean {
      * client registry. Complex genetic genders are handled as 
      * observations if they are considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050208CA.Person.administrativeGenderCode</p>
@@ -858,7 +858,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050202CA.Person.administrativeGenderCode</p>
@@ -874,7 +874,7 @@ public class ActingPersonBean extends MessagePartBean {
      * client registry. Complex genetic genders are handled as 
      * observations if they are considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050007CA.Person.administrativeGenderCode</p>
@@ -887,7 +887,7 @@ public class ActingPersonBean extends MessagePartBean {
      * genetic genders are handled as observations if they are 
      * considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050207CA.Person.administrativeGenderCode</p>
@@ -917,7 +917,7 @@ public class ActingPersonBean extends MessagePartBean {
      * client registry. Complex genetic genders are handled as 
      * observations if they are considered relevant.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050208CA.Person.administrativeGenderCode</p>
@@ -953,7 +953,7 @@ public class ActingPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
      * 
@@ -969,7 +969,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>Indicates the date on which the patient was born, as 
      * known by the client registry.</p>
      * 
-     * <p>Other Business Name: PatientBirthDatetime</p>
+     * <p>Un-merged Business Name: PatientBirthDatetime</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.birthTime</p>
      * 
@@ -979,7 +979,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
      * 
@@ -1009,7 +1009,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>Indicates the date on which the patient was born as known 
      * by the client registry.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
      * 
@@ -1046,7 +1046,7 @@ public class ActingPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
      * 
@@ -1062,7 +1062,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>Indicates the date on which the patient was born, as 
      * known by the client registry.</p>
      * 
-     * <p>Other Business Name: PatientBirthDatetime</p>
+     * <p>Un-merged Business Name: PatientBirthDatetime</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.birthTime</p>
      * 
@@ -1072,7 +1072,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
      * 
@@ -1102,7 +1102,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>Indicates the date on which the patient was born as known 
      * by the client registry.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
      * 
@@ -1141,7 +1141,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: LicenseNumber</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.HealthCareProvider.id</p>
      * 
@@ -1160,7 +1160,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: COCT_MT090108CA.HealthCareProvider.id</p>
      * 
@@ -1179,7 +1179,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: COCT_MT090102CA.HealthCareProvider.id</p>
      * 
@@ -1196,7 +1196,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.HealthCareProvider.id</p>
      * 
@@ -1215,7 +1215,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.HealthCareProvider.id</p>
      * 
@@ -1242,7 +1242,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: LicenseNumber</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.HealthCareProvider.id</p>
      * 
@@ -1261,7 +1261,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: COCT_MT090108CA.HealthCareProvider.id</p>
      * 
@@ -1280,7 +1280,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: COCT_MT090102CA.HealthCareProvider.id</p>
      * 
@@ -1297,7 +1297,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.HealthCareProvider.id</p>
      * 
@@ -1316,7 +1316,7 @@ public class ActingPersonBean extends MessagePartBean {
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.HealthCareProvider.id</p>
      * 
@@ -1343,7 +1343,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: RelatedPersonPhonesAndEmails</p>
      * 
-     * <p>Other Business Name: RelatedPersonPhonesAndEmails</p>
+     * <p>Un-merged Business Name: RelatedPersonPhonesAndEmails</p>
      * 
      * <p>Relationship: COCT_MT910108CA.Person.telecom</p>
      * 
@@ -1364,7 +1364,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: RelatedPersonAddress</p>
      * 
-     * <p>Other Business Name: RelatedPersonAddress</p>
+     * <p>Un-merged Business Name: RelatedPersonAddress</p>
      * 
      * <p>Relationship: COCT_MT910108CA.Person.addr</p>
      * 
@@ -1383,7 +1383,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: RelatedPersonAddress</p>
      * 
-     * <p>Other Business Name: RelatedPersonAddress</p>
+     * <p>Un-merged Business Name: RelatedPersonAddress</p>
      * 
      * <p>Relationship: COCT_MT910108CA.Person.addr</p>
      * 
@@ -1402,7 +1402,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientDeceasedIndicator</p>
      * 
-     * <p>Other Business Name: PatientDeceasedIndicator</p>
+     * <p>Un-merged Business Name: PatientDeceasedIndicator</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.deceasedInd</p>
      * 
@@ -1418,7 +1418,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientDeceasedIndicator</p>
      * 
-     * <p>Other Business Name: PatientDeceasedIndicator</p>
+     * <p>Un-merged Business Name: PatientDeceasedIndicator</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.deceasedInd</p>
      * 
@@ -1434,7 +1434,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientDeceasedDatetime</p>
      * 
-     * <p>Other Business Name: PatientDeceasedDatetime</p>
+     * <p>Un-merged Business Name: PatientDeceasedDatetime</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.deceasedTime</p>
      * 
@@ -1451,7 +1451,7 @@ public class ActingPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientDeceasedDatetime</p>
      * 
-     * <p>Other Business Name: PatientDeceasedDatetime</p>
+     * <p>Un-merged Business Name: PatientDeceasedDatetime</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.deceasedTime</p>
      * 
@@ -1466,7 +1466,7 @@ public class ActingPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Person.asIdentifiedEntity</p>
      * 

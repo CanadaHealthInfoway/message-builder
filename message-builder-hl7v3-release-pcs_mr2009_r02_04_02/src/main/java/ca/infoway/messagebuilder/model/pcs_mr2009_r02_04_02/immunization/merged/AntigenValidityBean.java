@@ -81,7 +81,7 @@ public class AntigenValidityBean extends MessagePartBean {
     /**
      * <p>Business Name: InvalidAntigenReasonCode</p>
      * 
-     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * <p>Un-merged Business Name: InvalidAntigenReasonCode</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AntigenValidity.reasonCode</p>
      * 
@@ -98,7 +98,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>A coded value to describe why an antigen is considered to 
      * be invalid.</p>
      * 
-     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * <p>Un-merged Business Name: InvalidAntigenReasonCode</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AntigenValidity.reasonCode</p>
      * 
@@ -115,7 +115,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>A coded value to describe why an antigen is considered to 
      * be invalid.</p>
      * 
-     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * <p>Un-merged Business Name: InvalidAntigenReasonCode</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.AntigenValidity.reasonCode</p>
      * 
@@ -132,7 +132,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>A coded value to describe why an antigen is considered to 
      * be invalid.</p>
      * 
-     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * <p>Un-merged Business Name: InvalidAntigenReasonCode</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AntigenValidity.reasonCode</p>
      * 
@@ -157,7 +157,7 @@ public class AntigenValidityBean extends MessagePartBean {
     /**
      * <p>Business Name: InvalidAntigenReasonCode</p>
      * 
-     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * <p>Un-merged Business Name: InvalidAntigenReasonCode</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AntigenValidity.reasonCode</p>
      * 
@@ -174,7 +174,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>A coded value to describe why an antigen is considered to 
      * be invalid.</p>
      * 
-     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * <p>Un-merged Business Name: InvalidAntigenReasonCode</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AntigenValidity.reasonCode</p>
      * 
@@ -191,7 +191,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>A coded value to describe why an antigen is considered to 
      * be invalid.</p>
      * 
-     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * <p>Un-merged Business Name: InvalidAntigenReasonCode</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.AntigenValidity.reasonCode</p>
      * 
@@ -208,7 +208,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>A coded value to describe why an antigen is considered to 
      * be invalid.</p>
      * 
-     * <p>Other Business Name: InvalidAntigenReasonCode</p>
+     * <p>Un-merged Business Name: InvalidAntigenReasonCode</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AntigenValidity.reasonCode</p>
      * 
@@ -233,7 +233,7 @@ public class AntigenValidityBean extends MessagePartBean {
     /**
      * <p>Business Name: AntigenValidityIndicator</p>
      * 
-     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * <p>Un-merged Business Name: AntigenValidityIndicator</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AntigenValidity.value</p>
      * 
@@ -246,7 +246,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>Represents the validity (i.e. valid/not valid) of a 
      * particular administration of an antigen.</p>
      * 
-     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * <p>Un-merged Business Name: AntigenValidityIndicator</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AntigenValidity.value</p>
      * 
@@ -259,7 +259,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>Represents the validity (i.e. valid/not valid) of a 
      * particular administration of an antigen.</p>
      * 
-     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * <p>Un-merged Business Name: AntigenValidityIndicator</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.AntigenValidity.value</p>
      * 
@@ -272,7 +272,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>Represents the validity (i.e. valid/not valid) of a 
      * particular administration of an antigen.</p>
      * 
-     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * <p>Un-merged Business Name: AntigenValidityIndicator</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AntigenValidity.value</p>
      * 
@@ -293,7 +293,7 @@ public class AntigenValidityBean extends MessagePartBean {
     /**
      * <p>Business Name: AntigenValidityIndicator</p>
      * 
-     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * <p>Un-merged Business Name: AntigenValidityIndicator</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AntigenValidity.value</p>
      * 
@@ -306,7 +306,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>Represents the validity (i.e. valid/not valid) of a 
      * particular administration of an antigen.</p>
      * 
-     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * <p>Un-merged Business Name: AntigenValidityIndicator</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AntigenValidity.value</p>
      * 
@@ -319,7 +319,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>Represents the validity (i.e. valid/not valid) of a 
      * particular administration of an antigen.</p>
      * 
-     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * <p>Un-merged Business Name: AntigenValidityIndicator</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.AntigenValidity.value</p>
      * 
@@ -332,7 +332,7 @@ public class AntigenValidityBean extends MessagePartBean {
      * <p>Represents the validity (i.e. valid/not valid) of a 
      * particular administration of an antigen.</p>
      * 
-     * <p>Other Business Name: AntigenValidityIndicator</p>
+     * <p>Un-merged Business Name: AntigenValidityIndicator</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AntigenValidity.value</p>
      * 

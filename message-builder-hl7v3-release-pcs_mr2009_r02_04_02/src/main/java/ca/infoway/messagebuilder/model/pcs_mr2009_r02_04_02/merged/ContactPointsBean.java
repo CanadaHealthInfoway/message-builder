@@ -86,7 +86,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactType</p>
      * 
-     * <p>Other Business Name: ContactType</p>
+     * <p>Un-merged Business Name: ContactType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.ContactParty.code</p>
      * 
@@ -101,7 +101,7 @@ public class ContactPointsBean extends MessagePartBean {
      * information is appropriate. E.g. Admitting, billing, 
      * after-hours, etc.</p>
      * 
-     * <p>Other Business Name: ContactType</p>
+     * <p>Un-merged Business Name: ContactType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.ContactParty.code</p>
      * 
@@ -116,7 +116,7 @@ public class ContactPointsBean extends MessagePartBean {
      * information is appropriate. E.g. Admitting, billing, 
      * after-hours, etc.</p>
      * 
-     * <p>Other Business Name: ContactType</p>
+     * <p>Un-merged Business Name: ContactType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.ContactParty.code</p>
      * 
@@ -139,7 +139,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactType</p>
      * 
-     * <p>Other Business Name: ContactType</p>
+     * <p>Un-merged Business Name: ContactType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.ContactParty.code</p>
      * 
@@ -154,7 +154,7 @@ public class ContactPointsBean extends MessagePartBean {
      * information is appropriate. E.g. Admitting, billing, 
      * after-hours, etc.</p>
      * 
-     * <p>Other Business Name: ContactType</p>
+     * <p>Un-merged Business Name: ContactType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.ContactParty.code</p>
      * 
@@ -169,7 +169,7 @@ public class ContactPointsBean extends MessagePartBean {
      * information is appropriate. E.g. Admitting, billing, 
      * after-hours, etc.</p>
      * 
-     * <p>Other Business Name: ContactType</p>
+     * <p>Un-merged Business Name: ContactType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.ContactParty.code</p>
      * 
@@ -192,7 +192,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactAddress</p>
      * 
-     * <p>Other Business Name: ContactAddress</p>
+     * <p>Un-merged Business Name: ContactAddress</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.ContactParty.addr</p>
      * 
@@ -203,7 +203,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Provides a mailing address for the location</p>
      * 
-     * <p>Other Business Name: ContactAddress</p>
+     * <p>Un-merged Business Name: ContactAddress</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.ContactParty.addr</p>
      * 
@@ -214,7 +214,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Provides a mailing address for the location</p>
      * 
-     * <p>Other Business Name: ContactAddress</p>
+     * <p>Un-merged Business Name: ContactAddress</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.ContactParty.addr</p>
      * 
@@ -233,7 +233,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactAddress</p>
      * 
-     * <p>Other Business Name: ContactAddress</p>
+     * <p>Un-merged Business Name: ContactAddress</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.ContactParty.addr</p>
      * 
@@ -244,7 +244,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Provides a mailing address for the location</p>
      * 
-     * <p>Other Business Name: ContactAddress</p>
+     * <p>Un-merged Business Name: ContactAddress</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.ContactParty.addr</p>
      * 
@@ -255,7 +255,7 @@ public class ContactPointsBean extends MessagePartBean {
      * 
      * <p>Provides a mailing address for the location</p>
      * 
-     * <p>Other Business Name: ContactAddress</p>
+     * <p>Un-merged Business Name: ContactAddress</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.ContactParty.addr</p>
      * 
@@ -274,7 +274,7 @@ public class ContactPointsBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactPhoneNumberAndEmails</p>
      * 
-     * <p>Other Business Name: ContactPhoneNumberAndEmails</p>
+     * <p>Un-merged Business Name: ContactPhoneNumberAndEmails</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.ContactParty.telecom</p>
      * 
@@ -285,7 +285,7 @@ public class ContactPointsBean extends MessagePartBean {
      * <p>Information used to communicate with the location by 
      * phone, fax or e-mail.</p>
      * 
-     * <p>Other Business Name: ContactPhoneNumberAndEmails</p>
+     * <p>Un-merged Business Name: ContactPhoneNumberAndEmails</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.ContactParty.telecom</p>
      * 
@@ -296,7 +296,7 @@ public class ContactPointsBean extends MessagePartBean {
      * <p>Information used to communicate with the location by 
      * phone, fax or e-mail.</p>
      * 
-     * <p>Other Business Name: ContactPhoneNumberAndEmails</p>
+     * <p>Un-merged Business Name: ContactPhoneNumberAndEmails</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.ContactParty.telecom</p>
      * 

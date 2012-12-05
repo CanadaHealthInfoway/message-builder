@@ -151,7 +151,7 @@ public class IssueManagementsBean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementType</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.code</p>
@@ -253,7 +253,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * actions.</p><p>This is mandatory so as to ensure distinction 
      * between different kinds of management.</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.code</p>
@@ -314,7 +314,7 @@ public class IssueManagementsBean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementType</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.code</p>
@@ -416,7 +416,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * actions.</p><p>This is mandatory so as to ensure distinction 
      * between different kinds of management.</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.code</p>
@@ -477,7 +477,7 @@ public class IssueManagementsBean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementDescription</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.text</p>
@@ -490,7 +490,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.text</p>
@@ -503,7 +503,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.text</p>
@@ -516,7 +516,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.DetectedIssueManagement.text</p>
@@ -529,7 +529,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.text</p>
@@ -542,7 +542,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.DetectedIssueManagement.text</p>
@@ -555,7 +555,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueManagement.text</p>
@@ -568,7 +568,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.DetectedIssueManagement.text</p>
@@ -589,7 +589,7 @@ public class IssueManagementsBean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementDescription</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.text</p>
@@ -602,7 +602,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.text</p>
@@ -615,7 +615,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.text</p>
@@ -628,7 +628,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.DetectedIssueManagement.text</p>
@@ -641,7 +641,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.text</p>
@@ -654,7 +654,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.DetectedIssueManagement.text</p>
@@ -667,7 +667,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueManagement.text</p>
@@ -680,7 +680,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * <p>Allows additional clinical detail to be conveyed that are 
      * important clinically and not conveyed by the code.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.DetectedIssueManagement.text</p>
@@ -699,56 +699,56 @@ public class IssueManagementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.DetectedIssueManagement.author</p>
@@ -761,56 +761,56 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.DetectedIssueManagement.author</p>
@@ -823,7 +823,7 @@ public class IssueManagementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.classCode</p>
@@ -836,7 +836,7 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.classCode</p>
@@ -849,7 +849,7 @@ public class IssueManagementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.moodCode</p>
@@ -862,7 +862,7 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.moodCode</p>

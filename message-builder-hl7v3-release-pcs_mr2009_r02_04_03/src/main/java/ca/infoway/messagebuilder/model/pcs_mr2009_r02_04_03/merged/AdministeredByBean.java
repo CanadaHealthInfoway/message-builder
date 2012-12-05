@@ -92,7 +92,7 @@ public class AdministeredByBean extends MessagePartBean {
     /**
      * <p>Business Name: SigningMethod</p>
      * 
-     * <p>Other Business Name: SigningMethod</p>
+     * <p>Un-merged Business Name: SigningMethod</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Performer.modeCode</p>
      * 
@@ -106,7 +106,7 @@ public class AdministeredByBean extends MessagePartBean {
      * <p>A code specifying the modality by which the original 
      * information was presented.</p>
      * 
-     * <p>Other Business Name: SigningMethod</p>
+     * <p>Un-merged Business Name: SigningMethod</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Performer.modeCode</p>
      * 
@@ -120,7 +120,7 @@ public class AdministeredByBean extends MessagePartBean {
      * <p>A code specifying the modality by which the original 
      * information was presented.</p>
      * 
-     * <p>Other Business Name: SigningMethod</p>
+     * <p>Un-merged Business Name: SigningMethod</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Performer.modeCode</p>
      * 
@@ -142,7 +142,7 @@ public class AdministeredByBean extends MessagePartBean {
     /**
      * <p>Business Name: SigningMethod</p>
      * 
-     * <p>Other Business Name: SigningMethod</p>
+     * <p>Un-merged Business Name: SigningMethod</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Performer.modeCode</p>
      * 
@@ -156,7 +156,7 @@ public class AdministeredByBean extends MessagePartBean {
      * <p>A code specifying the modality by which the original 
      * information was presented.</p>
      * 
-     * <p>Other Business Name: SigningMethod</p>
+     * <p>Un-merged Business Name: SigningMethod</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Performer.modeCode</p>
      * 
@@ -170,7 +170,7 @@ public class AdministeredByBean extends MessagePartBean {
      * <p>A code specifying the modality by which the original 
      * information was presented.</p>
      * 
-     * <p>Other Business Name: SigningMethod</p>
+     * <p>Un-merged Business Name: SigningMethod</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Performer.modeCode</p>
      * 
@@ -192,7 +192,7 @@ public class AdministeredByBean extends MessagePartBean {
     /**
      * <p>Business Name: SignatureCode</p>
      * 
-     * <p>Other Business Name: SignatureCode</p>
+     * <p>Un-merged Business Name: SignatureCode</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Performer.signatureCode</p>
      * 
@@ -208,7 +208,7 @@ public class AdministeredByBean extends MessagePartBean {
      * attested his participation through a signature and or 
      * whether such a signature is needed.</p>
      * 
-     * <p>Other Business Name: SignatureCode</p>
+     * <p>Un-merged Business Name: SignatureCode</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Performer.signatureCode</p>
      * 
@@ -224,7 +224,7 @@ public class AdministeredByBean extends MessagePartBean {
      * attested his participation through a signature and or 
      * whether such a signature is needed.</p>
      * 
-     * <p>Other Business Name: SignatureCode</p>
+     * <p>Un-merged Business Name: SignatureCode</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Performer.signatureCode</p>
      * 
@@ -248,7 +248,7 @@ public class AdministeredByBean extends MessagePartBean {
     /**
      * <p>Business Name: SignatureCode</p>
      * 
-     * <p>Other Business Name: SignatureCode</p>
+     * <p>Un-merged Business Name: SignatureCode</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Performer.signatureCode</p>
      * 
@@ -264,7 +264,7 @@ public class AdministeredByBean extends MessagePartBean {
      * attested his participation through a signature and or 
      * whether such a signature is needed.</p>
      * 
-     * <p>Other Business Name: SignatureCode</p>
+     * <p>Un-merged Business Name: SignatureCode</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Performer.signatureCode</p>
      * 
@@ -280,7 +280,7 @@ public class AdministeredByBean extends MessagePartBean {
      * attested his participation through a signature and or 
      * whether such a signature is needed.</p>
      * 
-     * <p>Other Business Name: SignatureCode</p>
+     * <p>Un-merged Business Name: SignatureCode</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Performer.signatureCode</p>
      * 
@@ -304,7 +304,7 @@ public class AdministeredByBean extends MessagePartBean {
     /**
      * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Performer.signatureText</p>
      * 
@@ -321,7 +321,7 @@ public class AdministeredByBean extends MessagePartBean {
      * he or she agrees to assume the associated 
      * accountability.</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Performer.signatureText</p>
      * 
@@ -338,7 +338,7 @@ public class AdministeredByBean extends MessagePartBean {
      * he or she agrees to assume the associated 
      * accountability.</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Performer.signatureText</p>
      * 
@@ -363,7 +363,7 @@ public class AdministeredByBean extends MessagePartBean {
     /**
      * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Performer.signatureText</p>
      * 
@@ -380,7 +380,7 @@ public class AdministeredByBean extends MessagePartBean {
      * he or she agrees to assume the associated 
      * accountability.</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Performer.signatureText</p>
      * 
@@ -397,7 +397,7 @@ public class AdministeredByBean extends MessagePartBean {
      * he or she agrees to assume the associated 
      * accountability.</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Performer.signatureText</p>
      * 
@@ -420,37 +420,37 @@ public class AdministeredByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Performer.assignedEntity</p>
      * 
@@ -462,37 +462,37 @@ public class AdministeredByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Performer.assignedEntity</p>
      * 

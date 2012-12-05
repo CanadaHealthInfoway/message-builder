@@ -128,7 +128,7 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.negationInd</p>
      * 
@@ -144,7 +144,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.negationInd</p>
      * 
@@ -160,7 +160,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.negationInd</p>
      * 
@@ -177,7 +177,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.negationInd</p>
      * 
@@ -194,7 +194,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
@@ -211,7 +211,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
@@ -234,7 +234,7 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.negationInd</p>
      * 
@@ -250,7 +250,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.negationInd</p>
      * 
@@ -266,7 +266,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.negationInd</p>
      * 
@@ -283,7 +283,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.negationInd</p>
      * 
@@ -300,7 +300,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
@@ -317,7 +317,7 @@ public class DrugContainsBean extends MessagePartBean {
      * <p>An indication that a drug does not contain the specified 
      * ingredient (active or inactive).</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
@@ -340,7 +340,7 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: IngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.quantity</p>
      * 
@@ -354,7 +354,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: IngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.quantity</p>
      * 
@@ -368,7 +368,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.quantity</p>
      * 
@@ -407,7 +407,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.quantity</p>
      * 
@@ -446,7 +446,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.quantity</p>
      * 
@@ -485,7 +485,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.quantity</p>
      * 
@@ -530,7 +530,7 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: IngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.quantity</p>
      * 
@@ -544,7 +544,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: IngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.quantity</p>
      * 
@@ -558,7 +558,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.quantity</p>
      * 
@@ -597,7 +597,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.quantity</p>
      * 
@@ -636,7 +636,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.quantity</p>
      * 
@@ -675,7 +675,7 @@ public class DrugContainsBean extends MessagePartBean {
      * represented/measured in various forms/units including: mg, 
      * mg/vol, %, etc.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.quantity</p>
      * 
@@ -722,7 +722,7 @@ public class DrugContainsBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugIngredientIdentifier</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: POME_MT010040CA.Substance.code</p>
      * 
@@ -737,7 +737,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: POME_MT010100CA.Substance.code</p>
      * 
@@ -752,7 +752,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Substance.code</p>
      * 
@@ -786,7 +786,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Substance.code</p>
      * 
@@ -820,7 +820,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Substance.code</p>
      * 
@@ -854,7 +854,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Substance.code</p>
      * 
@@ -896,7 +896,7 @@ public class DrugContainsBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugIngredientIdentifier</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: POME_MT010040CA.Substance.code</p>
      * 
@@ -911,7 +911,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: POME_MT010100CA.Substance.code</p>
      * 
@@ -926,7 +926,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Substance.code</p>
      * 
@@ -960,7 +960,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Substance.code</p>
      * 
@@ -994,7 +994,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Substance.code</p>
      * 
@@ -1028,7 +1028,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Substance.code</p>
      * 
@@ -1068,7 +1068,7 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: IngredientName</p>
+     * <p>Un-merged Business Name: IngredientName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Substance.name</p>
      * 
@@ -1081,7 +1081,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: IngredientName</p>
+     * <p>Un-merged Business Name: IngredientName</p>
      * 
      * <p>Relationship: POME_MT010100CA.Substance.name</p>
      * 
@@ -1094,7 +1094,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientName</p>
+     * <p>Un-merged Business Name: DrugIngredientName</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Substance.name</p>
      * 
@@ -1107,7 +1107,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientName</p>
+     * <p>Un-merged Business Name: DrugIngredientName</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Substance.name</p>
      * 
@@ -1120,7 +1120,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientName</p>
+     * <p>Un-merged Business Name: DrugIngredientName</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Substance.name</p>
      * 
@@ -1133,7 +1133,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientName</p>
+     * <p>Un-merged Business Name: DrugIngredientName</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Substance.name</p>
      * 
@@ -1152,7 +1152,7 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: IngredientName</p>
+     * <p>Un-merged Business Name: IngredientName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Substance.name</p>
      * 
@@ -1165,7 +1165,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: IngredientName</p>
+     * <p>Un-merged Business Name: IngredientName</p>
      * 
      * <p>Relationship: POME_MT010100CA.Substance.name</p>
      * 
@@ -1178,7 +1178,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientName</p>
+     * <p>Un-merged Business Name: DrugIngredientName</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Substance.name</p>
      * 
@@ -1191,7 +1191,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientName</p>
+     * <p>Un-merged Business Name: DrugIngredientName</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Substance.name</p>
      * 
@@ -1204,7 +1204,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientName</p>
+     * <p>Un-merged Business Name: DrugIngredientName</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Substance.name</p>
      * 
@@ -1217,7 +1217,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
-     * <p>Other Business Name: DrugIngredientName</p>
+     * <p>Un-merged Business Name: DrugIngredientName</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Substance.name</p>
      * 

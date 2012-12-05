@@ -39,7 +39,7 @@ public class OldConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT000003CA.OldCondition.id</p>
      * 
@@ -61,7 +61,7 @@ public class OldConditionBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT000007CA.OldCondition.id</p>
      * 
@@ -83,7 +83,7 @@ public class OldConditionBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT000010CA.OldCondition.id</p>
      * 
@@ -113,7 +113,7 @@ public class OldConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT000003CA.OldCondition.id</p>
      * 
@@ -135,7 +135,7 @@ public class OldConditionBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT000007CA.OldCondition.id</p>
      * 
@@ -157,7 +157,7 @@ public class OldConditionBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT000010CA.OldCondition.id</p>
      * 

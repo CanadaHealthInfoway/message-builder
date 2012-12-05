@@ -43,19 +43,19 @@ public class PlaceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.Place.asIdentifiedLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Place.asIdentifiedLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Place.asIdentifiedLocation</p>
      * 
@@ -70,7 +70,7 @@ public class PlaceBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationPlaceType</p>
      * 
-     * <p>Other Business Name: LocationPlaceType</p>
+     * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Place.code</p>
      * 
@@ -83,7 +83,7 @@ public class PlaceBean extends MessagePartBean {
      * <p>Distinguishes different levels of location granularity. 
      * E.g. Campus, building, floor, ward, room, bed.</p>
      * 
-     * <p>Other Business Name: LocationPlaceType</p>
+     * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Place.code</p>
      * 
@@ -104,7 +104,7 @@ public class PlaceBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationPlaceType</p>
      * 
-     * <p>Other Business Name: LocationPlaceType</p>
+     * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Place.code</p>
      * 
@@ -117,7 +117,7 @@ public class PlaceBean extends MessagePartBean {
      * <p>Distinguishes different levels of location granularity. 
      * E.g. Campus, building, floor, ward, room, bed.</p>
      * 
-     * <p>Other Business Name: LocationPlaceType</p>
+     * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Place.code</p>
      * 
@@ -138,7 +138,7 @@ public class PlaceBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Other Business Name: LocationMobileIndicator</p>
+     * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Place.mobileInd</p>
      * 
@@ -152,7 +152,7 @@ public class PlaceBean extends MessagePartBean {
      * move from one location to another. Example: air and ground 
      * ambulances, mobile clinics.</p>
      * 
-     * <p>Other Business Name: LocationMobileIndicator</p>
+     * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Place.mobileInd</p>
      * 
@@ -174,7 +174,7 @@ public class PlaceBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Other Business Name: LocationMobileIndicator</p>
+     * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Place.mobileInd</p>
      * 
@@ -188,7 +188,7 @@ public class PlaceBean extends MessagePartBean {
      * move from one location to another. Example: air and ground 
      * ambulances, mobile clinics.</p>
      * 
-     * <p>Other Business Name: LocationMobileIndicator</p>
+     * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Place.mobileInd</p>
      * 

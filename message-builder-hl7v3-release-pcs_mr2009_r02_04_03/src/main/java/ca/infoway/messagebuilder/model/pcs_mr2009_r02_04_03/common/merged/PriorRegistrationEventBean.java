@@ -87,7 +87,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
      * 
@@ -99,7 +99,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * registered item that have been superseded by this 
      * record.</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700717CA.PriorRegisteredRole.id</p>
      * 
@@ -111,7 +111,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * registered item that have been superseded by this 
      * record.</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
      * 
@@ -123,7 +123,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * registered item that have been superseded by this 
      * record.</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700726CA.PriorRegisteredRole.id</p>
      * 
@@ -135,7 +135,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * registered item that have been superseded by this 
      * record.</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
      * 
@@ -155,7 +155,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
      * 
@@ -167,7 +167,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * registered item that have been superseded by this 
      * record.</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700717CA.PriorRegisteredRole.id</p>
      * 
@@ -179,7 +179,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * registered item that have been superseded by this 
      * record.</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
      * 
@@ -191,7 +191,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * registered item that have been superseded by this 
      * record.</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700726CA.PriorRegisteredRole.id</p>
      * 
@@ -203,7 +203,7 @@ public class PriorRegistrationEventBean extends MessagePartBean {
      * registered item that have been superseded by this 
      * record.</p>
      * 
-     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * <p>Un-merged Business Name: PriorRegisteredRoleIds</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
      * 

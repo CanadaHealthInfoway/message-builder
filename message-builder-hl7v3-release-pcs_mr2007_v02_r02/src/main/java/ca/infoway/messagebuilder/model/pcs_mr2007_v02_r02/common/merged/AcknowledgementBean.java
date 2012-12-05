@@ -53,7 +53,7 @@ public class AcknowledgementBean extends MessagePartBean {
     /**
      * <p>Business Name: AcknowledgementCode</p>
      * 
-     * <p>Other Business Name: AcknowledgementCode</p>
+     * <p>Un-merged Business Name: AcknowledgementCode</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Acknowledgement.typeCode</p>
      * 
@@ -65,7 +65,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Indicates whether the previous interaction was 
      * successfully processed.</p>
      * 
-     * <p>Other Business Name: AcknowledgementCode</p>
+     * <p>Un-merged Business Name: AcknowledgementCode</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Acknowledgement.typeCode</p>
      * 
@@ -85,7 +85,7 @@ public class AcknowledgementBean extends MessagePartBean {
     /**
      * <p>Business Name: AcknowledgementCode</p>
      * 
-     * <p>Other Business Name: AcknowledgementCode</p>
+     * <p>Un-merged Business Name: AcknowledgementCode</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Acknowledgement.typeCode</p>
      * 
@@ -97,7 +97,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>Indicates whether the previous interaction was 
      * successfully processed.</p>
      * 
-     * <p>Other Business Name: AcknowledgementCode</p>
+     * <p>Un-merged Business Name: AcknowledgementCode</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Acknowledgement.typeCode</p>
      * 
@@ -117,7 +117,7 @@ public class AcknowledgementBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfWaitingMessages</p>
      * 
-     * <p>Other Business Name: NumberOfWaitingMessages</p>
+     * <p>Un-merged Business Name: NumberOfWaitingMessages</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.Acknowledgement.messageWaitingNumber</p>
@@ -132,7 +132,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>For applications which support polling, indicates the 
      * total number of messages waiting to be retrieved.</p>
      * 
-     * <p>Other Business Name: NumberOfWaitingMessages</p>
+     * <p>Un-merged Business Name: NumberOfWaitingMessages</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.Acknowledgement.messageWaitingNumber</p>
@@ -155,7 +155,7 @@ public class AcknowledgementBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfWaitingMessages</p>
      * 
-     * <p>Other Business Name: NumberOfWaitingMessages</p>
+     * <p>Un-merged Business Name: NumberOfWaitingMessages</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.Acknowledgement.messageWaitingNumber</p>
@@ -170,7 +170,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>For applications which support polling, indicates the 
      * total number of messages waiting to be retrieved.</p>
      * 
-     * <p>Other Business Name: NumberOfWaitingMessages</p>
+     * <p>Un-merged Business Name: NumberOfWaitingMessages</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.Acknowledgement.messageWaitingNumber</p>
@@ -193,7 +193,7 @@ public class AcknowledgementBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageWaitingPriority</p>
      * 
-     * <p>Other Business Name: MessageWaitingPriority</p>
+     * <p>Un-merged Business Name: MessageWaitingPriority</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.Acknowledgement.messageWaitingPriorityCode</p>
@@ -209,7 +209,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * that is waiting on the poll queue for the system being 
      * responded to.</p>
      * 
-     * <p>Other Business Name: MessageWaitingPriority</p>
+     * <p>Un-merged Business Name: MessageWaitingPriority</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.Acknowledgement.messageWaitingPriorityCode</p>
@@ -233,7 +233,7 @@ public class AcknowledgementBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageWaitingPriority</p>
      * 
-     * <p>Other Business Name: MessageWaitingPriority</p>
+     * <p>Un-merged Business Name: MessageWaitingPriority</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.Acknowledgement.messageWaitingPriorityCode</p>
@@ -249,7 +249,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * that is waiting on the poll queue for the system being 
      * responded to.</p>
      * 
-     * <p>Other Business Name: MessageWaitingPriority</p>
+     * <p>Un-merged Business Name: MessageWaitingPriority</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.Acknowledgement.messageWaitingPriorityCode</p>
@@ -273,7 +273,7 @@ public class AcknowledgementBean extends MessagePartBean {
     /**
      * <p>Business Name: AcknowledgedMessageId</p>
      * 
-     * <p>Other Business Name: AcknowledgedMessageId</p>
+     * <p>Un-merged Business Name: AcknowledgedMessageId</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.TargetMessage.id</p>
      * 
@@ -288,7 +288,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>References the identifier of the message this current 
      * message is acknowledging.</p>
      * 
-     * <p>Other Business Name: AcknowledgedMessageId</p>
+     * <p>Un-merged Business Name: AcknowledgedMessageId</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.TargetMessage.id</p>
      * 
@@ -311,7 +311,7 @@ public class AcknowledgementBean extends MessagePartBean {
     /**
      * <p>Business Name: AcknowledgedMessageId</p>
      * 
-     * <p>Other Business Name: AcknowledgedMessageId</p>
+     * <p>Un-merged Business Name: AcknowledgedMessageId</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.TargetMessage.id</p>
      * 
@@ -326,7 +326,7 @@ public class AcknowledgementBean extends MessagePartBean {
      * <p>References the identifier of the message this current 
      * message is acknowledging.</p>
      * 
-     * <p>Other Business Name: AcknowledgedMessageId</p>
+     * <p>Un-merged Business Name: AcknowledgedMessageId</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.TargetMessage.id</p>
      * 
@@ -347,14 +347,14 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.Acknowledgement.acknowledgementDetail</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.Acknowledgement.acknowledgementDetail</p>

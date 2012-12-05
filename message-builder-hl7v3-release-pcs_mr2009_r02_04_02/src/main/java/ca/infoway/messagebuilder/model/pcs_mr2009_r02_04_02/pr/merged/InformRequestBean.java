@@ -70,7 +70,7 @@ public class InformRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: InformRequestCode</p>
      * 
-     * <p>Other Business Name: InformRequestCode</p>
+     * <p>Un-merged Business Name: InformRequestCode</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
      * 
@@ -83,7 +83,7 @@ public class InformRequestBean extends MessagePartBean {
      * provider expresses to have routed to them from the Service 
      * Delivery Location to which they are associated.</p>
      * 
-     * <p>Other Business Name: InformRequestCode</p>
+     * <p>Un-merged Business Name: InformRequestCode</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
      * 
@@ -104,7 +104,7 @@ public class InformRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: InformRequestCode</p>
      * 
-     * <p>Other Business Name: InformRequestCode</p>
+     * <p>Un-merged Business Name: InformRequestCode</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
      * 
@@ -117,7 +117,7 @@ public class InformRequestBean extends MessagePartBean {
      * provider expresses to have routed to them from the Service 
      * Delivery Location to which they are associated.</p>
      * 
-     * <p>Other Business Name: InformRequestCode</p>
+     * <p>Un-merged Business Name: InformRequestCode</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
      * 
@@ -138,7 +138,7 @@ public class InformRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceDeliveryLocationParticipationMode</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationParticipationMode</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
@@ -150,7 +150,7 @@ public class InformRequestBean extends MessagePartBean {
      * <p>A code specifying the modality by which the Entity 
      * playing the Role is participating in the Act.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationParticipationMode</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
@@ -168,7 +168,7 @@ public class InformRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceDeliveryLocationParticipationMode</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationParticipationMode</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
@@ -180,7 +180,7 @@ public class InformRequestBean extends MessagePartBean {
      * <p>A code specifying the modality by which the Entity 
      * playing the Role is participating in the Act.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationParticipationMode</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
@@ -196,14 +196,14 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
@@ -216,14 +216,14 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
@@ -236,13 +236,13 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
      * 
@@ -254,13 +254,13 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
      * 

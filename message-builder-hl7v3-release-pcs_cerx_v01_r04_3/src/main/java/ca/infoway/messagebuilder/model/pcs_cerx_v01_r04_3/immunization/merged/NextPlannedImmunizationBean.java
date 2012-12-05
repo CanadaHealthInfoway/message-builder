@@ -54,7 +54,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
     /**
      * <p>Business Name: NextPlannedDoseDate</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.NextPlannedImmunization.effectiveTime</p>
@@ -67,7 +67,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Indicates the date on which the next course of 
      * immunization is to be undertaken.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.NextPlannedImmunization.effectiveTime</p>
@@ -80,7 +80,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Indicates the date on which the next dose is to be 
      * administered.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.NextPlannedImmunization.effectiveTime</p>
@@ -101,7 +101,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
     /**
      * <p>Business Name: NextPlannedDoseDate</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.NextPlannedImmunization.effectiveTime</p>
@@ -114,7 +114,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Indicates the date on which the next course of 
      * immunization is to be undertaken.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.NextPlannedImmunization.effectiveTime</p>
@@ -127,7 +127,7 @@ public class NextPlannedImmunizationBean extends MessagePartBean {
      * <p>Indicates the date on which the next dose is to be 
      * administered.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.NextPlannedImmunization.effectiveTime</p>

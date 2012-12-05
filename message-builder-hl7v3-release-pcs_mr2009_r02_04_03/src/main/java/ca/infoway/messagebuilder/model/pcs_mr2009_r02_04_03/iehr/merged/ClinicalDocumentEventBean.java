@@ -39,7 +39,7 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>Other Business Name: ServiceReportReferenceId</p>
+     * <p>Un-merged Business Name: ServiceReportReferenceId</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ClinicalDocumentEvent.id</p>
      * 
@@ -56,7 +56,7 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * <p>An identifier for a report associated with the 
      * procedure.</p>
      * 
-     * <p>Other Business Name: ServiceReportReferenceId</p>
+     * <p>Un-merged Business Name: ServiceReportReferenceId</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ClinicalDocumentEvent.id</p>
      * 
@@ -81,7 +81,7 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceReportReferenceId</p>
      * 
-     * <p>Other Business Name: ServiceReportReferenceId</p>
+     * <p>Un-merged Business Name: ServiceReportReferenceId</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ClinicalDocumentEvent.id</p>
      * 
@@ -98,7 +98,7 @@ public class ClinicalDocumentEventBean extends MessagePartBean {
      * <p>An identifier for a report associated with the 
      * procedure.</p>
      * 
-     * <p>Other Business Name: ServiceReportReferenceId</p>
+     * <p>Un-merged Business Name: ServiceReportReferenceId</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ClinicalDocumentEvent.id</p>
      * 

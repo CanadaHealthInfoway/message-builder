@@ -47,7 +47,7 @@ public class ReceiverBean extends MessagePartBean {
     /**
      * <p>Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Receiver.telecom</p>
      * 
@@ -62,7 +62,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>The address to which this message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Receiver.telecom</p>
      * 
@@ -77,7 +77,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>The address to which this message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Receiver.telecom</p>
      * 
@@ -92,7 +92,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>The address to which this message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Receiver.telecom</p>
      * 
@@ -115,7 +115,7 @@ public class ReceiverBean extends MessagePartBean {
     /**
      * <p>Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Receiver.telecom</p>
      * 
@@ -130,7 +130,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>The address to which this message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Receiver.telecom</p>
      * 
@@ -145,7 +145,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>The address to which this message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Receiver.telecom</p>
      * 
@@ -160,7 +160,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>The address to which this message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * <p>Un-merged Business Name: ReceiverNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Receiver.telecom</p>
      * 
@@ -183,7 +183,7 @@ public class ReceiverBean extends MessagePartBean {
     /**
      * <p>Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device2.id</p>
      * 
@@ -199,7 +199,7 @@ public class ReceiverBean extends MessagePartBean {
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device2.id</p>
      * 
@@ -215,7 +215,7 @@ public class ReceiverBean extends MessagePartBean {
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device2.id</p>
      * 
@@ -231,7 +231,7 @@ public class ReceiverBean extends MessagePartBean {
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device2.id</p>
      * 
@@ -255,7 +255,7 @@ public class ReceiverBean extends MessagePartBean {
     /**
      * <p>Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device2.id</p>
      * 
@@ -271,7 +271,7 @@ public class ReceiverBean extends MessagePartBean {
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device2.id</p>
      * 
@@ -287,7 +287,7 @@ public class ReceiverBean extends MessagePartBean {
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device2.id</p>
      * 
@@ -303,7 +303,7 @@ public class ReceiverBean extends MessagePartBean {
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device2.id</p>
      * 
@@ -325,7 +325,7 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ReceiverApplicationName</p>
+     * <p>Un-merged Business Name: ReceiverApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device2.name</p>
      * 
@@ -333,7 +333,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Name of receiver application.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationName</p>
+     * <p>Un-merged Business Name: ReceiverApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device2.name</p>
      * 
@@ -343,7 +343,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Optional name of receiver application.</p>
      * 
-     * <p>Other Business Name: ReceivingApplicationName</p>
+     * <p>Un-merged Business Name: ReceivingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device2.name</p>
      * 
@@ -353,7 +353,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Name of the receiving application.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationName</p>
+     * <p>Un-merged Business Name: ReceiverApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device2.name</p>
      * 
@@ -369,7 +369,7 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ReceiverApplicationName</p>
+     * <p>Un-merged Business Name: ReceiverApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device2.name</p>
      * 
@@ -377,7 +377,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Name of receiver application.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationName</p>
+     * <p>Un-merged Business Name: ReceiverApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device2.name</p>
      * 
@@ -387,7 +387,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Optional name of receiver application.</p>
      * 
-     * <p>Other Business Name: ReceivingApplicationName</p>
+     * <p>Un-merged Business Name: ReceivingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device2.name</p>
      * 
@@ -397,7 +397,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Name of the receiving application.</p>
      * 
-     * <p>Other Business Name: ReceiverApplicationName</p>
+     * <p>Un-merged Business Name: ReceiverApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device2.name</p>
      * 
@@ -415,7 +415,7 @@ public class ReceiverBean extends MessagePartBean {
     /**
      * <p>Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Organization2.id</p>
      * 
@@ -428,7 +428,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Name of receiver application.</p>
      * 
-     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Organization.id</p>
      * 
@@ -440,7 +440,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Organization intended to receive this message</p>
      * 
-     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Organization.id</p>
      * 
@@ -452,7 +452,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the receiver organization.</p>
      * 
-     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Organization2.id</p>
      * 
@@ -473,7 +473,7 @@ public class ReceiverBean extends MessagePartBean {
     /**
      * <p>Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Organization2.id</p>
      * 
@@ -486,7 +486,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Name of receiver application.</p>
      * 
-     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Organization.id</p>
      * 
@@ -498,7 +498,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Organization intended to receive this message</p>
      * 
-     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Organization.id</p>
      * 
@@ -510,7 +510,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the receiver organization.</p>
      * 
-     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Organization2.id</p>
      * 

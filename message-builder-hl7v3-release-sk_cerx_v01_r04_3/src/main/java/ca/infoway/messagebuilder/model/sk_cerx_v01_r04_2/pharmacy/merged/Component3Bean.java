@@ -73,7 +73,7 @@ public class Component3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.Component3.supplyRequestItem</p>
@@ -84,7 +84,7 @@ public class Component3Bean extends MessagePartBean {
      * the</p> <div>prescrbed medication and/or overall quantity to 
      * be</div> <div>dispensed.</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Component3.supplyRequestItem</p>
@@ -97,7 +97,7 @@ public class Component3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.Component3.supplyRequestItem</p>
@@ -108,7 +108,7 @@ public class Component3Bean extends MessagePartBean {
      * the</p> <div>prescrbed medication and/or overall quantity to 
      * be</div> <div>dispensed.</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Component3.supplyRequestItem</p>

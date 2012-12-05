@@ -206,7 +206,7 @@ public class ChangedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author1.time</p>
      * 
@@ -220,7 +220,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date on which the change was made.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260022CA.Author1.time</p>
      * 
@@ -234,7 +234,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider used this 
      * management for the issue in the past.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260012CA.Author1.time</p>
      * 
@@ -248,7 +248,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider managed the 
      * issue.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author6.time</p>
      * 
@@ -262,7 +262,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date and time at which the change was made.</p>
      * 
-     * <p>Other Business Name: ChangeDatetime</p>
+     * <p>Un-merged Business Name: ChangeDatetime</p>
      * 
      * <p>Relationship: COCT_MT130001CA.Author3.time</p>
      * 
@@ -277,7 +277,7 @@ public class ChangedByBean extends MessagePartBean {
      * be earlier or occassionally later than when the change is 
      * actually effective.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author1.time</p>
      * 
@@ -291,7 +291,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date and time at which the change was made.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Author1.time</p>
      * 
@@ -305,7 +305,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider managed the 
      * issue.</p>
      * 
-     * <p>Other Business Name: ChangeTime</p>
+     * <p>Un-merged Business Name: ChangeTime</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Author3.time</p>
      * 
@@ -318,7 +318,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date on which the change was made.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Author1.time</p>
      * 
@@ -332,7 +332,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider used this 
      * management for the issue in the past.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author1.time</p>
      * 
@@ -346,7 +346,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date on which the change was made.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.time</p>
      * 
@@ -360,7 +360,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date and time at which the change was made.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Author1.time</p>
      * 
@@ -374,7 +374,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider managed the 
      * issue.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author6.time</p>
      * 
@@ -392,7 +392,7 @@ public class ChangedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author1.time</p>
      * 
@@ -406,7 +406,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date on which the change was made.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260022CA.Author1.time</p>
      * 
@@ -420,7 +420,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider used this 
      * management for the issue in the past.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260012CA.Author1.time</p>
      * 
@@ -434,7 +434,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider managed the 
      * issue.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author6.time</p>
      * 
@@ -448,7 +448,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date and time at which the change was made.</p>
      * 
-     * <p>Other Business Name: ChangeDatetime</p>
+     * <p>Un-merged Business Name: ChangeDatetime</p>
      * 
      * <p>Relationship: COCT_MT130001CA.Author3.time</p>
      * 
@@ -463,7 +463,7 @@ public class ChangedByBean extends MessagePartBean {
      * be earlier or occassionally later than when the change is 
      * actually effective.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author1.time</p>
      * 
@@ -477,7 +477,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date and time at which the change was made.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Author1.time</p>
      * 
@@ -491,7 +491,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider managed the 
      * issue.</p>
      * 
-     * <p>Other Business Name: ChangeTime</p>
+     * <p>Un-merged Business Name: ChangeTime</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Author3.time</p>
      * 
@@ -504,7 +504,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date on which the change was made.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Author1.time</p>
      * 
@@ -518,7 +518,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider used this 
      * management for the issue in the past.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author1.time</p>
      * 
@@ -532,7 +532,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date on which the change was made.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.time</p>
      * 
@@ -546,7 +546,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>The date and time at which the change was made.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Author1.time</p>
      * 
@@ -560,7 +560,7 @@ public class ChangedByBean extends MessagePartBean {
      * <p>The date and time on which the provider managed the 
      * issue.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author6.time</p>
      * 
@@ -578,37 +578,37 @@ public class ChangedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author6.changedBy</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author6.changedBy</p>
      * 
@@ -620,37 +620,37 @@ public class ChangedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author6.changedBy</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author6.changedBy</p>
      * 
@@ -662,37 +662,37 @@ public class ChangedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260022CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
      * 
@@ -704,37 +704,37 @@ public class ChangedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260022CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
      * 
@@ -746,7 +746,7 @@ public class ChangedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
      * 
@@ -758,7 +758,7 @@ public class ChangedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
      * 

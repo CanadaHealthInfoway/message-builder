@@ -120,7 +120,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientHealthcareIdentificationNumber</p>
      * 
-     * <p>Other Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.id</p>
      * 
@@ -137,7 +137,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * identifier may be assigned jurisdictionally or by care 
      * facility.</p>
      * 
-     * <p>Other Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.id</p>
      * 
@@ -160,7 +160,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientStatusCode</p>
      * 
-     * <p>Other Business Name: ClientStatusCode</p>
+     * <p>Un-merged Business Name: ClientStatusCode</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.statusCode</p>
      * 
@@ -171,7 +171,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Indicates the status of the Client role (e.g. Active)</p>
      * 
-     * <p>Other Business Name: ClientStatusCode</p>
+     * <p>Un-merged Business Name: ClientStatusCode</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.statusCode</p>
      * 
@@ -190,7 +190,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientStatusCode</p>
      * 
-     * <p>Other Business Name: ClientStatusCode</p>
+     * <p>Un-merged Business Name: ClientStatusCode</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.statusCode</p>
      * 
@@ -201,7 +201,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Indicates the status of the Client role (e.g. Active)</p>
      * 
-     * <p>Other Business Name: ClientStatusCode</p>
+     * <p>Un-merged Business Name: ClientStatusCode</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.statusCode</p>
      * 
@@ -220,7 +220,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientEffectiveTime</p>
      * 
-     * <p>Other Business Name: ClientEffectiveTime</p>
+     * <p>Un-merged Business Name: ClientEffectiveTime</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.IdentifiedEntity.effectiveTime</p>
@@ -232,7 +232,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Indicates the effective time of the Client role</p>
      * 
-     * <p>Other Business Name: ClientEffectiveTime</p>
+     * <p>Un-merged Business Name: ClientEffectiveTime</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.IdentifiedEntity.effectiveTime</p>
@@ -252,7 +252,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientEffectiveTime</p>
      * 
-     * <p>Other Business Name: ClientEffectiveTime</p>
+     * <p>Un-merged Business Name: ClientEffectiveTime</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.IdentifiedEntity.effectiveTime</p>
@@ -264,7 +264,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Indicates the effective time of the Client role</p>
      * 
-     * <p>Other Business Name: ClientEffectiveTime</p>
+     * <p>Un-merged Business Name: ClientEffectiveTime</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.IdentifiedEntity.effectiveTime</p>
@@ -284,7 +284,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientMaskedInformation</p>
      * 
-     * <p>Other Business Name: ClientMaskedInformation</p>
+     * <p>Un-merged Business Name: ClientMaskedInformation</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.IdentifiedEntity.confidentialityCode</p>
@@ -312,7 +312,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>A code that controls the disclosure of information about 
      * this patient encounter.</p>
      * 
-     * <p>Other Business Name: ClientMaskedInformation</p>
+     * <p>Un-merged Business Name: ClientMaskedInformation</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.IdentifiedEntity.confidentialityCode</p>
@@ -347,7 +347,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientMaskedInformation</p>
      * 
-     * <p>Other Business Name: ClientMaskedInformation</p>
+     * <p>Un-merged Business Name: ClientMaskedInformation</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.IdentifiedEntity.confidentialityCode</p>
@@ -375,7 +375,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>A code that controls the disclosure of information about 
      * this patient encounter.</p>
      * 
-     * <p>Other Business Name: ClientMaskedInformation</p>
+     * <p>Un-merged Business Name: ClientMaskedInformation</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.IdentifiedEntity.confidentialityCode</p>
@@ -410,7 +410,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientName</p>
      * 
-     * <p>Other Business Name: ClientName</p>
+     * <p>Un-merged Business Name: ClientName</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.name</p>
      * 
@@ -421,7 +421,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Name(s) for the Client</p>
      * 
-     * <p>Other Business Name: ClientName</p>
+     * <p>Un-merged Business Name: ClientName</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.name</p>
      * 
@@ -441,7 +441,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientTelecom</p>
      * 
-     * <p>Other Business Name: ClientTelecom</p>
+     * <p>Un-merged Business Name: ClientTelecom</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.telecom</p>
      * 
@@ -452,7 +452,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Provides information about telecom</p>
      * 
-     * <p>Other Business Name: ClientTelecom</p>
+     * <p>Un-merged Business Name: ClientTelecom</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.telecom</p>
      * 
@@ -472,7 +472,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientGender</p>
      * 
-     * <p>Other Business Name: ClientGender</p>
+     * <p>Un-merged Business Name: ClientGender</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.Person.administrativeGenderCode</p>
@@ -487,7 +487,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * typically restricted to Male (M), Female (F) or 
      * Undifferentiated (U)</p>
      * 
-     * <p>Other Business Name: ClientGender</p>
+     * <p>Un-merged Business Name: ClientGender</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.Person.administrativeGenderCode</p>
@@ -510,7 +510,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientGender</p>
      * 
-     * <p>Other Business Name: ClientGender</p>
+     * <p>Un-merged Business Name: ClientGender</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.Person.administrativeGenderCode</p>
@@ -525,7 +525,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * typically restricted to Male (M), Female (F) or 
      * Undifferentiated (U)</p>
      * 
-     * <p>Other Business Name: ClientGender</p>
+     * <p>Un-merged Business Name: ClientGender</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.Person.administrativeGenderCode</p>
@@ -548,7 +548,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Other Business Name: ClientDateOfBirth</p>
+     * <p>Un-merged Business Name: ClientDateOfBirth</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.birthTime</p>
      * 
@@ -559,7 +559,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Date of birth of the Client</p>
      * 
-     * <p>Other Business Name: ClientDateOfBirth</p>
+     * <p>Un-merged Business Name: ClientDateOfBirth</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.birthTime</p>
      * 
@@ -578,7 +578,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Other Business Name: ClientDateOfBirth</p>
+     * <p>Un-merged Business Name: ClientDateOfBirth</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.birthTime</p>
      * 
@@ -589,7 +589,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Date of birth of the Client</p>
      * 
-     * <p>Other Business Name: ClientDateOfBirth</p>
+     * <p>Un-merged Business Name: ClientDateOfBirth</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.birthTime</p>
      * 
@@ -608,7 +608,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientDeceasedIndicator</p>
      * 
-     * <p>Other Business Name: ClientDeceasedIndicator</p>
+     * <p>Un-merged Business Name: ClientDeceasedIndicator</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.deceasedInd</p>
      * 
@@ -619,7 +619,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>An indication that the client is deceased.</p>
      * 
-     * <p>Other Business Name: ClientDeceasedIndicator</p>
+     * <p>Un-merged Business Name: ClientDeceasedIndicator</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.deceasedInd</p>
      * 
@@ -638,7 +638,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientDeceasedIndicator</p>
      * 
-     * <p>Other Business Name: ClientDeceasedIndicator</p>
+     * <p>Un-merged Business Name: ClientDeceasedIndicator</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.deceasedInd</p>
      * 
@@ -649,7 +649,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>An indication that the client is deceased.</p>
      * 
-     * <p>Other Business Name: ClientDeceasedIndicator</p>
+     * <p>Un-merged Business Name: ClientDeceasedIndicator</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.deceasedInd</p>
      * 
@@ -668,7 +668,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientDeceasedDate</p>
      * 
-     * <p>Other Business Name: ClientDeceasedDate</p>
+     * <p>Un-merged Business Name: ClientDeceasedDate</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.deceasedTime</p>
      * 
@@ -679,7 +679,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>The date and time that a client's death occurred.</p>
      * 
-     * <p>Other Business Name: ClientDeceasedDate</p>
+     * <p>Un-merged Business Name: ClientDeceasedDate</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.deceasedTime</p>
      * 
@@ -700,7 +700,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientDeceasedDate</p>
      * 
-     * <p>Other Business Name: ClientDeceasedDate</p>
+     * <p>Un-merged Business Name: ClientDeceasedDate</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.deceasedTime</p>
      * 
@@ -711,7 +711,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>The date and time that a client's death occurred.</p>
      * 
-     * <p>Other Business Name: ClientDeceasedDate</p>
+     * <p>Un-merged Business Name: ClientDeceasedDate</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.deceasedTime</p>
      * 
@@ -732,7 +732,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientMultipleBirthIndicator</p>
      * 
-     * <p>Other Business Name: ClientMultipleBirthIndicator</p>
+     * <p>Un-merged Business Name: ClientMultipleBirthIndicator</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.multipleBirthInd</p>
      * 
@@ -744,7 +744,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>An indication as to whether the client is part of a 
      * multiple birth.</p>
      * 
-     * <p>Other Business Name: ClientMultipleBirthIndicator</p>
+     * <p>Un-merged Business Name: ClientMultipleBirthIndicator</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.multipleBirthInd</p>
      * 
@@ -764,7 +764,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientMultipleBirthIndicator</p>
      * 
-     * <p>Other Business Name: ClientMultipleBirthIndicator</p>
+     * <p>Un-merged Business Name: ClientMultipleBirthIndicator</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.multipleBirthInd</p>
      * 
@@ -776,7 +776,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>An indication as to whether the client is part of a 
      * multiple birth.</p>
      * 
-     * <p>Other Business Name: ClientMultipleBirthIndicator</p>
+     * <p>Un-merged Business Name: ClientMultipleBirthIndicator</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.multipleBirthInd</p>
      * 
@@ -796,7 +796,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientMultipleBirthOrderNumber</p>
      * 
-     * <p>Other Business Name: ClientMultipleBirthOrderNumber</p>
+     * <p>Un-merged Business Name: ClientMultipleBirthOrderNumber</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.Person.multipleBirthOrderNumber</p>
@@ -809,7 +809,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>The order in which this client was born if part of a 
      * multiple birth.</p>
      * 
-     * <p>Other Business Name: ClientMultipleBirthOrderNumber</p>
+     * <p>Un-merged Business Name: ClientMultipleBirthOrderNumber</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.Person.multipleBirthOrderNumber</p>
@@ -830,7 +830,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientMultipleBirthOrderNumber</p>
      * 
-     * <p>Other Business Name: ClientMultipleBirthOrderNumber</p>
+     * <p>Un-merged Business Name: ClientMultipleBirthOrderNumber</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.Person.multipleBirthOrderNumber</p>
@@ -843,7 +843,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>The order in which this client was born if part of a 
      * multiple birth.</p>
      * 
-     * <p>Other Business Name: ClientMultipleBirthOrderNumber</p>
+     * <p>Un-merged Business Name: ClientMultipleBirthOrderNumber</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.Person.multipleBirthOrderNumber</p>
@@ -864,7 +864,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientAddress</p>
      * 
-     * <p>Other Business Name: ClientAddress</p>
+     * <p>Un-merged Business Name: ClientAddress</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.addr</p>
      * 
@@ -875,7 +875,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Address(es) of the Client</p>
      * 
-     * <p>Other Business Name: ClientAddress</p>
+     * <p>Un-merged Business Name: ClientAddress</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.addr</p>
      * 
@@ -893,13 +893,13 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.asOtherIDs</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.asOtherIDs</p>
      * 
@@ -912,13 +912,13 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.personalRelationship</p>
      * 
@@ -931,14 +931,14 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101104CA.Person.languageCommunication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101002CA.Person.languageCommunication</p>
@@ -952,7 +952,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Subject.observationEvent</p>
      * 
@@ -964,7 +964,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.Subject.observationEvent</p>
      * 

@@ -266,7 +266,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.id</p>
      * 
@@ -285,7 +285,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.id</p>
      * 
@@ -304,7 +304,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.id</p>
      * 
@@ -323,7 +323,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.id</p>
      * 
@@ -342,7 +342,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.id</p>
      * 
@@ -361,7 +361,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.id</p>
      * 
@@ -380,7 +380,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.id</p>
      * 
@@ -399,7 +399,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.id</p>
      * 
@@ -418,7 +418,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.id</p>
      * 
@@ -437,7 +437,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.id</p>
      * 
@@ -464,7 +464,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.id</p>
      * 
@@ -483,7 +483,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.id</p>
      * 
@@ -502,7 +502,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.id</p>
      * 
@@ -521,7 +521,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.id</p>
      * 
@@ -540,7 +540,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.id</p>
      * 
@@ -559,7 +559,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.id</p>
      * 
@@ -578,7 +578,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.id</p>
      * 
@@ -597,7 +597,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.id</p>
      * 
@@ -616,7 +616,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.id</p>
      * 
@@ -635,7 +635,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>GUIDs are an effective way of conveying a temporary 
      * authentication token</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.id</p>
      * 
@@ -662,7 +662,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorizationToken</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.text</p>
      * 
@@ -681,7 +681,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.text</p>
      * 
@@ -700,7 +700,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.text</p>
      * 
@@ -719,7 +719,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.text</p>
      * 
@@ -738,7 +738,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.text</p>
      * 
@@ -757,7 +757,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.text</p>
      * 
@@ -776,7 +776,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.text</p>
      * 
@@ -795,7 +795,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.text</p>
      * 
@@ -814,7 +814,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.text</p>
      * 
@@ -833,7 +833,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.text</p>
      * 
@@ -860,7 +860,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorizationToken</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.text</p>
      * 
@@ -879,7 +879,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.text</p>
      * 
@@ -898,7 +898,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.text</p>
      * 
@@ -917,7 +917,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.text</p>
      * 
@@ -936,7 +936,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.text</p>
      * 
@@ -955,7 +955,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.text</p>
      * 
@@ -974,7 +974,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.text</p>
      * 
@@ -993,7 +993,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.text</p>
      * 
@@ -1012,7 +1012,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.text</p>
      * 
@@ -1031,7 +1031,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * <p>Some systems may choose to use a hashcode or other 
      * approach to token construction.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.text</p>
      * 

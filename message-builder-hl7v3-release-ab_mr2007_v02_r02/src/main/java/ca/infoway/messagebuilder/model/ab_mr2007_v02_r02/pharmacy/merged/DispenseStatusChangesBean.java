@@ -90,7 +90,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ChangeType</p>
+     * <p>Un-merged Business Name: ChangeType</p>
      * 
      * <p>Relationship: PORX_MT060040CA.ControlActEvent.code</p>
      * 
@@ -102,7 +102,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Business Name: OtherMedicationStatusChangeType</p>
+     * <p>Un-merged Business Name: OtherMedicationStatusChangeType</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.code</p>
      * 
@@ -114,7 +114,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeType</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeType</p>
      * 
      * <p>Relationship: PORX_MT060010CA.ControlActEvent.code</p>
      * 
@@ -126,7 +126,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeType</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeType</p>
      * 
      * <p>Relationship: PORX_MT060090CA.ControlActEvent.code</p>
      * 
@@ -144,7 +144,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ChangeType</p>
+     * <p>Un-merged Business Name: ChangeType</p>
      * 
      * <p>Relationship: PORX_MT060040CA.ControlActEvent.code</p>
      * 
@@ -156,7 +156,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Business Name: OtherMedicationStatusChangeType</p>
+     * <p>Un-merged Business Name: OtherMedicationStatusChangeType</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.code</p>
      * 
@@ -168,7 +168,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeType</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeType</p>
      * 
      * <p>Relationship: PORX_MT060010CA.ControlActEvent.code</p>
      * 
@@ -180,7 +180,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeType</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeType</p>
      * 
      * <p>Relationship: PORX_MT060090CA.ControlActEvent.code</p>
      * 
@@ -198,7 +198,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ChangeEffectivePeriod</p>
+     * <p>Un-merged Business Name: ChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ControlActEvent.effectiveTime</p>
@@ -218,7 +218,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * OtherMedicationStatusChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
@@ -239,7 +239,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
@@ -259,7 +259,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
@@ -285,7 +285,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ChangeEffectivePeriod</p>
+     * <p>Un-merged Business Name: ChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ControlActEvent.effectiveTime</p>
@@ -305,7 +305,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * OtherMedicationStatusChangeEffectivePeriod</p>
      * 
      * <p>Relationship: 
@@ -326,7 +326,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
@@ -346,7 +346,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
@@ -372,7 +372,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ChangeReason</p>
+     * <p>Un-merged Business Name: ChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060040CA.ControlActEvent.reasonCode</p>
      * 
@@ -385,7 +385,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: OtherMedicationStatusChangeReason</p>
+     * <p>Un-merged Business Name: OtherMedicationStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
      * 
@@ -398,7 +398,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeReason</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060010CA.ControlActEvent.reasonCode</p>
      * 
@@ -411,7 +411,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeReason</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060090CA.ControlActEvent.reasonCode</p>
      * 
@@ -430,7 +430,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ChangeReason</p>
+     * <p>Un-merged Business Name: ChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060040CA.ControlActEvent.reasonCode</p>
      * 
@@ -443,7 +443,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: OtherMedicationStatusChangeReason</p>
+     * <p>Un-merged Business Name: OtherMedicationStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
      * 
@@ -456,7 +456,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeReason</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060010CA.ControlActEvent.reasonCode</p>
      * 
@@ -469,7 +469,7 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: DispenseStatusChangeReason</p>
+     * <p>Un-merged Business Name: DispenseStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060090CA.ControlActEvent.reasonCode</p>
      * 
@@ -488,28 +488,28 @@ public class DispenseStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ResponsibleParty4.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060210CA.ResponsibleParty2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ResponsibleParty2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ResponsibleParty4.assignedEntity</p>
@@ -522,28 +522,28 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ResponsibleParty4.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060210CA.ResponsibleParty2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ResponsibleParty2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ResponsibleParty4.assignedEntity</p>
@@ -556,25 +556,25 @@ public class DispenseStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.ControlActEvent.author</p>
      * 
@@ -586,25 +586,25 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.ControlActEvent.author</p>
      * 

@@ -105,7 +105,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationMeasurementId</p>
      * 
-     * <p>Other Business Name: ObservationMeasurementId</p>
+     * <p>Un-merged Business Name: ObservationMeasurementId</p>
      * 
      * <p>Relationship: REPC_MT100002CA.CommonObservationEvent.id</p>
      * 
@@ -126,7 +126,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationMeasurementId</p>
      * 
-     * <p>Other Business Name: ObservationMeasurementId</p>
+     * <p>Un-merged Business Name: ObservationMeasurementId</p>
      * 
      * <p>Relationship: REPC_MT100002CA.CommonObservationEvent.id</p>
      * 
@@ -147,7 +147,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: MeasurementType</p>
      * 
-     * <p>Other Business Name: MeasurementType</p>
+     * <p>Un-merged Business Name: MeasurementType</p>
      * 
      * <p>Relationship: REPC_MT100002CA.CommonObservationEvent.code</p>
      * 
@@ -161,7 +161,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * that was made about the patient. Observation types include: 
      * height, weight, blood pressure, body mass, etc.</p>
      * 
-     * <p>Other Business Name: MeasurementType</p>
+     * <p>Un-merged Business Name: MeasurementType</p>
      * 
      * <p>Relationship: REPC_MT000018CA.CommonObservationEvent.code</p>
      * 
@@ -182,7 +182,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: MeasurementType</p>
      * 
-     * <p>Other Business Name: MeasurementType</p>
+     * <p>Un-merged Business Name: MeasurementType</p>
      * 
      * <p>Relationship: REPC_MT100002CA.CommonObservationEvent.code</p>
      * 
@@ -196,7 +196,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * that was made about the patient. Observation types include: 
      * height, weight, blood pressure, body mass, etc.</p>
      * 
-     * <p>Other Business Name: MeasurementType</p>
+     * <p>Un-merged Business Name: MeasurementType</p>
      * 
      * <p>Relationship: REPC_MT000018CA.CommonObservationEvent.code</p>
      * 
@@ -215,7 +215,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ObservationMeasurementTimestamp</p>
+     * <p>Un-merged Business Name: ObservationMeasurementTimestamp</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.effectiveTime</p>
@@ -233,7 +233,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * today, then WBC observation date should reflect the date of 
      * two days ago.</p>
      * 
-     * <p>Other Business Name: ObservationTimestamp</p>
+     * <p>Un-merged Business Name: ObservationTimestamp</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.effectiveTime</p>
@@ -260,7 +260,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ObservationMeasurementTimestamp</p>
+     * <p>Un-merged Business Name: ObservationMeasurementTimestamp</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.effectiveTime</p>
@@ -278,7 +278,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * today, then WBC observation date should reflect the date of 
      * two days ago.</p>
      * 
-     * <p>Other Business Name: ObservationTimestamp</p>
+     * <p>Un-merged Business Name: ObservationTimestamp</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.effectiveTime</p>
@@ -307,7 +307,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: CommonObservationMaskingIndicator</p>
      * 
-     * <p>Other Business Name: CommonObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: CommonObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.confidentialityCode</p>
@@ -326,7 +326,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 'Masked'). The default is 'NORMAL' signifying 'Not 
      * Masked'.</p>
      * 
-     * <p>Other Business Name: CommonObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: CommonObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.confidentialityCode</p>
@@ -353,7 +353,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: CommonObservationMaskingIndicator</p>
      * 
-     * <p>Other Business Name: CommonObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: CommonObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.confidentialityCode</p>
@@ -372,7 +372,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 'Masked'). The default is 'NORMAL' signifying 'Not 
      * Masked'.</p>
      * 
-     * <p>Other Business Name: CommonObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: CommonObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.confidentialityCode</p>
@@ -399,7 +399,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationMeasurementValue</p>
      * 
-     * <p>Other Business Name: ObservationMeasurementValue</p>
+     * <p>Un-merged Business Name: ObservationMeasurementValue</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.value</p>
@@ -413,7 +413,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * the specific type of observation. E.g. height in 
      * centimeters, weight in kilograms, etc. Valid observation</p>
      * 
-     * <p>Other Business Name: ObservationMeasurementValue</p>
+     * <p>Un-merged Business Name: ObservationMeasurementValue</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.value</p>
@@ -441,7 +441,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationMeasurementValue</p>
      * 
-     * <p>Other Business Name: ObservationMeasurementValue</p>
+     * <p>Un-merged Business Name: ObservationMeasurementValue</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.value</p>
@@ -455,7 +455,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * the specific type of observation. E.g. height in 
      * centimeters, weight in kilograms, etc. Valid observation</p>
      * 
-     * <p>Other Business Name: ObservationMeasurementValue</p>
+     * <p>Un-merged Business Name: ObservationMeasurementValue</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.value</p>
@@ -481,13 +481,13 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100002CA.Subject5.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000018CA.Subject5.patient</p>
      * 
@@ -499,13 +499,13 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100002CA.Subject5.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000018CA.Subject5.patient</p>
      * 
@@ -517,7 +517,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.ResponsibleParty.assignedPerson</p>
@@ -530,7 +530,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.ResponsibleParty.assignedPerson</p>
@@ -543,7 +543,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.author</p>
@@ -556,7 +556,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.author</p>
@@ -569,7 +569,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.location</p>
@@ -582,7 +582,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.location</p>
@@ -595,14 +595,14 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.Component.subObservationEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.Component.subObservationEvent</p>
@@ -616,7 +616,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.Subject2.annotationIndicator</p>
@@ -629,7 +629,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.Subject2.annotationIndicator</p>
@@ -642,13 +642,13 @@ public class PatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100002CA.Subject.annotation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000018CA.Subject.annotation</p>
      * 
@@ -665,13 +665,13 @@ public class PatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100002CA.Subject.annotation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000018CA.Subject.annotation</p>
      * 

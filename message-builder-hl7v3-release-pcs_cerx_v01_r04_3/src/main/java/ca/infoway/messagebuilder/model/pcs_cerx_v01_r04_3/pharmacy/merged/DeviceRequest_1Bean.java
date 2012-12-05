@@ -93,7 +93,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PrescriptionNumber</p>
+     * <p>Un-merged Business Name: PrescriptionNumber</p>
      * 
      * <p>Relationship: PORX_MT010110CA.DeviceRequest.id</p>
      * 
@@ -111,7 +111,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * once the prescription has passed all edits and 
      * validation.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.id</p>
      * 
@@ -164,7 +164,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PrescriptionNumber</p>
+     * <p>Un-merged Business Name: PrescriptionNumber</p>
      * 
      * <p>Relationship: PORX_MT010110CA.DeviceRequest.id</p>
      * 
@@ -182,7 +182,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * once the prescription has passed all edits and 
      * validation.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.id</p>
      * 
@@ -237,7 +237,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>Other Business Name: PrescriptionStatus</p>
+     * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
      * <p>Relationship: PORX_MT010110CA.DeviceRequest.statusCode</p>
      * 
@@ -262,7 +262,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>Other Business Name: PrescriptionStatus</p>
+     * <p>Un-merged Business Name: PrescriptionStatus</p>
      * 
      * <p>Relationship: PORX_MT010110CA.DeviceRequest.statusCode</p>
      * 
@@ -287,7 +287,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.DeviceRequest.confidentialityCode</p>
@@ -315,7 +315,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.DeviceRequest.confidentialityCode</p>
@@ -341,7 +341,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.DirectTarget.manufacturedProduct</p>
@@ -354,7 +354,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.DirectTarget.manufacturedProduct</p>
@@ -367,7 +367,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Subject5.patient</p>
      * 
@@ -379,7 +379,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Subject5.patient</p>
      * 
@@ -391,7 +391,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Predecessor.priorDeviceRequest</p>
@@ -404,7 +404,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Predecessor.priorDeviceRequest</p>
@@ -417,7 +417,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.DeviceRequest.reason</p>
      * 
@@ -430,7 +430,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Precondition.verificationEventCriterion</p>
@@ -443,7 +443,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Precondition.verificationEventCriterion</p>
@@ -456,7 +456,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Coverage2.coverage</p>
      * 
@@ -469,7 +469,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
      * 
@@ -481,7 +481,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
      * 
@@ -493,13 +493,13 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.DeviceRequest.component2</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.component</p>
      * 
@@ -514,13 +514,13 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.DeviceRequest.component2</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.component</p>
      * 
@@ -532,7 +532,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Subject4.annotation</p>
      * 
@@ -544,7 +544,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Subject4.annotation</p>
      * 
@@ -556,7 +556,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.ResponsibleParty3.assignedPerson</p>
@@ -569,7 +569,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.ResponsibleParty3.assignedPerson</p>
@@ -582,7 +582,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.author</p>
      * 
@@ -594,7 +594,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.author</p>
      * 

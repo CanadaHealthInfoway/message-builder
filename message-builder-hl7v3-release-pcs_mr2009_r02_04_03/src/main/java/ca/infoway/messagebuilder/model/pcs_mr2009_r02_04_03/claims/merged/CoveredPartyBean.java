@@ -64,31 +64,31 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490101CA.CoveredParty.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT400001CA.CoveredParty.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT400003CA.CoveredParty.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT400004CA.CoveredParty.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490102CA.CoveredParty.id</p>
      * 
@@ -102,31 +102,31 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyIdentifier</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490101CA.CoveredParty.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT400001CA.CoveredParty.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT400003CA.CoveredParty.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT400004CA.CoveredParty.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyIdentifier</p>
+     * <p>Un-merged Business Name: CoveredPartyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490102CA.CoveredParty.id</p>
      * 
@@ -140,31 +140,31 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: RelationshipToPolicyHolder</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT490101CA.CoveredParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT400001CA.CoveredParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT400003CA.CoveredParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT400004CA.CoveredParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT490102CA.CoveredParty.code</p>
      * 
@@ -178,31 +178,31 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: RelationshipToPolicyHolder</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT490101CA.CoveredParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT400001CA.CoveredParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT400003CA.CoveredParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT400004CA.CoveredParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: RelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT490102CA.CoveredParty.code</p>
      * 
@@ -216,35 +216,35 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyPatientNameS</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientNameS</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.CoveredPartyAsPatientPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientNameS</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.CoveredPartyAsPatientPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientNameS</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.CoveredPartyAsPatientPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientNameS</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.CoveredPartyAsPatientPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientNameS</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientNameS</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.CoveredPartyAsPatientPerson.name</p>
@@ -260,35 +260,35 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyPatientGender</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
@@ -303,35 +303,35 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyPatientGender</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientGender</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientGender</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.CoveredPartyAsPatientPerson.administrativeGenderCode</p>
@@ -346,35 +346,35 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.CoveredPartyAsPatientPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.CoveredPartyAsPatientPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.CoveredPartyAsPatientPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.CoveredPartyAsPatientPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.CoveredPartyAsPatientPerson.birthTime</p>
@@ -389,35 +389,35 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.CoveredPartyAsPatientPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.CoveredPartyAsPatientPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.CoveredPartyAsPatientPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.CoveredPartyAsPatientPerson.birthTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientDateOfBirth</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientDateOfBirth</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.CoveredPartyAsPatientPerson.birthTime</p>
@@ -432,35 +432,35 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyPatientAddress</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.CoveredPartyAsPatientPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.CoveredPartyAsPatientPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.CoveredPartyAsPatientPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.CoveredPartyAsPatientPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.CoveredPartyAsPatientPerson.addr</p>
@@ -475,35 +475,35 @@ public class CoveredPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyPatientAddress</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.CoveredPartyAsPatientPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.CoveredPartyAsPatientPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.CoveredPartyAsPatientPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.CoveredPartyAsPatientPerson.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientAddress</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientAddress</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.CoveredPartyAsPatientPerson.addr</p>
@@ -516,35 +516,35 @@ public class CoveredPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.IndirectAuthorithyOver.personalRelationship</p>

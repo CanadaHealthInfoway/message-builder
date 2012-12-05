@@ -70,7 +70,7 @@ public class AdjudicatorBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.contextControlCode</p>
@@ -83,7 +83,7 @@ public class AdjudicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.contextControlCode</p>
@@ -98,7 +98,7 @@ public class AdjudicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: AdjudicationDateTime</p>
      * 
-     * <p>Other Business Name: AdjudicationDateTime</p>
+     * <p>Un-merged Business Name: AdjudicationDateTime</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.time</p>
@@ -110,7 +110,7 @@ public class AdjudicatorBean extends MessagePartBean {
      * 
      * <p>Date and time of Adjudication</p>
      * 
-     * <p>Other Business Name: AdjudicationDateTime</p>
+     * <p>Un-merged Business Name: AdjudicationDateTime</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
@@ -132,7 +132,7 @@ public class AdjudicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: AdjudicationDateTime</p>
      * 
-     * <p>Other Business Name: AdjudicationDateTime</p>
+     * <p>Un-merged Business Name: AdjudicationDateTime</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.time</p>
@@ -144,7 +144,7 @@ public class AdjudicatorBean extends MessagePartBean {
      * 
      * <p>Date and time of Adjudication</p>
      * 
-     * <p>Other Business Name: AdjudicationDateTime</p>
+     * <p>Un-merged Business Name: AdjudicationDateTime</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceAuthor.time</p>
@@ -164,7 +164,7 @@ public class AdjudicatorBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.modeCode</p>
@@ -185,7 +185,7 @@ public class AdjudicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.modeCode</p>
@@ -206,14 +206,14 @@ public class AdjudicatorBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
@@ -226,14 +226,14 @@ public class AdjudicatorBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>

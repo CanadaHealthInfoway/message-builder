@@ -87,7 +87,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     /**
      * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050201CA.Patient.id</p>
      * 
@@ -134,7 +134,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
      * <p>Unique identifier issued as part of the patient identity 
      * verification process.</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Patient.id</p>
      * 
@@ -154,7 +154,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     /**
      * <p>Business Name: PatientAddress</p>
      * 
-     * <p>Other Business Name: PatientAddress</p>
+     * <p>Un-merged Business Name: PatientAddress</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Patient.addr</p>
      * 
@@ -168,7 +168,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     /**
      * <p>Business Name: PatientAddress</p>
      * 
-     * <p>Other Business Name: PatientAddress</p>
+     * <p>Un-merged Business Name: PatientAddress</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Patient.addr</p>
      * 
@@ -182,7 +182,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     /**
      * <p>Business Name: PatientContactPhoneAndEMails</p>
      * 
-     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * <p>Un-merged Business Name: PatientContactPhoneAndEMails</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Patient.telecom</p>
      * 
@@ -197,7 +197,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     /**
      * <p>Business Name: PatientHealthCardVersionCode</p>
      * 
-     * <p>Other Business Name: PatientHealthCardVersionCode</p>
+     * <p>Un-merged Business Name: PatientHealthCardVersionCode</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Patient.certificateText</p>
      * 
@@ -211,7 +211,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     /**
      * <p>Business Name: PatientHealthCardVersionCode</p>
      * 
-     * <p>Other Business Name: PatientHealthCardVersionCode</p>
+     * <p>Un-merged Business Name: PatientHealthCardVersionCode</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Patient.certificateText</p>
      * 
@@ -223,7 +223,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Patient.patientPerson</p>
      * 
@@ -235,7 +235,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT050007CA.Patient.patientPerson</p>
      * 
@@ -247,7 +247,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT050007CA.Subject.identifyingCharacteristicsObservationEvent</p>
@@ -260,7 +260,7 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT050007CA.Subject.identifyingCharacteristicsObservationEvent</p>

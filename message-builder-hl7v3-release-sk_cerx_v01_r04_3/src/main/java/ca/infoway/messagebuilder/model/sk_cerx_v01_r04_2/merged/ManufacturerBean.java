@@ -71,7 +71,7 @@ public class ManufacturerBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: POME_MT010040CA.Manufacturer.id</p>
      * 
@@ -85,7 +85,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>&nbsp;PIN does not have this information.</p>
      * 
-     * <p>Other Business Name: OrganizationId</p>
+     * <p>Un-merged Business Name: OrganizationId</p>
      * 
      * <p>Relationship: POME_MT010100CA.Manufacturer.id</p>
      * 
@@ -97,7 +97,7 @@ public class ManufacturerBean extends MessagePartBean {
      * name. May be used in drug search where specific manufacturer 
      * is a criterion.</p>
      * 
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Manufacturer.id</p>
      * 
@@ -109,7 +109,7 @@ public class ManufacturerBean extends MessagePartBean {
      * name. May be used in drug search where specific manufacturer 
      * is a criterion.</p>
      * 
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Manufacturer.id</p>
      * 
@@ -137,7 +137,7 @@ public class ManufacturerBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: POME_MT010040CA.Manufacturer.id</p>
      * 
@@ -151,7 +151,7 @@ public class ManufacturerBean extends MessagePartBean {
      * 
      * <p>&nbsp;PIN does not have this information.</p>
      * 
-     * <p>Other Business Name: OrganizationId</p>
+     * <p>Un-merged Business Name: OrganizationId</p>
      * 
      * <p>Relationship: POME_MT010100CA.Manufacturer.id</p>
      * 
@@ -163,7 +163,7 @@ public class ManufacturerBean extends MessagePartBean {
      * name. May be used in drug search where specific manufacturer 
      * is a criterion.</p>
      * 
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Manufacturer.id</p>
      * 
@@ -175,7 +175,7 @@ public class ManufacturerBean extends MessagePartBean {
      * name. May be used in drug search where specific manufacturer 
      * is a criterion.</p>
      * 
-     * <p>Other Business Name: ManufacturerId</p>
+     * <p>Un-merged Business Name: ManufacturerId</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Manufacturer.id</p>
      * 
@@ -205,7 +205,7 @@ public class ManufacturerBean extends MessagePartBean {
     /**
      * <p>Business Name: ManufacturerName</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Manufacturer.name</p>
      * 
@@ -231,7 +231,7 @@ public class ManufacturerBean extends MessagePartBean {
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010100CA.Manufacturer.name</p>
      * 
@@ -247,7 +247,7 @@ public class ManufacturerBean extends MessagePartBean {
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Manufacturer.name</p>
      * 
@@ -263,7 +263,7 @@ public class ManufacturerBean extends MessagePartBean {
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Manufacturer.name</p>
      * 
@@ -287,7 +287,7 @@ public class ManufacturerBean extends MessagePartBean {
     /**
      * <p>Business Name: ManufacturerName</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010040CA.Manufacturer.name</p>
      * 
@@ -313,7 +313,7 @@ public class ManufacturerBean extends MessagePartBean {
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010100CA.Manufacturer.name</p>
      * 
@@ -329,7 +329,7 @@ public class ManufacturerBean extends MessagePartBean {
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Manufacturer.name</p>
      * 
@@ -345,7 +345,7 @@ public class ManufacturerBean extends MessagePartBean {
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p>
      * 
-     * <p>Other Business Name: ManufacturerName</p>
+     * <p>Un-merged Business Name: ManufacturerName</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Manufacturer.name</p>
      * 

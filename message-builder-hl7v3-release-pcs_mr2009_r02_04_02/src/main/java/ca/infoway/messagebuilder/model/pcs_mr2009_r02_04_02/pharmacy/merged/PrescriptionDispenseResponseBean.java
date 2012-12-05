@@ -86,7 +86,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DispenseIdentifier</p>
+     * <p>Un-merged Business Name: DispenseIdentifier</p>
      * 
      * <p>Relationship: PORX_MT020030CA.SupplyEvent.id</p>
      * 
@@ -100,7 +100,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>Identifier of a dispense event to be used by the 
      * requesting dispenser.</p>
      * 
-     * <p>Other Business Name: DispenseId</p>
+     * <p>Un-merged Business Name: DispenseId</p>
      * 
      * <p>Relationship: PORX_MT020020CA.SupplyEvent.id</p>
      * 
@@ -113,7 +113,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>Identity of prescription dispense that has been picked 
      * up.</p>
      * 
-     * <p>Other Business Name: LocalDispenseID</p>
+     * <p>Un-merged Business Name: LocalDispenseID</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.id</p>
      * 
@@ -130,7 +130,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DispenseIdentifier</p>
+     * <p>Un-merged Business Name: DispenseIdentifier</p>
      * 
      * <p>Relationship: PORX_MT020030CA.SupplyEvent.id</p>
      * 
@@ -144,7 +144,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>Identifier of a dispense event to be used by the 
      * requesting dispenser.</p>
      * 
-     * <p>Other Business Name: DispenseId</p>
+     * <p>Un-merged Business Name: DispenseId</p>
      * 
      * <p>Relationship: PORX_MT020020CA.SupplyEvent.id</p>
      * 
@@ -157,7 +157,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>Identity of prescription dispense that has been picked 
      * up.</p>
      * 
-     * <p>Other Business Name: LocalDispenseID</p>
+     * <p>Un-merged Business Name: LocalDispenseID</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.id</p>
      * 
@@ -176,7 +176,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT020030CA.ActRequest.id</p>
      * 
@@ -200,7 +200,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020020CA.Receiver.personalRelationship</p>
@@ -213,7 +213,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020020CA.Receiver.personalRelationship</p>
@@ -228,7 +228,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     /**
      * <p>Business Name: SupplyDate</p>
      * 
-     * <p>Other Business Name: SupplyDate</p>
+     * <p>Un-merged Business Name: SupplyDate</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.effectiveTime</p>
      * 
@@ -250,7 +250,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     /**
      * <p>Business Name: SupplyDate</p>
      * 
-     * <p>Other Business Name: SupplyDate</p>
+     * <p>Un-merged Business Name: SupplyDate</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.effectiveTime</p>
      * 
@@ -272,7 +272,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     /**
      * <p>Business Name: SuppliedQuantity</p>
      * 
-     * <p>Other Business Name: SuppliedQuantity</p>
+     * <p>Un-merged Business Name: SuppliedQuantity</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.quantity</p>
      * 
@@ -293,7 +293,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     /**
      * <p>Business Name: SuppliedQuantity</p>
      * 
-     * <p>Other Business Name: SuppliedQuantity</p>
+     * <p>Un-merged Business Name: SuppliedQuantity</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.quantity</p>
      * 
@@ -312,7 +312,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.product</p>
      * 
@@ -324,7 +324,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.product</p>
      * 
@@ -336,7 +336,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020050CA.Destination2.serviceDeliveryLocation</p>
@@ -349,7 +349,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020050CA.Destination2.serviceDeliveryLocation</p>
@@ -362,7 +362,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020050CA.InFulfillmentOf.supplyRequest</p>
@@ -375,7 +375,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020050CA.InFulfillmentOf.supplyRequest</p>
@@ -388,7 +388,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.subjectOf</p>
      * 
@@ -400,7 +400,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyEvent.subjectOf</p>
      * 

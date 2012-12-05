@@ -72,7 +72,7 @@ public class DrugUseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060340CA.WorkingListEvent.code</p>
      * 
@@ -89,7 +89,7 @@ public class DrugUseBean extends MessagePartBean {
      * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060160CA.WorkingListEvent.code</p>
      * 
@@ -106,7 +106,7 @@ public class DrugUseBean extends MessagePartBean {
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
      * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
      * 
@@ -122,7 +122,7 @@ public class DrugUseBean extends MessagePartBean {
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
      * 
@@ -138,7 +138,7 @@ public class DrugUseBean extends MessagePartBean {
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060190CA.WorkingListEvent.code</p>
      * 
@@ -161,7 +161,7 @@ public class DrugUseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060340CA.WorkingListEvent.code</p>
      * 
@@ -178,7 +178,7 @@ public class DrugUseBean extends MessagePartBean {
      * this prescription (e.g Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060160CA.WorkingListEvent.code</p>
      * 
@@ -195,7 +195,7 @@ public class DrugUseBean extends MessagePartBean {
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
      * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
      * 
@@ -211,7 +211,7 @@ public class DrugUseBean extends MessagePartBean {
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Other Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: TreatmentType</p>
      * 
      * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
      * 
@@ -227,7 +227,7 @@ public class DrugUseBean extends MessagePartBean {
      * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
      * and &quot;As-Needed).</p>
      * 
-     * <p>Other Business Name: PrescriptionTreatmentType</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
      * <p>Relationship: PORX_MT060190CA.WorkingListEvent.code</p>
      * 

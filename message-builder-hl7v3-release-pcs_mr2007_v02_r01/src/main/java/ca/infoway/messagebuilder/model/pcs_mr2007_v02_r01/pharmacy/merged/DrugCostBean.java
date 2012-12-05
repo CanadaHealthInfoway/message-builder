@@ -56,7 +56,7 @@ public class DrugCostBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCost</p>
      * 
-     * <p>Other Business Name: DrugCost</p>
+     * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
      * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
@@ -68,7 +68,7 @@ public class DrugCostBean extends MessagePartBean {
      * 
      * <p>The average unit dose cost of the drug.</p>
      * 
-     * <p>Other Business Name: DrugCost</p>
+     * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
      * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>
@@ -88,7 +88,7 @@ public class DrugCostBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCost</p>
      * 
-     * <p>Other Business Name: DrugCost</p>
+     * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
      * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
@@ -100,7 +100,7 @@ public class DrugCostBean extends MessagePartBean {
      * 
      * <p>The average unit dose cost of the drug.</p>
      * 
-     * <p>Other Business Name: DrugCost</p>
+     * <p>Un-merged Business Name: DrugCost</p>
      * 
      * <p>Relationship: 
      * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>

@@ -91,7 +91,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010050CA.DrugCode.value</p>
      * 
@@ -106,7 +106,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * Manufactured drug, generic formulation, generic, therapeutic 
      * class, etc.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010030CA.DrugCode.value</p>
      * 
@@ -119,7 +119,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * identified by drug code include: Manufactured drug, generic 
      * formulation, generic, therapeutic class, etc.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugCode.value</p>
      * 
@@ -151,7 +151,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010050CA.DrugCode.value</p>
      * 
@@ -166,7 +166,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * Manufactured drug, generic formulation, generic, therapeutic 
      * class, etc.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010030CA.DrugCode.value</p>
      * 
@@ -179,7 +179,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * identified by drug code include: Manufactured drug, generic 
      * formulation, generic, therapeutic class, etc.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugCode.value</p>
      * 
@@ -211,7 +211,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentID</p>
      * 
-     * <p>Other Business Name: MedicationDocumentID</p>
+     * <p>Un-merged Business Name: MedicationDocumentID</p>
      * 
      * <p>Relationship: POME_MT010050CA.MedicationDocumentID.value</p>
      * 
@@ -234,7 +234,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentID</p>
      * 
-     * <p>Other Business Name: MedicationDocumentID</p>
+     * <p>Un-merged Business Name: MedicationDocumentID</p>
      * 
      * <p>Relationship: POME_MT010050CA.MedicationDocumentID.value</p>
      * 
@@ -257,7 +257,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentType</p>
      * 
-     * <p>Other Business Name: MedicationDocumentType</p>
+     * <p>Un-merged Business Name: MedicationDocumentType</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.MedicationDocumentType.value</p>
@@ -281,7 +281,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentType</p>
      * 
-     * <p>Other Business Name: MedicationDocumentType</p>
+     * <p>Un-merged Business Name: MedicationDocumentType</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.MedicationDocumentType.value</p>
@@ -305,7 +305,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Other Business Name: PrescribingIndicationDiagnosisCode</p>
+     * <p>Un-merged Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
@@ -326,7 +326,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Other Business Name: PrescribingIndicationDiagnosisCode</p>
+     * <p>Un-merged Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
@@ -347,7 +347,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Other Business Name: PrescribingIndicationSymptomCode</p>
+     * <p>Un-merged Business Name: PrescribingIndicationSymptomCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingSymptomCode.value</p>
@@ -368,7 +368,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Other Business Name: PrescribingIndicationSymptomCode</p>
+     * <p>Un-merged Business Name: PrescribingIndicationSymptomCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingSymptomCode.value</p>
@@ -387,7 +387,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POME_MT010090CA.ParameterList.drugCharacteristics</p>
@@ -403,7 +403,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderableDrugForm</p>
      * 
-     * <p>Other Business Name: OrderableDrugForm</p>
+     * <p>Un-merged Business Name: OrderableDrugForm</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugForm.value</p>
      * 
@@ -423,7 +423,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderableDrugForm</p>
      * 
-     * <p>Other Business Name: OrderableDrugForm</p>
+     * <p>Un-merged Business Name: OrderableDrugForm</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugForm.value</p>
      * 
@@ -443,7 +443,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugManufacturerName</p>
      * 
-     * <p>Other Business Name: DrugManufacturerName</p>
+     * <p>Un-merged Business Name: DrugManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugManufacturerName.value</p>
      * 
@@ -465,7 +465,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugManufacturerName</p>
      * 
-     * <p>Other Business Name: DrugManufacturerName</p>
+     * <p>Un-merged Business Name: DrugManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugManufacturerName.value</p>
      * 
@@ -487,7 +487,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugName</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugName.value</p>
      * 
@@ -506,7 +506,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugName</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugName.value</p>
      * 
@@ -525,7 +525,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugRouteCode</p>
      * 
-     * <p>Other Business Name: DrugRouteCode</p>
+     * <p>Un-merged Business Name: DrugRouteCode</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugRoute.value</p>
      * 
@@ -545,7 +545,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugRouteCode</p>
      * 
-     * <p>Other Business Name: DrugRouteCode</p>
+     * <p>Un-merged Business Name: DrugRouteCode</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugRoute.value</p>
      * 

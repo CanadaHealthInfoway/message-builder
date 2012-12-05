@@ -57,7 +57,7 @@ public class PatientEncounterBean extends MessagePartBean {
     /**
      * <p>Business Name: EncounterID</p>
      * 
-     * <p>Other Business Name: EncounterID</p>
+     * <p>Un-merged Business Name: EncounterID</p>
      * 
      * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
@@ -66,7 +66,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * <p>A unique identifier that refers to the interaction with 
      * the patient.</p>
      * 
-     * <p>Other Business Name: EncounterID</p>
+     * <p>Un-merged Business Name: EncounterID</p>
      * 
      * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
      * 
@@ -82,7 +82,7 @@ public class PatientEncounterBean extends MessagePartBean {
     /**
      * <p>Business Name: EncounterID</p>
      * 
-     * <p>Other Business Name: EncounterID</p>
+     * <p>Un-merged Business Name: EncounterID</p>
      * 
      * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
@@ -91,7 +91,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * <p>A unique identifier that refers to the interaction with 
      * the patient.</p>
      * 
-     * <p>Other Business Name: EncounterID</p>
+     * <p>Un-merged Business Name: EncounterID</p>
      * 
      * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
      * 
@@ -105,7 +105,7 @@ public class PatientEncounterBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: EncounterDate</p>
+     * <p>Un-merged Business Name: EncounterDate</p>
      * 
      * <p>Relationship: 
      * COCT_MT300000CA.PatientEncounter.effectiveTime</p>
@@ -117,7 +117,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * patient handed the prescription to the pharmacy to when the 
      * patient picked up the medication.</p>
      * 
-     * <p>Other Business Name: AdmitDischargeDate</p>
+     * <p>Un-merged Business Name: AdmitDischargeDate</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.PatientEncounter.effectiveTime</p>
@@ -132,7 +132,7 @@ public class PatientEncounterBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: EncounterDate</p>
+     * <p>Un-merged Business Name: EncounterDate</p>
      * 
      * <p>Relationship: 
      * COCT_MT300000CA.PatientEncounter.effectiveTime</p>
@@ -144,7 +144,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * patient handed the prescription to the pharmacy to when the 
      * patient picked up the medication.</p>
      * 
-     * <p>Other Business Name: AdmitDischargeDate</p>
+     * <p>Un-merged Business Name: AdmitDischargeDate</p>
      * 
      * <p>Relationship: 
      * COCT_MT290000CA.PatientEncounter.effectiveTime</p>

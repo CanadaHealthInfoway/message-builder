@@ -70,7 +70,7 @@ public class DiagnosisBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.code</p>
      * 
@@ -78,7 +78,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>admit, intermediate, discharge diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: COCT_MT490000CA.Diagnosis.code</p>
      * 
@@ -86,7 +86,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>ObservationDiagnosis Type</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
      * 
@@ -105,7 +105,7 @@ public class DiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.code</p>
      * 
@@ -113,7 +113,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>admit, intermediate, discharge diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: COCT_MT490000CA.Diagnosis.code</p>
      * 
@@ -121,7 +121,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>ObservationDiagnosis Type</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
      * 
@@ -142,7 +142,7 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisDescription</p>
      * 
-     * <p>Other Business Name: DiagnosisDescription</p>
+     * <p>Un-merged Business Name: DiagnosisDescription</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.text</p>
      * 
@@ -160,7 +160,7 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisDescription</p>
      * 
-     * <p>Other Business Name: DiagnosisDescription</p>
+     * <p>Un-merged Business Name: DiagnosisDescription</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.text</p>
      * 
@@ -176,7 +176,7 @@ public class DiagnosisBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DiagnosisValue</p>
+     * <p>Un-merged Business Name: DiagnosisValue</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.value</p>
      * 
@@ -184,7 +184,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Diagnosis Code eg. ICD-10-CA code.</p>
      * 
-     * <p>Other Business Name: DiagnosisValue</p>
+     * <p>Un-merged Business Name: DiagnosisValue</p>
      * 
      * <p>Relationship: COCT_MT490000CA.Diagnosis.value</p>
      * 
@@ -192,7 +192,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>coded Value denoting diagnosis</p>
      * 
-     * <p>Other Business Name: Diagnosis</p>
+     * <p>Un-merged Business Name: Diagnosis</p>
      * 
      * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
      * 
@@ -212,7 +212,7 @@ public class DiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DiagnosisValue</p>
+     * <p>Un-merged Business Name: DiagnosisValue</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.value</p>
      * 
@@ -220,7 +220,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>Diagnosis Code eg. ICD-10-CA code.</p>
      * 
-     * <p>Other Business Name: DiagnosisValue</p>
+     * <p>Un-merged Business Name: DiagnosisValue</p>
      * 
      * <p>Relationship: COCT_MT490000CA.Diagnosis.value</p>
      * 
@@ -228,7 +228,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>coded Value denoting diagnosis</p>
      * 
-     * <p>Other Business Name: Diagnosis</p>
+     * <p>Un-merged Business Name: Diagnosis</p>
      * 
      * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
      * 

@@ -74,7 +74,7 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispensableIndicator</p>
      * 
-     * <p>Other Business Name: PrescriptionDispensableIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
      * 
@@ -99,7 +99,7 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispensableIndicator</p>
      * 
-     * <p>Other Business Name: PrescriptionDispensableIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
      * 
@@ -124,7 +124,7 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
      * 
@@ -141,7 +141,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
      * 
@@ -157,7 +157,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT020060CA.SupplyRequest2.quantity</p>
      * 
@@ -180,7 +180,7 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
      * 
@@ -197,7 +197,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
      * 
@@ -213,7 +213,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT020060CA.SupplyRequest2.quantity</p>
      * 
@@ -234,7 +234,7 @@ public class SupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
      * 
@@ -246,7 +246,7 @@ public class SupplyRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
      * 
@@ -260,7 +260,7 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfAuthorizedFills</p>
      * 
-     * <p>Other Business Name: NumberOfAuthorizedFills</p>
+     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SupplyRequest.repeatNumber</p>
      * 
@@ -271,7 +271,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * 
      * <p>Records the total number of fills authorized</p>
      * 
-     * <p>Other Business Name: NumberOfAuthorizedFills</p>
+     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
      * 
      * <p>Relationship: PORX_MT020060CA.SupplyRequest2.repeatNumber</p>
      * 
@@ -290,7 +290,7 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfAuthorizedFills</p>
      * 
-     * <p>Other Business Name: NumberOfAuthorizedFills</p>
+     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SupplyRequest.repeatNumber</p>
      * 
@@ -301,7 +301,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * 
      * <p>Records the total number of fills authorized</p>
      * 
-     * <p>Other Business Name: NumberOfAuthorizedFills</p>
+     * <p>Un-merged Business Name: NumberOfAuthorizedFills</p>
      * 
      * <p>Relationship: PORX_MT020060CA.SupplyRequest2.repeatNumber</p>
      * 
@@ -320,7 +320,7 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>Other Business Name: TotalDaysSupply</p>
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
@@ -337,7 +337,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * expected to last, if the patient is compliant with the 
      * dispensing and administration of the prescription.</p>
      * 
-     * <p>Other Business Name: TotalDaysSupply</p>
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.SupplyRequest2.expectedUseTime</p>
@@ -361,7 +361,7 @@ public class SupplyRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>Other Business Name: TotalDaysSupply</p>
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
@@ -378,7 +378,7 @@ public class SupplyRequestBean extends MessagePartBean {
      * expected to last, if the patient is compliant with the 
      * dispensing and administration of the prescription.</p>
      * 
-     * <p>Other Business Name: TotalDaysSupply</p>
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.SupplyRequest2.expectedUseTime</p>

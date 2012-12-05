@@ -91,13 +91,13 @@ public class IncludesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
      * 
@@ -107,7 +107,7 @@ public class IncludesBean extends MessagePartBean {
      * be</div> <div>component2.supplyRequest dispensed to the 
      * patient.&nbsp;</div></p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
      * 
@@ -122,13 +122,13 @@ public class IncludesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
      * 
@@ -138,7 +138,7 @@ public class IncludesBean extends MessagePartBean {
      * be</div> <div>component2.supplyRequest dispensed to the 
      * patient.&nbsp;</div></p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
      * 

@@ -68,7 +68,7 @@ public class NotEligibleForTrialBean extends MessagePartBean {
     /**
      * <p>Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Other Business Name: NotEligibleForTrial</p>
+     * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
      * 
@@ -99,7 +99,7 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * mandatory because it must be known whether trials are 
      * allowed or not.</p>
      * 
-     * <p>Other Business Name: NotEligibleForTrial</p>
+     * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Component2.negationInd</p>
      * 
@@ -138,7 +138,7 @@ public class NotEligibleForTrialBean extends MessagePartBean {
     /**
      * <p>Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Other Business Name: NotEligibleForTrial</p>
+     * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
      * 
@@ -169,7 +169,7 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * mandatory because it must be known whether trials are 
      * allowed or not.</p>
      * 
-     * <p>Other Business Name: NotEligibleForTrial</p>
+     * <p>Un-merged Business Name: NotEligibleForTrial</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Component2.negationInd</p>
      * 

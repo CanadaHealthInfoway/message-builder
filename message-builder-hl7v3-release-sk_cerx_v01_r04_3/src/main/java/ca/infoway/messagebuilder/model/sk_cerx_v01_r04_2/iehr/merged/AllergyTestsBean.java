@@ -100,7 +100,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
      * 
@@ -123,7 +123,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * information purposes. No validation of the id will be 
      * made.</font></font></font></b></p> </font></font></font></p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
      * 
@@ -140,7 +140,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * information purposes. No validation of the id will be 
      * made.</strong></p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
      * 
@@ -159,7 +159,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * this value for information purposes. No validation of the id 
      * will be made.</p> </font></font></font></b></p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.id</p>
      * 
@@ -191,7 +191,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
      * 
@@ -214,7 +214,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * information purposes. No validation of the id will be 
      * made.</font></font></font></b></p> </font></font></font></p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
      * 
@@ -231,7 +231,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * information purposes. No validation of the id will be 
      * made.</strong></p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
      * 
@@ -250,7 +250,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * this value for information purposes. No validation of the id 
      * will be made.</p> </font></font></font></b></p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.id</p>
      * 
@@ -282,7 +282,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestType</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
@@ -295,7 +295,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * distinguishable and is therefore mandatory. It uses the CD 
      * type to support SNOMED post-coordination.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
      * 
@@ -308,7 +308,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * distinguishable and is therefore mandatory. It uses the CD 
      * type to support SNOMED post-coordination.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
      * 
@@ -321,7 +321,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * distinguishable and is therefore mandatory. It uses the CD 
      * type to support SNOMED post-coordination.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.code</p>
      * 
@@ -348,7 +348,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestType</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
@@ -361,7 +361,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * distinguishable and is therefore mandatory. It uses the CD 
      * type to support SNOMED post-coordination.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
      * 
@@ -374,7 +374,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * distinguishable and is therefore mandatory. It uses the CD 
      * type to support SNOMED post-coordination.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
      * 
@@ -387,7 +387,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * distinguishable and is therefore mandatory. It uses the CD 
      * type to support SNOMED post-coordination.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.code</p>
      * 
@@ -414,7 +414,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestDate</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
@@ -426,7 +426,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>Allows providers to evaluate the currency of the 
      * test.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
@@ -438,7 +438,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>Allows providers to evaluate the currency of the 
      * test.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
@@ -450,7 +450,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>Allows providers to evaluate the currency of the 
      * test.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.AllergyTestEvent.effectiveTime</p>
@@ -470,7 +470,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestDate</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
@@ -482,7 +482,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>Allows providers to evaluate the currency of the 
      * test.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
@@ -494,7 +494,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>Allows providers to evaluate the currency of the 
      * test.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
@@ -506,7 +506,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>Allows providers to evaluate the currency of the 
      * test.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.AllergyTestEvent.effectiveTime</p>
@@ -526,7 +526,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestResult</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
@@ -551,7 +551,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * using SNOMED, this attribute is mandatory.</p> 
      * </font></font></font></b></p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
      * 
@@ -569,7 +569,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * /><strong>Because PIN is not using SNOMED, this attribute is 
      * mandatory.</strong></p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
      * 
@@ -590,7 +590,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * using SNOMED, this attribute is mandatory.</p> 
      * </font></font></font></b></p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.value</p>
      * 
@@ -623,7 +623,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestResult</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
@@ -648,7 +648,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * using SNOMED, this attribute is mandatory.</p> 
      * </font></font></font></b></p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
      * 
@@ -666,7 +666,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * /><strong>Because PIN is not using SNOMED, this attribute is 
      * mandatory.</strong></p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
      * 
@@ -687,7 +687,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * using SNOMED, this attribute is mandatory.</p> 
      * </font></font></font></b></p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.value</p>
      * 

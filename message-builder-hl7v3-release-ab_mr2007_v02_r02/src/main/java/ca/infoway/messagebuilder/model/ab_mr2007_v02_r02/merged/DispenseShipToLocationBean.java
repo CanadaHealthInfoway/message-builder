@@ -184,7 +184,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -196,7 +196,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -216,7 +216,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -228,7 +228,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -248,7 +248,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
@@ -261,7 +261,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
@@ -282,7 +282,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
@@ -295,7 +295,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
@@ -314,7 +314,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
@@ -326,7 +326,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
@@ -341,7 +341,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * be shipped to the physician's office to replace stock used 
      * for the patient.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
@@ -353,7 +353,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
@@ -365,7 +365,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
@@ -377,7 +377,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
@@ -392,7 +392,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
@@ -404,7 +404,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
@@ -416,7 +416,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
@@ -428,7 +428,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
@@ -443,7 +443,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
@@ -458,7 +458,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
@@ -470,7 +470,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
@@ -482,7 +482,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
@@ -503,7 +503,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
 
     /**
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
@@ -515,7 +515,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
@@ -530,7 +530,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * be shipped to the physician's office to replace stock used 
      * for the patient.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
@@ -542,7 +542,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
@@ -554,7 +554,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.ServiceDeliveryLocation.addr</p>
@@ -566,7 +566,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
@@ -581,7 +581,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ServiceDeliveryLocation.addr</p>
@@ -593,7 +593,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
@@ -605,7 +605,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.ServiceDeliveryLocation.addr</p>
@@ -617,7 +617,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
@@ -632,7 +632,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.ServiceDeliveryLocation2.addr</p>
@@ -647,7 +647,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * shipped to the physician's office to replace stock used for 
      * the patient.</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
@@ -659,7 +659,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ShipToAddress</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
@@ -671,7 +671,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Important as part of a claim for justifying shipping 
      * charges.</p>
      * 
-     * <p>Other Business Name: PrescriptionShipToAddress</p>
+     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
@@ -694,7 +694,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
@@ -707,7 +707,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
@@ -728,7 +728,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
@@ -741,7 +741,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
@@ -762,7 +762,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -775,7 +775,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -796,7 +796,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -809,7 +809,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -830,7 +830,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Place.name</p>
      * 
@@ -841,7 +841,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Place.name</p>
      * 
@@ -860,7 +860,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Place.name</p>
      * 
@@ -871,7 +871,7 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Place.name</p>
      * 

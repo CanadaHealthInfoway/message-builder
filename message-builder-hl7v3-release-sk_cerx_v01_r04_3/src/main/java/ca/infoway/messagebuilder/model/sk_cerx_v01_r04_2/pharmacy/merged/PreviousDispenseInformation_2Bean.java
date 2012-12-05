@@ -66,7 +66,7 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfFillsMadeAgainstRx</p>
      * 
-     * <p>Other Business Name: NumberOfFillsMadeAgainstRx</p>
+     * <p>Un-merged Business Name: NumberOfFillsMadeAgainstRx</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventPastSummary.repeatNumber</p>
@@ -80,7 +80,7 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
      * <p>Useful in tracking the progress of a prescription in 
      * prescription.</p>
      * 
-     * <p>Other Business Name: NumberOfFillsMadeAgainstRx</p>
+     * <p>Un-merged Business Name: NumberOfFillsMadeAgainstRx</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventPastSummary.repeatNumber</p>
@@ -102,7 +102,7 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfFillsMadeAgainstRx</p>
      * 
-     * <p>Other Business Name: NumberOfFillsMadeAgainstRx</p>
+     * <p>Un-merged Business Name: NumberOfFillsMadeAgainstRx</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventPastSummary.repeatNumber</p>
@@ -116,7 +116,7 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
      * <p>Useful in tracking the progress of a prescription in 
      * prescription.</p>
      * 
-     * <p>Other Business Name: NumberOfFillsMadeAgainstRx</p>
+     * <p>Un-merged Business Name: NumberOfFillsMadeAgainstRx</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventPastSummary.repeatNumber</p>
@@ -138,7 +138,7 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalSuppliedAmount</p>
      * 
-     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * <p>Un-merged Business Name: TotalSuppliedAmount</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventPastSummary.quantity</p>
@@ -150,7 +150,7 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
      * 
      * <p>Useful for tracking the progress of a prescription</p>
      * 
-     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * <p>Un-merged Business Name: TotalSuppliedAmount</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventPastSummary.quantity</p>
@@ -170,7 +170,7 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalSuppliedAmount</p>
      * 
-     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * <p>Un-merged Business Name: TotalSuppliedAmount</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventPastSummary.quantity</p>
@@ -182,7 +182,7 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
      * 
      * <p>Useful for tracking the progress of a prescription</p>
      * 
-     * <p>Other Business Name: TotalSuppliedAmount</p>
+     * <p>Un-merged Business Name: TotalSuppliedAmount</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventPastSummary.quantity</p>

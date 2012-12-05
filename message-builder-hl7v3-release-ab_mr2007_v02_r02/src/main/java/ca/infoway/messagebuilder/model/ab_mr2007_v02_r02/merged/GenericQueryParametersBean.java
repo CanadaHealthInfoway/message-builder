@@ -104,7 +104,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionIDs</p>
      * 
-     * <p>Other Business Name: CareCompositionIDs</p>
+     * <p>Un-merged Business Name: CareCompositionIDs</p>
      * 
      * <p>Relationship: PORX_MT060280CA.CareCompositionID.value</p>
      * 
@@ -133,7 +133,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
      * 
-     * <p>Other Business Name: CareCompositionIDs</p>
+     * <p>Un-merged Business Name: CareCompositionIDs</p>
      * 
      * <p>Relationship: REPC_MT000016CA.CareCompositionID.value</p>
      * 
@@ -162,7 +162,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows retrieving all records associated with an 
      * encounter, episode or care event.</p>
      * 
-     * <p>Other Business Name: CareCompositionIDs</p>
+     * <p>Un-merged Business Name: CareCompositionIDs</p>
      * 
      * <p>Relationship: REPC_MT000004CA.CareCompositionID.value</p>
      * 
@@ -200,7 +200,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionTypes</p>
      * 
-     * <p>Other Business Name: CareCompositionTypes</p>
+     * <p>Un-merged Business Name: CareCompositionTypes</p>
      * 
      * <p>Relationship: PORX_MT060280CA.CareCompositionType.value</p>
      * 
@@ -215,7 +215,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
      * 
-     * <p>Other Business Name: CareCompositionTypes</p>
+     * <p>Un-merged Business Name: CareCompositionTypes</p>
      * 
      * <p>Relationship: REPC_MT000016CA.CareCompositionType.value</p>
      * 
@@ -230,7 +230,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
      * encounter, etc.</p>
      * 
-     * <p>Other Business Name: CareCompositionTypes</p>
+     * <p>Un-merged Business Name: CareCompositionTypes</p>
      * 
      * <p>Relationship: REPC_MT000004CA.CareCompositionType.value</p>
      * 
@@ -254,7 +254,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
      * 
@@ -276,7 +276,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
      * 
@@ -298,7 +298,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
      * 
@@ -320,7 +320,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
      * 
@@ -350,7 +350,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
      * 
@@ -372,7 +372,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
      * 
@@ -394,7 +394,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
      * 
@@ -416,7 +416,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
      * 
@@ -446,7 +446,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>Other Business Name: ReactionPeriod</p>
+     * <p>Un-merged Business Name: ReactionPeriod</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
      * 
@@ -469,7 +469,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>Other Business Name: ReactionPeriod</p>
+     * <p>Un-merged Business Name: ReactionPeriod</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
      * 
@@ -490,7 +490,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ReactionType</p>
+     * <p>Un-merged Business Name: ReactionType</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
      * 
@@ -510,7 +510,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * allergy/intolerance records for which there was a specific 
      * type of reaction.</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
      * 
@@ -530,7 +530,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ReactionType</p>
+     * <p>Un-merged Business Name: ReactionType</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
      * 
@@ -550,7 +550,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * allergy/intolerance records for which there was a specific 
      * type of reaction.</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
      * 
@@ -572,7 +572,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060280CA.AmendedInTimeRange.value</p>
      * 
@@ -601,7 +601,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060280CA.AmendedInTimeRange.value</p>
      * 
@@ -630,7 +630,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
@@ -665,7 +665,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
@@ -700,7 +700,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
@@ -724,7 +724,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
@@ -753,7 +753,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
@@ -777,7 +777,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
@@ -806,7 +806,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
@@ -838,7 +838,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
@@ -870,7 +870,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
@@ -896,7 +896,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
@@ -922,7 +922,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
@@ -945,7 +945,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
@@ -968,7 +968,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AllergyIntoleranceType.value</p>
@@ -991,7 +991,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AllergyIntoleranceType.value</p>
@@ -1014,7 +1014,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceChangePeriod</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceChangePeriod</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceChangePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
@@ -1036,7 +1036,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceChangePeriod</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceChangePeriod</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceChangePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
@@ -1058,7 +1058,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
@@ -1081,7 +1081,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>

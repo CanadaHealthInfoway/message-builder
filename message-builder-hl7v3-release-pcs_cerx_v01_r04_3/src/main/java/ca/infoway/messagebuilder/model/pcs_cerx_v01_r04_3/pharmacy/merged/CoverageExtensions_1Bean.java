@@ -71,7 +71,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Coverage.moodCode</p>
      * 
@@ -84,7 +84,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p>If set to 'EVN', then coverage has been granted. 
      * Otherwise it has merely been requested.</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Coverage.moodCode</p>
      * 
@@ -96,7 +96,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p>If set to 'EVN', then coverage has been granted. 
      * Otherwise it has merely been requested.</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Coverage.moodCode</p>
      * 
@@ -117,7 +117,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Coverage.moodCode</p>
      * 
@@ -130,7 +130,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p>If set to 'EVN', then coverage has been granted. 
      * Otherwise it has merely been requested.</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Coverage.moodCode</p>
      * 
@@ -142,7 +142,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p>If set to 'EVN', then coverage has been granted. 
      * Otherwise it has merely been requested.</p>
      * 
-     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * <p>Un-merged Business Name: ExtensionGrantedIndicator</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Coverage.moodCode</p>
      * 
@@ -163,7 +163,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: CoverageExtensionId</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Coverage.id</p>
      * 
@@ -186,7 +186,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p>Unique identification for a specific coverage 
      * extension.</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Coverage.id</p>
      * 
@@ -209,7 +209,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p>Unique identification for a specific coverage 
      * extension.</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Coverage.id</p>
      * 
@@ -240,7 +240,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: CoverageExtensionId</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Coverage.id</p>
      * 
@@ -263,7 +263,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p>Unique identification for a specific coverage 
      * extension.</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Coverage.id</p>
      * 
@@ -286,7 +286,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * <p>Unique identification for a specific coverage 
      * extension.</p>
      * 
-     * <p>Other Business Name: CoverageExtensionId</p>
+     * <p>Un-merged Business Name: CoverageExtensionId</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Coverage.id</p>
      * 
@@ -315,19 +315,19 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author2.underwriter</p>
      * 
@@ -339,19 +339,19 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author2.underwriter</p>
      * 

@@ -93,7 +93,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.id</p>
      * 
@@ -110,7 +110,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      * applications, except for queries (queries cannot be 
      * retracted or undone).</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.id</p>
      * 
@@ -135,7 +135,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.id</p>
      * 
@@ -152,7 +152,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      * applications, except for queries (queries cannot be 
      * retracted or undone).</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.id</p>
      * 
@@ -177,7 +177,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Business Name: EventType</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.code</p>
      * 
@@ -188,7 +188,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      * <p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.code</p>
      * 
@@ -207,7 +207,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Business Name: EventType</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.code</p>
      * 
@@ -218,7 +218,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      * <p>This is mandatory because it is essential to 
      * understanding the meaning of the event.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.code</p>
      * 
@@ -237,7 +237,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.ControlActEvent.effectiveTime</p>
@@ -253,7 +253,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      * the past). For events such as 'suspend', an intended end 
      * date may also be indicated.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.ControlActEvent.effectiveTime</p>
@@ -277,7 +277,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.ControlActEvent.effectiveTime</p>
@@ -293,7 +293,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      * the past). For events such as 'suspend', an intended end 
      * date may also be indicated.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.ControlActEvent.effectiveTime</p>
@@ -317,7 +317,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Business Name: EventReason</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.reasonCode</p>
      * 
@@ -335,7 +335,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      * each interaction and will be noted as part of the 
      * interaction description.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.reasonCode</p>
      * 
@@ -361,7 +361,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Business Name: EventReason</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.reasonCode</p>
      * 
@@ -379,7 +379,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      * each interaction and will be noted as part of the 
      * interaction description.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.reasonCode</p>
      * 
@@ -403,13 +403,13 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subject</p>
      * 
@@ -422,13 +422,13 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf1</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf1</p>
      * 
@@ -441,13 +441,13 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf2</p>
      * 
@@ -459,13 +459,13 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf2</p>
      * 
@@ -477,13 +477,13 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.queryAck</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.queryAck</p>
      * 
@@ -495,13 +495,13 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.queryAck</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.queryAck</p>
      * 
@@ -513,14 +513,14 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.ControlActEvent.queryByParameter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.ControlActEvent.queryByParameter</p>
@@ -533,14 +533,14 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.ControlActEvent.queryByParameter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.ControlActEvent.queryByParameter</p>
@@ -553,7 +553,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.ControlActEvent.recordTarget</p>
@@ -566,7 +566,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.ControlActEvent.recordTarget</p>
@@ -579,7 +579,7 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.ControlActEvent.componentOf</p>
      * 

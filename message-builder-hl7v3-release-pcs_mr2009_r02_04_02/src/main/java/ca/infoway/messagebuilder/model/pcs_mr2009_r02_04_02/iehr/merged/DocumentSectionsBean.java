@@ -102,7 +102,7 @@ public class DocumentSectionsBean extends MessagePartBean {
     /**
      * <p>Business Name: SectionType</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT220001CA.SubSection.code</p>
      * 
@@ -124,7 +124,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT230003CA.SubSection.code</p>
      * 
@@ -146,7 +146,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT210003CA.SubSection.code</p>
      * 
@@ -168,7 +168,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * record.</i> </p><p>Examples: allergy list, problem list, 
      * medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT220003CA.SubSection.code</p>
      * 
@@ -190,7 +190,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT230001CA.SubSection.code</p>
      * 
@@ -212,7 +212,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT210001CA.SubSection.code</p>
      * 
@@ -226,7 +226,7 @@ public class DocumentSectionsBean extends MessagePartBean {
     /**
      * <p>Business Name: SectionType</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT220001CA.SubSection.code</p>
      * 
@@ -248,7 +248,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT230003CA.SubSection.code</p>
      * 
@@ -270,7 +270,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT210003CA.SubSection.code</p>
      * 
@@ -292,7 +292,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * record.</i> </p><p>Examples: allergy list, problem list, 
      * medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT220003CA.SubSection.code</p>
      * 
@@ -314,7 +314,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT230001CA.SubSection.code</p>
      * 
@@ -336,7 +336,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * represented by this record.</i> </p><p>Examples: allergy 
      * list, problem list, medication list, etc.</p>
      * 
-     * <p>Other Business Name: SectionType</p>
+     * <p>Un-merged Business Name: SectionType</p>
      * 
      * <p>Relationship: REPC_MT210001CA.SubSection.code</p>
      * 
@@ -350,7 +350,7 @@ public class DocumentSectionsBean extends MessagePartBean {
     /**
      * <p>Business Name: SectionTitle</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT220001CA.SubSection.title</p>
      * 
@@ -366,7 +366,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT230003CA.SubSection.title</p>
      * 
@@ -382,7 +382,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT210003CA.SubSection.title</p>
      * 
@@ -398,7 +398,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT220003CA.SubSection.title</p>
      * 
@@ -414,7 +414,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT230001CA.SubSection.title</p>
      * 
@@ -430,7 +430,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT210001CA.SubSection.title</p>
      * 
@@ -444,7 +444,7 @@ public class DocumentSectionsBean extends MessagePartBean {
     /**
      * <p>Business Name: SectionTitle</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT220001CA.SubSection.title</p>
      * 
@@ -460,7 +460,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT230003CA.SubSection.title</p>
      * 
@@ -476,7 +476,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT210003CA.SubSection.title</p>
      * 
@@ -492,7 +492,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT220003CA.SubSection.title</p>
      * 
@@ -508,7 +508,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT230001CA.SubSection.title</p>
      * 
@@ -524,7 +524,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * &quot;Allergies&quot;, &quot;Assessment&quot;, 
      * &quot;Recommendations&quot;, etc.</p>
      * 
-     * <p>Other Business Name: SectionTitle</p>
+     * <p>Un-merged Business Name: SectionTitle</p>
      * 
      * <p>Relationship: REPC_MT210001CA.SubSection.title</p>
      * 
@@ -538,7 +538,7 @@ public class DocumentSectionsBean extends MessagePartBean {
     /**
      * <p>Business Name: SectionContent</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT220001CA.SubSection.text</p>
      * 
@@ -552,7 +552,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT230003CA.SubSection.text</p>
      * 
@@ -566,7 +566,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT210003CA.SubSection.text</p>
      * 
@@ -580,7 +580,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT220003CA.SubSection.text</p>
      * 
@@ -594,7 +594,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT230001CA.SubSection.text</p>
      * 
@@ -608,7 +608,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT210001CA.SubSection.text</p>
      * 
@@ -622,7 +622,7 @@ public class DocumentSectionsBean extends MessagePartBean {
     /**
      * <p>Business Name: SectionContent</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT220001CA.SubSection.text</p>
      * 
@@ -636,7 +636,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT230003CA.SubSection.text</p>
      * 
@@ -650,7 +650,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT210003CA.SubSection.text</p>
      * 
@@ -664,7 +664,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT220003CA.SubSection.text</p>
      * 
@@ -678,7 +678,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT230001CA.SubSection.text</p>
      * 
@@ -692,7 +692,7 @@ public class DocumentSectionsBean extends MessagePartBean {
      * 
      * <p>Represents the rendered text content for the section.</p>
      * 
-     * <p>Other Business Name: SectionContent</p>
+     * <p>Un-merged Business Name: SectionContent</p>
      * 
      * <p>Relationship: REPC_MT210001CA.SubSection.text</p>
      * 
@@ -704,37 +704,37 @@ public class DocumentSectionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Component7.reference</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Component7.reference</p>
      * 

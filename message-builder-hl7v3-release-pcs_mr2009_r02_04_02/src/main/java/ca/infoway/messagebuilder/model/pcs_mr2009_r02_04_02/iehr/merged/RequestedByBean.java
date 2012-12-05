@@ -260,7 +260,7 @@ public class RequestedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Author.time</p>
      * 
@@ -278,7 +278,7 @@ public class RequestedByBean extends MessagePartBean {
      * simultaneous with the time the record is submitted to the 
      * EHR, but in some circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Author.time</p>
      * 
@@ -296,7 +296,7 @@ public class RequestedByBean extends MessagePartBean {
      * simultaneous with the time the record is submitted to the 
      * EHR, but in some circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AmendDatetime</p>
+     * <p>Un-merged Business Name: AmendDatetime</p>
      * 
      * <p>Relationship: REPC_MT500003CA.Author.time</p>
      * 
@@ -310,7 +310,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p> <i>This indicates the last time a change was made to the 
      * Care Composition.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Author.time</p>
      * 
@@ -328,7 +328,7 @@ public class RequestedByBean extends MessagePartBean {
      * the time the record is submitted to the EHR, but in some 
      * circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Author.time</p>
      * 
@@ -346,7 +346,7 @@ public class RequestedByBean extends MessagePartBean {
      * the time the record is submitted to the EHR, but in some 
      * circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Author.time</p>
      * 
@@ -364,7 +364,7 @@ public class RequestedByBean extends MessagePartBean {
      * simultaneous with the time the record is submitted to the 
      * EHR, but in some circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AmendDatetime</p>
+     * <p>Un-merged Business Name: AmendDatetime</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Author.time</p>
      * 
@@ -378,19 +378,19 @@ public class RequestedByBean extends MessagePartBean {
      * <p> <i>This indicates the last time a change was made to the 
      * Care Composition.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Author3.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Author.time</p>
      * 
@@ -414,7 +414,7 @@ public class RequestedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Author.time</p>
      * 
@@ -432,7 +432,7 @@ public class RequestedByBean extends MessagePartBean {
      * simultaneous with the time the record is submitted to the 
      * EHR, but in some circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Author.time</p>
      * 
@@ -450,7 +450,7 @@ public class RequestedByBean extends MessagePartBean {
      * simultaneous with the time the record is submitted to the 
      * EHR, but in some circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AmendDatetime</p>
+     * <p>Un-merged Business Name: AmendDatetime</p>
      * 
      * <p>Relationship: REPC_MT500003CA.Author.time</p>
      * 
@@ -464,7 +464,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p> <i>This indicates the last time a change was made to the 
      * Care Composition.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Author.time</p>
      * 
@@ -482,7 +482,7 @@ public class RequestedByBean extends MessagePartBean {
      * the time the record is submitted to the EHR, but in some 
      * circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Author.time</p>
      * 
@@ -500,7 +500,7 @@ public class RequestedByBean extends MessagePartBean {
      * the time the record is submitted to the EHR, but in some 
      * circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Author.time</p>
      * 
@@ -518,7 +518,7 @@ public class RequestedByBean extends MessagePartBean {
      * simultaneous with the time the record is submitted to the 
      * EHR, but in some circumstances may be before.</i> </p>
      * 
-     * <p>Other Business Name: AmendDatetime</p>
+     * <p>Un-merged Business Name: AmendDatetime</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Author.time</p>
      * 
@@ -532,19 +532,19 @@ public class RequestedByBean extends MessagePartBean {
      * <p> <i>This indicates the last time a change was made to the 
      * Care Composition.</i> </p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Author3.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: AuthoredDatetime</p>
+     * <p>Un-merged Business Name: AuthoredDatetime</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Author.time</p>
      * 
@@ -570,7 +570,7 @@ public class RequestedByBean extends MessagePartBean {
     /**
      * <p>Business Name: AttestedIndicator</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Author.signatureCode</p>
      * 
@@ -583,7 +583,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Author.signatureCode</p>
      * 
@@ -596,7 +596,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Author.signatureCode</p>
      * 
@@ -609,7 +609,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Author.signatureCode</p>
      * 
@@ -622,7 +622,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Author.signatureCode</p>
      * 
@@ -635,19 +635,19 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Author.signatureCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Author.signatureCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Author.signatureCode</p>
      * 
@@ -668,7 +668,7 @@ public class RequestedByBean extends MessagePartBean {
     /**
      * <p>Business Name: AttestedIndicator</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Author.signatureCode</p>
      * 
@@ -681,7 +681,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Author.signatureCode</p>
      * 
@@ -694,7 +694,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Author.signatureCode</p>
      * 
@@ -707,7 +707,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Author.signatureCode</p>
      * 
@@ -720,7 +720,7 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Author.signatureCode</p>
      * 
@@ -733,19 +733,19 @@ public class RequestedByBean extends MessagePartBean {
      * <p>An indication that the provider attests to the 
      * authenticity of the document that he/she has authored.</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Author.signatureCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Author.signatureCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttestedIndicator</p>
+     * <p>Un-merged Business Name: AttestedIndicator</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Author.signatureCode</p>
      * 
@@ -764,163 +764,163 @@ public class RequestedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Author3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Author3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500003CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT420001CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Author3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT610001CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500003CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Author3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT610002CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT420003CA.Author2.actingPerson</p>
      * 
@@ -932,163 +932,163 @@ public class RequestedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Author3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Author3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500003CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220002CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT420001CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Author3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT610001CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500003CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Author3.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Author2.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT610002CA.Author.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT420003CA.Author2.actingPerson</p>
      * 

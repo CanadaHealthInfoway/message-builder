@@ -91,7 +91,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: ParticipationMechanism</p>
      * 
-     * <p>Other Business Name: ParticipationMechanism</p>
+     * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Participant.modeCode</p>
      * 
@@ -105,7 +105,7 @@ public class HasBean extends MessagePartBean {
      * participated in the encounter (in person, by phone, by 
      * videoconference, etc.)</p>
      * 
-     * <p>Other Business Name: ParticipationMechanism</p>
+     * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Participant.modeCode</p>
      * 
@@ -119,7 +119,7 @@ public class HasBean extends MessagePartBean {
      * participated in the encounter (in person, by phone, by 
      * videoconference, etc.)</p>
      * 
-     * <p>Other Business Name: ParticipationMechanism</p>
+     * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Participant.modeCode</p>
      * 
@@ -141,7 +141,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: ParticipationMechanism</p>
      * 
-     * <p>Other Business Name: ParticipationMechanism</p>
+     * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Participant.modeCode</p>
      * 
@@ -155,7 +155,7 @@ public class HasBean extends MessagePartBean {
      * participated in the encounter (in person, by phone, by 
      * videoconference, etc.)</p>
      * 
-     * <p>Other Business Name: ParticipationMechanism</p>
+     * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Participant.modeCode</p>
      * 
@@ -169,7 +169,7 @@ public class HasBean extends MessagePartBean {
      * participated in the encounter (in person, by phone, by 
      * videoconference, etc.)</p>
      * 
-     * <p>Other Business Name: ParticipationMechanism</p>
+     * <p>Un-merged Business Name: ParticipationMechanism</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Participant.modeCode</p>
      * 
@@ -191,7 +191,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: ParticipantIdReference</p>
      * 
-     * <p>Other Business Name: ParticipantIdReference</p>
+     * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Role.id</p>
      * 
@@ -207,7 +207,7 @@ public class HasBean extends MessagePartBean {
      * will reference one of the patient or provider ids already 
      * associated with the Care Composition.</p>
      * 
-     * <p>Other Business Name: ParticipantIdReference</p>
+     * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Role.id</p>
      * 
@@ -223,7 +223,7 @@ public class HasBean extends MessagePartBean {
      * will reference one of the patient or provider ids already 
      * associated with the Care Composition.</p>
      * 
-     * <p>Other Business Name: ParticipantIdReference</p>
+     * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Role.id</p>
      * 
@@ -247,7 +247,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: ParticipantIdReference</p>
      * 
-     * <p>Other Business Name: ParticipantIdReference</p>
+     * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Role.id</p>
      * 
@@ -263,7 +263,7 @@ public class HasBean extends MessagePartBean {
      * will reference one of the patient or provider ids already 
      * associated with the Care Composition.</p>
      * 
-     * <p>Other Business Name: ParticipantIdReference</p>
+     * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Role.id</p>
      * 
@@ -279,7 +279,7 @@ public class HasBean extends MessagePartBean {
      * will reference one of the patient or provider ids already 
      * associated with the Care Composition.</p>
      * 
-     * <p>Other Business Name: ParticipantIdReference</p>
+     * <p>Un-merged Business Name: ParticipantIdReference</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Role.id</p>
      * 
@@ -303,7 +303,7 @@ public class HasBean extends MessagePartBean {
     /**
      * <p>Business Name: ParticipantConfidentialities</p>
      * 
-     * <p>Other Business Name: ParticipantConfidentialities</p>
+     * <p>Un-merged Business Name: ParticipantConfidentialities</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Role.confidentialityCode</p>
      * 
@@ -323,7 +323,7 @@ public class HasBean extends MessagePartBean {
      * <p>Identifies the confidentiality level associated with the 
      * encounter for this specific participant.</p>
      * 
-     * <p>Other Business Name: ParticipantConfidentialities</p>
+     * <p>Un-merged Business Name: ParticipantConfidentialities</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Role.confidentialityCode</p>
      * 
@@ -343,7 +343,7 @@ public class HasBean extends MessagePartBean {
      * <p>Identifies the confidentiality level associated with the 
      * encounter for this specific participant.</p>
      * 
-     * <p>Other Business Name: ParticipantConfidentialities</p>
+     * <p>Un-merged Business Name: ParticipantConfidentialities</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Role.confidentialityCode</p>
      * 

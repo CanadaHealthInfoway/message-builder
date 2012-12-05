@@ -81,7 +81,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerIdentifier</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.id</p>
      * 
@@ -102,7 +102,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerType</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.code</p>
      * 
@@ -124,7 +124,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerType</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.code</p>
      * 
@@ -146,7 +146,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
+     * <p>Un-merged Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.telecom</p>
      * 
@@ -166,7 +166,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090108CA.AssignedEntity.assignedPerson</p>
@@ -179,7 +179,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090108CA.AssignedEntity.assignedPerson</p>
@@ -192,14 +192,14 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090108CA.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090502CA.AssignedEntity.representedOrganization</p>
@@ -212,14 +212,14 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090108CA.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090502CA.AssignedEntity.representedOrganization</p>

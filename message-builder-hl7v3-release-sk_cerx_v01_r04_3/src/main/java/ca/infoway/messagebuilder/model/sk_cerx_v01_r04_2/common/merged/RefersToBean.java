@@ -102,7 +102,7 @@ public class RefersToBean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.Subject2.contextConductionInd</p>
@@ -134,7 +134,7 @@ public class RefersToBean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700210CA.Subject2.contextConductionInd</p>
@@ -164,31 +164,31 @@ public class RefersToBean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120000CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
      * 
@@ -200,31 +200,31 @@ public class RefersToBean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120000CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
      * 

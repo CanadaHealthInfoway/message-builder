@@ -108,7 +108,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
     /**
      * <p>Business Name: SeverityLevel</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
      * 
@@ -125,7 +125,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates this concept into code, the association is 
      * optional</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000009CA.SeverityObservation.value</p>
      * 
@@ -147,7 +147,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * SNOMED handles this concept by pre-coordinating it into 
      * code, this association is optional.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000001CA.SeverityObservation.value</p>
      * 
@@ -164,7 +164,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates severity into 'code', the attribute is 
      * optional.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000006CA.SeverityObservation.value</p>
      * 
@@ -181,7 +181,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates this concept with code, the association is 
      * optional.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000013CA.SeverityObservation.value</p>
      * 
@@ -201,7 +201,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * SNOMED pre-coordinates severity into code, this association 
      * is optional</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000012CA.SeverityObservation.value</p>
      * 
@@ -223,7 +223,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates severity into code, this association is 
      * optional</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000005CA.SeverityObservation.value</p>
      * 
@@ -246,7 +246,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
     /**
      * <p>Business Name: SeverityLevel</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
      * 
@@ -263,7 +263,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates this concept into code, the association is 
      * optional</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000009CA.SeverityObservation.value</p>
      * 
@@ -285,7 +285,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * SNOMED handles this concept by pre-coordinating it into 
      * code, this association is optional.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000001CA.SeverityObservation.value</p>
      * 
@@ -302,7 +302,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates severity into 'code', the attribute is 
      * optional.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000006CA.SeverityObservation.value</p>
      * 
@@ -319,7 +319,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates this concept with code, the association is 
      * optional.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000013CA.SeverityObservation.value</p>
      * 
@@ -339,7 +339,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * SNOMED pre-coordinates severity into code, this association 
      * is optional</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000012CA.SeverityObservation.value</p>
      * 
@@ -361,7 +361,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates severity into code, this association is 
      * optional</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000005CA.SeverityObservation.value</p>
      * 

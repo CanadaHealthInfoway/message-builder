@@ -71,7 +71,7 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Other Business Name: PatientConsentMechanism</p>
+     * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
      * <p>Relationship: COCT_MT470012CA.Author.modeCode</p>
      * 
@@ -83,7 +83,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Indicates whether the patient's consent is written or 
      * verbal.</p>
      * 
-     * <p>Other Business Name: PatientConsentMechanism</p>
+     * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Author.modeCode</p>
      * 
@@ -103,7 +103,7 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Other Business Name: PatientConsentMechanism</p>
+     * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
      * <p>Relationship: COCT_MT470012CA.Author.modeCode</p>
      * 
@@ -115,7 +115,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Indicates whether the patient's consent is written or 
      * verbal.</p>
      * 
-     * <p>Other Business Name: PatientConsentMechanism</p>
+     * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Author.modeCode</p>
      * 
@@ -135,7 +135,7 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: Keyword</p>
      * 
-     * <p>Other Business Name: Keyword</p>
+     * <p>Un-merged Business Name: Keyword</p>
      * 
      * <p>Relationship: COCT_MT470012CA.Author.signatureText</p>
      * 
@@ -147,7 +147,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Indicates the keyword appropriate to the action being 
      * performed by the message.</p>
      * 
-     * <p>Other Business Name: Keyword</p>
+     * <p>Un-merged Business Name: Keyword</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Author.signatureText</p>
      * 
@@ -167,7 +167,7 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: Keyword</p>
      * 
-     * <p>Other Business Name: Keyword</p>
+     * <p>Un-merged Business Name: Keyword</p>
      * 
      * <p>Relationship: COCT_MT470012CA.Author.signatureText</p>
      * 
@@ -179,7 +179,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Indicates the keyword appropriate to the action being 
      * performed by the message.</p>
      * 
-     * <p>Other Business Name: Keyword</p>
+     * <p>Un-merged Business Name: Keyword</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Author.signatureText</p>
      * 
@@ -197,13 +197,13 @@ public class ConsentedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.Author.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Author.personalRelationship</p>
      * 
@@ -215,13 +215,13 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470012CA.Author.personalRelationship</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Author.personalRelationship</p>
      * 

@@ -91,7 +91,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageIdentifier</p>
      * 
-     * <p>Other Business Name: MessageIdentifier</p>
+     * <p>Un-merged Business Name: MessageIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.id</p>
      * 
@@ -105,7 +105,7 @@ public class HL7MessageBean extends MessagePartBean {
      * acknowledgments to the message they are acknowledging. The 
      * attribute is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: MessageIdentifier</p>
+     * <p>Un-merged Business Name: MessageIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.id</p>
      * 
@@ -127,7 +127,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageIdentifier</p>
      * 
-     * <p>Other Business Name: MessageIdentifier</p>
+     * <p>Un-merged Business Name: MessageIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.id</p>
      * 
@@ -141,7 +141,7 @@ public class HL7MessageBean extends MessagePartBean {
      * acknowledgments to the message they are acknowledging. The 
      * attribute is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: MessageIdentifier</p>
+     * <p>Un-merged Business Name: MessageIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.id</p>
      * 
@@ -163,7 +163,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageTimestamp</p>
      * 
-     * <p>Other Business Name: MessageTimestamp</p>
+     * <p>Un-merged Business Name: MessageTimestamp</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.creationTime</p>
      * 
@@ -177,7 +177,7 @@ public class HL7MessageBean extends MessagePartBean {
      * time-zone of other times within the message. As a result, 
      * the attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MessageTimestamp</p>
+     * <p>Un-merged Business Name: MessageTimestamp</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.creationTime</p>
      * 
@@ -199,7 +199,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageTimestamp</p>
      * 
-     * <p>Other Business Name: MessageTimestamp</p>
+     * <p>Un-merged Business Name: MessageTimestamp</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.creationTime</p>
      * 
@@ -213,7 +213,7 @@ public class HL7MessageBean extends MessagePartBean {
      * time-zone of other times within the message. As a result, 
      * the attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MessageTimestamp</p>
+     * <p>Un-merged Business Name: MessageTimestamp</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.creationTime</p>
      * 
@@ -235,7 +235,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: SecurityToken</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.securityText</p>
      * 
@@ -250,7 +250,7 @@ public class HL7MessageBean extends MessagePartBean {
      * optional because not all jurisdictions will require this 
      * capability.</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.securityText</p>
      * 
@@ -273,7 +273,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: SecurityToken</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.securityText</p>
      * 
@@ -288,7 +288,7 @@ public class HL7MessageBean extends MessagePartBean {
      * optional because not all jurisdictions will require this 
      * capability.</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.securityText</p>
      * 
@@ -311,7 +311,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponseType</p>
      * 
-     * <p>Other Business Name: ResponseType</p>
+     * <p>Un-merged Business Name: ResponseType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.responseModeCode</p>
      * 
@@ -328,7 +328,7 @@ public class HL7MessageBean extends MessagePartBean {
      * <p>Essential to determining receiver behavior and therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: ResponseType</p>
+     * <p>Un-merged Business Name: ResponseType</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.responseModeCode</p>
      * 
@@ -353,7 +353,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponseType</p>
      * 
-     * <p>Other Business Name: ResponseType</p>
+     * <p>Un-merged Business Name: ResponseType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.responseModeCode</p>
      * 
@@ -370,7 +370,7 @@ public class HL7MessageBean extends MessagePartBean {
      * <p>Essential to determining receiver behavior and therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: ResponseType</p>
+     * <p>Un-merged Business Name: ResponseType</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.responseModeCode</p>
      * 
@@ -395,7 +395,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: HL7StandardVersion</p>
      * 
-     * <p>Other Business Name: HL7StandardVersion</p>
+     * <p>Un-merged Business Name: HL7StandardVersion</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.versionCode</p>
      * 
@@ -412,7 +412,7 @@ public class HL7MessageBean extends MessagePartBean {
      * definition, vocabulary and other information and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: HL7StandardVersion</p>
+     * <p>Un-merged Business Name: HL7StandardVersion</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.versionCode</p>
      * 
@@ -437,7 +437,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: HL7StandardVersion</p>
      * 
-     * <p>Other Business Name: HL7StandardVersion</p>
+     * <p>Un-merged Business Name: HL7StandardVersion</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.versionCode</p>
      * 
@@ -454,7 +454,7 @@ public class HL7MessageBean extends MessagePartBean {
      * definition, vocabulary and other information and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: HL7StandardVersion</p>
+     * <p>Un-merged Business Name: HL7StandardVersion</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.versionCode</p>
      * 
@@ -479,7 +479,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: InteractionType</p>
      * 
-     * <p>Other Business Name: InteractionType</p>
+     * <p>Un-merged Business Name: InteractionType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.interactionId</p>
      * 
@@ -495,7 +495,7 @@ public class HL7MessageBean extends MessagePartBean {
      * how the message should be validated. The attribute is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: InteractionType</p>
+     * <p>Un-merged Business Name: InteractionType</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.interactionId</p>
      * 
@@ -519,7 +519,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: InteractionType</p>
      * 
-     * <p>Other Business Name: InteractionType</p>
+     * <p>Un-merged Business Name: InteractionType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.interactionId</p>
      * 
@@ -535,7 +535,7 @@ public class HL7MessageBean extends MessagePartBean {
      * how the message should be validated. The attribute is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: InteractionType</p>
+     * <p>Un-merged Business Name: InteractionType</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.interactionId</p>
      * 
@@ -559,7 +559,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: ConformanceProfileIdentifiers</p>
      * 
-     * <p>Other Business Name: ConformanceProfileIdentifiers</p>
+     * <p>Un-merged Business Name: ConformanceProfileIdentifiers</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.profileId</p>
      * 
@@ -572,7 +572,7 @@ public class HL7MessageBean extends MessagePartBean {
      * appropriate. Also influences what extensions can be 
      * processed.</p>
      * 
-     * <p>Other Business Name: ConformanceProfileIdentifiers</p>
+     * <p>Un-merged Business Name: ConformanceProfileIdentifiers</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.profileId</p>
      * 
@@ -594,7 +594,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: ProcessingCode</p>
      * 
-     * <p>Other Business Name: ProcessingCode</p>
+     * <p>Un-merged Business Name: ProcessingCode</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.processingCode</p>
      * 
@@ -610,7 +610,7 @@ public class HL7MessageBean extends MessagePartBean {
      * <p>Indicates how the message should be handled and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: ProcessingCode</p>
+     * <p>Un-merged Business Name: ProcessingCode</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.processingCode</p>
      * 
@@ -634,7 +634,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: ProcessingCode</p>
      * 
-     * <p>Other Business Name: ProcessingCode</p>
+     * <p>Un-merged Business Name: ProcessingCode</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.processingCode</p>
      * 
@@ -650,7 +650,7 @@ public class HL7MessageBean extends MessagePartBean {
      * <p>Indicates how the message should be handled and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: ProcessingCode</p>
+     * <p>Un-merged Business Name: ProcessingCode</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.processingCode</p>
      * 
@@ -674,7 +674,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: DesiredAcknowledgmentType</p>
      * 
-     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * <p>Un-merged Business Name: DesiredAcknowledgmentType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.acceptAckCode</p>
      * 
@@ -691,7 +691,7 @@ public class HL7MessageBean extends MessagePartBean {
      * (Never). (Accept acknowledgements are handled via the 
      * transport protocol, not HL7.)</p>
      * 
-     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * <p>Un-merged Business Name: DesiredAcknowledgmentType</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.acceptAckCode</p>
      * 
@@ -716,7 +716,7 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Business Name: DesiredAcknowledgmentType</p>
      * 
-     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * <p>Un-merged Business Name: DesiredAcknowledgmentType</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.acceptAckCode</p>
      * 
@@ -733,7 +733,7 @@ public class HL7MessageBean extends MessagePartBean {
      * (Never). (Accept acknowledgements are handled via the 
      * transport protocol, not HL7.)</p>
      * 
-     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * <p>Un-merged Business Name: DesiredAcknowledgmentType</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.acceptAckCode</p>
      * 
@@ -756,13 +756,13 @@ public class HL7MessageBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.receiver</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.receiver</p>
      * 
@@ -774,13 +774,13 @@ public class HL7MessageBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.receiver</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.receiver</p>
      * 
@@ -792,13 +792,13 @@ public class HL7MessageBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.respondTo</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.respondTo</p>
      * 
@@ -810,13 +810,13 @@ public class HL7MessageBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.respondTo</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.respondTo</p>
      * 
@@ -828,13 +828,13 @@ public class HL7MessageBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.sender</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.sender</p>
      * 
@@ -846,13 +846,13 @@ public class HL7MessageBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.sender</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.sender</p>
      * 
@@ -864,7 +864,7 @@ public class HL7MessageBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.attentionLine</p>
      * 
@@ -877,7 +877,7 @@ public class HL7MessageBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.acknowledgement</p>
      * 
@@ -889,7 +889,7 @@ public class HL7MessageBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Message.acknowledgement</p>
      * 

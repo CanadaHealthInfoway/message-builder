@@ -37,7 +37,7 @@ public class NextImmunizationPlanBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: RenewalDate</p>
+     * <p>Un-merged Business Name: RenewalDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.NextImmunizationPlan.effectiveTime</p>
@@ -50,7 +50,7 @@ public class NextImmunizationPlanBean extends MessagePartBean {
      * <p>Necessary reminder to a patient and his/or provider for a 
      * follow-up therapy.</p>
      * 
-     * <p>Other Business Name: RepeatDate</p>
+     * <p>Un-merged Business Name: RepeatDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.NextImmunizationPlan.effectiveTime</p>
@@ -63,7 +63,7 @@ public class NextImmunizationPlanBean extends MessagePartBean {
      * <p>Allows for immunization therapy planning for a 
      * patient.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.NextImmunizationPlan.effectiveTime</p>
@@ -82,7 +82,7 @@ public class NextImmunizationPlanBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: RenewalDate</p>
+     * <p>Un-merged Business Name: RenewalDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.NextImmunizationPlan.effectiveTime</p>
@@ -95,7 +95,7 @@ public class NextImmunizationPlanBean extends MessagePartBean {
      * <p>Necessary reminder to a patient and his/or provider for a 
      * follow-up therapy.</p>
      * 
-     * <p>Other Business Name: RepeatDate</p>
+     * <p>Un-merged Business Name: RepeatDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.NextImmunizationPlan.effectiveTime</p>
@@ -108,7 +108,7 @@ public class NextImmunizationPlanBean extends MessagePartBean {
      * <p>Allows for immunization therapy planning for a 
      * patient.</p>
      * 
-     * <p>Other Business Name: NextPlannedDoseDate</p>
+     * <p>Un-merged Business Name: NextPlannedDoseDate</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.NextImmunizationPlan.effectiveTime</p>

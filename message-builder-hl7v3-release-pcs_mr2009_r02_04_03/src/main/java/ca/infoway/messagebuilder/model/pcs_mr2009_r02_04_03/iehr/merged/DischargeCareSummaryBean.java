@@ -102,7 +102,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentCategory</p>
      * 
-     * <p>Other Business Name: DocumentCategory</p>
+     * <p>Un-merged Business Name: DocumentCategory</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Document.code</p>
      * 
@@ -118,7 +118,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * represented by this record. e.g. summarization of episode 
      * note; discharge summarization note.</i> </p>
      * 
-     * <p>Other Business Name: DocumentCategory</p>
+     * <p>Un-merged Business Name: DocumentCategory</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.code</p>
      * 
@@ -142,7 +142,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentCategory</p>
      * 
-     * <p>Other Business Name: DocumentCategory</p>
+     * <p>Un-merged Business Name: DocumentCategory</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Document.code</p>
      * 
@@ -158,7 +158,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * represented by this record. e.g. summarization of episode 
      * note; discharge summarization note.</i> </p>
      * 
-     * <p>Other Business Name: DocumentCategory</p>
+     * <p>Un-merged Business Name: DocumentCategory</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.code</p>
      * 
@@ -182,7 +182,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentTitle</p>
      * 
-     * <p>Other Business Name: DocumentTitle</p>
+     * <p>Un-merged Business Name: DocumentTitle</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Document.title</p>
      * 
@@ -201,7 +201,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * 
      * <p>A human-readable label for this particular document.</p>
      * 
-     * <p>Other Business Name: DocumentTitle</p>
+     * <p>Un-merged Business Name: DocumentTitle</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.title</p>
      * 
@@ -228,7 +228,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentTitle</p>
      * 
-     * <p>Other Business Name: DocumentTitle</p>
+     * <p>Un-merged Business Name: DocumentTitle</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Document.title</p>
      * 
@@ -247,7 +247,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * 
      * <p>A human-readable label for this particular document.</p>
      * 
-     * <p>Other Business Name: DocumentTitle</p>
+     * <p>Un-merged Business Name: DocumentTitle</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.title</p>
      * 
@@ -274,7 +274,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentMaskingIndicators</p>
      * 
-     * <p>Other Business Name: DocumentMaskingIndicators</p>
+     * <p>Un-merged Business Name: DocumentMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.Document.confidentialityCode</p>
@@ -307,7 +307,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
      * patient, respectively. 'normal' should never be asserted 
      * with one of the other codes.</i> </p>
      * 
-     * <p>Other Business Name: DocumentMaskingIndicators</p>
+     * <p>Un-merged Business Name: DocumentMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Document.confidentialityCode</p>
@@ -347,13 +347,13 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Document.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.author</p>
      * 
@@ -365,13 +365,13 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Document.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.author</p>
      * 
@@ -383,14 +383,14 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.InformationRecipient.recipients</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.InformationRecipient.recipients</p>
@@ -404,14 +404,14 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.Predecessor2.oldClinicalDocumentEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Predecessor2.oldClinicalDocumentEvent</p>
@@ -425,13 +425,13 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Component3.section</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Component3.section</p>
      * 
@@ -443,13 +443,13 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Component3.section</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Component3.section</p>
      * 
@@ -461,13 +461,13 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Document.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.subjectOf1</p>
      * 
@@ -482,13 +482,13 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Document.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.subjectOf1</p>
      * 
@@ -500,14 +500,14 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220001CA.Component6.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Component6.patientCareProvisionEvent</p>
@@ -523,7 +523,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentIdentifiers</p>
      * 
-     * <p>Other Business Name: DocumentIdentifiers</p>
+     * <p>Un-merged Business Name: DocumentIdentifiers</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Document.id</p>
      * 
@@ -546,7 +546,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.ResponsibleParty.actingPerson</p>
@@ -559,7 +559,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.ResponsibleParty.actingPerson</p>
@@ -572,7 +572,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Custodian2.serviceDeliveryLocation</p>
@@ -585,7 +585,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Custodian2.serviceDeliveryLocation</p>
@@ -598,7 +598,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Custodian.assignedDevice</p>
      * 
@@ -610,7 +610,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Custodian.assignedDevice</p>
      * 
@@ -622,7 +622,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Predecessor.newClinicalDocumentEvent</p>
@@ -635,7 +635,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Predecessor.newClinicalDocumentEvent</p>
@@ -648,7 +648,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Subject3.annotationIndicator</p>
@@ -661,7 +661,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT220003CA.Subject3.annotationIndicator</p>

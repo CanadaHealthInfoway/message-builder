@@ -65,7 +65,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: FirstDispensePickupDate</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -78,7 +78,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Indicates when the first dispense against the 
      * prescription was picked up.</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -99,7 +99,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: FirstDispensePickupDate</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -112,7 +112,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Indicates when the first dispense against the 
      * prescription was picked up.</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -133,7 +133,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: FirstQuantityDispensed</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventFirstSummary.quantity</p>
@@ -148,7 +148,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Indicates the number of devices first dispensed on the 
      * prescription.</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventFirstSummary.quantity</p>
@@ -170,7 +170,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: FirstQuantityDispensed</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventFirstSummary.quantity</p>
@@ -185,7 +185,7 @@ public class FirstDispenseInformation_2Bean extends MessagePartBean {
      * <p>Indicates the number of devices first dispensed on the 
      * prescription.</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventFirstSummary.quantity</p>

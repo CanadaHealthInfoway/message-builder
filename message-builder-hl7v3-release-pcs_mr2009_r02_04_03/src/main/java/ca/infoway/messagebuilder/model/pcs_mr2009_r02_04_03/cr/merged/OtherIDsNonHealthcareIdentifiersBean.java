@@ -105,7 +105,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     /**
      * <p>Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.OtherIDs.id</p>
      * 
@@ -117,7 +117,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.OtherIDs.id</p>
      * 
@@ -129,7 +129,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Passport, SIN, DND, DIAND, Drivers License)</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.OtherIDs.id</p>
      * 
@@ -141,7 +141,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.OtherIDs.id</p>
      * 
@@ -153,7 +153,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.OtherIDs.id</p>
      * 
@@ -173,7 +173,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     /**
      * <p>Business Name: NonHealthcareIdentification</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.OtherIDs.id</p>
      * 
@@ -185,7 +185,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.OtherIDs.id</p>
      * 
@@ -197,7 +197,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Passport, SIN, DND, DIAND, Drivers License)</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.OtherIDs.id</p>
      * 
@@ -209,7 +209,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.OtherIDs.id</p>
      * 
@@ -221,7 +221,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Other non-healthcare identifiers for the Client (e.g. 
      * Drivers License, RCMP, DND, Social Insurance Number)</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentification</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentification</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.OtherIDs.id</p>
      * 
@@ -241,7 +241,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     /**
      * <p>Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.OtherIDs.code</p>
      * 
@@ -254,7 +254,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.OtherIDs.code</p>
      * 
@@ -267,7 +267,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.OtherIDs.code</p>
      * 
@@ -280,7 +280,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.OtherIDs.code</p>
      * 
@@ -293,7 +293,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.OtherIDs.code</p>
      * 
@@ -314,7 +314,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     /**
      * <p>Business Name: NonHealthcareIdentificationCode</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.OtherIDs.code</p>
      * 
@@ -327,7 +327,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.OtherIDs.code</p>
      * 
@@ -340,7 +340,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.OtherIDs.code</p>
      * 
@@ -353,7 +353,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.OtherIDs.code</p>
      * 
@@ -366,7 +366,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * such as Drivers License, RCMP, DND, Social Insurance 
      * Number</p>
      * 
-     * <p>Other Business Name: NonHealthcareIdentificationCode</p>
+     * <p>Un-merged Business Name: NonHealthcareIdentificationCode</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.OtherIDs.code</p>
      * 
@@ -387,7 +387,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     /**
      * <p>Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.IdOrganization.id</p>
      * 
@@ -399,7 +399,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.IdOrganization.id</p>
      * 
@@ -411,7 +411,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.IdOrganization.id</p>
      * 
@@ -423,7 +423,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.IdOrganization.id</p>
      * 
@@ -435,7 +435,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.IdOrganization.id</p>
      * 
@@ -455,7 +455,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     /**
      * <p>Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.IdOrganization.id</p>
      * 
@@ -467,7 +467,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.IdOrganization.id</p>
      * 
@@ -479,7 +479,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.IdOrganization.id</p>
      * 
@@ -491,7 +491,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.IdOrganization.id</p>
      * 
@@ -503,7 +503,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * <p>Unique identifier for the organization that assigned the 
      * non-healthcare identifier for the client.</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.IdOrganization.id</p>
      * 
@@ -523,7 +523,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     /**
      * <p>Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.IdOrganization.name</p>
      * 
@@ -534,7 +534,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>A name for the non-healthcare organization</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.IdOrganization.name</p>
      * 
@@ -545,7 +545,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>A name for the non-healthcare organization</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.IdOrganization.name</p>
      * 
@@ -556,7 +556,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>A name for the non-healthcare organization</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.IdOrganization.name</p>
      * 
@@ -567,7 +567,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>A name for the non-healthcare organization</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.IdOrganization.name</p>
      * 
@@ -586,7 +586,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     /**
      * <p>Business Name: NonHealthcareOrganizationName</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.IdOrganization.name</p>
      * 
@@ -597,7 +597,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>A name for the non-healthcare organization</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.IdOrganization.name</p>
      * 
@@ -608,7 +608,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>A name for the non-healthcare organization</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.IdOrganization.name</p>
      * 
@@ -619,7 +619,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>A name for the non-healthcare organization</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.IdOrganization.name</p>
      * 
@@ -630,7 +630,7 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
      * 
      * <p>A name for the non-healthcare organization</p>
      * 
-     * <p>Other Business Name: NonHealthcareOrganizationName</p>
+     * <p>Un-merged Business Name: NonHealthcareOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT101001CA.IdOrganization.name</p>
      * 

@@ -81,7 +81,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueMonographId</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: PORX_MT980010CA.DetectedIssueDefinition.id</p>
      * 
@@ -114,7 +114,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Allows applications to match with local Knowledge-bases 
      * and avoid displaying duplicate issues to providers.</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: PORX_MT980020CA.DetectedIssueDefinition.id</p>
      * 
@@ -147,7 +147,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Allows applications to match with local Knowledge-bases 
      * and avoid displaying duplicate issues to providers.</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: PORX_MT980030CA.DetectedIssueDefinition.id</p>
      * 
@@ -188,7 +188,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueMonographId</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: PORX_MT980010CA.DetectedIssueDefinition.id</p>
      * 
@@ -221,7 +221,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Allows applications to match with local Knowledge-bases 
      * and avoid displaying duplicate issues to providers.</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: PORX_MT980020CA.DetectedIssueDefinition.id</p>
      * 
@@ -254,7 +254,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Allows applications to match with local Knowledge-bases 
      * and avoid displaying duplicate issues to providers.</p>
      * 
-     * <p>Other Business Name: IssueMonographId</p>
+     * <p>Un-merged Business Name: IssueMonographId</p>
      * 
      * <p>Relationship: PORX_MT980030CA.DetectedIssueDefinition.id</p>
      * 
@@ -295,7 +295,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueDescription</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.DetectedIssueDefinition.text</p>
@@ -315,7 +315,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p><div>PIN will only store the reference if the</div> 
      * <p>monograph ID is not recognized by PIN.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.DetectedIssueDefinition.text</p>
@@ -332,7 +332,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Provides detailed clinical background on reasons for 
      * issue.</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.DetectedIssueDefinition.text</p>
@@ -357,7 +357,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueDescription</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.DetectedIssueDefinition.text</p>
@@ -377,7 +377,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p><div>PIN will only store the reference if the</div> 
      * <p>monograph ID is not recognized by PIN.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.DetectedIssueDefinition.text</p>
@@ -394,7 +394,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Provides detailed clinical background on reasons for 
      * issue.</p>
      * 
-     * <p>Other Business Name: IssueDescription</p>
+     * <p>Un-merged Business Name: IssueDescription</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.DetectedIssueDefinition.text</p>
@@ -419,7 +419,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Author2.time</p>
      * 
@@ -436,7 +436,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * with that of the central. (The monograph id may remain the 
      * same, but the effective date will always change).</p>
      * 
-     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Author2.time</p>
      * 
@@ -453,7 +453,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * with that of the central. (The monograph id may remain the 
      * same, but the effective date will always change).</p>
      * 
-     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Author2.time</p>
      * 
@@ -478,7 +478,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueMonographEffectiveDate</p>
      * 
-     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Author2.time</p>
      * 
@@ -495,7 +495,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * with that of the central. (The monograph id may remain the 
      * same, but the effective date will always change).</p>
      * 
-     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Author2.time</p>
      * 
@@ -512,7 +512,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * with that of the central. (The monograph id may remain the 
      * same, but the effective date will always change).</p>
      * 
-     * <p>Other Business Name: IssueMonographEffectiveDate</p>
+     * <p>Un-merged Business Name: IssueMonographEffectiveDate</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Author2.time</p>
      * 
@@ -537,7 +537,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Organization.name</p>
      * 
@@ -554,7 +554,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Organization.name</p>
      * 
@@ -571,7 +571,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Organization.name</p>
      * 
@@ -596,7 +596,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: KnowledgebaseVendorName</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Organization.name</p>
      * 
@@ -613,7 +613,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Organization.name</p>
      * 
@@ -630,7 +630,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * name.</p><p>The attribute is mandatory because it is the 
      * only information collected about a knowledgebase vendor.</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Organization.name</p>
      * 
@@ -653,7 +653,7 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ReccomendedDosage</p>
+     * <p>Un-merged Business Name: ReccomendedDosage</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.Component.substanceAdministrationEventCriterion</p>
@@ -666,7 +666,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <div>recommended dosage ranges for</div> <p>various age 
      * groups, weight classes, etc.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: RecommendedDosage</p>
+     * <p>Un-merged Business Name: RecommendedDosage</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.Component.substanceAdministrationEventCriterion</p>
@@ -679,7 +679,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <div>recommended dosage ranges for</div> <div>various age 
      * groups, weight classes, etc.</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.Component.substanceAdministrationEventCriterion</p>
@@ -692,7 +692,7 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ReccomendedDosage</p>
+     * <p>Un-merged Business Name: ReccomendedDosage</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.Component.substanceAdministrationEventCriterion</p>
@@ -705,7 +705,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <div>recommended dosage ranges for</div> <p>various age 
      * groups, weight classes, etc.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: RecommendedDosage</p>
+     * <p>Un-merged Business Name: RecommendedDosage</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.Component.substanceAdministrationEventCriterion</p>
@@ -718,7 +718,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <div>recommended dosage ranges for</div> <div>various age 
      * groups, weight classes, etc.</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.Component.substanceAdministrationEventCriterion</p>

@@ -108,7 +108,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationIdentifier</p>
      * 
-     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240007CA.ServiceDeliveryLocation.id</p>
      * 
@@ -132,7 +132,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * 
      * <p>Unique identifier for a healthcare service location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240003CA.ServiceDeliveryLocation.id</p>
      * 
@@ -159,7 +159,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * 
      * <p>Unique identifier for a healthcare service location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240002CA.ServiceDeliveryLocation.id</p>
      * 
@@ -194,7 +194,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationIdentifier</p>
      * 
-     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240007CA.ServiceDeliveryLocation.id</p>
      * 
@@ -218,7 +218,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * 
      * <p>Unique identifier for a healthcare service location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240003CA.ServiceDeliveryLocation.id</p>
      * 
@@ -245,7 +245,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * 
      * <p>Unique identifier for a healthcare service location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240002CA.ServiceDeliveryLocation.id</p>
      * 
@@ -280,7 +280,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationType</p>
      * 
-     * <p>Other Business Name: ServiceLocationType</p>
+     * <p>Un-merged Business Name: ServiceLocationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT240007CA.ServiceDeliveryLocation.code</p>
@@ -294,7 +294,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Describes the basic type or category of the service 
      * delivery location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationType</p>
+     * <p>Un-merged Business Name: ServiceLocationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.code</p>
@@ -316,7 +316,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationType</p>
      * 
-     * <p>Other Business Name: ServiceLocationType</p>
+     * <p>Un-merged Business Name: ServiceLocationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT240007CA.ServiceDeliveryLocation.code</p>
@@ -330,7 +330,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Describes the basic type or category of the service 
      * delivery location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationType</p>
+     * <p>Un-merged Business Name: ServiceLocationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.code</p>
@@ -352,7 +352,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationAddress</p>
      * 
-     * <p>Other Business Name: ServiceLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceLocationAddress</p>
      * 
      * <p>Relationship: 
      * COCT_MT240007CA.ServiceDeliveryLocation.addr</p>
@@ -368,7 +368,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
      * 
-     * <p>Other Business Name: ServiceLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceLocationAddress</p>
      * 
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
@@ -392,7 +392,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationAddress</p>
      * 
-     * <p>Other Business Name: ServiceLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceLocationAddress</p>
      * 
      * <p>Relationship: 
      * COCT_MT240007CA.ServiceDeliveryLocation.addr</p>
@@ -408,7 +408,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
      * 
-     * <p>Other Business Name: ServiceLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceLocationAddress</p>
      * 
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
@@ -432,7 +432,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationPhonesAndEMails</p>
      * 
-     * <p>Other Business Name: ServiceLocationPhonesAndEMails</p>
+     * <p>Un-merged Business Name: ServiceLocationPhonesAndEMails</p>
      * 
      * <p>Relationship: 
      * COCT_MT240007CA.ServiceDeliveryLocation.telecom</p>
@@ -446,7 +446,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>The phone numbers and/or electronic mail addresses by 
      * which a service location may be contacted.</p>
      * 
-     * <p>Other Business Name: ServiceLocationPhonesAndEMails</p>
+     * <p>Un-merged Business Name: ServiceLocationPhonesAndEMails</p>
      * 
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.telecom</p>
@@ -469,7 +469,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationName</p>
      * 
-     * <p>Other Business Name: ServiceLocationName</p>
+     * <p>Un-merged Business Name: ServiceLocationName</p>
      * 
      * <p>Relationship: COCT_MT240007CA.Place.name</p>
      * 
@@ -486,7 +486,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * 
      * <p>The name assigned to the service location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationName</p>
+     * <p>Un-merged Business Name: ServiceLocationName</p>
      * 
      * <p>Relationship: COCT_MT240003CA.Place.name</p>
      * 
@@ -503,7 +503,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * 
      * <p>The name assigned to the service location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationName</p>
+     * <p>Un-merged Business Name: ServiceLocationName</p>
      * 
      * <p>Relationship: COCT_MT240002CA.Place.name</p>
      * 
@@ -528,7 +528,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     /**
      * <p>Business Name: ServiceLocationName</p>
      * 
-     * <p>Other Business Name: ServiceLocationName</p>
+     * <p>Un-merged Business Name: ServiceLocationName</p>
      * 
      * <p>Relationship: COCT_MT240007CA.Place.name</p>
      * 
@@ -545,7 +545,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * 
      * <p>The name assigned to the service location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationName</p>
+     * <p>Un-merged Business Name: ServiceLocationName</p>
      * 
      * <p>Relationship: COCT_MT240003CA.Place.name</p>
      * 
@@ -562,7 +562,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * 
      * <p>The name assigned to the service location.</p>
      * 
-     * <p>Other Business Name: ServiceLocationName</p>
+     * <p>Un-merged Business Name: ServiceLocationName</p>
      * 
      * <p>Relationship: COCT_MT240002CA.Place.name</p>
      * 
@@ -585,19 +585,19 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT240007CA.Subject.position</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT240003CA.Subject.position</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT240002CA.Subject.position</p>
      * 

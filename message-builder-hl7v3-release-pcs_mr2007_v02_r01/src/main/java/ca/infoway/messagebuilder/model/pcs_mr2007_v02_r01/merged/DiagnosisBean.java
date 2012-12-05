@@ -57,7 +57,7 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.code</p>
      * 
@@ -65,7 +65,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>admit, intermediate, discharge diagnosis</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT490000CA.Diagnosis.code</p>
      * 
@@ -73,7 +73,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>admit, intermediate, discharge diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
      * 
@@ -94,7 +94,7 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.code</p>
      * 
@@ -102,7 +102,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>admit, intermediate, discharge diagnosis</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT490000CA.Diagnosis.code</p>
      * 
@@ -110,7 +110,7 @@ public class DiagnosisBean extends MessagePartBean {
      * 
      * <p>admit, intermediate, discharge diagnosis</p>
      * 
-     * <p>Other Business Name: DiagnosisType</p>
+     * <p>Un-merged Business Name: DiagnosisType</p>
      * 
      * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
      * 
@@ -129,7 +129,7 @@ public class DiagnosisBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.text</p>
      * 
@@ -145,7 +145,7 @@ public class DiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.text</p>
      * 
@@ -163,19 +163,19 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: Diagnosis</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT490000CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: Diagnosis</p>
+     * <p>Un-merged Business Name: Diagnosis</p>
      * 
      * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
      * 
@@ -197,19 +197,19 @@ public class DiagnosisBean extends MessagePartBean {
     /**
      * <p>Business Name: Diagnosis</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT290000CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT490000CA.Diagnosis.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: Diagnosis</p>
+     * <p>Un-merged Business Name: Diagnosis</p>
      * 
      * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
      * 

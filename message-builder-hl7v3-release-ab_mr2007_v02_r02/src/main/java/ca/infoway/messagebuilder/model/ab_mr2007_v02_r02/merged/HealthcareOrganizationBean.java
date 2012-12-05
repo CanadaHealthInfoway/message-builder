@@ -85,7 +85,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.id</p>
      * 
@@ -98,7 +98,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.id</p>
      * 
@@ -119,7 +119,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.id</p>
      * 
@@ -132,7 +132,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.id</p>
      * 
@@ -153,7 +153,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     /**
      * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.name</p>
      * 
@@ -165,7 +165,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.name</p>
      * 
@@ -185,7 +185,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     /**
      * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.name</p>
      * 
@@ -197,7 +197,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.name</p>
      * 
@@ -217,7 +217,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
      * 
@@ -237,7 +237,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
      * 
@@ -257,7 +257,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     /**
      * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * <p>Un-merged Business Name: OrganizationPhoneAndEmails</p>
      * 
      * <p>Relationship: 
      * COCT_MT090508CA.AssignedOrganization.telecom</p>
@@ -278,7 +278,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090502CA.AssignedEntity.classCode</p>
      * 
@@ -290,7 +290,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090502CA.AssignedEntity.classCode</p>
      * 
@@ -302,7 +302,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.classCode</p>
      * 
@@ -314,7 +314,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.classCode</p>
      * 
@@ -326,7 +326,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.determinerCode</p>
      * 
@@ -338,7 +338,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.determinerCode</p>
      * 

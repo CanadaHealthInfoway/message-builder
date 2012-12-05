@@ -86,7 +86,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.id</p>
      * 
@@ -99,7 +99,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * healthcare provider roles. This identifier is specific to 
      * the person not their roles.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.id</p>
      * 
@@ -120,7 +120,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.id</p>
      * 
@@ -133,7 +133,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * healthcare provider roles. This identifier is specific to 
      * the person not their roles.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.id</p>
      * 
@@ -154,7 +154,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonName</p>
      * 
-     * <p>Other Business Name: PrincipalPersonName</p>
+     * <p>Un-merged Business Name: PrincipalPersonName</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.name</p>
      * 
@@ -169,7 +169,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>The persons name independent of any role they may 
      * play.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonName</p>
+     * <p>Un-merged Business Name: PrincipalPersonName</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.name</p>
      * 
@@ -195,7 +195,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonGender</p>
      * 
-     * <p>Other Business Name: PrincipalPersonGender</p>
+     * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrincipalPerson.administrativeGenderCode</p>
@@ -210,7 +210,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>The principal persons gender.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonGender</p>
+     * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrincipalPerson.administrativeGenderCode</p>
@@ -235,7 +235,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonGender</p>
      * 
-     * <p>Other Business Name: PrincipalPersonGender</p>
+     * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrincipalPerson.administrativeGenderCode</p>
@@ -250,7 +250,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>The principal persons gender.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonGender</p>
+     * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrincipalPerson.administrativeGenderCode</p>
@@ -275,7 +275,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
+     * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.birthTime</p>
      * 
@@ -289,7 +289,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>The principal persons date of birth.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
+     * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.birthTime</p>
      * 
@@ -311,7 +311,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
+     * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.birthTime</p>
      * 
@@ -325,7 +325,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>The principal persons date of birth.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
+     * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.birthTime</p>
      * 
@@ -347,7 +347,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
+     * <p>Un-merged Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.deceasedInd</p>
      * 
@@ -358,7 +358,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>An indication that the principal person is deceased.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
+     * <p>Un-merged Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.deceasedInd</p>
      * 
@@ -377,7 +377,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
+     * <p>Un-merged Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.deceasedInd</p>
      * 
@@ -388,7 +388,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>An indication that the principal person is deceased.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
+     * <p>Un-merged Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.deceasedInd</p>
      * 
@@ -407,7 +407,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonDeceasedDate</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * <p>Un-merged Business Name: PrincipalPersonDeceasedDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrincipalPerson.deceasedTime</p>
@@ -420,7 +420,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>The date and time that a healthcare provider's death 
      * occurred.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * <p>Un-merged Business Name: PrincipalPersonDeceasedDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrincipalPerson.deceasedTime</p>
@@ -441,7 +441,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonDeceasedDate</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * <p>Un-merged Business Name: PrincipalPersonDeceasedDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrincipalPerson.deceasedTime</p>
@@ -454,7 +454,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>The date and time that a healthcare provider's death 
      * occurred.</p>
      * 
-     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * <p>Un-merged Business Name: PrincipalPersonDeceasedDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrincipalPerson.deceasedTime</p>
@@ -475,7 +475,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: BirthplaceAddress</p>
      * 
-     * <p>Other Business Name: BirthplaceAddress</p>
+     * <p>Un-merged Business Name: BirthplaceAddress</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Birthplace.addr</p>
      * 
@@ -489,7 +489,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Principal person's address at time of birth</p>
      * 
-     * <p>Other Business Name: BirthplaceAddress</p>
+     * <p>Un-merged Business Name: BirthplaceAddress</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Birthplace.addr</p>
      * 
@@ -511,7 +511,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: BirthplaceAddress</p>
      * 
-     * <p>Other Business Name: BirthplaceAddress</p>
+     * <p>Un-merged Business Name: BirthplaceAddress</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Birthplace.addr</p>
      * 
@@ -525,7 +525,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Principal person's address at time of birth</p>
      * 
-     * <p>Other Business Name: BirthplaceAddress</p>
+     * <p>Un-merged Business Name: BirthplaceAddress</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Birthplace.addr</p>
      * 
@@ -545,14 +545,14 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.PrincipalPerson.languageCommunication</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.PrincipalPerson.languageCommunication</p>

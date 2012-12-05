@@ -39,7 +39,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationRegionId</p>
      * 
-     * <p>Other Business Name: LocationRegionId</p>
+     * <p>Un-merged Business Name: LocationRegionId</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.TerritorialAuthority.id</p>
      * 
@@ -56,7 +56,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * <p>Identifies the health region associated with the service 
      * delivery location (if any).</p>
      * 
-     * <p>Other Business Name: LocationRegionId</p>
+     * <p>Un-merged Business Name: LocationRegionId</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.TerritorialAuthority.id</p>
      * 
@@ -73,7 +73,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * <p>Identifies the health region associated with the service 
      * delivery location (if any).</p>
      * 
-     * <p>Other Business Name: LocationRegionId</p>
+     * <p>Un-merged Business Name: LocationRegionId</p>
      * 
      * <p>Relationship: PRPA_MT202317CA.TerritorialAuthority.id</p>
      * 
@@ -90,7 +90,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * <p>Identifies the health region associated with the service 
      * delivery location (if any).</p>
      * 
-     * <p>Other Business Name: LocationRegionId</p>
+     * <p>Un-merged Business Name: LocationRegionId</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.TerritorialAuthority.id</p>
      * 
@@ -115,7 +115,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationRegionId</p>
      * 
-     * <p>Other Business Name: LocationRegionId</p>
+     * <p>Un-merged Business Name: LocationRegionId</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.TerritorialAuthority.id</p>
      * 
@@ -132,7 +132,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * <p>Identifies the health region associated with the service 
      * delivery location (if any).</p>
      * 
-     * <p>Other Business Name: LocationRegionId</p>
+     * <p>Un-merged Business Name: LocationRegionId</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.TerritorialAuthority.id</p>
      * 
@@ -149,7 +149,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * <p>Identifies the health region associated with the service 
      * delivery location (if any).</p>
      * 
-     * <p>Other Business Name: LocationRegionId</p>
+     * <p>Un-merged Business Name: LocationRegionId</p>
      * 
      * <p>Relationship: PRPA_MT202317CA.TerritorialAuthority.id</p>
      * 
@@ -166,7 +166,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * <p>Identifies the health region associated with the service 
      * delivery location (if any).</p>
      * 
-     * <p>Other Business Name: LocationRegionId</p>
+     * <p>Un-merged Business Name: LocationRegionId</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.TerritorialAuthority.id</p>
      * 

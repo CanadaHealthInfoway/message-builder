@@ -68,7 +68,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementReason.billableActChoice</p>
@@ -84,13 +84,13 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: InvoiceGroupingIdentifierS</p>
      * 
-     * <p>Other Business Name: InvoiceGroupingIdentifierS</p>
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1-99)</p>
      * 
-     * <p>Other Business Name: InvoiceGroupingIdentifierS</p>
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.id</p>
      * 
@@ -105,13 +105,13 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: InvoiceType</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.code</p>
      * 
@@ -125,13 +125,13 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: InvoiceType</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.code</p>
      * 
@@ -145,7 +145,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: TimePeriodForInvoice</p>
      * 
-     * <p>Other Business Name: TimePeriodForInvoice</p>
+     * <p>Un-merged Business Name: TimePeriodForInvoice</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementGroup.effectiveTime</p>
@@ -160,7 +160,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: TimePeriodForInvoice</p>
      * 
-     * <p>Other Business Name: TimePeriodForInvoice</p>
+     * <p>Un-merged Business Name: TimePeriodForInvoice</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementGroup.effectiveTime</p>
@@ -175,13 +175,13 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: InvoiceSubTotal</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.netAmt</p>
      * 
@@ -195,13 +195,13 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: InvoiceSubTotal</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: InvoiceSubTotal</p>
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementGroup.netAmt</p>
      * 
@@ -213,14 +213,14 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.CoveredParty.coveredPartyAsPatient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.CoveredParty.coveredPartyAsPatient</p>
@@ -233,14 +233,14 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.CoveredParty.coveredPartyAsPatient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.CoveredParty.coveredPartyAsPatient</p>
@@ -253,7 +253,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementGroupInFulfillmentOf.financialContract</p>
@@ -266,7 +266,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementGroupInFulfillmentOf.financialContract</p>
@@ -279,7 +279,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.Predecessor.invoiceElementCrossReference</p>
@@ -293,7 +293,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.Reference.adjudicatedInvoiceElementGroup</p>
@@ -307,7 +307,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementCoverage.policyOrAccount</p>
@@ -321,7 +321,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
@@ -335,7 +335,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementGroup.component</p>
@@ -349,7 +349,7 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.Suggests.invoiceElementOverride</p>

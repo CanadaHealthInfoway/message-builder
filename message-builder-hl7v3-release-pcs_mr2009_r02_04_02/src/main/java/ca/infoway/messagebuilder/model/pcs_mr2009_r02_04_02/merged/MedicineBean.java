@@ -46,25 +46,25 @@ public class MedicineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT400001CA.Medicine.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.code</p>
      * 
@@ -78,25 +78,25 @@ public class MedicineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT400001CA.Medicine.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.code</p>
      * 
@@ -110,25 +110,25 @@ public class MedicineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugName</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT400001CA.Medicine.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.name</p>
      * 
@@ -142,25 +142,25 @@ public class MedicineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugName</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT400001CA.Medicine.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.name</p>
      * 
@@ -174,25 +174,25 @@ public class MedicineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugDescription</p>
      * 
-     * <p>Other Business Name: DrugDescription</p>
+     * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT400001CA.Medicine.desc</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DrugDescription</p>
+     * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.desc</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DrugDescription</p>
+     * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.desc</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DrugDescription</p>
+     * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.desc</p>
      * 
@@ -206,25 +206,25 @@ public class MedicineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugDescription</p>
      * 
-     * <p>Other Business Name: DrugDescription</p>
+     * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT400001CA.Medicine.desc</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DrugDescription</p>
+     * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.desc</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DrugDescription</p>
+     * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.desc</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DrugDescription</p>
+     * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.desc</p>
      * 
@@ -238,7 +238,7 @@ public class MedicineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugForm</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT400001CA.Medicine.formCode</p>
      * 
@@ -248,7 +248,7 @@ public class MedicineBean extends MessagePartBean {
      * has been manufactured or custom prepared. Examples include: 
      * tablet, suspension, liquid, injectable, capsule, etc.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.formCode</p>
      * 
@@ -258,7 +258,7 @@ public class MedicineBean extends MessagePartBean {
      * has been manufactured or custom prepared. Examples include: 
      * tablet, suspension, liquid, injectable, capsule, etc.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.formCode</p>
      * 
@@ -268,7 +268,7 @@ public class MedicineBean extends MessagePartBean {
      * has been manufactured or custom prepared. Examples include: 
      * tablet, suspension, liquid, injectable, capsule, etc.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.formCode</p>
      * 
@@ -286,7 +286,7 @@ public class MedicineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugForm</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT400001CA.Medicine.formCode</p>
      * 
@@ -296,7 +296,7 @@ public class MedicineBean extends MessagePartBean {
      * has been manufactured or custom prepared. Examples include: 
      * tablet, suspension, liquid, injectable, capsule, etc.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.formCode</p>
      * 
@@ -306,7 +306,7 @@ public class MedicineBean extends MessagePartBean {
      * has been manufactured or custom prepared. Examples include: 
      * tablet, suspension, liquid, injectable, capsule, etc.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.formCode</p>
      * 
@@ -316,7 +316,7 @@ public class MedicineBean extends MessagePartBean {
      * has been manufactured or custom prepared. Examples include: 
      * tablet, suspension, liquid, injectable, capsule, etc.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.formCode</p>
      * 
@@ -332,13 +332,13 @@ public class MedicineBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.ingredient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.ingredient</p>
      * 
@@ -350,13 +350,13 @@ public class MedicineBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Medicine.ingredient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Medicine.ingredient</p>
      * 

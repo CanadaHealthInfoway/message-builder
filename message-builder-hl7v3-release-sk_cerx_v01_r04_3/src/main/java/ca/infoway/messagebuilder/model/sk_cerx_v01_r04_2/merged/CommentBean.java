@@ -108,7 +108,7 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientNoteCategory</p>
      * 
-     * <p>Other Business Name: PatientNoteCategory</p>
+     * <p>Un-merged Business Name: PatientNoteCategory</p>
      * 
      * <p>Relationship: COMT_MT300001CA.Annotation.code</p>
      * 
@@ -124,7 +124,7 @@ public class CommentBean extends MessagePartBean {
      * may also be used by DISs to enforce different access control 
      * to different types of notes.</p>
      * 
-     * <p>Other Business Name: PatientNoteCategory</p>
+     * <p>Un-merged Business Name: PatientNoteCategory</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.code</p>
      * 
@@ -148,7 +148,7 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientNoteCategory</p>
      * 
-     * <p>Other Business Name: PatientNoteCategory</p>
+     * <p>Un-merged Business Name: PatientNoteCategory</p>
      * 
      * <p>Relationship: COMT_MT300001CA.Annotation.code</p>
      * 
@@ -164,7 +164,7 @@ public class CommentBean extends MessagePartBean {
      * may also be used by DISs to enforce different access control 
      * to different types of notes.</p>
      * 
-     * <p>Other Business Name: PatientNoteCategory</p>
+     * <p>Un-merged Business Name: PatientNoteCategory</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.code</p>
      * 
@@ -186,7 +186,7 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PatientNoteText</p>
+     * <p>Un-merged Business Name: PatientNoteText</p>
      * 
      * <p>Relationship: COMT_MT300001CA.Annotation.text</p>
      * 
@@ -200,7 +200,7 @@ public class CommentBean extends MessagePartBean {
      * point in having a patient note unless there's actually 
      * content in the note.</p>
      * 
-     * <p>Other Business Name: PatientNoteText</p>
+     * <p>Un-merged Business Name: PatientNoteText</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.text</p>
      * 
@@ -214,7 +214,7 @@ public class CommentBean extends MessagePartBean {
      * point in having a patient note unless there's actually 
      * content in the note.</p>
      * 
-     * <p>Other Business Name: AnnotationText</p>
+     * <p>Un-merged Business Name: AnnotationText</p>
      * 
      * <p>Relationship: COMT_MT301001CA.Annotation.text</p>
      * 
@@ -228,7 +228,7 @@ public class CommentBean extends MessagePartBean {
      * mandatory because there's no point in having an annotation 
      * unless there's actually content in the note.</p>
      * 
-     * <p>Other Business Name: NoteText</p>
+     * <p>Un-merged Business Name: NoteText</p>
      * 
      * <p>Relationship: COCT_MT120600CA.Annotation.text</p>
      * 
@@ -248,7 +248,7 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PatientNoteText</p>
+     * <p>Un-merged Business Name: PatientNoteText</p>
      * 
      * <p>Relationship: COMT_MT300001CA.Annotation.text</p>
      * 
@@ -262,7 +262,7 @@ public class CommentBean extends MessagePartBean {
      * point in having a patient note unless there's actually 
      * content in the note.</p>
      * 
-     * <p>Other Business Name: PatientNoteText</p>
+     * <p>Un-merged Business Name: PatientNoteText</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.text</p>
      * 
@@ -276,7 +276,7 @@ public class CommentBean extends MessagePartBean {
      * point in having a patient note unless there's actually 
      * content in the note.</p>
      * 
-     * <p>Other Business Name: AnnotationText</p>
+     * <p>Un-merged Business Name: AnnotationText</p>
      * 
      * <p>Relationship: COMT_MT301001CA.Annotation.text</p>
      * 
@@ -290,7 +290,7 @@ public class CommentBean extends MessagePartBean {
      * mandatory because there's no point in having an annotation 
      * unless there's actually content in the note.</p>
      * 
-     * <p>Other Business Name: NoteText</p>
+     * <p>Un-merged Business Name: NoteText</p>
      * 
      * <p>Relationship: COCT_MT120600CA.Annotation.text</p>
      * 
@@ -312,7 +312,7 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: CommentPertainsTo</p>
      * 
-     * <p>Other Business Name: CommentPertainsTo</p>
+     * <p>Un-merged Business Name: CommentPertainsTo</p>
      * 
      * <p>Relationship: COMT_MT300001CA.RecordTarget.patient</p>
      * 
@@ -321,7 +321,7 @@ public class CommentBean extends MessagePartBean {
      * <p><div>This uses COCT_MT050202CA &ndash; Patient 
      * Person&nbsp;Identified Confirmable.&nbsp;</div></p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT300003CA.RecordTarget.patient</p>
      * 
@@ -335,7 +335,7 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: CommentPertainsTo</p>
      * 
-     * <p>Other Business Name: CommentPertainsTo</p>
+     * <p>Un-merged Business Name: CommentPertainsTo</p>
      * 
      * <p>Relationship: COMT_MT300001CA.RecordTarget.patient</p>
      * 
@@ -344,7 +344,7 @@ public class CommentBean extends MessagePartBean {
      * <p><div>This uses COCT_MT050202CA &ndash; Patient 
      * Person&nbsp;Identified Confirmable.&nbsp;</div></p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT300003CA.RecordTarget.patient</p>
      * 
@@ -358,7 +358,7 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientNoteId</p>
      * 
-     * <p>Other Business Name: PatientNoteId</p>
+     * <p>Un-merged Business Name: PatientNoteId</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.id</p>
      * 
@@ -384,7 +384,7 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientNoteId</p>
      * 
-     * <p>Other Business Name: PatientNoteId</p>
+     * <p>Un-merged Business Name: PatientNoteId</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.id</p>
      * 
@@ -410,7 +410,7 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: SupervisedBy</p>
      * 
-     * <p>Other Business Name: SupervisedBy</p>
+     * <p>Un-merged Business Name: SupervisedBy</p>
      * 
      * <p>Relationship: 
      * COMT_MT300003CA.ResponsibleParty.assignedPerson</p>
@@ -428,7 +428,7 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: SupervisedBy</p>
      * 
-     * <p>Other Business Name: SupervisedBy</p>
+     * <p>Un-merged Business Name: SupervisedBy</p>
      * 
      * <p>Relationship: 
      * COMT_MT300003CA.ResponsibleParty.assignedPerson</p>
@@ -444,13 +444,13 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT120600CA.Annotation.author</p>
      * 
@@ -465,13 +465,13 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT120600CA.Annotation.author</p>
      * 
@@ -486,7 +486,7 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.location</p>
      * 
@@ -498,7 +498,7 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.location</p>
      * 
@@ -512,13 +512,13 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: WrittenIn</p>
      * 
-     * <p>Other Business Name: WrittenIn</p>
+     * <p>Un-merged Business Name: WrittenIn</p>
      * 
      * <p>Relationship: COMT_MT301001CA.Annotation.languageCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: WrittenIn</p>
+     * <p>Un-merged Business Name: WrittenIn</p>
      * 
      * <p>Relationship: COCT_MT120600CA.Annotation.languageCode</p>
      * 
@@ -545,13 +545,13 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Business Name: WrittenIn</p>
      * 
-     * <p>Other Business Name: WrittenIn</p>
+     * <p>Un-merged Business Name: WrittenIn</p>
      * 
      * <p>Relationship: COMT_MT301001CA.Annotation.languageCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: WrittenIn</p>
+     * <p>Un-merged Business Name: WrittenIn</p>
      * 
      * <p>Relationship: COCT_MT120600CA.Annotation.languageCode</p>
      * 
@@ -576,7 +576,7 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT301001CA.Subject.annotatedAct</p>
      * 
@@ -588,7 +588,7 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT301001CA.Subject.annotatedAct</p>
      * 

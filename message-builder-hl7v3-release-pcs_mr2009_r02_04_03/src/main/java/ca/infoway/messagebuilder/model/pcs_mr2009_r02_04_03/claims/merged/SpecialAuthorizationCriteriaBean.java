@@ -43,14 +43,14 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     /**
      * <p>Business Name: GeneralSupportingInformationType</p>
      * 
-     * <p>Other Business Name: GeneralSupportingInformationType</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationType</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationCriteria.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: GeneralSupportingInformationType</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationType</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationCriteria.code</p>
@@ -65,14 +65,14 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     /**
      * <p>Business Name: GeneralSupportingInformationType</p>
      * 
-     * <p>Other Business Name: GeneralSupportingInformationType</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationType</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationCriteria.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: GeneralSupportingInformationType</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationType</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationCriteria.code</p>
@@ -85,14 +85,14 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: GeneralSupportingInformationText</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationText</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationCriteria.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationCriteriaText</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationCriteriaText</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationCriteria.text</p>
@@ -105,14 +105,14 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: GeneralSupportingInformationText</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationText</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationCriteria.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationCriteriaText</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationCriteriaText</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationCriteria.text</p>
@@ -127,14 +127,14 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     /**
      * <p>Business Name: GeneralSupportingInformationValue</p>
      * 
-     * <p>Other Business Name: GeneralSupportingInformationValue</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationValue</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationCriteria.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: GeneralSupportingInformationValue</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationValue</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationCriteria.value</p>
@@ -149,14 +149,14 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     /**
      * <p>Business Name: GeneralSupportingInformationValue</p>
      * 
-     * <p>Other Business Name: GeneralSupportingInformationValue</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationValue</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationCriteria.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: GeneralSupportingInformationValue</p>
+     * <p>Un-merged Business Name: GeneralSupportingInformationValue</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationCriteria.value</p>

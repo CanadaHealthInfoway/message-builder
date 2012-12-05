@@ -59,7 +59,7 @@ public class InformantBean extends MessagePartBean {
     /**
      * <p>Business Name: DateOfInformation</p>
      * 
-     * <p>Other Business Name: DateOfInformation</p>
+     * <p>Un-merged Business Name: DateOfInformation</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Informant.time</p>
      * 
@@ -77,13 +77,13 @@ public class InformantBean extends MessagePartBean {
      * immunization event. This may differ from the time of the 
      * immunization event for historical entries.</p>
      * 
-     * <p>Other Business Name: DateOfInformation</p>
+     * <p>Un-merged Business Name: DateOfInformation</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: DateOfInformation</p>
+     * <p>Un-merged Business Name: DateOfInformation</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Informant.time</p>
      * 
@@ -97,7 +97,7 @@ public class InformantBean extends MessagePartBean {
     /**
      * <p>Business Name: DateOfInformation</p>
      * 
-     * <p>Other Business Name: DateOfInformation</p>
+     * <p>Un-merged Business Name: DateOfInformation</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Informant.time</p>
      * 
@@ -115,13 +115,13 @@ public class InformantBean extends MessagePartBean {
      * immunization event. This may differ from the time of the 
      * immunization event for historical entries.</p>
      * 
-     * <p>Other Business Name: DateOfInformation</p>
+     * <p>Un-merged Business Name: DateOfInformation</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Informant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: DateOfInformation</p>
+     * <p>Un-merged Business Name: DateOfInformation</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Informant.time</p>
      * 
@@ -135,7 +135,7 @@ public class InformantBean extends MessagePartBean {
     /**
      * <p>Business Name: InformationSourceForm</p>
      * 
-     * <p>Other Business Name: InformationSourceForm</p>
+     * <p>Un-merged Business Name: InformationSourceForm</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Informant.modeCode</p>
      * 
@@ -148,13 +148,13 @@ public class InformantBean extends MessagePartBean {
      * <p>Describes how the information was presented by the 
      * information source.</p>
      * 
-     * <p>Other Business Name: InformationSourceForm</p>
+     * <p>Un-merged Business Name: InformationSourceForm</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Informant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: InformationSourceForm</p>
+     * <p>Un-merged Business Name: InformationSourceForm</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Informant.modeCode</p>
      * 
@@ -168,7 +168,7 @@ public class InformantBean extends MessagePartBean {
     /**
      * <p>Business Name: InformationSourceForm</p>
      * 
-     * <p>Other Business Name: InformationSourceForm</p>
+     * <p>Un-merged Business Name: InformationSourceForm</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Informant.modeCode</p>
      * 
@@ -181,13 +181,13 @@ public class InformantBean extends MessagePartBean {
      * <p>Describes how the information was presented by the 
      * information source.</p>
      * 
-     * <p>Other Business Name: InformationSourceForm</p>
+     * <p>Un-merged Business Name: InformationSourceForm</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Informant.modeCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: InformationSourceForm</p>
+     * <p>Un-merged Business Name: InformationSourceForm</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Informant.modeCode</p>
      * 
@@ -199,21 +199,21 @@ public class InformantBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Informant.informationSourceChoice</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Informant.informationSourceChoice</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Informant.informationSourceChoice</p>
@@ -226,21 +226,21 @@ public class InformantBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Informant.informationSourceChoice</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Informant.informationSourceChoice</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Informant.informationSourceChoice</p>

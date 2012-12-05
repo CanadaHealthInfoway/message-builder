@@ -184,7 +184,7 @@ public class ManagedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Author1.time</p>
      * 
@@ -198,7 +198,7 @@ public class ManagedByBean extends MessagePartBean {
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author1.time</p>
      * 
@@ -220,7 +220,7 @@ public class ManagedByBean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author1.time</p>
      * 
@@ -242,7 +242,7 @@ public class ManagedByBean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Author1.time</p>
      * 
@@ -256,7 +256,7 @@ public class ManagedByBean extends MessagePartBean {
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author1.time</p>
      * 
@@ -278,7 +278,7 @@ public class ManagedByBean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; as the time the 
      * comment was posted will always be known.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.time</p>
      * 
@@ -298,7 +298,7 @@ public class ManagedByBean extends MessagePartBean {
      * marked as &quot;mandatory&quot; as the time of change must 
      * be known.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Author1.time</p>
      * 
@@ -312,7 +312,7 @@ public class ManagedByBean extends MessagePartBean {
      * <p>Part of the audit record but not always available and 
      * therefore only marked as 'populated'.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author6.time</p>
      * 
@@ -324,7 +324,7 @@ public class ManagedByBean extends MessagePartBean {
      * evaluating any post-change issues with the prescription 
      * dispense. Also used for sorting and audit purposes.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author6.time</p>
      * 
@@ -350,7 +350,7 @@ public class ManagedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Author1.time</p>
      * 
@@ -364,7 +364,7 @@ public class ManagedByBean extends MessagePartBean {
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author1.time</p>
      * 
@@ -386,7 +386,7 @@ public class ManagedByBean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author1.time</p>
      * 
@@ -408,7 +408,7 @@ public class ManagedByBean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Author1.time</p>
      * 
@@ -422,7 +422,7 @@ public class ManagedByBean extends MessagePartBean {
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author1.time</p>
      * 
@@ -444,7 +444,7 @@ public class ManagedByBean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; as the time the 
      * comment was posted will always be known.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.time</p>
      * 
@@ -464,7 +464,7 @@ public class ManagedByBean extends MessagePartBean {
      * marked as &quot;mandatory&quot; as the time of change must 
      * be known.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Author1.time</p>
      * 
@@ -478,7 +478,7 @@ public class ManagedByBean extends MessagePartBean {
      * <p>Part of the audit record but not always available and 
      * therefore only marked as 'populated'.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author6.time</p>
      * 
@@ -490,7 +490,7 @@ public class ManagedByBean extends MessagePartBean {
      * evaluating any post-change issues with the prescription 
      * dispense. Also used for sorting and audit purposes.</p>
      * 
-     * <p>Other Business Name: ChangeTimestamp</p>
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author6.time</p>
      * 
@@ -516,19 +516,19 @@ public class ManagedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Author1.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Author1.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Author1.assignedPerson</p>
      * 
@@ -540,19 +540,19 @@ public class ManagedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Author1.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Author1.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Author1.assignedPerson</p>
      * 
@@ -564,37 +564,37 @@ public class ManagedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author6.changedBy</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author6.changedBy</p>
      * 
@@ -606,37 +606,37 @@ public class ManagedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author6.changedBy</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author6.changedBy</p>
      * 

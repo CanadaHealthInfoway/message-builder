@@ -43,14 +43,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.classCode</p>
@@ -63,14 +63,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.classCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.classCode</p>
@@ -83,14 +83,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.moodCode</p>
@@ -103,14 +103,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.moodCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.moodCode</p>
@@ -125,7 +125,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
@@ -137,7 +137,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * 
      * <p>A prescription can authorize multiple fills.</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
@@ -157,7 +157,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
@@ -169,7 +169,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * 
      * <p>A prescription can authorize multiple fills.</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
@@ -189,7 +189,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: FillQuantity</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
@@ -201,7 +201,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * <p>The prescription is usually authorized for a specific 
      * quantity for each fill.</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.quantity</p>
@@ -221,7 +221,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: FillQuantity</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
@@ -233,7 +233,7 @@ public class SupplementalFillInformationBean extends MessagePartBean {
      * <p>The prescription is usually authorized for a specific 
      * quantity for each fill.</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.quantity</p>

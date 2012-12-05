@@ -108,7 +108,7 @@ public class SortControlBean extends MessagePartBean {
     /**
      * <p>Business Name: SequenceNumber</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.SortControl.sequenceNumber</p>
      * 
@@ -120,7 +120,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.SortControl.sequenceNumber</p>
      * 
@@ -132,7 +132,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.SortControl.sequenceNumber</p>
      * 
@@ -144,7 +144,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.SortControl.sequenceNumber</p>
      * 
@@ -156,7 +156,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.SortControl.sequenceNumber</p>
      * 
@@ -168,7 +168,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.SortControl.sequenceNumber</p>
      * 
@@ -188,7 +188,7 @@ public class SortControlBean extends MessagePartBean {
     /**
      * <p>Business Name: SequenceNumber</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.SortControl.sequenceNumber</p>
      * 
@@ -200,7 +200,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.SortControl.sequenceNumber</p>
      * 
@@ -212,7 +212,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.SortControl.sequenceNumber</p>
      * 
@@ -224,7 +224,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.SortControl.sequenceNumber</p>
      * 
@@ -236,7 +236,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.SortControl.sequenceNumber</p>
      * 
@@ -248,7 +248,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
      * 
-     * <p>Other Business Name: SequenceNumber</p>
+     * <p>Un-merged Business Name: SequenceNumber</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.SortControl.sequenceNumber</p>
      * 
@@ -268,7 +268,7 @@ public class SortControlBean extends MessagePartBean {
     /**
      * <p>Business Name: SortElementName</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.SortControl.elementName</p>
      * 
@@ -278,7 +278,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.SortControl.elementName</p>
      * 
@@ -288,7 +288,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.SortControl.elementName</p>
      * 
@@ -298,7 +298,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.SortControl.elementName</p>
      * 
@@ -308,7 +308,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.SortControl.elementName</p>
      * 
@@ -318,7 +318,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.SortControl.elementName</p>
      * 
@@ -336,7 +336,7 @@ public class SortControlBean extends MessagePartBean {
     /**
      * <p>Business Name: SortElementName</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.SortControl.elementName</p>
      * 
@@ -346,7 +346,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.SortControl.elementName</p>
      * 
@@ -356,7 +356,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.SortControl.elementName</p>
      * 
@@ -366,7 +366,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.SortControl.elementName</p>
      * 
@@ -376,7 +376,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.SortControl.elementName</p>
      * 
@@ -386,7 +386,7 @@ public class SortControlBean extends MessagePartBean {
      * 
      * <p>Name of the element to sort.</p>
      * 
-     * <p>Other Business Name: SortElementName</p>
+     * <p>Un-merged Business Name: SortElementName</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.SortControl.elementName</p>
      * 
@@ -404,7 +404,7 @@ public class SortControlBean extends MessagePartBean {
     /**
      * <p>Business Name: SortControlDirection</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.SortControl.directionCode</p>
      * 
@@ -415,7 +415,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.SortControl.directionCode</p>
      * 
@@ -426,7 +426,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.SortControl.directionCode</p>
      * 
@@ -437,7 +437,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.SortControl.directionCode</p>
      * 
@@ -448,7 +448,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.SortControl.directionCode</p>
      * 
@@ -459,7 +459,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.SortControl.directionCode</p>
      * 
@@ -478,7 +478,7 @@ public class SortControlBean extends MessagePartBean {
     /**
      * <p>Business Name: SortControlDirection</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.SortControl.directionCode</p>
      * 
@@ -489,7 +489,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.SortControl.directionCode</p>
      * 
@@ -500,7 +500,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.SortControl.directionCode</p>
      * 
@@ -511,7 +511,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.SortControl.directionCode</p>
      * 
@@ -522,7 +522,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.SortControl.directionCode</p>
      * 
@@ -533,7 +533,7 @@ public class SortControlBean extends MessagePartBean {
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
      * 
-     * <p>Other Business Name: SortControlDirection</p>
+     * <p>Un-merged Business Name: SortControlDirection</p>
      * 
      * <p>Relationship: MFMI_MT700746CA.SortControl.directionCode</p>
      * 

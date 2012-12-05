@@ -85,7 +85,7 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: MedicalConditionStatusChangeType</p>
+     * <p>Un-merged Business Name: MedicalConditionStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.code</p>
      * 
@@ -96,7 +96,7 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatusChangeType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
@@ -109,7 +109,7 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Business Name: ChangeType</p>
+     * <p>Un-merged Business Name: ChangeType</p>
      * 
      * <p>Relationship: COCT_MT130001CA.ControlActEvent.code</p>
      * 
@@ -126,7 +126,7 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: MedicalConditionStatusChangeType</p>
+     * <p>Un-merged Business Name: MedicalConditionStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.code</p>
      * 
@@ -137,7 +137,7 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatusChangeType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
@@ -150,7 +150,7 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Business Name: ChangeType</p>
+     * <p>Un-merged Business Name: ChangeType</p>
      * 
      * <p>Relationship: COCT_MT130001CA.ControlActEvent.code</p>
      * 
@@ -167,7 +167,7 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * MedicalConditionStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
@@ -186,7 +186,7 @@ public class VersionInformationBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
@@ -201,7 +201,7 @@ public class VersionInformationBean extends MessagePartBean {
      * on which a change is effective should always be known and 
      * thus is mandatory.</p>
      * 
-     * <p>Other Business Name: ChangeEffectiveDateAndEndDate</p>
+     * <p>Un-merged Business Name: ChangeEffectiveDateAndEndDate</p>
      * 
      * <p>Relationship: 
      * COCT_MT130001CA.ControlActEvent.effectiveTime</p>
@@ -224,7 +224,7 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * MedicalConditionStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
@@ -243,7 +243,7 @@ public class VersionInformationBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
@@ -258,7 +258,7 @@ public class VersionInformationBean extends MessagePartBean {
      * on which a change is effective should always be known and 
      * thus is mandatory.</p>
      * 
-     * <p>Other Business Name: ChangeEffectiveDateAndEndDate</p>
+     * <p>Un-merged Business Name: ChangeEffectiveDateAndEndDate</p>
      * 
      * <p>Relationship: 
      * COCT_MT130001CA.ControlActEvent.effectiveTime</p>
@@ -281,7 +281,7 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: MedicalConditionStatusChangeReason</p>
+     * <p>Un-merged Business Name: MedicalConditionStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
@@ -294,7 +294,7 @@ public class VersionInformationBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
@@ -307,7 +307,7 @@ public class VersionInformationBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: ChangeReason</p>
+     * <p>Un-merged Business Name: ChangeReason</p>
      * 
      * <p>Relationship: COCT_MT130001CA.ControlActEvent.reasonCode</p>
      * 
@@ -325,7 +325,7 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: MedicalConditionStatusChangeReason</p>
+     * <p>Un-merged Business Name: MedicalConditionStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
@@ -338,7 +338,7 @@ public class VersionInformationBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
@@ -351,7 +351,7 @@ public class VersionInformationBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Business Name: ChangeReason</p>
+     * <p>Un-merged Business Name: ChangeReason</p>
      * 
      * <p>Relationship: COCT_MT130001CA.ControlActEvent.reasonCode</p>
      * 
@@ -369,14 +369,14 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000010CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.ResponsibleParty2.assignedPerson</p>
@@ -389,14 +389,14 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000010CA.ResponsibleParty2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.ResponsibleParty2.assignedPerson</p>
@@ -409,13 +409,13 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
      * 
@@ -424,7 +424,7 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>&nbsp;Identity of the health service provider responsible 
      * for&nbsp;the change in the allergy/intolerance status.</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT130001CA.ControlActEvent.author</p>
      * 
@@ -436,13 +436,13 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
      * 
@@ -451,7 +451,7 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>&nbsp;Identity of the health service provider responsible 
      * for&nbsp;the change in the allergy/intolerance status.</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT130001CA.ControlActEvent.author</p>
      * 
@@ -465,7 +465,7 @@ public class VersionInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: ChangeIdentifier</p>
      * 
-     * <p>Other Business Name: ChangeIdentifier</p>
+     * <p>Un-merged Business Name: ChangeIdentifier</p>
      * 
      * <p>Relationship: COCT_MT130001CA.ControlActEvent.id</p>
      * 
@@ -485,7 +485,7 @@ public class VersionInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: ChangeIdentifier</p>
      * 
-     * <p>Other Business Name: ChangeIdentifier</p>
+     * <p>Un-merged Business Name: ChangeIdentifier</p>
      * 
      * <p>Relationship: COCT_MT130001CA.ControlActEvent.id</p>
      * 

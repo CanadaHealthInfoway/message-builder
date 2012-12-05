@@ -37,13 +37,13 @@ public class AllowableBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PaidAmount</p>
+     * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: FeeScheduledEligibileAmt</p>
+     * <p>Un-merged Business Name: FeeScheduledEligibileAmt</p>
      * 
      * <p>Relationship: FICR_MT510201CA.Allowable.netAmt</p>
      * 
@@ -55,13 +55,13 @@ public class AllowableBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PaidAmount</p>
+     * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: FeeScheduledEligibileAmt</p>
+     * <p>Un-merged Business Name: FeeScheduledEligibileAmt</p>
      * 
      * <p>Relationship: FICR_MT510201CA.Allowable.netAmt</p>
      * 

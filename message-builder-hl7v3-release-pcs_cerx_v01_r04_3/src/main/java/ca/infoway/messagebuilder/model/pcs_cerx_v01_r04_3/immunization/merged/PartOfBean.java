@@ -64,7 +64,7 @@ public class PartOfBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineDoseNumber</p>
      * 
-     * <p>Other Business Name: VaccineDoseNumber</p>
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InFulfillmentOf3.sequenceNumber</p>
@@ -80,7 +80,7 @@ public class PartOfBean extends MessagePartBean {
      * Number = 1) or a specific booster (Dose Number = 2 means 
      * first booster, 3 means 2nd booster, etc.).</p>
      * 
-     * <p>Other Business Name: VaccineDoseNumber</p>
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InFulfillmentOf3.sequenceNumber</p>
@@ -96,7 +96,7 @@ public class PartOfBean extends MessagePartBean {
      * Number = 1) or a specific booster (Dose Number = 2 means 
      * first booster, 3 means 2nd booster, etc.).</p>
      * 
-     * <p>Other Business Name: VaccineDoseNumber</p>
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InFulfillmentOf3.sequenceNumber</p>
@@ -121,7 +121,7 @@ public class PartOfBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineDoseNumber</p>
      * 
-     * <p>Other Business Name: VaccineDoseNumber</p>
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InFulfillmentOf3.sequenceNumber</p>
@@ -137,7 +137,7 @@ public class PartOfBean extends MessagePartBean {
      * Number = 1) or a specific booster (Dose Number = 2 means 
      * first booster, 3 means 2nd booster, etc.).</p>
      * 
-     * <p>Other Business Name: VaccineDoseNumber</p>
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InFulfillmentOf3.sequenceNumber</p>
@@ -153,7 +153,7 @@ public class PartOfBean extends MessagePartBean {
      * Number = 1) or a specific booster (Dose Number = 2 means 
      * first booster, 3 means 2nd booster, etc.).</p>
      * 
-     * <p>Other Business Name: VaccineDoseNumber</p>
+     * <p>Un-merged Business Name: VaccineDoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InFulfillmentOf3.sequenceNumber</p>
@@ -176,21 +176,21 @@ public class PartOfBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InFulfillmentOf3.immunizationPlan</p>
@@ -203,21 +203,21 @@ public class PartOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InFulfillmentOf3.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InFulfillmentOf3.immunizationPlan</p>

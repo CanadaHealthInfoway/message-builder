@@ -100,7 +100,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ConditionType</p>
      * 
-     * <p>Other Business Name: ConditionType</p>
+     * <p>Un-merged Business Name: ConditionType</p>
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.code</p>
      * 
@@ -117,7 +117,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Indicates what kind of condition is being reported.</p>
      * 
-     * <p>Other Business Name: ConditionType</p>
+     * <p>Un-merged Business Name: ConditionType</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.code</p>
      * 
@@ -142,7 +142,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ConditionType</p>
      * 
-     * <p>Other Business Name: ConditionType</p>
+     * <p>Un-merged Business Name: ConditionType</p>
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.code</p>
      * 
@@ -159,7 +159,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Indicates what kind of condition is being reported.</p>
      * 
-     * <p>Other Business Name: ConditionType</p>
+     * <p>Un-merged Business Name: ConditionType</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.code</p>
      * 
@@ -184,7 +184,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ConditionStatus</p>
      * 
-     * <p>Other Business Name: ConditionStatus</p>
+     * <p>Un-merged Business Name: ConditionStatus</p>
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.statusCode</p>
      * 
@@ -200,7 +200,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * still affecting the patient. 'completed' means the condition 
      * no longer holds</p>
      * 
-     * <p>Other Business Name: ConditionStatus</p>
+     * <p>Un-merged Business Name: ConditionStatus</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.statusCode</p>
      * 
@@ -224,7 +224,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ConditionStatus</p>
      * 
-     * <p>Other Business Name: ConditionStatus</p>
+     * <p>Un-merged Business Name: ConditionStatus</p>
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.statusCode</p>
      * 
@@ -240,7 +240,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * still affecting the patient. 'completed' means the condition 
      * no longer holds</p>
      * 
-     * <p>Other Business Name: ConditionStatus</p>
+     * <p>Un-merged Business Name: ConditionStatus</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.statusCode</p>
      * 
@@ -264,7 +264,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ConditionTimePeriod</p>
      * 
-     * <p>Other Business Name: ConditionTimePeriod</p>
+     * <p>Un-merged Business Name: ConditionTimePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000003CA.MedicalCondition.effectiveTime</p>
@@ -281,7 +281,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * upper boundary of the period would usually be specified to 
      * signify the end of the condition.</p>
      * 
-     * <p>Other Business Name: ConditionTimePeriod</p>
+     * <p>Un-merged Business Name: ConditionTimePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000014CA.MedicalCondition.effectiveTime</p>
@@ -306,7 +306,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ConditionTimePeriod</p>
      * 
-     * <p>Other Business Name: ConditionTimePeriod</p>
+     * <p>Un-merged Business Name: ConditionTimePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000003CA.MedicalCondition.effectiveTime</p>
@@ -323,7 +323,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * upper boundary of the period would usually be specified to 
      * signify the end of the condition.</p>
      * 
-     * <p>Other Business Name: ConditionTimePeriod</p>
+     * <p>Un-merged Business Name: ConditionTimePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000014CA.MedicalCondition.effectiveTime</p>
@@ -346,7 +346,7 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ConditionMaskingIndicator</p>
+     * <p>Un-merged Business Name: ConditionMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000003CA.MedicalCondition.confidentialityCode</p>
@@ -364,7 +364,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
      * default confidentiality level is 'NORMAL'.</p>
      * 
-     * <p>Other Business Name: MedicalConditionMaskingIndicator</p>
+     * <p>Un-merged Business Name: MedicalConditionMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000014CA.MedicalCondition.confidentialityCode</p>
@@ -388,7 +388,7 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ConditionMaskingIndicator</p>
+     * <p>Un-merged Business Name: ConditionMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000003CA.MedicalCondition.confidentialityCode</p>
@@ -406,7 +406,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * (e.g. court orders, shared secret/consent, etc.).</p><p>The 
      * default confidentiality level is 'NORMAL'.</p>
      * 
-     * <p>Other Business Name: MedicalConditionMaskingIndicator</p>
+     * <p>Un-merged Business Name: MedicalConditionMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000014CA.MedicalCondition.confidentialityCode</p>
@@ -432,7 +432,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: Condition</p>
      * 
-     * <p>Other Business Name: Condition</p>
+     * <p>Un-merged Business Name: Condition</p>
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.value</p>
      * 
@@ -446,7 +446,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>A code indicating the specific condition. E.g. 
      * Hypertension, Pregnancy.</p>
      * 
-     * <p>Other Business Name: Condition</p>
+     * <p>Un-merged Business Name: Condition</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.value</p>
      * 
@@ -468,7 +468,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: Condition</p>
      * 
-     * <p>Other Business Name: Condition</p>
+     * <p>Un-merged Business Name: Condition</p>
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.value</p>
      * 
@@ -482,7 +482,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>A code indicating the specific condition. E.g. 
      * Hypertension, Pregnancy.</p>
      * 
-     * <p>Other Business Name: Condition</p>
+     * <p>Un-merged Business Name: Condition</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.value</p>
      * 
@@ -502,13 +502,13 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Subject2.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Subject2.patient</p>
      * 
@@ -520,13 +520,13 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Subject2.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Subject2.patient</p>
      * 
@@ -538,13 +538,13 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.informant</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.informant</p>
      * 
@@ -556,13 +556,13 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.informant</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.informant</p>
      * 
@@ -574,13 +574,13 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Subject.chronicIndicator</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Subject.chronicIndicator</p>
      * 
@@ -597,13 +597,13 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Subject.chronicIndicator</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Subject.chronicIndicator</p>
      * 
@@ -615,7 +615,7 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Subject3.annotation</p>
      * 
@@ -627,7 +627,7 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000003CA.Subject3.annotation</p>
      * 
@@ -641,7 +641,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicalConditionRecordId</p>
      * 
-     * <p>Other Business Name: MedicalConditionRecordId</p>
+     * <p>Un-merged Business Name: MedicalConditionRecordId</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.id</p>
      * 
@@ -662,7 +662,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicalConditionRecordId</p>
      * 
-     * <p>Other Business Name: MedicalConditionRecordId</p>
+     * <p>Un-merged Business Name: MedicalConditionRecordId</p>
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.id</p>
      * 

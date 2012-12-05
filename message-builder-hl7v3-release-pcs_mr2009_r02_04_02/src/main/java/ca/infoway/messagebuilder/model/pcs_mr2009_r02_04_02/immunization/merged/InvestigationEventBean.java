@@ -93,7 +93,7 @@ public class InvestigationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: AdverseEventReportID</p>
      * 
-     * <p>Other Business Name: AdverseEventReportID</p>
+     * <p>Un-merged Business Name: AdverseEventReportID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.id</p>
      * 
@@ -107,7 +107,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * example would be the unique episode number assigned to the 
      * Report of Adverse Events Following Immunization (AEFI).</p>
      * 
-     * <p>Other Business Name: AdverseEventReportID</p>
+     * <p>Un-merged Business Name: AdverseEventReportID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.id</p>
      * 
@@ -121,7 +121,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * example would be the unique episode number assigned to the 
      * Report of Adverse Events Following Immunization (AEFI).</p>
      * 
-     * <p>Other Business Name: AdverseEventReportID</p>
+     * <p>Un-merged Business Name: AdverseEventReportID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.id</p>
      * 
@@ -135,7 +135,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * example would be the unique episode number assigned to the 
      * Report of Adverse Events Following Immunization (AEFI).</p>
      * 
-     * <p>Other Business Name: AdverseEventReportID</p>
+     * <p>Un-merged Business Name: AdverseEventReportID</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.id</p>
      * 
@@ -157,7 +157,7 @@ public class InvestigationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: AdverseEventReportID</p>
      * 
-     * <p>Other Business Name: AdverseEventReportID</p>
+     * <p>Un-merged Business Name: AdverseEventReportID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.id</p>
      * 
@@ -171,7 +171,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * example would be the unique episode number assigned to the 
      * Report of Adverse Events Following Immunization (AEFI).</p>
      * 
-     * <p>Other Business Name: AdverseEventReportID</p>
+     * <p>Un-merged Business Name: AdverseEventReportID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.id</p>
      * 
@@ -185,7 +185,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * example would be the unique episode number assigned to the 
      * Report of Adverse Events Following Immunization (AEFI).</p>
      * 
-     * <p>Other Business Name: AdverseEventReportID</p>
+     * <p>Un-merged Business Name: AdverseEventReportID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.id</p>
      * 
@@ -199,7 +199,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * example would be the unique episode number assigned to the 
      * Report of Adverse Events Following Immunization (AEFI).</p>
      * 
-     * <p>Other Business Name: AdverseEventReportID</p>
+     * <p>Un-merged Business Name: AdverseEventReportID</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.id</p>
      * 
@@ -221,7 +221,7 @@ public class InvestigationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReportType</p>
      * 
-     * <p>Other Business Name: ReportType</p>
+     * <p>Un-merged Business Name: ReportType</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.code</p>
      * 
@@ -232,7 +232,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>A coded value that indicates the type of report that was 
      * filed.</p>
      * 
-     * <p>Other Business Name: ReportType</p>
+     * <p>Un-merged Business Name: ReportType</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.code</p>
      * 
@@ -243,7 +243,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>A coded value that indicates the type of report that was 
      * filed.</p>
      * 
-     * <p>Other Business Name: ReportType</p>
+     * <p>Un-merged Business Name: ReportType</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.code</p>
      * 
@@ -254,7 +254,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>A coded value that indicates the type of report that was 
      * filed.</p>
      * 
-     * <p>Other Business Name: ReportType</p>
+     * <p>Un-merged Business Name: ReportType</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.code</p>
      * 
@@ -273,7 +273,7 @@ public class InvestigationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReportType</p>
      * 
-     * <p>Other Business Name: ReportType</p>
+     * <p>Un-merged Business Name: ReportType</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.code</p>
      * 
@@ -284,7 +284,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>A coded value that indicates the type of report that was 
      * filed.</p>
      * 
-     * <p>Other Business Name: ReportType</p>
+     * <p>Un-merged Business Name: ReportType</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.code</p>
      * 
@@ -295,7 +295,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>A coded value that indicates the type of report that was 
      * filed.</p>
      * 
-     * <p>Other Business Name: ReportType</p>
+     * <p>Un-merged Business Name: ReportType</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.code</p>
      * 
@@ -306,7 +306,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>A coded value that indicates the type of report that was 
      * filed.</p>
      * 
-     * <p>Other Business Name: ReportType</p>
+     * <p>Un-merged Business Name: ReportType</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.code</p>
      * 
@@ -323,7 +323,7 @@ public class InvestigationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: AdverseEventReportText</p>
+     * <p>Un-merged Business Name: AdverseEventReportText</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.text</p>
      * 
@@ -336,7 +336,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>Textual description of the Adverse Event Following 
      * Immunization reported</p>
      * 
-     * <p>Other Business Name: AdverseEventText</p>
+     * <p>Un-merged Business Name: AdverseEventText</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.text</p>
      * 
@@ -349,7 +349,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>Textual description of the Adverse Event Following 
      * Immunization reported</p>
      * 
-     * <p>Other Business Name: AdverseEventText</p>
+     * <p>Un-merged Business Name: AdverseEventText</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.text</p>
      * 
@@ -362,7 +362,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>Textual description of the Adverse Event Following 
      * Immunization reported</p>
      * 
-     * <p>Other Business Name: AdverseEventText</p>
+     * <p>Un-merged Business Name: AdverseEventText</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.text</p>
      * 
@@ -381,7 +381,7 @@ public class InvestigationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: AdverseEventReportText</p>
+     * <p>Un-merged Business Name: AdverseEventReportText</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.InvestigationEvent.text</p>
      * 
@@ -394,7 +394,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>Textual description of the Adverse Event Following 
      * Immunization reported</p>
      * 
-     * <p>Other Business Name: AdverseEventText</p>
+     * <p>Un-merged Business Name: AdverseEventText</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.InvestigationEvent.text</p>
      * 
@@ -407,7 +407,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>Textual description of the Adverse Event Following 
      * Immunization reported</p>
      * 
-     * <p>Other Business Name: AdverseEventText</p>
+     * <p>Un-merged Business Name: AdverseEventText</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.InvestigationEvent.text</p>
      * 
@@ -420,7 +420,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * <p>Textual description of the Adverse Event Following 
      * Immunization reported</p>
      * 
-     * <p>Other Business Name: AdverseEventText</p>
+     * <p>Un-merged Business Name: AdverseEventText</p>
      * 
      * <p>Relationship: POIZ_MT061150CA.InvestigationEvent.text</p>
      * 
@@ -441,7 +441,7 @@ public class InvestigationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReportStatus</p>
      * 
-     * <p>Other Business Name: ReportStatus</p>
+     * <p>Un-merged Business Name: ReportStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InvestigationEvent.statusCode</p>
@@ -456,7 +456,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * process, which in this case is an Adverse Event Report. 
      * Status examples: active, completed, etc.</p>
      * 
-     * <p>Other Business Name: ReportStatus</p>
+     * <p>Un-merged Business Name: ReportStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InvestigationEvent.statusCode</p>
@@ -471,7 +471,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * process, which in this case is an Adverse Event Report. 
      * Status examples: active, completed, etc.</p>
      * 
-     * <p>Other Business Name: ReportStatus</p>
+     * <p>Un-merged Business Name: ReportStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InvestigationEvent.statusCode</p>
@@ -486,7 +486,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * process, which in this case is an Adverse Event Report. 
      * Status examples: active, completed, etc.</p>
      * 
-     * <p>Other Business Name: ReportStatus</p>
+     * <p>Un-merged Business Name: ReportStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT061150CA.InvestigationEvent.statusCode</p>
@@ -509,7 +509,7 @@ public class InvestigationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReportStatus</p>
      * 
-     * <p>Other Business Name: ReportStatus</p>
+     * <p>Un-merged Business Name: ReportStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InvestigationEvent.statusCode</p>
@@ -524,7 +524,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * process, which in this case is an Adverse Event Report. 
      * Status examples: active, completed, etc.</p>
      * 
-     * <p>Other Business Name: ReportStatus</p>
+     * <p>Un-merged Business Name: ReportStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InvestigationEvent.statusCode</p>
@@ -539,7 +539,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * process, which in this case is an Adverse Event Report. 
      * Status examples: active, completed, etc.</p>
      * 
-     * <p>Other Business Name: ReportStatus</p>
+     * <p>Un-merged Business Name: ReportStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InvestigationEvent.statusCode</p>
@@ -554,7 +554,7 @@ public class InvestigationEventBean extends MessagePartBean {
      * process, which in this case is an Adverse Event Report. 
      * Status examples: active, completed, etc.</p>
      * 
-     * <p>Other Business Name: ReportStatus</p>
+     * <p>Un-merged Business Name: ReportStatus</p>
      * 
      * <p>Relationship: 
      * POIZ_MT061150CA.InvestigationEvent.statusCode</p>

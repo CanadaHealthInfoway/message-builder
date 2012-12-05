@@ -126,7 +126,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ImmunizationEventID</p>
      * 
-     * <p>Other Business Name: ImmunizationEventID</p>
+     * <p>Un-merged Business Name: ImmunizationEventID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.id</p>
      * 
@@ -138,7 +138,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>This is an identifier assigned to a unique instance of an 
      * immunization record.</p>
      * 
-     * <p>Other Business Name: ImmunizationEventID</p>
+     * <p>Un-merged Business Name: ImmunizationEventID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.id</p>
      * 
@@ -150,7 +150,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>This is an identifier assigned to a unique instance of an 
      * immunization record.</p>
      * 
-     * <p>Other Business Name: ImmunizationEventID</p>
+     * <p>Un-merged Business Name: ImmunizationEventID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.id</p>
      * 
@@ -170,7 +170,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ImmunizationEventID</p>
      * 
-     * <p>Other Business Name: ImmunizationEventID</p>
+     * <p>Un-merged Business Name: ImmunizationEventID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.id</p>
      * 
@@ -182,7 +182,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>This is an identifier assigned to a unique instance of an 
      * immunization record.</p>
      * 
-     * <p>Other Business Name: ImmunizationEventID</p>
+     * <p>Un-merged Business Name: ImmunizationEventID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.id</p>
      * 
@@ -194,7 +194,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>This is an identifier assigned to a unique instance of an 
      * immunization record.</p>
      * 
-     * <p>Other Business Name: ImmunizationEventID</p>
+     * <p>Un-merged Business Name: ImmunizationEventID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.id</p>
      * 
@@ -214,7 +214,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: NotImmunized</p>
      * 
-     * <p>Other Business Name: NotImmunized</p>
+     * <p>Un-merged Business Name: NotImmunized</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.negationInd</p>
      * 
@@ -228,7 +228,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * immunized with the specified vaccine at the time 
      * indicated.</p>
      * 
-     * <p>Other Business Name: NotImmunized</p>
+     * <p>Un-merged Business Name: NotImmunized</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.negationInd</p>
      * 
@@ -242,7 +242,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * immunized with the specified vaccine at the time 
      * indicated.</p>
      * 
-     * <p>Other Business Name: NotImmunized</p>
+     * <p>Un-merged Business Name: NotImmunized</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.negationInd</p>
      * 
@@ -264,7 +264,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: NotImmunized</p>
      * 
-     * <p>Other Business Name: NotImmunized</p>
+     * <p>Un-merged Business Name: NotImmunized</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.negationInd</p>
      * 
@@ -278,7 +278,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * immunized with the specified vaccine at the time 
      * indicated.</p>
      * 
-     * <p>Other Business Name: NotImmunized</p>
+     * <p>Un-merged Business Name: NotImmunized</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.negationInd</p>
      * 
@@ -292,7 +292,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * immunized with the specified vaccine at the time 
      * indicated.</p>
      * 
-     * <p>Other Business Name: NotImmunized</p>
+     * <p>Un-merged Business Name: NotImmunized</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.negationInd</p>
      * 
@@ -314,7 +314,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ImmunizationEventStatus</p>
      * 
-     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * <p>Un-merged Business Name: ImmunizationEventStatus</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.statusCode</p>
      * 
@@ -328,7 +328,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Status of the immunization event</p>
      * 
-     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * <p>Un-merged Business Name: ImmunizationEventStatus</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.statusCode</p>
      * 
@@ -342,7 +342,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Status of the immunization event</p>
      * 
-     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * <p>Un-merged Business Name: ImmunizationEventStatus</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.statusCode</p>
      * 
@@ -364,7 +364,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ImmunizationEventStatus</p>
      * 
-     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * <p>Un-merged Business Name: ImmunizationEventStatus</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.statusCode</p>
      * 
@@ -378,7 +378,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Status of the immunization event</p>
      * 
-     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * <p>Un-merged Business Name: ImmunizationEventStatus</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.statusCode</p>
      * 
@@ -392,7 +392,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Status of the immunization event</p>
      * 
-     * <p>Other Business Name: ImmunizationEventStatus</p>
+     * <p>Un-merged Business Name: ImmunizationEventStatus</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.statusCode</p>
      * 
@@ -414,7 +414,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ImmunizationDate</p>
      * 
-     * <p>Other Business Name: ImmunizationDate</p>
+     * <p>Un-merged Business Name: ImmunizationDate</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.effectiveTime</p>
      * 
@@ -426,7 +426,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>The date the vaccine was administered to the patient.</p>
      * 
-     * <p>Other Business Name: ImmunizationDate</p>
+     * <p>Un-merged Business Name: ImmunizationDate</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.effectiveTime</p>
      * 
@@ -446,7 +446,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ImmunizationDate</p>
      * 
-     * <p>Other Business Name: ImmunizationDate</p>
+     * <p>Un-merged Business Name: ImmunizationDate</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.effectiveTime</p>
      * 
@@ -458,7 +458,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>The date the vaccine was administered to the patient.</p>
      * 
-     * <p>Other Business Name: ImmunizationDate</p>
+     * <p>Un-merged Business Name: ImmunizationDate</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.effectiveTime</p>
      * 
@@ -478,7 +478,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ImmunizationMaskingIndicators</p>
      * 
-     * <p>Other Business Name: ImmunizationMaskingIndicators</p>
+     * <p>Un-merged Business Name: ImmunizationMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Immunization.confidentialityCode</p>
@@ -493,7 +493,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>Denotes access restriction place on the immunization 
      * record.</p>
      * 
-     * <p>Other Business Name: ImmunizationMaskingIndicators</p>
+     * <p>Un-merged Business Name: ImmunizationMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Immunization.confidentialityCode</p>
@@ -508,7 +508,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>Denotes access restriction place on the immunization 
      * record.</p>
      * 
-     * <p>Other Business Name: ImmunizationMaskingIndicators</p>
+     * <p>Un-merged Business Name: ImmunizationMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Immunization.confidentialityCode</p>
@@ -532,7 +532,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: UncertaintyCode</p>
      * 
-     * <p>Other Business Name: UncertaintyCode</p>
+     * <p>Un-merged Business Name: UncertaintyCode</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Immunization.uncertaintyCode</p>
@@ -549,7 +549,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>An indication of uncertainty regarding an immunization 
      * event</p>
      * 
-     * <p>Other Business Name: UncertaintyCode</p>
+     * <p>Un-merged Business Name: UncertaintyCode</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Immunization.uncertaintyCode</p>
@@ -566,7 +566,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>An indication of uncertainty regarding an immunization 
      * event</p>
      * 
-     * <p>Other Business Name: UncertaintyCode</p>
+     * <p>Un-merged Business Name: UncertaintyCode</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Immunization.uncertaintyCode</p>
@@ -591,7 +591,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: UncertaintyCode</p>
      * 
-     * <p>Other Business Name: UncertaintyCode</p>
+     * <p>Un-merged Business Name: UncertaintyCode</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Immunization.uncertaintyCode</p>
@@ -608,7 +608,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>An indication of uncertainty regarding an immunization 
      * event</p>
      * 
-     * <p>Other Business Name: UncertaintyCode</p>
+     * <p>Un-merged Business Name: UncertaintyCode</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Immunization.uncertaintyCode</p>
@@ -625,7 +625,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>An indication of uncertainty regarding an immunization 
      * event</p>
      * 
-     * <p>Other Business Name: UncertaintyCode</p>
+     * <p>Un-merged Business Name: UncertaintyCode</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Immunization.uncertaintyCode</p>
@@ -650,7 +650,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: AnatomicalSite</p>
      * 
-     * <p>Other Business Name: AnatomicalSite</p>
+     * <p>Un-merged Business Name: AnatomicalSite</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Immunization.approachSiteCode</p>
@@ -668,7 +668,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>A coded value denoting the body area where the 
      * immunization was administered.</p>
      * 
-     * <p>Other Business Name: AnatomicalSite</p>
+     * <p>Un-merged Business Name: AnatomicalSite</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Immunization.approachSiteCode</p>
@@ -686,7 +686,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>A coded value denoting the body area where the 
      * immunization was administered.</p>
      * 
-     * <p>Other Business Name: AnatomicalSite</p>
+     * <p>Un-merged Business Name: AnatomicalSite</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Immunization.approachSiteCode</p>
@@ -712,7 +712,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: AnatomicalSite</p>
      * 
-     * <p>Other Business Name: AnatomicalSite</p>
+     * <p>Un-merged Business Name: AnatomicalSite</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Immunization.approachSiteCode</p>
@@ -730,7 +730,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>A coded value denoting the body area where the 
      * immunization was administered.</p>
      * 
-     * <p>Other Business Name: AnatomicalSite</p>
+     * <p>Un-merged Business Name: AnatomicalSite</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Immunization.approachSiteCode</p>
@@ -748,7 +748,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>A coded value denoting the body area where the 
      * immunization was administered.</p>
      * 
-     * <p>Other Business Name: AnatomicalSite</p>
+     * <p>Un-merged Business Name: AnatomicalSite</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Immunization.approachSiteCode</p>
@@ -774,7 +774,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: RouteOfAdministration</p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.routeCode</p>
      * 
@@ -789,7 +789,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>The route by which the drug was administered to the 
      * patient, for example, sub-cutaneous, intra-muscular</p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.routeCode</p>
      * 
@@ -804,7 +804,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>The route by which the drug was administered to the 
      * patient, for example, sub-cutaneous, intra-muscular</p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.routeCode</p>
      * 
@@ -827,7 +827,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: RouteOfAdministration</p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.routeCode</p>
      * 
@@ -842,7 +842,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>The route by which the drug was administered to the 
      * patient, for example, sub-cutaneous, intra-muscular</p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.routeCode</p>
      * 
@@ -857,7 +857,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>The route by which the drug was administered to the 
      * patient, for example, sub-cutaneous, intra-muscular</p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.routeCode</p>
      * 
@@ -880,7 +880,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: QuantityAdministered</p>
      * 
-     * <p>Other Business Name: QuantityAdministered</p>
+     * <p>Un-merged Business Name: QuantityAdministered</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.doseQuantity</p>
      * 
@@ -894,7 +894,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>The amount of the drug product administered to/by the 
      * patient.</p>
      * 
-     * <p>Other Business Name: QuantityAdministered</p>
+     * <p>Un-merged Business Name: QuantityAdministered</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.doseQuantity</p>
      * 
@@ -908,7 +908,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>The amount of the drug product administered to/by the 
      * patient.</p>
      * 
-     * <p>Other Business Name: QuantityAdministered</p>
+     * <p>Un-merged Business Name: QuantityAdministered</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.doseQuantity</p>
      * 
@@ -930,7 +930,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Business Name: QuantityAdministered</p>
      * 
-     * <p>Other Business Name: QuantityAdministered</p>
+     * <p>Un-merged Business Name: QuantityAdministered</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.doseQuantity</p>
      * 
@@ -944,7 +944,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>The amount of the drug product administered to/by the 
      * patient.</p>
      * 
-     * <p>Other Business Name: QuantityAdministered</p>
+     * <p>Un-merged Business Name: QuantityAdministered</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.doseQuantity</p>
      * 
@@ -958,7 +958,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>The amount of the drug product administered to/by the 
      * patient.</p>
      * 
-     * <p>Other Business Name: QuantityAdministered</p>
+     * <p>Un-merged Business Name: QuantityAdministered</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.doseQuantity</p>
      * 
@@ -978,19 +978,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.subject</p>
      * 
@@ -1002,19 +1002,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.subject</p>
      * 
@@ -1026,21 +1026,21 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.AdministerableMedicine.administerableVaccine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.AdministerableMedicine.administerableVaccine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.AdministerableMedicine.administerableVaccine</p>
@@ -1053,21 +1053,21 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.AdministerableMedicine.administerableVaccine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.AdministerableMedicine.administerableVaccine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.AdministerableMedicine.administerableVaccine</p>
@@ -1080,21 +1080,21 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.ResponsibleParty.assignedEntity</p>
@@ -1107,21 +1107,21 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.ResponsibleParty.assignedEntity</p>
@@ -1134,19 +1134,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.performer</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.performer</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.performer</p>
      * 
@@ -1158,19 +1158,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.performer</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.performer</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.performer</p>
      * 
@@ -1182,19 +1182,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Author.assignedEntity</p>
      * 
@@ -1206,19 +1206,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Author.assignedEntity</p>
      * 
@@ -1230,19 +1230,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.informant</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.informant</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.informant</p>
      * 
@@ -1254,19 +1254,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.informant</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.informant</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.informant</p>
      * 
@@ -1278,21 +1278,21 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Authenticator.assignedEntity</p>
@@ -1305,21 +1305,21 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Authenticator.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Authenticator.assignedEntity</p>
@@ -1332,19 +1332,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.location</p>
      * 
@@ -1356,19 +1356,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.location</p>
      * 
@@ -1380,21 +1380,21 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Immunization.inFulfillmentOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Immunization.inFulfillmentOf</p>
@@ -1407,21 +1407,21 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.Immunization.inFulfillmentOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.Immunization.inFulfillmentOf</p>
@@ -1434,19 +1434,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.reason</p>
      * 
@@ -1458,19 +1458,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.reason</p>
      * 
@@ -1482,19 +1482,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Authorization.consent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Authorization.consent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Authorization.consent</p>
      * 
@@ -1506,19 +1506,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Authorization.consent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Authorization.consent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Authorization.consent</p>
      * 
@@ -1530,21 +1530,21 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.PertinentInformation.patientImmunizationObservations</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.PertinentInformation.patientImmunizationObservations</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.PertinentInformation.patientImmunizationObservations</p>
@@ -1558,7 +1558,7 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Subject.detectedIssueEvent</p>
      * 
@@ -1571,19 +1571,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Immunization.subjectOf2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Immunization.subjectOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.subjectOf</p>
      * 
@@ -1600,19 +1600,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.CauseOf.investigationEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.CauseOf.investigationEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.CauseOf.investigationEvent</p>
      * 
@@ -1624,19 +1624,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.CauseOf.investigationEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.CauseOf.investigationEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.CauseOf.investigationEvent</p>
      * 
@@ -1648,21 +1648,21 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.CauseOf2.intoleranceCondition</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.CauseOf2.intoleranceCondition</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.CauseOf2.intoleranceCondition</p>
@@ -1676,19 +1676,19 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Reference.healthDocument</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Reference.healthDocument</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Reference.healthDocument</p>
      * 
@@ -1700,19 +1700,19 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Reference.healthDocument</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Reference.healthDocument</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Reference.healthDocument</p>
      * 

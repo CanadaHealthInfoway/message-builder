@@ -139,7 +139,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationRecordId</p>
      * 
-     * <p>Other Business Name: ObservationRecordId</p>
+     * <p>Un-merged Business Name: ObservationRecordId</p>
      * 
      * <p>Relationship: REPC_MT410003CA.CommonObservationEvent.id</p>
      * 
@@ -163,7 +163,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationRecordId</p>
      * 
-     * <p>Other Business Name: ObservationRecordId</p>
+     * <p>Un-merged Business Name: ObservationRecordId</p>
      * 
      * <p>Relationship: REPC_MT410003CA.CommonObservationEvent.id</p>
      * 
@@ -187,7 +187,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationType</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: REPC_MT410003CA.CommonObservationEvent.code</p>
      * 
@@ -227,7 +227,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * represented by this record.</i> </p><p>Observation types 
      * include: height, weight, blood pressure, etc.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: REPC_MT410001CA.CommonObservationEvent.code</p>
      * 
@@ -275,7 +275,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationType</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: REPC_MT410003CA.CommonObservationEvent.code</p>
      * 
@@ -315,7 +315,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * represented by this record.</i> </p><p>Observation types 
      * include: height, weight, blood pressure, etc.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: REPC_MT410001CA.CommonObservationEvent.code</p>
      * 
@@ -363,7 +363,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: RefutedIndicator</p>
      * 
-     * <p>Other Business Name: RefutedIndicator</p>
+     * <p>Un-merged Business Name: RefutedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.negationInd</p>
@@ -389,7 +389,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * is false. Additional details about the reasons for refuting 
      * the record may be conveyed in notes.</i> </p>
      * 
-     * <p>Other Business Name: RefutedIndicator</p>
+     * <p>Un-merged Business Name: RefutedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.negationInd</p>
@@ -423,7 +423,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: RefutedIndicator</p>
      * 
-     * <p>Other Business Name: RefutedIndicator</p>
+     * <p>Un-merged Business Name: RefutedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.negationInd</p>
@@ -449,7 +449,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * is false. Additional details about the reasons for refuting 
      * the record may be conveyed in notes.</i> </p>
      * 
-     * <p>Other Business Name: RefutedIndicator</p>
+     * <p>Un-merged Business Name: RefutedIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.negationInd</p>
@@ -483,7 +483,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationPeriod</p>
      * 
-     * <p>Other Business Name: ObservationPeriod</p>
+     * <p>Un-merged Business Name: ObservationPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.effectiveTime</p>
@@ -511,7 +511,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * date of two days ago because that is the time the 
      * observation actually applies to.</p>
      * 
-     * <p>Other Business Name: ObservationPeriod</p>
+     * <p>Un-merged Business Name: ObservationPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.effectiveTime</p>
@@ -547,7 +547,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationPeriod</p>
      * 
-     * <p>Other Business Name: ObservationPeriod</p>
+     * <p>Un-merged Business Name: ObservationPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.effectiveTime</p>
@@ -575,7 +575,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * date of two days ago because that is the time the 
      * observation actually applies to.</p>
      * 
-     * <p>Other Business Name: ObservationPeriod</p>
+     * <p>Un-merged Business Name: ObservationPeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.effectiveTime</p>
@@ -611,7 +611,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationMaskingIndicators</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicators</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.confidentialityCode</p>
@@ -644,7 +644,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * patient, respectively. 'normal' should never be asserted 
      * with one of the other codes.</i> </p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicators</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.confidentialityCode</p>
@@ -686,7 +686,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationValue</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.value</p>
@@ -703,7 +703,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * was made.</p><p>&lt;p&gt;E.g. height in centimeters, weight 
      * in kilograms, etc.&lt;/p&gt;</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.value</p>
@@ -728,7 +728,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationValue</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.value</p>
@@ -745,7 +745,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * was made.</p><p>&lt;p&gt;E.g. height in centimeters, weight 
      * in kilograms, etc.&lt;/p&gt;</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.value</p>
@@ -770,7 +770,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationNormalityInterpretation</p>
      * 
-     * <p>Other Business Name: ObservationNormalityInterpretation</p>
+     * <p>Un-merged Business Name: ObservationNormalityInterpretation</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.interpretationCode</p>
@@ -786,7 +786,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * similar age and gender. E.g. &quot;Normal&quot;, 
      * &quot;High&quot;, &quot;Critically High&quot;, etc.</p>
      * 
-     * <p>Other Business Name: ObservationNormalityInterpretation</p>
+     * <p>Un-merged Business Name: ObservationNormalityInterpretation</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.interpretationCode</p>
@@ -810,7 +810,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     /**
      * <p>Business Name: ObservationNormalityInterpretation</p>
      * 
-     * <p>Other Business Name: ObservationNormalityInterpretation</p>
+     * <p>Un-merged Business Name: ObservationNormalityInterpretation</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.interpretationCode</p>
@@ -826,7 +826,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * similar age and gender. E.g. &quot;Normal&quot;, 
      * &quot;High&quot;, &quot;Critically High&quot;, etc.</p>
      * 
-     * <p>Other Business Name: ObservationNormalityInterpretation</p>
+     * <p>Un-merged Business Name: ObservationNormalityInterpretation</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.interpretationCode</p>
@@ -848,14 +848,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.IndirectTarget.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.IndirectTarget.serviceDeliveryLocation</p>
@@ -868,14 +868,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.IndirectTarget.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.IndirectTarget.serviceDeliveryLocation</p>
@@ -888,7 +888,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.ResponsibleParty.actingPerson</p>
@@ -901,7 +901,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.ResponsibleParty.actingPerson</p>
@@ -914,13 +914,13 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Performer.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.Performer.actingPerson</p>
      * 
@@ -933,7 +933,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.author</p>
@@ -946,7 +946,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.author</p>
@@ -959,13 +959,13 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Informant.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.Informant.actingPerson</p>
      * 
@@ -977,13 +977,13 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Informant.actingPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.Informant.actingPerson</p>
      * 
@@ -995,7 +995,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Custodian.assignedDevice</p>
      * 
@@ -1007,7 +1007,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Custodian.assignedDevice</p>
      * 
@@ -1019,7 +1019,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Custodian2.serviceDeliveryLocation</p>
@@ -1032,7 +1032,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Custodian2.serviceDeliveryLocation</p>
@@ -1045,14 +1045,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.location</p>
@@ -1065,14 +1065,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.location</p>
@@ -1085,13 +1085,13 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.InFulfillmentOf.actRequest</p>
      * 
@@ -1103,13 +1103,13 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.InFulfillmentOf.actRequest</p>
      * 
@@ -1121,13 +1121,13 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410003CA.Definition.actDefinition</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT410001CA.Definition.actDefinition</p>
      * 
@@ -1140,14 +1140,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Predecessor.oldCommonObservationEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.Predecessor.oldCommonObservationEvent</p>
@@ -1161,14 +1161,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.reason</p>
@@ -1182,14 +1182,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Component.subObservationEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.Component.subObservationEvent</p>
@@ -1203,7 +1203,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Predecessor2.newCommonObservationEvent</p>
@@ -1216,7 +1216,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Predecessor2.newCommonObservationEvent</p>
@@ -1229,14 +1229,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.subjectOf1</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.subjectOf</p>
@@ -1252,14 +1252,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.subjectOf1</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.CommonObservationEvent.subjectOf</p>
@@ -1272,7 +1272,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Subject2.annotationIndicator</p>
@@ -1285,7 +1285,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Subject2.annotationIndicator</p>
@@ -1298,14 +1298,14 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.Component3.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.Component3.patientCareProvisionEvent</p>
@@ -1324,7 +1324,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.CommonObservationEvent.componentOf2</p>

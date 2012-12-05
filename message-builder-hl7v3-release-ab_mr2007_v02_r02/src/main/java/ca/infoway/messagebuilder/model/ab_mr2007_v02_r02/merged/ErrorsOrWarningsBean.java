@@ -77,7 +77,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageType</p>
      * 
-     * <p>Other Business Name: MessageType</p>
+     * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
      * MCCI_MT000300CA.AcknowledgementDetail.typeCode</p>
@@ -90,7 +90,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Different types of messages have substantially different 
      * ramifications.</p>
      * 
-     * <p>Other Business Name: MessageType</p>
+     * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.AcknowledgementDetail.typeCode</p>
@@ -103,7 +103,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Different types of messages have substantially different 
      * ramifications.</p>
      * 
-     * <p>Other Business Name: MessageType</p>
+     * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.AcknowledgementDetail.typeCode</p>
@@ -124,7 +124,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageType</p>
      * 
-     * <p>Other Business Name: MessageType</p>
+     * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
      * MCCI_MT000300CA.AcknowledgementDetail.typeCode</p>
@@ -137,7 +137,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Different types of messages have substantially different 
      * ramifications.</p>
      * 
-     * <p>Other Business Name: MessageType</p>
+     * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.AcknowledgementDetail.typeCode</p>
@@ -150,7 +150,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Different types of messages have substantially different 
      * ramifications.</p>
      * 
-     * <p>Other Business Name: MessageType</p>
+     * <p>Un-merged Business Name: MessageType</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.AcknowledgementDetail.typeCode</p>
@@ -171,7 +171,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponseCode</p>
      * 
-     * <p>Other Business Name: ResponseCode</p>
+     * <p>Un-merged Business Name: ResponseCode</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.AcknowledgementDetail.code</p>
      * 
@@ -186,7 +186,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * circumstances, a code may not be available. Therefore the 
      * attribute is marked as 'populated'.</p>
      * 
-     * <p>Other Business Name: ResponseCode</p>
+     * <p>Un-merged Business Name: ResponseCode</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.code</p>
      * 
@@ -217,7 +217,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * recommendation other then adoption of the local code, 
      * jurisdictions are bound to adopt the recommendation.</p>
      * 
-     * <p>Other Business Name: ResponseCode</p>
+     * <p>Un-merged Business Name: ResponseCode</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.code</p>
      * 
@@ -256,7 +256,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponseCode</p>
      * 
-     * <p>Other Business Name: ResponseCode</p>
+     * <p>Un-merged Business Name: ResponseCode</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.AcknowledgementDetail.code</p>
      * 
@@ -271,7 +271,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * circumstances, a code may not be available. Therefore the 
      * attribute is marked as 'populated'.</p>
      * 
-     * <p>Other Business Name: ResponseCode</p>
+     * <p>Un-merged Business Name: ResponseCode</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.code</p>
      * 
@@ -302,7 +302,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * recommendation other then adoption of the local code, 
      * jurisdictions are bound to adopt the recommendation.</p>
      * 
-     * <p>Other Business Name: ResponseCode</p>
+     * <p>Un-merged Business Name: ResponseCode</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.code</p>
      * 
@@ -341,7 +341,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageDescription</p>
      * 
-     * <p>Other Business Name: MessageDescription</p>
+     * <p>Un-merged Business Name: MessageDescription</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.AcknowledgementDetail.text</p>
      * 
@@ -355,7 +355,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Allows supplementing the 'computer' information for 
      * human-readability.</p>
      * 
-     * <p>Other Business Name: MessageDescription</p>
+     * <p>Un-merged Business Name: MessageDescription</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.text</p>
      * 
@@ -369,7 +369,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Allows supplementing the 'computer' information for 
      * human-readability.</p>
      * 
-     * <p>Other Business Name: MessageDescription</p>
+     * <p>Un-merged Business Name: MessageDescription</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.text</p>
      * 
@@ -391,7 +391,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageDescription</p>
      * 
-     * <p>Other Business Name: MessageDescription</p>
+     * <p>Un-merged Business Name: MessageDescription</p>
      * 
      * <p>Relationship: MCCI_MT000300CA.AcknowledgementDetail.text</p>
      * 
@@ -405,7 +405,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Allows supplementing the 'computer' information for 
      * human-readability.</p>
      * 
-     * <p>Other Business Name: MessageDescription</p>
+     * <p>Un-merged Business Name: MessageDescription</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.AcknowledgementDetail.text</p>
      * 
@@ -419,7 +419,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * <p>Allows supplementing the 'computer' information for 
      * human-readability.</p>
      * 
-     * <p>Other Business Name: MessageDescription</p>
+     * <p>Un-merged Business Name: MessageDescription</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.AcknowledgementDetail.text</p>
      * 
@@ -441,7 +441,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     /**
      * <p>Business Name: ReferencedMessageLocations</p>
      * 
-     * <p>Other Business Name: ReferencedMessageLocations</p>
+     * <p>Un-merged Business Name: ReferencedMessageLocations</p>
      * 
      * <p>Relationship: 
      * MCCI_MT000300CA.AcknowledgementDetail.location</p>
@@ -459,7 +459,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * occurrence numbers are always specified, and no other 
      * predicates are permitted.</p>
      * 
-     * <p>Other Business Name: ReferencedMessageLocations</p>
+     * <p>Un-merged Business Name: ReferencedMessageLocations</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002200CA.AcknowledgementDetail.location</p>
@@ -477,7 +477,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * occurrence numbers are always specified, and no other 
      * predicates are permitted.</p>
      * 
-     * <p>Other Business Name: ReferencedMessageLocations</p>
+     * <p>Un-merged Business Name: ReferencedMessageLocations</p>
      * 
      * <p>Relationship: 
      * MCCI_MT002300CA.AcknowledgementDetail.location</p>

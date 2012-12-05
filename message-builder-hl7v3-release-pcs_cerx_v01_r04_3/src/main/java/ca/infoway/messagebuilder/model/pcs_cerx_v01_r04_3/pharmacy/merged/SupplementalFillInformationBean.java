@@ -39,14 +39,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
@@ -61,14 +61,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: NumberOfFills</p>
+     * <p>Un-merged Business Name: NumberOfFills</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.repeatNumber</p>
@@ -83,14 +83,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: FillQuantity</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.quantity</p>
@@ -105,14 +105,14 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: FillQuantity</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplementalFillInformation.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: FillQuantity</p>
+     * <p>Un-merged Business Name: FillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplementalFillInformation.quantity</p>

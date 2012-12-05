@@ -76,7 +76,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillExpiryDate</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.effectiveTime</p>
@@ -95,7 +95,7 @@ public class FirstFillBean extends MessagePartBean {
      * made against the prescription in this time-period, it may 
      * not be dispensed.</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.effectiveTime</p>
@@ -115,7 +115,7 @@ public class FirstFillBean extends MessagePartBean {
      * the prescription is no longer deemed valid and it may not be 
      * dispensed.</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.effectiveTime</p>
@@ -141,7 +141,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillExpiryDate</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.effectiveTime</p>
@@ -160,7 +160,7 @@ public class FirstFillBean extends MessagePartBean {
      * made against the prescription in this time-period, it may 
      * not be dispensed.</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.effectiveTime</p>
@@ -180,7 +180,7 @@ public class FirstFillBean extends MessagePartBean {
      * the prescription is no longer deemed valid and it may not be 
      * dispensed.</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.effectiveTime</p>
@@ -206,7 +206,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillQuantity</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.quantity</p>
@@ -221,7 +221,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>The quantity of medication to be dispensed the first time 
      * the prescription is dispensed against.</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.quantity</p>
@@ -234,7 +234,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>The quantity of medication to be dispensed the first time 
      * the prescription is dispensed against.</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.quantity</p>
@@ -257,7 +257,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillQuantity</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.quantity</p>
@@ -272,7 +272,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>The quantity of medication to be dispensed the first time 
      * the prescription is dispensed against.</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.quantity</p>
@@ -285,7 +285,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>The quantity of medication to be dispensed the first time 
      * the prescription is dispensed against.</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.quantity</p>
@@ -308,7 +308,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillDaysSupply</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.expectedUseTime</p>
@@ -323,7 +323,7 @@ public class FirstFillBean extends MessagePartBean {
      * last, if the patient is compliant with the dispensing of the 
      * first fill and with administration of the prescription.</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.expectedUseTime</p>
@@ -338,7 +338,7 @@ public class FirstFillBean extends MessagePartBean {
      * last, if the patient is compliant with the dispensing of the 
      * first fill and with administration of the prescription.</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.expectedUseTime</p>
@@ -361,7 +361,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillDaysSupply</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.expectedUseTime</p>
@@ -376,7 +376,7 @@ public class FirstFillBean extends MessagePartBean {
      * last, if the patient is compliant with the dispensing of the 
      * first fill and with administration of the prescription.</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.expectedUseTime</p>
@@ -391,7 +391,7 @@ public class FirstFillBean extends MessagePartBean {
      * last, if the patient is compliant with the dispensing of the 
      * first fill and with administration of the prescription.</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.expectedUseTime</p>

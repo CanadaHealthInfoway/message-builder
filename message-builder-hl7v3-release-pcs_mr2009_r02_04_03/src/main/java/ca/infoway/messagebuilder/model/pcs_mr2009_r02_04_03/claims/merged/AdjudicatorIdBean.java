@@ -47,7 +47,7 @@ public class AdjudicatorIdBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: AdjudicatorID</p>
+     * <p>Un-merged Business Name: AdjudicatorID</p>
      * 
      * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
      * 
@@ -56,7 +56,7 @@ public class AdjudicatorIdBean extends MessagePartBean {
      * <p>Set of identifiers that uniquely identify the adjudicator 
      * of the invoice.</p>
      * 
-     * <p>Other Business Name: AdjudicatorId</p>
+     * <p>Un-merged Business Name: AdjudicatorId</p>
      * 
      * <p>Relationship: FICR_MT510201CA.AdjudicatorRole.id</p>
      * 
@@ -68,7 +68,7 @@ public class AdjudicatorIdBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: AdjudicatorID</p>
+     * <p>Un-merged Business Name: AdjudicatorID</p>
      * 
      * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
      * 
@@ -77,7 +77,7 @@ public class AdjudicatorIdBean extends MessagePartBean {
      * <p>Set of identifiers that uniquely identify the adjudicator 
      * of the invoice.</p>
      * 
-     * <p>Other Business Name: AdjudicatorId</p>
+     * <p>Un-merged Business Name: AdjudicatorId</p>
      * 
      * <p>Relationship: FICR_MT510201CA.AdjudicatorRole.id</p>
      * 
@@ -89,7 +89,7 @@ public class AdjudicatorIdBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.AdjudicatorRole.playingAdjudicatorPerson</p>
@@ -102,7 +102,7 @@ public class AdjudicatorIdBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.AdjudicatorRole.playingAdjudicatorPerson</p>
@@ -117,7 +117,7 @@ public class AdjudicatorIdBean extends MessagePartBean {
     /**
      * <p>Business Name: AdjudicatorInsuranceCarrierID</p>
      * 
-     * <p>Other Business Name: AdjudicatorInsuranceCarrierID</p>
+     * <p>Un-merged Business Name: AdjudicatorInsuranceCarrierID</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InsuranceCarrierRole.id</p>
      * 
@@ -131,7 +131,7 @@ public class AdjudicatorIdBean extends MessagePartBean {
     /**
      * <p>Business Name: AdjudicatorInsuranceCarrierID</p>
      * 
-     * <p>Other Business Name: AdjudicatorInsuranceCarrierID</p>
+     * <p>Un-merged Business Name: AdjudicatorInsuranceCarrierID</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InsuranceCarrierRole.id</p>
      * 

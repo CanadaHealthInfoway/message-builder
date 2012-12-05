@@ -38,7 +38,7 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: LabInitiatedOrderIndicator</p>
      * 
-     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001000CA.LabInitiatedOrderIndicator.negationInd</p>
@@ -48,21 +48,21 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
      * <p>A 'true' value indicates that the Order was initiated by 
      * the Lab.</p>
      * 
-     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001001CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001010CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001999CA.LabInitiatedOrderIndicator.negationInd</p>
@@ -77,7 +77,7 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: LabInitiatedOrderIndicator</p>
      * 
-     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001000CA.LabInitiatedOrderIndicator.negationInd</p>
@@ -87,21 +87,21 @@ public class LabInitiatedOrderIndicatorBean extends MessagePartBean {
      * <p>A 'true' value indicates that the Order was initiated by 
      * the Lab.</p>
      * 
-     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001001CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001010CA.LabInitiatedOrderIndicator.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: LabInitiatedOrderIndicator</p>
+     * <p>Un-merged Business Name: LabInitiatedOrderIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT001999CA.LabInitiatedOrderIndicator.negationInd</p>

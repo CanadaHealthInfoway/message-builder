@@ -122,7 +122,7 @@ public class DispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
      * 
@@ -139,7 +139,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Content.quantity</p>
      * 
@@ -152,7 +152,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Content.quantity</p>
      * 
@@ -165,7 +165,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
      * 
@@ -182,7 +182,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: PackageSize</p>
+     * <p>Un-merged Business Name: PackageSize</p>
      * 
      * <p>Relationship: COCT_MT300000CA.Content.quantity</p>
      * 
@@ -190,7 +190,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>package size</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
      * 
@@ -207,7 +207,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
      * 
@@ -230,7 +230,7 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
      * 
@@ -247,7 +247,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Content.quantity</p>
      * 
@@ -260,7 +260,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Content.quantity</p>
      * 
@@ -273,7 +273,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
      * 
@@ -290,7 +290,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: PackageSize</p>
+     * <p>Un-merged Business Name: PackageSize</p>
      * 
      * <p>Relationship: COCT_MT300000CA.Content.quantity</p>
      * 
@@ -298,7 +298,7 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>package size</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
      * 
@@ -315,7 +315,7 @@ public class DispensedInBean extends MessagePartBean {
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
      * 
@@ -338,7 +338,7 @@ public class DispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
@@ -352,7 +352,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
      * 
@@ -366,7 +366,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
      * 
@@ -380,7 +380,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
      * 
@@ -394,7 +394,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
      * 
@@ -408,7 +408,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
      * 
@@ -428,7 +428,7 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
@@ -442,7 +442,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
      * 
@@ -456,7 +456,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
      * 
@@ -470,7 +470,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
      * 
@@ -484,7 +484,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
      * 
@@ -498,7 +498,7 @@ public class DispensedInBean extends MessagePartBean {
      * Used to identify a requirement for a particular type of 
      * compliance packaging</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
      * 
@@ -518,7 +518,7 @@ public class DispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
@@ -531,7 +531,7 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>

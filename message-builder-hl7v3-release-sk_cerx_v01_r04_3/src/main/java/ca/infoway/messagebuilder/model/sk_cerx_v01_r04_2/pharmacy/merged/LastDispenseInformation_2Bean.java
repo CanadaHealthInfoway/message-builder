@@ -65,7 +65,7 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: LastDispensePickupDate</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventLastSummary.effectiveTime</p>
@@ -79,7 +79,7 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventLastSummary.effectiveTime</p>
@@ -101,7 +101,7 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: LastDispensePickupDate</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventLastSummary.effectiveTime</p>
@@ -115,7 +115,7 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventLastSummary.effectiveTime</p>
@@ -137,7 +137,7 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: LastQuantityDispensed</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventLastSummary.quantity</p>
@@ -159,7 +159,7 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * known if the last dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventLastSummary.quantity</p>
@@ -187,7 +187,7 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: LastQuantityDispensed</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060060CA.SupplyEventLastSummary.quantity</p>
@@ -209,7 +209,7 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * known if the last dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060040CA.SupplyEventLastSummary.quantity</p>

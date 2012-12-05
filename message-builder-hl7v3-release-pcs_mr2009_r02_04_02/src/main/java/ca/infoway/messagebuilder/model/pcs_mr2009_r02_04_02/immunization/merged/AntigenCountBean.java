@@ -62,7 +62,7 @@ public class AntigenCountBean extends MessagePartBean {
     /**
      * <p>Business Name: AntigenCountValue</p>
      * 
-     * <p>Other Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: AntigenCountValue</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AntigenCount.value</p>
      * 
@@ -73,7 +73,7 @@ public class AntigenCountBean extends MessagePartBean {
      * 
      * <p>Represents the asserted antigen count.</p>
      * 
-     * <p>Other Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: AntigenCountValue</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AntigenCount.value</p>
      * 
@@ -84,7 +84,7 @@ public class AntigenCountBean extends MessagePartBean {
      * 
      * <p>Represents the asserted antigen count.</p>
      * 
-     * <p>Other Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: AntigenCountValue</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AntigenCount.value</p>
      * 
@@ -103,7 +103,7 @@ public class AntigenCountBean extends MessagePartBean {
     /**
      * <p>Business Name: AntigenCountValue</p>
      * 
-     * <p>Other Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: AntigenCountValue</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AntigenCount.value</p>
      * 
@@ -114,7 +114,7 @@ public class AntigenCountBean extends MessagePartBean {
      * 
      * <p>Represents the asserted antigen count.</p>
      * 
-     * <p>Other Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: AntigenCountValue</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AntigenCount.value</p>
      * 
@@ -125,7 +125,7 @@ public class AntigenCountBean extends MessagePartBean {
      * 
      * <p>Represents the asserted antigen count.</p>
      * 
-     * <p>Other Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: AntigenCountValue</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AntigenCount.value</p>
      * 

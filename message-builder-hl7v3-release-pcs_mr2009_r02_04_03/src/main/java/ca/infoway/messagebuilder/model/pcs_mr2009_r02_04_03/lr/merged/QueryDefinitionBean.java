@@ -103,7 +103,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: Address</p>
      * 
-     * <p>Other Business Name: Address</p>
+     * <p>Un-merged Business Name: Address</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.Address.value</p>
      * 
@@ -124,7 +124,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: Address</p>
      * 
-     * <p>Other Business Name: Address</p>
+     * <p>Un-merged Business Name: Address</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.Address.value</p>
      * 
@@ -145,7 +145,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: UpdatedSinceDateTime</p>
      * 
-     * <p>Other Business Name: UpdatedSinceDateTime</p>
+     * <p>Un-merged Business Name: UpdatedSinceDateTime</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.AmendedSinceDateTime.value</p>
      * 
@@ -166,7 +166,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: UpdatedSinceDateTime</p>
      * 
-     * <p>Other Business Name: UpdatedSinceDateTime</p>
+     * <p>Un-merged Business Name: UpdatedSinceDateTime</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.AmendedSinceDateTime.value</p>
      * 
@@ -187,7 +187,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EHRRepositoryId</p>
      * 
-     * <p>Other Business Name: EHRRepositoryId</p>
+     * <p>Un-merged Business Name: EHRRepositoryId</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.EHRRepositoryId.value</p>
      * 
@@ -208,7 +208,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EHRRepositoryId</p>
      * 
-     * <p>Other Business Name: EHRRepositoryId</p>
+     * <p>Un-merged Business Name: EHRRepositoryId</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.EHRRepositoryId.value</p>
      * 
@@ -229,7 +229,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Other Business Name: LocationMobileIndicator</p>
+     * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202306CA.LocationMobileIndicator.value</p>
@@ -251,7 +251,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationMobileIndicator</p>
      * 
-     * <p>Other Business Name: LocationMobileIndicator</p>
+     * <p>Un-merged Business Name: LocationMobileIndicator</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202306CA.LocationMobileIndicator.value</p>
@@ -273,7 +273,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationPlaceType</p>
      * 
-     * <p>Other Business Name: LocationPlaceType</p>
+     * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.LocationPlaceType.value</p>
      * 
@@ -295,7 +295,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationPlaceType</p>
      * 
-     * <p>Other Business Name: LocationPlaceType</p>
+     * <p>Un-merged Business Name: LocationPlaceType</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.LocationPlaceType.value</p>
      * 
@@ -317,7 +317,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: LocationServiceTypes</p>
      * 
-     * <p>Other Business Name: LocationServiceTypes</p>
+     * <p>Un-merged Business Name: LocationServiceTypes</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.LocationServiceType.value</p>
      * 
@@ -345,7 +345,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: NameContains</p>
      * 
-     * <p>Other Business Name: NameContains</p>
+     * <p>Un-merged Business Name: NameContains</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.NameContains.value</p>
      * 
@@ -368,7 +368,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: NameContains</p>
      * 
-     * <p>Other Business Name: NameContains</p>
+     * <p>Un-merged Business Name: NameContains</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.NameContains.value</p>
      * 
@@ -391,7 +391,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: NearAddress</p>
      * 
-     * <p>Other Business Name: NearAddress</p>
+     * <p>Un-merged Business Name: NearAddress</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.NearAddress.value</p>
      * 
@@ -412,7 +412,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: NearAddress</p>
      * 
-     * <p>Other Business Name: NearAddress</p>
+     * <p>Un-merged Business Name: NearAddress</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.NearAddress.value</p>
      * 
@@ -433,7 +433,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ProtocolIds</p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.ProtocolId.value</p>
      * 
@@ -449,7 +449,7 @@ public class QueryDefinitionBean extends MessagePartBean {
      * associated with the specified protocols. If unspecified, no 
      * filter is applied.</p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: PRPA_MT202307CA.ProtocolId.value</p>
      * 
@@ -474,7 +474,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RecordStatuses</p>
      * 
-     * <p>Other Business Name: RecordStatuses</p>
+     * <p>Un-merged Business Name: RecordStatuses</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.RecordStatus.value</p>
      * 
@@ -497,7 +497,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RecordTypes</p>
      * 
-     * <p>Other Business Name: RecordTypes</p>
+     * <p>Un-merged Business Name: RecordTypes</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.RecordType.value</p>
      * 
@@ -529,7 +529,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RegionIds</p>
      * 
-     * <p>Other Business Name: RegionIds</p>
+     * <p>Un-merged Business Name: RegionIds</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.RegionId.value</p>
      * 
@@ -550,7 +550,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleOrganizationId</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationId</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationId</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202306CA.ResponsibleOrganizationId.value</p>
@@ -572,7 +572,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleOrganizationId</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationId</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationId</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202306CA.ResponsibleOrganizationId.value</p>
@@ -594,7 +594,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: SearchRadius</p>
      * 
-     * <p>Other Business Name: SearchRadius</p>
+     * <p>Un-merged Business Name: SearchRadius</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.SearchRadius.value</p>
      * 
@@ -614,7 +614,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: SearchRadius</p>
      * 
-     * <p>Other Business Name: SearchRadius</p>
+     * <p>Un-merged Business Name: SearchRadius</p>
      * 
      * <p>Relationship: PRPA_MT202306CA.SearchRadius.value</p>
      * 
@@ -634,7 +634,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RecordIds</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: PRPA_MT202307CA.RecordId.value</p>
      * 

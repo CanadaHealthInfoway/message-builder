@@ -122,7 +122,7 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.negationInd</p>
      * 
@@ -145,7 +145,7 @@ public class DrugContainsBean extends MessagePartBean {
      * herbals) occasionally use the phrase &quot;may 
      * contain&quot;, this attribute allows null values.</p>
      * 
-     * <p>Other Business Name: DoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.negationInd</p>
      * 
@@ -168,7 +168,7 @@ public class DrugContainsBean extends MessagePartBean {
      * herbals) occasionally use the phrase &quot;may 
      * contain&quot;, this attribute allows null values.</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.negationInd</p>
      * 
@@ -191,7 +191,7 @@ public class DrugContainsBean extends MessagePartBean {
      * &quot;does/must contain&quot; and &quot;does/must not 
      * contain&quot; is essential.</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.negationInd</p>
      * 
@@ -214,7 +214,7 @@ public class DrugContainsBean extends MessagePartBean {
      * &quot;does/must contain&quot; and &quot;does/must not 
      * contain&quot; is essential.</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
@@ -239,7 +239,7 @@ public class DrugContainsBean extends MessagePartBean {
      * contain&quot; is essential, however in some circumstances it 
      * is necessary to say &quot;may contain&quot;.</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
@@ -270,7 +270,7 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.negationInd</p>
      * 
@@ -293,7 +293,7 @@ public class DrugContainsBean extends MessagePartBean {
      * herbals) occasionally use the phrase &quot;may 
      * contain&quot;, this attribute allows null values.</p>
      * 
-     * <p>Other Business Name: DoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DoesNotContainIndicator</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.negationInd</p>
      * 
@@ -316,7 +316,7 @@ public class DrugContainsBean extends MessagePartBean {
      * herbals) occasionally use the phrase &quot;may 
      * contain&quot;, this attribute allows null values.</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.negationInd</p>
      * 
@@ -339,7 +339,7 @@ public class DrugContainsBean extends MessagePartBean {
      * &quot;does/must contain&quot; and &quot;does/must not 
      * contain&quot; is essential.</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.negationInd</p>
      * 
@@ -362,7 +362,7 @@ public class DrugContainsBean extends MessagePartBean {
      * &quot;does/must contain&quot; and &quot;does/must not 
      * contain&quot; is essential.</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
@@ -387,7 +387,7 @@ public class DrugContainsBean extends MessagePartBean {
      * contain&quot; is essential, however in some circumstances it 
      * is necessary to say &quot;may contain&quot;.</p>
      * 
-     * <p>Other Business Name: DrugDoesNotContainIndicator</p>
+     * <p>Un-merged Business Name: DrugDoesNotContainIndicator</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
@@ -418,7 +418,7 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: IngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.quantity</p>
      * 
@@ -432,7 +432,7 @@ public class DrugContainsBean extends MessagePartBean {
      * strength, as well as for creating custom compounds with 
      * proper composition.</p>
      * 
-     * <p>Other Business Name: IngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.quantity</p>
      * 
@@ -446,7 +446,7 @@ public class DrugContainsBean extends MessagePartBean {
      * strength, as well as for creating custom compounds with 
      * proper composition.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.quantity</p>
      * 
@@ -544,7 +544,7 @@ public class DrugContainsBean extends MessagePartBean {
      * strength, as well as for creating custom compounds with 
      * proper composition.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.quantity</p>
      * 
@@ -621,7 +621,7 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: IngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.quantity</p>
      * 
@@ -635,7 +635,7 @@ public class DrugContainsBean extends MessagePartBean {
      * strength, as well as for creating custom compounds with 
      * proper composition.</p>
      * 
-     * <p>Other Business Name: IngredientQuantity</p>
+     * <p>Un-merged Business Name: IngredientQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.quantity</p>
      * 
@@ -649,7 +649,7 @@ public class DrugContainsBean extends MessagePartBean {
      * strength, as well as for creating custom compounds with 
      * proper composition.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.quantity</p>
      * 
@@ -747,7 +747,7 @@ public class DrugContainsBean extends MessagePartBean {
      * strength, as well as for creating custom compounds with 
      * proper composition.</p>
      * 
-     * <p>Other Business Name: DrugIngredientQuantity</p>
+     * <p>Un-merged Business Name: DrugIngredientQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.quantity</p>
      * 
@@ -824,37 +824,37 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.ingredient</p>
      * 
@@ -866,37 +866,37 @@ public class DrugContainsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POME_MT010040CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POME_MT010100CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.ingredient</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.ingredient</p>
      * 

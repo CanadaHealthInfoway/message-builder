@@ -76,7 +76,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillExpiryDate</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.effectiveTime</p>
@@ -95,7 +95,7 @@ public class FirstFillBean extends MessagePartBean {
      * within 1.5 years&quot;. (This attribute would be used for 
      * the &quot;1 year&quot;.)</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.effectiveTime</p>
@@ -115,7 +115,7 @@ public class FirstFillBean extends MessagePartBean {
      * within 1.5 years&quot;. (This attribute would be used for 
      * the &quot;1 year&quot;).</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.effectiveTime</p>
@@ -141,7 +141,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillExpiryDate</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.effectiveTime</p>
@@ -160,7 +160,7 @@ public class FirstFillBean extends MessagePartBean {
      * within 1.5 years&quot;. (This attribute would be used for 
      * the &quot;1 year&quot;.)</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.effectiveTime</p>
@@ -180,7 +180,7 @@ public class FirstFillBean extends MessagePartBean {
      * within 1.5 years&quot;. (This attribute would be used for 
      * the &quot;1 year&quot;).</p>
      * 
-     * <p>Other Business Name: FirstFillExpiryDate</p>
+     * <p>Un-merged Business Name: FirstFillExpiryDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.effectiveTime</p>
@@ -206,7 +206,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillQuantity</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.quantity</p>
@@ -221,7 +221,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.quantity</p>
@@ -236,7 +236,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.quantity</p>
@@ -259,7 +259,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillQuantity</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.quantity</p>
@@ -274,7 +274,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.quantity</p>
@@ -289,7 +289,7 @@ public class FirstFillBean extends MessagePartBean {
      * <p>Allows a limited quantity to be dispensed for a trial or 
      * for a synchronizing dose.</p>
      * 
-     * <p>Other Business Name: FirstFillQuantity</p>
+     * <p>Un-merged Business Name: FirstFillQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.quantity</p>
@@ -312,7 +312,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillDaysSupply</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.expectedUseTime</p>
@@ -327,7 +327,7 @@ public class FirstFillBean extends MessagePartBean {
      * calculate the quantity necessary to last for the trial or 
      * synchronization time.</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.expectedUseTime</p>
@@ -342,7 +342,7 @@ public class FirstFillBean extends MessagePartBean {
      * calculate the quantity necessary to last for the trial or 
      * synchronization time.</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.expectedUseTime</p>
@@ -365,7 +365,7 @@ public class FirstFillBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstFillDaysSupply</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.InitialSupplyRequest.expectedUseTime</p>
@@ -380,7 +380,7 @@ public class FirstFillBean extends MessagePartBean {
      * calculate the quantity necessary to last for the trial or 
      * synchronization time.</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.InitialSupplyRequest.expectedUseTime</p>
@@ -395,7 +395,7 @@ public class FirstFillBean extends MessagePartBean {
      * calculate the quantity necessary to last for the trial or 
      * synchronization time.</p>
      * 
-     * <p>Other Business Name: FirstFillDaysSupply</p>
+     * <p>Un-merged Business Name: FirstFillDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.InitialSupplyRequest.expectedUseTime</p>

@@ -42,7 +42,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.AdministrationInstructions.code</p>
@@ -56,7 +56,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * <p>Differentiates the type of medication e.g. drug, 
      * vaccine</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.AdministrationInstructions.code</p>
@@ -78,7 +78,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.AdministrationInstructions.code</p>
@@ -92,7 +92,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * <p>Differentiates the type of medication e.g. drug, 
      * vaccine</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.AdministrationInstructions.code</p>
@@ -114,7 +114,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
     /**
      * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.AdministrationInstructions.text</p>
@@ -141,7 +141,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * route, dosage unit, and other pertinent administration 
      * information specified by the provider.</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.AdministrationInstructions.text</p>
@@ -171,7 +171,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
     /**
      * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.AdministrationInstructions.text</p>
@@ -198,7 +198,7 @@ public class PrescribedAdminidtrationInstructionBean extends MessagePartBean {
      * route, dosage unit, and other pertinent administration 
      * information specified by the provider.</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.AdministrationInstructions.text</p>

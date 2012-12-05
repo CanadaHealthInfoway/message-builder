@@ -73,13 +73,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyBirthdate</p>
      * 
-     * <p>Other Business Name: CoveredPartyBirthdate</p>
+     * <p>Un-merged Business Name: CoveredPartyBirthdate</p>
      * 
      * <p>Relationship: FICR_MT490002CA.CoveredPartyDOB.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyBirthdate</p>
+     * <p>Un-merged Business Name: CoveredPartyBirthdate</p>
      * 
      * <p>Relationship: FICR_MT490001CA.CoveredPartyDOB.value</p>
      * 
@@ -93,13 +93,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: CoveredPartyBirthdate</p>
      * 
-     * <p>Other Business Name: CoveredPartyBirthdate</p>
+     * <p>Un-merged Business Name: CoveredPartyBirthdate</p>
      * 
      * <p>Relationship: FICR_MT490002CA.CoveredPartyDOB.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyBirthdate</p>
+     * <p>Un-merged Business Name: CoveredPartyBirthdate</p>
      * 
      * <p>Relationship: FICR_MT490001CA.CoveredPartyDOB.value</p>
      * 
@@ -111,13 +111,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: GenderOfCoveredParty</p>
+     * <p>Un-merged Business Name: GenderOfCoveredParty</p>
      * 
      * <p>Relationship: FICR_MT490002CA.CoveredPartyGender.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyGender</p>
+     * <p>Un-merged Business Name: CoveredPartyGender</p>
      * 
      * <p>Relationship: FICR_MT490001CA.CoveredPartyGender.value</p>
      * 
@@ -129,13 +129,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: GenderOfCoveredParty</p>
+     * <p>Un-merged Business Name: GenderOfCoveredParty</p>
      * 
      * <p>Relationship: FICR_MT490002CA.CoveredPartyGender.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyGender</p>
+     * <p>Un-merged Business Name: CoveredPartyGender</p>
      * 
      * <p>Relationship: FICR_MT490001CA.CoveredPartyGender.value</p>
      * 
@@ -147,13 +147,13 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: CoveredPartyName</p>
+     * <p>Un-merged Business Name: CoveredPartyName</p>
      * 
      * <p>Relationship: FICR_MT490002CA.CoveredPartyName.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientName</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientName</p>
      * 
      * <p>Relationship: FICR_MT490001CA.CoveredPartyName.value</p>
      * 
@@ -165,13 +165,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: CoveredPartyName</p>
+     * <p>Un-merged Business Name: CoveredPartyName</p>
      * 
      * <p>Relationship: FICR_MT490002CA.CoveredPartyName.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CoveredPartyPatientName</p>
+     * <p>Un-merged Business Name: CoveredPartyPatientName</p>
      * 
      * <p>Relationship: FICR_MT490001CA.CoveredPartyName.value</p>
      * 
@@ -185,13 +185,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PolicyIdentifier</p>
      * 
-     * <p>Other Business Name: PolicyIdentifier</p>
+     * <p>Un-merged Business Name: PolicyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490002CA.PolicyIdentifier.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PolicyIdentifier</p>
+     * <p>Un-merged Business Name: PolicyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490001CA.PolicyIdentifier.value</p>
      * 
@@ -205,13 +205,13 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PolicyIdentifier</p>
      * 
-     * <p>Other Business Name: PolicyIdentifier</p>
+     * <p>Un-merged Business Name: PolicyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490002CA.PolicyIdentifier.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PolicyIdentifier</p>
+     * <p>Un-merged Business Name: PolicyIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490001CA.PolicyIdentifier.value</p>
      * 
@@ -225,7 +225,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationRequestID</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationRequestID</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationRequestID</p>
      * 
      * <p>Relationship: 
      * FICR_MT490002CA.SpecialAuthorizationRequestID.value</p>
@@ -240,7 +240,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationRequestID</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationRequestID</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationRequestID</p>
      * 
      * <p>Relationship: 
      * FICR_MT490002CA.SpecialAuthorizationRequestID.value</p>
@@ -255,7 +255,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ApprovedDeviceCode</p>
      * 
-     * <p>Other Business Name: ApprovedDeviceCode</p>
+     * <p>Un-merged Business Name: ApprovedDeviceCode</p>
      * 
      * <p>Relationship: FICR_MT490001CA.ApprovedDeviceCode.value</p>
      * 
@@ -269,7 +269,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ApprovedDeviceCode</p>
      * 
-     * <p>Other Business Name: ApprovedDeviceCode</p>
+     * <p>Un-merged Business Name: ApprovedDeviceCode</p>
      * 
      * <p>Relationship: FICR_MT490001CA.ApprovedDeviceCode.value</p>
      * 
@@ -283,7 +283,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ApprovedDrugCode</p>
      * 
-     * <p>Other Business Name: ApprovedDrugCode</p>
+     * <p>Un-merged Business Name: ApprovedDrugCode</p>
      * 
      * <p>Relationship: FICR_MT490001CA.ApprovedDrugCode.value</p>
      * 
@@ -297,7 +297,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ApprovedDrugCode</p>
      * 
-     * <p>Other Business Name: ApprovedDrugCode</p>
+     * <p>Un-merged Business Name: ApprovedDrugCode</p>
      * 
      * <p>Relationship: FICR_MT490001CA.ApprovedDrugCode.value</p>
      * 
@@ -311,7 +311,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorID</p>
      * 
-     * <p>Other Business Name: AuthorID</p>
+     * <p>Un-merged Business Name: AuthorID</p>
      * 
      * <p>Relationship: FICR_MT490001CA.AuthorID.id</p>
      * 
@@ -325,7 +325,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorID</p>
      * 
-     * <p>Other Business Name: AuthorID</p>
+     * <p>Un-merged Business Name: AuthorID</p>
      * 
      * <p>Relationship: FICR_MT490001CA.AuthorID.id</p>
      * 
@@ -339,7 +339,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorName</p>
      * 
-     * <p>Other Business Name: AuthorName</p>
+     * <p>Un-merged Business Name: AuthorName</p>
      * 
      * <p>Relationship: FICR_MT490001CA.AuthorName.value</p>
      * 
@@ -353,7 +353,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorName</p>
      * 
-     * <p>Other Business Name: AuthorName</p>
+     * <p>Un-merged Business Name: AuthorName</p>
      * 
      * <p>Relationship: FICR_MT490001CA.AuthorName.value</p>
      * 
@@ -367,7 +367,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationExpiryDateRange</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationExpiryDateRange</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationExpiryDateRange</p>
      * 
      * <p>Relationship: FICR_MT490001CA.ExpiryDateRange.value</p>
      * 
@@ -381,7 +381,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationExpiryDateRange</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationExpiryDateRange</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationExpiryDateRange</p>
      * 
      * <p>Relationship: FICR_MT490001CA.ExpiryDateRange.value</p>
      * 
@@ -395,7 +395,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestedDeviceCode</p>
      * 
-     * <p>Other Business Name: RequestedDeviceCode</p>
+     * <p>Un-merged Business Name: RequestedDeviceCode</p>
      * 
      * <p>Relationship: FICR_MT490001CA.RequestedDeviceCode.value</p>
      * 
@@ -409,7 +409,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestedDeviceCode</p>
      * 
-     * <p>Other Business Name: RequestedDeviceCode</p>
+     * <p>Un-merged Business Name: RequestedDeviceCode</p>
      * 
      * <p>Relationship: FICR_MT490001CA.RequestedDeviceCode.value</p>
      * 
@@ -423,7 +423,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestedDrugCode</p>
      * 
-     * <p>Other Business Name: RequestedDrugCode</p>
+     * <p>Un-merged Business Name: RequestedDrugCode</p>
      * 
      * <p>Relationship: FICR_MT490001CA.RequestedDrugCode.value</p>
      * 
@@ -437,7 +437,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestedDrugCode</p>
      * 
-     * <p>Other Business Name: RequestedDrugCode</p>
+     * <p>Un-merged Business Name: RequestedDrugCode</p>
      * 
      * <p>Relationship: FICR_MT490001CA.RequestedDrugCode.value</p>
      * 
@@ -451,7 +451,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationRequestType</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationRequestType</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationRequestType</p>
      * 
      * <p>Relationship: 
      * FICR_MT490001CA.SpecialAuthorizationRequestType.value</p>
@@ -466,7 +466,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationRequestType</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationRequestType</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationRequestType</p>
      * 
      * <p>Relationship: 
      * FICR_MT490001CA.SpecialAuthorizationRequestType.value</p>
@@ -481,7 +481,7 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationStatus</p>
      * 
-     * <p>Other Business Name: SpecialAuthorizationStatus</p>
+     * <p>Un-merged Business Name: SpecialAuthorizationStatus</p>
      * 
      * <p>Relationship: 
      * FICR_MT490001CA.SpecialAuthorizationStatus.value</p>

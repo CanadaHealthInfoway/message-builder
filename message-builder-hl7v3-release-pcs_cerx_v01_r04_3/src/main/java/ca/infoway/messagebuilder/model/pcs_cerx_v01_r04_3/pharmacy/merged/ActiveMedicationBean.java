@@ -90,7 +90,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: OtherMedicationIndicator</p>
      * 
-     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.moodCode</p>
@@ -105,7 +105,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
      * Medication' record.</p>
      * 
-     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.moodCode</p>
@@ -128,7 +128,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: OtherMedicationIndicator</p>
      * 
-     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.moodCode</p>
@@ -143,7 +143,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
      * Medication' record.</p>
      * 
-     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.moodCode</p>
@@ -166,7 +166,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
      * <p>Relationship: PORX_MT980020CA.SubstanceAdministration.id</p>
      * 
@@ -191,7 +191,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
      * <p>Relationship: PORX_MT980010CA.SubstanceAdministration.id</p>
      * 
@@ -224,7 +224,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
      * <p>Relationship: PORX_MT980020CA.SubstanceAdministration.id</p>
      * 
@@ -249,7 +249,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
      * <p>Relationship: PORX_MT980010CA.SubstanceAdministration.id</p>
      * 
@@ -282,7 +282,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: AdministrationType</p>
      * 
-     * <p>Other Business Name: AdministrationType</p>
+     * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.code</p>
@@ -298,7 +298,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * vaccine. For SNOMED, may also indicate the specific drug or 
      * vaccine at issue.</p>
      * 
-     * <p>Other Business Name: AdministrationType</p>
+     * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.code</p>
@@ -322,7 +322,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: AdministrationType</p>
      * 
-     * <p>Other Business Name: AdministrationType</p>
+     * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.code</p>
@@ -338,7 +338,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * vaccine. For SNOMED, may also indicate the specific drug or 
      * vaccine at issue.</p>
      * 
-     * <p>Other Business Name: AdministrationType</p>
+     * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.code</p>
@@ -362,7 +362,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationStatus</p>
      * 
-     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.statusCode</p>
@@ -380,7 +380,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Indicates the status of the medication record at the time 
      * of the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.statusCode</p>
@@ -406,7 +406,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationStatus</p>
      * 
-     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.statusCode</p>
@@ -424,7 +424,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Indicates the status of the medication record at the time 
      * of the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.statusCode</p>
@@ -450,7 +450,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationTimeRange</p>
      * 
-     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.effectiveTime</p>
@@ -465,7 +465,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.effectiveTime</p>
@@ -488,7 +488,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationTimeRange</p>
      * 
-     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.effectiveTime</p>
@@ -503,7 +503,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.effectiveTime</p>
@@ -526,7 +526,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationMaskingIndicator</p>
      * 
-     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.confidentialityCode</p>
@@ -541,7 +541,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.confidentialityCode</p>
@@ -564,7 +564,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationMaskingIndicator</p>
      * 
-     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.confidentialityCode</p>
@@ -579,7 +579,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.confidentialityCode</p>
@@ -602,7 +602,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationDoseQuantity</p>
      * 
-     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.doseQuantity</p>
@@ -621,7 +621,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>The amount of medication administered to the patient</p>
      * 
-     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.doseQuantity</p>
@@ -648,7 +648,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     /**
      * <p>Business Name: ActiveMedicationDoseQuantity</p>
      * 
-     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.SubstanceAdministration.doseQuantity</p>
@@ -667,7 +667,7 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>The amount of medication administered to the patient</p>
      * 
-     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.SubstanceAdministration.doseQuantity</p>
@@ -692,13 +692,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Consumable.medication</p>
      * 
@@ -710,13 +710,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Consumable.medication</p>
      * 

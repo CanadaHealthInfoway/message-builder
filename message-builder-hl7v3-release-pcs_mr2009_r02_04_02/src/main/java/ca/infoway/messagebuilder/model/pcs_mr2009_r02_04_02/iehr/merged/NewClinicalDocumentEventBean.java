@@ -39,7 +39,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT210002CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -54,7 +54,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT220002CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -69,7 +69,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT210003CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -84,7 +84,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT230003CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -99,7 +99,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT220003CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -114,7 +114,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT230002CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -137,7 +137,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT210002CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -152,7 +152,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT220002CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -167,7 +167,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT210003CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -182,7 +182,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT230003CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -197,7 +197,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT220003CA.NewClinicalDocumentEvent.id</p>
      * 
@@ -212,7 +212,7 @@ public class NewClinicalDocumentEventBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT230002CA.NewClinicalDocumentEvent.id</p>
      * 

@@ -69,7 +69,7 @@ public class AgentCategoryBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposedMaterialType</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000006CA.MaterialKind.code</p>
      * 
@@ -87,7 +87,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000012CA.MaterialKind.code</p>
      * 
@@ -105,7 +105,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000002CA.MaterialKind.code</p>
      * 
@@ -132,7 +132,7 @@ public class AgentCategoryBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposedMaterialType</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000006CA.MaterialKind.code</p>
      * 
@@ -150,7 +150,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000012CA.MaterialKind.code</p>
      * 
@@ -168,7 +168,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * known what the agent is, however it may not always be 
      * coded.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
      * 
      * <p>Relationship: REPC_MT000002CA.MaterialKind.code</p>
      * 
@@ -195,7 +195,7 @@ public class AgentCategoryBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposedMaterialName</p>
      * 
-     * <p>Other Business Name: ExposedMaterialName</p>
+     * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
      * <p>Relationship: REPC_MT000006CA.MaterialKind.name</p>
      * 
@@ -207,7 +207,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * <p>Provides a human-readable name in circumstances where the 
      * agent is captured as code.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialName</p>
+     * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
      * <p>Relationship: REPC_MT000012CA.MaterialKind.name</p>
      * 
@@ -219,7 +219,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * <p>Proivdes a human-readable name in circumstances where the 
      * agent is captured as a code.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialName</p>
+     * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
      * <p>Relationship: REPC_MT000002CA.MaterialKind.name</p>
      * 
@@ -239,7 +239,7 @@ public class AgentCategoryBean extends MessagePartBean {
     /**
      * <p>Business Name: ExposedMaterialName</p>
      * 
-     * <p>Other Business Name: ExposedMaterialName</p>
+     * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
      * <p>Relationship: REPC_MT000006CA.MaterialKind.name</p>
      * 
@@ -251,7 +251,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * <p>Provides a human-readable name in circumstances where the 
      * agent is captured as code.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialName</p>
+     * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
      * <p>Relationship: REPC_MT000012CA.MaterialKind.name</p>
      * 
@@ -263,7 +263,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * <p>Proivdes a human-readable name in circumstances where the 
      * agent is captured as a code.</p>
      * 
-     * <p>Other Business Name: ExposedMaterialName</p>
+     * <p>Un-merged Business Name: ExposedMaterialName</p>
      * 
      * <p>Relationship: REPC_MT000002CA.MaterialKind.name</p>
      * 

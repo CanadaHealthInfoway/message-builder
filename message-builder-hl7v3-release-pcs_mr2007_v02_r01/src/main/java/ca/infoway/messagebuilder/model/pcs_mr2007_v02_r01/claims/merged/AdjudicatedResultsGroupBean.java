@@ -95,7 +95,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     /**
      * <p>Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * <p>Un-merged Business Name: AdjudicatedResultsGroupID</p>
      * 
      * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.id</p>
      * 
@@ -111,7 +111,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>ID of Results Group</p>
      * 
-     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * <p>Un-merged Business Name: AdjudicatedResultsGroupID</p>
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.id</p>
      * 
@@ -133,7 +133,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     /**
      * <p>Business Name: AdjudicatedResultsGroupID</p>
      * 
-     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * <p>Un-merged Business Name: AdjudicatedResultsGroupID</p>
      * 
      * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.id</p>
      * 
@@ -149,7 +149,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>ID of Results Group</p>
      * 
-     * <p>Other Business Name: AdjudicatedResultsGroupID</p>
+     * <p>Un-merged Business Name: AdjudicatedResultsGroupID</p>
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.id</p>
      * 
@@ -169,7 +169,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: TypeOfSummary</p>
+     * <p>Un-merged Business Name: TypeOfSummary</p>
      * 
      * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.code</p>
      * 
@@ -192,7 +192,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Type of summary</p>
      * 
-     * <p>Other Business Name: TypeOfSummary</p>
+     * <p>Un-merged Business Name: TypeOfSummary</p>
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.code</p>
      * 
@@ -212,7 +212,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * for a payment advice (e.g. CFWD - carry forward 
      * adjustment).</p>
      * 
-     * <p>Other Business Name: BreakdownOfFinancialActivity</p>
+     * <p>Un-merged Business Name: BreakdownOfFinancialActivity</p>
      * 
      * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.code</p>
      * 
@@ -240,7 +240,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: TypeOfSummary</p>
+     * <p>Un-merged Business Name: TypeOfSummary</p>
      * 
      * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.code</p>
      * 
@@ -263,7 +263,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Type of summary</p>
      * 
-     * <p>Other Business Name: TypeOfSummary</p>
+     * <p>Un-merged Business Name: TypeOfSummary</p>
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.code</p>
      * 
@@ -283,7 +283,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * for a payment advice (e.g. CFWD - carry forward 
      * adjustment).</p>
      * 
-     * <p>Other Business Name: BreakdownOfFinancialActivity</p>
+     * <p>Un-merged Business Name: BreakdownOfFinancialActivity</p>
      * 
      * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.code</p>
      * 
@@ -311,7 +311,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: TimePeriodForThePayment</p>
+     * <p>Un-merged Business Name: TimePeriodForThePayment</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroup.effectiveTime</p>
@@ -323,7 +323,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
      * 
-     * <p>Other Business Name: SummaryPeriodDateRange</p>
+     * <p>Un-merged Business Name: SummaryPeriodDateRange</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroup.effectiveTime</p>
@@ -337,7 +337,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * Payment Advice: Can also indicate time period over which the 
      * clawback and/or retro adjustment applies.</p>
      * 
-     * <p>Other Business Name: TimePeriodForThePayment</p>
+     * <p>Un-merged Business Name: TimePeriodForThePayment</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroup.effectiveTime</p>
@@ -355,7 +355,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: TimePeriodForThePayment</p>
+     * <p>Un-merged Business Name: TimePeriodForThePayment</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroup.effectiveTime</p>
@@ -367,7 +367,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
      * 
-     * <p>Other Business Name: SummaryPeriodDateRange</p>
+     * <p>Un-merged Business Name: SummaryPeriodDateRange</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroup.effectiveTime</p>
@@ -381,7 +381,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * Payment Advice: Can also indicate time period over which the 
      * clawback and/or retro adjustment applies.</p>
      * 
-     * <p>Other Business Name: TimePeriodForThePayment</p>
+     * <p>Un-merged Business Name: TimePeriodForThePayment</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroup.effectiveTime</p>
@@ -399,7 +399,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
      * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.netAmt</p>
      * 
@@ -416,7 +416,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Summary Period Amt</p>
      * 
-     * <p>Other Business Name: SummaryPeriodAmount</p>
+     * <p>Un-merged Business Name: SummaryPeriodAmount</p>
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.netAmt</p>
      * 
@@ -435,7 +435,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Grand total of all SOFA observations contained in this 
      * summary - Daily Total</p>
      * 
-     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
      * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.netAmt</p>
      * 
@@ -456,7 +456,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
      * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.netAmt</p>
      * 
@@ -473,7 +473,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Summary Period Amt</p>
      * 
-     * <p>Other Business Name: SummaryPeriodAmount</p>
+     * <p>Un-merged Business Name: SummaryPeriodAmount</p>
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.netAmt</p>
      * 
@@ -492,7 +492,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Grand total of all SOFA observations contained in this 
      * summary - Daily Total</p>
      * 
-     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
      * <p>Relationship: FICR_MT630000CA.AdjudResultsGroup.netAmt</p>
      * 
@@ -513,7 +513,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.Device.adjudResultsSendingAppRole</p>
@@ -526,7 +526,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.Device.adjudResultsSendingAppRole</p>
@@ -539,7 +539,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.Performer.adjudResultsProviderRole</p>
@@ -552,7 +552,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.Performer.adjudResultsProviderRole</p>
@@ -565,7 +565,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.Author.adjudResultsCarrierRole</p>
@@ -578,7 +578,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.Author.adjudResultsCarrierRole</p>
@@ -591,7 +591,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupLocation.serviceDeliveryLocation</p>
@@ -604,7 +604,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupLocation.serviceDeliveryLocation</p>
@@ -617,7 +617,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupRef.adjudResultsFinancialContract</p>
@@ -630,7 +630,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupRef.adjudResultsFinancialContract</p>
@@ -643,21 +643,21 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
@@ -671,7 +671,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupPayee.account</p>
@@ -684,7 +684,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupPayee.account</p>
@@ -697,7 +697,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupPayor.account</p>
@@ -710,7 +710,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupPayor.account</p>
@@ -723,7 +723,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupComponent.adjudResultsGroup</p>

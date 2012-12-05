@@ -48,7 +48,7 @@ public class CarrierRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: CarrierID</p>
+     * <p>Un-merged Business Name: CarrierID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.CarrierRole.id</p>
      * 
@@ -59,7 +59,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>The unique identifier of the policy carrier.</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060160CA.CarrierRole.id</p>
      * 
@@ -72,7 +72,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060340CA.CarrierRole.id</p>
      * 
@@ -85,7 +85,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
      * 
-     * <p>Other Business Name: CarrierID</p>
+     * <p>Un-merged Business Name: CarrierID</p>
      * 
      * <p>Relationship: FICR_MT610201CA.CarrierRole.id</p>
      * 
@@ -101,7 +101,7 @@ public class CarrierRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: CarrierID</p>
+     * <p>Un-merged Business Name: CarrierID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.CarrierRole.id</p>
      * 
@@ -112,7 +112,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * 
      * <p>The unique identifier of the policy carrier.</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060160CA.CarrierRole.id</p>
      * 
@@ -125,7 +125,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060340CA.CarrierRole.id</p>
      * 
@@ -138,7 +138,7 @@ public class CarrierRoleBean extends MessagePartBean {
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
      * 
-     * <p>Other Business Name: CarrierID</p>
+     * <p>Un-merged Business Name: CarrierID</p>
      * 
      * <p>Relationship: FICR_MT610201CA.CarrierRole.id</p>
      * 
@@ -156,7 +156,7 @@ public class CarrierRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: PayorName</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060160CA.CarrierOrganization.name</p>
      * 
@@ -175,7 +175,7 @@ public class CarrierRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: PayorName</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060160CA.CarrierOrganization.name</p>
      * 
@@ -194,7 +194,7 @@ public class CarrierRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: PayorName</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Organization.name</p>
      * 
@@ -213,7 +213,7 @@ public class CarrierRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: PayorName</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Organization.name</p>
      * 

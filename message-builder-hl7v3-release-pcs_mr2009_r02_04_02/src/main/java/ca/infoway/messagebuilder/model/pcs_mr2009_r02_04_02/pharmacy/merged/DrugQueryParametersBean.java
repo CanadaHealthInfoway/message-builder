@@ -148,7 +148,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.AdministrationEffectivePeriod.value</p>
@@ -170,7 +170,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * the patient was deemed to be taking the drug within the 
      * specified period.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.AdministrationEffectivePeriod.value</p>
@@ -200,7 +200,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.AdministrationEffectivePeriod.value</p>
@@ -222,7 +222,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * the patient was deemed to be taking the drug within the 
      * specified period.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.AdministrationEffectivePeriod.value</p>
@@ -252,7 +252,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060180CA.AmendedInTimeRange.value</p>
      * 
@@ -269,7 +269,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * be used to retrieve everything that has been amended since 
      * xxx.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060170CA.AmendedInTimeRange.value</p>
      * 
@@ -294,7 +294,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060180CA.AmendedInTimeRange.value</p>
      * 
@@ -311,7 +311,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * be used to retrieve everything that has been amended since 
      * xxx.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060170CA.AmendedInTimeRange.value</p>
      * 
@@ -336,7 +336,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionIDs</p>
      * 
-     * <p>Other Business Name: CareCompositionIDs</p>
+     * <p>Un-merged Business Name: CareCompositionIDs</p>
      * 
      * <p>Relationship: PORX_MT060180CA.CareCompositionID.value</p>
      * 
@@ -355,7 +355,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * referral, the retrieved records should also include the care 
      * summary created in fulfillment of the referral.</p>
      * 
-     * <p>Other Business Name: CareCompositionIDs</p>
+     * <p>Un-merged Business Name: CareCompositionIDs</p>
      * 
      * <p>Relationship: PORX_MT060170CA.CareCompositionID.value</p>
      * 
@@ -383,7 +383,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionTypes</p>
      * 
-     * <p>Other Business Name: CareCompositionTypes</p>
+     * <p>Un-merged Business Name: CareCompositionTypes</p>
      * 
      * <p>Relationship: PORX_MT060180CA.CareCompositionType.value</p>
      * 
@@ -398,7 +398,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * associated with the specified 'kind' of encounter, episode 
      * or care event. If unspecified, no filter is applied.</p>
      * 
-     * <p>Other Business Name: CareCompositionTypes</p>
+     * <p>Un-merged Business Name: CareCompositionTypes</p>
      * 
      * <p>Relationship: PORX_MT060170CA.CareCompositionType.value</p>
      * 
@@ -422,7 +422,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.DiagnosisCode.value</p>
      * 
@@ -435,7 +435,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * include only those records pertaining to the specified 
      * diagnosis indication code.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.DiagnosisCode.value</p>
      * 
@@ -456,7 +456,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.DiagnosisCode.value</p>
      * 
@@ -469,7 +469,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * include only those records pertaining to the specified 
      * diagnosis indication code.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.DiagnosisCode.value</p>
      * 
@@ -490,7 +490,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.DrugCode.value</p>
      * 
@@ -507,7 +507,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * The code may refer to an orderable medication or a higher 
      * level drug classification.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT050020CA.DrugCode.value</p>
      * 
@@ -534,7 +534,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * contraindications that might result (based on the 
      * information on the patient's profile).</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010050CA.DrugCode.value</p>
      * 
@@ -549,7 +549,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * Manufactured drug, generic formulation, generic, therapeutic 
      * class, etc.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010030CA.DrugCode.value</p>
      * 
@@ -562,7 +562,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * identified by drug code include: Manufactured drug, generic 
      * formulation, generic, therapeutic class, etc.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.DrugCode.value</p>
      * 
@@ -579,7 +579,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * The code may refer to an orderable medication or a higher 
      * level drug classification.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugCode.value</p>
      * 
@@ -611,7 +611,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.DrugCode.value</p>
      * 
@@ -628,7 +628,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * The code may refer to an orderable medication or a higher 
      * level drug classification.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT050020CA.DrugCode.value</p>
      * 
@@ -655,7 +655,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * contraindications that might result (based on the 
      * information on the patient's profile).</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010050CA.DrugCode.value</p>
      * 
@@ -670,7 +670,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * Manufactured drug, generic formulation, generic, therapeutic 
      * class, etc.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010030CA.DrugCode.value</p>
      * 
@@ -683,7 +683,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * identified by drug code include: Manufactured drug, generic 
      * formulation, generic, therapeutic class, etc.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.DrugCode.value</p>
      * 
@@ -700,7 +700,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * The code may refer to an orderable medication or a higher 
      * level drug classification.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugCode.value</p>
      * 
@@ -732,7 +732,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludeEventHistoryIndicator.value</p>
@@ -750,7 +750,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * detailed information.</p><p>&quot;Pending&quot; changes will 
      * be returned regardless of the setting of this flag.</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludeEventHistoryIndicator.value</p>
@@ -776,7 +776,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludeEventHistoryIndicator.value</p>
@@ -794,7 +794,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * detailed information.</p><p>&quot;Pending&quot; changes will 
      * be returned regardless of the setting of this flag.</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludeEventHistoryIndicator.value</p>
@@ -820,7 +820,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludeIssuesIndicator.value</p>
@@ -838,7 +838,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludeIssuesIndicator.value</p>
@@ -864,7 +864,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludeIssuesIndicator.value</p>
@@ -882,7 +882,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * medication records are to be returned along with the 
      * detailed information.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludeIssuesIndicator.value</p>
@@ -908,7 +908,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060180CA.IncludeNotesIndicator.value</p>
      * 
@@ -924,7 +924,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * prescription, dispenses and other active medication records 
      * are to be returned along with the detailed information.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060170CA.IncludeNotesIndicator.value</p>
      * 
@@ -948,7 +948,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060180CA.IncludeNotesIndicator.value</p>
      * 
@@ -964,7 +964,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * prescription, dispenses and other active medication records 
      * are to be returned along with the detailed information.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060170CA.IncludeNotesIndicator.value</p>
      * 
@@ -988,7 +988,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludePendingChangesIndicator.value</p>
@@ -1007,7 +1007,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * medications are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludePendingChangesIndicator.value</p>
@@ -1034,7 +1034,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludePendingChangesIndicator.value</p>
@@ -1053,7 +1053,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * medications are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludePendingChangesIndicator.value</p>
@@ -1080,7 +1080,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueFilterCode</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.IssueFilterCode.value</p>
      * 
@@ -1107,7 +1107,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueFilterCode</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.IssueFilterCode.value</p>
      * 
@@ -1134,7 +1134,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentByDrugIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentByDrugIndicator.value</p>
@@ -1164,7 +1164,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentByDrugIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentByDrugIndicator.value</p>
@@ -1194,7 +1194,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -1215,7 +1215,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * retrieval should be for only the most recent dispense for a 
      * prescription is to be included in a query result.</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -1244,7 +1244,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -1265,7 +1265,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * retrieval should be for only the most recent dispense for a 
      * prescription is to be included in a query result.</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -1294,7 +1294,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherIndicationCode</p>
      * 
-     * <p>Other Business Name: OtherIndicationCode</p>
+     * <p>Un-merged Business Name: OtherIndicationCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.OtherIndicationCode.value</p>
      * 
@@ -1307,7 +1307,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * include only those records pertaining to the specified 
      * non-condition-related indication code.</p>
      * 
-     * <p>Other Business Name: OtherIndicationCode</p>
+     * <p>Un-merged Business Name: OtherIndicationCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.OtherIndicationCode.value</p>
      * 
@@ -1328,7 +1328,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherIndicationCode</p>
      * 
-     * <p>Other Business Name: OtherIndicationCode</p>
+     * <p>Un-merged Business Name: OtherIndicationCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.OtherIndicationCode.value</p>
      * 
@@ -1341,7 +1341,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * include only those records pertaining to the specified 
      * non-condition-related indication code.</p>
      * 
-     * <p>Other Business Name: OtherIndicationCode</p>
+     * <p>Un-merged Business Name: OtherIndicationCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.OtherIndicationCode.value</p>
      * 
@@ -1362,7 +1362,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * <p>Un-merged Business Name: OtherMedicationRecordId</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.OtherMedicationRecordId.value</p>
@@ -1383,7 +1383,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * <p>Un-merged Business Name: OtherMedicationRecordId</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.OtherMedicationRecordId.value</p>
@@ -1404,7 +1404,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>Other Business Name: PrescriberProviderID</p>
+     * <p>Un-merged Business Name: PrescriberProviderID</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PrescriberProviderID.value</p>
      * 
@@ -1427,7 +1427,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>Other Business Name: PrescriberProviderID</p>
+     * <p>Un-merged Business Name: PrescriberProviderID</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PrescriberProviderID.value</p>
      * 
@@ -1450,7 +1450,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.PrescriptionDispenseNumber.value</p>
@@ -1471,7 +1471,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.PrescriptionDispenseNumber.value</p>
@@ -1492,7 +1492,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.PrescriptionOrderNumber.value</p>
@@ -1513,7 +1513,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.PrescriptionOrderNumber.value</p>
@@ -1534,7 +1534,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionStatuses</p>
      * 
-     * <p>Other Business Name: PrescriptionStatuses</p>
+     * <p>Un-merged Business Name: PrescriptionStatuses</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PrescriptionStatus.value</p>
      * 
@@ -1558,7 +1558,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: RxDispenserIndicators</p>
      * 
-     * <p>Other Business Name: RxDispenserIndicators</p>
+     * <p>Un-merged Business Name: RxDispenserIndicators</p>
      * 
      * <p>Relationship: PORX_MT060180CA.RxDispenseIndicator.value</p>
      * 
@@ -1583,7 +1583,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: SymptomCode</p>
      * 
-     * <p>Other Business Name: SymptomCode</p>
+     * <p>Un-merged Business Name: SymptomCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.SymptomCode.value</p>
      * 
@@ -1596,7 +1596,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * include only those records pertaining to the specified 
      * symptom indication code.</p>
      * 
-     * <p>Other Business Name: SymptomCode</p>
+     * <p>Un-merged Business Name: SymptomCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.SymptomCode.value</p>
      * 
@@ -1617,7 +1617,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: SymptomCode</p>
      * 
-     * <p>Other Business Name: SymptomCode</p>
+     * <p>Un-merged Business Name: SymptomCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.SymptomCode.value</p>
      * 
@@ -1630,7 +1630,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * include only those records pertaining to the specified 
      * symptom indication code.</p>
      * 
-     * <p>Other Business Name: SymptomCode</p>
+     * <p>Un-merged Business Name: SymptomCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.SymptomCode.value</p>
      * 
@@ -1651,7 +1651,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: TreatmentTypes</p>
      * 
-     * <p>Other Business Name: TreatmentTypes</p>
+     * <p>Un-merged Business Name: TreatmentTypes</p>
      * 
      * <p>Relationship: PORX_MT060180CA.TreatmentType.value</p>
      * 
@@ -1677,7 +1677,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentID</p>
      * 
-     * <p>Other Business Name: MedicationDocumentID</p>
+     * <p>Un-merged Business Name: MedicationDocumentID</p>
      * 
      * <p>Relationship: POME_MT010050CA.MedicationDocumentID.value</p>
      * 
@@ -1700,7 +1700,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentID</p>
      * 
-     * <p>Other Business Name: MedicationDocumentID</p>
+     * <p>Un-merged Business Name: MedicationDocumentID</p>
      * 
      * <p>Relationship: POME_MT010050CA.MedicationDocumentID.value</p>
      * 
@@ -1723,7 +1723,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentType</p>
      * 
-     * <p>Other Business Name: MedicationDocumentType</p>
+     * <p>Un-merged Business Name: MedicationDocumentType</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.MedicationDocumentType.value</p>
@@ -1747,7 +1747,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentType</p>
      * 
-     * <p>Other Business Name: MedicationDocumentType</p>
+     * <p>Un-merged Business Name: MedicationDocumentType</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.MedicationDocumentType.value</p>
@@ -1771,7 +1771,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Other Business Name: PrescribingIndicationDiagnosisCode</p>
+     * <p>Un-merged Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
@@ -1792,7 +1792,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Other Business Name: PrescribingIndicationDiagnosisCode</p>
+     * <p>Un-merged Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
@@ -1813,7 +1813,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Other Business Name: PrescribingIndicationSymptomCode</p>
+     * <p>Un-merged Business Name: PrescribingIndicationSymptomCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingSymptomCode.value</p>
@@ -1834,7 +1834,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Other Business Name: PrescribingIndicationSymptomCode</p>
+     * <p>Un-merged Business Name: PrescribingIndicationSymptomCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingSymptomCode.value</p>
@@ -1853,7 +1853,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POME_MT010090CA.ParameterList.drugCharacteristics</p>
@@ -1869,7 +1869,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderableDrugForm</p>
      * 
-     * <p>Other Business Name: OrderableDrugForm</p>
+     * <p>Un-merged Business Name: OrderableDrugForm</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugForm.value</p>
      * 
@@ -1889,7 +1889,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderableDrugForm</p>
      * 
-     * <p>Other Business Name: OrderableDrugForm</p>
+     * <p>Un-merged Business Name: OrderableDrugForm</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugForm.value</p>
      * 
@@ -1909,7 +1909,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugManufacturerName</p>
      * 
-     * <p>Other Business Name: DrugManufacturerName</p>
+     * <p>Un-merged Business Name: DrugManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugManufacturerName.value</p>
      * 
@@ -1931,7 +1931,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugManufacturerName</p>
      * 
-     * <p>Other Business Name: DrugManufacturerName</p>
+     * <p>Un-merged Business Name: DrugManufacturerName</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugManufacturerName.value</p>
      * 
@@ -1953,7 +1953,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugName</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugName.value</p>
      * 
@@ -1972,7 +1972,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugName</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugName.value</p>
      * 
@@ -1991,7 +1991,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugRouteCode</p>
      * 
-     * <p>Other Business Name: DrugRouteCode</p>
+     * <p>Un-merged Business Name: DrugRouteCode</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugRoute.value</p>
      * 
@@ -2011,7 +2011,7 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugRouteCode</p>
      * 
-     * <p>Other Business Name: DrugRouteCode</p>
+     * <p>Un-merged Business Name: DrugRouteCode</p>
      * 
      * <p>Relationship: POME_MT010090CA.DrugRoute.value</p>
      * 

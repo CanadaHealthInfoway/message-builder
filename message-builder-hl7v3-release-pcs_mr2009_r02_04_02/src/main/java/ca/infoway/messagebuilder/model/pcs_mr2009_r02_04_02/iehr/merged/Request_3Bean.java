@@ -75,7 +75,7 @@ public class Request_3Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestType</p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ActRequest.classCode</p>
      * 
@@ -88,7 +88,7 @@ public class Request_3Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ActRequest.classCode</p>
      * 
@@ -109,7 +109,7 @@ public class Request_3Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestType</p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ActRequest.classCode</p>
      * 
@@ -122,7 +122,7 @@ public class Request_3Bean extends MessagePartBean {
      * <p> <i>This distinguishes between &quot;referral&quot; 
      * requests and specific orders.</i> </p>
      * 
-     * <p>Other Business Name: RequestType</p>
+     * <p>Un-merged Business Name: RequestType</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ActRequest.classCode</p>
      * 
@@ -143,7 +143,7 @@ public class Request_3Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestId</p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ActRequest.id</p>
      * 
@@ -163,7 +163,7 @@ public class Request_3Bean extends MessagePartBean {
      * or order) that this Professional Service is fulfilling. The 
      * type of request is identified by the Request Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ActRequest.id</p>
      * 
@@ -191,7 +191,7 @@ public class Request_3Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestId</p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ActRequest.id</p>
      * 
@@ -211,7 +211,7 @@ public class Request_3Bean extends MessagePartBean {
      * or order) that this Professional Service is fulfilling. The 
      * type of request is identified by the Request Type.</i> </p>
      * 
-     * <p>Other Business Name: RequestId</p>
+     * <p>Un-merged Business Name: RequestId</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ActRequest.id</p>
      * 
@@ -237,13 +237,13 @@ public class Request_3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ActRequest.author</p>
      * 
@@ -255,13 +255,13 @@ public class Request_3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT610002CA.ActRequest.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT610001CA.ActRequest.author</p>
      * 

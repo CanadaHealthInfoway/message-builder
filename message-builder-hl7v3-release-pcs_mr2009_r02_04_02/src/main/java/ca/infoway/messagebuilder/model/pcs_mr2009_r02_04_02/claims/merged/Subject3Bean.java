@@ -39,19 +39,19 @@ public class Subject3Bean extends MessagePartBean {
     /**
      * <p>Business Name: IncludesExcludesProduct</p>
      * 
-     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * <p>Un-merged Business Name: IncludesExcludesProduct</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Subject.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * <p>Un-merged Business Name: IncludesExcludesProduct</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Subject.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * <p>Un-merged Business Name: IncludesExcludesProduct</p>
      * 
      * <p>Relationship: FICR_MT490102CA.Subject4.negationInd</p>
      * 
@@ -65,19 +65,19 @@ public class Subject3Bean extends MessagePartBean {
     /**
      * <p>Business Name: IncludesExcludesProduct</p>
      * 
-     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * <p>Un-merged Business Name: IncludesExcludesProduct</p>
      * 
      * <p>Relationship: FICR_MT400003CA.Subject.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * <p>Un-merged Business Name: IncludesExcludesProduct</p>
      * 
      * <p>Relationship: FICR_MT400004CA.Subject.negationInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: IncludesExcludesProduct</p>
+     * <p>Un-merged Business Name: IncludesExcludesProduct</p>
      * 
      * <p>Relationship: FICR_MT490102CA.Subject4.negationInd</p>
      * 
@@ -89,56 +89,56 @@ public class Subject3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.Subject.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.Subject3.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.Subject.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.Subject3.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.Subject3.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.Subject4.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.Subject3.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.Subject3.specialAuthorizationChoice</p>
@@ -151,56 +151,56 @@ public class Subject3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.Subject.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.Subject3.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.Subject.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.Subject3.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.Subject3.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.Subject4.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.Subject3.specialAuthorizationChoice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.Subject3.specialAuthorizationChoice</p>

@@ -59,7 +59,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Other Business Name: RepositoryIdentifier</p>
+     * <p>Un-merged Business Name: RepositoryIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090310CA.AssignedDevice.id</p>
      * 
@@ -70,7 +70,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
      * 
      * <p>A unique identifier for the EHR repository.</p>
      * 
-     * <p>Other Business Name: ApplicationId</p>
+     * <p>Un-merged Business Name: ApplicationId</p>
      * 
      * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
      * 
@@ -100,7 +100,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>Other Business Name: RepositoryIdentifier</p>
+     * <p>Un-merged Business Name: RepositoryIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090310CA.AssignedDevice.id</p>
      * 
@@ -111,7 +111,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
      * 
      * <p>A unique identifier for the EHR repository.</p>
      * 
-     * <p>Other Business Name: ApplicationId</p>
+     * <p>Un-merged Business Name: ApplicationId</p>
      * 
      * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
      * 
@@ -143,7 +143,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     /**
      * <p>Business Name: RepositoryName</p>
      * 
-     * <p>Other Business Name: RepositoryName</p>
+     * <p>Un-merged Business Name: RepositoryName</p>
      * 
      * <p>Relationship: COCT_MT090310CA.Repository.name</p>
      * 
@@ -164,7 +164,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     /**
      * <p>Business Name: RepositoryName</p>
      * 
-     * <p>Other Business Name: RepositoryName</p>
+     * <p>Un-merged Business Name: RepositoryName</p>
      * 
      * <p>Relationship: COCT_MT090310CA.Repository.name</p>
      * 
@@ -185,7 +185,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     /**
      * <p>Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>Other Business Name: RepositoryJurisdictionName</p>
+     * <p>Un-merged Business Name: RepositoryJurisdictionName</p>
      * 
      * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
      * 
@@ -205,7 +205,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     /**
      * <p>Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>Other Business Name: RepositoryJurisdictionName</p>
+     * <p>Un-merged Business Name: RepositoryJurisdictionName</p>
      * 
      * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
      * 
@@ -225,7 +225,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     /**
      * <p>Business Name: ApplicationName</p>
      * 
-     * <p>Other Business Name: ApplicationName</p>
+     * <p>Un-merged Business Name: ApplicationName</p>
      * 
      * <p>Relationship: 
      * COCT_MT090302CA.Device.manufacturerModelName</p>
@@ -251,7 +251,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     /**
      * <p>Business Name: ApplicationName</p>
      * 
-     * <p>Other Business Name: ApplicationName</p>
+     * <p>Un-merged Business Name: ApplicationName</p>
      * 
      * <p>Relationship: 
      * COCT_MT090302CA.Device.manufacturerModelName</p>

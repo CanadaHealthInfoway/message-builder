@@ -76,7 +76,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     /**
      * <p>Business Name: AdjudicationResultId</p>
      * 
-     * <p>Other Business Name: AdjudicationResultId</p>
+     * <p>Un-merged Business Name: AdjudicationResultId</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.id</p>
@@ -97,7 +97,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     /**
      * <p>Business Name: AdjudicationResultId</p>
      * 
-     * <p>Other Business Name: AdjudicationResultId</p>
+     * <p>Un-merged Business Name: AdjudicationResultId</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.id</p>
@@ -116,7 +116,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.code</p>
@@ -135,7 +135,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound</p>
      * 
-     * <p>Other Business Name: InvoiceElementGroupCode</p>
+     * <p>Un-merged Business Name: InvoiceElementGroupCode</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.code</p>
@@ -151,7 +151,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.code</p>
@@ -170,7 +170,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound</p>
      * 
-     * <p>Other Business Name: InvoiceElementGroupCode</p>
+     * <p>Un-merged Business Name: InvoiceElementGroupCode</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.code</p>
@@ -186,7 +186,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: InvoiceStatus</p>
+     * <p>Un-merged Business Name: InvoiceStatus</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
@@ -213,7 +213,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Codes representing the defined states of an Act as 
      * defined by the Act class state machine.</p>
      * 
-     * <p>Other Business Name: InvoiceStatusCode</p>
+     * <p>Un-merged Business Name: InvoiceStatusCode</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
@@ -230,7 +230,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Other Business Name: InvoiceStatus</p>
+     * <p>Un-merged Business Name: InvoiceStatus</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
@@ -257,7 +257,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Codes representing the defined states of an Act as 
      * defined by the Act class state machine.</p>
      * 
-     * <p>Other Business Name: InvoiceStatusCode</p>
+     * <p>Un-merged Business Name: InvoiceStatusCode</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.statusCode</p>
@@ -274,7 +274,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: PaidAmount</p>
+     * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
@@ -287,7 +287,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * 
      * <p>Paid Amount</p>
      * 
-     * <p>Other Business Name: InvoiceElementAmountBilled</p>
+     * <p>Un-merged Business Name: InvoiceElementAmountBilled</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
@@ -304,7 +304,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Other Business Name: PaidAmount</p>
+     * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
@@ -317,7 +317,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * 
      * <p>Paid Amount</p>
      * 
-     * <p>Other Business Name: InvoiceElementAmountBilled</p>
+     * <p>Un-merged Business Name: InvoiceElementAmountBilled</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.netAmt</p>
@@ -334,7 +334,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.PaymentIntentReason.paymentIntent</p>
@@ -347,7 +347,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.PaymentIntentReason.paymentIntent</p>
@@ -360,7 +360,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.Reference.adjudicatedInvoiceElementGroup</p>
@@ -373,7 +373,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.Reference.adjudicatedInvoiceElementGroup</p>
@@ -386,7 +386,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsRef.adjudResultsGroup</p>
@@ -399,7 +399,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsRef.adjudResultsGroup</p>
@@ -412,7 +412,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
@@ -425,7 +425,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
@@ -438,7 +438,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.author</p>
@@ -451,7 +451,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.author</p>
@@ -464,7 +464,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.coverage</p>
@@ -478,7 +478,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementComponent.adjudicatedInvoiceElementChoice</p>

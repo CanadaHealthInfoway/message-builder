@@ -39,13 +39,13 @@ public class ActRequest2Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestedService</p>
      * 
-     * <p>Other Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: RequestedService</p>
      * 
      * <p>Relationship: REPC_MT210001CA.ActRequest2.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: RequestedService</p>
      * 
      * <p>Relationship: REPC_MT210003CA.ActRequest2.code</p>
      * 
@@ -65,7 +65,7 @@ public class ActRequest2Bean extends MessagePartBean {
      * <p>A coded value denoting the specific service that has been 
      * ordered through the referral.</p>
      * 
-     * <p>Other Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: RequestedService</p>
      * 
      * <p>Relationship: REPC_MT210002CA.ActRequest2.code</p>
      * 
@@ -93,13 +93,13 @@ public class ActRequest2Bean extends MessagePartBean {
     /**
      * <p>Business Name: RequestedService</p>
      * 
-     * <p>Other Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: RequestedService</p>
      * 
      * <p>Relationship: REPC_MT210001CA.ActRequest2.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: RequestedService</p>
      * 
      * <p>Relationship: REPC_MT210003CA.ActRequest2.code</p>
      * 
@@ -119,7 +119,7 @@ public class ActRequest2Bean extends MessagePartBean {
      * <p>A coded value denoting the specific service that has been 
      * ordered through the referral.</p>
      * 
-     * <p>Other Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: RequestedService</p>
      * 
      * <p>Relationship: REPC_MT210002CA.ActRequest2.code</p>
      * 

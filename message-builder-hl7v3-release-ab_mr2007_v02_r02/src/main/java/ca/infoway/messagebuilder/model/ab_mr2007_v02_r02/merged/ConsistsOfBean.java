@@ -66,7 +66,7 @@ public class ConsistsOfBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageLineOrder</p>
      * 
-     * <p>Other Business Name: DosageLineOrder</p>
+     * <p>Un-merged Business Name: DosageLineOrder</p>
      * 
      * <p>Relationship: PORX_MT980040CA.Component17.sequenceNumber</p>
      * 
@@ -90,7 +90,7 @@ public class ConsistsOfBean extends MessagePartBean {
      * <p>Need examples to illustrate use of sequence lines with 
      * 'ANDs' and 'THENs'.</p>
      * 
-     * <p>Other Business Name: DosageLineOrder</p>
+     * <p>Un-merged Business Name: DosageLineOrder</p>
      * 
      * <p>Relationship: COCT_MT270010CA.Component17.sequenceNumber</p>
      * 
@@ -122,7 +122,7 @@ public class ConsistsOfBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageLineOrder</p>
      * 
-     * <p>Other Business Name: DosageLineOrder</p>
+     * <p>Un-merged Business Name: DosageLineOrder</p>
      * 
      * <p>Relationship: PORX_MT980040CA.Component17.sequenceNumber</p>
      * 
@@ -146,7 +146,7 @@ public class ConsistsOfBean extends MessagePartBean {
      * <p>Need examples to illustrate use of sequence lines with 
      * 'ANDs' and 'THENs'.</p>
      * 
-     * <p>Other Business Name: DosageLineOrder</p>
+     * <p>Un-merged Business Name: DosageLineOrder</p>
      * 
      * <p>Relationship: COCT_MT270010CA.Component17.sequenceNumber</p>
      * 
@@ -176,13 +176,13 @@ public class ConsistsOfBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980040CA.Component17.dosageLine</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT270010CA.Component17.dosageLine</p>
      * 
@@ -194,13 +194,13 @@ public class ConsistsOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980040CA.Component17.dosageLine</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT270010CA.Component17.dosageLine</p>
      * 

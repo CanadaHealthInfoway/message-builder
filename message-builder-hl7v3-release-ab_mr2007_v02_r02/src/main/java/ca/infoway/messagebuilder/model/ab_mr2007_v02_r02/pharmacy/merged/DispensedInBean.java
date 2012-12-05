@@ -66,7 +66,7 @@ public class DispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: PackageQuantity</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Content.quantity</p>
      * 
@@ -84,7 +84,7 @@ public class DispensedInBean extends MessagePartBean {
      * should be the package quantity and the denominator a 
      * '1'.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Content.quantity</p>
      * 
@@ -110,7 +110,7 @@ public class DispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: PackageQuantity</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Content.quantity</p>
      * 
@@ -128,7 +128,7 @@ public class DispensedInBean extends MessagePartBean {
      * should be the package quantity and the denominator a 
      * '1'.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Content.quantity</p>
      * 
@@ -154,7 +154,7 @@ public class DispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: ContainerType</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
      * 
@@ -168,7 +168,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
      * 
@@ -190,7 +190,7 @@ public class DispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: ContainerType</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
      * 
@@ -204,7 +204,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
      * 

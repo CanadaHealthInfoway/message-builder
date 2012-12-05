@@ -70,7 +70,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: BloodPressureMeasurementType</p>
      * 
-     * <p>Other Business Name: BloodPressureMeasurementType</p>
+     * <p>Un-merged Business Name: BloodPressureMeasurementType</p>
      * 
      * <p>Relationship: REPC_MT100002CA.SubObservationEvent.code</p>
      * 
@@ -84,7 +84,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * <p>Distinguishes bwtween the two types of blood measurement. 
      * This can either be code for SYSTOLIC or DYSTOLIC</p>
      * 
-     * <p>Other Business Name: BloodPressureMeasurementType</p>
+     * <p>Un-merged Business Name: BloodPressureMeasurementType</p>
      * 
      * <p>Relationship: REPC_MT000018CA.SubObservationEvent.code</p>
      * 
@@ -106,7 +106,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: BloodPressureMeasurementType</p>
      * 
-     * <p>Other Business Name: BloodPressureMeasurementType</p>
+     * <p>Un-merged Business Name: BloodPressureMeasurementType</p>
      * 
      * <p>Relationship: REPC_MT100002CA.SubObservationEvent.code</p>
      * 
@@ -120,7 +120,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * <p>Distinguishes bwtween the two types of blood measurement. 
      * This can either be code for SYSTOLIC or DYSTOLIC</p>
      * 
-     * <p>Other Business Name: BloodPressureMeasurementType</p>
+     * <p>Un-merged Business Name: BloodPressureMeasurementType</p>
      * 
      * <p>Relationship: REPC_MT000018CA.SubObservationEvent.code</p>
      * 
@@ -142,7 +142,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: BloodPressureMeasurementValue</p>
      * 
-     * <p>Other Business Name: BloodPressureMeasurementValue</p>
+     * <p>Un-merged Business Name: BloodPressureMeasurementValue</p>
      * 
      * <p>Relationship: REPC_MT100002CA.SubObservationEvent.value</p>
      * 
@@ -156,7 +156,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * <p>The amount (quantity and unit) that has been recorded for 
      * the blood pressure.</p>
      * 
-     * <p>Other Business Name: BloodPressureMeasurementValue</p>
+     * <p>Un-merged Business Name: BloodPressureMeasurementValue</p>
      * 
      * <p>Relationship: REPC_MT000018CA.SubObservationEvent.value</p>
      * 
@@ -178,7 +178,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: BloodPressureMeasurementValue</p>
      * 
-     * <p>Other Business Name: BloodPressureMeasurementValue</p>
+     * <p>Un-merged Business Name: BloodPressureMeasurementValue</p>
      * 
      * <p>Relationship: REPC_MT100002CA.SubObservationEvent.value</p>
      * 
@@ -192,7 +192,7 @@ public class ComponentMeasurementsBean extends MessagePartBean {
      * <p>The amount (quantity and unit) that has been recorded for 
      * the blood pressure.</p>
      * 
-     * <p>Other Business Name: BloodPressureMeasurementValue</p>
+     * <p>Un-merged Business Name: BloodPressureMeasurementValue</p>
      * 
      * <p>Relationship: REPC_MT000018CA.SubObservationEvent.value</p>
      * 

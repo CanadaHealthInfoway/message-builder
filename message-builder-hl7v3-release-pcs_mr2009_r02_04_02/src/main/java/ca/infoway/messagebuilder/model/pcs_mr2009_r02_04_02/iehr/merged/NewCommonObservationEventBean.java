@@ -39,14 +39,14 @@ public class NewCommonObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplaceByRecordId</p>
      * 
-     * <p>Other Business Name: ReplaceByRecordId</p>
+     * <p>Un-merged Business Name: ReplaceByRecordId</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.NewCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReplaceByRecordId</p>
+     * <p>Un-merged Business Name: ReplaceByRecordId</p>
      * 
      * <p>Relationship: 
      * REPC_MT420003CA.NewCommonObservationEvent.id</p>
@@ -68,14 +68,14 @@ public class NewCommonObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplaceByRecordId</p>
      * 
-     * <p>Other Business Name: ReplaceByRecordId</p>
+     * <p>Un-merged Business Name: ReplaceByRecordId</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.NewCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReplaceByRecordId</p>
+     * <p>Un-merged Business Name: ReplaceByRecordId</p>
      * 
      * <p>Relationship: 
      * REPC_MT420003CA.NewCommonObservationEvent.id</p>

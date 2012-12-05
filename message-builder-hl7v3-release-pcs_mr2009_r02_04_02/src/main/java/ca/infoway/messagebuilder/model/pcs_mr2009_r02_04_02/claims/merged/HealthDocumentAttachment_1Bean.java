@@ -47,19 +47,19 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AttachmentIdentifier</p>
      * 
-     * <p>Other Business Name: AttachmentIdentifier</p>
+     * <p>Un-merged Business Name: AttachmentIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490103CA.HealthDocumentAttachment.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentIdentifier</p>
+     * <p>Un-merged Business Name: AttachmentIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490102CA.HealthDocumentAttachment.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentIdentifier</p>
+     * <p>Un-merged Business Name: AttachmentIdentifier</p>
      * 
      * <p>Relationship: FICR_MT400001CA.HealthDocumentAttachment.id</p>
      * 
@@ -73,19 +73,19 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AttachmentIdentifier</p>
      * 
-     * <p>Other Business Name: AttachmentIdentifier</p>
+     * <p>Un-merged Business Name: AttachmentIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490103CA.HealthDocumentAttachment.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentIdentifier</p>
+     * <p>Un-merged Business Name: AttachmentIdentifier</p>
      * 
      * <p>Relationship: FICR_MT490102CA.HealthDocumentAttachment.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentIdentifier</p>
+     * <p>Un-merged Business Name: AttachmentIdentifier</p>
      * 
      * <p>Relationship: FICR_MT400001CA.HealthDocumentAttachment.id</p>
      * 
@@ -99,7 +99,7 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AttachmentType</p>
      * 
-     * <p>Other Business Name: AttachmentType</p>
+     * <p>Un-merged Business Name: AttachmentType</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.HealthDocumentAttachment.code</p>
@@ -112,14 +112,14 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
      * for the type of document (i.e. WCB First Report of Accident 
      * - Form 8).</p>
      * 
-     * <p>Other Business Name: AttachmentType</p>
+     * <p>Un-merged Business Name: AttachmentType</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.HealthDocumentAttachment.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentType</p>
+     * <p>Un-merged Business Name: AttachmentType</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.HealthDocumentAttachment.code</p>
@@ -140,7 +140,7 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AttachmentType</p>
      * 
-     * <p>Other Business Name: AttachmentType</p>
+     * <p>Un-merged Business Name: AttachmentType</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.HealthDocumentAttachment.code</p>
@@ -153,14 +153,14 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
      * for the type of document (i.e. WCB First Report of Accident 
      * - Form 8).</p>
      * 
-     * <p>Other Business Name: AttachmentType</p>
+     * <p>Un-merged Business Name: AttachmentType</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.HealthDocumentAttachment.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentType</p>
+     * <p>Un-merged Business Name: AttachmentType</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.HealthDocumentAttachment.code</p>
@@ -181,21 +181,21 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AttachmentContent</p>
      * 
-     * <p>Other Business Name: AttachmentContent</p>
+     * <p>Un-merged Business Name: AttachmentContent</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.HealthDocumentAttachment.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentContent</p>
+     * <p>Un-merged Business Name: AttachmentContent</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.HealthDocumentAttachment.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentContent</p>
+     * <p>Un-merged Business Name: AttachmentContent</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.HealthDocumentAttachment.text</p>
@@ -210,21 +210,21 @@ public class HealthDocumentAttachment_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: AttachmentContent</p>
      * 
-     * <p>Other Business Name: AttachmentContent</p>
+     * <p>Un-merged Business Name: AttachmentContent</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.HealthDocumentAttachment.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentContent</p>
+     * <p>Un-merged Business Name: AttachmentContent</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.HealthDocumentAttachment.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AttachmentContent</p>
+     * <p>Un-merged Business Name: AttachmentContent</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.HealthDocumentAttachment.text</p>

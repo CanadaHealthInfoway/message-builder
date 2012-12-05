@@ -43,13 +43,13 @@ public class ContactPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactPersonName</p>
      * 
-     * <p>Other Business Name: ContactPersonName</p>
+     * <p>Un-merged Business Name: ContactPersonName</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactPerson.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ContactPersonName</p>
+     * <p>Un-merged Business Name: ContactPersonName</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactPerson.name</p>
      * 
@@ -63,13 +63,13 @@ public class ContactPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactPersonName</p>
      * 
-     * <p>Other Business Name: ContactPersonName</p>
+     * <p>Un-merged Business Name: ContactPersonName</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactPerson.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ContactPersonName</p>
+     * <p>Un-merged Business Name: ContactPersonName</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactPerson.name</p>
      * 
@@ -83,13 +83,13 @@ public class ContactPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
-     * <p>Other Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Un-merged Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Un-merged Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
      * 
@@ -103,13 +103,13 @@ public class ContactPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
-     * <p>Other Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Un-merged Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Un-merged Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
      * 

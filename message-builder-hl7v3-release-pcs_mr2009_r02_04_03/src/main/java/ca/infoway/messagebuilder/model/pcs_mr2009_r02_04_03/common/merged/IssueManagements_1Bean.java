@@ -75,7 +75,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementType</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.code</p>
@@ -118,7 +118,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Indicates the kinds of management actions that have been 
      * taken, depending on the issue type.</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueManagement.code</p>
@@ -169,7 +169,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementType</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.code</p>
@@ -212,7 +212,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Indicates the kinds of management actions that have been 
      * taken, depending on the issue type.</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueManagement.code</p>
@@ -263,7 +263,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementDescription</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.text</p>
@@ -276,7 +276,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Additional free-text details describing the management of 
      * the issue.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueManagement.text</p>
@@ -297,7 +297,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementDescription</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.DetectedIssueManagement.text</p>
@@ -310,7 +310,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Additional free-text details describing the management of 
      * the issue.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.DetectedIssueManagement.text</p>
@@ -331,7 +331,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementDate</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260012CA.Author1.time</p>
      * 
@@ -345,7 +345,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>The date and time on which the provider managed the 
      * issue.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Author1.time</p>
      * 
@@ -367,7 +367,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementDate</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260012CA.Author1.time</p>
      * 
@@ -381,7 +381,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>The date and time on which the provider managed the 
      * issue.</p>
      * 
-     * <p>Other Business Name: ManagementDate</p>
+     * <p>Un-merged Business Name: ManagementDate</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Author1.time</p>
      * 
@@ -401,13 +401,13 @@ public class IssueManagements_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
      * 
@@ -419,13 +419,13 @@ public class IssueManagements_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
      * 

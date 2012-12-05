@@ -68,7 +68,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
      * 
@@ -82,7 +82,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p><div>The identifier of the query.</div> <p>PIN will 
      * ignore the contents of this field.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120000CA.QueryByParameter.queryId</p>
      * 
@@ -101,7 +101,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
      * 
@@ -115,7 +115,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p><div>The identifier of the query.</div> <p>PIN will 
      * ignore the contents of this field.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: QueryIdentifier</p>
+     * <p>Un-merged Business Name: QueryIdentifier</p>
      * 
      * <p>Relationship: QUQI_MT120000CA.QueryByParameter.queryId</p>
      * 
@@ -134,7 +134,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryLimit</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
@@ -156,7 +156,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120000CA.QueryByParameter.initialQuantity</p>
@@ -182,7 +182,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryLimit</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
@@ -204,7 +204,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120000CA.QueryByParameter.initialQuantity</p>
@@ -230,7 +230,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryLimit</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
@@ -243,7 +243,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * not sent. In either case, a MISSCOND</div> <div>error issue 
      * will be returned..</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120000CA.QueryByParameter.initialQuantityCode</p>
@@ -261,7 +261,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: QueryLimit</p>
      * 
-     * <p>Other Business Name: QueryLimit</p>
+     * <p>Un-merged Business Name: QueryLimit</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
@@ -274,7 +274,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * not sent. In either case, a MISSCOND</div> <div>error issue 
      * will be returned..</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120000CA.QueryByParameter.initialQuantityCode</p>
@@ -292,7 +292,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: ParameterList</p>
      * 
-     * <p>Other Business Name: ParameterList</p>
+     * <p>Un-merged Business Name: ParameterList</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.parameterList</p>
@@ -302,7 +302,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p>&nbsp;This is where the query-specific parameters are</p> 
      * <div>specified.</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120000CA.QueryByParameter.parameterList</p>
@@ -320,7 +320,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     /**
      * <p>Business Name: ParameterList</p>
      * 
-     * <p>Other Business Name: ParameterList</p>
+     * <p>Un-merged Business Name: ParameterList</p>
      * 
      * <p>Relationship: 
      * QUQI_MT020000CA.QueryByParameter.parameterList</p>
@@ -330,7 +330,7 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * <p>&nbsp;This is where the query-specific parameters are</p> 
      * <div>specified.</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120000CA.QueryByParameter.parameterList</p>

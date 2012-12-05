@@ -39,7 +39,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT500001CA.OldPatientCareProvisionEvent.id</p>
@@ -62,7 +62,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT500003CA.OldPatientCareProvisionEvent.id</p>
@@ -85,7 +85,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.OldPatientCareProvisionEvent.id</p>
@@ -116,7 +116,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT500001CA.OldPatientCareProvisionEvent.id</p>
@@ -139,7 +139,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT500003CA.OldPatientCareProvisionEvent.id</p>
@@ -162,7 +162,7 @@ public class OldPatientCareProvisionEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT500004CA.OldPatientCareProvisionEvent.id</p>

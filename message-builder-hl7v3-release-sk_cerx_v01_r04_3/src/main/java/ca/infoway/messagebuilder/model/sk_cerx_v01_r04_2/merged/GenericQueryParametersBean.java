@@ -244,7 +244,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060280CA.AmendedInTimeRange.value</p>
      * 
@@ -265,7 +265,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060070CA.AmendedInTimeRange.value</p>
      * 
@@ -286,7 +286,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060130CA.AmendedInTimeRange.value</p>
      * 
@@ -307,7 +307,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060180CA.AmendedInTimeRange.value</p>
      * 
@@ -328,7 +328,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060220CA.AmendedInTimeRange.value</p>
      * 
@@ -349,7 +349,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060200CA.AmendedInTimeRange.value</p>
      * 
@@ -370,7 +370,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060170CA.AmendedInTimeRange.value</p>
      * 
@@ -399,7 +399,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AmendedInTimeRange</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060280CA.AmendedInTimeRange.value</p>
      * 
@@ -420,7 +420,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060070CA.AmendedInTimeRange.value</p>
      * 
@@ -441,7 +441,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060130CA.AmendedInTimeRange.value</p>
      * 
@@ -462,7 +462,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060180CA.AmendedInTimeRange.value</p>
      * 
@@ -483,7 +483,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060220CA.AmendedInTimeRange.value</p>
      * 
@@ -504,7 +504,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060200CA.AmendedInTimeRange.value</p>
      * 
@@ -525,7 +525,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval of medication 
      * records.</p><p>Useful for constraining run-away queries.</p>
      * 
-     * <p>Other Business Name: AmendedInTimeRange</p>
+     * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
      * <p>Relationship: PORX_MT060170CA.AmendedInTimeRange.value</p>
      * 
@@ -554,7 +554,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueFilterCode</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060070CA.IssueFilterCode.value</p>
      * 
@@ -573,7 +573,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060130CA.IssueFilterCode.value</p>
      * 
@@ -592,7 +592,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.IssueFilterCode.value</p>
      * 
@@ -611,7 +611,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060220CA.IssueFilterCode.value</p>
      * 
@@ -630,7 +630,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060200CA.IssueFilterCode.value</p>
      * 
@@ -649,7 +649,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060110CA.IssueFilterCode.value</p>
      * 
@@ -668,7 +668,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060080CA.IssueFilterCode.value</p>
      * 
@@ -687,7 +687,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060030CA.IssueFilterCode.value</p>
      * 
@@ -714,7 +714,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueFilterCode</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060070CA.IssueFilterCode.value</p>
      * 
@@ -733,7 +733,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060130CA.IssueFilterCode.value</p>
      * 
@@ -752,7 +752,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.IssueFilterCode.value</p>
      * 
@@ -771,7 +771,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060220CA.IssueFilterCode.value</p>
      * 
@@ -790,7 +790,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060200CA.IssueFilterCode.value</p>
      * 
@@ -809,7 +809,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060110CA.IssueFilterCode.value</p>
      * 
@@ -828,7 +828,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060080CA.IssueFilterCode.value</p>
      * 
@@ -847,7 +847,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attention is needed. Because the attribute must be known, it 
      * is mandatory.</p>
      * 
-     * <p>Other Business Name: IssueFilterCode</p>
+     * <p>Un-merged Business Name: IssueFilterCode</p>
      * 
      * <p>Relationship: PORX_MT060030CA.IssueFilterCode.value</p>
      * 
@@ -874,7 +874,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentByDeviceIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentByDeviceIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDeviceIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060070CA.MostRecentByDeviceIndicator.value</p>
@@ -900,7 +900,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentByDeviceIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDeviceIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060030CA.MostRecentByDeviceIndicator.value</p>
@@ -934,7 +934,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentByDeviceIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentByDeviceIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDeviceIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060070CA.MostRecentByDeviceIndicator.value</p>
@@ -960,7 +960,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentByDeviceIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDeviceIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060030CA.MostRecentByDeviceIndicator.value</p>
@@ -994,7 +994,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060070CA.PatientBirthDate.value</p>
      * 
@@ -1005,7 +1005,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060130CA.PatientBirthDate.value</p>
      * 
@@ -1016,7 +1016,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PatientBirthDate.value</p>
      * 
@@ -1027,7 +1027,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060200CA.PatientBirthDate.value</p>
      * 
@@ -1038,7 +1038,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT120001CA.PatientBirthDate.value</p>
      * 
@@ -1049,7 +1049,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060080CA.PatientBirthDate.value</p>
      * 
@@ -1060,7 +1060,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT120002CA.PatientBirthDate.value</p>
      * 
@@ -1071,7 +1071,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT000004CA.PatientBirthDate.value</p>
      * 
@@ -1087,7 +1087,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * section for details on the comparison and the error that may 
      * be raised.)</strong></p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT000015CA.PatientBirthDate.value</p>
      * 
@@ -1098,7 +1098,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060030CA.PatientBirthDate.value</p>
      * 
@@ -1109,7 +1109,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT000016CA.PatientBirthDate.value</p>
      * 
@@ -1120,7 +1120,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060280CA.PatientBirthDate.value</p>
      * 
@@ -1131,7 +1131,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PatientBirthDate.value</p>
      * 
@@ -1142,7 +1142,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT000008CA.PatientBirthDate.value</p>
      * 
@@ -1153,7 +1153,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060220CA.PatientBirthDate.value</p>
      * 
@@ -1164,7 +1164,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060110CA.PatientBirthDate.value</p>
      * 
@@ -1175,7 +1175,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060360CA.PatientBirthDate.value</p>
      * 
@@ -1186,7 +1186,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060170CA.PatientBirthDate.value</p>
      * 
@@ -1205,7 +1205,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060070CA.PatientBirthDate.value</p>
      * 
@@ -1216,7 +1216,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060130CA.PatientBirthDate.value</p>
      * 
@@ -1227,7 +1227,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PatientBirthDate.value</p>
      * 
@@ -1238,7 +1238,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060200CA.PatientBirthDate.value</p>
      * 
@@ -1249,7 +1249,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT120001CA.PatientBirthDate.value</p>
      * 
@@ -1260,7 +1260,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060080CA.PatientBirthDate.value</p>
      * 
@@ -1271,7 +1271,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT120002CA.PatientBirthDate.value</p>
      * 
@@ -1282,7 +1282,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT000004CA.PatientBirthDate.value</p>
      * 
@@ -1298,7 +1298,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * section for details on the comparison and the error that may 
      * be raised.)</strong></p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT000015CA.PatientBirthDate.value</p>
      * 
@@ -1309,7 +1309,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060030CA.PatientBirthDate.value</p>
      * 
@@ -1320,7 +1320,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT000016CA.PatientBirthDate.value</p>
      * 
@@ -1331,7 +1331,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060280CA.PatientBirthDate.value</p>
      * 
@@ -1342,7 +1342,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PatientBirthDate.value</p>
      * 
@@ -1353,7 +1353,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: REPC_MT000008CA.PatientBirthDate.value</p>
      * 
@@ -1364,7 +1364,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060220CA.PatientBirthDate.value</p>
      * 
@@ -1375,7 +1375,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060110CA.PatientBirthDate.value</p>
      * 
@@ -1386,7 +1386,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060360CA.PatientBirthDate.value</p>
      * 
@@ -1397,7 +1397,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: PORX_MT060170CA.PatientBirthDate.value</p>
      * 
@@ -1416,7 +1416,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060070CA.PatientGender.value</p>
      * 
@@ -1427,7 +1427,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060130CA.PatientGender.value</p>
      * 
@@ -1438,7 +1438,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PatientGender.value</p>
      * 
@@ -1449,7 +1449,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060200CA.PatientGender.value</p>
      * 
@@ -1460,7 +1460,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT120001CA.PatientGender.value</p>
      * 
@@ -1471,7 +1471,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060080CA.PatientGender.value</p>
      * 
@@ -1482,7 +1482,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT120002CA.PatientGender.value</p>
      * 
@@ -1493,7 +1493,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the of the patient for the query and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT000004CA.PatientGender.value</p>
      * 
@@ -1509,7 +1509,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * section for details on the comparison and the error that may 
      * be raised.)</strong></p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT000015CA.PatientGender.value</p>
      * 
@@ -1520,7 +1520,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060030CA.PatientGender.value</p>
      * 
@@ -1531,7 +1531,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT000016CA.PatientGender.value</p>
      * 
@@ -1542,7 +1542,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060280CA.PatientGender.value</p>
      * 
@@ -1553,7 +1553,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PatientGender.value</p>
      * 
@@ -1564,7 +1564,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT000008CA.PatientGender.value</p>
      * 
@@ -1575,7 +1575,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060220CA.PatientGender.value</p>
      * 
@@ -1586,7 +1586,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060110CA.PatientGender.value</p>
      * 
@@ -1597,7 +1597,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060360CA.PatientGender.value</p>
      * 
@@ -1608,7 +1608,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060170CA.PatientGender.value</p>
      * 
@@ -1627,7 +1627,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060070CA.PatientGender.value</p>
      * 
@@ -1638,7 +1638,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060130CA.PatientGender.value</p>
      * 
@@ -1649,7 +1649,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PatientGender.value</p>
      * 
@@ -1660,7 +1660,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060200CA.PatientGender.value</p>
      * 
@@ -1671,7 +1671,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT120001CA.PatientGender.value</p>
      * 
@@ -1682,7 +1682,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060080CA.PatientGender.value</p>
      * 
@@ -1693,7 +1693,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT120002CA.PatientGender.value</p>
      * 
@@ -1704,7 +1704,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the of the patient for the query and is 
      * therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT000004CA.PatientGender.value</p>
      * 
@@ -1720,7 +1720,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * section for details on the comparison and the error that may 
      * be raised.)</strong></p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT000015CA.PatientGender.value</p>
      * 
@@ -1731,7 +1731,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060030CA.PatientGender.value</p>
      * 
@@ -1742,7 +1742,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT000016CA.PatientGender.value</p>
      * 
@@ -1753,7 +1753,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060280CA.PatientGender.value</p>
      * 
@@ -1764,7 +1764,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PatientGender.value</p>
      * 
@@ -1775,7 +1775,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: REPC_MT000008CA.PatientGender.value</p>
      * 
@@ -1786,7 +1786,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060220CA.PatientGender.value</p>
      * 
@@ -1797,7 +1797,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060110CA.PatientGender.value</p>
      * 
@@ -1808,7 +1808,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060360CA.PatientGender.value</p>
      * 
@@ -1819,7 +1819,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: PORX_MT060170CA.PatientGender.value</p>
      * 
@@ -1838,7 +1838,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientID</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060070CA.PatientID.value</p>
      * 
@@ -1852,7 +1852,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060130CA.PatientID.value</p>
      * 
@@ -1867,7 +1867,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PatientID.value</p>
      * 
@@ -1882,7 +1882,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060200CA.PatientID.value</p>
      * 
@@ -1897,7 +1897,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT120001CA.PatientID.value</p>
      * 
@@ -1912,7 +1912,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060080CA.PatientID.value</p>
      * 
@@ -1927,7 +1927,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT120002CA.PatientID.value</p>
      * 
@@ -1942,7 +1942,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT000004CA.PatientID.value</p>
      * 
@@ -1964,7 +1964,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * does not exist in the jurisdictional client 
      * registry.</strong></p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT000015CA.PatientID.value</p>
      * 
@@ -1979,7 +1979,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060030CA.PatientID.value</p>
      * 
@@ -1993,7 +1993,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT000016CA.PatientID.value</p>
      * 
@@ -2008,7 +2008,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060280CA.PatientID.value</p>
      * 
@@ -2023,7 +2023,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PatientID.value</p>
      * 
@@ -2038,7 +2038,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT000008CA.PatientID.value</p>
      * 
@@ -2053,7 +2053,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060220CA.PatientID.value</p>
      * 
@@ -2068,7 +2068,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060110CA.PatientID.value</p>
      * 
@@ -2083,7 +2083,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060360CA.PatientID.value</p>
      * 
@@ -2101,7 +2101,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientID</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060070CA.PatientID.value</p>
      * 
@@ -2115,7 +2115,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060130CA.PatientID.value</p>
      * 
@@ -2130,7 +2130,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PatientID.value</p>
      * 
@@ -2145,7 +2145,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060200CA.PatientID.value</p>
      * 
@@ -2160,7 +2160,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT120001CA.PatientID.value</p>
      * 
@@ -2175,7 +2175,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060080CA.PatientID.value</p>
      * 
@@ -2190,7 +2190,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT120002CA.PatientID.value</p>
      * 
@@ -2205,7 +2205,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT000004CA.PatientID.value</p>
      * 
@@ -2227,7 +2227,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * does not exist in the jurisdictional client 
      * registry.</strong></p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT000015CA.PatientID.value</p>
      * 
@@ -2242,7 +2242,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060030CA.PatientID.value</p>
      * 
@@ -2256,7 +2256,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT000016CA.PatientID.value</p>
      * 
@@ -2271,7 +2271,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060280CA.PatientID.value</p>
      * 
@@ -2286,7 +2286,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PatientID.value</p>
      * 
@@ -2301,7 +2301,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: REPC_MT000008CA.PatientID.value</p>
      * 
@@ -2316,7 +2316,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060220CA.PatientID.value</p>
      * 
@@ -2331,7 +2331,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060110CA.PatientID.value</p>
      * 
@@ -2346,7 +2346,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient must be specified for the 
      * query to be valid</p>
      * 
-     * <p>Other Business Name: PatientID</p>
+     * <p>Un-merged Business Name: PatientID</p>
      * 
      * <p>Relationship: PORX_MT060360CA.PatientID.value</p>
      * 
@@ -2364,7 +2364,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060070CA.PatientName.value</p>
      * 
@@ -2375,7 +2375,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060130CA.PatientName.value</p>
      * 
@@ -2386,7 +2386,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PatientName.value</p>
      * 
@@ -2397,7 +2397,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060200CA.PatientName.value</p>
      * 
@@ -2417,7 +2417,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT120001CA.PatientName.value</p>
      * 
@@ -2437,7 +2437,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060080CA.PatientName.value</p>
      * 
@@ -2457,7 +2457,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT120002CA.PatientName.value</p>
      * 
@@ -2477,7 +2477,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT000004CA.PatientName.value</p>
      * 
@@ -2498,7 +2498,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * Registry ID section on the comparison and the error that may 
      * be raised.)</strong></p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT000015CA.PatientName.value</p>
      * 
@@ -2516,7 +2516,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060030CA.PatientName.value</p>
      * 
@@ -2534,7 +2534,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT000016CA.PatientName.value</p>
      * 
@@ -2552,7 +2552,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060280CA.PatientName.value</p>
      * 
@@ -2572,7 +2572,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PatientName.value</p>
      * 
@@ -2592,7 +2592,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT000008CA.PatientName.value</p>
      * 
@@ -2614,7 +2614,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060070CA.PatientName.value</p>
      * 
@@ -2625,7 +2625,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060130CA.PatientName.value</p>
      * 
@@ -2636,7 +2636,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PatientName.value</p>
      * 
@@ -2647,7 +2647,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Used to confirm the identity of the patient for the query 
      * and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060200CA.PatientName.value</p>
      * 
@@ -2667,7 +2667,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT120001CA.PatientName.value</p>
      * 
@@ -2687,7 +2687,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060080CA.PatientName.value</p>
      * 
@@ -2707,7 +2707,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT120002CA.PatientName.value</p>
      * 
@@ -2727,7 +2727,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT000004CA.PatientName.value</p>
      * 
@@ -2748,7 +2748,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * Registry ID section on the comparison and the error that may 
      * be raised.)</strong></p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT000015CA.PatientName.value</p>
      * 
@@ -2766,7 +2766,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060030CA.PatientName.value</p>
      * 
@@ -2784,7 +2784,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT000016CA.PatientName.value</p>
      * 
@@ -2802,7 +2802,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060280CA.PatientName.value</p>
      * 
@@ -2822,7 +2822,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PatientName.value</p>
      * 
@@ -2842,7 +2842,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * mandatory field because a patient name must match the 
      * patient Id for the query to be valid.</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: REPC_MT000008CA.PatientName.value</p>
      * 
@@ -2864,7 +2864,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: RxDispenserIndicators</p>
      * 
-     * <p>Other Business Name: RxDispenserIndicators</p>
+     * <p>Un-merged Business Name: RxDispenserIndicators</p>
      * 
      * <p>Relationship: PORX_MT060070CA.RxDispenseIndicator.value</p>
      * 
@@ -2887,7 +2887,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for finer sub-set of prescriptions to be retrieved 
      * based on the fill status of the prescription.</p>
      * 
-     * <p>Other Business Name: RxDispenserIndicators</p>
+     * <p>Un-merged Business Name: RxDispenserIndicators</p>
      * 
      * <p>Relationship: PORX_MT060130CA.RxDispenseIndicator.value</p>
      * 
@@ -2910,7 +2910,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for finer sub-set of prescriptions to be retrieved 
      * based on the fill status of the prescription.</p>
      * 
-     * <p>Other Business Name: RxDispenserIndicators</p>
+     * <p>Un-merged Business Name: RxDispenserIndicators</p>
      * 
      * <p>Relationship: PORX_MT060180CA.RxDispenseIndicator.value</p>
      * 
@@ -2933,7 +2933,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for finer sub-set of prescriptions to be retrieved 
      * based on the fill status of the prescription.</p>
      * 
-     * <p>Other Business Name: RxDispenserIndicators</p>
+     * <p>Un-merged Business Name: RxDispenserIndicators</p>
      * 
      * <p>Relationship: PORX_MT060030CA.RxDispenseIndicator.value</p>
      * 
@@ -2967,7 +2967,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: UsageEffectivePeriod</p>
      * 
-     * <p>Other Business Name: UsageEffectivePeriod</p>
+     * <p>Un-merged Business Name: UsageEffectivePeriod</p>
      * 
      * <p>Relationship: PORX_MT060070CA.UsageEffectivePeriod.value</p>
      * 
@@ -2989,7 +2989,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval. Useful for constraining run-away 
      * queries.</p>
      * 
-     * <p>Other Business Name: UsageEffectivePeriod</p>
+     * <p>Un-merged Business Name: UsageEffectivePeriod</p>
      * 
      * <p>Relationship: PORX_MT060030CA.UsageEffectivePeriod.value</p>
      * 
@@ -3019,7 +3019,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: UsageEffectivePeriod</p>
      * 
-     * <p>Other Business Name: UsageEffectivePeriod</p>
+     * <p>Un-merged Business Name: UsageEffectivePeriod</p>
      * 
      * <p>Relationship: PORX_MT060070CA.UsageEffectivePeriod.value</p>
      * 
@@ -3041,7 +3041,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * interest for the retrieval. Useful for constraining run-away 
      * queries.</p>
      * 
-     * <p>Other Business Name: UsageEffectivePeriod</p>
+     * <p>Un-merged Business Name: UsageEffectivePeriod</p>
      * 
      * <p>Relationship: PORX_MT060030CA.UsageEffectivePeriod.value</p>
      * 
@@ -3071,7 +3071,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060130CA.AdministrationEffectivePeriod.value</p>
@@ -3090,7 +3090,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * for the retrieval. Useful for constraining run-away 
      * queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060270CA.AdministrationEffectivePeriod.value</p>
@@ -3115,7 +3115,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.AdministrationEffectivePeriod.value</p>
@@ -3140,7 +3140,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060220CA.AdministrationEffectivePeriod.value</p>
@@ -3163,7 +3163,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060200CA.AdministrationEffectivePeriod.value</p>
@@ -3188,7 +3188,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.AdministrationEffectivePeriod.value</p>
@@ -3213,7 +3213,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.AdministrationEffectivePeriod.value</p>
@@ -3246,7 +3246,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060130CA.AdministrationEffectivePeriod.value</p>
@@ -3265,7 +3265,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * for the retrieval. Useful for constraining run-away 
      * queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060270CA.AdministrationEffectivePeriod.value</p>
@@ -3290,7 +3290,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.AdministrationEffectivePeriod.value</p>
@@ -3315,7 +3315,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060220CA.AdministrationEffectivePeriod.value</p>
@@ -3338,7 +3338,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060200CA.AdministrationEffectivePeriod.value</p>
@@ -3363,7 +3363,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.AdministrationEffectivePeriod.value</p>
@@ -3388,7 +3388,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.AdministrationEffectivePeriod.value</p>
@@ -3421,7 +3421,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentByDrugIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060130CA.MostRecentByDrugIndicator.value</p>
@@ -3449,7 +3449,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * must be known to evaluate the query, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentByDrugIndicator.value</p>
@@ -3477,7 +3477,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * must be known to evaluate the query, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060200CA.MostRecentByDrugIndicator.value</p>
@@ -3505,7 +3505,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * must be known to evaluate the query, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.MostRecentByDrugIndicator.value</p>
@@ -3541,7 +3541,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentByDrugIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060130CA.MostRecentByDrugIndicator.value</p>
@@ -3569,7 +3569,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * must be known to evaluate the query, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentByDrugIndicator.value</p>
@@ -3597,7 +3597,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * must be known to evaluate the query, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060200CA.MostRecentByDrugIndicator.value</p>
@@ -3625,7 +3625,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * must be known to evaluate the query, the attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentByDrugIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByDrugIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.MostRecentByDrugIndicator.value</p>
@@ -3661,7 +3661,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.DiagnosisCode.value</p>
      * 
@@ -3674,7 +3674,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.DiagnosisCode.value</p>
      * 
@@ -3695,7 +3695,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DiagnosisCode</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.DiagnosisCode.value</p>
      * 
@@ -3708,7 +3708,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
      * 
-     * <p>Other Business Name: DiagnosisCode</p>
+     * <p>Un-merged Business Name: DiagnosisCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.DiagnosisCode.value</p>
      * 
@@ -3729,7 +3729,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.DrugCode.value</p>
      * 
@@ -3746,7 +3746,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * for therapeutic classifications such as 
      * &quot;Anti-hypertensives&quot;.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.DrugCode.value</p>
      * 
@@ -3771,7 +3771,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.DrugCode.value</p>
      * 
@@ -3788,7 +3788,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * for therapeutic classifications such as 
      * &quot;Anti-hypertensives&quot;.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.DrugCode.value</p>
      * 
@@ -3813,7 +3813,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
@@ -3840,7 +3840,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * the attribute is always either 'TRUE' or 'FALSE' it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludeEventHistoryIndicator.value</p>
@@ -3869,7 +3869,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * the attribute is boolean, it must explicitly indicate a 
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludeEventHistoryIndicator.value</p>
@@ -3906,7 +3906,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeEventHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludeEventHistoryIndicator.value</p>
@@ -3933,7 +3933,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * the attribute is always either 'TRUE' or 'FALSE' it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludeEventHistoryIndicator.value</p>
@@ -3962,7 +3962,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * the attribute is boolean, it must explicitly indicate a 
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeEventHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeEventHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludeEventHistoryIndicator.value</p>
@@ -3999,7 +3999,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
@@ -4023,7 +4023,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludeIssuesIndicator.value</p>
@@ -4047,7 +4047,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060220CA.IncludeIssuesIndicator.value</p>
@@ -4068,7 +4068,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attribute is boolean, it must explicitly indicate a 'TRUE' 
      * or 'FALSE', and thus it is mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
@@ -4089,7 +4089,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * the attribute is boolean, it must explicitly indicate a 
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludeIssuesIndicator.value</p>
@@ -4121,7 +4121,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeIssuesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludeIssuesIndicator.value</p>
@@ -4145,7 +4145,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludeIssuesIndicator.value</p>
@@ -4169,7 +4169,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060220CA.IncludeIssuesIndicator.value</p>
@@ -4190,7 +4190,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attribute is boolean, it must explicitly indicate a 'TRUE' 
      * or 'FALSE', and thus it is mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060360CA.IncludeIssuesIndicator.value</p>
@@ -4211,7 +4211,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * the attribute is boolean, it must explicitly indicate a 
      * 'TRUE' or 'FALSE', and thus it is mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeIssuesIndicator</p>
+     * <p>Un-merged Business Name: IncludeIssuesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludeIssuesIndicator.value</p>
@@ -4243,7 +4243,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
      * 
@@ -4265,7 +4265,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
      * 
@@ -4287,7 +4287,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060180CA.IncludeNotesIndicator.value</p>
      * 
@@ -4309,7 +4309,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060220CA.IncludeNotesIndicator.value</p>
      * 
@@ -4331,7 +4331,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT120001CA.IncludeNotesIndicator.value</p>
      * 
@@ -4353,7 +4353,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
      * 
@@ -4375,7 +4375,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060170CA.IncludeNotesIndicator.value</p>
      * 
@@ -4397,7 +4397,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
      * 
@@ -4419,7 +4419,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT120002CA.IncludeNotesIndicator.value</p>
      * 
@@ -4441,7 +4441,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000015CA.IncludeNotesIndicator.value</p>
      * 
@@ -4471,7 +4471,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060280CA.IncludeNotesIndicator.value</p>
      * 
@@ -4493,7 +4493,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
      * 
@@ -4515,7 +4515,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060180CA.IncludeNotesIndicator.value</p>
      * 
@@ -4537,7 +4537,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060220CA.IncludeNotesIndicator.value</p>
      * 
@@ -4559,7 +4559,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT120001CA.IncludeNotesIndicator.value</p>
      * 
@@ -4581,7 +4581,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060360CA.IncludeNotesIndicator.value</p>
      * 
@@ -4603,7 +4603,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: PORX_MT060170CA.IncludeNotesIndicator.value</p>
      * 
@@ -4625,7 +4625,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000004CA.IncludeNotesIndicator.value</p>
      * 
@@ -4647,7 +4647,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT120002CA.IncludeNotesIndicator.value</p>
      * 
@@ -4669,7 +4669,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000015CA.IncludeNotesIndicator.value</p>
      * 
@@ -4699,7 +4699,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
@@ -4723,7 +4723,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludePendingChangesIndicator.value</p>
@@ -4748,7 +4748,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludePendingChangesIndicator.value</p>
@@ -4781,7 +4781,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludePendingChangesIndicator</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.IncludePendingChangesIndicator.value</p>
@@ -4805,7 +4805,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.IncludePendingChangesIndicator.value</p>
@@ -4830,7 +4830,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: IncludePendingChangesIndicator</p>
+     * <p>Un-merged Business Name: IncludePendingChangesIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.IncludePendingChangesIndicator.value</p>
@@ -4863,7 +4863,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4906,7 +4906,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4949,7 +4949,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attribute whose value must be known to evaluate the query, 
      * the attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4992,7 +4992,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060030CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5043,7 +5043,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5086,7 +5086,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5129,7 +5129,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attribute whose value must be known to evaluate the query, 
      * the attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5172,7 +5172,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060030CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5223,7 +5223,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherIndicationCode</p>
      * 
-     * <p>Other Business Name: OtherIndicationCode</p>
+     * <p>Un-merged Business Name: OtherIndicationCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.OtherIndicationCode.value</p>
      * 
@@ -5236,7 +5236,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
      * 
-     * <p>Other Business Name: OtherIndicationCode</p>
+     * <p>Un-merged Business Name: OtherIndicationCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.OtherIndicationCode.value</p>
      * 
@@ -5257,7 +5257,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherIndicationCode</p>
      * 
-     * <p>Other Business Name: OtherIndicationCode</p>
+     * <p>Un-merged Business Name: OtherIndicationCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.OtherIndicationCode.value</p>
      * 
@@ -5270,7 +5270,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
      * 
-     * <p>Other Business Name: OtherIndicationCode</p>
+     * <p>Un-merged Business Name: OtherIndicationCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.OtherIndicationCode.value</p>
      * 
@@ -5291,7 +5291,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * <p>Un-merged Business Name: OtherMedicationRecordId</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.OtherMedicationRecordId.value</p>
@@ -5304,7 +5304,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of medication records based on a 
      * specific active medication record.</p>
      * 
-     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * <p>Un-merged Business Name: OtherMedicationRecordId</p>
      * 
      * <p>Relationship: 
      * PORX_MT060220CA.OtherMedicationRecordId.value</p>
@@ -5325,7 +5325,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherMedicationRecordId</p>
      * 
-     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * <p>Un-merged Business Name: OtherMedicationRecordId</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.OtherMedicationRecordId.value</p>
@@ -5338,7 +5338,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of medication records based on a 
      * specific active medication record.</p>
      * 
-     * <p>Other Business Name: OtherMedicationRecordId</p>
+     * <p>Un-merged Business Name: OtherMedicationRecordId</p>
      * 
      * <p>Relationship: 
      * PORX_MT060220CA.OtherMedicationRecordId.value</p>
@@ -5359,7 +5359,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>Other Business Name: PrescriberProviderID</p>
+     * <p>Un-merged Business Name: PrescriberProviderID</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PrescriberProviderID.value</p>
      * 
@@ -5380,7 +5380,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of prescriptions based on a 
      * specific prescriber.</p>
      * 
-     * <p>Other Business Name: PrescriberProviderID</p>
+     * <p>Un-merged Business Name: PrescriberProviderID</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PrescriberProviderID.value</p>
      * 
@@ -5409,7 +5409,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>Other Business Name: PrescriberProviderID</p>
+     * <p>Un-merged Business Name: PrescriberProviderID</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PrescriberProviderID.value</p>
      * 
@@ -5430,7 +5430,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of prescriptions based on a 
      * specific prescriber.</p>
      * 
-     * <p>Other Business Name: PrescriberProviderID</p>
+     * <p>Un-merged Business Name: PrescriberProviderID</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PrescriberProviderID.value</p>
      * 
@@ -5459,7 +5459,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.PrescriptionDispenseNumber.value</p>
@@ -5472,7 +5472,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
@@ -5495,7 +5495,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.PrescriptionDispenseNumber.value</p>
@@ -5508,7 +5508,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of medication records relating 
      * to a specific dispense record.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060360CA.PrescriptionDispenseNumber.value</p>
@@ -5531,7 +5531,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
@@ -5549,7 +5549,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Identifies the prescription that is to be retrieved, and 
      * is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.PrescriptionOrderNumber.value</p>
@@ -5566,7 +5566,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Identifies the prescription that is to be retrieved.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060080CA.PrescriptionOrderNumber.value</p>
@@ -5592,7 +5592,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060280CA.PrescriptionOrderNumber.value</p>
@@ -5610,7 +5610,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Identifies the prescription that is to be retrieved, and 
      * is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.PrescriptionOrderNumber.value</p>
@@ -5627,7 +5627,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Identifies the prescription that is to be retrieved.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060080CA.PrescriptionOrderNumber.value</p>
@@ -5653,7 +5653,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionStatuses</p>
      * 
-     * <p>Other Business Name: PrescriptionStatuses</p>
+     * <p>Un-merged Business Name: PrescriptionStatuses</p>
      * 
      * <p>Relationship: PORX_MT060180CA.PrescriptionStatus.value</p>
      * 
@@ -5677,7 +5677,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: SymptomCode</p>
      * 
-     * <p>Other Business Name: SymptomCode</p>
+     * <p>Un-merged Business Name: SymptomCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.SymptomCode.value</p>
      * 
@@ -5690,7 +5690,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
      * 
-     * <p>Other Business Name: SymptomCode</p>
+     * <p>Un-merged Business Name: SymptomCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.SymptomCode.value</p>
      * 
@@ -5711,7 +5711,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: SymptomCode</p>
      * 
-     * <p>Other Business Name: SymptomCode</p>
+     * <p>Un-merged Business Name: SymptomCode</p>
      * 
      * <p>Relationship: PORX_MT060180CA.SymptomCode.value</p>
      * 
@@ -5724,7 +5724,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>Allows for the retrieval of patient's prescriptions 
      * and/or dispenses based on prescribing indications.</p>
      * 
-     * <p>Other Business Name: SymptomCode</p>
+     * <p>Un-merged Business Name: SymptomCode</p>
      * 
      * <p>Relationship: PORX_MT060170CA.SymptomCode.value</p>
      * 
@@ -5745,7 +5745,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: TreatmentTypes</p>
      * 
-     * <p>Other Business Name: TreatmentTypes</p>
+     * <p>Un-merged Business Name: TreatmentTypes</p>
      * 
      * <p>Relationship: PORX_MT060180CA.TreatmentType.value</p>
      * 
@@ -5771,7 +5771,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ProfessionalServiceCodes</p>
      * 
-     * <p>Other Business Name: ProfessionalServiceCodes</p>
+     * <p>Un-merged Business Name: ProfessionalServiceCodes</p>
      * 
      * <p>Relationship: 
      * REPC_MT120001CA.ProfessionalServiceCode.value</p>
@@ -5803,7 +5803,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ServicePeriod</p>
      * 
-     * <p>Other Business Name: ServicePeriod</p>
+     * <p>Un-merged Business Name: ServicePeriod</p>
      * 
      * <p>Relationship: REPC_MT120001CA.ServicePeriod.value</p>
      * 
@@ -5829,7 +5829,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ServicePeriod</p>
      * 
-     * <p>Other Business Name: ServicePeriod</p>
+     * <p>Un-merged Business Name: ServicePeriod</p>
      * 
      * <p>Relationship: REPC_MT120001CA.ServicePeriod.value</p>
      * 
@@ -5855,7 +5855,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MeasurementEffectivePeriod</p>
      * 
-     * <p>Other Business Name: MeasurementEffectivePeriod</p>
+     * <p>Un-merged Business Name: MeasurementEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT120002CA.MeasurementEffectivePeriod.value</p>
@@ -5884,7 +5884,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MeasurementEffectivePeriod</p>
      * 
-     * <p>Other Business Name: MeasurementEffectivePeriod</p>
+     * <p>Un-merged Business Name: MeasurementEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT120002CA.MeasurementEffectivePeriod.value</p>
@@ -5913,7 +5913,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MeasurementTypes</p>
      * 
-     * <p>Other Business Name: MeasurementTypes</p>
+     * <p>Un-merged Business Name: MeasurementTypes</p>
      * 
      * <p>Relationship: REPC_MT120002CA.MeasurementType.value</p>
      * 
@@ -5935,7 +5935,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
@@ -5958,7 +5958,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AllergyIntoleranceStatus.value</p>
@@ -5981,7 +5981,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AllergyIntoleranceType.value</p>
@@ -6009,7 +6009,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceType</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AllergyIntoleranceType.value</p>
@@ -6037,7 +6037,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceChangePeriod</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceChangePeriod</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceChangePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
@@ -6059,7 +6059,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceChangePeriod</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceChangePeriod</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceChangePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000004CA.AlllergyIntoleranceChangePeriod.value</p>
@@ -6079,7 +6079,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ReactionType</p>
+     * <p>Un-merged Business Name: ReactionType</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
      * 
@@ -6099,7 +6099,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * allergy/intolerance records for which there was a specific 
      * type of reaction.</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
      * 
@@ -6119,7 +6119,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ReactionType</p>
+     * <p>Un-merged Business Name: ReactionType</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
      * 
@@ -6139,7 +6139,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * allergy/intolerance records for which there was a specific 
      * type of reaction.</p>
      * 
-     * <p>Other Business Name: Reaction</p>
+     * <p>Un-merged Business Name: Reaction</p>
      * 
      * <p>Relationship: REPC_MT000004CA.ReactionType.value</p>
      * 
@@ -6161,7 +6161,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicalConditionChangePeriod</p>
      * 
-     * <p>Other Business Name: MedicalConditionChangePeriod</p>
+     * <p>Un-merged Business Name: MedicalConditionChangePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000015CA.MedicalConditionChangePeriod.value</p>
@@ -6183,7 +6183,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicalConditionChangePeriod</p>
      * 
-     * <p>Other Business Name: MedicalConditionChangePeriod</p>
+     * <p>Un-merged Business Name: MedicalConditionChangePeriod</p>
      * 
      * <p>Relationship: 
      * REPC_MT000015CA.MedicalConditionChangePeriod.value</p>
@@ -6205,7 +6205,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicalConditionStatus</p>
      * 
-     * <p>Other Business Name: MedicalConditionStatus</p>
+     * <p>Un-merged Business Name: MedicalConditionStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000015CA.MedicalConditionStatus.value</p>
@@ -6233,7 +6233,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicalConditionStatus</p>
      * 
-     * <p>Other Business Name: MedicalConditionStatus</p>
+     * <p>Un-merged Business Name: MedicalConditionStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT000015CA.MedicalConditionStatus.value</p>
@@ -6261,7 +6261,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>Other Business Name: ReactionPeriod</p>
+     * <p>Un-merged Business Name: ReactionPeriod</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
      * 
@@ -6284,7 +6284,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>Other Business Name: ReactionPeriod</p>
+     * <p>Un-merged Business Name: ReactionPeriod</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
      * 
@@ -6307,7 +6307,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ConditionIdentifier</p>
      * 
-     * <p>Other Business Name: ConditionIdentifier</p>
+     * <p>Un-merged Business Name: ConditionIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000008CA.ConditionID.value</p>
      * 
@@ -6331,7 +6331,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: ConditionIdentifier</p>
      * 
-     * <p>Other Business Name: ConditionIdentifier</p>
+     * <p>Un-merged Business Name: ConditionIdentifier</p>
      * 
      * <p>Relationship: REPC_MT000008CA.ConditionID.value</p>
      * 

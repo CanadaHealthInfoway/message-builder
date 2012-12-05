@@ -131,7 +131,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AssignedEntity.id</p>
      * 
@@ -144,7 +144,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Unique identifier the person involved in the action.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AssignedEntity.id</p>
      * 
@@ -157,13 +157,13 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Unique identifier the person involved in the action.</p>
      * 
-     * <p>Other Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: ProviderId</p>
      * 
      * <p>Relationship: REPC_MT210001CA.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: ProviderId</p>
      * 
      * <p>Relationship: REPC_MT210003CA.AssignedEntity.id</p>
      * 
@@ -187,7 +187,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * identifiers) the system will assign identifiers for the 
      * purpose of linking information within the message.</p>
      * 
-     * <p>Other Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: ProviderId</p>
      * 
      * <p>Relationship: REPC_MT210002CA.AssignedEntity.id</p>
      * 
@@ -211,7 +211,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * identifiers) the system will assign identifiers for the 
      * purpose of linking information within the message.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AssignedEntity.id</p>
      * 
@@ -230,7 +230,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AssignedEntity.id</p>
      * 
@@ -243,7 +243,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Unique identifier the person involved in the action.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AssignedEntity.id</p>
      * 
@@ -256,13 +256,13 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Unique identifier the person involved in the action.</p>
      * 
-     * <p>Other Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: ProviderId</p>
      * 
      * <p>Relationship: REPC_MT210001CA.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: ProviderId</p>
      * 
      * <p>Relationship: REPC_MT210003CA.AssignedEntity.id</p>
      * 
@@ -286,7 +286,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * identifiers) the system will assign identifiers for the 
      * purpose of linking information within the message.</p>
      * 
-     * <p>Other Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: ProviderId</p>
      * 
      * <p>Relationship: REPC_MT210002CA.AssignedEntity.id</p>
      * 
@@ -310,7 +310,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * identifiers) the system will assign identifiers for the 
      * purpose of linking information within the message.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AssignedEntity.id</p>
      * 
@@ -329,7 +329,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AssignedEntity.code</p>
      * 
@@ -343,7 +343,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AssignedEntity.code</p>
      * 
@@ -357,13 +357,13 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
      * 
-     * <p>Other Business Name: ProviderType</p>
+     * <p>Un-merged Business Name: ProviderType</p>
      * 
      * <p>Relationship: REPC_MT210001CA.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ProviderType</p>
+     * <p>Un-merged Business Name: ProviderType</p>
      * 
      * <p>Relationship: REPC_MT210003CA.AssignedEntity.code</p>
      * 
@@ -375,7 +375,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Indicates the medical discipline of the provider.</p>
      * 
-     * <p>Other Business Name: ProviderType</p>
+     * <p>Un-merged Business Name: ProviderType</p>
      * 
      * <p>Relationship: REPC_MT210002CA.AssignedEntity.code</p>
      * 
@@ -387,7 +387,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Indicates the medical discipline of the provider.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AssignedEntity.code</p>
      * 
@@ -407,7 +407,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AssignedEntity.code</p>
      * 
@@ -421,7 +421,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AssignedEntity.code</p>
      * 
@@ -435,13 +435,13 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * &quot;lab technician&quot;, &quot;receptionist&quot;, 
      * etc.</p>
      * 
-     * <p>Other Business Name: ProviderType</p>
+     * <p>Un-merged Business Name: ProviderType</p>
      * 
      * <p>Relationship: REPC_MT210001CA.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ProviderType</p>
+     * <p>Un-merged Business Name: ProviderType</p>
      * 
      * <p>Relationship: REPC_MT210003CA.AssignedEntity.code</p>
      * 
@@ -453,7 +453,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Indicates the medical discipline of the provider.</p>
      * 
-     * <p>Other Business Name: ProviderType</p>
+     * <p>Un-merged Business Name: ProviderType</p>
      * 
      * <p>Relationship: REPC_MT210002CA.AssignedEntity.code</p>
      * 
@@ -465,7 +465,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Indicates the medical discipline of the provider.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AssignedEntity.code</p>
      * 
@@ -487,13 +487,13 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: ProviderName</p>
      * 
-     * <p>Other Business Name: ProviderName</p>
+     * <p>Un-merged Business Name: ProviderName</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Provider.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ProviderName</p>
+     * <p>Un-merged Business Name: ProviderName</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Provider.name</p>
      * 
@@ -506,7 +506,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>The label by which a provider is known and communicated 
      * with.</p>
      * 
-     * <p>Other Business Name: ProviderName</p>
+     * <p>Un-merged Business Name: ProviderName</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Provider.name</p>
      * 
@@ -527,13 +527,13 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: ProviderName</p>
      * 
-     * <p>Other Business Name: ProviderName</p>
+     * <p>Un-merged Business Name: ProviderName</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Provider.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ProviderName</p>
+     * <p>Un-merged Business Name: ProviderName</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Provider.name</p>
      * 
@@ -546,7 +546,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>The label by which a provider is known and communicated 
      * with.</p>
      * 
-     * <p>Other Business Name: ProviderName</p>
+     * <p>Un-merged Business Name: ProviderName</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Provider.name</p>
      * 
@@ -567,7 +567,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
+     * <p>Un-merged Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AssignedEntity.telecom</p>
      * 
@@ -580,7 +580,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Indicates phone and/or e-mail addresses at which the 
      * healthcare worker can be reached.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
+     * <p>Un-merged Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AssignedEntity.telecom</p>
      * 
@@ -593,7 +593,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Indicates phone and/or e-mail addresses at which the 
      * healthcare worker can be reached.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
+     * <p>Un-merged Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AssignedEntity.telecom</p>
      * 
@@ -613,21 +613,21 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.AssignedEntity.assignedPerson</p>
@@ -640,21 +640,21 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.AssignedEntity.assignedPerson</p>
@@ -669,7 +669,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Organization.id</p>
      * 
@@ -682,7 +682,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Organization.id</p>
      * 
@@ -695,7 +695,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Organization.id</p>
      * 
@@ -716,7 +716,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Organization.id</p>
      * 
@@ -729,7 +729,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Organization.id</p>
      * 
@@ -742,7 +742,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Organization.id</p>
      * 
@@ -763,7 +763,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Organization.name</p>
      * 
@@ -775,7 +775,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Organization.name</p>
      * 
@@ -787,7 +787,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Organization.name</p>
      * 
@@ -807,7 +807,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Organization.name</p>
      * 
@@ -819,7 +819,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Organization.name</p>
      * 
@@ -831,7 +831,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Organization.name</p>
      * 
@@ -851,7 +851,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AssignedOrganization.code</p>
      * 
@@ -863,7 +863,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Identifies the type of organization on whose behalf the 
      * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AssignedOrganization.code</p>
      * 
@@ -875,7 +875,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Identifies the type of organization on whose behalf the 
      * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AssignedOrganization.code</p>
      * 
@@ -895,7 +895,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.AssignedOrganization.code</p>
      * 
@@ -907,7 +907,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Identifies the type of organization on whose behalf the 
      * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.AssignedOrganization.code</p>
      * 
@@ -919,7 +919,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Identifies the type of organization on whose behalf the 
      * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.AssignedOrganization.code</p>
      * 
@@ -939,7 +939,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
     /**
      * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * <p>Un-merged Business Name: OrganizationPhoneAndEmails</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.AssignedOrganization.telecom</p>
@@ -953,7 +953,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Identifies contact information for the responsible 
      * organization.</p>
      * 
-     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * <p>Un-merged Business Name: OrganizationPhoneAndEmails</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.AssignedOrganization.telecom</p>
@@ -967,7 +967,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Identifies contact information for the responsible 
      * organization.</p>
      * 
-     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * <p>Un-merged Business Name: OrganizationPhoneAndEmails</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.AssignedOrganization.telecom</p>

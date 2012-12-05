@@ -84,42 +84,42 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.doseQuantity</p>
@@ -138,7 +138,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>The amount of medication administered to the patient</p>
      * 
-     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.doseQuantity</p>
@@ -151,42 +151,42 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DrugDoseStrength</p>
+     * <p>Un-merged Business Name: DrugDoseStrength</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.SubstanceAdministration.doseQuantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.doseQuantity</p>
@@ -205,7 +205,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>The amount of medication administered to the patient</p>
      * 
-     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * <p>Un-merged Business Name: ActiveMedicationDoseQuantity</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.doseQuantity</p>
@@ -218,7 +218,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT490102CA.DirectTarget.medication</p>
      * 
@@ -230,7 +230,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT490102CA.DirectTarget.medication</p>
      * 
@@ -242,28 +242,28 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.Medication.administerableMedicine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.Medication.administerableMedicine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.Medication.administerableMedicine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.Medication.administerableMedicine</p>
@@ -276,28 +276,28 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.Medication.administerableMedicine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.Medication.administerableMedicine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.Medication.administerableMedicine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.Medication.administerableMedicine</p>
@@ -312,7 +312,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: OtherMedicationIndicator</p>
      * 
-     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.moodCode</p>
@@ -327,7 +327,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
      * Medication' record.</p>
      * 
-     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.moodCode</p>
@@ -342,7 +342,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: OtherMedicationIndicator</p>
      * 
-     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.moodCode</p>
@@ -357,7 +357,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
      * Medication' record.</p>
      * 
-     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.moodCode</p>
@@ -372,7 +372,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SubstanceAdministration.id</p>
      * 
@@ -395,7 +395,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SubstanceAdministration.id</p>
      * 
@@ -409,7 +409,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
      * <p>Relationship: COCT_MT260010CA.SubstanceAdministration.id</p>
      * 
@@ -432,7 +432,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * <p>Un-merged Business Name: ActiveMedicationRecordNumber</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SubstanceAdministration.id</p>
      * 
@@ -446,7 +446,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: AdministrationType</p>
      * 
-     * <p>Other Business Name: AdministrationType</p>
+     * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.code</p>
@@ -462,7 +462,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * vaccine. For SNOMED, may also indicate the specific drug or 
      * vaccine at issue.</p>
      * 
-     * <p>Other Business Name: AdministrationType</p>
+     * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.code</p>
@@ -477,7 +477,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: AdministrationType</p>
      * 
-     * <p>Other Business Name: AdministrationType</p>
+     * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.code</p>
@@ -493,7 +493,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * vaccine. For SNOMED, may also indicate the specific drug or 
      * vaccine at issue.</p>
      * 
-     * <p>Other Business Name: AdministrationType</p>
+     * <p>Un-merged Business Name: AdministrationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.code</p>
@@ -508,7 +508,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ActiveMedicationStatus</p>
      * 
-     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.statusCode</p>
@@ -526,7 +526,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Indicates the status of the medication record at the time 
      * of the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.statusCode</p>
@@ -541,7 +541,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ActiveMedicationStatus</p>
      * 
-     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.statusCode</p>
@@ -559,7 +559,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Indicates the status of the medication record at the time 
      * of the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * <p>Un-merged Business Name: ActiveMedicationStatus</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.statusCode</p>
@@ -574,7 +574,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ActiveMedicationTimeRange</p>
      * 
-     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.effectiveTime</p>
@@ -589,7 +589,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.effectiveTime</p>
@@ -604,7 +604,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ActiveMedicationTimeRange</p>
      * 
-     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.effectiveTime</p>
@@ -619,7 +619,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * <p>Un-merged Business Name: ActiveMedicationTimeRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.effectiveTime</p>
@@ -634,7 +634,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ActiveMedicationMaskingIndicator</p>
      * 
-     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministration.confidentialityCode</p>
@@ -649,7 +649,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * drug, and thus defines the required sensitivity for the 
      * detected issue.</p>
      * 
-     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ActiveMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministration.confidentialityCode</p>
@@ -663,13 +663,13 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Consumable.medication</p>
      * 
@@ -681,13 +681,13 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Consumable.medication</p>
      * 

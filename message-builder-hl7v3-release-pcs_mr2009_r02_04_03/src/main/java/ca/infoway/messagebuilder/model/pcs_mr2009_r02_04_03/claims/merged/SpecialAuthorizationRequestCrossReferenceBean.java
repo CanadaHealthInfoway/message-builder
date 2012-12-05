@@ -39,14 +39,14 @@ public class SpecialAuthorizationRequestCrossReferenceBean extends MessagePartBe
     /**
      * <p>Business Name: CrossReferenceID</p>
      * 
-     * <p>Other Business Name: CrossReferenceID</p>
+     * <p>Un-merged Business Name: CrossReferenceID</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.SpecialAuthorizationRequestCrossReference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CrossReferenceID</p>
+     * <p>Un-merged Business Name: CrossReferenceID</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationRequestCrossReference.id</p>
@@ -61,14 +61,14 @@ public class SpecialAuthorizationRequestCrossReferenceBean extends MessagePartBe
     /**
      * <p>Business Name: CrossReferenceID</p>
      * 
-     * <p>Other Business Name: CrossReferenceID</p>
+     * <p>Un-merged Business Name: CrossReferenceID</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.SpecialAuthorizationRequestCrossReference.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CrossReferenceID</p>
+     * <p>Un-merged Business Name: CrossReferenceID</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationRequestCrossReference.id</p>

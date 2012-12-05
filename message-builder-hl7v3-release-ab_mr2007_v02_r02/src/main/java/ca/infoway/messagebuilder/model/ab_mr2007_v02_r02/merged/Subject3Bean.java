@@ -49,7 +49,7 @@ public class Subject3Bean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentInformationTypes</p>
      * 
-     * <p>Other Business Name: ConsentInformationTypes</p>
+     * <p>Un-merged Business Name: ConsentInformationTypes</p>
      * 
      * <p>Relationship: COCT_MT470000CA.ActDefinition.code</p>
      * 
@@ -64,7 +64,7 @@ public class Subject3Bean extends MessagePartBean {
      * Understanding the type of information the consent applies to 
      * is critical, and therefore the attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: ConsentInformationTypes</p>
+     * <p>Un-merged Business Name: ConsentInformationTypes</p>
      * 
      * <p>Relationship: COCT_MT470002CA.ActDefinition.code</p>
      * 
@@ -79,7 +79,7 @@ public class Subject3Bean extends MessagePartBean {
      * Understanding the type of information the consent applies to 
      * is critical, and therefore the attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: ConsentInformationTypes</p>
+     * <p>Un-merged Business Name: ConsentInformationTypes</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ActDefinition.code</p>
      * 
@@ -103,7 +103,7 @@ public class Subject3Bean extends MessagePartBean {
     /**
      * <p>Business Name: ConsentInformationTypes</p>
      * 
-     * <p>Other Business Name: ConsentInformationTypes</p>
+     * <p>Un-merged Business Name: ConsentInformationTypes</p>
      * 
      * <p>Relationship: COCT_MT470000CA.ActDefinition.code</p>
      * 
@@ -118,7 +118,7 @@ public class Subject3Bean extends MessagePartBean {
      * Understanding the type of information the consent applies to 
      * is critical, and therefore the attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: ConsentInformationTypes</p>
+     * <p>Un-merged Business Name: ConsentInformationTypes</p>
      * 
      * <p>Relationship: COCT_MT470002CA.ActDefinition.code</p>
      * 
@@ -133,7 +133,7 @@ public class Subject3Bean extends MessagePartBean {
      * Understanding the type of information the consent applies to 
      * is critical, and therefore the attribute is mandatory.</p>
      * 
-     * <p>Other Business Name: ConsentInformationTypes</p>
+     * <p>Un-merged Business Name: ConsentInformationTypes</p>
      * 
      * <p>Relationship: COCT_MT470012CA.ActDefinition.code</p>
      * 
@@ -155,7 +155,7 @@ public class Subject3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Subject3.typeCode</p>
      * 
@@ -167,7 +167,7 @@ public class Subject3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Subject3.typeCode</p>
      * 
@@ -179,7 +179,7 @@ public class Subject3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Subject3.contextControlCode</p>
      * 
@@ -191,7 +191,7 @@ public class Subject3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.Subject3.contextControlCode</p>
      * 
@@ -203,7 +203,7 @@ public class Subject3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.ActDefinition.classCode</p>
      * 
@@ -215,7 +215,7 @@ public class Subject3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.ActDefinition.classCode</p>
      * 
@@ -227,7 +227,7 @@ public class Subject3Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.ActDefinition.moodCode</p>
      * 
@@ -239,7 +239,7 @@ public class Subject3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470002CA.ActDefinition.moodCode</p>
      * 

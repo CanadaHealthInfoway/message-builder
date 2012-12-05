@@ -141,7 +141,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -153,7 +153,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Other Business Name: LocationIdReference</p>
+     * <p>Un-merged Business Name: LocationIdReference</p>
      * 
      * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
      * 
@@ -165,7 +165,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * being identified. This will be a location already associated 
      * with the care composition.</p>
      * 
-     * <p>Other Business Name: ShipToFacilityId</p>
+     * <p>Un-merged Business Name: ShipToFacilityId</p>
      * 
      * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
      * 
@@ -178,7 +178,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>Identifier of the facility where the dispensed medication 
      * was shipped.</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -190,7 +190,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Other Business Name: LocationIdReference</p>
+     * <p>Un-merged Business Name: LocationIdReference</p>
      * 
      * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
      * 
@@ -202,7 +202,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * being identified. This will be a location already associated 
      * with the care composition.</p>
      * 
-     * <p>Other Business Name: LocationIdReference</p>
+     * <p>Un-merged Business Name: LocationIdReference</p>
      * 
      * <p>Relationship: REPC_MT500004CA.ServiceDeliveryLocation.id</p>
      * 
@@ -214,7 +214,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * being identified. This will be a location already associated 
      * with the care composition.</p>
      * 
-     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240012CA.ServiceDeliveryLocation.id</p>
      * 
@@ -247,7 +247,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -259,7 +259,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Other Business Name: LocationIdReference</p>
+     * <p>Un-merged Business Name: LocationIdReference</p>
      * 
      * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
      * 
@@ -271,7 +271,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * being identified. This will be a location already associated 
      * with the care composition.</p>
      * 
-     * <p>Other Business Name: ShipToFacilityId</p>
+     * <p>Un-merged Business Name: ShipToFacilityId</p>
      * 
      * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
      * 
@@ -284,7 +284,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>Identifier of the facility where the dispensed medication 
      * was shipped.</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -296,7 +296,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Other Business Name: LocationIdReference</p>
+     * <p>Un-merged Business Name: LocationIdReference</p>
      * 
      * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
      * 
@@ -308,7 +308,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * being identified. This will be a location already associated 
      * with the care composition.</p>
      * 
-     * <p>Other Business Name: LocationIdReference</p>
+     * <p>Un-merged Business Name: LocationIdReference</p>
      * 
      * <p>Relationship: REPC_MT500004CA.ServiceDeliveryLocation.id</p>
      * 
@@ -320,7 +320,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * being identified. This will be a location already associated 
      * with the care composition.</p>
      * 
-     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240012CA.ServiceDeliveryLocation.id</p>
      * 
@@ -355,7 +355,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
@@ -368,7 +368,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>The code identifying the specific service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
@@ -389,7 +389,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationType</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
@@ -402,7 +402,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>The code identifying the specific service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationType</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
@@ -423,7 +423,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
@@ -435,7 +435,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p>Address of the specific service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
@@ -455,7 +455,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationAddress</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
@@ -467,7 +467,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p>Address of the specific service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationAddress</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
@@ -487,7 +487,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
@@ -500,7 +500,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>The telecom for the specific service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
@@ -521,7 +521,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationTelecom</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
@@ -534,7 +534,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>The telecom for the specific service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationTelecom</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
@@ -555,7 +555,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -568,7 +568,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -589,7 +589,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -602,7 +602,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -621,7 +621,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Place.name</p>
      * 
@@ -632,7 +632,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p>The name of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Place.name</p>
      * 
@@ -643,7 +643,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p>The name of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceLocationName</p>
+     * <p>Un-merged Business Name: ServiceLocationName</p>
      * 
      * <p>Relationship: COCT_MT240012CA.Place.name</p>
      * 
@@ -666,7 +666,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Place.name</p>
      * 
@@ -677,7 +677,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p>The name of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceDeliveryLocationName</p>
+     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Place.name</p>
      * 
@@ -688,7 +688,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p>The name of the service delivery location</p>
      * 
-     * <p>Other Business Name: ServiceLocationName</p>
+     * <p>Un-merged Business Name: ServiceLocationName</p>
      * 
      * <p>Relationship: COCT_MT240012CA.Place.name</p>
      * 

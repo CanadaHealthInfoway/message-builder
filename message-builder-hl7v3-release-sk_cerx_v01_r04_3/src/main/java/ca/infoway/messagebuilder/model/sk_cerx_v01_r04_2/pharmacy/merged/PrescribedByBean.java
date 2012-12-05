@@ -90,7 +90,7 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribedDate</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
@@ -141,7 +141,7 @@ public class PrescribedByBean extends MessagePartBean {
      * populated because the creation date of the prescription will 
      * always be known, except for inferred prescriptions.</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.time</p>
      * 
@@ -194,7 +194,7 @@ public class PrescribedByBean extends MessagePartBean {
      * not always be known (as in the case of 'inferred 
      * prescription').</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.time</p>
      * 
@@ -253,7 +253,7 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribedDate</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
@@ -304,7 +304,7 @@ public class PrescribedByBean extends MessagePartBean {
      * populated because the creation date of the prescription will 
      * always be known, except for inferred prescriptions.</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.time</p>
      * 
@@ -357,7 +357,7 @@ public class PrescribedByBean extends MessagePartBean {
      * not always be known (as in the case of 'inferred 
      * prescription').</p>
      * 
-     * <p>Other Business Name: PrescribedDate</p>
+     * <p>Un-merged Business Name: PrescribedDate</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.time</p>
      * 
@@ -416,7 +416,7 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.modeCode</p>
      * 
@@ -434,7 +434,7 @@ public class PrescribedByBean extends MessagePartBean {
      * order was received. May also be important when orders are 
      * entered into a central repository from the pharmacy.</p>
      * 
-     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.modeCode</p>
      * 
@@ -452,7 +452,7 @@ public class PrescribedByBean extends MessagePartBean {
      * order was received. May also be important when orders are 
      * entered into a central repository from the pharmacy.</p>
      * 
-     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.modeCode</p>
      * 
@@ -478,7 +478,7 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.modeCode</p>
      * 
@@ -496,7 +496,7 @@ public class PrescribedByBean extends MessagePartBean {
      * order was received. May also be important when orders are 
      * entered into a central repository from the pharmacy.</p>
      * 
-     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.modeCode</p>
      * 
@@ -514,7 +514,7 @@ public class PrescribedByBean extends MessagePartBean {
      * order was received. May also be important when orders are 
      * entered into a central repository from the pharmacy.</p>
      * 
-     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * <p>Un-merged Business Name: PrescriptionTransmissionMethod</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.modeCode</p>
      * 
@@ -540,7 +540,7 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Business Name: Signature</p>
      * 
-     * <p>Other Business Name: Signature</p>
+     * <p>Un-merged Business Name: Signature</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.signatureText</p>
      * 
@@ -559,7 +559,7 @@ public class PrescribedByBean extends MessagePartBean {
      * <p>signatures. This field will be ignored if it is 
      * sent.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: Signature</p>
+     * <p>Un-merged Business Name: Signature</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.signatureText</p>
      * 
@@ -578,7 +578,7 @@ public class PrescribedByBean extends MessagePartBean {
      * <p>signatures. This field will be ignored if it is 
      * sent.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: Signature</p>
+     * <p>Un-merged Business Name: Signature</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.signatureText</p>
      * 
@@ -601,7 +601,7 @@ public class PrescribedByBean extends MessagePartBean {
     /**
      * <p>Business Name: Signature</p>
      * 
-     * <p>Other Business Name: Signature</p>
+     * <p>Un-merged Business Name: Signature</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.signatureText</p>
      * 
@@ -620,7 +620,7 @@ public class PrescribedByBean extends MessagePartBean {
      * <p>signatures. This field will be ignored if it is 
      * sent.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: Signature</p>
+     * <p>Un-merged Business Name: Signature</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.signatureText</p>
      * 
@@ -639,7 +639,7 @@ public class PrescribedByBean extends MessagePartBean {
      * <p>signatures. This field will be ignored if it is 
      * sent.&nbsp;</p></p>
      * 
-     * <p>Other Business Name: Signature</p>
+     * <p>Un-merged Business Name: Signature</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.signatureText</p>
      * 
@@ -660,19 +660,19 @@ public class PrescribedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.assignedPerson</p>
      * 
@@ -684,19 +684,19 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.assignedPerson</p>
      * 

@@ -126,7 +126,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageInstruction.moodCode</p>
      * 
@@ -163,7 +163,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageInstruction.moodCode</p>
      * 
@@ -208,7 +208,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageInstruction.moodCode</p>
      * 
@@ -245,7 +245,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: DosageUsageContext</p>
+     * <p>Un-merged Business Name: DosageUsageContext</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageInstruction.moodCode</p>
      * 
@@ -290,7 +290,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageType</p>
      * 
-     * <p>Other Business Name: DosageType</p>
+     * <p>Un-merged Business Name: DosageType</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageInstruction.code</p>
      * 
@@ -306,7 +306,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * potentially drug. For non-SNOMED, this will be a fixed value 
      * of DRUG.</p>
      * 
-     * <p>Other Business Name: DosageType</p>
+     * <p>Un-merged Business Name: DosageType</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageInstruction.code</p>
      * 
@@ -330,7 +330,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageType</p>
      * 
-     * <p>Other Business Name: DosageType</p>
+     * <p>Un-merged Business Name: DosageType</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageInstruction.code</p>
      * 
@@ -346,7 +346,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * potentially drug. For non-SNOMED, this will be a fixed value 
      * of DRUG.</p>
      * 
-     * <p>Other Business Name: DosageType</p>
+     * <p>Un-merged Business Name: DosageType</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageInstruction.code</p>
      * 
@@ -370,7 +370,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageInstruction.text</p>
      * 
@@ -414,7 +414,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * is mandatory as dosage instructions must always be available 
      * in rendered form.</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageInstruction.text</p>
      * 
@@ -466,7 +466,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageInstruction.text</p>
      * 
@@ -510,7 +510,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * is mandatory as dosage instructions must always be available 
      * in rendered form.</p>
      * 
-     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * <p>Un-merged Business Name: RenderedDosageInstruction</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageInstruction.text</p>
      * 
@@ -562,7 +562,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationPeriod</p>
      * 
-     * <p>Other Business Name: AdministrationPeriod</p>
+     * <p>Un-merged Business Name: AdministrationPeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.DosageInstruction.effectiveTime</p>
@@ -612,7 +612,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * start date is presumed to be the date the prescription was 
      * written</p>
      * 
-     * <p>Other Business Name: AdministrationPeriod</p>
+     * <p>Un-merged Business Name: AdministrationPeriod</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.DosageInstruction.effectiveTime</p>
@@ -670,7 +670,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationPeriod</p>
      * 
-     * <p>Other Business Name: AdministrationPeriod</p>
+     * <p>Un-merged Business Name: AdministrationPeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.DosageInstruction.effectiveTime</p>
@@ -720,7 +720,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * start date is presumed to be the date the prescription was 
      * written</p>
      * 
-     * <p>Other Business Name: AdministrationPeriod</p>
+     * <p>Un-merged Business Name: AdministrationPeriod</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.DosageInstruction.effectiveTime</p>
@@ -778,7 +778,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: RouteCode</p>
      * 
-     * <p>Other Business Name: RouteCode</p>
+     * <p>Un-merged Business Name: RouteCode</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageInstruction.routeCode</p>
      * 
@@ -800,7 +800,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * an optional because it is pre-coordinated with 
      * SubstanceAdministration.code when using SNOMED.</p>
      * 
-     * <p>Other Business Name: RouteCode</p>
+     * <p>Un-merged Business Name: RouteCode</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageInstruction.routeCode</p>
      * 
@@ -830,7 +830,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: RouteCode</p>
      * 
-     * <p>Other Business Name: RouteCode</p>
+     * <p>Un-merged Business Name: RouteCode</p>
      * 
      * <p>Relationship: PORX_MT980040CA.DosageInstruction.routeCode</p>
      * 
@@ -852,7 +852,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * an optional because it is pre-coordinated with 
      * SubstanceAdministration.code when using SNOMED.</p>
      * 
-     * <p>Other Business Name: RouteCode</p>
+     * <p>Un-merged Business Name: RouteCode</p>
      * 
      * <p>Relationship: COCT_MT270010CA.DosageInstruction.routeCode</p>
      * 
@@ -882,7 +882,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationSites</p>
      * 
-     * <p>Other Business Name: AdministrationSites</p>
+     * <p>Un-merged Business Name: AdministrationSites</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.DosageInstruction.approachSiteCode</p>
@@ -903,7 +903,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * be pre-coordinated with SubstanceAdministration.code when 
      * using SNOMED.</p>
      * 
-     * <p>Other Business Name: AdministrationSites</p>
+     * <p>Un-merged Business Name: AdministrationSites</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.DosageInstruction.approachSiteCode</p>
@@ -931,7 +931,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: MaximumDosesPerPeriod</p>
+     * <p>Un-merged Business Name: MaximumDosesPerPeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.DosageInstruction.maxDoseQuantity</p>
@@ -955,7 +955,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * be recorded using additional dosage instruction 
      * comments.</p>
      * 
-     * <p>Other Business Name: MaximumDailyWeeklyDoses</p>
+     * <p>Un-merged Business Name: MaximumDailyWeeklyDoses</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.DosageInstruction.maxDoseQuantity</p>
@@ -987,7 +987,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageUnit</p>
      * 
-     * <p>Other Business Name: DosageUnit</p>
+     * <p>Un-merged Business Name: DosageUnit</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.DosageInstruction.administrationUnitCode</p>
@@ -1007,7 +1007,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * form (capsules, tablets). Examples are Puffs, Actuations, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DosageUnit</p>
+     * <p>Un-merged Business Name: DosageUnit</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.DosageInstruction.administrationUnitCode</p>
@@ -1035,7 +1035,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageUnit</p>
      * 
-     * <p>Other Business Name: DosageUnit</p>
+     * <p>Un-merged Business Name: DosageUnit</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.DosageInstruction.administrationUnitCode</p>
@@ -1055,7 +1055,7 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * form (capsules, tablets). Examples are Puffs, Actuations, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DosageUnit</p>
+     * <p>Un-merged Business Name: DosageUnit</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.DosageInstruction.administrationUnitCode</p>
@@ -1081,13 +1081,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
      * 
@@ -1099,13 +1099,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
      * 
@@ -1117,14 +1117,14 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.Component.supplementalInstruction</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.Component.supplementalInstruction</p>
@@ -1137,14 +1137,14 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.Component.supplementalInstruction</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.Component.supplementalInstruction</p>
@@ -1157,14 +1157,14 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980040CA.DosageInstruction.component2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT270010CA.DosageInstruction.component2</p>

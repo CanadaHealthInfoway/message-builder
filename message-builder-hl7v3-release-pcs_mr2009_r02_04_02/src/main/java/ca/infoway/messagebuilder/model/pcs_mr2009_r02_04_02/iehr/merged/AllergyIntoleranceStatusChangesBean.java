@@ -77,7 +77,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: AmendReason</p>
+     * <p>Un-merged Business Name: AmendReason</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
@@ -97,7 +97,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p>Other Business Name: AmendReason</p>
+     * <p>Un-merged Business Name: AmendReason</p>
      * 
      * <p>Relationship: REPC_MT000007CA.ControlActEvent.reasonCode</p>
      * 
@@ -117,7 +117,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
@@ -136,7 +136,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: AmendReason</p>
+     * <p>Un-merged Business Name: AmendReason</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
@@ -156,7 +156,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p>Other Business Name: AmendReason</p>
+     * <p>Un-merged Business Name: AmendReason</p>
      * 
      * <p>Relationship: REPC_MT000007CA.ControlActEvent.reasonCode</p>
      * 
@@ -176,7 +176,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
@@ -195,19 +195,19 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000007CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
      * 
@@ -219,19 +219,19 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000007CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
      * 
@@ -245,7 +245,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatusChangeType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
@@ -266,7 +266,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
-     * <p>Other Business Name: AllergyIntoleranceStatusChangeType</p>
+     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
@@ -288,7 +288,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * <p>Business Name: 
      * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
@@ -312,7 +312,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * <p>Business Name: 
      * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
@@ -333,7 +333,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.ResponsibleParty2.assignedEntity</p>
@@ -346,7 +346,7 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.ResponsibleParty2.assignedEntity</p>

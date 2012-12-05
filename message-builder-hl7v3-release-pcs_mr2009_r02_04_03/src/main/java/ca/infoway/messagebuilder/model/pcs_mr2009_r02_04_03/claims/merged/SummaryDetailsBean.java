@@ -60,21 +60,21 @@ public class SummaryDetailsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: SummaryInformation</p>
+     * <p>Un-merged Business Name: SummaryInformation</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummaryData.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SummaryTypeCode</p>
+     * <p>Un-merged Business Name: SummaryTypeCode</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummaryData.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummaryData.code</p>
@@ -92,21 +92,21 @@ public class SummaryDetailsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: SummaryInformation</p>
+     * <p>Un-merged Business Name: SummaryInformation</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummaryData.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SummaryTypeCode</p>
+     * <p>Un-merged Business Name: SummaryTypeCode</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummaryData.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SummaryPeriodAmt</p>
+     * <p>Un-merged Business Name: SummaryPeriodAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummaryData.code</p>
@@ -124,7 +124,7 @@ public class SummaryDetailsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ValueOfSummary</p>
+     * <p>Un-merged Business Name: ValueOfSummary</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummaryData.value</p>
@@ -135,14 +135,14 @@ public class SummaryDetailsBean extends MessagePartBean {
      * 
      * <p>PQ or MO - Value of summary</p>
      * 
-     * <p>Other Business Name: SummaryTotalAmount</p>
+     * <p>Un-merged Business Name: SummaryTotalAmount</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummaryData.value</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SummaryTotalAmt</p>
+     * <p>Un-merged Business Name: SummaryTotalAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummaryData.value</p>
@@ -161,7 +161,7 @@ public class SummaryDetailsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ValueOfSummary</p>
+     * <p>Un-merged Business Name: ValueOfSummary</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummaryData.value</p>
@@ -172,14 +172,14 @@ public class SummaryDetailsBean extends MessagePartBean {
      * 
      * <p>PQ or MO - Value of summary</p>
      * 
-     * <p>Other Business Name: SummaryTotalAmount</p>
+     * <p>Un-merged Business Name: SummaryTotalAmount</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummaryData.value</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SummaryTotalAmt</p>
+     * <p>Un-merged Business Name: SummaryTotalAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummaryData.value</p>

@@ -66,7 +66,7 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: FocusArea</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Material.desc</p>
      * 
@@ -84,7 +84,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * Collection.</p><p>E.g. &quot;Left-most mole approximately 
      * one inch below left shoulder-blade&quot;</p>
      * 
-     * <p>Other Business Name: SpecimenText</p>
+     * <p>Un-merged Business Name: SpecimenText</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Material.desc</p>
      * 
@@ -96,7 +96,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Any descriptive specimen information not sufficiently 
      * communicated by the code attribute.</p>
      * 
-     * <p>Other Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: FocusArea</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Material.desc</p>
      * 
@@ -114,7 +114,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * Collection.</p><p>E.g. &quot;Left-most mole approximately 
      * one inch below left shoulder-blade&quot;</p>
      * 
-     * <p>Other Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: FocusArea</p>
      * 
      * <p>Relationship: REPC_MT500003CA.Material.desc</p>
      * 
@@ -132,7 +132,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * Collection.</p><p>E.g. &quot;Left-most mole approximately 
      * one inch below left shoulder-blade&quot;</p>
      * 
-     * <p>Other Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: FocusArea</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Material.desc</p>
      * 
@@ -156,7 +156,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: FocusArea</p>
      * 
      * <p>Relationship: REPC_MT500004CA.Material.desc</p>
      * 
@@ -174,7 +174,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * Collection.</p><p>E.g. &quot;Left-most mole approximately 
      * one inch below left shoulder-blade&quot;</p>
      * 
-     * <p>Other Business Name: SpecimenText</p>
+     * <p>Un-merged Business Name: SpecimenText</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Material.desc</p>
      * 
@@ -186,7 +186,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Any descriptive specimen information not sufficiently 
      * communicated by the code attribute.</p>
      * 
-     * <p>Other Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: FocusArea</p>
      * 
      * <p>Relationship: REPC_MT500001CA.Material.desc</p>
      * 
@@ -204,7 +204,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * Collection.</p><p>E.g. &quot;Left-most mole approximately 
      * one inch below left shoulder-blade&quot;</p>
      * 
-     * <p>Other Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: FocusArea</p>
      * 
      * <p>Relationship: REPC_MT500003CA.Material.desc</p>
      * 
@@ -222,7 +222,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * Collection.</p><p>E.g. &quot;Left-most mole approximately 
      * one inch below left shoulder-blade&quot;</p>
      * 
-     * <p>Other Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: FocusArea</p>
      * 
      * <p>Relationship: REPC_MT500002CA.Material.desc</p>
      * 
@@ -248,7 +248,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenIdentifier</p>
      * 
-     * <p>Other Business Name: SpecimenIdentifier</p>
+     * <p>Un-merged Business Name: SpecimenIdentifier</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Specimen.id</p>
      * 
@@ -277,7 +277,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenIdentifier</p>
      * 
-     * <p>Other Business Name: SpecimenIdentifier</p>
+     * <p>Un-merged Business Name: SpecimenIdentifier</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Specimen.id</p>
      * 
@@ -306,7 +306,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenCode</p>
      * 
-     * <p>Other Business Name: SpecimenCode</p>
+     * <p>Un-merged Business Name: SpecimenCode</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Material.code</p>
      * 
@@ -326,7 +326,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenCode</p>
      * 
-     * <p>Other Business Name: SpecimenCode</p>
+     * <p>Un-merged Business Name: SpecimenCode</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Material.code</p>
      * 
@@ -344,7 +344,7 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Material.asIdentifiedEntity</p>
      * 
@@ -359,7 +359,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenContainerRisk</p>
      * 
-     * <p>Other Business Name: SpecimenContainerRisk</p>
+     * <p>Un-merged Business Name: SpecimenContainerRisk</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
      * 
@@ -379,7 +379,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenContainerRisk</p>
      * 
-     * <p>Other Business Name: SpecimenContainerRisk</p>
+     * <p>Un-merged Business Name: SpecimenContainerRisk</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
      * 
@@ -397,7 +397,7 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT080100CA.Subject2.transportationEvent</p>
@@ -411,7 +411,7 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
@@ -424,7 +424,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>

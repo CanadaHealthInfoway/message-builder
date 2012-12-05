@@ -64,7 +64,7 @@ public class DispensedBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugOrCompound</p>
      * 
-     * <p>Other Business Name: DrugOrCompound</p>
+     * <p>Un-merged Business Name: DrugOrCompound</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Product.medication</p>
      * 
@@ -72,7 +72,7 @@ public class DispensedBean extends MessagePartBean {
      * 
      * <p>Indicates the drug that was dispensed.&nbsp;</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Product.medication</p>
      * 
@@ -86,7 +86,7 @@ public class DispensedBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugOrCompound</p>
      * 
-     * <p>Other Business Name: DrugOrCompound</p>
+     * <p>Un-merged Business Name: DrugOrCompound</p>
      * 
      * <p>Relationship: PORX_MT980020CA.Product.medication</p>
      * 
@@ -94,7 +94,7 @@ public class DispensedBean extends MessagePartBean {
      * 
      * <p>Indicates the drug that was dispensed.&nbsp;</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Product.medication</p>
      * 

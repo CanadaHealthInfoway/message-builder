@@ -68,7 +68,7 @@ public class ConfidenceValueBean extends MessagePartBean {
     /**
      * <p>Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
      * 
@@ -81,7 +81,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * confidence matching used i.e. the code would be the name for 
      * the algorithm for the confidence value</p>
      * 
-     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
      * 
@@ -102,7 +102,7 @@ public class ConfidenceValueBean extends MessagePartBean {
     /**
      * <p>Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
      * 
@@ -115,7 +115,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * confidence matching used i.e. the code would be the name for 
      * the algorithm for the confidence value</p>
      * 
-     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
      * 
@@ -136,7 +136,7 @@ public class ConfidenceValueBean extends MessagePartBean {
     /**
      * <p>Business Name: ConfidenceValue</p>
      * 
-     * <p>Other Business Name: ConfidenceValue</p>
+     * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
      * 
@@ -149,7 +149,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * query with regard to finding the intended target client i.e. 
      * the value would be the computed confidence value.</p>
      * 
-     * <p>Other Business Name: ConfidenceValue</p>
+     * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
      * 
@@ -170,7 +170,7 @@ public class ConfidenceValueBean extends MessagePartBean {
     /**
      * <p>Business Name: ConfidenceValue</p>
      * 
-     * <p>Other Business Name: ConfidenceValue</p>
+     * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
      * 
@@ -183,7 +183,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * query with regard to finding the intended target client i.e. 
      * the value would be the computed confidence value.</p>
      * 
-     * <p>Other Business Name: ConfidenceValue</p>
+     * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
      * 

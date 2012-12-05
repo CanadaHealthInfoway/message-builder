@@ -42,7 +42,7 @@ public class UnderwriterBean extends MessagePartBean {
     /**
      * <p>Business Name: PayorIdentifier</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
      * 
@@ -55,7 +55,7 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
      * 
@@ -68,7 +68,7 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Underwriter.id</p>
      * 
@@ -89,7 +89,7 @@ public class UnderwriterBean extends MessagePartBean {
     /**
      * <p>Business Name: PayorIdentifier</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
      * 
@@ -102,7 +102,7 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
      * 
@@ -115,7 +115,7 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
      * 
-     * <p>Other Business Name: PayorIdentifier</p>
+     * <p>Un-merged Business Name: PayorIdentifier</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Underwriter.id</p>
      * 
@@ -136,7 +136,7 @@ public class UnderwriterBean extends MessagePartBean {
     /**
      * <p>Business Name: PayorName</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Organization.name</p>
      * 
@@ -147,7 +147,7 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension.</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Organization.name</p>
      * 
@@ -158,7 +158,7 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Organization.name</p>
      * 
@@ -177,7 +177,7 @@ public class UnderwriterBean extends MessagePartBean {
     /**
      * <p>Business Name: PayorName</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Organization.name</p>
      * 
@@ -188,7 +188,7 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension.</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Organization.name</p>
      * 
@@ -199,7 +199,7 @@ public class UnderwriterBean extends MessagePartBean {
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
      * 
-     * <p>Other Business Name: PayorName</p>
+     * <p>Un-merged Business Name: PayorName</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Organization.name</p>
      * 

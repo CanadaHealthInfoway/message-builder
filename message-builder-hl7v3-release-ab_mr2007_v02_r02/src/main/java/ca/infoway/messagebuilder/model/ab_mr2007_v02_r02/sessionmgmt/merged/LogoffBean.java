@@ -70,7 +70,7 @@ public class LogoffBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: AuthenticationToken</p>
+     * <p>Un-merged Business Name: AuthenticationToken</p>
      * 
      * <p>Relationship: COMT_MT900002AB.ActPermission.id</p>
      * 
@@ -81,7 +81,7 @@ public class LogoffBean extends MessagePartBean {
      * 
      * <p>Needed to identify which session is to be logged off.</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: COMT_MT900004AB.ActPermission.id</p>
      * 
@@ -100,7 +100,7 @@ public class LogoffBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: AuthenticationToken</p>
+     * <p>Un-merged Business Name: AuthenticationToken</p>
      * 
      * <p>Relationship: COMT_MT900002AB.ActPermission.id</p>
      * 
@@ -111,7 +111,7 @@ public class LogoffBean extends MessagePartBean {
      * 
      * <p>Needed to identify which session is to be logged off.</p>
      * 
-     * <p>Other Business Name: SecurityToken</p>
+     * <p>Un-merged Business Name: SecurityToken</p>
      * 
      * <p>Relationship: COMT_MT900004AB.ActPermission.id</p>
      * 
@@ -132,7 +132,7 @@ public class LogoffBean extends MessagePartBean {
     /**
      * <p>Business Name: PasswordExpiryDate</p>
      * 
-     * <p>Other Business Name: PasswordExpiryDate</p>
+     * <p>Un-merged Business Name: PasswordExpiryDate</p>
      * 
      * <p>Relationship: COMT_MT900004AB.Performer.time</p>
      * 
@@ -152,7 +152,7 @@ public class LogoffBean extends MessagePartBean {
     /**
      * <p>Business Name: PasswordExpiryDate</p>
      * 
-     * <p>Other Business Name: PasswordExpiryDate</p>
+     * <p>Un-merged Business Name: PasswordExpiryDate</p>
      * 
      * <p>Relationship: COMT_MT900004AB.Performer.time</p>
      * 
@@ -172,7 +172,7 @@ public class LogoffBean extends MessagePartBean {
     /**
      * <p>Business Name: ProviderId</p>
      * 
-     * <p>Other Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: ProviderId</p>
      * 
      * <p>Relationship: COMT_MT900004AB.AssignedEntity.id</p>
      * 
@@ -193,7 +193,7 @@ public class LogoffBean extends MessagePartBean {
     /**
      * <p>Business Name: ProviderId</p>
      * 
-     * <p>Other Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: ProviderId</p>
      * 
      * <p>Relationship: COMT_MT900004AB.AssignedEntity.id</p>
      * 
@@ -212,7 +212,7 @@ public class LogoffBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COMT_MT900004AB.Component.transactionPermission</p>

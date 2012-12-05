@@ -39,7 +39,7 @@ public class OldCommonObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT420001CA.OldCommonObservationEvent.id</p>
@@ -62,7 +62,7 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT420003CA.OldCommonObservationEvent.id</p>
@@ -85,14 +85,14 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.OldCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.OldCommonObservationEvent.id</p>
@@ -123,7 +123,7 @@ public class OldCommonObservationEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT420001CA.OldCommonObservationEvent.id</p>
@@ -146,7 +146,7 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT420003CA.OldCommonObservationEvent.id</p>
@@ -169,14 +169,14 @@ public class OldCommonObservationEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT410003CA.OldCommonObservationEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: 
      * REPC_MT410001CA.OldCommonObservationEvent.id</p>

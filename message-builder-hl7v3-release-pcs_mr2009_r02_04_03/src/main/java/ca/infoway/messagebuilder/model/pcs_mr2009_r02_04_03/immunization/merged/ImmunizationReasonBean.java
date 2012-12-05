@@ -50,13 +50,13 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Business Name: ImmunizationReasonText</p>
      * 
-     * <p>Other Business Name: ImmunizationReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationReasonText</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.ImmunizationReason.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: ImmunizationReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationReasonText</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.ImmunizationReason.text</p>
      * 
@@ -69,7 +69,7 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
      * <p>A textual or multimedia description (or reference to a 
      * description) of the reason.</p>
      * 
-     * <p>Other Business Name: ImmunizationReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationReasonText</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.ImmunizationReason.text</p>
      * 
@@ -83,13 +83,13 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Business Name: ImmunizationReasonText</p>
      * 
-     * <p>Other Business Name: ImmunizationReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationReasonText</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.ImmunizationReason.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: ImmunizationReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationReasonText</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.ImmunizationReason.text</p>
      * 
@@ -102,7 +102,7 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
      * <p>A textual or multimedia description (or reference to a 
      * description) of the reason.</p>
      * 
-     * <p>Other Business Name: ImmunizationReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationReasonText</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.ImmunizationReason.text</p>
      * 
@@ -116,14 +116,14 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Business Name: ImmunizationReason</p>
      * 
-     * <p>Other Business Name: ImmunizationReason</p>
+     * <p>Un-merged Business Name: ImmunizationReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.ImmunizationReason.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ImmunizationReason</p>
+     * <p>Un-merged Business Name: ImmunizationReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.ImmunizationReason.reasonCode</p>
@@ -138,7 +138,7 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
      * <p>A coded value denoting a reason for immunizing a 
      * patient.</p>
      * 
-     * <p>Other Business Name: ImmunizationReason</p>
+     * <p>Un-merged Business Name: ImmunizationReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.ImmunizationReason.reasonCode</p>
@@ -153,14 +153,14 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Business Name: ImmunizationReason</p>
      * 
-     * <p>Other Business Name: ImmunizationReason</p>
+     * <p>Un-merged Business Name: ImmunizationReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.ImmunizationReason.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ImmunizationReason</p>
+     * <p>Un-merged Business Name: ImmunizationReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.ImmunizationReason.reasonCode</p>
@@ -175,7 +175,7 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
      * <p>A coded value denoting a reason for immunizing a 
      * patient.</p>
      * 
-     * <p>Other Business Name: ImmunizationReason</p>
+     * <p>Un-merged Business Name: ImmunizationReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.ImmunizationReason.reasonCode</p>

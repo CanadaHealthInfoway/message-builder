@@ -43,31 +43,31 @@ public class ClinicalDeviceBean extends MessagePartBean {
     /**
      * <p>Business Name: DeviceCode</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT490101CA.ClinicalDevice.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT400001CA.ClinicalDevice.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT490102CA.ClinicalDevice.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT400004CA.ClinicalDevice.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT400003CA.ClinicalDevice.code</p>
      * 
@@ -81,31 +81,31 @@ public class ClinicalDeviceBean extends MessagePartBean {
     /**
      * <p>Business Name: DeviceCode</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT490101CA.ClinicalDevice.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT400001CA.ClinicalDevice.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT490102CA.ClinicalDevice.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT400004CA.ClinicalDevice.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DeviceCode</p>
+     * <p>Un-merged Business Name: DeviceCode</p>
      * 
      * <p>Relationship: FICR_MT400003CA.ClinicalDevice.code</p>
      * 
@@ -119,31 +119,31 @@ public class ClinicalDeviceBean extends MessagePartBean {
     /**
      * <p>Business Name: DeviceName</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT490101CA.ClinicalDevice.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT400001CA.ClinicalDevice.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT490102CA.ClinicalDevice.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT400004CA.ClinicalDevice.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT400003CA.ClinicalDevice.name</p>
      * 
@@ -157,31 +157,31 @@ public class ClinicalDeviceBean extends MessagePartBean {
     /**
      * <p>Business Name: DeviceName</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT490101CA.ClinicalDevice.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT400001CA.ClinicalDevice.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT490102CA.ClinicalDevice.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT400004CA.ClinicalDevice.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: DeviceName</p>
+     * <p>Un-merged Business Name: DeviceName</p>
      * 
      * <p>Relationship: FICR_MT400003CA.ClinicalDevice.name</p>
      * 
@@ -195,31 +195,31 @@ public class ClinicalDeviceBean extends MessagePartBean {
     /**
      * <p>Business Name: DeviceDescription</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT490101CA.ClinicalDevice.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT400001CA.ClinicalDevice.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT490102CA.ClinicalDevice.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT400004CA.ClinicalDevice.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT400003CA.ClinicalDevice.desc</p>
      * 
@@ -233,31 +233,31 @@ public class ClinicalDeviceBean extends MessagePartBean {
     /**
      * <p>Business Name: DeviceDescription</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT490101CA.ClinicalDevice.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT400001CA.ClinicalDevice.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT490102CA.ClinicalDevice.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT400004CA.ClinicalDevice.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: DeviceDescription</p>
+     * <p>Un-merged Business Name: DeviceDescription</p>
      * 
      * <p>Relationship: FICR_MT400003CA.ClinicalDevice.desc</p>
      * 

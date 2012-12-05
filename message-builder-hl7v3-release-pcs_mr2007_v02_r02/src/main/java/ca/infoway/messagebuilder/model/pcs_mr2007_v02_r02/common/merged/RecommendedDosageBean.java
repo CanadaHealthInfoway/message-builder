@@ -86,7 +86,7 @@ public class RecommendedDosageBean extends MessagePartBean {
     /**
      * <p>Business Name: DoseDuration</p>
      * 
-     * <p>Other Business Name: DoseDuration</p>
+     * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
@@ -100,7 +100,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Indicates the recommended duration for drug therapy that 
      * was exceeded or not met.</p>
      * 
-     * <p>Other Business Name: DoseDuration</p>
+     * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
@@ -114,7 +114,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Indicates the recommended duration for drug therapy that 
      * was exceeded or not met.</p>
      * 
-     * <p>Other Business Name: DoseDuration</p>
+     * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
@@ -136,7 +136,7 @@ public class RecommendedDosageBean extends MessagePartBean {
     /**
      * <p>Business Name: DoseDuration</p>
      * 
-     * <p>Other Business Name: DoseDuration</p>
+     * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
@@ -150,7 +150,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Indicates the recommended duration for drug therapy that 
      * was exceeded or not met.</p>
      * 
-     * <p>Other Business Name: DoseDuration</p>
+     * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
@@ -164,7 +164,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * <p>Indicates the recommended duration for drug therapy that 
      * was exceeded or not met.</p>
      * 
-     * <p>Other Business Name: DoseDuration</p>
+     * <p>Un-merged Business Name: DoseDuration</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
@@ -186,7 +186,7 @@ public class RecommendedDosageBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageRange</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
@@ -205,7 +205,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * medication (Min/Max figures) that is recommended for the 
      * drug to avoid triggering of dosage issues.</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
@@ -224,7 +224,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * medication (Min/Max figures) that is recommended for the 
      * drug to avoid triggering of dosage issues.</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
@@ -251,7 +251,7 @@ public class RecommendedDosageBean extends MessagePartBean {
     /**
      * <p>Business Name: DosageRange</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
@@ -270,7 +270,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * medication (Min/Max figures) that is recommended for the 
      * drug to avoid triggering of dosage issues.</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
@@ -289,7 +289,7 @@ public class RecommendedDosageBean extends MessagePartBean {
      * medication (Min/Max figures) that is recommended for the 
      * drug to avoid triggering of dosage issues.</p>
      * 
-     * <p>Other Business Name: DosageRange</p>
+     * <p>Un-merged Business Name: DosageRange</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
@@ -314,21 +314,21 @@ public class RecommendedDosageBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.Component2.observationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Component2.observationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Component2.observationEventCriterion</p>

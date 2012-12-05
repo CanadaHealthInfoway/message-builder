@@ -75,7 +75,7 @@ public class ProtocolsBean extends MessagePartBean {
     /**
      * <p>Business Name: ProtocolIdentifiers</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstanceAdministrationDefinition.id</p>
@@ -96,7 +96,7 @@ public class ProtocolsBean extends MessagePartBean {
      * which the prescription has been written in accordance 
      * with.</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstanceAdministrationDefinition.id</p>
@@ -117,7 +117,7 @@ public class ProtocolsBean extends MessagePartBean {
      * which the prescription has been written in accordance 
      * with.</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstanceAdministrationDefinition.id</p>
@@ -148,7 +148,7 @@ public class ProtocolsBean extends MessagePartBean {
     /**
      * <p>Business Name: ProtocolIdentifiers</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstanceAdministrationDefinition.id</p>
@@ -169,7 +169,7 @@ public class ProtocolsBean extends MessagePartBean {
      * which the prescription has been written in accordance 
      * with.</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstanceAdministrationDefinition.id</p>
@@ -190,7 +190,7 @@ public class ProtocolsBean extends MessagePartBean {
      * which the prescription has been written in accordance 
      * with.</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstanceAdministrationDefinition.id</p>
@@ -221,7 +221,7 @@ public class ProtocolsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstanceAdministrationDefinition.code</p>
@@ -233,7 +233,7 @@ public class ProtocolsBean extends MessagePartBean {
      * 
      * <p>Relevant in understanding the protocol.</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstanceAdministrationDefinition.code</p>
@@ -245,7 +245,7 @@ public class ProtocolsBean extends MessagePartBean {
      * 
      * <p>Relevant in understanding the protocol.</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstanceAdministrationDefinition.code</p>
@@ -265,7 +265,7 @@ public class ProtocolsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionType</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstanceAdministrationDefinition.code</p>
@@ -277,7 +277,7 @@ public class ProtocolsBean extends MessagePartBean {
      * 
      * <p>Relevant in understanding the protocol.</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstanceAdministrationDefinition.code</p>
@@ -289,7 +289,7 @@ public class ProtocolsBean extends MessagePartBean {
      * 
      * <p>Relevant in understanding the protocol.</p>
      * 
-     * <p>Other Business Name: PrescriptionType</p>
+     * <p>Un-merged Business Name: PrescriptionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstanceAdministrationDefinition.code</p>

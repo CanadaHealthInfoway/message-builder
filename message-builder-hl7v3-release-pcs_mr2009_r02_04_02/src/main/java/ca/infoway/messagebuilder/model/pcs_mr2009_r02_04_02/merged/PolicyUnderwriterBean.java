@@ -38,21 +38,21 @@ public class PolicyUnderwriterBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.PolicyUnderwriter.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.PolicyUnderwriter.carrierRole</p>
@@ -65,21 +65,21 @@ public class PolicyUnderwriterBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.PolicyUnderwriter.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.PolicyUnderwriter.carrierRole</p>
@@ -94,7 +94,7 @@ public class PolicyUnderwriterBean extends MessagePartBean {
     /**
      * <p>Business Name: CarrierRoleId</p>
      * 
-     * <p>Other Business Name: CarrierRoleId</p>
+     * <p>Un-merged Business Name: CarrierRoleId</p>
      * 
      * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
      * 
@@ -108,7 +108,7 @@ public class PolicyUnderwriterBean extends MessagePartBean {
     /**
      * <p>Business Name: CarrierRoleId</p>
      * 
-     * <p>Other Business Name: CarrierRoleId</p>
+     * <p>Un-merged Business Name: CarrierRoleId</p>
      * 
      * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
      * 

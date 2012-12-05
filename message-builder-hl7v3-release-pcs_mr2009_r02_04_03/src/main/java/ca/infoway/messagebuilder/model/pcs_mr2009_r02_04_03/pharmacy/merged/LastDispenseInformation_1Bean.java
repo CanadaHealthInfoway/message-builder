@@ -84,7 +84,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: LastDispensePickupDate</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventLastSummary.effectiveTime</p>
@@ -98,7 +98,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventLastSummary.effectiveTime</p>
@@ -112,7 +112,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventLastSummary.effectiveTime</p>
@@ -126,7 +126,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventLastSummary.effectiveTime</p>
@@ -148,7 +148,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: LastDispensePickupDate</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventLastSummary.effectiveTime</p>
@@ -162,7 +162,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventLastSummary.effectiveTime</p>
@@ -176,7 +176,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventLastSummary.effectiveTime</p>
@@ -190,7 +190,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventLastSummary.effectiveTime</p>
@@ -210,7 +210,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventLastSummary.quantity</p>
@@ -226,7 +226,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent quantity of the drug that was 
      * picked up for the prescription.</p>
      * 
-     * <p>Other Business Name: LastDispenseQuantity</p>
+     * <p>Un-merged Business Name: LastDispenseQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventLastSummary.quantity</p>
@@ -242,7 +242,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent quantity of the drug that was 
      * picked up for the prescription.</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventLastSummary.quantity</p>
@@ -258,7 +258,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent quantity of the drug that was 
      * picked up for the prescription.</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventLastSummary.quantity</p>
@@ -280,7 +280,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventLastSummary.quantity</p>
@@ -296,7 +296,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent quantity of the drug that was 
      * picked up for the prescription.</p>
      * 
-     * <p>Other Business Name: LastDispenseQuantity</p>
+     * <p>Un-merged Business Name: LastDispenseQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventLastSummary.quantity</p>
@@ -312,7 +312,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent quantity of the drug that was 
      * picked up for the prescription.</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventLastSummary.quantity</p>
@@ -328,7 +328,7 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
      * <p>Indicates the most recent quantity of the drug that was 
      * picked up for the prescription.</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventLastSummary.quantity</p>

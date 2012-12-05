@@ -62,7 +62,7 @@ public class ProtocolsBean extends MessagePartBean {
     /**
      * <p>Business Name: ProtocolIdentifiers</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstanceAdministrationDefinition.id</p>
@@ -93,7 +93,7 @@ public class ProtocolsBean extends MessagePartBean {
      * indicating that a patient is eligible for this particular 
      * medication.</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstanceAdministrationDefinition.id</p>
@@ -124,7 +124,7 @@ public class ProtocolsBean extends MessagePartBean {
      * indicating that a patient is eligible for this particular 
      * medication.</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstanceAdministrationDefinition.id</p>
@@ -163,7 +163,7 @@ public class ProtocolsBean extends MessagePartBean {
     /**
      * <p>Business Name: ProtocolIdentifiers</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SubstanceAdministrationDefinition.id</p>
@@ -194,7 +194,7 @@ public class ProtocolsBean extends MessagePartBean {
      * indicating that a patient is eligible for this particular 
      * medication.</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SubstanceAdministrationDefinition.id</p>
@@ -225,7 +225,7 @@ public class ProtocolsBean extends MessagePartBean {
      * indicating that a patient is eligible for this particular 
      * medication.</p>
      * 
-     * <p>Other Business Name: ProtocolIdentifiers</p>
+     * <p>Un-merged Business Name: ProtocolIdentifiers</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.SubstanceAdministrationDefinition.id</p>

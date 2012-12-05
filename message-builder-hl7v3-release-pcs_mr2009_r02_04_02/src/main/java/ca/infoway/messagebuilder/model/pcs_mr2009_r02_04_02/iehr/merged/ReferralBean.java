@@ -77,19 +77,19 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210002CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210001CA.DocumentContent.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210003CA.DocumentContent.reason</p>
      * 
@@ -104,7 +104,7 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     /**
      * <p>Business Name: ReferralType</p>
      * 
-     * <p>Other Business Name: ReferralType</p>
+     * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.code</p>
@@ -127,14 +127,14 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * indication or diagnosis which triggered the need for the 
      * referral.</p>
      * 
-     * <p>Other Business Name: ReferralType</p>
+     * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReferralType</p>
+     * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.code</p>
@@ -165,7 +165,7 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     /**
      * <p>Business Name: ReferralType</p>
      * 
-     * <p>Other Business Name: ReferralType</p>
+     * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.code</p>
@@ -188,14 +188,14 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * indication or diagnosis which triggered the need for the 
      * referral.</p>
      * 
-     * <p>Other Business Name: ReferralType</p>
+     * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReferralType</p>
+     * <p>Un-merged Business Name: ReferralType</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.code</p>
@@ -226,7 +226,7 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     /**
      * <p>Business Name: ReferralStatus</p>
      * 
-     * <p>Other Business Name: ReferralStatus</p>
+     * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.statusCode</p>
@@ -251,14 +251,14 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * 'aborted' it means the request made by the referral has been 
      * withdrawn.</p>
      * 
-     * <p>Other Business Name: ReferralStatus</p>
+     * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ReferralStatus</p>
+     * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.statusCode</p>
@@ -291,7 +291,7 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     /**
      * <p>Business Name: ReferralStatus</p>
      * 
-     * <p>Other Business Name: ReferralStatus</p>
+     * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.statusCode</p>
@@ -316,14 +316,14 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * 'aborted' it means the request made by the referral has been 
      * withdrawn.</p>
      * 
-     * <p>Other Business Name: ReferralStatus</p>
+     * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ReferralStatus</p>
+     * <p>Un-merged Business Name: ReferralStatus</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.statusCode</p>
@@ -356,7 +356,7 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     /**
      * <p>Business Name: ReferralRequestedByTime</p>
      * 
-     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.effectiveTime</p>
@@ -374,14 +374,14 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * <p>Indicates the target date by which the referring provider 
      * hopes the requested assessment could be completed.</p>
      * 
-     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.effectiveTime</p>
@@ -407,7 +407,7 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     /**
      * <p>Business Name: ReferralRequestedByTime</p>
      * 
-     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.effectiveTime</p>
@@ -425,14 +425,14 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
      * <p>Indicates the target date by which the referring provider 
      * hopes the requested assessment could be completed.</p>
      * 
-     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ReferralRequestedByTime</p>
+     * <p>Un-merged Business Name: ReferralRequestedByTime</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.effectiveTime</p>
@@ -456,21 +456,21 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.performer</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.performer</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.performer</p>
@@ -483,21 +483,21 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.performer</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.performer</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.performer</p>
@@ -510,21 +510,21 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.location</p>
@@ -537,21 +537,21 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.PatientCareProvisionRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.PatientCareProvisionRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.PatientCareProvisionRequest.location</p>
@@ -564,19 +564,19 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Component8.actRequest</p>
      * 
@@ -588,19 +588,19 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210002CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210001CA.Component8.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT210003CA.Component8.actRequest</p>
      * 
@@ -612,21 +612,21 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.InFulfillmentOf2.patientCareProvisionEvent</p>
@@ -639,21 +639,21 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210002CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210001CA.InFulfillmentOf2.patientCareProvisionEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT210003CA.InFulfillmentOf2.patientCareProvisionEvent</p>

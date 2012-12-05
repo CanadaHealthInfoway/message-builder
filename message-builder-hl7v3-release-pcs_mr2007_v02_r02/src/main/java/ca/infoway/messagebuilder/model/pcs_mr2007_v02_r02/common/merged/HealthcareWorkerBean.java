@@ -92,7 +92,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Organization.name</p>
      * 
@@ -105,7 +105,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Organization.name</p>
      * 
@@ -117,7 +117,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Organization.name</p>
      * 
@@ -129,7 +129,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Organization.name</p>
      * 
@@ -142,7 +142,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Organization.name</p>
      * 
@@ -167,7 +167,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Organization.name</p>
      * 
@@ -180,7 +180,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Organization.name</p>
      * 
@@ -192,7 +192,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Organization.name</p>
      * 
@@ -204,7 +204,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Organization.name</p>
      * 
@@ -217,7 +217,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * <p>The name of a clinical knowledgebase vendor 
      * organization.</p>
      * 
-     * <p>Other Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Organization.name</p>
      * 
@@ -238,7 +238,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerIdentifier</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.id</p>
      * 
@@ -250,7 +250,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Unique identifier the person involved in the action.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090102CA.AssignedEntity.id</p>
      * 
@@ -270,7 +270,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerIdentifier</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.id</p>
      * 
@@ -282,7 +282,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Unique identifier the person involved in the action.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerIdentifier</p>
+     * <p>Un-merged Business Name: HealthcareWorkerIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090102CA.AssignedEntity.id</p>
      * 
@@ -302,7 +302,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerType</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.code</p>
      * 
@@ -324,7 +324,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerType</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerType</p>
+     * <p>Un-merged Business Name: HealthcareWorkerType</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.code</p>
      * 
@@ -346,7 +346,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerPhoneAndEmails</p>
+     * <p>Un-merged Business Name: HealthcareWorkerPhoneAndEmails</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedEntity.telecom</p>
      * 
@@ -368,7 +368,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerName</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Person.name</p>
      * 
@@ -380,7 +380,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Person.name</p>
      * 
@@ -400,7 +400,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: HealthcareWorkerName</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Person.name</p>
      * 
@@ -412,7 +412,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>The name of the participating person.</p>
      * 
-     * <p>Other Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: HealthcareWorkerName</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Person.name</p>
      * 
@@ -432,7 +432,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: LicenseNumber</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: COCT_MT090108CA.HealthCareProvider.id</p>
      * 
@@ -451,7 +451,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: COCT_MT090102CA.HealthCareProvider.id</p>
      * 
@@ -476,7 +476,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: LicenseNumber</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: COCT_MT090108CA.HealthCareProvider.id</p>
      * 
@@ -495,7 +495,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * <p>The license number issued to the provider and relevant to 
      * the current action.</p>
      * 
-     * <p>Other Business Name: LicenseNumber</p>
+     * <p>Un-merged Business Name: LicenseNumber</p>
      * 
      * <p>Relationship: COCT_MT090102CA.HealthCareProvider.id</p>
      * 
@@ -520,7 +520,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Organization.id</p>
      * 
@@ -533,7 +533,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Organization.id</p>
      * 
@@ -554,7 +554,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090108CA.Organization.id</p>
      * 
@@ -567,7 +567,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090102CA.Organization.id</p>
      * 
@@ -588,7 +588,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedOrganization.code</p>
      * 
@@ -608,7 +608,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: COCT_MT090108CA.AssignedOrganization.code</p>
      * 
@@ -628,7 +628,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * <p>Un-merged Business Name: OrganizationPhoneAndEmails</p>
      * 
      * <p>Relationship: 
      * COCT_MT090108CA.AssignedOrganization.telecom</p>

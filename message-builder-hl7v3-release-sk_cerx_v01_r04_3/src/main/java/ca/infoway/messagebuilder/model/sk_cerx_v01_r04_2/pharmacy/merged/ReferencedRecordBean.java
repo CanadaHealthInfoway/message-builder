@@ -76,7 +76,7 @@ public class ReferencedRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: RecordId</p>
+     * <p>Un-merged Business Name: RecordId</p>
      * 
      * <p>Relationship: PORX_MT990020CA.ActRequest.id</p>
      * 
@@ -92,7 +92,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * can</p> <div>be stored by the receiving system for 
      * future</div> <div>reference to this order.</div>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT010140CA.ActRequest.id</p>
      * 
@@ -233,7 +233,7 @@ public class ReferencedRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: RecordId</p>
+     * <p>Un-merged Business Name: RecordId</p>
      * 
      * <p>Relationship: PORX_MT990020CA.ActRequest.id</p>
      * 
@@ -249,7 +249,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * can</p> <div>be stored by the receiving system for 
      * future</div> <div>reference to this order.</div>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT010140CA.ActRequest.id</p>
      * 
@@ -392,7 +392,7 @@ public class ReferencedRecordBean extends MessagePartBean {
     /**
      * <p>Business Name: PertainsTo</p>
      * 
-     * <p>Other Business Name: PertainsTo</p>
+     * <p>Un-merged Business Name: PertainsTo</p>
      * 
      * <p>Relationship: PORX_MT990020CA.Subject.patient</p>
      * 
@@ -400,7 +400,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * 
      * <p>Identity of the patient who was acted on.&nbsp;</p>
      * 
-     * <p>Other Business Name: PertainsTo</p>
+     * <p>Un-merged Business Name: PertainsTo</p>
      * 
      * <p>Relationship: PORX_MT990010CA.RecordTarget.patient</p>
      * 
@@ -421,7 +421,7 @@ public class ReferencedRecordBean extends MessagePartBean {
     /**
      * <p>Business Name: PertainsTo</p>
      * 
-     * <p>Other Business Name: PertainsTo</p>
+     * <p>Un-merged Business Name: PertainsTo</p>
      * 
      * <p>Relationship: PORX_MT990020CA.Subject.patient</p>
      * 
@@ -429,7 +429,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * 
      * <p>Identity of the patient who was acted on.&nbsp;</p>
      * 
-     * <p>Other Business Name: PertainsTo</p>
+     * <p>Un-merged Business Name: PertainsTo</p>
      * 
      * <p>Relationship: PORX_MT990010CA.RecordTarget.patient</p>
      * 
@@ -445,7 +445,7 @@ public class ReferencedRecordBean extends MessagePartBean {
     /**
      * <p>Business Name: NonAuthoritative</p>
      * 
-     * <p>Other Business Name: NonAuthoritative</p>
+     * <p>Un-merged Business Name: NonAuthoritative</p>
      * 
      * <p>Relationship: 
      * PORX_MT010140CA.Precondition.verificationEventCriterion</p>
@@ -463,7 +463,7 @@ public class ReferencedRecordBean extends MessagePartBean {
     /**
      * <p>Business Name: NonAuthoritative</p>
      * 
-     * <p>Other Business Name: NonAuthoritative</p>
+     * <p>Un-merged Business Name: NonAuthoritative</p>
      * 
      * <p>Relationship: 
      * PORX_MT010140CA.Precondition.verificationEventCriterion</p>

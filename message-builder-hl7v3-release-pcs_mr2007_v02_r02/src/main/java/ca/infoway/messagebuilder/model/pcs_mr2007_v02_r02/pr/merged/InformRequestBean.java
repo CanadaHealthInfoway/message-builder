@@ -76,7 +76,7 @@ public class InformRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: InformRequestCode</p>
      * 
-     * <p>Other Business Name: InformRequestCode</p>
+     * <p>Un-merged Business Name: InformRequestCode</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
      * 
@@ -88,7 +88,7 @@ public class InformRequestBean extends MessagePartBean {
      * Act-instance represents within its class. Ex. Document 
      * Type</p>
      * 
-     * <p>Other Business Name: InformRequestCode</p>
+     * <p>Un-merged Business Name: InformRequestCode</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
      * 
@@ -109,7 +109,7 @@ public class InformRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: InformRequestCode</p>
      * 
-     * <p>Other Business Name: InformRequestCode</p>
+     * <p>Un-merged Business Name: InformRequestCode</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
      * 
@@ -121,7 +121,7 @@ public class InformRequestBean extends MessagePartBean {
      * Act-instance represents within its class. Ex. Document 
      * Type</p>
      * 
-     * <p>Other Business Name: InformRequestCode</p>
+     * <p>Un-merged Business Name: InformRequestCode</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
      * 
@@ -140,7 +140,7 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
      * 
@@ -148,7 +148,7 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Populated</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
      * 
@@ -160,7 +160,7 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
      * 
@@ -168,7 +168,7 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Populated</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
      * 
@@ -180,14 +180,14 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
@@ -200,14 +200,14 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
@@ -220,13 +220,13 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
      * 
@@ -238,13 +238,13 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
      * 

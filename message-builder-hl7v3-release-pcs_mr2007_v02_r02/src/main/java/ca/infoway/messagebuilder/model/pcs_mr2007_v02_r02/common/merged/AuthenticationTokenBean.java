@@ -278,7 +278,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.id</p>
      * 
@@ -292,7 +292,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.id</p>
      * 
@@ -306,7 +306,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.id</p>
      * 
@@ -320,7 +320,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.id</p>
      * 
@@ -334,7 +334,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.id</p>
      * 
@@ -348,7 +348,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.id</p>
      * 
@@ -362,7 +362,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.id</p>
      * 
@@ -376,7 +376,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.id</p>
      * 
@@ -390,7 +390,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.id</p>
      * 
@@ -404,7 +404,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.id</p>
      * 
@@ -418,7 +418,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.id</p>
      * 
@@ -432,7 +432,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.id</p>
      * 
@@ -446,7 +446,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.id</p>
      * 
@@ -468,7 +468,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorizationTokenAsId</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.id</p>
      * 
@@ -482,7 +482,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.id</p>
      * 
@@ -496,7 +496,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.id</p>
      * 
@@ -510,7 +510,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.id</p>
      * 
@@ -524,7 +524,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.id</p>
      * 
@@ -538,7 +538,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.id</p>
      * 
@@ -552,7 +552,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.id</p>
      * 
@@ -566,7 +566,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.id</p>
      * 
@@ -580,7 +580,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.id</p>
      * 
@@ -594,7 +594,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.id</p>
      * 
@@ -608,7 +608,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.id</p>
      * 
@@ -622,7 +622,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.id</p>
      * 
@@ -636,7 +636,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * data enterer, supervisor (responsible party), responsible 
      * location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationTokenAsId</p>
+     * <p>Un-merged Business Name: AuthorizationTokenAsId</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.id</p>
      * 
@@ -658,7 +658,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorizationToken</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.text</p>
      * 
@@ -672,7 +672,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.text</p>
      * 
@@ -686,7 +686,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.text</p>
      * 
@@ -700,7 +700,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.text</p>
      * 
@@ -714,7 +714,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.text</p>
      * 
@@ -728,7 +728,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.text</p>
      * 
@@ -742,7 +742,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.text</p>
      * 
@@ -756,7 +756,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.text</p>
      * 
@@ -770,7 +770,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.text</p>
      * 
@@ -784,7 +784,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.text</p>
      * 
@@ -798,7 +798,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.text</p>
      * 
@@ -812,7 +812,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.text</p>
      * 
@@ -826,7 +826,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.text</p>
      * 
@@ -848,7 +848,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
     /**
      * <p>Business Name: AuthorizationToken</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.AuthorizationToken.text</p>
      * 
@@ -862,7 +862,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.AuthorizationToken.text</p>
      * 
@@ -876,7 +876,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.AuthorizationToken.text</p>
      * 
@@ -890,7 +890,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.AuthorizationToken.text</p>
      * 
@@ -904,7 +904,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.AuthorizationToken.text</p>
      * 
@@ -918,7 +918,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: QUQI_MT020002CA.AuthorizationToken.text</p>
      * 
@@ -932,7 +932,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.AuthorizationToken.text</p>
      * 
@@ -946,7 +946,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.AuthorizationToken.text</p>
      * 
@@ -960,7 +960,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.AuthorizationToken.text</p>
      * 
@@ -974,7 +974,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700230CA.AuthorizationToken.text</p>
      * 
@@ -988,7 +988,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700231CA.AuthorizationToken.text</p>
      * 
@@ -1002,7 +1002,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: MCAI_MT700232CA.AuthorizationToken.text</p>
      * 
@@ -1016,7 +1016,7 @@ public class AuthenticationTokenBean extends MessagePartBean {
      * concepts of author, data enterer, supervisor (responsible 
      * party), responsible location and/or data entry location.</p>
      * 
-     * <p>Other Business Name: AuthorizationToken</p>
+     * <p>Un-merged Business Name: AuthorizationToken</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.AuthorizationToken.text</p>
      * 

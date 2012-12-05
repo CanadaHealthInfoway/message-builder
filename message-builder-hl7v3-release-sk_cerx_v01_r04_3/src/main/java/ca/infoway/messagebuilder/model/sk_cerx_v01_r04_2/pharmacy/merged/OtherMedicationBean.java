@@ -107,7 +107,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationRecordID</p>
      * 
-     * <p>Other Business Name: AdministrationRecordID</p>
+     * <p>Un-merged Business Name: AdministrationRecordID</p>
      * 
      * <p>Relationship: PORX_MT040020CA.OtherMedication.id</p>
      * 
@@ -127,7 +127,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationRecordID</p>
      * 
-     * <p>Other Business Name: AdministrationRecordID</p>
+     * <p>Un-merged Business Name: AdministrationRecordID</p>
      * 
      * <p>Relationship: PORX_MT040020CA.OtherMedication.id</p>
      * 
@@ -147,7 +147,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherMedicationStatus</p>
      * 
-     * <p>Other Business Name: OtherMedicationStatus</p>
+     * <p>Un-merged Business Name: OtherMedicationStatus</p>
      * 
      * <p>Relationship: PORX_MT040020CA.OtherMedication.statusCode</p>
      * 
@@ -180,7 +180,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>If not active or completed, a CODE_INVAL error issue will 
      * be returned.</p>
      * 
-     * <p>Other Business Name: OtherMedicationStatus</p>
+     * <p>Un-merged Business Name: OtherMedicationStatus</p>
      * 
      * <p>Relationship: PORX_MT040010CA.OtherMedication.statusCode</p>
      * 
@@ -223,7 +223,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherMedicationStatus</p>
      * 
-     * <p>Other Business Name: OtherMedicationStatus</p>
+     * <p>Un-merged Business Name: OtherMedicationStatus</p>
      * 
      * <p>Relationship: PORX_MT040020CA.OtherMedication.statusCode</p>
      * 
@@ -256,7 +256,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>If not active or completed, a CODE_INVAL error issue will 
      * be returned.</p>
      * 
-     * <p>Other Business Name: OtherMedicationStatus</p>
+     * <p>Un-merged Business Name: OtherMedicationStatus</p>
      * 
      * <p>Relationship: PORX_MT040010CA.OtherMedication.statusCode</p>
      * 
@@ -299,7 +299,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugActivePeriod</p>
      * 
-     * <p>Other Business Name: DrugActivePeriod</p>
+     * <p>Un-merged Business Name: DrugActivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT040020CA.OtherMedication.effectiveTime</p>
@@ -312,7 +312,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Allows the drug active period information to be 
      * changed.</p>
      * 
-     * <p>Other Business Name: DrugActivePeriod</p>
+     * <p>Un-merged Business Name: DrugActivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT040010CA.OtherMedication.effectiveTime</p>
@@ -345,7 +345,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugActivePeriod</p>
      * 
-     * <p>Other Business Name: DrugActivePeriod</p>
+     * <p>Un-merged Business Name: DrugActivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT040020CA.OtherMedication.effectiveTime</p>
@@ -358,7 +358,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Allows the drug active period information to be 
      * changed.</p>
      * 
-     * <p>Other Business Name: DrugActivePeriod</p>
+     * <p>Un-merged Business Name: DrugActivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT040010CA.OtherMedication.effectiveTime</p>
@@ -391,7 +391,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: RouteOfAdministration</p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: PORX_MT040020CA.OtherMedication.routeCode</p>
      * 
@@ -408,7 +408,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p><strong>Because PIN is not using SNOMED, this element is 
      * mandatory.</strong></p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: PORX_MT040010CA.OtherMedication.routeCode</p>
      * 
@@ -435,7 +435,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: RouteOfAdministration</p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: PORX_MT040020CA.OtherMedication.routeCode</p>
      * 
@@ -452,7 +452,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p><strong>Because PIN is not using SNOMED, this element is 
      * mandatory.</strong></p>
      * 
-     * <p>Other Business Name: RouteOfAdministration</p>
+     * <p>Un-merged Business Name: RouteOfAdministration</p>
      * 
      * <p>Relationship: PORX_MT040010CA.OtherMedication.routeCode</p>
      * 
@@ -477,7 +477,7 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040020CA.Subject10.patient</p>
      * 
@@ -486,7 +486,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>&nbsp;Indicates the patient who is taking the drug</p> 
      * <div>product.</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040010CA.Subject10.patient</p>
      * 
@@ -501,7 +501,7 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040020CA.Subject10.patient</p>
      * 
@@ -510,7 +510,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>&nbsp;Indicates the patient who is taking the drug</p> 
      * <div>product.</div>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040010CA.Subject10.patient</p>
      * 
@@ -527,7 +527,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherMedicationMaskingIndicator</p>
      * 
-     * <p>Other Business Name: OtherMedicationMaskingIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT040010CA.OtherMedication.confidentialityCode</p>
@@ -561,7 +561,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Business Name: OtherMedicationMaskingIndicator</p>
      * 
-     * <p>Other Business Name: OtherMedicationMaskingIndicator</p>
+     * <p>Un-merged Business Name: OtherMedicationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT040010CA.OtherMedication.confidentialityCode</p>
@@ -593,7 +593,7 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040010CA.Consumable2.medication</p>
      * 
@@ -605,7 +605,7 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040010CA.Consumable2.medication</p>
      * 
@@ -617,7 +617,7 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040010CA.Component.dosageInstruction</p>
      * 
@@ -630,7 +630,7 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040010CA.Subject9.annotation</p>
      * 
@@ -642,7 +642,7 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT040010CA.Subject9.annotation</p>
      * 

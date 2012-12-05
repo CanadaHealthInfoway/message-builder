@@ -67,7 +67,7 @@ public class AntigensBean extends MessagePartBean {
     /**
      * <p>Business Name: AntigenCode</p>
      * 
-     * <p>Other Business Name: AntigenCode</p>
+     * <p>Un-merged Business Name: AntigenCode</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Antigens.code</p>
      * 
@@ -80,7 +80,7 @@ public class AntigensBean extends MessagePartBean {
      * 
      * <p>The unique code used to identify the antigen.</p>
      * 
-     * <p>Other Business Name: AntigenCode</p>
+     * <p>Un-merged Business Name: AntigenCode</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Antigens.code</p>
      * 
@@ -93,7 +93,7 @@ public class AntigensBean extends MessagePartBean {
      * 
      * <p>The unique code used to identify the antigen.</p>
      * 
-     * <p>Other Business Name: AntigenCode</p>
+     * <p>Un-merged Business Name: AntigenCode</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Antigens.code</p>
      * 
@@ -114,7 +114,7 @@ public class AntigensBean extends MessagePartBean {
     /**
      * <p>Business Name: AntigenCode</p>
      * 
-     * <p>Other Business Name: AntigenCode</p>
+     * <p>Un-merged Business Name: AntigenCode</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Antigens.code</p>
      * 
@@ -127,7 +127,7 @@ public class AntigensBean extends MessagePartBean {
      * 
      * <p>The unique code used to identify the antigen.</p>
      * 
-     * <p>Other Business Name: AntigenCode</p>
+     * <p>Un-merged Business Name: AntigenCode</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Antigens.code</p>
      * 
@@ -140,7 +140,7 @@ public class AntigensBean extends MessagePartBean {
      * 
      * <p>The unique code used to identify the antigen.</p>
      * 
-     * <p>Other Business Name: AntigenCode</p>
+     * <p>Un-merged Business Name: AntigenCode</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Antigens.code</p>
      * 
@@ -161,7 +161,7 @@ public class AntigensBean extends MessagePartBean {
     /**
      * <p>Business Name: AntigenName</p>
      * 
-     * <p>Other Business Name: AntigenName</p>
+     * <p>Un-merged Business Name: AntigenName</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Antigens.name</p>
      * 
@@ -172,7 +172,7 @@ public class AntigensBean extends MessagePartBean {
      * 
      * <p>The name of the antigen contained within a vaccine.</p>
      * 
-     * <p>Other Business Name: AntigenName</p>
+     * <p>Un-merged Business Name: AntigenName</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Antigens.name</p>
      * 
@@ -183,7 +183,7 @@ public class AntigensBean extends MessagePartBean {
      * 
      * <p>The name of the antigen contained within a vaccine.</p>
      * 
-     * <p>Other Business Name: AntigenName</p>
+     * <p>Un-merged Business Name: AntigenName</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Antigens.name</p>
      * 
@@ -202,7 +202,7 @@ public class AntigensBean extends MessagePartBean {
     /**
      * <p>Business Name: AntigenName</p>
      * 
-     * <p>Other Business Name: AntigenName</p>
+     * <p>Un-merged Business Name: AntigenName</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Antigens.name</p>
      * 
@@ -213,7 +213,7 @@ public class AntigensBean extends MessagePartBean {
      * 
      * <p>The name of the antigen contained within a vaccine.</p>
      * 
-     * <p>Other Business Name: AntigenName</p>
+     * <p>Un-merged Business Name: AntigenName</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Antigens.name</p>
      * 
@@ -224,7 +224,7 @@ public class AntigensBean extends MessagePartBean {
      * 
      * <p>The name of the antigen contained within a vaccine.</p>
      * 
-     * <p>Other Business Name: AntigenName</p>
+     * <p>Un-merged Business Name: AntigenName</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Antigens.name</p>
      * 
@@ -241,19 +241,19 @@ public class AntigensBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Antigens.asHealthChart</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Antigens.asHealthChart</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Antigens.asHealthChart</p>
      * 
@@ -265,19 +265,19 @@ public class AntigensBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Antigens.asHealthChart</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Antigens.asHealthChart</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Antigens.asHealthChart</p>
      * 

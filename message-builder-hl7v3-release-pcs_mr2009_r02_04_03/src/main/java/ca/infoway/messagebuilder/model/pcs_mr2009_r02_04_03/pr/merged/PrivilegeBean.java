@@ -106,7 +106,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.id</p>
      * 
@@ -118,7 +118,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.id</p>
      * 
@@ -130,7 +130,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.Privilege.id</p>
      * 
@@ -142,7 +142,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.id</p>
      * 
@@ -162,7 +162,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.id</p>
      * 
@@ -174,7 +174,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.id</p>
      * 
@@ -186,7 +186,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.Privilege.id</p>
      * 
@@ -198,7 +198,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.id</p>
      * 
@@ -218,7 +218,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.code</p>
      * 
@@ -233,7 +233,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Type of restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.code</p>
      * 
@@ -248,7 +248,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Type of restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.code</p>
      * 
@@ -271,7 +271,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.code</p>
      * 
@@ -286,7 +286,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Type of restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.code</p>
      * 
@@ -301,7 +301,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Type of restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.code</p>
      * 
@@ -324,7 +324,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.negationInd</p>
@@ -337,7 +337,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Indicating that the privilege is a restriction.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.negationInd</p>
@@ -350,7 +350,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Indicating that the privilege is a restriction.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.negationInd</p>
@@ -371,7 +371,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.negationInd</p>
@@ -384,7 +384,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Indicating that the privilege is a restriction.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.negationInd</p>
@@ -397,7 +397,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Indicating that the privilege is a restriction.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeNegationIndicator</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.negationInd</p>
@@ -418,7 +418,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.text</p>
      * 
@@ -430,7 +430,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Comments pertaining to the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.text</p>
      * 
@@ -442,7 +442,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Comments pertaining to the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.text</p>
      * 
@@ -462,7 +462,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.text</p>
      * 
@@ -474,7 +474,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Comments pertaining to the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.text</p>
      * 
@@ -486,7 +486,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Comments pertaining to the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeText</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.text</p>
      * 
@@ -504,7 +504,7 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
      * 
@@ -519,7 +519,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Effective date of the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.effectiveTime</p>
      * 
@@ -534,7 +534,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Effective date of the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.Privilege.effectiveTime</p>
      * 
@@ -549,7 +549,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Effective date of the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.effectiveTime</p>
      * 
@@ -570,7 +570,7 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
      * 
@@ -585,7 +585,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Effective date of the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.effectiveTime</p>
      * 
@@ -600,7 +600,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Effective date of the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeType</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.Privilege.effectiveTime</p>
      * 
@@ -615,7 +615,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Effective date of the restriction.</p>
      * 
-     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.effectiveTime</p>
      * 
@@ -638,7 +638,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeConfidentialityCode</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
@@ -667,7 +667,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>dicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
@@ -682,7 +682,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Indicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
@@ -719,7 +719,7 @@ public class PrivilegeBean extends MessagePartBean {
     /**
      * <p>Business Name: RestrictionsToPracticeConfidentialityCode</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
@@ -748,7 +748,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>dicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
@@ -763,7 +763,7 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>Indicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * RestrictionsToPracticeConfidentialityCode</p>
      * 
      * <p>Relationship: 
@@ -798,28 +798,28 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT309000CA.Subject4.privilegeCategorization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.Subject4.privilegeCategorization</p>

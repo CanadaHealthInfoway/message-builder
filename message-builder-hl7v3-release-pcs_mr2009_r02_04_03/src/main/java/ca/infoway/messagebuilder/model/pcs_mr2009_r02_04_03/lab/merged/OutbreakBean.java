@@ -75,13 +75,13 @@ public class OutbreakBean extends MessagePartBean {
     /**
      * <p>Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT002000CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT004100CA.OutbreakEvent.id</p>
      * 
@@ -96,7 +96,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Identifies an outbreak which the reporting lab suspects 
      * this result might be a part of.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001010CA.OutbreakEvent.id</p>
      * 
@@ -105,7 +105,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Allows public health to identify an outbreak for which 
      * this test is being conducted.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT004200CA.OutbreakEvent.id</p>
      * 
@@ -120,7 +120,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Identifies an outbreak which the reporting lab suspects 
      * this result might be a part of.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001000CA.OutbreakEvent.id</p>
      * 
@@ -129,7 +129,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Allows public health to identify an outbreak for which 
      * this test is being conducted.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT004000CA.OutbreakEvent.id</p>
      * 
@@ -144,7 +144,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Identifies an outbreak which the reporting lab suspects 
      * this result might be a part of.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001999CA.OutbreakEvent.id</p>
      * 
@@ -161,13 +161,13 @@ public class OutbreakBean extends MessagePartBean {
     /**
      * <p>Business Name: OutbreakIdentifier</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT002000CA.OutbreakEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT004100CA.OutbreakEvent.id</p>
      * 
@@ -182,7 +182,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Identifies an outbreak which the reporting lab suspects 
      * this result might be a part of.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001010CA.OutbreakEvent.id</p>
      * 
@@ -191,7 +191,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Allows public health to identify an outbreak for which 
      * this test is being conducted.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT004200CA.OutbreakEvent.id</p>
      * 
@@ -206,7 +206,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Identifies an outbreak which the reporting lab suspects 
      * this result might be a part of.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001000CA.OutbreakEvent.id</p>
      * 
@@ -215,7 +215,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Allows public health to identify an outbreak for which 
      * this test is being conducted.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT004000CA.OutbreakEvent.id</p>
      * 
@@ -230,7 +230,7 @@ public class OutbreakBean extends MessagePartBean {
      * <p>Identifies an outbreak which the reporting lab suspects 
      * this result might be a part of.</p>
      * 
-     * <p>Other Business Name: OutbreakIdentifier</p>
+     * <p>Un-merged Business Name: OutbreakIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001999CA.OutbreakEvent.id</p>
      * 

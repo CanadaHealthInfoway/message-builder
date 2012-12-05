@@ -84,7 +84,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: LastDispensePickupDate</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventLastSummary.effectiveTime</p>
@@ -98,7 +98,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventLastSummary.effectiveTime</p>
@@ -112,7 +112,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventLastSummary.effectiveTime</p>
@@ -126,7 +126,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventLastSummary.effectiveTime</p>
@@ -148,7 +148,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: LastDispensePickupDate</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventLastSummary.effectiveTime</p>
@@ -162,7 +162,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventLastSummary.effectiveTime</p>
@@ -176,7 +176,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventLastSummary.effectiveTime</p>
@@ -190,7 +190,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Other Business Name: LastDispensePickupDate</p>
+     * <p>Un-merged Business Name: LastDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventLastSummary.effectiveTime</p>
@@ -210,7 +210,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventLastSummary.quantity</p>
@@ -232,7 +232,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * known if the last dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: LastDispenseQuantity</p>
+     * <p>Un-merged Business Name: LastDispenseQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventLastSummary.quantity</p>
@@ -254,7 +254,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * known if the last dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventLastSummary.quantity</p>
@@ -276,7 +276,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * known, the quantity must be known and therefore is 
      * mandatory</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventLastSummary.quantity</p>
@@ -304,7 +304,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventLastSummary.quantity</p>
@@ -326,7 +326,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * known if the last dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: LastDispenseQuantity</p>
+     * <p>Un-merged Business Name: LastDispenseQuantity</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventLastSummary.quantity</p>
@@ -348,7 +348,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * known if the last dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventLastSummary.quantity</p>
@@ -370,7 +370,7 @@ public class LastDispenseInformationBean extends MessagePartBean {
      * known, the quantity must be known and therefore is 
      * mandatory</p>
      * 
-     * <p>Other Business Name: LastQuantityDispensed</p>
+     * <p>Un-merged Business Name: LastQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventLastSummary.quantity</p>

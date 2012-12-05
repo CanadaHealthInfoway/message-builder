@@ -72,13 +72,13 @@ public class ConfidenceValueBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.classCode</p>
      * 
@@ -90,13 +90,13 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.classCode</p>
      * 
@@ -108,13 +108,13 @@ public class ConfidenceValueBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.moodCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.moodCode</p>
      * 
@@ -126,13 +126,13 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.moodCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.moodCode</p>
      * 
@@ -146,7 +146,7 @@ public class ConfidenceValueBean extends MessagePartBean {
     /**
      * <p>Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
      * 
@@ -159,7 +159,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * <p>Mandatory attribute supports confident identification of 
      * intended client</p>
      * 
-     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
      * 
@@ -180,7 +180,7 @@ public class ConfidenceValueBean extends MessagePartBean {
     /**
      * <p>Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
      * 
@@ -193,7 +193,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * <p>Mandatory attribute supports confident identification of 
      * intended client</p>
      * 
-     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * <p>Un-merged Business Name: ProbabilityMatchCode</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
      * 
@@ -214,7 +214,7 @@ public class ConfidenceValueBean extends MessagePartBean {
     /**
      * <p>Business Name: ConfidenceValue</p>
      * 
-     * <p>Other Business Name: ConfidenceValue</p>
+     * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
      * 
@@ -227,7 +227,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * <p>Required attribute to provide information about success 
      * of query</p>
      * 
-     * <p>Other Business Name: ConfidenceValue</p>
+     * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
      * 
@@ -248,7 +248,7 @@ public class ConfidenceValueBean extends MessagePartBean {
     /**
      * <p>Business Name: ConfidenceValue</p>
      * 
-     * <p>Other Business Name: ConfidenceValue</p>
+     * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
      * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
      * 
@@ -261,7 +261,7 @@ public class ConfidenceValueBean extends MessagePartBean {
      * <p>Required attribute to provide information about success 
      * of query</p>
      * 
-     * <p>Other Business Name: ConfidenceValue</p>
+     * <p>Un-merged Business Name: ConfidenceValue</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
      * 

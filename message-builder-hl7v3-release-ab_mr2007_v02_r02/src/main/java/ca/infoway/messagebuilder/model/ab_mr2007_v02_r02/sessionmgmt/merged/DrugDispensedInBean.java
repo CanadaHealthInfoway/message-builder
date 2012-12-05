@@ -100,7 +100,7 @@ public class DrugDispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugPackageQuantity</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
      * 
@@ -117,7 +117,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
      * 
@@ -134,7 +134,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
      * 
@@ -151,7 +151,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
      * 
@@ -176,7 +176,7 @@ public class DrugDispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugPackageQuantity</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
      * 
@@ -193,7 +193,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
      * 
@@ -210,7 +210,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
      * 
@@ -227,7 +227,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
      * 
@@ -252,7 +252,7 @@ public class DrugDispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugContainerType</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
@@ -266,7 +266,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
      * 
@@ -280,7 +280,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
      * 
@@ -294,7 +294,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
      * 
@@ -316,7 +316,7 @@ public class DrugDispensedInBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugContainerType</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
@@ -330,7 +330,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
      * 
@@ -344,7 +344,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
      * 
@@ -358,7 +358,7 @@ public class DrugDispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
      * 

@@ -72,14 +72,14 @@ public class IssueManagements_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementType</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.code</p>
@@ -122,7 +122,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Indicates the kinds of management actions that have been 
      * taken, depending on the issue type.</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.code</p>
@@ -173,14 +173,14 @@ public class IssueManagements_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementType</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.code</p>
@@ -223,7 +223,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Indicates the kinds of management actions that have been 
      * taken, depending on the issue type.</p>
      * 
-     * <p>Other Business Name: ManagementType</p>
+     * <p>Un-merged Business Name: ManagementType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.code</p>
@@ -274,14 +274,14 @@ public class IssueManagements_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementDescription</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.text</p>
@@ -294,7 +294,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Additional free-text details describing the management of 
      * the issue.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.text</p>
@@ -315,14 +315,14 @@ public class IssueManagements_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: ManagementDescription</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.text</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.text</p>
@@ -335,7 +335,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Additional free-text details describing the management of 
      * the issue.</p>
      * 
-     * <p>Other Business Name: ManagementDescription</p>
+     * <p>Un-merged Business Name: ManagementDescription</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.text</p>
@@ -354,21 +354,21 @@ public class IssueManagements_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.author</p>
@@ -381,21 +381,21 @@ public class IssueManagements_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueManagement.author</p>

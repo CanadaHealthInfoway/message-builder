@@ -83,7 +83,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueType</p>
      * 
-     * <p>Other Business Name: IssueType</p>
+     * <p>Un-merged Business Name: IssueType</p>
      * 
      * <p>Relationship: COCT_MT260030CA.DetectedIssueEvent.code</p>
      * 
@@ -138,7 +138,7 @@ public class IssuesBean extends MessagePartBean {
      * contraindications, drug-allergy alerts, duplicate therapies, 
      * suspect fraud etc.</p>
      * 
-     * <p>Other Business Name: IssueType</p>
+     * <p>Un-merged Business Name: IssueType</p>
      * 
      * <p>Relationship: COCT_MT260022CA.DetectedIssueEvent.code</p>
      * 
@@ -193,7 +193,7 @@ public class IssuesBean extends MessagePartBean {
      * contraindications, drug-allergy alerts, duplicate therapies, 
      * etc.</p>
      * 
-     * <p>Other Business Name: IssueType</p>
+     * <p>Un-merged Business Name: IssueType</p>
      * 
      * <p>Relationship: COCT_MT260020CA.DetectedIssueEvent.code</p>
      * 
@@ -207,7 +207,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueType</p>
      * 
-     * <p>Other Business Name: IssueType</p>
+     * <p>Un-merged Business Name: IssueType</p>
      * 
      * <p>Relationship: COCT_MT260030CA.DetectedIssueEvent.code</p>
      * 
@@ -262,7 +262,7 @@ public class IssuesBean extends MessagePartBean {
      * contraindications, drug-allergy alerts, duplicate therapies, 
      * suspect fraud etc.</p>
      * 
-     * <p>Other Business Name: IssueType</p>
+     * <p>Un-merged Business Name: IssueType</p>
      * 
      * <p>Relationship: COCT_MT260022CA.DetectedIssueEvent.code</p>
      * 
@@ -317,7 +317,7 @@ public class IssuesBean extends MessagePartBean {
      * contraindications, drug-allergy alerts, duplicate therapies, 
      * etc.</p>
      * 
-     * <p>Other Business Name: IssueType</p>
+     * <p>Un-merged Business Name: IssueType</p>
      * 
      * <p>Relationship: COCT_MT260020CA.DetectedIssueEvent.code</p>
      * 
@@ -331,7 +331,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueDetails</p>
      * 
-     * <p>Other Business Name: IssueDetails</p>
+     * <p>Un-merged Business Name: IssueDetails</p>
      * 
      * <p>Relationship: COCT_MT260030CA.DetectedIssueEvent.text</p>
      * 
@@ -352,7 +352,7 @@ public class IssuesBean extends MessagePartBean {
      * textual information is provided to either augment the coded 
      * information or in place of the coded information.</p>
      * 
-     * <p>Other Business Name: IssueDetails</p>
+     * <p>Un-merged Business Name: IssueDetails</p>
      * 
      * <p>Relationship: COCT_MT260022CA.DetectedIssueEvent.text</p>
      * 
@@ -373,7 +373,7 @@ public class IssuesBean extends MessagePartBean {
      * textual information is provided to either augment the coded 
      * information or in place of the coded information.</p>
      * 
-     * <p>Other Business Name: IssueDetails</p>
+     * <p>Un-merged Business Name: IssueDetails</p>
      * 
      * <p>Relationship: COCT_MT260020CA.DetectedIssueEvent.text</p>
      * 
@@ -387,7 +387,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: IssueDetails</p>
      * 
-     * <p>Other Business Name: IssueDetails</p>
+     * <p>Un-merged Business Name: IssueDetails</p>
      * 
      * <p>Relationship: COCT_MT260030CA.DetectedIssueEvent.text</p>
      * 
@@ -408,7 +408,7 @@ public class IssuesBean extends MessagePartBean {
      * textual information is provided to either augment the coded 
      * information or in place of the coded information.</p>
      * 
-     * <p>Other Business Name: IssueDetails</p>
+     * <p>Un-merged Business Name: IssueDetails</p>
      * 
      * <p>Relationship: COCT_MT260022CA.DetectedIssueEvent.text</p>
      * 
@@ -429,7 +429,7 @@ public class IssuesBean extends MessagePartBean {
      * textual information is provided to either augment the coded 
      * information or in place of the coded information.</p>
      * 
-     * <p>Other Business Name: IssueDetails</p>
+     * <p>Un-merged Business Name: IssueDetails</p>
      * 
      * <p>Relationship: COCT_MT260020CA.DetectedIssueEvent.text</p>
      * 
@@ -443,7 +443,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: IssuePriority</p>
      * 
-     * <p>Other Business Name: IssuePriority</p>
+     * <p>Un-merged Business Name: IssuePriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueEvent.priorityCode</p>
@@ -460,7 +460,7 @@ public class IssuesBean extends MessagePartBean {
      * issue. Valid codes are: I - for Information, E - for Error, 
      * and W - for Warning.</p>
      * 
-     * <p>Other Business Name: IssuePriority</p>
+     * <p>Un-merged Business Name: IssuePriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueEvent.priorityCode</p>
@@ -477,7 +477,7 @@ public class IssuesBean extends MessagePartBean {
      * issue. Valid codes are: I - for Information, E - for Error, 
      * and W - for Warning.</p>
      * 
-     * <p>Other Business Name: IssuePriority</p>
+     * <p>Un-merged Business Name: IssuePriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueEvent.priorityCode</p>
@@ -492,7 +492,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: IssuePriority</p>
      * 
-     * <p>Other Business Name: IssuePriority</p>
+     * <p>Un-merged Business Name: IssuePriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueEvent.priorityCode</p>
@@ -509,7 +509,7 @@ public class IssuesBean extends MessagePartBean {
      * issue. Valid codes are: I - for Information, E - for Error, 
      * and W - for Warning.</p>
      * 
-     * <p>Other Business Name: IssuePriority</p>
+     * <p>Un-merged Business Name: IssuePriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueEvent.priorityCode</p>
@@ -526,7 +526,7 @@ public class IssuesBean extends MessagePartBean {
      * issue. Valid codes are: I - for Information, E - for Error, 
      * and W - for Warning.</p>
      * 
-     * <p>Other Business Name: IssuePriority</p>
+     * <p>Un-merged Business Name: IssuePriority</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueEvent.priorityCode</p>
@@ -541,7 +541,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: MessageIssueLocation</p>
      * 
-     * <p>Other Business Name: MessageIssueLocation</p>
+     * <p>Un-merged Business Name: MessageIssueLocation</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.DetectedIssueEvent.targetSiteCode</p>
@@ -552,7 +552,7 @@ public class IssuesBean extends MessagePartBean {
      * attributes in a message instance were involved in the 
      * issue.</p>
      * 
-     * <p>Other Business Name: MessageIssueLocation</p>
+     * <p>Un-merged Business Name: MessageIssueLocation</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.DetectedIssueEvent.targetSiteCode</p>
@@ -563,7 +563,7 @@ public class IssuesBean extends MessagePartBean {
      * attributes in a message instance were involved in the 
      * issue.</p>
      * 
-     * <p>Other Business Name: MessageIssueLocation</p>
+     * <p>Un-merged Business Name: MessageIssueLocation</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.DetectedIssueEvent.targetSiteCode</p>
@@ -581,13 +581,13 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260030CA.Subject2.causalActs</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Subject2.causalActs</p>
      * 
@@ -600,14 +600,14 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Definition.detectedIssueDefinition</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Definition.detectedIssueDefinition</p>
@@ -620,14 +620,14 @@ public class IssuesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Definition.detectedIssueDefinition</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Definition.detectedIssueDefinition</p>
@@ -640,21 +640,21 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Mitigates.detectedIssueManagement</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.Mitigates.detectedIssueManagement</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Mitigates.detectedIssueManagement</p>
@@ -670,7 +670,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: SeverityCode</p>
      * 
-     * <p>Other Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: SeverityCode</p>
      * 
      * <p>Relationship: COCT_MT260030CA.SeverityObservation.value</p>
      * 
@@ -698,7 +698,7 @@ public class IssuesBean extends MessagePartBean {
      * <p>A coded value denoting the gravity of the detected 
      * issue.</p>
      * 
-     * <p>Other Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: SeverityCode</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SeverityObservation.value</p>
      * 
@@ -717,7 +717,7 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Business Name: SeverityCode</p>
      * 
-     * <p>Other Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: SeverityCode</p>
      * 
      * <p>Relationship: COCT_MT260030CA.SeverityObservation.value</p>
      * 
@@ -745,7 +745,7 @@ public class IssuesBean extends MessagePartBean {
      * <p>A coded value denoting the gravity of the detected 
      * issue.</p>
      * 
-     * <p>Other Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: SeverityCode</p>
      * 
      * <p>Relationship: COCT_MT260020CA.SeverityObservation.value</p>
      * 
@@ -757,13 +757,13 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260022CA.Trigger2.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Trigger2.actRequest</p>
      * 
@@ -775,13 +775,13 @@ public class IssuesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260022CA.Trigger2.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Trigger2.actRequest</p>
      * 
@@ -793,7 +793,7 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Subject3.storageIntent</p>
      * 
@@ -805,7 +805,7 @@ public class IssuesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Subject3.storageIntent</p>
      * 

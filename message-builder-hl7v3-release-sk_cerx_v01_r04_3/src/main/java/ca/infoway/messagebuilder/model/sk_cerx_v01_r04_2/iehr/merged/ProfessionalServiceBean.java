@@ -100,7 +100,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceCode</p>
      * 
-     * <p>Other Business Name: ServiceCode</p>
+     * <p>Un-merged Business Name: ServiceCode</p>
      * 
      * <p>Relationship: REPC_MT000017CA.ProcedureEvent.code</p>
      * 
@@ -185,7 +185,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * consistency for analysis and reporting purposes and is 
      * therefore mandatory</p>
      * 
-     * <p>Other Business Name: ServiceCode</p>
+     * <p>Un-merged Business Name: ServiceCode</p>
      * 
      * <p>Relationship: REPC_MT100001CA.ProcedureEvent.code</p>
      * 
@@ -278,7 +278,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceCode</p>
      * 
-     * <p>Other Business Name: ServiceCode</p>
+     * <p>Un-merged Business Name: ServiceCode</p>
      * 
      * <p>Relationship: REPC_MT000017CA.ProcedureEvent.code</p>
      * 
@@ -363,7 +363,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * consistency for analysis and reporting purposes and is 
      * therefore mandatory</p>
      * 
-     * <p>Other Business Name: ServiceCode</p>
+     * <p>Un-merged Business Name: ServiceCode</p>
      * 
      * <p>Relationship: REPC_MT100001CA.ProcedureEvent.code</p>
      * 
@@ -456,7 +456,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsultationTimeAndLength</p>
      * 
-     * <p>Other Business Name: ConsultationTimeAndLength</p>
+     * <p>Un-merged Business Name: ConsultationTimeAndLength</p>
      * 
      * <p>Relationship: 
      * REPC_MT000017CA.ProcedureEvent.effectiveTime</p>
@@ -498,7 +498,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * only marked as &quot;populated&quot;. The duration of the 
      * consultation may also be of clinical interest.</p>
      * 
-     * <p>Other Business Name: ConsultationTimeAndLength</p>
+     * <p>Un-merged Business Name: ConsultationTimeAndLength</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.ProcedureEvent.effectiveTime</p>
@@ -548,7 +548,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ConsultationTimeAndLength</p>
      * 
-     * <p>Other Business Name: ConsultationTimeAndLength</p>
+     * <p>Un-merged Business Name: ConsultationTimeAndLength</p>
      * 
      * <p>Relationship: 
      * REPC_MT000017CA.ProcedureEvent.effectiveTime</p>
@@ -590,7 +590,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * only marked as &quot;populated&quot;. The duration of the 
      * consultation may also be of clinical interest.</p>
      * 
-     * <p>Other Business Name: ConsultationTimeAndLength</p>
+     * <p>Un-merged Business Name: ConsultationTimeAndLength</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.ProcedureEvent.effectiveTime</p>
@@ -640,7 +640,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
-     * <p>Other Business Name: ProfessionalServiceMaskingIndicator</p>
+     * <p>Un-merged Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000017CA.ProcedureEvent.confidentialityCode</p>
@@ -663,7 +663,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * to their medication data.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ProfessionalServiceMaskingIndicator</p>
+     * <p>Un-merged Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.ProcedureEvent.confidentialityCode</p>
@@ -694,7 +694,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
-     * <p>Other Business Name: ProfessionalServiceMaskingIndicator</p>
+     * <p>Un-merged Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000017CA.ProcedureEvent.confidentialityCode</p>
@@ -717,7 +717,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * to their medication data.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ProfessionalServiceMaskingIndicator</p>
+     * <p>Un-merged Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.ProcedureEvent.confidentialityCode</p>
@@ -746,13 +746,13 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000017CA.Subject.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.Subject.patient</p>
      * 
@@ -764,13 +764,13 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000017CA.Subject.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.Subject.patient</p>
      * 
@@ -782,13 +782,13 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000017CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.InFulfillmentOf.actRequest</p>
      * 
@@ -800,13 +800,13 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000017CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.InFulfillmentOf.actRequest</p>
      * 
@@ -818,13 +818,13 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000017CA.Subject2.annotation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.Subject2.annotation</p>
      * 
@@ -844,7 +844,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceRecordIdentifier</p>
      * 
-     * <p>Other Business Name: ServiceRecordIdentifier</p>
+     * <p>Un-merged Business Name: ServiceRecordIdentifier</p>
      * 
      * <p>Relationship: REPC_MT100001CA.ProcedureEvent.id</p>
      * 
@@ -896,7 +896,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceRecordIdentifier</p>
      * 
-     * <p>Other Business Name: ServiceRecordIdentifier</p>
+     * <p>Un-merged Business Name: ServiceRecordIdentifier</p>
      * 
      * <p>Relationship: REPC_MT100001CA.ProcedureEvent.id</p>
      * 
@@ -946,7 +946,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.ResponsibleParty2.assignedPerson</p>
@@ -959,7 +959,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.ResponsibleParty2.assignedPerson</p>
@@ -972,7 +972,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.Performer.assignedPerson</p>
      * 
@@ -984,7 +984,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.Performer.assignedPerson</p>
      * 
@@ -996,7 +996,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.ProcedureEvent.location</p>
      * 
@@ -1008,7 +1008,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.ProcedureEvent.location</p>
      * 
@@ -1020,7 +1020,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.Subject3.annotationIndicator</p>
@@ -1033,7 +1033,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.Subject3.annotationIndicator</p>

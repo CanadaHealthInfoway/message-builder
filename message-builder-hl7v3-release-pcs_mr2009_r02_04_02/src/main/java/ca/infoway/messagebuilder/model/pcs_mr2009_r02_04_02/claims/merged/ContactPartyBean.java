@@ -56,13 +56,13 @@ public class ContactPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrativeContactID</p>
      * 
-     * <p>Other Business Name: AdministrativeContactID</p>
+     * <p>Un-merged Business Name: AdministrativeContactID</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactParty.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: AdministrativeContactID</p>
+     * <p>Un-merged Business Name: AdministrativeContactID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactParty.id</p>
      * 
@@ -76,13 +76,13 @@ public class ContactPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrativeContactID</p>
      * 
-     * <p>Other Business Name: AdministrativeContactID</p>
+     * <p>Un-merged Business Name: AdministrativeContactID</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactParty.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: AdministrativeContactID</p>
+     * <p>Un-merged Business Name: AdministrativeContactID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactParty.id</p>
      * 
@@ -94,19 +94,19 @@ public class ContactPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: AdministrativeContactType</p>
+     * <p>Un-merged Business Name: AdministrativeContactType</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdministrativeContactType</p>
+     * <p>Un-merged Business Name: AdministrativeContactType</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CallBackContactType</p>
+     * <p>Un-merged Business Name: CallBackContactType</p>
      * 
      * <p>Relationship: FICR_MT400001CA.ContactParty.code</p>
      * 
@@ -118,19 +118,19 @@ public class ContactPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: AdministrativeContactType</p>
+     * <p>Un-merged Business Name: AdministrativeContactType</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdministrativeContactType</p>
+     * <p>Un-merged Business Name: AdministrativeContactType</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactParty.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: CallBackContactType</p>
+     * <p>Un-merged Business Name: CallBackContactType</p>
      * 
      * <p>Relationship: FICR_MT400001CA.ContactParty.code</p>
      * 
@@ -142,13 +142,13 @@ public class ContactPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactParty.contactPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactParty.contactPerson</p>
      * 
@@ -160,13 +160,13 @@ public class ContactPartyBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactParty.contactPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactParty.contactPerson</p>
      * 
@@ -180,7 +180,7 @@ public class ContactPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CallBackContactPersonName</p>
      * 
-     * <p>Other Business Name: CallBackContactPersonName</p>
+     * <p>Un-merged Business Name: CallBackContactPersonName</p>
      * 
      * <p>Relationship: FICR_MT400001CA.CallBackPerson.name</p>
      * 
@@ -194,7 +194,7 @@ public class ContactPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CallBackContactPersonName</p>
      * 
-     * <p>Other Business Name: CallBackContactPersonName</p>
+     * <p>Un-merged Business Name: CallBackContactPersonName</p>
      * 
      * <p>Relationship: FICR_MT400001CA.CallBackPerson.name</p>
      * 
@@ -208,7 +208,7 @@ public class ContactPartyBean extends MessagePartBean {
     /**
      * <p>Business Name: CallBackContactPersonTelecom</p>
      * 
-     * <p>Other Business Name: CallBackContactPersonTelecom</p>
+     * <p>Un-merged Business Name: CallBackContactPersonTelecom</p>
      * 
      * <p>Relationship: FICR_MT400001CA.CallBackPerson.telecom</p>
      * 

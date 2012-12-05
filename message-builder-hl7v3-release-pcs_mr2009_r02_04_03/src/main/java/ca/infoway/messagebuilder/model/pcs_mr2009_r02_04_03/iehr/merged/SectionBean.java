@@ -44,7 +44,7 @@ public class SectionBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentOverviewContent</p>
      * 
-     * <p>Other Business Name: DocumentOverviewContent</p>
+     * <p>Un-merged Business Name: DocumentOverviewContent</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Section.text</p>
      * 
@@ -62,7 +62,7 @@ public class SectionBean extends MessagePartBean {
      * document.</p><p>E.g. The cover letter for a referral, the 
      * overview portion of a report, etc.</p>
      * 
-     * <p>Other Business Name: DocumentOverviewContent</p>
+     * <p>Un-merged Business Name: DocumentOverviewContent</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Section.text</p>
      * 
@@ -88,7 +88,7 @@ public class SectionBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentOverviewContent</p>
      * 
-     * <p>Other Business Name: DocumentOverviewContent</p>
+     * <p>Un-merged Business Name: DocumentOverviewContent</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Section.text</p>
      * 
@@ -106,7 +106,7 @@ public class SectionBean extends MessagePartBean {
      * document.</p><p>E.g. The cover letter for a referral, the 
      * overview portion of a report, etc.</p>
      * 
-     * <p>Other Business Name: DocumentOverviewContent</p>
+     * <p>Un-merged Business Name: DocumentOverviewContent</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Section.text</p>
      * 
@@ -130,13 +130,13 @@ public class SectionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Component4.documentContent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Component4.documentContent</p>
      * 
@@ -148,13 +148,13 @@ public class SectionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Component4.documentContent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Component4.documentContent</p>
      * 
@@ -166,13 +166,13 @@ public class SectionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Component.subSection</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Component.subSection</p>
      * 
@@ -185,13 +185,13 @@ public class SectionBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220001CA.Component5.reference</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT220003CA.Component5.reference</p>
      * 

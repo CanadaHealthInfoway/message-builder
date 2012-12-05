@@ -92,7 +92,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
      * 
@@ -104,7 +104,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>An identifier for a specific instance of an 
      * allergy/intolerance test.</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
      * 
@@ -116,7 +116,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>An identifier for a specific instance of an 
      * allergy/intolerance test.</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
      * 
@@ -128,7 +128,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>An identifier for a specific instance of an 
      * allergy/intolerance test.</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.id</p>
      * 
@@ -148,7 +148,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestRecordId</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.id</p>
      * 
@@ -160,7 +160,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>An identifier for a specific instance of an 
      * allergy/intolerance test.</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.id</p>
      * 
@@ -172,7 +172,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>An identifier for a specific instance of an 
      * allergy/intolerance test.</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.id</p>
      * 
@@ -184,7 +184,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>An identifier for a specific instance of an 
      * allergy/intolerance test.</p>
      * 
-     * <p>Other Business Name: AllergyTestRecordId</p>
+     * <p>Un-merged Business Name: AllergyTestRecordId</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.id</p>
      * 
@@ -204,7 +204,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestType</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
@@ -219,7 +219,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>A coded value denoting the type of allergy test 
      * conducted.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
      * 
@@ -232,7 +232,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>A coded value denoting the type of allergy test 
      * conducted.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
      * 
@@ -245,7 +245,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>A coded value denoting the type of allergy test 
      * conducted.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.code</p>
      * 
@@ -266,7 +266,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestType</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.code</p>
      * 
@@ -281,7 +281,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>A coded value denoting the type of allergy test 
      * conducted.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.code</p>
      * 
@@ -294,7 +294,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>A coded value denoting the type of allergy test 
      * conducted.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.code</p>
      * 
@@ -307,7 +307,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * <p>A coded value denoting the type of allergy test 
      * conducted.</p>
      * 
-     * <p>Other Business Name: AllergyTestType</p>
+     * <p>Un-merged Business Name: AllergyTestType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.code</p>
      * 
@@ -328,7 +328,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestDate</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
@@ -340,7 +340,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>The date on which the allergy test was performed.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
@@ -352,7 +352,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>The date on which the allergy test was performed.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
@@ -364,7 +364,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>The date on which the allergy test was performed.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.AllergyTestEvent.effectiveTime</p>
@@ -384,7 +384,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestDate</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.AllergyTestEvent.effectiveTime</p>
@@ -396,7 +396,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>The date on which the allergy test was performed.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.AllergyTestEvent.effectiveTime</p>
@@ -408,7 +408,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>The date on which the allergy test was performed.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.AllergyTestEvent.effectiveTime</p>
@@ -420,7 +420,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>The date on which the allergy test was performed.</p>
      * 
-     * <p>Other Business Name: AllergyTestDate</p>
+     * <p>Un-merged Business Name: AllergyTestDate</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.AllergyTestEvent.effectiveTime</p>
@@ -440,7 +440,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestResult</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
@@ -456,7 +456,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>A code indicating result of the allergy test.</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
      * 
@@ -472,7 +472,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>A code indicating result of the allergy test.</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
      * 
@@ -488,7 +488,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>A code indicating result of the allergy test.</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.value</p>
      * 
@@ -512,7 +512,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     /**
      * <p>Business Name: AllergyTestResult</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000005CA.AllergyTestEvent.value</p>
      * 
@@ -528,7 +528,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>A code indicating result of the allergy test.</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000001CA.AllergyTestEvent.value</p>
      * 
@@ -544,7 +544,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>A code indicating result of the allergy test.</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000013CA.AllergyTestEvent.value</p>
      * 
@@ -560,7 +560,7 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
      * 
      * <p>A code indicating result of the allergy test.</p>
      * 
-     * <p>Other Business Name: AllergyTestResult</p>
+     * <p>Un-merged Business Name: AllergyTestResult</p>
      * 
      * <p>Relationship: REPC_MT000009CA.AllergyTestEvent.value</p>
      * 

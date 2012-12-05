@@ -77,7 +77,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.id</p>
      * 
@@ -90,7 +90,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.id</p>
      * 
@@ -111,7 +111,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     /**
      * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.id</p>
      * 
@@ -124,7 +124,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
      * 
      * <p>A unique identifier for the organization</p>
      * 
-     * <p>Other Business Name: OrganizationIdentifier</p>
+     * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.id</p>
      * 
@@ -145,7 +145,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     /**
      * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.name</p>
      * 
@@ -157,7 +157,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.name</p>
      * 
@@ -177,7 +177,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     /**
      * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090508CA.Organization.name</p>
      * 
@@ -189,7 +189,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
      * 
      * <p>Identifies the name of the organization</p>
      * 
-     * <p>Other Business Name: OrganizationName</p>
+     * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT090502CA.Organization.name</p>
      * 
@@ -209,7 +209,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
      * 
@@ -229,7 +229,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     /**
      * <p>Business Name: OrganizationType</p>
      * 
-     * <p>Other Business Name: OrganizationType</p>
+     * <p>Un-merged Business Name: OrganizationType</p>
      * 
      * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
      * 
@@ -249,7 +249,7 @@ public class HealthcareOrganizationBean extends MessagePartBean implements Autho
     /**
      * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * <p>Un-merged Business Name: OrganizationPhoneAndEmails</p>
      * 
      * <p>Relationship: 
      * COCT_MT090508CA.AssignedOrganization.telecom</p>

@@ -38,7 +38,7 @@ public class ProcedureRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: UsageInstructions</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT060010CA.ProcedureRequest.text</p>
      * 
@@ -49,7 +49,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * <p>Shows other providers the usage instructions provided to 
      * the patient.</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT020060CA.ProcedureRequest.text</p>
      * 
@@ -61,7 +61,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * <p>Communicates to other providers how the patient is 
      * expected to use the dispensed device</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT060040CA.ProcedureRequest.text</p>
      * 
@@ -73,7 +73,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * <p>Instructions for use are a key part of any 
      * prescription</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT010110CA.ProcedureRequest.text</p>
      * 
@@ -84,7 +84,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p>Instructions are a key part of the prescription.</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT060060CA.ProcedureRequest.text</p>
      * 
@@ -104,7 +104,7 @@ public class ProcedureRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: UsageInstructions</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT060010CA.ProcedureRequest.text</p>
      * 
@@ -115,7 +115,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * <p>Shows other providers the usage instructions provided to 
      * the patient.</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT020060CA.ProcedureRequest.text</p>
      * 
@@ -127,7 +127,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * <p>Communicates to other providers how the patient is 
      * expected to use the dispensed device</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT060040CA.ProcedureRequest.text</p>
      * 
@@ -139,7 +139,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * <p>Instructions for use are a key part of any 
      * prescription</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT010110CA.ProcedureRequest.text</p>
      * 
@@ -150,7 +150,7 @@ public class ProcedureRequestBean extends MessagePartBean {
      * 
      * <p>Instructions are a key part of the prescription.</p>
      * 
-     * <p>Other Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
      * <p>Relationship: PORX_MT060060CA.ProcedureRequest.text</p>
      * 

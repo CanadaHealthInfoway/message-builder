@@ -89,13 +89,13 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
 
 
     /**
-     * <p>Other Business Name: ExamplesAreSpouseChild</p>
+     * <p>Un-merged Business Name: ExamplesAreSpouseChild</p>
      * 
      * <p>Relationship: FICR_MT600201CA.PersonalRelationship.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelatedPersonType</p>
+     * <p>Un-merged Business Name: RelatedPersonType</p>
      * 
      * <p>Relationship: COCT_MT910107CA.PersonalRelationship.code</p>
      * 
@@ -116,7 +116,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
      * <p>A coded value indicating how the related person is 
      * related to the patient.</p>
      * 
-     * <p>Other Business Name: PersonalRelationshipCode</p>
+     * <p>Un-merged Business Name: PersonalRelationshipCode</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PersonalRelationship.code</p>
      * 
@@ -125,7 +125,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
      * <p>Code indicating Personal Relationship eg, family 
      * member.</p>
      * 
-     * <p>Other Business Name: ResponsiblePersonType</p>
+     * <p>Un-merged Business Name: ResponsiblePersonType</p>
      * 
      * <p>Relationship: COCT_MT910102CA.PersonalRelationship.code</p>
      * 
@@ -154,13 +154,13 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
     }
 
     /**
-     * <p>Other Business Name: ExamplesAreSpouseChild</p>
+     * <p>Un-merged Business Name: ExamplesAreSpouseChild</p>
      * 
      * <p>Relationship: FICR_MT600201CA.PersonalRelationship.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: RelatedPersonType</p>
+     * <p>Un-merged Business Name: RelatedPersonType</p>
      * 
      * <p>Relationship: COCT_MT910107CA.PersonalRelationship.code</p>
      * 
@@ -181,7 +181,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
      * <p>A coded value indicating how the related person is 
      * related to the patient.</p>
      * 
-     * <p>Other Business Name: PersonalRelationshipCode</p>
+     * <p>Un-merged Business Name: PersonalRelationshipCode</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PersonalRelationship.code</p>
      * 
@@ -190,7 +190,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
      * <p>Code indicating Personal Relationship eg, family 
      * member.</p>
      * 
-     * <p>Other Business Name: ResponsiblePersonType</p>
+     * <p>Un-merged Business Name: ResponsiblePersonType</p>
      * 
      * <p>Relationship: COCT_MT910102CA.PersonalRelationship.code</p>
      * 
@@ -221,7 +221,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
     /**
      * <p>Business Name: RelatedPersonIdentifier</p>
      * 
-     * <p>Other Business Name: RelatedPersonIdentifier</p>
+     * <p>Un-merged Business Name: RelatedPersonIdentifier</p>
      * 
      * <p>Relationship: COCT_MT910107CA.PersonalRelationship.id</p>
      * 
@@ -291,7 +291,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
      * <p>A unique identifier for the related person. May include 
      * PHNs, drivers license or other identifiers.</p>
      * 
-     * <p>Other Business Name: RelatedPersonIdentifier</p>
+     * <p>Un-merged Business Name: RelatedPersonIdentifier</p>
      * 
      * <p>Relationship: COCT_MT910102CA.PersonalRelationship.id</p>
      * 
@@ -370,7 +370,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
     /**
      * <p>Business Name: RelatedPersonIdentifier</p>
      * 
-     * <p>Other Business Name: RelatedPersonIdentifier</p>
+     * <p>Un-merged Business Name: RelatedPersonIdentifier</p>
      * 
      * <p>Relationship: COCT_MT910107CA.PersonalRelationship.id</p>
      * 
@@ -440,7 +440,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
      * <p>A unique identifier for the related person. May include 
      * PHNs, drivers license or other identifiers.</p>
      * 
-     * <p>Other Business Name: RelatedPersonIdentifier</p>
+     * <p>Un-merged Business Name: RelatedPersonIdentifier</p>
      * 
      * <p>Relationship: COCT_MT910102CA.PersonalRelationship.id</p>
      * 
@@ -519,7 +519,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
     /**
      * <p>Business Name: RelatedPersonName</p>
      * 
-     * <p>Other Business Name: RelatedPersonName</p>
+     * <p>Un-merged Business Name: RelatedPersonName</p>
      * 
      * <p>Relationship: COCT_MT910107CA.RelatedPerson.name</p>
      * 
@@ -590,7 +590,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
      * 
      * <p>The name by which the responsible person is known</p>
      * 
-     * <p>Other Business Name: RelatedPersonName</p>
+     * <p>Un-merged Business Name: RelatedPersonName</p>
      * 
      * <p>Relationship: COCT_MT910102CA.RelatedPerson.name</p>
      * 
@@ -669,7 +669,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
     /**
      * <p>Business Name: RelatedPersonName</p>
      * 
-     * <p>Other Business Name: RelatedPersonName</p>
+     * <p>Un-merged Business Name: RelatedPersonName</p>
      * 
      * <p>Relationship: COCT_MT910107CA.RelatedPerson.name</p>
      * 
@@ -740,7 +740,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
      * 
      * <p>The name by which the responsible person is known</p>
      * 
-     * <p>Other Business Name: RelatedPersonName</p>
+     * <p>Un-merged Business Name: RelatedPersonName</p>
      * 
      * <p>Relationship: COCT_MT910102CA.RelatedPerson.name</p>
      * 
@@ -819,7 +819,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
     /**
      * <p>Business Name: RelatedPersonPhonesAndEmails</p>
      * 
-     * <p>Other Business Name: RelatedPersonPhonesAndEmails</p>
+     * <p>Un-merged Business Name: RelatedPersonPhonesAndEmails</p>
      * 
      * <p>Relationship: COCT_MT910107CA.RelatedPerson.telecom</p>
      * 
@@ -839,7 +839,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
     /**
      * <p>Business Name: RelatedPersonAddress</p>
      * 
-     * <p>Other Business Name: RelatedPersonAddress</p>
+     * <p>Un-merged Business Name: RelatedPersonAddress</p>
      * 
      * <p>Relationship: COCT_MT910107CA.RelatedPerson.addr</p>
      * 
@@ -858,7 +858,7 @@ public class RelatedPersonBean extends MessagePartBean implements Choice, ca.inf
     /**
      * <p>Business Name: RelatedPersonAddress</p>
      * 
-     * <p>Other Business Name: RelatedPersonAddress</p>
+     * <p>Un-merged Business Name: RelatedPersonAddress</p>
      * 
      * <p>Relationship: COCT_MT910107CA.RelatedPerson.addr</p>
      * 

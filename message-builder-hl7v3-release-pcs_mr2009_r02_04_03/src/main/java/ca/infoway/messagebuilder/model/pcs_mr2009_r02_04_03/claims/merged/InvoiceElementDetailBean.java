@@ -76,25 +76,25 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.id</p>
      * 
@@ -108,25 +108,25 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineIdentifier</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.id</p>
      * 
@@ -140,25 +140,25 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.code</p>
      * 
@@ -172,25 +172,25 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedProductServiceCode</p>
      * 
-     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedProductServiceCode</p>
+     * <p>Un-merged Business Name: SubmittedProductServiceCode</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.code</p>
      * 
@@ -204,25 +204,25 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedInvoiceLineAmount</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.netAmt</p>
      * 
@@ -236,25 +236,25 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedInvoiceLineAmount</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
      * <p>Relationship: FICR_MT510201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
      * <p>Relationship: FICR_MT500201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementDetail.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: SubmittedInvoiceLineAmount</p>
+     * <p>Un-merged Business Name: SubmittedInvoiceLineAmount</p>
      * 
      * <p>Relationship: FICR_MT600201CA.InvoiceElementDetail.netAmt</p>
      * 
@@ -266,14 +266,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementReason.billableActChoice</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementReason.billableActChoice</p>
@@ -289,14 +289,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedUnitQuantity</p>
      * 
-     * <p>Other Business Name: SubmittedUnitQuantity</p>
+     * <p>Un-merged Business Name: SubmittedUnitQuantity</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementDetail.unitQuantity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SubmittedUnitQuantity</p>
+     * <p>Un-merged Business Name: SubmittedUnitQuantity</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementDetail.unitQuantity</p>
@@ -311,14 +311,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedUnitQuantity</p>
      * 
-     * <p>Other Business Name: SubmittedUnitQuantity</p>
+     * <p>Un-merged Business Name: SubmittedUnitQuantity</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementDetail.unitQuantity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SubmittedUnitQuantity</p>
+     * <p>Un-merged Business Name: SubmittedUnitQuantity</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementDetail.unitQuantity</p>
@@ -333,14 +333,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedUnitAmountPrice</p>
      * 
-     * <p>Other Business Name: SubmittedUnitAmountPrice</p>
+     * <p>Un-merged Business Name: SubmittedUnitAmountPrice</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementDetail.unitPriceAmt</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SubmittedUnitAmountPrice</p>
+     * <p>Un-merged Business Name: SubmittedUnitAmountPrice</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementDetail.unitPriceAmt</p>
@@ -355,14 +355,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: SubmittedUnitAmountPrice</p>
      * 
-     * <p>Other Business Name: SubmittedUnitAmountPrice</p>
+     * <p>Un-merged Business Name: SubmittedUnitAmountPrice</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementDetail.unitPriceAmt</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: SubmittedUnitAmountPrice</p>
+     * <p>Un-merged Business Name: SubmittedUnitAmountPrice</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementDetail.unitPriceAmt</p>
@@ -375,14 +375,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Other Business Name: TaxAppliedToUnitPriceAmt</p>
+     * <p>Un-merged Business Name: TaxAppliedToUnitPriceAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementDetail.factorNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MultiplierEG007</p>
+     * <p>Un-merged Business Name: MultiplierEG007</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementDetail.factorNumber</p>
@@ -395,14 +395,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Other Business Name: TaxAppliedToUnitPriceAmt</p>
+     * <p>Un-merged Business Name: TaxAppliedToUnitPriceAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.InvoiceElementDetail.factorNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MultiplierEG007</p>
+     * <p>Un-merged Business Name: MultiplierEG007</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementDetail.factorNumber</p>

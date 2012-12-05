@@ -54,14 +54,14 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: TaxAcctNo</p>
+     * <p>Un-merged Business Name: TaxAcctNo</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatorBillingTaxAccount.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: TaxAccountNumber</p>
+     * <p>Un-merged Business Name: TaxAccountNumber</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.AdjudicatorBillingTaxAccount.id</p>
@@ -74,14 +74,14 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: TaxAcctNo</p>
+     * <p>Un-merged Business Name: TaxAcctNo</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatorBillingTaxAccount.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: TaxAccountNumber</p>
+     * <p>Un-merged Business Name: TaxAccountNumber</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.AdjudicatorBillingTaxAccount.id</p>
@@ -94,14 +94,14 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DetailTaxCode</p>
+     * <p>Un-merged Business Name: DetailTaxCode</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatorBillingTaxAccount.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdjudicatorBillingTaxAccount</p>
+     * <p>Un-merged Business Name: AdjudicatorBillingTaxAccount</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.AdjudicatorBillingTaxAccount.code</p>
@@ -114,14 +114,14 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DetailTaxCode</p>
+     * <p>Un-merged Business Name: DetailTaxCode</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatorBillingTaxAccount.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdjudicatorBillingTaxAccount</p>
+     * <p>Un-merged Business Name: AdjudicatorBillingTaxAccount</p>
      * 
      * <p>Relationship: 
      * FICR_MT510201CA.AdjudicatorBillingTaxAccount.code</p>

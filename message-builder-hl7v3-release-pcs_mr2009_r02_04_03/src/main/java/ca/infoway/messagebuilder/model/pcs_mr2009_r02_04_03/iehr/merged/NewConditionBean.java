@@ -39,7 +39,7 @@ public class NewConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT000010CA.NewCondition.id</p>
      * 
@@ -52,7 +52,7 @@ public class NewConditionBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT000007CA.NewCondition.id</p>
      * 
@@ -73,7 +73,7 @@ public class NewConditionBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacedByRecordId</p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT000010CA.NewCondition.id</p>
      * 
@@ -86,7 +86,7 @@ public class NewConditionBean extends MessagePartBean {
      * current record. This attribute is set when a new record 
      * identifies the current record as being replaced.</i> </p>
      * 
-     * <p>Other Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: ReplacedByRecordId</p>
      * 
      * <p>Relationship: REPC_MT000007CA.NewCondition.id</p>
      * 

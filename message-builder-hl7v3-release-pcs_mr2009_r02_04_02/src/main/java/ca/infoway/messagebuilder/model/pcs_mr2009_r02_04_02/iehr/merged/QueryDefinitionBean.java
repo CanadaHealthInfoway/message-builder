@@ -116,7 +116,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionIDs</p>
      * 
-     * <p>Other Business Name: CareCompositionIDs</p>
+     * <p>Un-merged Business Name: CareCompositionIDs</p>
      * 
      * <p>Relationship: REPC_MT000016CA.CareCompositionID.value</p>
      * 
@@ -144,7 +144,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionTypes</p>
      * 
-     * <p>Other Business Name: CareCompositionTypes</p>
+     * <p>Un-merged Business Name: CareCompositionTypes</p>
      * 
      * <p>Relationship: REPC_MT000016CA.CareCompositionType.value</p>
      * 
@@ -159,7 +159,7 @@ public class QueryDefinitionBean extends MessagePartBean {
      * associated with the specified 'kind' of encounter, episode 
      * or care event. If unspecified, no filter is applied.</p>
      * 
-     * <p>Other Business Name: CareCompositionTypes</p>
+     * <p>Un-merged Business Name: CareCompositionTypes</p>
      * 
      * <p>Relationship: REPC_MT000008CA.CareCompositionType.value</p>
      * 
@@ -186,7 +186,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
      * 
@@ -202,7 +202,7 @@ public class QueryDefinitionBean extends MessagePartBean {
      * reactions records are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT500006CA.IncludeNotesIndicator.value</p>
      * 
@@ -226,7 +226,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeNotesIndicator</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT000016CA.IncludeNotesIndicator.value</p>
      * 
@@ -242,7 +242,7 @@ public class QueryDefinitionBean extends MessagePartBean {
      * reactions records are to be returned along with the detailed 
      * information.</p>
      * 
-     * <p>Other Business Name: IncludeNotesIndicator</p>
+     * <p>Un-merged Business Name: IncludeNotesIndicator</p>
      * 
      * <p>Relationship: REPC_MT500006CA.IncludeNotesIndicator.value</p>
      * 
@@ -266,7 +266,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>Other Business Name: ReactionPeriod</p>
+     * <p>Un-merged Business Name: ReactionPeriod</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
      * 
@@ -289,7 +289,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionPeriod</p>
      * 
-     * <p>Other Business Name: ReactionPeriod</p>
+     * <p>Un-merged Business Name: ReactionPeriod</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionPeriod.value</p>
      * 
@@ -312,7 +312,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionType</p>
      * 
-     * <p>Other Business Name: ReactionType</p>
+     * <p>Un-merged Business Name: ReactionType</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
      * 
@@ -335,7 +335,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ReactionType</p>
      * 
-     * <p>Other Business Name: ReactionType</p>
+     * <p>Un-merged Business Name: ReactionType</p>
      * 
      * <p>Relationship: REPC_MT000016CA.ReactionType.value</p>
      * 
@@ -358,7 +358,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: UpdatedSinceDateTime</p>
      * 
-     * <p>Other Business Name: UpdatedSinceDateTime</p>
+     * <p>Un-merged Business Name: UpdatedSinceDateTime</p>
      * 
      * <p>Relationship: REPC_MT000008CA.AmendedSinceDateTime.value</p>
      * 
@@ -379,7 +379,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: UpdatedSinceDateTime</p>
      * 
-     * <p>Other Business Name: UpdatedSinceDateTime</p>
+     * <p>Un-merged Business Name: UpdatedSinceDateTime</p>
      * 
      * <p>Relationship: REPC_MT000008CA.AmendedSinceDateTime.value</p>
      * 
@@ -400,7 +400,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: CareCompositionIds</p>
      * 
-     * <p>Other Business Name: CareCompositionIds</p>
+     * <p>Un-merged Business Name: CareCompositionIds</p>
      * 
      * <p>Relationship: REPC_MT000008CA.CareCompositionId.value</p>
      * 
@@ -428,7 +428,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: DiscreteRecordTypes</p>
      * 
-     * <p>Other Business Name: DiscreteRecordTypes</p>
+     * <p>Un-merged Business Name: DiscreteRecordTypes</p>
      * 
      * <p>Relationship: REPC_MT000008CA.DiscreteRecordTypes.value</p>
      * 
@@ -457,7 +457,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: DocumentRecordTypes</p>
      * 
-     * <p>Other Business Name: DocumentRecordTypes</p>
+     * <p>Un-merged Business Name: DocumentRecordTypes</p>
      * 
      * <p>Relationship: REPC_MT000008CA.DocumentRecordTypes.value</p>
      * 
@@ -487,7 +487,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EHRRepositoryId</p>
      * 
-     * <p>Other Business Name: EHRRepositoryId</p>
+     * <p>Un-merged Business Name: EHRRepositoryId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.EHRRepositoryId.value</p>
      * 
@@ -508,7 +508,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EHRRepositoryId</p>
      * 
-     * <p>Other Business Name: EHRRepositoryId</p>
+     * <p>Un-merged Business Name: EHRRepositoryId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.EHRRepositoryId.value</p>
      * 
@@ -529,7 +529,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EffectiveDateRange</p>
      * 
-     * <p>Other Business Name: EffectiveDateRange</p>
+     * <p>Un-merged Business Name: EffectiveDateRange</p>
      * 
      * <p>Relationship: REPC_MT000008CA.EffectiveTimeRange.value</p>
      * 
@@ -557,7 +557,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EffectiveDateRange</p>
      * 
-     * <p>Other Business Name: EffectiveDateRange</p>
+     * <p>Un-merged Business Name: EffectiveDateRange</p>
      * 
      * <p>Relationship: REPC_MT000008CA.EffectiveTimeRange.value</p>
      * 
@@ -585,7 +585,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EventLocationId</p>
      * 
-     * <p>Other Business Name: EventLocationId</p>
+     * <p>Un-merged Business Name: EventLocationId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.EventLocationId.value</p>
      * 
@@ -611,7 +611,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EventLocationId</p>
      * 
-     * <p>Other Business Name: EventLocationId</p>
+     * <p>Un-merged Business Name: EventLocationId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.EventLocationId.value</p>
      * 
@@ -637,7 +637,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EventLocationType</p>
      * 
-     * <p>Other Business Name: EventLocationType</p>
+     * <p>Un-merged Business Name: EventLocationType</p>
      * 
      * <p>Relationship: REPC_MT000008CA.EventLocationType.value</p>
      * 
@@ -665,7 +665,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: EventLocationType</p>
      * 
-     * <p>Other Business Name: EventLocationType</p>
+     * <p>Un-merged Business Name: EventLocationType</p>
      * 
      * <p>Relationship: REPC_MT000008CA.EventLocationType.value</p>
      * 
@@ -693,7 +693,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: FilterTemplateId</p>
      * 
-     * <p>Other Business Name: FilterTemplateId</p>
+     * <p>Un-merged Business Name: FilterTemplateId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.FilterTemplateId.value</p>
      * 
@@ -721,7 +721,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: FilterTemplateId</p>
      * 
-     * <p>Other Business Name: FilterTemplateId</p>
+     * <p>Un-merged Business Name: FilterTemplateId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.FilterTemplateId.value</p>
      * 
@@ -749,7 +749,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: HealthConditions</p>
      * 
-     * <p>Other Business Name: HealthConditions</p>
+     * <p>Un-merged Business Name: HealthConditions</p>
      * 
      * <p>Relationship: REPC_MT000008CA.HealthCondition.value</p>
      * 
@@ -789,7 +789,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: Indication</p>
      * 
-     * <p>Other Business Name: Indication</p>
+     * <p>Un-merged Business Name: Indication</p>
      * 
      * <p>Relationship: REPC_MT000008CA.Indication.value</p>
      * 
@@ -819,7 +819,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: Indication</p>
      * 
-     * <p>Other Business Name: Indication</p>
+     * <p>Un-merged Business Name: Indication</p>
      * 
      * <p>Relationship: REPC_MT000008CA.Indication.value</p>
      * 
@@ -849,7 +849,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentByTypeIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentByTypeIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByTypeIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000008CA.MostRecentByTypeIndicator.value</p>
@@ -876,7 +876,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentByTypeIndicator</p>
      * 
-     * <p>Other Business Name: MostRecentByTypeIndicator</p>
+     * <p>Un-merged Business Name: MostRecentByTypeIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000008CA.MostRecentByTypeIndicator.value</p>
@@ -903,7 +903,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ProtocolIds</p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT000008CA.ProtocolId.value</p>
      * 
@@ -919,7 +919,7 @@ public class QueryDefinitionBean extends MessagePartBean {
      * associated with the specified protocols. If unspecified, no 
      * filter is applied.</p>
      * 
-     * <p>Other Business Name: ProtocolIds</p>
+     * <p>Un-merged Business Name: ProtocolIds</p>
      * 
      * <p>Relationship: REPC_MT500006CA.ProtocolId.value</p>
      * 
@@ -944,7 +944,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RecordStatuses</p>
      * 
-     * <p>Other Business Name: RecordStatuses</p>
+     * <p>Un-merged Business Name: RecordStatuses</p>
      * 
      * <p>Relationship: REPC_MT000008CA.RecordStatus.value</p>
      * 
@@ -967,7 +967,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RecordTypes</p>
      * 
-     * <p>Other Business Name: RecordTypes</p>
+     * <p>Un-merged Business Name: RecordTypes</p>
      * 
      * <p>Relationship: REPC_MT000008CA.RecordType.value</p>
      * 
@@ -1011,7 +1011,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RequestingProviderId</p>
      * 
-     * <p>Other Business Name: RequestingProviderId</p>
+     * <p>Un-merged Business Name: RequestingProviderId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.RequestingProviderId.value</p>
      * 
@@ -1032,7 +1032,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RequestingProviderId</p>
      * 
-     * <p>Other Business Name: RequestingProviderId</p>
+     * <p>Un-merged Business Name: RequestingProviderId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.RequestingProviderId.value</p>
      * 
@@ -1053,7 +1053,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleProviderId</p>
      * 
-     * <p>Other Business Name: ResponsibleProviderId</p>
+     * <p>Un-merged Business Name: ResponsibleProviderId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.ResponsibleProviderId.value</p>
      * 
@@ -1074,7 +1074,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleProviderId</p>
      * 
-     * <p>Other Business Name: ResponsibleProviderId</p>
+     * <p>Un-merged Business Name: ResponsibleProviderId</p>
      * 
      * <p>Relationship: REPC_MT000008CA.ResponsibleProviderId.value</p>
      * 
@@ -1095,7 +1095,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleProviderType</p>
      * 
-     * <p>Other Business Name: ResponsibleProviderType</p>
+     * <p>Un-merged Business Name: ResponsibleProviderType</p>
      * 
      * <p>Relationship: 
      * REPC_MT000008CA.ResponsibleProviderType.value</p>
@@ -1120,7 +1120,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleProviderType</p>
      * 
-     * <p>Other Business Name: ResponsibleProviderType</p>
+     * <p>Un-merged Business Name: ResponsibleProviderType</p>
      * 
      * <p>Relationship: 
      * REPC_MT000008CA.ResponsibleProviderType.value</p>
@@ -1145,7 +1145,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT500006CA.IncludeHistoryIndicator.value</p>
@@ -1170,7 +1170,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: IncludeHistoryIndicator</p>
      * 
-     * <p>Other Business Name: IncludeHistoryIndicator</p>
+     * <p>Un-merged Business Name: IncludeHistoryIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT500006CA.IncludeHistoryIndicator.value</p>
@@ -1195,7 +1195,7 @@ public class QueryDefinitionBean extends MessagePartBean {
     /**
      * <p>Business Name: RecordIds</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: REPC_MT500006CA.RecordId.value</p>
      * 

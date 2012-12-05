@@ -82,7 +82,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.id</p>
@@ -105,7 +105,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * attribute is marked as populated because it may be 
      * masked.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.id</p>
@@ -128,7 +128,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * attribute is only marked as 'populated' because it may be 
      * masked.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.id</p>
@@ -159,7 +159,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.id</p>
@@ -182,7 +182,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * attribute is marked as populated because it may be 
      * masked.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.id</p>
@@ -205,7 +205,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * attribute is only marked as 'populated' because it may be 
      * masked.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.id</p>
@@ -236,7 +236,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationType</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.code</p>
@@ -255,7 +255,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.code</p>
@@ -274,7 +274,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.code</p>
@@ -301,7 +301,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationType</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.code</p>
@@ -320,7 +320,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.code</p>
@@ -339,7 +339,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.code</p>
@@ -364,7 +364,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
 
 
     /**
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -388,7 +388,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -412,7 +412,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * of the observation.</p><p>The attribute is optional because 
      * not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -442,7 +442,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     }
 
     /**
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -466,7 +466,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -490,7 +490,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * of the observation.</p><p>The attribute is optional because 
      * not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -522,7 +522,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationValue</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.value</p>
@@ -536,7 +536,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Provides unambiguous reference to the related measurable 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.value</p>
@@ -549,7 +549,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Provides unambiguous reference to the implicated 
      * measurable observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.value</p>
@@ -571,7 +571,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationValue</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.value</p>
@@ -585,7 +585,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Provides unambiguous reference to the related measurable 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.value</p>
@@ -598,7 +598,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Provides unambiguous reference to the implicated 
      * measurable observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.value</p>

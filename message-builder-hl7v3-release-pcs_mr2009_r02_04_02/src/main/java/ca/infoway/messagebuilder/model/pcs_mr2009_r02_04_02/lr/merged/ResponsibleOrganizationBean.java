@@ -72,7 +72,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.Organization.id</p>
      * 
@@ -89,7 +89,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the responsible organization.</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Organization.id</p>
      * 
@@ -106,7 +106,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the responsible organization.</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Organization.id</p>
      * 
@@ -131,7 +131,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.Organization.id</p>
      * 
@@ -148,7 +148,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the responsible organization.</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Organization.id</p>
      * 
@@ -165,7 +165,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the responsible organization.</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Organization.id</p>
      * 
@@ -190,7 +190,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.Organization.name</p>
      * 
@@ -202,7 +202,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The label by which the responsible organization is known 
      * and communicated with e.g. Capital Health District.</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Organization.name</p>
      * 
@@ -214,7 +214,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The label by which the responsible organization is known 
      * and communicated with e.g. Capital Health District.</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Organization.name</p>
      * 
@@ -234,7 +234,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleOrganizationName</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.Organization.name</p>
      * 
@@ -246,7 +246,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The label by which the responsible organization is known 
      * and communicated with e.g. Capital Health District.</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Organization.name</p>
      * 
@@ -258,7 +258,7 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>The label by which the responsible organization is known 
      * and communicated with e.g. Capital Health District.</p>
      * 
-     * <p>Other Business Name: ResponsibleOrganizationName</p>
+     * <p>Un-merged Business Name: ResponsibleOrganizationName</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Organization.name</p>
      * 

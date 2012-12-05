@@ -157,7 +157,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     /**
      * <p>Business Name: AssessmentType</p>
      * 
-     * <p>Other Business Name: AssessmentType</p>
+     * <p>Un-merged Business Name: AssessmentType</p>
      * 
      * <p>Relationship: REPC_MT000006CA.CausalityAssessment.code</p>
      * 
@@ -173,7 +173,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSESS.</p>
      * 
-     * <p>Other Business Name: AssessmentType</p>
+     * <p>Un-merged Business Name: AssessmentType</p>
      * 
      * <p>Relationship: REPC_MT000012CA.CausalityAssessment.code</p>
      * 
@@ -189,7 +189,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSES.</p>
      * 
-     * <p>Other Business Name: AssessmentType</p>
+     * <p>Un-merged Business Name: AssessmentType</p>
      * 
      * <p>Relationship: REPC_MT000002CA.CausalityAssessment.code</p>
      * 
@@ -213,7 +213,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     /**
      * <p>Business Name: AssessmentType</p>
      * 
-     * <p>Other Business Name: AssessmentType</p>
+     * <p>Un-merged Business Name: AssessmentType</p>
      * 
      * <p>Relationship: REPC_MT000006CA.CausalityAssessment.code</p>
      * 
@@ -229,7 +229,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSESS.</p>
      * 
-     * <p>Other Business Name: AssessmentType</p>
+     * <p>Un-merged Business Name: AssessmentType</p>
      * 
      * <p>Relationship: REPC_MT000012CA.CausalityAssessment.code</p>
      * 
@@ -245,7 +245,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * <p>For SNOMED this will include the actual assessment. For 
      * non-SNOMED, this should be fixed to RXNASSES.</p>
      * 
-     * <p>Other Business Name: AssessmentType</p>
+     * <p>Un-merged Business Name: AssessmentType</p>
      * 
      * <p>Relationship: REPC_MT000002CA.CausalityAssessment.code</p>
      * 
@@ -269,7 +269,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     /**
      * <p>Business Name: RelatednessAssessment</p>
      * 
-     * <p>Other Business Name: RelatednessAssessment</p>
+     * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
      * <p>Relationship: REPC_MT000006CA.CausalityAssessment.value</p>
      * 
@@ -287,7 +287,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>Other Business Name: RelatednessAssessment</p>
+     * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
      * <p>Relationship: REPC_MT000012CA.CausalityAssessment.value</p>
      * 
@@ -305,7 +305,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>Other Business Name: RelatednessAssessment</p>
+     * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
      * <p>Relationship: REPC_MT000002CA.CausalityAssessment.value</p>
      * 
@@ -323,7 +323,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>Other Business Name: RelatednessAssessment</p>
+     * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
      * <p>Relationship: REPC_MT000001CA.CausalityAssessment.value</p>
      * 
@@ -352,7 +352,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     /**
      * <p>Business Name: RelatednessAssessment</p>
      * 
-     * <p>Other Business Name: RelatednessAssessment</p>
+     * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
      * <p>Relationship: REPC_MT000006CA.CausalityAssessment.value</p>
      * 
@@ -370,7 +370,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>Other Business Name: RelatednessAssessment</p>
+     * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
      * <p>Relationship: REPC_MT000012CA.CausalityAssessment.value</p>
      * 
@@ -388,7 +388,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>Other Business Name: RelatednessAssessment</p>
+     * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
      * <p>Relationship: REPC_MT000002CA.CausalityAssessment.value</p>
      * 
@@ -406,7 +406,7 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * Otherwise it should have a fixed value of 
      * &quot;RELATED&quot;.</p>
      * 
-     * <p>Other Business Name: RelatednessAssessment</p>
+     * <p>Un-merged Business Name: RelatednessAssessment</p>
      * 
      * <p>Relationship: REPC_MT000001CA.CausalityAssessment.value</p>
      * 
@@ -433,35 +433,35 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000006CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000012CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000002CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.StartsAfterStartOf.exposureEvent</p>
@@ -474,14 +474,14 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * align="left">Indicates the agent that is believed to have 
      * caused the adverse reaction.</p> </font></font></font></p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.StartsAfterStartOf.exposureEvent</p>
@@ -494,35 +494,35 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000006CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000012CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000002CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.StartsAfterStartOf.exposureEvent</p>
@@ -535,14 +535,14 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * align="left">Indicates the agent that is believed to have 
      * caused the adverse reaction.</p> </font></font></font></p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.StartsAfterStartOf.exposureEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.StartsAfterStartOf.exposureEvent</p>
@@ -557,13 +557,13 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     /**
      * <p>Business Name: ReactionRecord</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReactionRecord</p>
+     * <p>Un-merged Business Name: ReactionRecord</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Subject6.observationEvent</p>
      * 
@@ -577,13 +577,13 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * this field is sent, a KEY204 error issue will be 
      * returned.</strong></p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Subject6.observationEvent</p>
      * 
@@ -597,13 +597,13 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
     /**
      * <p>Business Name: ReactionRecord</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ReactionRecord</p>
+     * <p>Un-merged Business Name: ReactionRecord</p>
      * 
      * <p>Relationship: REPC_MT000001CA.Subject6.observationEvent</p>
      * 
@@ -617,13 +617,13 @@ public class ReactionAssessmentsBean extends MessagePartBean implements Records 
      * this field is sent, a KEY204 error issue will be 
      * returned.</strong></p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000009CA.Subject6.observationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Subject6.observationEvent</p>
      * 

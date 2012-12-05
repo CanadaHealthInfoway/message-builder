@@ -69,7 +69,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090310CA.AssignedDevice.classCode</p>
      * 
@@ -81,7 +81,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090310CA.AssignedDevice.classCode</p>
      * 
@@ -93,7 +93,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
 
 
     /**
-     * <p>Other Business Name: RepositoryIdentifier</p>
+     * <p>Un-merged Business Name: RepositoryIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090310CA.AssignedDevice.id</p>
      * 
@@ -104,7 +104,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
      * <p>Allows repositories to be uniquely identified for linking 
      * or grouping purposes and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: ApplicationId</p>
+     * <p>Un-merged Business Name: ApplicationId</p>
      * 
      * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
      * 
@@ -150,7 +150,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>Other Business Name: RepositoryIdentifier</p>
+     * <p>Un-merged Business Name: RepositoryIdentifier</p>
      * 
      * <p>Relationship: COCT_MT090310CA.AssignedDevice.id</p>
      * 
@@ -161,7 +161,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
      * <p>Allows repositories to be uniquely identified for linking 
      * or grouping purposes and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: ApplicationId</p>
+     * <p>Un-merged Business Name: ApplicationId</p>
      * 
      * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
      * 
@@ -207,7 +207,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090310CA.Repository.classCode</p>
      * 
@@ -219,7 +219,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090310CA.Repository.classCode</p>
      * 
@@ -231,7 +231,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090310CA.Repository.determinerCode</p>
      * 
@@ -243,7 +243,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT090310CA.Repository.determinerCode</p>
      * 
@@ -257,7 +257,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     /**
      * <p>Business Name: RepositoryName</p>
      * 
-     * <p>Other Business Name: RepositoryName</p>
+     * <p>Un-merged Business Name: RepositoryName</p>
      * 
      * <p>Relationship: COCT_MT090310CA.Repository.name</p>
      * 
@@ -278,7 +278,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     /**
      * <p>Business Name: RepositoryName</p>
      * 
-     * <p>Other Business Name: RepositoryName</p>
+     * <p>Un-merged Business Name: RepositoryName</p>
      * 
      * <p>Relationship: COCT_MT090310CA.Repository.name</p>
      * 
@@ -297,7 +297,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090310CA.RepositoryJurisdiction.classCode</p>
@@ -310,7 +310,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090310CA.RepositoryJurisdiction.classCode</p>
@@ -323,7 +323,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090310CA.RepositoryJurisdiction.determinerCode</p>
@@ -336,7 +336,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT090310CA.RepositoryJurisdiction.determinerCode</p>
@@ -351,7 +351,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     /**
      * <p>Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>Other Business Name: RepositoryJurisdictionName</p>
+     * <p>Un-merged Business Name: RepositoryJurisdictionName</p>
      * 
      * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
      * 
@@ -371,7 +371,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     /**
      * <p>Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>Other Business Name: RepositoryJurisdictionName</p>
+     * <p>Un-merged Business Name: RepositoryJurisdictionName</p>
      * 
      * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
      * 
@@ -391,7 +391,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     /**
      * <p>Business Name: ApplicationName</p>
      * 
-     * <p>Other Business Name: ApplicationName</p>
+     * <p>Un-merged Business Name: ApplicationName</p>
      * 
      * <p>Relationship: COCT_MT090302CA.Device.name</p>
      * 
@@ -419,7 +419,7 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     /**
      * <p>Business Name: ApplicationName</p>
      * 
-     * <p>Other Business Name: ApplicationName</p>
+     * <p>Un-merged Business Name: ApplicationName</p>
      * 
      * <p>Relationship: COCT_MT090302CA.Device.name</p>
      * 

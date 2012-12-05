@@ -113,7 +113,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: DispensingAllowedPeriod</p>
      * 
-     * <p>Other Business Name: DispensingAllowedPeriod</p>
+     * <p>Un-merged Business Name: DispensingAllowedPeriod</p>
      * 
      * <p>Relationship: PORX_MT010120CA.SupplyRequest.effectiveTime</p>
      * 
@@ -144,7 +144,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: DispensingAllowedPeriod</p>
      * 
-     * <p>Other Business Name: DispensingAllowedPeriod</p>
+     * <p>Un-merged Business Name: DispensingAllowedPeriod</p>
      * 
      * <p>Relationship: PORX_MT010120CA.SupplyRequest.effectiveTime</p>
      * 
@@ -173,7 +173,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.Receiver.personalRelationship</p>
@@ -187,25 +187,25 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010140CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
      * 
@@ -217,25 +217,25 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010140CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
      * 
@@ -247,14 +247,14 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Destination1.serviceDeliveryLocation</p>
@@ -267,14 +267,14 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Destination1.serviceDeliveryLocation</p>
@@ -287,7 +287,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010120CA.Component.supplyRequestItem</p>
      * 
@@ -302,7 +302,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060060CA.SupplyRequest.quantity</p>
      * 
@@ -318,7 +318,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * prescription. Includes any first fills (trials, aligning 
      * quantities), the initial standard fill plus all refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
      * 
@@ -342,7 +342,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060060CA.SupplyRequest.quantity</p>
      * 
@@ -358,7 +358,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * prescription. Includes any first fills (trials, aligning 
      * quantities), the initial standard fill plus all refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
      * 
@@ -380,7 +380,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010140CA.InFulfillmentOf.supplyEvent</p>
      * 
@@ -393,7 +393,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010140CA.Component6.actRequest</p>
      * 
@@ -405,7 +405,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010140CA.Component6.actRequest</p>
      * 
@@ -419,7 +419,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>Other Business Name: TotalDaysSupply</p>
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplyRequest.expectedUseTime</p>
@@ -444,7 +444,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>Other Business Name: TotalDaysSupply</p>
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.SupplyRequest.expectedUseTime</p>
@@ -467,7 +467,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Component.typeCode</p>
      * 
@@ -479,7 +479,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT010110CA.Component.typeCode</p>
      * 
@@ -491,7 +491,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Component.contextControlCode</p>
@@ -504,7 +504,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Component.contextControlCode</p>
@@ -517,7 +517,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Component.contextConductionInd</p>
@@ -530,7 +530,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Component.contextConductionInd</p>
@@ -543,7 +543,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Component.supplementalFillInformation</p>
@@ -556,7 +556,7 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010110CA.Component.supplementalFillInformation</p>

@@ -74,7 +74,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060270CA.AdministrationEffectivePeriod.value</p>
@@ -99,7 +99,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060240CA.AdministrationEffectivePeriod.value</p>
@@ -132,7 +132,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060270CA.AdministrationEffectivePeriod.value</p>
@@ -157,7 +157,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * <p>Un-merged Business Name: AdministrationEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * PORX_MT060240CA.AdministrationEffectivePeriod.value</p>
@@ -190,7 +190,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>Other Business Name: PrescriberProviderID</p>
+     * <p>Un-merged Business Name: PrescriberProviderID</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PrescriberProviderID.value</p>
      * 
@@ -219,7 +219,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>Other Business Name: PrescriberProviderID</p>
+     * <p>Un-merged Business Name: PrescriberProviderID</p>
      * 
      * <p>Relationship: PORX_MT060270CA.PrescriberProviderID.value</p>
      * 
@@ -248,7 +248,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionStatuses</p>
      * 
-     * <p>Other Business Name: PrescriptionStatuses</p>
+     * <p>Un-merged Business Name: PrescriptionStatuses</p>
      * 
      * <p>Relationship: PORX_MT060240CA.PrescriptionStatus.value</p>
      * 
@@ -272,7 +272,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: RxDispenseIndicator</p>
      * 
-     * <p>Other Business Name: RxDispenseIndicator</p>
+     * <p>Un-merged Business Name: RxDispenseIndicator</p>
      * 
      * <p>Relationship: PORX_MT060240CA.RxDispenseIndicator.value</p>
      * 
@@ -294,7 +294,7 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: RxDispenseIndicator</p>
      * 
-     * <p>Other Business Name: RxDispenseIndicator</p>
+     * <p>Un-merged Business Name: RxDispenseIndicator</p>
      * 
      * <p>Relationship: PORX_MT060240CA.RxDispenseIndicator.value</p>
      * 

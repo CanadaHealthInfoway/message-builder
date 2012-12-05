@@ -51,7 +51,7 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: ImmunizationRefusalReasonText</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReasonText</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.NoImmunizationReason.text</p>
      * 
@@ -64,13 +64,13 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
      * <p>A textual or multimedia description (or reference to a 
      * description) of the reason.</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReasonText</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.NoImmunizationReason.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReasonText</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.NoImmunizationReason.text</p>
      * 
@@ -84,7 +84,7 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: ImmunizationRefusalReasonText</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReasonText</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.NoImmunizationReason.text</p>
      * 
@@ -97,13 +97,13 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
      * <p>A textual or multimedia description (or reference to a 
      * description) of the reason.</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReasonText</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.NoImmunizationReason.text</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReasonText</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReasonText</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.NoImmunizationReason.text</p>
      * 
@@ -117,7 +117,7 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: ImmunizationRefusalReason</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.NoImmunizationReason.reasonCode</p>
@@ -134,14 +134,14 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
      * decision, Religious exemption, Patient decision, previous 
      * adverse event etc.</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.NoImmunizationReason.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.NoImmunizationReason.reasonCode</p>
@@ -156,7 +156,7 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
     /**
      * <p>Business Name: ImmunizationRefusalReason</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.NoImmunizationReason.reasonCode</p>
@@ -173,14 +173,14 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
      * decision, Religious exemption, Patient decision, previous 
      * adverse event etc.</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.NoImmunizationReason.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ImmunizationRefusalReason</p>
+     * <p>Un-merged Business Name: ImmunizationRefusalReason</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.NoImmunizationReason.reasonCode</p>

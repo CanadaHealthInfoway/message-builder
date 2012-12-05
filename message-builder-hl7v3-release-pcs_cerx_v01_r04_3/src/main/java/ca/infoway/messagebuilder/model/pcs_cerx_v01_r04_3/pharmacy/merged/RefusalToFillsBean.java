@@ -123,37 +123,37 @@ public class RefusalToFillsBean extends MessagePartBean {
     /**
      * <p>Business Name: RefusalToFillDate</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.effectiveTime</p>
      * 
@@ -167,37 +167,37 @@ public class RefusalToFillsBean extends MessagePartBean {
     /**
      * <p>Business Name: RefusalToFillDate</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: RefusalToFillDate</p>
+     * <p>Un-merged Business Name: RefusalToFillDate</p>
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.effectiveTime</p>
      * 
@@ -211,7 +211,7 @@ public class RefusalToFillsBean extends MessagePartBean {
     /**
      * <p>Business Name: RefusalToFillReason</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.reasonCode</p>
      * 
@@ -224,7 +224,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.reasonCode</p>
      * 
@@ -237,7 +237,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.reasonCode</p>
      * 
@@ -249,7 +249,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.reasonCode</p>
      * 
@@ -262,7 +262,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.reasonCode</p>
      * 
@@ -275,7 +275,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.reasonCode</p>
      * 
@@ -296,7 +296,7 @@ public class RefusalToFillsBean extends MessagePartBean {
     /**
      * <p>Business Name: RefusalToFillReason</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.reasonCode</p>
      * 
@@ -309,7 +309,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.reasonCode</p>
      * 
@@ -322,7 +322,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.reasonCode</p>
      * 
@@ -334,7 +334,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.reasonCode</p>
      * 
@@ -347,7 +347,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.reasonCode</p>
      * 
@@ -360,7 +360,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
      * 
-     * <p>Other Business Name: RefusalToFillReason</p>
+     * <p>Un-merged Business Name: RefusalToFillReason</p>
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.reasonCode</p>
      * 
@@ -379,37 +379,37 @@ public class RefusalToFillsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.author</p>
      * 
@@ -421,37 +421,37 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.author</p>
      * 
@@ -463,37 +463,37 @@ public class RefusalToFillsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.location</p>
      * 
@@ -505,37 +505,37 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.location</p>
      * 
@@ -547,37 +547,37 @@ public class RefusalToFillsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060060CA.Reason2.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Reason.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Reason2.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Reason.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Reason2.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Reason.detectedIssueEvent</p>
      * 

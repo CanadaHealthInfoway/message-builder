@@ -83,7 +83,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
      * 
@@ -95,7 +95,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
      * 
@@ -109,7 +109,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     /**
      * <p>Business Name: AdjudicatedResultsIdentifier</p>
      * 
-     * <p>Other Business Name: AdjudicatedResultsIdentifier</p>
+     * <p>Un-merged Business Name: AdjudicatedResultsIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.id</p>
@@ -124,7 +124,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
      * (manual) is through the participation mode code for the 
      * adjudicator.</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.id</p>
@@ -145,7 +145,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     /**
      * <p>Business Name: AdjudicatedResultsIdentifier</p>
      * 
-     * <p>Other Business Name: AdjudicatedResultsIdentifier</p>
+     * <p>Un-merged Business Name: AdjudicatedResultsIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.id</p>
@@ -160,7 +160,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
      * (manual) is through the participation mode code for the 
      * adjudicator.</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.id</p>
@@ -181,7 +181,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     /**
      * <p>Business Name: InvoiceType</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.code</p>
@@ -211,7 +211,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.code</p>
@@ -238,7 +238,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     /**
      * <p>Business Name: InvoiceType</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.code</p>
@@ -268,7 +268,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
      * <p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx 
      * Compound, Healthcare Goods, Preferred Accomodation</p>
      * 
-     * <p>Other Business Name: InvoiceType</p>
+     * <p>Un-merged Business Name: InvoiceType</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.code</p>
@@ -295,7 +295,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     /**
      * <p>Business Name: StatusOfTheAdjudicatedInvoice</p>
      * 
-     * <p>Other Business Name: StatusOfTheAdjudicatedInvoice</p>
+     * <p>Un-merged Business Name: StatusOfTheAdjudicatedInvoice</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.statusCode</p>
@@ -337,7 +337,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     /**
      * <p>Business Name: StatusOfTheAdjudicatedInvoice</p>
      * 
-     * <p>Other Business Name: StatusOfTheAdjudicatedInvoice</p>
+     * <p>Un-merged Business Name: StatusOfTheAdjudicatedInvoice</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.statusCode</p>
@@ -379,7 +379,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     /**
      * <p>Business Name: PaidAmount</p>
      * 
-     * <p>Other Business Name: PaidAmount</p>
+     * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
@@ -392,7 +392,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
      * 
      * <p>Paid Amount</p>
      * 
-     * <p>Other Business Name: PaidAmount</p>
+     * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
@@ -414,7 +414,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     /**
      * <p>Business Name: PaidAmount</p>
      * 
-     * <p>Other Business Name: PaidAmount</p>
+     * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
@@ -427,7 +427,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
      * 
      * <p>Paid Amount</p>
      * 
-     * <p>Other Business Name: PaidAmount</p>
+     * <p>Un-merged Business Name: PaidAmount</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.netAmt</p>
@@ -447,14 +447,14 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.author</p>
@@ -467,14 +467,14 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.author</p>
@@ -487,7 +487,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoicePredecessor.adjudicatedInvoiceElementGroup</p>
@@ -500,7 +500,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoicePredecessor.adjudicatedInvoiceElementGroup</p>
@@ -513,7 +513,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.Reference2.adjudicatedInvoiceElementGroup</p>
@@ -527,7 +527,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.coverage</p>
@@ -541,7 +541,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.component</p>
@@ -555,7 +555,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsRef.adjudResultsGroup</p>
@@ -568,7 +568,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsRef.adjudResultsGroup</p>
@@ -581,7 +581,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.outcomeOf</p>
@@ -594,7 +594,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean implements
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.outcomeOf</p>

@@ -76,13 +76,13 @@ public class PriorTestRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Other Business Name: PriorTestIdentifier</p>
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001000CA.PriorActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PriorTestIdentifier</p>
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001999CA.PriorActRequest.id</p>
      * 
@@ -95,7 +95,7 @@ public class PriorTestRequestBean extends MessagePartBean {
      * <p>Uniquely identifies this test request among all test 
      * requests in the receiving application.</p>
      * 
-     * <p>Other Business Name: PriorTestIdentifier</p>
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001001CA.PriorActRequest.id</p>
      * 
@@ -108,7 +108,7 @@ public class PriorTestRequestBean extends MessagePartBean {
      * <p>Uniquely identifies this test request among all test 
      * requests in the receiving application.</p>
      * 
-     * <p>Other Business Name: PriorTestIdentifier</p>
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001010CA.PriorActRequest.id</p>
      * 
@@ -129,13 +129,13 @@ public class PriorTestRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: PriorTestIdentifier</p>
      * 
-     * <p>Other Business Name: PriorTestIdentifier</p>
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001000CA.PriorActRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PriorTestIdentifier</p>
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001999CA.PriorActRequest.id</p>
      * 
@@ -148,7 +148,7 @@ public class PriorTestRequestBean extends MessagePartBean {
      * <p>Uniquely identifies this test request among all test 
      * requests in the receiving application.</p>
      * 
-     * <p>Other Business Name: PriorTestIdentifier</p>
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001001CA.PriorActRequest.id</p>
      * 
@@ -161,7 +161,7 @@ public class PriorTestRequestBean extends MessagePartBean {
      * <p>Uniquely identifies this test request among all test 
      * requests in the receiving application.</p>
      * 
-     * <p>Other Business Name: PriorTestIdentifier</p>
+     * <p>Un-merged Business Name: PriorTestIdentifier</p>
      * 
      * <p>Relationship: POLB_MT001010CA.PriorActRequest.id</p>
      * 
@@ -182,13 +182,13 @@ public class PriorTestRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: PriorTestStatus</p>
      * 
-     * <p>Other Business Name: PriorTestStatus</p>
+     * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
      * <p>Relationship: POLB_MT001000CA.PriorActRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PriorTestStatus</p>
+     * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
      * <p>Relationship: POLB_MT001999CA.PriorActRequest.statusCode</p>
      * 
@@ -198,7 +198,7 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>The status of the prior test request.</p>
      * 
-     * <p>Other Business Name: PriorTestStatus</p>
+     * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
      * <p>Relationship: POLB_MT001001CA.PriorActRequest.statusCode</p>
      * 
@@ -208,7 +208,7 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>The status of the prior test request.</p>
      * 
-     * <p>Other Business Name: PriorTestStatus</p>
+     * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
      * <p>Relationship: POLB_MT001010CA.PriorActRequest.statusCode</p>
      * 
@@ -226,13 +226,13 @@ public class PriorTestRequestBean extends MessagePartBean {
     /**
      * <p>Business Name: PriorTestStatus</p>
      * 
-     * <p>Other Business Name: PriorTestStatus</p>
+     * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
      * <p>Relationship: POLB_MT001000CA.PriorActRequest.statusCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: PriorTestStatus</p>
+     * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
      * <p>Relationship: POLB_MT001999CA.PriorActRequest.statusCode</p>
      * 
@@ -242,7 +242,7 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>The status of the prior test request.</p>
      * 
-     * <p>Other Business Name: PriorTestStatus</p>
+     * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
      * <p>Relationship: POLB_MT001001CA.PriorActRequest.statusCode</p>
      * 
@@ -252,7 +252,7 @@ public class PriorTestRequestBean extends MessagePartBean {
      * 
      * <p>The status of the prior test request.</p>
      * 
-     * <p>Other Business Name: PriorTestStatus</p>
+     * <p>Un-merged Business Name: PriorTestStatus</p>
      * 
      * <p>Relationship: POLB_MT001010CA.PriorActRequest.statusCode</p>
      * 

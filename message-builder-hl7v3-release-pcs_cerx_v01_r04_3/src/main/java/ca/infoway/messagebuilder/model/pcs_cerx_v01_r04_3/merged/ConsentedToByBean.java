@@ -71,7 +71,7 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Other Business Name: PatientConsentMechanism</p>
+     * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
      * <p>Relationship: COCT_MT470000CA.Author.modeCode</p>
      * 
@@ -83,7 +83,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Indicates whether the patient's consent is written or 
      * verbal.</p>
      * 
-     * <p>Other Business Name: PatientConsentMechanism</p>
+     * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Author.modeCode</p>
      * 
@@ -103,7 +103,7 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: PatientConsentMechanism</p>
      * 
-     * <p>Other Business Name: PatientConsentMechanism</p>
+     * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
      * <p>Relationship: COCT_MT470000CA.Author.modeCode</p>
      * 
@@ -115,7 +115,7 @@ public class ConsentedToByBean extends MessagePartBean {
      * <p>Indicates whether the patient's consent is written or 
      * verbal.</p>
      * 
-     * <p>Other Business Name: PatientConsentMechanism</p>
+     * <p>Un-merged Business Name: PatientConsentMechanism</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Author.modeCode</p>
      * 
@@ -135,7 +135,7 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: Keyword</p>
      * 
-     * <p>Other Business Name: Keyword</p>
+     * <p>Un-merged Business Name: Keyword</p>
      * 
      * <p>Relationship: COCT_MT470000CA.Author.signatureText</p>
      * 
@@ -155,7 +155,7 @@ public class ConsentedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: Keyword</p>
      * 
-     * <p>Other Business Name: Keyword</p>
+     * <p>Un-merged Business Name: Keyword</p>
      * 
      * <p>Relationship: COCT_MT470000CA.Author.signatureText</p>
      * 
@@ -173,13 +173,13 @@ public class ConsentedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470000CA.Author.consenter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Author.consenter</p>
      * 
@@ -191,13 +191,13 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT470000CA.Author.consenter</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Author.consenter</p>
      * 

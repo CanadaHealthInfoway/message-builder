@@ -86,7 +86,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceDispense.id</p>
      * 
@@ -97,7 +97,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Allows formal tracking of centrally recorded dispenses to 
      * local records for audit and related purposes.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: PORX_MT060020CA.DeviceDispense.id</p>
      * 
@@ -133,7 +133,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceDispense.id</p>
      * 
@@ -144,7 +144,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Allows formal tracking of centrally recorded dispenses to 
      * local records for audit and related purposes.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseNumber</p>
      * 
      * <p>Relationship: PORX_MT060020CA.DeviceDispense.id</p>
      * 
@@ -180,7 +180,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionMaskingIndicators</p>
      * 
-     * <p>Other Business Name: PrescriptionMaskingIndicators</p>
+     * <p>Un-merged Business Name: PrescriptionMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.DeviceDispense.confidentialityCode</p>
@@ -241,7 +241,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * prescription being dispensed. (There's no point in masking a 
      * dispense if the prescription is unmasked.)</p>
      * 
-     * <p>Other Business Name: PrescriptionMaskingIndicators</p>
+     * <p>Un-merged Business Name: PrescriptionMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.DeviceDispense.confidentialityCode</p>
@@ -345,7 +345,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceDispense.subject</p>
      * 
@@ -357,7 +357,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceDispense.subject</p>
      * 
@@ -369,7 +369,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.InFulfillmentOf1.deviceRequest</p>
@@ -382,7 +382,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.InFulfillmentOf1.deviceRequest</p>
@@ -395,7 +395,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.Component11.procedureRequest</p>
@@ -408,7 +408,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020060CA.Component11.procedureRequest</p>
@@ -421,13 +421,13 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.Component.supplyEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.Component2.supplyEvent</p>
      * 
@@ -444,13 +444,13 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.Component.supplyEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.Component2.supplyEvent</p>
      * 
@@ -462,7 +462,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.Subject7.annotation</p>
      * 
@@ -474,7 +474,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT020060CA.Subject7.annotation</p>
      * 
@@ -488,7 +488,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: PORX_MT060020CA.DeviceDispense.statusCode</p>
      * 
@@ -513,7 +513,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>Other Business Name: DispenseStatus</p>
+     * <p>Un-merged Business Name: DispenseStatus</p>
      * 
      * <p>Relationship: PORX_MT060020CA.DeviceDispense.statusCode</p>
      * 
@@ -536,7 +536,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.ResponsibleParty.assignedEntity</p>
@@ -549,7 +549,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.ResponsibleParty.assignedEntity</p>
@@ -562,7 +562,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.Performer.assignedEntity</p>
      * 
@@ -574,7 +574,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.Performer.assignedEntity</p>
      * 
@@ -586,7 +586,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.DeviceDispense.location</p>
      * 
@@ -598,7 +598,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060020CA.DeviceDispense.location</p>
      * 
@@ -610,7 +610,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.InFulfillmentOf.supplyRequest</p>
@@ -623,7 +623,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.InFulfillmentOf.supplyRequest</p>
@@ -636,7 +636,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.Subject4.detectedIssueIndicator</p>
@@ -649,7 +649,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.Subject4.detectedIssueIndicator</p>
@@ -662,7 +662,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.Subject3.annotationIndicator</p>
@@ -675,7 +675,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060020CA.Subject3.annotationIndicator</p>

@@ -62,7 +62,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PrescriptionDispensableIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
      * 
@@ -79,7 +79,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * the prescription may no longer be dispensed, though it may 
      * still be administered.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseIndicator</p>
      * 
      * <p>Relationship: PORX_MT030040CA.SupplyRequest.statusCode</p>
      * 
@@ -101,7 +101,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PrescriptionDispensableIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionDispensableIndicator</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.statusCode</p>
      * 
@@ -118,7 +118,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * the prescription may no longer be dispensed, though it may 
      * still be administered.</p>
      * 
-     * <p>Other Business Name: PrescriptionDispenseIndicator</p>
+     * <p>Un-merged Business Name: PrescriptionDispenseIndicator</p>
      * 
      * <p>Relationship: PORX_MT030040CA.SupplyRequest.statusCode</p>
      * 
@@ -142,7 +142,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
      * 
@@ -159,7 +159,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT030040CA.SupplyRequest.quantity</p>
      * 
@@ -177,7 +177,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
      * 
@@ -201,7 +201,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalPrescribedQuantity</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.quantity</p>
      * 
@@ -218,7 +218,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT030040CA.SupplyRequest.quantity</p>
      * 
@@ -236,7 +236,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
      * aligning quantities), the initial standard fill plus all 
      * refills.</p>
      * 
-     * <p>Other Business Name: TotalPrescribedQuantity</p>
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
      * <p>Relationship: PORX_MT020070CA.SupplyRequest.quantity</p>
      * 
@@ -258,13 +258,13 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
      * 
@@ -276,13 +276,13 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
      * 
@@ -296,7 +296,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>Other Business Name: TotalDaysSupply</p>
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>
@@ -320,7 +320,7 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: TotalDaysSupply</p>
      * 
-     * <p>Other Business Name: TotalDaysSupply</p>
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
      * PORX_MT020070CA.SupplyRequest.expectedUseTime</p>

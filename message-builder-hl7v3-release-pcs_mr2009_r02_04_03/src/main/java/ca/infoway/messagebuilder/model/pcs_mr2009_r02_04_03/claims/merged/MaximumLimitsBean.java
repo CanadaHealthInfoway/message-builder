@@ -48,19 +48,19 @@ public class MaximumLimitsBean extends MessagePartBean {
     /**
      * <p>Business Name: MaximumFillsPermitted</p>
      * 
-     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * <p>Un-merged Business Name: MaximumFillsPermitted</p>
      * 
      * <p>Relationship: FICR_MT490102CA.MaximumLimits.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * <p>Un-merged Business Name: MaximumFillsPermitted</p>
      * 
      * <p>Relationship: FICR_MT400003CA.MaximumLimits.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * <p>Un-merged Business Name: MaximumFillsPermitted</p>
      * 
      * <p>Relationship: FICR_MT400004CA.MaximumLimits.repeatNumber</p>
      * 
@@ -74,19 +74,19 @@ public class MaximumLimitsBean extends MessagePartBean {
     /**
      * <p>Business Name: MaximumFillsPermitted</p>
      * 
-     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * <p>Un-merged Business Name: MaximumFillsPermitted</p>
      * 
      * <p>Relationship: FICR_MT490102CA.MaximumLimits.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * <p>Un-merged Business Name: MaximumFillsPermitted</p>
      * 
      * <p>Relationship: FICR_MT400003CA.MaximumLimits.repeatNumber</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumFillsPermitted</p>
+     * <p>Un-merged Business Name: MaximumFillsPermitted</p>
      * 
      * <p>Relationship: FICR_MT400004CA.MaximumLimits.repeatNumber</p>
      * 
@@ -100,19 +100,19 @@ public class MaximumLimitsBean extends MessagePartBean {
     /**
      * <p>Business Name: MaximumQuantitySupply</p>
      * 
-     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * <p>Un-merged Business Name: MaximumQuantitySupply</p>
      * 
      * <p>Relationship: FICR_MT490102CA.MaximumLimits.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * <p>Un-merged Business Name: MaximumQuantitySupply</p>
      * 
      * <p>Relationship: FICR_MT400003CA.MaximumLimits.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * <p>Un-merged Business Name: MaximumQuantitySupply</p>
      * 
      * <p>Relationship: FICR_MT400004CA.MaximumLimits.quantity</p>
      * 
@@ -126,19 +126,19 @@ public class MaximumLimitsBean extends MessagePartBean {
     /**
      * <p>Business Name: MaximumQuantitySupply</p>
      * 
-     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * <p>Un-merged Business Name: MaximumQuantitySupply</p>
      * 
      * <p>Relationship: FICR_MT490102CA.MaximumLimits.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * <p>Un-merged Business Name: MaximumQuantitySupply</p>
      * 
      * <p>Relationship: FICR_MT400003CA.MaximumLimits.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumQuantitySupply</p>
+     * <p>Un-merged Business Name: MaximumQuantitySupply</p>
      * 
      * <p>Relationship: FICR_MT400004CA.MaximumLimits.quantity</p>
      * 
@@ -152,21 +152,21 @@ public class MaximumLimitsBean extends MessagePartBean {
     /**
      * <p>Business Name: MaximumDaysSupply</p>
      * 
-     * <p>Other Business Name: MaximumDaysSupply</p>
+     * <p>Un-merged Business Name: MaximumDaysSupply</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.MaximumLimits.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumDaysSupply</p>
+     * <p>Un-merged Business Name: MaximumDaysSupply</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.MaximumLimits.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumDaysSupply</p>
+     * <p>Un-merged Business Name: MaximumDaysSupply</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.MaximumLimits.expectedUseTime</p>
@@ -181,21 +181,21 @@ public class MaximumLimitsBean extends MessagePartBean {
     /**
      * <p>Business Name: MaximumDaysSupply</p>
      * 
-     * <p>Other Business Name: MaximumDaysSupply</p>
+     * <p>Un-merged Business Name: MaximumDaysSupply</p>
      * 
      * <p>Relationship: 
      * FICR_MT490102CA.MaximumLimits.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumDaysSupply</p>
+     * <p>Un-merged Business Name: MaximumDaysSupply</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.MaximumLimits.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Other Business Name: MaximumDaysSupply</p>
+     * <p>Un-merged Business Name: MaximumDaysSupply</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.MaximumLimits.expectedUseTime</p>

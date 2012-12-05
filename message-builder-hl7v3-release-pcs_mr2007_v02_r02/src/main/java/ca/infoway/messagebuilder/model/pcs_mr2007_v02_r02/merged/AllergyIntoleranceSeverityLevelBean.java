@@ -108,7 +108,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
     /**
      * <p>Business Name: SeverityLevel</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
      * 
@@ -125,7 +125,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000009CA.SeverityObservation.value</p>
      * 
@@ -142,7 +142,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000001CA.SeverityObservation.value</p>
      * 
@@ -159,7 +159,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000006CA.SeverityObservation.value</p>
      * 
@@ -176,7 +176,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000013CA.SeverityObservation.value</p>
      * 
@@ -191,7 +191,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000012CA.SeverityObservation.value</p>
      * 
@@ -208,7 +208,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000005CA.SeverityObservation.value</p>
      * 
@@ -231,7 +231,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
     /**
      * <p>Business Name: SeverityLevel</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
      * 
@@ -248,7 +248,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000009CA.SeverityObservation.value</p>
      * 
@@ -265,7 +265,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000001CA.SeverityObservation.value</p>
      * 
@@ -282,7 +282,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000006CA.SeverityObservation.value</p>
      * 
@@ -299,7 +299,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000013CA.SeverityObservation.value</p>
      * 
@@ -314,7 +314,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000012CA.SeverityObservation.value</p>
      * 
@@ -331,7 +331,7 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
-     * <p>Other Business Name: SeverityLevel</p>
+     * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000005CA.SeverityObservation.value</p>
      * 

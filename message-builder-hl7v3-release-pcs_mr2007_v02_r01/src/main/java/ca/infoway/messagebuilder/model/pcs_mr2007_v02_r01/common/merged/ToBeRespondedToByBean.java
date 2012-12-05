@@ -94,7 +94,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
      * 
@@ -110,7 +110,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>Indicates the address to send acknowledgments of this 
      * message to.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.RespondTo.telecom</p>
      * 
@@ -126,7 +126,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>Indicates the address to send acknowledgments of this 
      * message to.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.RespondTo.telecom</p>
      * 
@@ -142,7 +142,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>Indicates the address to send acknowledgments of this 
      * message to.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.RespondTo.telecom</p>
      * 
@@ -166,7 +166,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
      * 
@@ -182,7 +182,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>Indicates the address to send acknowledgments of this 
      * message to.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.RespondTo.telecom</p>
      * 
@@ -198,7 +198,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>Indicates the address to send acknowledgments of this 
      * message to.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.RespondTo.telecom</p>
      * 
@@ -214,7 +214,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * <p>Indicates the address to send acknowledgments of this 
      * message to.</p>
      * 
-     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * <p>Un-merged Business Name: RespondToNetworkAddress</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.RespondTo.telecom</p>
      * 
@@ -238,7 +238,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
      * 
@@ -255,7 +255,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * responses should be sent. Only populated when different from 
      * the sending application id.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device3.id</p>
      * 
@@ -272,7 +272,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * responses should be sent. Only populated when different from 
      * the sending application id.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device3.id</p>
      * 
@@ -289,7 +289,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * responses should be sent. Only populated when different from 
      * the sending application id.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device3.id</p>
      * 
@@ -314,7 +314,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     /**
      * <p>Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
      * 
@@ -331,7 +331,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * responses should be sent. Only populated when different from 
      * the sending application id.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.Device3.id</p>
      * 
@@ -348,7 +348,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * responses should be sent. Only populated when different from 
      * the sending application id.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002200CA.Device3.id</p>
      * 
@@ -365,7 +365,7 @@ public class ToBeRespondedToByBean extends MessagePartBean {
      * responses should be sent. Only populated when different from 
      * the sending application id.</p>
      * 
-     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * <p>Un-merged Business Name: RespondToApplicationIdentifier</p>
      * 
      * <p>Relationship: MCCI_MT002100CA.Device3.id</p>
      * 

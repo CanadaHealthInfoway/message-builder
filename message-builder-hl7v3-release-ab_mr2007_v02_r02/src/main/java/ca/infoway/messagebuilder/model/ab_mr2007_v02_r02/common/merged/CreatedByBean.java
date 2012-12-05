@@ -71,7 +71,7 @@ public class CreatedByBean extends MessagePartBean {
     /**
      * <p>Business Name: TimeOfCreation</p>
      * 
-     * <p>Other Business Name: TimeOfCreation</p>
+     * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.Author.time</p>
      * 
@@ -96,7 +96,7 @@ public class CreatedByBean extends MessagePartBean {
      * <p>The time a change is made is a critical piece of audit 
      * information and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: TimeOfCreation</p>
+     * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Author.time</p>
      * 
@@ -129,7 +129,7 @@ public class CreatedByBean extends MessagePartBean {
     /**
      * <p>Business Name: TimeOfCreation</p>
      * 
-     * <p>Other Business Name: TimeOfCreation</p>
+     * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.Author.time</p>
      * 
@@ -154,7 +154,7 @@ public class CreatedByBean extends MessagePartBean {
      * <p>The time a change is made is a critical piece of audit 
      * information and is therefore mandatory.</p>
      * 
-     * <p>Other Business Name: TimeOfCreation</p>
+     * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Author.time</p>
      * 
@@ -187,7 +187,7 @@ public class CreatedByBean extends MessagePartBean {
     /**
      * <p>Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Other Business Name: InformationReceivedMethod</p>
+     * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.Author.modeCode</p>
      * 
@@ -199,7 +199,7 @@ public class CreatedByBean extends MessagePartBean {
      * <p>May have ramifications for the audit trail and 
      * reliability of the information.</p>
      * 
-     * <p>Other Business Name: InformationReceivedMethod</p>
+     * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Author.modeCode</p>
      * 
@@ -219,7 +219,7 @@ public class CreatedByBean extends MessagePartBean {
     /**
      * <p>Business Name: InformationReceivedMethod</p>
      * 
-     * <p>Other Business Name: InformationReceivedMethod</p>
+     * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.Author.modeCode</p>
      * 
@@ -231,7 +231,7 @@ public class CreatedByBean extends MessagePartBean {
      * <p>May have ramifications for the audit trail and 
      * reliability of the information.</p>
      * 
-     * <p>Other Business Name: InformationReceivedMethod</p>
+     * <p>Un-merged Business Name: InformationReceivedMethod</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Author.modeCode</p>
      * 
@@ -251,7 +251,7 @@ public class CreatedByBean extends MessagePartBean {
     /**
      * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.Author.signatureText</p>
      * 
@@ -265,7 +265,7 @@ public class CreatedByBean extends MessagePartBean {
      * it is not yet clear whether there is a use-case for this, or 
      * where it will be used.</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Author.signatureText</p>
      * 
@@ -287,7 +287,7 @@ public class CreatedByBean extends MessagePartBean {
     /**
      * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.Author.signatureText</p>
      * 
@@ -301,7 +301,7 @@ public class CreatedByBean extends MessagePartBean {
      * it is not yet clear whether there is a use-case for this, or 
      * where it will be used.</p>
      * 
-     * <p>Other Business Name: DigitalSignature</p>
+     * <p>Un-merged Business Name: DigitalSignature</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Author.signatureText</p>
      * 
@@ -321,13 +321,13 @@ public class CreatedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Author.authorPerson</p>
      * 
@@ -339,13 +339,13 @@ public class CreatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700751CA.Author.authorPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Author.authorPerson</p>
      * 

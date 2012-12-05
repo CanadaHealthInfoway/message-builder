@@ -39,7 +39,7 @@ public class SequelToBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderOfInformRequests</p>
      * 
-     * <p>Other Business Name: OrderOfInformRequests</p>
+     * <p>Un-merged Business Name: OrderOfInformRequests</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.SequelTo.sequenceNumber</p>
      * 
@@ -49,7 +49,7 @@ public class SequelToBean extends MessagePartBean {
      * 
      * <p>Allows each Inform Request to be sequentially listed.</p>
      * 
-     * <p>Other Business Name: OrderOfInformRequests</p>
+     * <p>Un-merged Business Name: OrderOfInformRequests</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.SequelTo.sequenceNumber</p>
      * 
@@ -65,7 +65,7 @@ public class SequelToBean extends MessagePartBean {
     /**
      * <p>Business Name: OrderOfInformRequests</p>
      * 
-     * <p>Other Business Name: OrderOfInformRequests</p>
+     * <p>Un-merged Business Name: OrderOfInformRequests</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.SequelTo.sequenceNumber</p>
      * 
@@ -75,7 +75,7 @@ public class SequelToBean extends MessagePartBean {
      * 
      * <p>Allows each Inform Request to be sequentially listed.</p>
      * 
-     * <p>Other Business Name: OrderOfInformRequests</p>
+     * <p>Un-merged Business Name: OrderOfInformRequests</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.SequelTo.sequenceNumber</p>
      * 
@@ -89,13 +89,13 @@ public class SequelToBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.SequelTo.informRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.SequelTo.informRequest</p>
      * 
@@ -107,13 +107,13 @@ public class SequelToBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.SequelTo.informRequest</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.SequelTo.informRequest</p>
      * 

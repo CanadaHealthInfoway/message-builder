@@ -64,7 +64,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationTypeReportableIndicator</p>
      * 
-     * <p>Other Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.ReportableTestIndicator.code</p>
@@ -75,7 +75,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * associated result is reportable to an agency, ministry, 
      * study, etc.</p>
      * 
-     * <p>Other Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.ReportableTestIndicator.code</p>
@@ -85,7 +85,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * <p>Describes this observation as an indicator as to whether 
      * or not this result is to be reported to public health.</p>
      * 
-     * <p>Other Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.ReportableTestIndicator.code</p>
@@ -103,7 +103,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationTypeReportableIndicator</p>
      * 
-     * <p>Other Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.ReportableTestIndicator.code</p>
@@ -114,7 +114,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * associated result is reportable to an agency, ministry, 
      * study, etc.</p>
      * 
-     * <p>Other Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.ReportableTestIndicator.code</p>
@@ -124,7 +124,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * <p>Describes this observation as an indicator as to whether 
      * or not this result is to be reported to public health.</p>
      * 
-     * <p>Other Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.ReportableTestIndicator.code</p>
@@ -142,7 +142,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: ReportableIndicator</p>
      * 
-     * <p>Other Business Name: ReportableIndicator</p>
+     * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.ReportableTestIndicator.value</p>
@@ -152,7 +152,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * <p>This boolean value set whether this result is reportable. 
      * True=reportable, false=not reportable.</p>
      * 
-     * <p>Other Business Name: ReportableIndicator</p>
+     * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.ReportableTestIndicator.value</p>
@@ -161,7 +161,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * 
      * <p>Report test and test results to another entity.</p>
      * 
-     * <p>Other Business Name: ReportableIndicator</p>
+     * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.ReportableTestIndicator.value</p>
@@ -180,7 +180,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: ReportableIndicator</p>
      * 
-     * <p>Other Business Name: ReportableIndicator</p>
+     * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.ReportableTestIndicator.value</p>
@@ -190,7 +190,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * <p>This boolean value set whether this result is reportable. 
      * True=reportable, false=not reportable.</p>
      * 
-     * <p>Other Business Name: ReportableIndicator</p>
+     * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.ReportableTestIndicator.value</p>
@@ -199,7 +199,7 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * 
      * <p>Report test and test results to another entity.</p>
      * 
-     * <p>Other Business Name: ReportableIndicator</p>
+     * <p>Un-merged Business Name: ReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.ReportableTestIndicator.value</p>

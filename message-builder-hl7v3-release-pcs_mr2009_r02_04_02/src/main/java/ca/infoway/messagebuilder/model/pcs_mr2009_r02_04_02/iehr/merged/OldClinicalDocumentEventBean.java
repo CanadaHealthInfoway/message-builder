@@ -39,7 +39,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT210003CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -63,7 +63,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT220003CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -87,7 +87,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT220001CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -111,7 +111,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT230003CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -135,7 +135,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT220002CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -159,7 +159,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT230001CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -183,7 +183,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT210002CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -207,7 +207,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT230002CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -231,7 +231,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT210001CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -245,7 +245,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT210003CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -269,7 +269,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT220003CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -293,7 +293,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT220001CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -317,7 +317,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT230003CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -341,7 +341,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT220002CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -365,7 +365,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT230001CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -389,7 +389,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT210002CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -413,7 +413,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT230002CA.OldClinicalDocumentEvent.id</p>
      * 
@@ -437,7 +437,7 @@ public class OldClinicalDocumentEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT210001CA.OldClinicalDocumentEvent.id</p>
      * 

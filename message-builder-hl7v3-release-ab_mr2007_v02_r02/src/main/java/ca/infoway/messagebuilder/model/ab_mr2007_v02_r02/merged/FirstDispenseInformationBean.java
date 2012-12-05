@@ -84,7 +84,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstDispensePickupDate</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -100,7 +100,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance.</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -116,7 +116,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -132,7 +132,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -152,7 +152,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: FirstDispensePickupDate</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -168,7 +168,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance.</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -184,7 +184,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -200,7 +200,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance</p>
      * 
-     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * <p>Un-merged Business Name: FirstDispensePickupDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventFirstSummary.effectiveTime</p>
@@ -218,7 +218,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: FirstQuantityDispense</p>
+     * <p>Un-merged Business Name: FirstQuantityDispense</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventFirstSummary.quantity</p>
@@ -238,7 +238,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * known, the quantity must be known and therefore is 
      * mandatory</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventFirstSummary.quantity</p>
@@ -258,7 +258,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * known if the first dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventFirstSummary.quantity</p>
@@ -278,7 +278,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * known if the first dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventFirstSummary.quantity</p>
@@ -304,7 +304,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: FirstQuantityDispense</p>
+     * <p>Un-merged Business Name: FirstQuantityDispense</p>
      * 
      * <p>Relationship: 
      * PORX_MT030040CA.SupplyEventFirstSummary.quantity</p>
@@ -324,7 +324,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * known, the quantity must be known and therefore is 
      * mandatory</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060190CA.SupplyEventFirstSummary.quantity</p>
@@ -344,7 +344,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * known if the first dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.SupplyEventFirstSummary.quantity</p>
@@ -364,7 +364,7 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * known if the first dispense is known, this attribute is 
      * mandatory.</p>
      * 
-     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * <p>Un-merged Business Name: FirstQuantityDispensed</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.SupplyEventFirstSummary.quantity</p>

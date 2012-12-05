@@ -62,7 +62,7 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
      * 
@@ -83,7 +83,7 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
      * because the DIS will always assign a Prescription Order 
      * Number.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.SubstanceAdministrationRequest.id</p>
@@ -113,7 +113,7 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
      * 
@@ -134,7 +134,7 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
      * because the DIS will always assign a Prescription Order 
      * Number.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.SubstanceAdministrationRequest.id</p>
@@ -162,14 +162,14 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ResponsibleParty3.assignedEntity</p>
@@ -182,14 +182,14 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ResponsibleParty3.assignedEntity</p>
@@ -204,7 +204,7 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author5.time</p>
      * 
@@ -225,7 +225,7 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author5.time</p>
      * 
@@ -254,7 +254,7 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author5.time</p>
      * 
@@ -275,7 +275,7 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author5.time</p>
      * 
@@ -302,13 +302,13 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author5.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author5.assignedEntity</p>
      * 
@@ -320,13 +320,13 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060010CA.Author5.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Author5.assignedEntity</p>
      * 

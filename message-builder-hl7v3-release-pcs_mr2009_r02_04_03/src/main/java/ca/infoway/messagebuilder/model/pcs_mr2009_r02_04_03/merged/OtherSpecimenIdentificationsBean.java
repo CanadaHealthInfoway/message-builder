@@ -87,7 +87,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: OtherSpecimenIdentifiers</p>
+     * <p>Un-merged Business Name: OtherSpecimenIdentifiers</p>
      * 
      * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.id</p>
      * 
@@ -99,7 +99,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Associated specimen identifiers.</p>
      * 
-     * <p>Other Business Name: OtherIdentifier</p>
+     * <p>Un-merged Business Name: OtherIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050007CA.IdentifiedEntity.id</p>
      * 
@@ -111,7 +111,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * <p>Alternate Identifiers for the Patient (e.g., Drivers 
      * License number, Health insurance number).</p>
      * 
-     * <p>Other Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
      * 
@@ -131,7 +131,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: OtherSpecimenIdentifiers</p>
+     * <p>Un-merged Business Name: OtherSpecimenIdentifiers</p>
      * 
      * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.id</p>
      * 
@@ -143,7 +143,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Associated specimen identifiers.</p>
      * 
-     * <p>Other Business Name: OtherIdentifier</p>
+     * <p>Un-merged Business Name: OtherIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050007CA.IdentifiedEntity.id</p>
      * 
@@ -155,7 +155,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * <p>Alternate Identifiers for the Patient (e.g., Drivers 
      * License number, Health insurance number).</p>
      * 
-     * <p>Other Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
      * 
@@ -175,7 +175,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: OtherSpecimenIdentifierType</p>
+     * <p>Un-merged Business Name: OtherSpecimenIdentifierType</p>
      * 
      * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.code</p>
      * 
@@ -186,7 +186,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * <p>Describes the type of other specimen identifier 
      * (referral, primary, etc.)</p>
      * 
-     * <p>Other Business Name: OtherIdentifierType</p>
+     * <p>Un-merged Business Name: OtherIdentifierType</p>
      * 
      * <p>Relationship: COCT_MT050007CA.IdentifiedEntity.code</p>
      * 
@@ -203,7 +203,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: OtherSpecimenIdentifierType</p>
+     * <p>Un-merged Business Name: OtherSpecimenIdentifierType</p>
      * 
      * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.code</p>
      * 
@@ -214,7 +214,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * <p>Describes the type of other specimen identifier 
      * (referral, primary, etc.)</p>
      * 
-     * <p>Other Business Name: OtherIdentifierType</p>
+     * <p>Un-merged Business Name: OtherIdentifierType</p>
      * 
      * <p>Relationship: COCT_MT050007CA.IdentifiedEntity.code</p>
      * 
@@ -231,7 +231,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT080100CA.IdentifiedEntity.assigningOrganization</p>
@@ -244,7 +244,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT080100CA.IdentifiedEntity.assigningOrganization</p>
@@ -259,7 +259,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientName</p>
      * 
-     * <p>Other Business Name: ClientName</p>
+     * <p>Un-merged Business Name: ClientName</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.Person.name</p>
      * 
@@ -279,7 +279,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientGender</p>
      * 
-     * <p>Other Business Name: ClientGender</p>
+     * <p>Un-merged Business Name: ClientGender</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101003CA.Person.administrativeGenderCode</p>
@@ -302,7 +302,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientGender</p>
      * 
-     * <p>Other Business Name: ClientGender</p>
+     * <p>Un-merged Business Name: ClientGender</p>
      * 
      * <p>Relationship: 
      * PRPA_MT101003CA.Person.administrativeGenderCode</p>
@@ -325,7 +325,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Other Business Name: ClientDateOfBirth</p>
+     * <p>Un-merged Business Name: ClientDateOfBirth</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.Person.birthTime</p>
      * 
@@ -344,7 +344,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Other Business Name: ClientDateOfBirth</p>
+     * <p>Un-merged Business Name: ClientDateOfBirth</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.Person.birthTime</p>
      * 

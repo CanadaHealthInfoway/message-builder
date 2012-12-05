@@ -220,7 +220,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.Subject2.contextConductionInd</p>
@@ -245,7 +245,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * event and add to any subject(s) (issues) already 
      * present).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.Subject2.contextConductionInd</p>
@@ -274,7 +274,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * payload and add to any data enterer(s) already present in 
      * the payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.Subject2.contextConductionInd</p>
@@ -299,7 +299,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * event and add to any subject(s) (issues) already 
      * present).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.Subject2.contextConductionInd</p>
@@ -328,7 +328,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * payload and add to any data enterer(s) already present in 
      * the payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.Subject2.contextConductionInd</p>
@@ -357,7 +357,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * payload and add to any data enterer(s) already present in 
      * the payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.Subject2.contextConductionInd</p>
@@ -386,7 +386,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * payload and add to any data enterer(s) already present in 
      * the payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700217CA.Subject2.contextConductionInd</p>
@@ -415,7 +415,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * and add to any subject(s) (issues) already present in the 
      * payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700218CA.Subject2.contextConductionInd</p>
@@ -439,7 +439,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120006CA.Subject2.contextConductionInd</p>
@@ -464,7 +464,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * event and add to any subject(s) (issues) already 
      * present).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700222CA.Subject2.contextConductionInd</p>
@@ -493,7 +493,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * payload and add to any data enterer(s) already present in 
      * the payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * QUQI_MT120008CA.Subject2.contextConductionInd</p>
@@ -518,7 +518,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * event and add to any subject(s) (issues) already 
      * present).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700211CA.Subject2.contextConductionInd</p>
@@ -547,7 +547,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * payload and add to any data enterer(s) already present in 
      * the payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700221CA.Subject2.contextConductionInd</p>
@@ -576,7 +576,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * payload and add to any data enterer(s) already present in 
      * the payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700212CA.Subject2.contextConductionInd</p>
@@ -605,7 +605,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * payload and add to any data enterer(s) already present in 
      * the payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700217CA.Subject2.contextConductionInd</p>
@@ -634,7 +634,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * and add to any subject(s) (issues) already present in the 
      * payload).</p>
      * 
-     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
      * 
      * <p>Relationship: 
      * MCAI_MT700218CA.Subject2.contextConductionInd</p>
@@ -656,79 +656,79 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
      * 
@@ -740,79 +740,79 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120008CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700227CA.Subject2.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
      * 

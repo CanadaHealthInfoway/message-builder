@@ -82,7 +82,7 @@ public class AvailableServicesBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceType</p>
      * 
-     * <p>Other Business Name: ServiceType</p>
+     * <p>Un-merged Business Name: ServiceType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.ServiceDefinition.code</p>
      * 
@@ -94,7 +94,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Describes the kind of health-related service being 
      * offered.</p>
      * 
-     * <p>Other Business Name: ServiceType</p>
+     * <p>Un-merged Business Name: ServiceType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.ServiceDefinition.code</p>
      * 
@@ -106,7 +106,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Describes the kind of health-related service being 
      * offered.</p>
      * 
-     * <p>Other Business Name: ServiceType</p>
+     * <p>Un-merged Business Name: ServiceType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.ServiceDefinition.code</p>
      * 
@@ -126,7 +126,7 @@ public class AvailableServicesBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceType</p>
      * 
-     * <p>Other Business Name: ServiceType</p>
+     * <p>Un-merged Business Name: ServiceType</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.ServiceDefinition.code</p>
      * 
@@ -138,7 +138,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Describes the kind of health-related service being 
      * offered.</p>
      * 
-     * <p>Other Business Name: ServiceType</p>
+     * <p>Un-merged Business Name: ServiceType</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.ServiceDefinition.code</p>
      * 
@@ -150,7 +150,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Describes the kind of health-related service being 
      * offered.</p>
      * 
-     * <p>Other Business Name: ServiceType</p>
+     * <p>Un-merged Business Name: ServiceType</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.ServiceDefinition.code</p>
      * 
@@ -170,7 +170,7 @@ public class AvailableServicesBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceAvailability</p>
      * 
-     * <p>Other Business Name: ServiceAvailability</p>
+     * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202301CA.ServiceDefinition.statusCode</p>
@@ -189,7 +189,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * offered in the past and may again be offered in the future, 
      * but not available right now).</p>
      * 
-     * <p>Other Business Name: ServiceAvailability</p>
+     * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202302CA.ServiceDefinition.statusCode</p>
@@ -208,7 +208,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * offered in the past and may again be offered in the future, 
      * but not available right now).</p>
      * 
-     * <p>Other Business Name: ServiceAvailability</p>
+     * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202303CA.ServiceDefinition.statusCode</p>
@@ -235,7 +235,7 @@ public class AvailableServicesBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceAvailability</p>
      * 
-     * <p>Other Business Name: ServiceAvailability</p>
+     * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202301CA.ServiceDefinition.statusCode</p>
@@ -254,7 +254,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * offered in the past and may again be offered in the future, 
      * but not available right now).</p>
      * 
-     * <p>Other Business Name: ServiceAvailability</p>
+     * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202302CA.ServiceDefinition.statusCode</p>
@@ -273,7 +273,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * offered in the past and may again be offered in the future, 
      * but not available right now).</p>
      * 
-     * <p>Other Business Name: ServiceAvailability</p>
+     * <p>Un-merged Business Name: ServiceAvailability</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202303CA.ServiceDefinition.statusCode</p>
@@ -300,7 +300,7 @@ public class AvailableServicesBean extends MessagePartBean {
     /**
      * <p>Business Name: ServiceAvailabilityTime</p>
      * 
-     * <p>Other Business Name: ServiceAvailabilityTime</p>
+     * <p>Un-merged Business Name: ServiceAvailabilityTime</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202301CA.ServiceDefinition.activityTime</p>
@@ -317,7 +317,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Specifies the time that a specific service is generally 
      * available. E.g. 8am to 7pm, Monday through Friday.</p>
      * 
-     * <p>Other Business Name: ServiceAvailabilityTime</p>
+     * <p>Un-merged Business Name: ServiceAvailabilityTime</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202302CA.ServiceDefinition.activityTime</p>
@@ -334,7 +334,7 @@ public class AvailableServicesBean extends MessagePartBean {
      * <p>Specifies the time that a specific service is generally 
      * available. E.g. 8am to 7pm, Monday through Friday.</p>
      * 
-     * <p>Other Business Name: ServiceAvailabilityTime</p>
+     * <p>Un-merged Business Name: ServiceAvailabilityTime</p>
      * 
      * <p>Relationship: 
      * PRPA_MT202303CA.ServiceDefinition.activityTime</p>

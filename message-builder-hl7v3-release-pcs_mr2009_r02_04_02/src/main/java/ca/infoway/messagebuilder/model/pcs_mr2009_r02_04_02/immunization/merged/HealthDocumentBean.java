@@ -73,7 +73,7 @@ public class HealthDocumentBean extends MessagePartBean {
     /**
      * <p>Business Name: HealthDocumentID</p>
      * 
-     * <p>Other Business Name: HealthDocumentID</p>
+     * <p>Un-merged Business Name: HealthDocumentID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.HealthDocument.id</p>
      * 
@@ -86,7 +86,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * <p>Identifies the health document that supports the 
      * historical immunization information.</p>
      * 
-     * <p>Other Business Name: HealthDocumentID</p>
+     * <p>Un-merged Business Name: HealthDocumentID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.HealthDocument.id</p>
      * 
@@ -99,7 +99,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * <p>Identifies the health document that supports the 
      * historical immunization information.</p>
      * 
-     * <p>Other Business Name: HealthDocumentID</p>
+     * <p>Un-merged Business Name: HealthDocumentID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.HealthDocument.id</p>
      * 
@@ -120,7 +120,7 @@ public class HealthDocumentBean extends MessagePartBean {
     /**
      * <p>Business Name: HealthDocumentID</p>
      * 
-     * <p>Other Business Name: HealthDocumentID</p>
+     * <p>Un-merged Business Name: HealthDocumentID</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.HealthDocument.id</p>
      * 
@@ -133,7 +133,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * <p>Identifies the health document that supports the 
      * historical immunization information.</p>
      * 
-     * <p>Other Business Name: HealthDocumentID</p>
+     * <p>Un-merged Business Name: HealthDocumentID</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.HealthDocument.id</p>
      * 
@@ -146,7 +146,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * <p>Identifies the health document that supports the 
      * historical immunization information.</p>
      * 
-     * <p>Other Business Name: HealthDocumentID</p>
+     * <p>Un-merged Business Name: HealthDocumentID</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.HealthDocument.id</p>
      * 
@@ -167,7 +167,7 @@ public class HealthDocumentBean extends MessagePartBean {
     /**
      * <p>Business Name: HealthDocumentTitle</p>
      * 
-     * <p>Other Business Name: HealthDocumentTitle</p>
+     * <p>Un-merged Business Name: HealthDocumentTitle</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.HealthDocument.title</p>
      * 
@@ -180,7 +180,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * 
      * <p>The title of the Health Document</p>
      * 
-     * <p>Other Business Name: HealthDocumentTitle</p>
+     * <p>Un-merged Business Name: HealthDocumentTitle</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.HealthDocument.title</p>
      * 
@@ -193,7 +193,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * 
      * <p>The title of the Health Document</p>
      * 
-     * <p>Other Business Name: HealthDocumentTitle</p>
+     * <p>Un-merged Business Name: HealthDocumentTitle</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.HealthDocument.title</p>
      * 
@@ -214,7 +214,7 @@ public class HealthDocumentBean extends MessagePartBean {
     /**
      * <p>Business Name: HealthDocumentTitle</p>
      * 
-     * <p>Other Business Name: HealthDocumentTitle</p>
+     * <p>Un-merged Business Name: HealthDocumentTitle</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.HealthDocument.title</p>
      * 
@@ -227,7 +227,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * 
      * <p>The title of the Health Document</p>
      * 
-     * <p>Other Business Name: HealthDocumentTitle</p>
+     * <p>Un-merged Business Name: HealthDocumentTitle</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.HealthDocument.title</p>
      * 
@@ -240,7 +240,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * 
      * <p>The title of the Health Document</p>
      * 
-     * <p>Other Business Name: HealthDocumentTitle</p>
+     * <p>Un-merged Business Name: HealthDocumentTitle</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.HealthDocument.title</p>
      * 
@@ -261,7 +261,7 @@ public class HealthDocumentBean extends MessagePartBean {
     /**
      * <p>Business Name: HealthDocumentText</p>
      * 
-     * <p>Other Business Name: HealthDocumentText</p>
+     * <p>Un-merged Business Name: HealthDocumentText</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.HealthDocument.text</p>
      * 
@@ -275,7 +275,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * <p>Contains the body of the health document that is the 
      * basis of the immunization information.</p>
      * 
-     * <p>Other Business Name: HealthDocumentText</p>
+     * <p>Un-merged Business Name: HealthDocumentText</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.HealthDocument.text</p>
      * 
@@ -289,7 +289,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * <p>Contains the body of the health document that is the 
      * basis of the immunization information.</p>
      * 
-     * <p>Other Business Name: HealthDocumentText</p>
+     * <p>Un-merged Business Name: HealthDocumentText</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.HealthDocument.text</p>
      * 
@@ -311,7 +311,7 @@ public class HealthDocumentBean extends MessagePartBean {
     /**
      * <p>Business Name: HealthDocumentText</p>
      * 
-     * <p>Other Business Name: HealthDocumentText</p>
+     * <p>Un-merged Business Name: HealthDocumentText</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.HealthDocument.text</p>
      * 
@@ -325,7 +325,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * <p>Contains the body of the health document that is the 
      * basis of the immunization information.</p>
      * 
-     * <p>Other Business Name: HealthDocumentText</p>
+     * <p>Un-merged Business Name: HealthDocumentText</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.HealthDocument.text</p>
      * 
@@ -339,7 +339,7 @@ public class HealthDocumentBean extends MessagePartBean {
      * <p>Contains the body of the health document that is the 
      * basis of the immunization information.</p>
      * 
-     * <p>Other Business Name: HealthDocumentText</p>
+     * <p>Un-merged Business Name: HealthDocumentText</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.HealthDocument.text</p>
      * 

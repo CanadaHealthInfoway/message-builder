@@ -80,7 +80,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.code</p>
@@ -103,7 +103,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * to ensure that measurements/observations are 
      * distinguishable.</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.code</p>
@@ -120,7 +120,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * specified. Code is mandatory to ensure that 
      * measurements/observations are distinguishable.</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.code</p>
@@ -151,7 +151,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.code</p>
@@ -174,7 +174,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * to ensure that measurements/observations are 
      * distinguishable.</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.code</p>
@@ -191,7 +191,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * specified. Code is mandatory to ensure that 
      * measurements/observations are distinguishable.</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.code</p>
@@ -220,7 +220,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
@@ -245,7 +245,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * measurement time must be known or a null flavor must be 
      * specified.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * PrescriptionPatientMeasurementTimestamp</p>
      * 
      * <p>Relationship: 
@@ -268,7 +268,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * determines the relevance of the information, this attribute 
      * is defined as 'populated'.</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
@@ -299,7 +299,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
@@ -324,7 +324,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * measurement time must be known or a null flavor must be 
      * specified.</p>
      * 
-     * <p>Other Business Name: 
+     * <p>Un-merged Business Name: 
      * PrescriptionPatientMeasurementTimestamp</p>
      * 
      * <p>Relationship: 
@@ -347,7 +347,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * determines the relevance of the information, this attribute 
      * is defined as 'populated'.</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
@@ -380,7 +380,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionPatientMeasuredValue</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.value</p>
@@ -421,7 +421,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * inferred</div> <p>from a secondary source (e.g. dispensing 
      * data).&nbsp;</p></p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.value</p>
@@ -446,7 +446,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * 'mandatory' to ensure that a value is supplied, if there is 
      * a measurement.</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.value</p>
@@ -489,7 +489,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionPatientMeasuredValue</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.value</p>
@@ -530,7 +530,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * inferred</div> <p>from a secondary source (e.g. dispensing 
      * data).&nbsp;</p></p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.value</p>
@@ -555,7 +555,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * 'mandatory' to ensure that a value is supplied, if there is 
      * a measurement.</p>
      * 
-     * <p>Other Business Name: PrescriptionPatientMeasuredValue</p>
+     * <p>Un-merged Business Name: PrescriptionPatientMeasuredValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.value</p>

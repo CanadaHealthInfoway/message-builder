@@ -84,7 +84,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationMeasurableEvent.id</p>
@@ -99,7 +99,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * weight, or lab record) for additional details when 
      * evaluating appropriateness of issue management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.id</p>
@@ -114,7 +114,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * weight, or lab record) for additional details when 
      * evaluating appropriateness of issue management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.id</p>
@@ -137,7 +137,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationIdentifier</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationMeasurableEvent.id</p>
@@ -152,7 +152,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * weight, or lab record) for additional details when 
      * evaluating appropriateness of issue management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.id</p>
@@ -167,7 +167,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * weight, or lab record) for additional details when 
      * evaluating appropriateness of issue management.</p>
      * 
-     * <p>Other Business Name: ObservationIdentifier</p>
+     * <p>Un-merged Business Name: ObservationIdentifier</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.id</p>
@@ -190,7 +190,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationType</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationMeasurableEvent.code</p>
@@ -209,7 +209,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.code</p>
@@ -228,7 +228,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.code</p>
@@ -255,7 +255,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationType</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationMeasurableEvent.code</p>
@@ -274,7 +274,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.code</p>
@@ -293,7 +293,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * essential to interpreting the rest of the information on the 
      * class.</p>
      * 
-     * <p>Other Business Name: ObservationType</p>
+     * <p>Un-merged Business Name: ObservationType</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.code</p>
@@ -318,7 +318,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
 
 
     /**
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -342,7 +342,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -368,7 +368,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * attribute is optional because not all systems will support 
      * masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -398,7 +398,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     }
 
     /**
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -422,7 +422,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * of the observation information.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -448,7 +448,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * attribute is optional because not all systems will support 
      * masking.</p>
      * 
-     * <p>Other Business Name: ObservationMaskedIndicator</p>
+     * <p>Un-merged Business Name: ObservationMaskedIndicator</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.confidentialityCode</p>
@@ -480,7 +480,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationValue</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationMeasurableEvent.value</p>
@@ -494,7 +494,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Provides unambiguous reference to the related measurable 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.value</p>
@@ -508,7 +508,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Provides unambiguous reference to the related measurable 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.value</p>
@@ -529,7 +529,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     /**
      * <p>Business Name: ObservationValue</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.ObservationMeasurableEvent.value</p>
@@ -543,7 +543,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Provides unambiguous reference to the related measurable 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.ObservationMeasurableEvent.value</p>
@@ -557,7 +557,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Provides unambiguous reference to the related measurable 
      * observation.</p>
      * 
-     * <p>Other Business Name: ObservationValue</p>
+     * <p>Un-merged Business Name: ObservationValue</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.ObservationMeasurableEvent.value</p>

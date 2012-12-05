@@ -72,7 +72,7 @@ public class ActRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: COMT_MT001101CA.ActRequest.id</p>
      * 
@@ -84,7 +84,7 @@ public class ActRequestBean extends MessagePartBean {
      * <p>The identifier assigned by the central system (EHR) to 
      * the Event record being referred to.</p>
      * 
-     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
      * 
      * <p>Relationship: PORX_MT010140CA.ActRequest.id</p>
      * 
@@ -101,7 +101,7 @@ public class ActRequestBean extends MessagePartBean {
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: COMT_MT001103CA.ActEvent.id</p>
      * 
@@ -113,7 +113,7 @@ public class ActRequestBean extends MessagePartBean {
      * <p>The identifier assigned by the central system (EHR) to 
      * the Event record being referred to.</p>
      * 
-     * <p>Other Business Name: RecordIds</p>
+     * <p>Un-merged Business Name: RecordIds</p>
      * 
      * <p>Relationship: COMT_MT001201CA.Role.id</p>
      * 
@@ -132,7 +132,7 @@ public class ActRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010140CA.Precondition.verificationEventCriterion</p>
@@ -145,7 +145,7 @@ public class ActRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT010140CA.Precondition.verificationEventCriterion</p>

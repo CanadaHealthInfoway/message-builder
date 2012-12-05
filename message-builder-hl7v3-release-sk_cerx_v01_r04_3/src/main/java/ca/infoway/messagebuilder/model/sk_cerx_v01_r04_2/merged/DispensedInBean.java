@@ -120,7 +120,7 @@ public class DispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
      * 
@@ -137,7 +137,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Content.quantity</p>
      * 
@@ -154,7 +154,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Content.quantity</p>
      * 
@@ -171,7 +171,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
      * 
@@ -188,7 +188,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
      * 
@@ -205,7 +205,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
      * 
@@ -228,7 +228,7 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
      * 
@@ -245,7 +245,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010100CA.Content.quantity</p>
      * 
@@ -262,7 +262,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: PackageQuantity</p>
+     * <p>Un-merged Business Name: PackageQuantity</p>
      * 
      * <p>Relationship: POME_MT010040CA.Content.quantity</p>
      * 
@@ -279,7 +279,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
      * 
@@ -296,7 +296,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
      * 
@@ -313,7 +313,7 @@ public class DispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>Other Business Name: DrugPackageQuantity</p>
+     * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
      * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
      * 
@@ -336,7 +336,7 @@ public class DispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
@@ -350,7 +350,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
      * 
@@ -364,7 +364,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
      * 
@@ -378,7 +378,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
      * 
@@ -392,7 +392,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
      * 
@@ -406,7 +406,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
      * 
@@ -426,7 +426,7 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
@@ -440,7 +440,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
      * 
@@ -454,7 +454,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: ContainerType</p>
+     * <p>Un-merged Business Name: ContainerType</p>
      * 
      * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
      * 
@@ -468,7 +468,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
      * 
@@ -482,7 +482,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
      * 
@@ -496,7 +496,7 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Other Business Name: DrugContainerType</p>
+     * <p>Un-merged Business Name: DrugContainerType</p>
      * 
      * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
      * 

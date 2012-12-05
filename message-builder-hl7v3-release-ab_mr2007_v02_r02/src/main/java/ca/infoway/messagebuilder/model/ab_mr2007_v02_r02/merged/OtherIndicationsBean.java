@@ -65,7 +65,7 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     /**
      * <p>Business Name: OtherIndication</p>
      * 
-     * <p>Other Business Name: OtherIndication</p>
+     * <p>Un-merged Business Name: OtherIndication</p>
      * 
      * <p>Relationship: COCT_MT120402CA.OtherIndication.code</p>
      * 
@@ -84,7 +84,7 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * indication such as administration of a contrast agent for a 
      * lab test.</p>
      * 
-     * <p>Other Business Name: OtherIndication</p>
+     * <p>Un-merged Business Name: OtherIndication</p>
      * 
      * <p>Relationship: PORX_MT980050CA.OtherIndication.code</p>
      * 
@@ -105,7 +105,7 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     /**
      * <p>Business Name: OtherIndication</p>
      * 
-     * <p>Other Business Name: OtherIndication</p>
+     * <p>Un-merged Business Name: OtherIndication</p>
      * 
      * <p>Relationship: COCT_MT120402CA.OtherIndication.code</p>
      * 
@@ -124,7 +124,7 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * indication such as administration of a contrast agent for a 
      * lab test.</p>
      * 
-     * <p>Other Business Name: OtherIndication</p>
+     * <p>Un-merged Business Name: OtherIndication</p>
      * 
      * <p>Relationship: PORX_MT980050CA.OtherIndication.code</p>
      * 
@@ -145,7 +145,7 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     /**
      * <p>Business Name: OtherIndicationAdHocDescription</p>
      * 
-     * <p>Other Business Name: OtherIndicationAdHocDescription</p>
+     * <p>Un-merged Business Name: OtherIndicationAdHocDescription</p>
      * 
      * <p>Relationship: COCT_MT120402CA.OtherIndication.text</p>
      * 
@@ -158,7 +158,7 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * it a diagnosis or symptom. Attribute as free form text is 
      * the only information allowed.</p>
      * 
-     * <p>Other Business Name: OtherIndicationAdHocDescription</p>
+     * <p>Un-merged Business Name: OtherIndicationAdHocDescription</p>
      * 
      * <p>Relationship: PORX_MT980050CA.OtherIndication.text</p>
      * 
@@ -179,7 +179,7 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     /**
      * <p>Business Name: OtherIndicationAdHocDescription</p>
      * 
-     * <p>Other Business Name: OtherIndicationAdHocDescription</p>
+     * <p>Un-merged Business Name: OtherIndicationAdHocDescription</p>
      * 
      * <p>Relationship: COCT_MT120402CA.OtherIndication.text</p>
      * 
@@ -192,7 +192,7 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * it a diagnosis or symptom. Attribute as free form text is 
      * the only information allowed.</p>
      * 
-     * <p>Other Business Name: OtherIndicationAdHocDescription</p>
+     * <p>Un-merged Business Name: OtherIndicationAdHocDescription</p>
      * 
      * <p>Relationship: PORX_MT980050CA.OtherIndication.text</p>
      * 

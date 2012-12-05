@@ -56,14 +56,14 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
     /**
      * <p>Business Name: TaxNumber</p>
      * 
-     * <p>Other Business Name: TaxNumber</p>
+     * <p>Un-merged Business Name: TaxNumber</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.ProviderBillingTaxAccount.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: TaxNumber</p>
+     * <p>Un-merged Business Name: TaxNumber</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.ProviderBillingTaxAccount.id</p>
@@ -78,14 +78,14 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
     /**
      * <p>Business Name: TaxNumber</p>
      * 
-     * <p>Other Business Name: TaxNumber</p>
+     * <p>Un-merged Business Name: TaxNumber</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.ProviderBillingTaxAccount.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: TaxNumber</p>
+     * <p>Un-merged Business Name: TaxNumber</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.ProviderBillingTaxAccount.id</p>
@@ -100,14 +100,14 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
     /**
      * <p>Business Name: ActInvoiceDetailscode</p>
      * 
-     * <p>Other Business Name: ActInvoiceDetailscode</p>
+     * <p>Un-merged Business Name: ActInvoiceDetailscode</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.ProviderBillingTaxAccount.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ActInvoiceDetailscode</p>
+     * <p>Un-merged Business Name: ActInvoiceDetailscode</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.ProviderBillingTaxAccount.code</p>
@@ -122,14 +122,14 @@ public class ProviderBillingTaxAccountBean extends MessagePartBean {
     /**
      * <p>Business Name: ActInvoiceDetailscode</p>
      * 
-     * <p>Other Business Name: ActInvoiceDetailscode</p>
+     * <p>Un-merged Business Name: ActInvoiceDetailscode</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.ProviderBillingTaxAccount.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: ActInvoiceDetailscode</p>
+     * <p>Un-merged Business Name: ActInvoiceDetailscode</p>
      * 
      * <p>Relationship: 
      * FICR_MT500201CA.ProviderBillingTaxAccount.code</p>

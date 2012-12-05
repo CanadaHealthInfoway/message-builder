@@ -99,7 +99,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.id</p>
      * 
@@ -116,7 +116,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.ControlActEvent.id</p>
      * 
@@ -141,7 +141,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.id</p>
      * 
@@ -158,7 +158,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
      * 
-     * <p>Other Business Name: EventIdentifier</p>
+     * <p>Un-merged Business Name: EventIdentifier</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.ControlActEvent.id</p>
      * 
@@ -183,7 +183,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Business Name: EventType</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.code</p>
      * 
@@ -194,7 +194,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.ControlActEvent.code</p>
      * 
@@ -213,7 +213,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Business Name: EventType</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.code</p>
      * 
@@ -224,7 +224,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
-     * <p>Other Business Name: EventType</p>
+     * <p>Un-merged Business Name: EventType</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.ControlActEvent.code</p>
      * 
@@ -243,7 +243,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700711CA.ControlActEvent.effectiveTime</p>
@@ -259,7 +259,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700716CA.ControlActEvent.effectiveTime</p>
@@ -283,7 +283,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700711CA.ControlActEvent.effectiveTime</p>
@@ -299,7 +299,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * activation) should begin and occasionally when it should 
      * end.</p>
      * 
-     * <p>Other Business Name: EventEffectivePeriod</p>
+     * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700716CA.ControlActEvent.effectiveTime</p>
@@ -323,7 +323,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Business Name: EventReason</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.reasonCode</p>
      * 
@@ -341,7 +341,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.ControlActEvent.reasonCode</p>
      * 
@@ -367,7 +367,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Business Name: EventReason</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.reasonCode</p>
      * 
@@ -385,7 +385,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * query, activation request, modification request) 
      * occurred.</p>
      * 
-     * <p>Other Business Name: EventReason</p>
+     * <p>Un-merged Business Name: EventReason</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.ControlActEvent.reasonCode</p>
      * 
@@ -409,7 +409,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700711CA.ResponsibleParty.assignedEntity</p>
@@ -422,7 +422,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700711CA.ResponsibleParty.assignedEntity</p>
@@ -435,7 +435,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.author</p>
      * 
@@ -447,7 +447,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.author</p>
      * 
@@ -459,7 +459,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.DataEnterer.entererChoice</p>
      * 
@@ -471,7 +471,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.DataEnterer.entererChoice</p>
      * 
@@ -483,7 +483,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700711CA.DataEntryLocation.serviceDeliveryLocation</p>
@@ -496,7 +496,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700711CA.DataEntryLocation.serviceDeliveryLocation</p>
@@ -509,7 +509,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.location</p>
      * 
@@ -521,7 +521,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.location</p>
      * 
@@ -533,13 +533,13 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.ControlActEvent.subject</p>
      * 
@@ -551,13 +551,13 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.ControlActEvent.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.ControlActEvent.subject</p>
      * 
@@ -569,7 +569,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700711CA.PertinentInformation.authorizationToken</p>
@@ -582,7 +582,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MFMI_MT700711CA.PertinentInformation.authorizationToken</p>
@@ -595,7 +595,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Subject3.consentEvent</p>
      * 
@@ -607,7 +607,7 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Subject3.consentEvent</p>
      * 
@@ -619,13 +619,13 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700711CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MFMI_MT700716CA.Subject.detectedIssueEvent</p>
      * 

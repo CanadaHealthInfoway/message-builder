@@ -89,7 +89,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
@@ -224,7 +224,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * client registry, it's possible that no identifier will be 
      * known and therefore the attribute is only 'populated'.</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.id</p>
      * 
@@ -314,7 +314,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
@@ -449,7 +449,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * client registry, it's possible that no identifier will be 
      * known and therefore the attribute is only 'populated'.</p>
      * 
-     * <p>Other Business Name: PatientIdentifier</p>
+     * <p>Un-merged Business Name: PatientIdentifier</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.id</p>
      * 
@@ -539,7 +539,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.addr</p>
      * 
@@ -753,7 +753,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>Other Business Name: PatientContactAddress</p>
+     * <p>Un-merged Business Name: PatientContactAddress</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.addr</p>
      * 
@@ -967,7 +967,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientContactPhoneAndEMails</p>
      * 
-     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * <p>Un-merged Business Name: PatientContactPhoneAndEMails</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.telecom</p>
      * 
@@ -1070,7 +1070,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * particular action (prescription, lab test, etc.) will be 
      * conveyed as part of the payload.</p>
      * 
-     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * <p>Un-merged Business Name: PatientContactPhoneAndEMails</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.telecom</p>
      * 
@@ -1177,7 +1177,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
@@ -1376,7 +1376,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientName</p>
      * 
-     * <p>Other Business Name: PatientName</p>
+     * <p>Un-merged Business Name: PatientName</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
@@ -1575,7 +1575,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050207CA.Person.administrativeGenderCode</p>
@@ -1618,7 +1618,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * may not be known by the sending system when dealing with 
      * non-client registry patients.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050208CA.Person.administrativeGenderCode</p>
@@ -1669,7 +1669,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientGender</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050207CA.Person.administrativeGenderCode</p>
@@ -1712,7 +1712,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * may not be known by the sending system when dealing with 
      * non-client registry patients.</p>
      * 
-     * <p>Other Business Name: PatientGender</p>
+     * <p>Un-merged Business Name: PatientGender</p>
      * 
      * <p>Relationship: 
      * COCT_MT050208CA.Person.administrativeGenderCode</p>
@@ -1763,7 +1763,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
      * 
@@ -1807,7 +1807,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * particularly for patients not found in the client 
      * registry.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
      * 
@@ -1862,7 +1862,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     /**
      * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
      * 
@@ -1906,7 +1906,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * particularly for patients not found in the client 
      * registry.</p>
      * 
-     * <p>Other Business Name: PatientBirthDate</p>
+     * <p>Un-merged Business Name: PatientBirthDate</p>
      * 
      * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
      * 

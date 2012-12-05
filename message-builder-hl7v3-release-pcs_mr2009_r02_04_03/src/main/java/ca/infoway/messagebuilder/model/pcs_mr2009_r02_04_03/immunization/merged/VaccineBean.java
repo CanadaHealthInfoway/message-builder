@@ -90,7 +90,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineCode</p>
      * 
-     * <p>Other Business Name: VaccineCode</p>
+     * <p>Un-merged Business Name: VaccineCode</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.code</p>
      * 
@@ -107,7 +107,7 @@ public class VaccineBean extends MessagePartBean {
      * different levels of abstraction. E.g. Manufactured drug 
      * (including vaccine).</p>
      * 
-     * <p>Other Business Name: VaccineCode</p>
+     * <p>Un-merged Business Name: VaccineCode</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.code</p>
      * 
@@ -124,7 +124,7 @@ public class VaccineBean extends MessagePartBean {
      * different levels of abstraction. E.g. Manufactured drug 
      * (including vaccine).</p>
      * 
-     * <p>Other Business Name: VaccineCode</p>
+     * <p>Un-merged Business Name: VaccineCode</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.code</p>
      * 
@@ -149,7 +149,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineCode</p>
      * 
-     * <p>Other Business Name: VaccineCode</p>
+     * <p>Un-merged Business Name: VaccineCode</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.code</p>
      * 
@@ -166,7 +166,7 @@ public class VaccineBean extends MessagePartBean {
      * different levels of abstraction. E.g. Manufactured drug 
      * (including vaccine).</p>
      * 
-     * <p>Other Business Name: VaccineCode</p>
+     * <p>Un-merged Business Name: VaccineCode</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.code</p>
      * 
@@ -183,7 +183,7 @@ public class VaccineBean extends MessagePartBean {
      * different levels of abstraction. E.g. Manufactured drug 
      * (including vaccine).</p>
      * 
-     * <p>Other Business Name: VaccineCode</p>
+     * <p>Un-merged Business Name: VaccineCode</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.code</p>
      * 
@@ -208,7 +208,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineName</p>
      * 
-     * <p>Other Business Name: VaccineName</p>
+     * <p>Un-merged Business Name: VaccineName</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.name</p>
      * 
@@ -222,7 +222,7 @@ public class VaccineBean extends MessagePartBean {
      * 
      * <p>The name assigned to a vaccine.</p>
      * 
-     * <p>Other Business Name: VaccineName</p>
+     * <p>Un-merged Business Name: VaccineName</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.name</p>
      * 
@@ -236,7 +236,7 @@ public class VaccineBean extends MessagePartBean {
      * 
      * <p>The name assigned to a vaccine.</p>
      * 
-     * <p>Other Business Name: VaccineName</p>
+     * <p>Un-merged Business Name: VaccineName</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.name</p>
      * 
@@ -258,7 +258,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineName</p>
      * 
-     * <p>Other Business Name: VaccineName</p>
+     * <p>Un-merged Business Name: VaccineName</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.name</p>
      * 
@@ -272,7 +272,7 @@ public class VaccineBean extends MessagePartBean {
      * 
      * <p>The name assigned to a vaccine.</p>
      * 
-     * <p>Other Business Name: VaccineName</p>
+     * <p>Un-merged Business Name: VaccineName</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.name</p>
      * 
@@ -286,7 +286,7 @@ public class VaccineBean extends MessagePartBean {
      * 
      * <p>The name assigned to a vaccine.</p>
      * 
-     * <p>Other Business Name: VaccineName</p>
+     * <p>Un-merged Business Name: VaccineName</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.name</p>
      * 
@@ -308,7 +308,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineDescription</p>
      * 
-     * <p>Other Business Name: VaccineDescription</p>
+     * <p>Un-merged Business Name: VaccineDescription</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.desc</p>
      * 
@@ -322,7 +322,7 @@ public class VaccineBean extends MessagePartBean {
      * instructions on the composition and creation of the 
      * compound.</p>
      * 
-     * <p>Other Business Name: VaccineDescription</p>
+     * <p>Un-merged Business Name: VaccineDescription</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.desc</p>
      * 
@@ -336,7 +336,7 @@ public class VaccineBean extends MessagePartBean {
      * instructions on the composition and creation of the 
      * compound.</p>
      * 
-     * <p>Other Business Name: VaccineDescription</p>
+     * <p>Un-merged Business Name: VaccineDescription</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.desc</p>
      * 
@@ -358,7 +358,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineDescription</p>
      * 
-     * <p>Other Business Name: VaccineDescription</p>
+     * <p>Un-merged Business Name: VaccineDescription</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.desc</p>
      * 
@@ -372,7 +372,7 @@ public class VaccineBean extends MessagePartBean {
      * instructions on the composition and creation of the 
      * compound.</p>
      * 
-     * <p>Other Business Name: VaccineDescription</p>
+     * <p>Un-merged Business Name: VaccineDescription</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.desc</p>
      * 
@@ -386,7 +386,7 @@ public class VaccineBean extends MessagePartBean {
      * instructions on the composition and creation of the 
      * compound.</p>
      * 
-     * <p>Other Business Name: VaccineDescription</p>
+     * <p>Un-merged Business Name: VaccineDescription</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.desc</p>
      * 
@@ -408,7 +408,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugForm</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.formCode</p>
      * 
@@ -424,7 +424,7 @@ public class VaccineBean extends MessagePartBean {
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.formCode</p>
      * 
@@ -440,7 +440,7 @@ public class VaccineBean extends MessagePartBean {
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.formCode</p>
      * 
@@ -464,7 +464,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugForm</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.formCode</p>
      * 
@@ -480,7 +480,7 @@ public class VaccineBean extends MessagePartBean {
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.formCode</p>
      * 
@@ -496,7 +496,7 @@ public class VaccineBean extends MessagePartBean {
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared.</p>
      * 
-     * <p>Other Business Name: DrugForm</p>
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.formCode</p>
      * 
@@ -520,7 +520,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineLotNumber</p>
      * 
-     * <p>Other Business Name: VaccineLotNumber</p>
+     * <p>Un-merged Business Name: VaccineLotNumber</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.lotNumberText</p>
      * 
@@ -532,7 +532,7 @@ public class VaccineBean extends MessagePartBean {
      * <p>Identification of a batch in which a specific 
      * manufactured drug belongs.</p>
      * 
-     * <p>Other Business Name: VaccineLotNumber</p>
+     * <p>Un-merged Business Name: VaccineLotNumber</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.lotNumberText</p>
      * 
@@ -544,7 +544,7 @@ public class VaccineBean extends MessagePartBean {
      * <p>Identification of a batch in which a specific 
      * manufactured drug belongs.</p>
      * 
-     * <p>Other Business Name: VaccineLotNumber</p>
+     * <p>Un-merged Business Name: VaccineLotNumber</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.lotNumberText</p>
      * 
@@ -564,7 +564,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineLotNumber</p>
      * 
-     * <p>Other Business Name: VaccineLotNumber</p>
+     * <p>Un-merged Business Name: VaccineLotNumber</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.lotNumberText</p>
      * 
@@ -576,7 +576,7 @@ public class VaccineBean extends MessagePartBean {
      * <p>Identification of a batch in which a specific 
      * manufactured drug belongs.</p>
      * 
-     * <p>Other Business Name: VaccineLotNumber</p>
+     * <p>Un-merged Business Name: VaccineLotNumber</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.lotNumberText</p>
      * 
@@ -588,7 +588,7 @@ public class VaccineBean extends MessagePartBean {
      * <p>Identification of a batch in which a specific 
      * manufactured drug belongs.</p>
      * 
-     * <p>Other Business Name: VaccineLotNumber</p>
+     * <p>Un-merged Business Name: VaccineLotNumber</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.lotNumberText</p>
      * 
@@ -608,7 +608,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineExpiryDate</p>
      * 
-     * <p>Other Business Name: VaccineExpiryDate</p>
+     * <p>Un-merged Business Name: VaccineExpiryDate</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.expirationTime</p>
      * 
@@ -630,7 +630,7 @@ public class VaccineBean extends MessagePartBean {
      * considered viable (when talking about a specific medication 
      * that has been dispensed).</p>
      * 
-     * <p>Other Business Name: VaccineExpiryDate</p>
+     * <p>Un-merged Business Name: VaccineExpiryDate</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.expirationTime</p>
      * 
@@ -652,7 +652,7 @@ public class VaccineBean extends MessagePartBean {
      * considered viable (when talking about a specific medication 
      * that has been dispensed).</p>
      * 
-     * <p>Other Business Name: VaccineExpiryDate</p>
+     * <p>Un-merged Business Name: VaccineExpiryDate</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.expirationTime</p>
      * 
@@ -682,7 +682,7 @@ public class VaccineBean extends MessagePartBean {
     /**
      * <p>Business Name: VaccineExpiryDate</p>
      * 
-     * <p>Other Business Name: VaccineExpiryDate</p>
+     * <p>Un-merged Business Name: VaccineExpiryDate</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Vaccine.expirationTime</p>
      * 
@@ -704,7 +704,7 @@ public class VaccineBean extends MessagePartBean {
      * considered viable (when talking about a specific medication 
      * that has been dispensed).</p>
      * 
-     * <p>Other Business Name: VaccineExpiryDate</p>
+     * <p>Un-merged Business Name: VaccineExpiryDate</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Vaccine.expirationTime</p>
      * 
@@ -726,7 +726,7 @@ public class VaccineBean extends MessagePartBean {
      * considered viable (when talking about a specific medication 
      * that has been dispensed).</p>
      * 
-     * <p>Other Business Name: VaccineExpiryDate</p>
+     * <p>Un-merged Business Name: VaccineExpiryDate</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Vaccine.expirationTime</p>
      * 
@@ -754,21 +754,21 @@ public class VaccineBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.ManufacturedProduct.manufacturer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.ManufacturedProduct.manufacturer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.ManufacturedProduct.manufacturer</p>
@@ -781,21 +781,21 @@ public class VaccineBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.ManufacturedProduct.manufacturer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.ManufacturedProduct.manufacturer</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.ManufacturedProduct.manufacturer</p>
@@ -808,19 +808,19 @@ public class VaccineBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030060CA.Ingredients.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT060150CA.Ingredients.ingredient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POIZ_MT030050CA.Ingredients.ingredient</p>
      * 

@@ -61,7 +61,7 @@ public class AgentBean extends MessagePartBean {
     /**
      * <p>Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Agent.id</p>
      * 
@@ -78,7 +78,7 @@ public class AgentBean extends MessagePartBean {
      * <p>Provides a trace of responsibility for the dispensed 
      * drug.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Agent.id</p>
      * 
@@ -95,7 +95,7 @@ public class AgentBean extends MessagePartBean {
      * <p>Provides a trace of responsibility for the dispensed 
      * drug.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Agent.id</p>
      * 
@@ -113,7 +113,7 @@ public class AgentBean extends MessagePartBean {
      * identifier <strong>or a BUS error will be 
      * returned.</strong></p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Agent.id</p>
      * 
@@ -138,7 +138,7 @@ public class AgentBean extends MessagePartBean {
     /**
      * <p>Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Agent.id</p>
      * 
@@ -155,7 +155,7 @@ public class AgentBean extends MessagePartBean {
      * <p>Provides a trace of responsibility for the dispensed 
      * drug.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Agent.id</p>
      * 
@@ -172,7 +172,7 @@ public class AgentBean extends MessagePartBean {
      * <p>Provides a trace of responsibility for the dispensed 
      * drug.</p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Agent.id</p>
      * 
@@ -190,7 +190,7 @@ public class AgentBean extends MessagePartBean {
      * identifier <strong>or a BUS error will be 
      * returned.</strong></p>
      * 
-     * <p>Other Business Name: SubstitutingPersonIdentifier</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Agent.id</p>
      * 

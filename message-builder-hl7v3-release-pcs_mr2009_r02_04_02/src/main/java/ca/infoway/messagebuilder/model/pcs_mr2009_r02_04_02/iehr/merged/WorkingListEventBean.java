@@ -37,13 +37,13 @@ public class WorkingListEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: ObservationCategories</p>
+     * <p>Un-merged Business Name: ObservationCategories</p>
      * 
      * <p>Relationship: REPC_MT410003CA.WorkingListEvent.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: ServiceCategories</p>
+     * <p>Un-merged Business Name: ServiceCategories</p>
      * 
      * <p>Relationship: REPC_MT610002CA.WorkingListEvent.code</p>
      * 
@@ -68,7 +68,7 @@ public class WorkingListEventBean extends MessagePartBean {
      * Psychological Counseling, Smoking Cessation, Cardiac 
      * Surgeries, etc.</p>
      * 
-     * <p>Other Business Name: ObservationCategories</p>
+     * <p>Un-merged Business Name: ObservationCategories</p>
      * 
      * <p>Relationship: REPC_MT420003CA.WorkingListEvent.code</p>
      * 
@@ -94,13 +94,13 @@ public class WorkingListEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: ObservationCategories</p>
+     * <p>Un-merged Business Name: ObservationCategories</p>
      * 
      * <p>Relationship: REPC_MT410003CA.WorkingListEvent.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: ServiceCategories</p>
+     * <p>Un-merged Business Name: ServiceCategories</p>
      * 
      * <p>Relationship: REPC_MT610002CA.WorkingListEvent.code</p>
      * 
@@ -125,7 +125,7 @@ public class WorkingListEventBean extends MessagePartBean {
      * Psychological Counseling, Smoking Cessation, Cardiac 
      * Surgeries, etc.</p>
      * 
-     * <p>Other Business Name: ObservationCategories</p>
+     * <p>Un-merged Business Name: ObservationCategories</p>
      * 
      * <p>Relationship: REPC_MT420003CA.WorkingListEvent.code</p>
      * 

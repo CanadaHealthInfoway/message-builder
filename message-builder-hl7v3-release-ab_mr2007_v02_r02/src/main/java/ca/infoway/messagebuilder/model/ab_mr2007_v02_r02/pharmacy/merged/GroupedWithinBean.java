@@ -73,7 +73,7 @@ public class GroupedWithinBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCategoryCode</p>
      * 
-     * <p>Other Business Name: DrugCategoryCode</p>
+     * <p>Un-merged Business Name: DrugCategoryCode</p>
      * 
      * <p>Relationship: POME_MT010040CA.SpecializedKind.code</p>
      * 
@@ -85,7 +85,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * <p>Describes the relationship between two levels of drug 
      * products (e.g. Drug A is the generic for Drug B)</p>
      * 
-     * <p>Other Business Name: DrugCategoryCode</p>
+     * <p>Un-merged Business Name: DrugCategoryCode</p>
      * 
      * <p>Relationship: POME_MT010100CA.SpecializedKind.code</p>
      * 
@@ -105,7 +105,7 @@ public class GroupedWithinBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCategoryCode</p>
      * 
-     * <p>Other Business Name: DrugCategoryCode</p>
+     * <p>Un-merged Business Name: DrugCategoryCode</p>
      * 
      * <p>Relationship: POME_MT010040CA.SpecializedKind.code</p>
      * 
@@ -117,7 +117,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * <p>Describes the relationship between two levels of drug 
      * products (e.g. Drug A is the generic for Drug B)</p>
      * 
-     * <p>Other Business Name: DrugCategoryCode</p>
+     * <p>Un-merged Business Name: DrugCategoryCode</p>
      * 
      * <p>Relationship: POME_MT010100CA.SpecializedKind.code</p>
      * 
@@ -137,7 +137,7 @@ public class GroupedWithinBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
      * 
@@ -158,7 +158,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * attribute is marked as &quot;populated&quot; as drug code 
      * should be available in most cases.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.code</p>
      * 
@@ -187,7 +187,7 @@ public class GroupedWithinBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugCode</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
      * 
@@ -208,7 +208,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * attribute is marked as &quot;populated&quot; as drug code 
      * should be available in most cases.</p>
      * 
-     * <p>Other Business Name: DrugCode</p>
+     * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.code</p>
      * 
@@ -237,7 +237,7 @@ public class GroupedWithinBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugName</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
      * 
@@ -256,7 +256,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * &quot;populated&quot; as a drug name should be available in 
      * most cases.</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.name</p>
      * 
@@ -283,7 +283,7 @@ public class GroupedWithinBean extends MessagePartBean {
     /**
      * <p>Business Name: DrugName</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
      * 
@@ -302,7 +302,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * &quot;populated&quot; as a drug name should be available in 
      * most cases.</p>
      * 
-     * <p>Other Business Name: DrugName</p>
+     * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.name</p>
      * 

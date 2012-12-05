@@ -75,7 +75,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosagePreconditionType</p>
      * 
-     * <p>Other Business Name: DosagePreconditionType</p>
+     * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationEventCriterion.code</p>
@@ -91,7 +91,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * patient is evaluated. This includes age, weight, height, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DosagePreconditionType</p>
+     * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationEventCriterion.code</p>
@@ -107,7 +107,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * patient is evaluated. This includes age, weight, height, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DosagePreconditionType</p>
+     * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationEventCriterion.code</p>
@@ -131,7 +131,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosagePreconditionType</p>
      * 
-     * <p>Other Business Name: DosagePreconditionType</p>
+     * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationEventCriterion.code</p>
@@ -147,7 +147,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * patient is evaluated. This includes age, weight, height, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DosagePreconditionType</p>
+     * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationEventCriterion.code</p>
@@ -163,7 +163,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * patient is evaluated. This includes age, weight, height, 
      * etc.</p>
      * 
-     * <p>Other Business Name: DosagePreconditionType</p>
+     * <p>Un-merged Business Name: DosagePreconditionType</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationEventCriterion.code</p>
@@ -187,7 +187,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosagePreconditionValue</p>
      * 
-     * <p>Other Business Name: DosagePreconditionValue</p>
+     * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationEventCriterion.value</p>
@@ -214,7 +214,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * weights, etc.</p><p>This is a mandatory attribute as the 
      * values of the measurements must be known.</p>
      * 
-     * <p>Other Business Name: DosagePreconditionValue</p>
+     * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationEventCriterion.value</p>
@@ -241,7 +241,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * weights, etc.</p><p>This attribute is mandatory as the 
      * specific range of values must be known.</p>
      * 
-     * <p>Other Business Name: DosagePreconditionValue</p>
+     * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationEventCriterion.value</p>
@@ -276,7 +276,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
     /**
      * <p>Business Name: DosagePreconditionValue</p>
      * 
-     * <p>Other Business Name: DosagePreconditionValue</p>
+     * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationEventCriterion.value</p>
@@ -303,7 +303,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * weights, etc.</p><p>This is a mandatory attribute as the 
      * values of the measurements must be known.</p>
      * 
-     * <p>Other Business Name: DosagePreconditionValue</p>
+     * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationEventCriterion.value</p>
@@ -330,7 +330,7 @@ public class DosagePreconditionsBean extends MessagePartBean {
      * weights, etc.</p><p>This attribute is mandatory as the 
      * specific range of values must be known.</p>
      * 
-     * <p>Other Business Name: DosagePreconditionValue</p>
+     * <p>Un-merged Business Name: DosagePreconditionValue</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationEventCriterion.value</p>

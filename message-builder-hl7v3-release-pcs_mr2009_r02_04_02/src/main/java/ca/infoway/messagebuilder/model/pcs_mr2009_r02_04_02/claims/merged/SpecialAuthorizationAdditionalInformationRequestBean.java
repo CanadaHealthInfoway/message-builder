@@ -45,21 +45,21 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     /**
      * <p>Business Name: AdditionalInformationRequestID</p>
      * 
-     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
      * 
      * <p>Relationship: 
      * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
@@ -74,21 +74,21 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     /**
      * <p>Business Name: AdditionalInformationRequestID</p>
      * 
-     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
      * 
      * <p>Relationship: 
      * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdditionalInformationRequestID</p>
+     * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
@@ -103,21 +103,21 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     /**
      * <p>Business Name: AdditionalInformationQuestion</p>
      * 
-     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
      * 
      * <p>Relationship: 
      * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
@@ -132,21 +132,21 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     /**
      * <p>Business Name: AdditionalInformationQuestion</p>
      * 
-     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
      * 
      * <p>Relationship: 
      * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: AdditionalInformationQuestion</p>
+     * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
@@ -159,7 +159,7 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490003CA.Reference.specialAuthorizationRequest</p>
@@ -172,7 +172,7 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT490003CA.Reference.specialAuthorizationRequest</p>

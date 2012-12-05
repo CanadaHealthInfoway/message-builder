@@ -39,7 +39,7 @@ public class OldProcedureEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT610002CA.OldProcedureEvent.id</p>
      * 
@@ -61,7 +61,7 @@ public class OldProcedureEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT610001CA.OldProcedureEvent.id</p>
      * 
@@ -91,7 +91,7 @@ public class OldProcedureEventBean extends MessagePartBean {
     /**
      * <p>Business Name: ReplacesRecordIds</p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT610002CA.OldProcedureEvent.id</p>
      * 
@@ -113,7 +113,7 @@ public class OldProcedureEventBean extends MessagePartBean {
      * &quot;obsolete&quot; with a reference pointing to this 
      * record.</i> </p>
      * 
-     * <p>Other Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: ReplacesRecordIds</p>
      * 
      * <p>Relationship: REPC_MT610001CA.OldProcedureEvent.id</p>
      * 

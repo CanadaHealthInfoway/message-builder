@@ -61,7 +61,7 @@ public class ControlActEventBean extends MessagePartBean {
     /**
      * <p>Business Name: AmendReason</p>
      * 
-     * <p>Other Business Name: AmendReason</p>
+     * <p>Un-merged Business Name: AmendReason</p>
      * 
      * <p>Relationship: REPC_MT500004CA.ControlActEvent.reasonCode</p>
      * 
@@ -81,7 +81,7 @@ public class ControlActEventBean extends MessagePartBean {
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p>Other Business Name: AmendReason</p>
+     * <p>Un-merged Business Name: AmendReason</p>
      * 
      * <p>Relationship: REPC_MT500003CA.ControlActEvent.reasonCode</p>
      * 
@@ -109,7 +109,7 @@ public class ControlActEventBean extends MessagePartBean {
     /**
      * <p>Business Name: AmendReason</p>
      * 
-     * <p>Other Business Name: AmendReason</p>
+     * <p>Un-merged Business Name: AmendReason</p>
      * 
      * <p>Relationship: REPC_MT500004CA.ControlActEvent.reasonCode</p>
      * 
@@ -129,7 +129,7 @@ public class ControlActEventBean extends MessagePartBean {
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p>Other Business Name: AmendReason</p>
+     * <p>Un-merged Business Name: AmendReason</p>
      * 
      * <p>Relationship: REPC_MT500003CA.ControlActEvent.reasonCode</p>
      * 
@@ -155,13 +155,13 @@ public class ControlActEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500003CA.ControlActEvent.author</p>
      * 
@@ -173,13 +173,13 @@ public class ControlActEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500004CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT500003CA.ControlActEvent.author</p>
      * 

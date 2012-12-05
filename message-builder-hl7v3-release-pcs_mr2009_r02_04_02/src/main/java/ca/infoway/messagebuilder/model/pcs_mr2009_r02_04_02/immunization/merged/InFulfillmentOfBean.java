@@ -50,14 +50,14 @@ public class InFulfillmentOfBean extends MessagePartBean {
     /**
      * <p>Business Name: DoseNumber</p>
      * 
-     * <p>Other Business Name: DoseNumber</p>
+     * <p>Un-merged Business Name: DoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InFulfillmentOf.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DoseNumber</p>
+     * <p>Un-merged Business Name: DoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InFulfillmentOf.sequenceNumber</p>
@@ -71,7 +71,7 @@ public class InFulfillmentOfBean extends MessagePartBean {
      * Number = 1) or a specific booster (Dose Number = 2 means 
      * first booster, 3 means second booster, etc.).</p>
      * 
-     * <p>Other Business Name: DoseNumber</p>
+     * <p>Un-merged Business Name: DoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InFulfillmentOf.sequenceNumber</p>
@@ -86,14 +86,14 @@ public class InFulfillmentOfBean extends MessagePartBean {
     /**
      * <p>Business Name: DoseNumber</p>
      * 
-     * <p>Other Business Name: DoseNumber</p>
+     * <p>Un-merged Business Name: DoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InFulfillmentOf.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: DoseNumber</p>
+     * <p>Un-merged Business Name: DoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InFulfillmentOf.sequenceNumber</p>
@@ -107,7 +107,7 @@ public class InFulfillmentOfBean extends MessagePartBean {
      * Number = 1) or a specific booster (Dose Number = 2 means 
      * first booster, 3 means second booster, etc.).</p>
      * 
-     * <p>Other Business Name: DoseNumber</p>
+     * <p>Un-merged Business Name: DoseNumber</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InFulfillmentOf.sequenceNumber</p>
@@ -120,21 +120,21 @@ public class InFulfillmentOfBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InFulfillmentOf.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InFulfillmentOf.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InFulfillmentOf.immunizationPlan</p>
@@ -147,21 +147,21 @@ public class InFulfillmentOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030050CA.InFulfillmentOf.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT030060CA.InFulfillmentOf.immunizationPlan</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Other Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POIZ_MT060150CA.InFulfillmentOf.immunizationPlan</p>

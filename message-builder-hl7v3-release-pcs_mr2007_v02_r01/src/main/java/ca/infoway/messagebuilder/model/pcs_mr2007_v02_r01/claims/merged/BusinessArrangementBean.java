@@ -49,7 +49,7 @@ public class BusinessArrangementBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Business Name: FinancialContractID</p>
+     * <p>Un-merged Business Name: FinancialContractID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
      * 
@@ -66,7 +66,7 @@ public class BusinessArrangementBean extends MessagePartBean {
      * <p>The unique identifier of the billing contract 
      * information.</p>
      * 
-     * <p>Other Business Name: BusinessArrangementID</p>
+     * <p>Un-merged Business Name: BusinessArrangementID</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
@@ -81,7 +81,7 @@ public class BusinessArrangementBean extends MessagePartBean {
     }
 
     /**
-     * <p>Other Business Name: FinancialContractID</p>
+     * <p>Un-merged Business Name: FinancialContractID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.FinancialContract.id</p>
      * 
@@ -98,7 +98,7 @@ public class BusinessArrangementBean extends MessagePartBean {
      * <p>The unique identifier of the billing contract 
      * information.</p>
      * 
-     * <p>Other Business Name: BusinessArrangementID</p>
+     * <p>Un-merged Business Name: BusinessArrangementID</p>
      * 
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
@@ -115,7 +115,7 @@ public class BusinessArrangementBean extends MessagePartBean {
     /**
      * <p>Business Name: BillingArrangementType</p>
      * 
-     * <p>Other Business Name: BillingArrangementType</p>
+     * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
      * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
      * 
@@ -136,7 +136,7 @@ public class BusinessArrangementBean extends MessagePartBean {
     /**
      * <p>Business Name: BillingArrangementType</p>
      * 
-     * <p>Other Business Name: BillingArrangementType</p>
+     * <p>Un-merged Business Name: BillingArrangementType</p>
      * 
      * <p>Relationship: FICR_MT600201CA.FinancialContract.code</p>
      * 
