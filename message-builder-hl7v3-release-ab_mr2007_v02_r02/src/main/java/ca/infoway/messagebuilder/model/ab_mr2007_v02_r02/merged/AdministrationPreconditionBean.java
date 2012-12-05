@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>AdministrationPrecondition</p>
+ * <p>Business Name: AdministrationPrecondition</p>
  * 
  * <p>COCT_MT270010CA.ActEventCriterion: Administration 
  * Precondition</p>
@@ -67,14 +67,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.ActEventCriterion","PORX_MT980040CA.ActEventCriterion"})
 public class AdministrationPreconditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
 
 
     /**
-     * <p>DosageCondition</p>
+     * <p>Business Name: DosageCondition</p>
      * 
-     * <p>A:Dosage Condition</p>
+     * <p>Other Business Name: DosageCondition</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.ActEventCriterion.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free-form textual description of condition that must be 
      * met before the product may be administered to/by the 
@@ -98,7 +102,11 @@ public class AdministrationPreconditionBean extends MessagePartBean {
      * <p>Allows un-coded specifications of conditions in which the 
      * medication should be taken.</p>
      * 
-     * <p>A:Dosage Condition</p>
+     * <p>Other Business Name: DosageCondition</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.ActEventCriterion.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free-form textual description of condition that must be 
      * met before the product may be administered to/by the 
@@ -128,9 +136,13 @@ public class AdministrationPreconditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageCondition</p>
+     * <p>Business Name: DosageCondition</p>
      * 
-     * <p>A:Dosage Condition</p>
+     * <p>Other Business Name: DosageCondition</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.ActEventCriterion.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free-form textual description of condition that must be 
      * met before the product may be administered to/by the 
@@ -154,7 +166,11 @@ public class AdministrationPreconditionBean extends MessagePartBean {
      * <p>Allows un-coded specifications of conditions in which the 
      * medication should be taken.</p>
      * 
-     * <p>A:Dosage Condition</p>
+     * <p>Other Business Name: DosageCondition</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.ActEventCriterion.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free-form textual description of condition that must be 
      * met before the product may be administered to/by the 

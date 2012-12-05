@@ -45,7 +45,7 @@ import java.util.List;
 
 
 /**
- * <p>Privilege</p>
+ * <p>Business Name: Privilege</p>
  * 
  * <p>PRPM_MT303010CA.Privilege: Privilege</p>
  * 
@@ -93,7 +93,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -104,9 +104,13 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>RestrictionsToPracticeIdentifier</p>
+     * <p>Business Name: RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Restrictions to Practice Identifier</p>
+     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
@@ -114,7 +118,35 @@ public class PrivilegeBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Restrictions to Practice Identifier</p>
+     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Unique identifier for the restriction.</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Unique identifier for the restriction.</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
@@ -128,9 +160,13 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
     /**
-     * <p>RestrictionsToPracticeIdentifier</p>
+     * <p>Business Name: RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Restrictions to Practice Identifier</p>
+     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
@@ -138,7 +174,35 @@ public class PrivilegeBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Restrictions to Practice Identifier</p>
+     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Unique identifier for the restriction.</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Unique identifier for the restriction.</p>
+     * 
+     * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Unique identifier for the restriction.</p>
      * 
@@ -152,24 +216,47 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>RestrictionsToPracticeType</p>
+     * <p>Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Restrictions to Practice Type</p>
+     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Type of restriction.</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
      * <p>If Restrictions to Practice are included in the message, 
      * then Type Must Exist</p>
      * 
-     * <p>Restrictions to Practice Type</p>
+     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Type of restriction.</p>
      * 
      * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>If Restrictions to Practice are included in the message, 
+     * then Type Must Exist</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Type of restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -182,24 +269,47 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
     /**
-     * <p>RestrictionsToPracticeType</p>
+     * <p>Business Name: RestrictionsToPracticeType</p>
      * 
-     * <p>Restrictions to Practice Type</p>
+     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Type of restriction.</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
      * <p>If Restrictions to Practice are included in the message, 
      * then Type Must Exist</p>
      * 
-     * <p>Restrictions to Practice Type</p>
+     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Type of restriction.</p>
      * 
      * <p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>If Restrictions to Practice are included in the message, 
+     * then Type Must Exist</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Type of restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -212,9 +322,40 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>RestrictionsToPracticeNegationIndicator</p>
+     * <p>Business Name: RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Restrictions to Practice Negation Indicator</p>
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeNegationIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicating that the privilege is a restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeNegationIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicating that the privilege is a restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeNegationIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicating that the privilege is a restriction.</p>
      * 
@@ -228,9 +369,40 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
     /**
-     * <p>RestrictionsToPracticeNegationIndicator</p>
+     * <p>Business Name: RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Restrictions to Practice Negation Indicator</p>
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeNegationIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicating that the privilege is a restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeNegationIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicating that the privilege is a restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeNegationIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicating that the privilege is a restriction.</p>
      * 
@@ -244,9 +416,37 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>RestrictionsToPracticeText</p>
+     * <p>Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Restrictions to Practice Text</p>
+     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Comments pertaining to the restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Comments pertaining to the restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Comments pertaining to the restriction.</p>
      * 
@@ -260,9 +460,37 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
     /**
-     * <p>RestrictionsToPracticeText</p>
+     * <p>Business Name: RestrictionsToPracticeText</p>
      * 
-     * <p>Restrictions to Practice Text</p>
+     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Comments pertaining to the restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Comments pertaining to the restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeText</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Comments pertaining to the restriction.</p>
      * 
@@ -276,7 +504,11 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>Restrictions to Practice Effective Date</p>
+     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Effective date of the restriction.</p>
      * 
@@ -287,22 +519,45 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>If Restrictions to Practice are included in the message, 
      * then Effective Date Must Exist</p>
      * 
-     * <p>Restrictions to Practice Effective Date</p>
+     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Effective date of the restriction.</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
      * <p>If Restrictions to Practice are included in the message, 
      * then Effective Date Must Exist</p>
      * 
-     * <p>Restrictions to Practice Type</p>
+     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Privilege.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Effective date of the restriction.</p>
      * 
      * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>If Restrictions to Practice are included in the message, 
+     * then Effective Date Must Exist</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Effective date of the restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -315,7 +570,11 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Restrictions to Practice Effective Date</p>
+     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Effective date of the restriction.</p>
      * 
@@ -326,22 +585,45 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>If Restrictions to Practice are included in the message, 
      * then Effective Date Must Exist</p>
      * 
-     * <p>Restrictions to Practice Effective Date</p>
+     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Effective date of the restriction.</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
      * <p>If Restrictions to Practice are included in the message, 
      * then Effective Date Must Exist</p>
      * 
-     * <p>Restrictions to Practice Type</p>
+     * <p>Other Business Name: RestrictionsToPracticeType</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Privilege.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Effective date of the restriction.</p>
      * 
      * <p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p>
+     * 
+     * <p>If Restrictions to Practice are included in the message, 
+     * then Effective Date Must Exist</p>
+     * 
+     * <p>Other Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Effective date of the restriction.</p>
+     * 
+     * <p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
@@ -354,11 +636,17 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>RestrictionsToPracticeConfidentialityCode</p>
+     * <p>Business Name: RestrictionsToPracticeConfidentialityCode</p>
      * 
-     * <p>Restrictions to Practice Confidentiality Code</p>
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeConfidentialityCode</p>
      * 
-     * <p>Indicates the degree to which the restriction to practice 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Privilege.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>dicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
      * 
      * <p>Required attribute supports the validation and 
@@ -379,7 +667,13 @@ public class PrivilegeBean extends MessagePartBean {
      * policy and or legislative guidelines about when/if records 
      * may be flagged as not for direct disclosure.</p>
      * 
-     * <p>Restrictions to Practice Confidentiality Code</p>
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeConfidentialityCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Privilege.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
@@ -388,9 +682,15 @@ public class PrivilegeBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Restrictions to Practice Confidentiality Code</p>
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeConfidentialityCode</p>
      * 
-     * <p>dicates the degree to which the restriction to practice 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Privilege.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
      * 
      * <p>Required attribute supports the validation and 
@@ -417,11 +717,17 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
     /**
-     * <p>RestrictionsToPracticeConfidentialityCode</p>
+     * <p>Business Name: RestrictionsToPracticeConfidentialityCode</p>
      * 
-     * <p>Restrictions to Practice Confidentiality Code</p>
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeConfidentialityCode</p>
      * 
-     * <p>Indicates the degree to which the restriction to practice 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Privilege.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>dicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
      * 
      * <p>Required attribute supports the validation and 
@@ -442,7 +748,13 @@ public class PrivilegeBean extends MessagePartBean {
      * policy and or legislative guidelines about when/if records 
      * may be flagged as not for direct disclosure.</p>
      * 
-     * <p>Restrictions to Practice Confidentiality Code</p>
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeConfidentialityCode</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Privilege.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
@@ -451,9 +763,15 @@ public class PrivilegeBean extends MessagePartBean {
      * identification of the healthcare provider and his/her given 
      * privileges</p>
      * 
-     * <p>Restrictions to Practice Confidentiality Code</p>
+     * <p>Other Business Name: 
+     * RestrictionsToPracticeConfidentialityCode</p>
      * 
-     * <p>dicates the degree to which the restriction to practice 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Privilege.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the degree to which the restriction to practice 
      * is to be kept confidential.</p>
      * 
      * <p>Required attribute supports the validation and 
@@ -479,6 +797,31 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Privilege.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Privilege.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Privilege.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Privilege.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public List<Subject4Bean> getSubjectOf() {
         return this.subjectOf;

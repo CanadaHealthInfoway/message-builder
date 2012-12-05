@@ -43,7 +43,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
@@ -54,9 +54,13 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseType</p>
+     * <p>Business Name: DispenseType</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>Other Business Name: DispenseType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of dispensing event that is performed. 
      * Examples include: Trial Fill, Completion of Trial, Partial 
@@ -78,7 +82,11 @@ public class SupplyEventBean extends MessagePartBean {
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p>
      * 
-     * <p>B:Dispense Type</p>
+     * <p>Other Business Name: DispenseType</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of dispensing event that is performed. 
      * Examples include: Trial Fill, Completion of Trial, Partial 
@@ -106,9 +114,13 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>DispenseType</p>
+     * <p>Business Name: DispenseType</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>Other Business Name: DispenseType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of dispensing event that is performed. 
      * Examples include: Trial Fill, Completion of Trial, Partial 
@@ -130,7 +142,11 @@ public class SupplyEventBean extends MessagePartBean {
      * defines what type of dispense is occurring, the attribute is 
      * mandatory.</p>
      * 
-     * <p>B:Dispense Type</p>
+     * <p>Other Business Name: DispenseType</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of dispensing event that is performed. 
      * Examples include: Trial Fill, Completion of Trial, Partial 
@@ -158,7 +174,11 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Processing and Pickup Date</p>
+     * <p>Other Business Name: DispenseProcessingAndPickupDate</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the date the dispense product was prepared and 
      * when the product was picked up by or delivered to the 
@@ -236,7 +256,11 @@ public class SupplyEventBean extends MessagePartBean {
      * mandatory because an existing dispense record must at least 
      * indicate the date it was processed.</p>
      * 
-     * <p>D:Dispensed Processing and Pickup Date</p>
+     * <p>Other Business Name: DispensedProcessingAndPickupDate</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the date the dispense product was prepared and 
      * when the product was picked up by or delivered to the 
@@ -325,7 +349,11 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Processing and Pickup Date</p>
+     * <p>Other Business Name: DispenseProcessingAndPickupDate</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the date the dispense product was prepared and 
      * when the product was picked up by or delivered to the 
@@ -403,7 +431,11 @@ public class SupplyEventBean extends MessagePartBean {
      * mandatory because an existing dispense record must at least 
      * indicate the date it was processed.</p>
      * 
-     * <p>D:Dispensed Processing and Pickup Date</p>
+     * <p>Other Business Name: DispensedProcessingAndPickupDate</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the date the dispense product was prepared and 
      * when the product was picked up by or delivered to the 
@@ -492,9 +524,13 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>DispensedQuantity</p>
+     * <p>Business Name: DispensedQuantity</p>
      * 
-     * <p>F:Dispensed Quantity</p>
+     * <p>Other Business Name: DispensedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p>
@@ -624,7 +660,11 @@ public class SupplyEventBean extends MessagePartBean {
      * allow determination of the amount that remains to be 
      * dispensed against the prescription.</p>
      * 
-     * <p>Dispensed Quantity</p>
+     * <p>Other Business Name: DispensedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p>
@@ -639,14 +679,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
      * fact that it is package is determined by a playing 
-     * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.1 (the fact that it is 
-     * package is determined by a playing entity)</p><p>DRU.020-01 
-     * (Unit, qualifier=38 0r 87)</p><p>DRU.020-02 (Quantity, 
-     * qualifier=38 0r 87)</p><p>DRU.020-03 (qualifier=38 0r 
-     * 87)</p><p>Claim.442-E7</p><p>Claim.460-ET</p><p>Claim.600-28</p><p>A_BillablePharmacyDispense</p><p>Quantity</p><p>DispensedItem.dispensedAmount</p>
-     * 
-     * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
-     * fact that it is package 
+     * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"quantity"})
@@ -655,9 +688,13 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>DispensedQuantity</p>
+     * <p>Business Name: DispensedQuantity</p>
      * 
-     * <p>F:Dispensed Quantity</p>
+     * <p>Other Business Name: DispensedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p>
@@ -787,7 +824,11 @@ public class SupplyEventBean extends MessagePartBean {
      * allow determination of the amount that remains to be 
      * dispensed against the prescription.</p>
      * 
-     * <p>Dispensed Quantity</p>
+     * <p>Other Business Name: DispensedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p>
@@ -802,14 +843,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
      * fact that it is package is determined by a playing 
-     * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.1 (the fact that it is 
-     * package is determined by a playing entity)</p><p>DRU.020-01 
-     * (Unit, qualifier=38 0r 87)</p><p>DRU.020-02 (Quantity, 
-     * qualifier=38 0r 87)</p><p>DRU.020-03 (qualifier=38 0r 
-     * 87)</p><p>Claim.442-E7</p><p>Claim.460-ET</p><p>Claim.600-28</p><p>A_BillablePharmacyDispense</p><p>Quantity</p><p>DispensedItem.dispensedAmount</p>
-     * 
-     * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
-     * fact that it is package 
+     * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setQuantity(PhysicalQuantity quantity) {
@@ -818,52 +852,11 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Dispensed Days Supply</p>
+     * <p>Other Business Name: DispenseDaysSupply</p>
      * 
-     * <p>The number of days that the dispensed quantity is 
-     * expected to last.</p>
+     * <p>Relationship: PORX_MT060340CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Thus the attribute is marked as 'populated'.</p>
-     * 
-     * <p>Dispense Days Supply</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The number of days that the dispensed quantity is 
      * expected to last.</p><p>Cannot be mandatory as there are 
@@ -916,6 +909,55 @@ public class SupplyEventBean extends MessagePartBean {
      * Therapy'). Because 'Days Supply' may be necessary to compute 
      * total dispensed quantity, it is made a 'populated' 
      * field.</p>
+     * 
+     * <p>Other Business Name: DispensedDaysSupply</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The number of days that the dispensed quantity is 
+     * expected to last.</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Thus the attribute is marked as 'populated'.</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -923,52 +965,11 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Dispensed Days Supply</p>
+     * <p>Other Business Name: DispenseDaysSupply</p>
      * 
-     * <p>The number of days that the dispensed quantity is 
-     * expected to last.</p>
+     * <p>Relationship: PORX_MT060340CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
-     * qualifier=ZDS, 
-     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
-     * Supply</p><p>DispensedItem.daysSupply</p>
-     * 
-     * <p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Thus the attribute is marked as 'populated'.</p>
-     * 
-     * <p>Dispense Days Supply</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The number of days that the dispensed quantity is 
      * expected to last.</p><p>Cannot be mandatory as there are 
@@ -1021,37 +1022,168 @@ public class SupplyEventBean extends MessagePartBean {
      * Therapy'). Because 'Days Supply' may be necessary to compute 
      * total dispensed quantity, it is made a 'populated' 
      * field.</p>
+     * 
+     * <p>Other Business Name: DispensedDaysSupply</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The number of days that the dispensed quantity is 
+     * expected to last.</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>D59(width)</p><p>ZDP.11</p><p>DRU.040-02 (low, 
+     * qualifier=ZDS, 
+     * format=804)</p><p>Claim.405-D5</p><p>A_BillablePharmacyDispense</p><p>Days 
+     * Supply</p><p>DispensedItem.daysSupply</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Thus the attribute is marked as 'populated'.</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Receiver2.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Receiver2.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"receiver/responsibleParty"})
     public ResponsiblePersonBean getReceiverResponsibleParty() {
         return this.receiverResponsibleParty;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Receiver2.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Receiver2.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
         this.receiverResponsibleParty = receiverResponsibleParty;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }

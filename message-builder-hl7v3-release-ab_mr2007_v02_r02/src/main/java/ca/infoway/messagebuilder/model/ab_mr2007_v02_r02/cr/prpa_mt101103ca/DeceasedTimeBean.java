@@ -32,12 +32,16 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.DeceasedTime"})
 public class DeceasedTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS value = new TSImpl();
 
 
     /**
-     * <p>Deceased Date</p>
+     * <p>Business Name: Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.DeceasedTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"value"})
     public Date getValue() {
@@ -45,7 +49,11 @@ public class DeceasedTimeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Deceased Date</p>
+     * <p>Business Name: Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.DeceasedTime.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setValue(Date value) {
         this.value.setValue(value);

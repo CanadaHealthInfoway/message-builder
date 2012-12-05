@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
 
 
 /**
- * <p>Logon</p>
+ * <p>Business Name: Logon</p>
  * 
  * <p>COMT_MT900001AB.ActPermissionRequest: Logon</p>
  * 
@@ -62,7 +62,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
 @Hl7RootType
 public class ActPermissionRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II subjectAssignedDeviceAssignedDeviceId = new IIImpl();
     private ST performerSignatureText = new STImpl();
     private II performerAssignedEntityId = new IIImpl();
@@ -74,9 +74,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>LogonApplication</p>
+     * <p>Business Name: LogonApplication</p>
      * 
-     * <p>A:Logon Application</p>
+     * <p>Other Business Name: LogonApplication</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.Device.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This must be the &quot;receiving application&quot; from 
      * the transmission wrapper</p>
@@ -90,7 +94,11 @@ public class ActPermissionRequestBean extends MessagePartBean {
      * physical systems, or might only provide access to a part of 
      * a physical system.</p>
      * 
-     * <p>A:Logon Application</p>
+     * <p>Other Business Name: LogonApplication</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.Device.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the application to which the password change 
      * applies</p>
@@ -107,9 +115,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>LogonApplication</p>
+     * <p>Business Name: LogonApplication</p>
      * 
-     * <p>A:Logon Application</p>
+     * <p>Other Business Name: LogonApplication</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.Device.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This must be the &quot;receiving application&quot; from 
      * the transmission wrapper</p>
@@ -123,7 +135,11 @@ public class ActPermissionRequestBean extends MessagePartBean {
      * physical systems, or might only provide access to a part of 
      * a physical system.</p>
      * 
-     * <p>A:Logon Application</p>
+     * <p>Other Business Name: LogonApplication</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.Device.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the application to which the password change 
      * applies</p>
@@ -140,9 +156,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Password</p>
+     * <p>Business Name: Password</p>
      * 
-     * <p>C:Password</p>
+     * <p>Other Business Name: Password</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the current password associated with the user id 
      * used to authenticate the user to the application.</p>
@@ -156,9 +176,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Password</p>
+     * <p>Business Name: Password</p>
      * 
-     * <p>C:Password</p>
+     * <p>Other Business Name: Password</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the current password associated with the user id 
      * used to authenticate the user to the application.</p>
@@ -172,9 +196,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>LogonUser</p>
+     * <p>Business Name: LogonUser</p>
      * 
-     * <p>B:Logon User</p>
+     * <p>Other Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the userid of the person being logged on.</p>
      * 
@@ -187,9 +215,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>LogonUser</p>
+     * <p>Business Name: LogonUser</p>
      * 
-     * <p>B:Logon User</p>
+     * <p>Other Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the userid of the person being logged on.</p>
      * 
@@ -201,20 +233,40 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT900001AB.ActPermissionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT900001AB.ActPermissionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
 
 
     /**
-     * <p>OldPassword</p>
+     * <p>Business Name: OldPassword</p>
      * 
-     * <p>C: Old Password</p>
+     * <p>Other Business Name: OldPassword</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the original password associated with the user id 
      * previously used to authenticate the user to the 
@@ -229,9 +281,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>OldPassword</p>
+     * <p>Business Name: OldPassword</p>
      * 
-     * <p>C: Old Password</p>
+     * <p>Other Business Name: OldPassword</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the original password associated with the user id 
      * previously used to authenticate the user to the 
@@ -246,9 +302,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>LogonUser</p>
+     * <p>Business Name: LogonUser</p>
      * 
-     * <p>B:Logon User</p>
+     * <p>Other Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the userid of the person being logged on.</p>
      * 
@@ -261,9 +321,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>LogonUser</p>
+     * <p>Business Name: LogonUser</p>
      * 
-     * <p>B:Logon User</p>
+     * <p>Other Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the userid of the person being logged on.</p>
      * 
@@ -276,9 +340,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>NewPassword</p>
+     * <p>Business Name: NewPassword</p>
      * 
-     * <p>New password</p>
+     * <p>Other Business Name: NewPassword</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.Performer2.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the value the password should be changed to</p>
      * 
@@ -290,9 +358,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>NewPassword</p>
+     * <p>Business Name: NewPassword</p>
      * 
-     * <p>New password</p>
+     * <p>Other Business Name: NewPassword</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.Performer2.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the value the password should be changed to</p>
      * 
@@ -304,9 +376,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>LogonUser</p>
+     * <p>Business Name: LogonUser</p>
      * 
-     * <p>B:Logon User</p>
+     * <p>Other Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the userid of the person being logged on.</p>
      * 
@@ -319,9 +395,13 @@ public class ActPermissionRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>LogonUser</p>
+     * <p>Business Name: LogonUser</p>
      * 
-     * <p>B:Logon User</p>
+     * <p>Other Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the userid of the person being logged on.</p>
      * 

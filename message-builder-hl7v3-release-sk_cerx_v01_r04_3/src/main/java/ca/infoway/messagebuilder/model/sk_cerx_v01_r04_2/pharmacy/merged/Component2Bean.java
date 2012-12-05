@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Includes</p>
+ * <p>Business Name: Includes</p>
  * 
  * <p>PORX_MT020070CA.Component2: (no business name)</p>
  * 
@@ -75,26 +75,58 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.Component2","PORX_MT030040CA.Component6","PORX_MT060190CA.Component6"})
 public class Component2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL contextConductionInd = new BLImpl();
     private DispenseInstructions_2Bean supplyRequest;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Specification of how the prescribed medication 
      * is</div> <p>to be dispensed to the patient.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"supplyRequest"})
     public DispenseInstructions_2Bean getSupplyRequest() {
@@ -102,10 +134,26 @@ public class Component2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Specification of how the prescribed medication 
      * is</div> <p>to be dispensed to the patient.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSupplyRequest(DispenseInstructions_2Bean supplyRequest) {
         this.supplyRequest = supplyRequest;

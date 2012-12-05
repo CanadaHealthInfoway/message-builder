@@ -34,7 +34,7 @@ import java.util.Date;
 
 
 /**
- * <p>FirstDispenseInformation</p>
+ * <p>Business Name: FirstDispenseInformation</p>
  * 
  * <p>PORX_MT060060CA.SupplyEventFirstSummary: First Dispense 
  * Information</p>
@@ -57,15 +57,20 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventFirstSummary","PORX_MT060060CA.SupplyEventFirstSummary"})
 public class FirstDispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT quantity = new INTImpl();
 
 
     /**
-     * <p>FirstDispensePickupDate</p>
+     * <p>Business Name: FirstDispensePickupDate</p>
      * 
-     * <p>A:First Dispense Pickup Date</p>
+     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventFirstSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when the first dispense against the 
      * prescription was picked up.</p>
@@ -76,7 +81,12 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance.</p>
      * 
-     * <p>First Dispense Pickup Date</p>
+     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventFirstSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when the first dispense against the 
      * prescription was picked up.</p>
@@ -93,9 +103,14 @@ public class FirstDispenseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>FirstDispensePickupDate</p>
+     * <p>Business Name: FirstDispensePickupDate</p>
      * 
-     * <p>A:First Dispense Pickup Date</p>
+     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventFirstSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when the first dispense against the 
      * prescription was picked up.</p>
@@ -106,7 +121,12 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * <p>Useful in establishing start of therapy.</p><p>Important 
      * information for compliance.</p>
      * 
-     * <p>First Dispense Pickup Date</p>
+     * <p>Other Business Name: FirstDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventFirstSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates when the first dispense against the 
      * prescription was picked up.</p>
@@ -123,18 +143,14 @@ public class FirstDispenseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>FirstQuantityDispensed</p>
+     * <p>Business Name: FirstQuantityDispensed</p>
      * 
-     * <p>First Quantity Dispensed</p>
+     * <p>Other Business Name: FirstQuantityDispensed</p>
      * 
-     * <p>Indicates the amount of device first dispensed on the 
-     * prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventFirstSummary.quantity</p>
      * 
-     * <p>Usually establishes trial quantities for a prescription. 
-     * If the first dispense is known, then the quantity must be 
-     * known, thus the element is mandatory.</p>
-     * 
-     * <p>B:First Quantity Dispensed</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the number of devices first dispensed on the 
      * prescription.</p>
@@ -148,6 +164,20 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * prescription.</p><p>Because the quantity should always be 
      * known if the first dispense is known, this attribute is 
      * mandatory.</p>
+     * 
+     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventFirstSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the amount of device first dispensed on the 
+     * prescription.</p>
+     * 
+     * <p>Usually establishes trial quantities for a prescription. 
+     * If the first dispense is known, then the quantity must be 
+     * known, thus the element is mandatory.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
@@ -155,18 +185,14 @@ public class FirstDispenseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>FirstQuantityDispensed</p>
+     * <p>Business Name: FirstQuantityDispensed</p>
      * 
-     * <p>First Quantity Dispensed</p>
+     * <p>Other Business Name: FirstQuantityDispensed</p>
      * 
-     * <p>Indicates the amount of device first dispensed on the 
-     * prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventFirstSummary.quantity</p>
      * 
-     * <p>Usually establishes trial quantities for a prescription. 
-     * If the first dispense is known, then the quantity must be 
-     * known, thus the element is mandatory.</p>
-     * 
-     * <p>B:First Quantity Dispensed</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the number of devices first dispensed on the 
      * prescription.</p>
@@ -180,6 +206,20 @@ public class FirstDispenseInformationBean extends MessagePartBean {
      * prescription.</p><p>Because the quantity should always be 
      * known if the first dispense is known, this attribute is 
      * mandatory.</p>
+     * 
+     * <p>Other Business Name: FirstQuantityDispensed</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventFirstSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the amount of device first dispensed on the 
+     * prescription.</p>
+     * 
+     * <p>Usually establishes trial quantities for a prescription. 
+     * If the first dispense is known, then the quantity must be 
+     * known, thus the element is mandatory.</p>
      */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);

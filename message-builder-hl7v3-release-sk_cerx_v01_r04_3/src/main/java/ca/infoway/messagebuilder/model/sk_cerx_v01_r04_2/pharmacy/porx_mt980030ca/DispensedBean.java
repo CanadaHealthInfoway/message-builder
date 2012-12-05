@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt220210ca.
 
 
 /**
- * <p>*a:dispensed</p>
+ * <p>Business Name: *a:dispensed</p>
  * 
  * <p>Indicates the drug that was dispensed</p>
  * 
@@ -43,15 +43,25 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt220210ca.
 @Hl7PartTypeMapping({"PORX_MT980030CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DrugProductBean medication;
 
 
+    /**
+     * <p>Relationship: PORX_MT980030CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"medication"})
     public DrugProductBean getMedication() {
         return this.medication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT980030CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setMedication(DrugProductBean medication) {
         this.medication = medication;
     }

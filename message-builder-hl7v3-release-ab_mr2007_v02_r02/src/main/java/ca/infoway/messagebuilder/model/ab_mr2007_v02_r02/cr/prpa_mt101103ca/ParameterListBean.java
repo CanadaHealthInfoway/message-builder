@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV administrativeGenderValue = new CVImpl();
     private List<II> clientIdValue = new ArrayList<II>();
     private DeceasedIndicatorBean deceasedIndicator;
@@ -68,7 +68,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.AdministrativeGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
@@ -84,7 +88,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.AdministrativeGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
@@ -100,8 +108,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>(Client Healthcare Identification Number And Or 
-     * NonHealthcare Identification</p>
+     * <p>Business Name: (Client Healthcare Identification Number 
+     * And Or NonHealthcare Identification</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.ClientId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Healthcare identiers may be assigned jurisdictionally or 
      * by care facility and/or non-healthcare identifiers for the 
@@ -116,58 +128,118 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.ParameterList.deceasedIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"deceasedIndicator"})
     public DeceasedIndicatorBean getDeceasedIndicator() {
         return this.deceasedIndicator;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.ParameterList.deceasedIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setDeceasedIndicator(DeceasedIndicatorBean deceasedIndicator) {
         this.deceasedIndicator = deceasedIndicator;
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101103CA.ParameterList.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"deceasedTime"})
     public DeceasedTimeBean getDeceasedTime() {
         return this.deceasedTime;
     }
 
+    /**
+     * <p>Relationship: PRPA_MT101103CA.ParameterList.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
         this.deceasedTime = deceasedTime;
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101103CA.ParameterList.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"languageCode"})
     public LanguageCodeBean getLanguageCode() {
         return this.languageCode;
     }
 
+    /**
+     * <p>Relationship: PRPA_MT101103CA.ParameterList.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setLanguageCode(LanguageCodeBean languageCode) {
         this.languageCode = languageCode;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.ParameterList.multipleBirthIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"multipleBirthIndicator"})
     public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
         return this.multipleBirthIndicator;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.ParameterList.multipleBirthIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setMultipleBirthIndicator(MultipleBirthIndicatorBean multipleBirthIndicator) {
         this.multipleBirthIndicator = multipleBirthIndicator;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.ParameterList.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"multipleBirthOrderNumber"})
     public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
         return this.multipleBirthOrderNumber;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.ParameterList.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setMultipleBirthOrderNumber(MultipleBirthOrderNumberBean multipleBirthOrderNumber) {
         this.multipleBirthOrderNumber = multipleBirthOrderNumber;
     }
 
 
     /**
-     * <p>Client Address</p>
+     * <p>Business Name: Client Address</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.PersonAddress.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Address(es) of the Client</p>
      * 
@@ -181,7 +253,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.PersonBirthtime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date of birth of the Client</p>
      * 
@@ -194,7 +270,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.PersonBirthtime.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Date of birth of the Client</p>
      * 
@@ -207,7 +287,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Name</p>
+     * <p>Business Name: Client Name</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.PersonName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name(s) for the Client</p>
      * 
@@ -221,7 +305,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Telecom</p>
+     * <p>Business Name: Client Telecom</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.PersonTelecom.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Provides information about telecom</p>
      * 
@@ -234,11 +322,23 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.ParameterList.personalRelationshipCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"personalRelationshipCode"})
     public PersonalRelationshipCodeBean getPersonalRelationshipCode() {
         return this.personalRelationshipCode;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101103CA.ParameterList.personalRelationshipCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPersonalRelationshipCode(PersonalRelationshipCodeBean personalRelationshipCode) {
         this.personalRelationshipCode = personalRelationshipCode;
     }

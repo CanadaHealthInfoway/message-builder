@@ -32,26 +32,82 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseShipToLo
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Location","PRPM_MT303010CA.Location"})
 public class Location_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private DispenseShipToLocationBean serviceDeliveryLocation;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
     public DispenseShipToLocationBean getServiceDeliveryLocation() {
         return this.serviceDeliveryLocation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setServiceDeliveryLocation(DispenseShipToLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
     }

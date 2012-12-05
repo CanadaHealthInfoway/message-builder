@@ -34,7 +34,7 @@ import java.util.List;
 
 
 /**
- * <p>Organization</p>
+ * <p>Business Name: Organization</p>
  * 
  * <p>The scoping organization for the specified role class</p>
  * 
@@ -45,14 +45,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST name = new STImpl();
     private List<TerritorialAuthorityBean> territorialAuthority = new ArrayList<TerritorialAuthorityBean>();
 
 
     /**
-     * <p>Organization Id</p>
+     * <p>Business Name: Organization Id</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the Organization.</p>
      * 
@@ -65,7 +69,11 @@ public class OrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Organization Id</p>
+     * <p>Business Name: Organization Id</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the Organization.</p>
      * 
@@ -78,8 +86,12 @@ public class OrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Name(s</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Name(s</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
@@ -122,8 +134,12 @@ public class OrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Name(s</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Name(s</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The name of the organization supporting the following 
      * three role classes:</p><p>1. Organization that is 
@@ -165,6 +181,12 @@ public class OrganizationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.Organization.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
+     */
     @Hl7XmlMapping({"territorialAuthority"})
     public List<TerritorialAuthorityBean> getTerritorialAuthority() {
         return this.territorialAuthority;

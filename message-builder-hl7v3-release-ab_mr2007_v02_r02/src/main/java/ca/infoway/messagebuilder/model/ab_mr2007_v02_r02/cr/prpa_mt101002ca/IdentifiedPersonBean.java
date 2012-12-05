@@ -67,7 +67,7 @@ import java.util.Set;
 
 
 /**
- * <p>Identified Person</p>
+ * <p>Business Name: Identified Person</p>
  * 
  * <p>The IdentifiedEntity class is the entry point to the 
  * R-MIM and contains one or more identifiers (for example an 
@@ -84,7 +84,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -104,7 +104,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-40)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
@@ -121,7 +125,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the status of the Client role (e.g. Active)</p>
      * 
@@ -134,7 +142,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the status of the Client role (e.g. Active)</p>
      * 
@@ -147,7 +159,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the effective time of the Client role</p>
      * 
@@ -160,7 +177,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the effective time of the Client role</p>
      * 
@@ -173,7 +195,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code that controls the disclosure of information about 
      * this patient encounter.</p>
@@ -201,7 +228,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code that controls the disclosure of information about 
      * this patient encounter.</p>
@@ -229,7 +261,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Name</p>
+     * <p>Business Name: Client Name</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
      * 
      * <p>Name(s) for the Client</p>
      * 
@@ -243,7 +279,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Telecom</p>
+     * <p>Business Name: Client Telecom</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
      * 
      * <p>Provides information about telecom</p>
      * 
@@ -257,7 +297,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
@@ -273,7 +318,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
@@ -289,7 +339,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Date of birth of the Client</p>
      * 
@@ -302,7 +356,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Date of birth of the Client</p>
      * 
@@ -315,7 +373,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Deceased Indicator</p>
+     * <p>Business Name: Client Deceased Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication that the client is deceased.</p>
      * 
@@ -328,7 +390,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Deceased Indicator</p>
+     * <p>Business Name: Client Deceased Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication that the client is deceased.</p>
      * 
@@ -341,7 +407,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Deceased Date</p>
+     * <p>Business Name: Client Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>deceasedTime only present if deceasedInd is = TRUE</p>
      * 
@@ -356,7 +426,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Deceased Date</p>
+     * <p>Business Name: Client Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>deceasedTime only present if deceasedInd is = TRUE</p>
      * 
@@ -371,7 +445,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication as to whether the client is part of a 
      * multiple birth.</p>
@@ -385,7 +463,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication as to whether the client is part of a 
      * multiple birth.</p>
@@ -399,7 +481,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.Person.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The order in which this client was born if part of a 
      * multiple birth.</p>
@@ -413,7 +500,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101002CA.Person.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The order in which this client was born if part of a 
      * multiple birth.</p>
@@ -427,7 +519,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Address</p>
+     * <p>Business Name: Client Address</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
      * 
      * <p>Address(es) of the Client</p>
      * 

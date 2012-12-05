@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>DrugCost</p>
+ * <p>Business Name: DrugCost</p>
  * 
  * <p>POME_MT010100CA.PotentialCharge: I:Drug Cost</p>
  * 
@@ -49,21 +49,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialCharge","POME_MT010100CA.PotentialCharge"})
 public class DrugCostBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private MO unitPriceAmt = new MOImpl();
 
 
     /**
-     * <p>DrugCost</p>
+     * <p>Business Name: DrugCost</p>
      * 
-     * <p>I:Drug Cost</p>
+     * <p>Other Business Name: DrugCost</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The average unit dose cost of the drug.</p>
      * 
      * <p>May influence prescriber and pharmacists decisions as 
      * cost can impact compliance.</p>
      * 
-     * <p>Drug Cost</p>
+     * <p>Other Business Name: DrugCost</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The average unit dose cost of the drug.</p>
      * 
@@ -76,16 +86,26 @@ public class DrugCostBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugCost</p>
+     * <p>Business Name: DrugCost</p>
      * 
-     * <p>I:Drug Cost</p>
+     * <p>Other Business Name: DrugCost</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The average unit dose cost of the drug.</p>
      * 
      * <p>May influence prescriber and pharmacists decisions as 
      * cost can impact compliance.</p>
      * 
-     * <p>Drug Cost</p>
+     * <p>Other Business Name: DrugCost</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The average unit dose cost of the drug.</p>
      * 

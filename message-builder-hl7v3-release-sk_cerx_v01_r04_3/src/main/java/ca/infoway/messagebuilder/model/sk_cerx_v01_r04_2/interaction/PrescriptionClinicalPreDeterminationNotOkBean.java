@@ -28,8 +28,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.TriggerEv
 
 
 /**
- * <p>PORX_IN010630CA: Prescription clinical pre-determination 
- * not ok</p>
+ * <p>Business Name: PORX_IN010630CA: Prescription clinical 
+ * pre-determination not ok</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -38,6 +38,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.TriggerEv
 @Hl7PartTypeMapping({"PORX_IN010630CA"})
 public class PrescriptionClinicalPreDeterminationNotOkBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

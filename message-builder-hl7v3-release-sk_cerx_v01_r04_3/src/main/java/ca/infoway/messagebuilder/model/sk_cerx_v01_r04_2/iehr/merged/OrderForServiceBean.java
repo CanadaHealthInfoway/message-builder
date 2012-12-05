@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.RefusedByBean;
 
 
 /**
- * <p>OrderForService</p>
+ * <p>Business Name: OrderForService</p>
  * 
  * <p>REPC_MT100001CA.ActRequest: Order for Service</p>
  * 
@@ -41,15 +41,41 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.RefusedByBean;
 @Hl7PartTypeMapping({"REPC_MT000017CA.ActRequest","REPC_MT100001CA.ActRequest"})
 public class OrderForServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private RefusedByBean author;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.ActRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }

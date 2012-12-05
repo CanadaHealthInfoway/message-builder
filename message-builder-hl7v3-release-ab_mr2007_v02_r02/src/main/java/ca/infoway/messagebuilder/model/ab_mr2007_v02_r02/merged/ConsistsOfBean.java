@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ConsistsOf</p>
+ * <p>Business Name: ConsistsOf</p>
  * 
  * <p>PORX_MT980040CA.Component17: b:consists of</p>
  * 
@@ -58,15 +58,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.Component17","PORX_MT980040CA.Component17"})
 public class ConsistsOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private StructuredDosageLinesBean dosageLine;
 
 
     /**
-     * <p>DosageLineOrder</p>
+     * <p>Business Name: DosageLineOrder</p>
      * 
-     * <p>A:Dosage Line Order</p>
+     * <p>Other Business Name: DosageLineOrder</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Component17.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the order in which dosage lines should be 
      * performed. Ensures that each step of multiple and complex 
@@ -86,7 +90,11 @@ public class ConsistsOfBean extends MessagePartBean {
      * <p>Need examples to illustrate use of sequence lines with 
      * 'ANDs' and 'THENs'.</p>
      * 
-     * <p>A:Dosage Line Order</p>
+     * <p>Other Business Name: DosageLineOrder</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Component17.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the order in which dosage lines should be 
      * performed. Ensures that each step of multiple and complex 
@@ -112,9 +120,13 @@ public class ConsistsOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageLineOrder</p>
+     * <p>Business Name: DosageLineOrder</p>
      * 
-     * <p>A:Dosage Line Order</p>
+     * <p>Other Business Name: DosageLineOrder</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Component17.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the order in which dosage lines should be 
      * performed. Ensures that each step of multiple and complex 
@@ -134,7 +146,11 @@ public class ConsistsOfBean extends MessagePartBean {
      * <p>Need examples to illustrate use of sequence lines with 
      * 'ANDs' and 'THENs'.</p>
      * 
-     * <p>A:Dosage Line Order</p>
+     * <p>Other Business Name: DosageLineOrder</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Component17.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the order in which dosage lines should be 
      * performed. Ensures that each step of multiple and complex 
@@ -159,11 +175,37 @@ public class ConsistsOfBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Component17.dosageLine</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Component17.dosageLine</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"dosageLine"})
     public StructuredDosageLinesBean getDosageLine() {
         return this.dosageLine;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Component17.dosageLine</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Component17.dosageLine</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDosageLine(StructuredDosageLinesBean dosageLine) {
         this.dosageLine = dosageLine;
     }

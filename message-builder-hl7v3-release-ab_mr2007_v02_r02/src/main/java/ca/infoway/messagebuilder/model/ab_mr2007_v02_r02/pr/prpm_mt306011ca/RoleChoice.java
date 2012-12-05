@@ -35,6 +35,11 @@ public interface RoleChoice {
     public List<ResponsiblePartyBean> getResponsibleFor();
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     public List<RelatedToBean> getRelatedTo();
 
 }

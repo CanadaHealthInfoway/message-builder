@@ -44,7 +44,7 @@ import java.util.List;
 
 
 /**
- * <p>Trigger Event</p>
+ * <p>Business Name: Trigger Event</p>
  * 
  * <p>Identifies the action that resulted in this message being 
  * sent.</p>
@@ -60,7 +60,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
@@ -74,7 +74,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>B:Event Identifier</p>
+     * <p>Business Name: B:Event Identifier</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -94,7 +98,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>B:Event Identifier</p>
+     * <p>Business Name: B:Event Identifier</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -114,7 +122,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>A:Event Type</p>
+     * <p>Business Name: A:Event Type</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
@@ -132,7 +144,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>A:Event Type</p>
+     * <p>Business Name: A:Event Type</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
@@ -150,7 +166,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>Business Name: E:Event Reason</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies why this specific query occurred.</p>
      * 
@@ -173,7 +193,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>Business Name: E:Event Reason</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies why this specific query occurred.</p>
      * 
@@ -206,7 +230,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>Recorded By</p>
+     * <p>Business Name: Recorded By</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.DataEnterer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Indicates the person responsible for entering 
      * the</div> <div>query into the system. This should only be 
@@ -218,7 +246,11 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>Recorded By</p>
+     * <p>Business Name: Recorded By</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.DataEnterer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Indicates the person responsible for entering 
      * the</div> <div>query into the system. This should only be 
@@ -230,7 +262,12 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>Recorded At</p>
+     * <p>Business Name: Recorded At</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Indicates the location where the record of this 
      * query</div> <div>was made. The may be different from the 
@@ -242,7 +279,12 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>Recorded At</p>
+     * <p>Business Name: Recorded At</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Indicates the location where the record of this 
      * query</div> <div>was made. The may be different from the 
@@ -264,7 +306,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>Caused</p>
+     * <p>Business Name: Caused</p>
      * 
      * <p><div>Identifies errors or warnings that are being 
      * managed</div> <p>as part of the current message.&nbsp;</p></p>

@@ -34,15 +34,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Underwriter","PORX_MT010120CA.Underwriter","PORX_MT060040CA.Underwriter"})
 public class UnderwriterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST underwritingOrganizationName = new STImpl();
 
 
     /**
-     * <p>PayorIdentifier</p>
+     * <p>Business Name: PayorIdentifier</p>
      * 
-     * <p>Payor Identifier</p>
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
@@ -51,7 +55,24 @@ public class UnderwriterBean extends MessagePartBean {
      * therefore mandatory. Allows the dispensing service delivery 
      * location to know where to send a claim.</p>
      * 
-     * <p>B:Payor Identifier</p>
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
+     * 
+     * <p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
@@ -66,9 +87,13 @@ public class UnderwriterBean extends MessagePartBean {
     }
 
     /**
-     * <p>PayorIdentifier</p>
+     * <p>Business Name: PayorIdentifier</p>
      * 
-     * <p>Payor Identifier</p>
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
@@ -77,7 +102,24 @@ public class UnderwriterBean extends MessagePartBean {
      * therefore mandatory. Allows the dispensing service delivery 
      * location to know where to send a claim.</p>
      * 
-     * <p>B:Payor Identifier</p>
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the payor organization 
+     * responsible for the coverage extension.</p>
+     * 
+     * <p>Gives context to the coverage extension identifier and 
+     * therefore mandatory. Allows the dispensing service delivery 
+     * location to know where to send a claim.</p>
+     * 
+     * <p>Other Business Name: PayorIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Underwriter.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the payor organization 
      * responsible for the coverage extension.</p>
@@ -92,19 +134,38 @@ public class UnderwriterBean extends MessagePartBean {
 
 
     /**
-     * <p>PayorName</p>
+     * <p>Business Name: PayorName</p>
      * 
-     * <p>C:Payor Name</p>
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
      * 
      * <p>Mandatory for display purposes.</p>
      * 
-     * <p>Payor Name</p>
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization responsible for issuing the 
-     * coverage extension.</p>
+     * coverage extension</p>
      * 
      * <p>Mandatory for display purposes.</p>
      */
@@ -114,19 +175,38 @@ public class UnderwriterBean extends MessagePartBean {
     }
 
     /**
-     * <p>PayorName</p>
+     * <p>Business Name: PayorName</p>
      * 
-     * <p>C:Payor Name</p>
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the organization responsible for issuing the 
+     * coverage extension.</p>
+     * 
+     * <p>Mandatory for display purposes.</p>
+     * 
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization responsible for issuing the 
      * coverage extension</p>
      * 
      * <p>Mandatory for display purposes.</p>
      * 
-     * <p>Payor Name</p>
+     * <p>Other Business Name: PayorName</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization responsible for issuing the 
-     * coverage extension.</p>
+     * coverage extension</p>
      * 
      * <p>Mandatory for display purposes.</p>
      */

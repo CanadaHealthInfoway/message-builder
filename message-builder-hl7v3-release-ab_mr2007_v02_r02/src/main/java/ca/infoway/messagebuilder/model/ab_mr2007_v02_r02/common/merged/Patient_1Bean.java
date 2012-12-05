@@ -49,7 +49,7 @@ import java.util.List;
 
 
 /**
- * <p>Patient</p>
+ * <p>Business Name: Patient</p>
  * 
  * <p>COCT_MT050207CA.Patient: Patient</p>
  * 
@@ -77,7 +77,7 @@ import java.util.List;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements ActingPerson, Patient_2 {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -87,21 +87,17 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
 
 
     /**
-     * <p>PatientIdentifier</p>
+     * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>A:Patient Identifier</p>
+     * <p>Other Business Name: PatientIdentifier</p>
      * 
-     * <p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p>
+     * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
-     * <p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Unique identifier assigned to a person, possibly by a 
+     * local system or some other non-client-registry 
+     * identifier.</p>
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
@@ -224,30 +220,27 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (Root)</p><p>Person.PHN (Extension)</p>
      * 
      * <p>Allows a patient to be referred to unambiguously. Because 
-     * this is the principal mechanism for identifying patients to 
-     * computer systems, the attribute is mandatory.</p>
+     * this CMET deals with patients not confirmable against a 
+     * client registry, it's possible that no identifier will be 
+     * known and therefore the attribute is only 'populated'.</p>
      * 
-     * <p>A:Patient Identifier</p>
+     * <p>Other Business Name: PatientIdentifier</p>
      * 
-     * <p>Unique identifier assigned to a person, possibly by a 
-     * local system or some other non-client-registry 
-     * identifier.</p>
+     * <p>Relationship: COCT_MT050208CA.Patient.id</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p>
+     * 
+     * <p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p>
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
@@ -307,6 +300,9 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
     
      * ... [rest of documentation truncated due to excessive length]
      */
@@ -316,21 +312,17 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     }
 
     /**
-     * <p>PatientIdentifier</p>
+     * <p>Business Name: PatientIdentifier</p>
      * 
-     * <p>A:Patient Identifier</p>
+     * <p>Other Business Name: PatientIdentifier</p>
      * 
-     * <p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p>
+     * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
-     * <p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Unique identifier assigned to a person, possibly by a 
+     * local system or some other non-client-registry 
+     * identifier.</p>
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
@@ -453,30 +445,27 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (Root)</p><p>Person.PHN (Extension)</p>
      * 
      * <p>Allows a patient to be referred to unambiguously. Because 
-     * this is the principal mechanism for identifying patients to 
-     * computer systems, the attribute is mandatory.</p>
+     * this CMET deals with patients not confirmable against a 
+     * client registry, it's possible that no identifier will be 
+     * known and therefore the attribute is only 'populated'.</p>
      * 
-     * <p>A:Patient Identifier</p>
+     * <p>Other Business Name: PatientIdentifier</p>
      * 
-     * <p>Unique identifier assigned to a person, possibly by a 
-     * local system or some other non-client-registry 
-     * identifier.</p>
+     * <p>Relationship: COCT_MT050208CA.Patient.id</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
+     * <p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p>
+     * 
+     * <p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p>
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
@@ -536,6 +525,9 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
      * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
     
      * ... [rest of documentation truncated due to excessive length]
      */
@@ -545,9 +537,13 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
 
 
     /**
-     * <p>PatientContactAddress</p>
+     * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>C:Patient Contact Address</p>
+     * <p>Other Business Name: PatientContactAddress</p>
+     * 
+     * <p>Relationship: COCT_MT050207CA.Patient.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Physical address for the patient where they may be 
      * visited or found.</p>
@@ -747,14 +743,6 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (partTYpe=STA)</p><p>ZPA2.13 
      * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
      * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
-     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
-     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
-     * by carriage return)</p><p>PTT.060-01 
-     * (partType=SAL)</p><p>PTT.060-02 
-     * (partType=CTY)</p><p>PTT.060-03 
-     * (partType=CNT)</p><p>PTT.060-04 
-     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
-     * (
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"addr"})
@@ -763,9 +751,13 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     }
 
     /**
-     * <p>PatientContactAddress</p>
+     * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>C:Patient Contact Address</p>
+     * <p>Other Business Name: PatientContactAddress</p>
+     * 
+     * <p>Relationship: COCT_MT050207CA.Patient.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Physical address for the patient where they may be 
      * visited or found.</p>
@@ -965,14 +957,6 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (partTYpe=STA)</p><p>ZPA2.13 
      * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
      * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
-     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
-     * (usablePeriod (IVL&lt;TS).high)</p><p>ZPA2.19 (Line demarked 
-     * by carriage return)</p><p>PTT.060-01 
-     * (partType=SAL)</p><p>PTT.060-02 
-     * (partType=CTY)</p><p>PTT.060-03 
-     * (partType=CNT)</p><p>PTT.060-04 
-     * (partType=ZIP)</p><p>PID.11</p><p>Patient.322-CM 
-     * (
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setAddr(PostalAddress addr) {
@@ -981,9 +965,13 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
 
 
     /**
-     * <p>PatientContactPhoneAndEMails</p>
+     * <p>Business Name: PatientContactPhoneAndEMails</p>
      * 
-     * <p>D:Patient Contact Phone and E-mails</p>
+     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * 
+     * <p>Relationship: COCT_MT050207CA.Patient.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      * 
      * <p>Telephone, fax and/or e-mail addresses intended as the 
      * principal means of contact for the patient.</p>
@@ -1082,7 +1070,11 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * particular action (prescription, lab test, etc.) will be 
      * conveyed as part of the payload.</p>
      * 
-     * <p>D:Patient Contact Phone and E-mails</p>
+     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * 
+     * <p>Relationship: COCT_MT050208CA.Patient.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      * 
      * <p>Telephone, fax and/or e-mail addresses intended as the 
      * principal means of contact for the patient.</p>
@@ -1173,15 +1165,8 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * not always available, and therefore only marked as 
      * 'populated'.</p>
      * 
-     * <p>Provides basic contact information for the patient 
-     * avoiding the need to separately query the client 
-     * registry.</p><p>Important for following up with patient but 
-     * not always available, and therefore only marked as 
-     * 'populated'.</p>
-     * 
-     * <p>Contact information specific to the patient for a 
-     * particular action (prescription, lab test, etc.) will be 
-     * conveyed as part of the payload.</p>
+     * <p>Provides ba
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -1190,30 +1175,15 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
 
 
     /**
-     * <p>PatientName</p>
+     * <p>Business Name: PatientName</p>
      * 
-     * <p>B:Patient Name</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>The name by which the patient is known to the client 
-     * registry.</p>
+     * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
-     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The name by which the patient is known.</p>
      * 
      * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
@@ -1383,7 +1353,19 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (partType=Given)</p><p>C38 
      * (partType=Family)</p><p>PTT.030-01 
      * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - s
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Give
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientPerson/name"})
@@ -1392,30 +1374,15 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     }
 
     /**
-     * <p>PatientName</p>
+     * <p>Business Name: PatientName</p>
      * 
-     * <p>B:Patient Name</p>
+     * <p>Other Business Name: PatientName</p>
      * 
-     * <p>The name by which the patient is known to the client 
-     * registry.</p>
+     * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
-     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The name by which the patient is known.</p>
      * 
      * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
      * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
@@ -1585,7 +1552,19 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (partType=Given)</p><p>C38 
      * (partType=Family)</p><p>PTT.030-01 
      * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - s
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Give
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientPersonName(PersonName patientPersonName) {
@@ -1594,47 +1573,14 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
 
 
     /**
-     * <p>PatientGender</p>
+     * <p>Business Name: PatientGender</p>
      * 
-     * <p>F:Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient as known by the 
-     * client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p>
+     * <p>Relationship: 
+     * COCT_MT050207CA.Person.administrativeGenderCode</p>
      * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p>
-     * 
-     * <p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p>
-     * 
-     * <p>F:Patient Gender</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient as known by the 
      * client registry. Complex genetic genders are handled as 
@@ -1671,6 +1617,49 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * because there are some situations where the patient's gender 
      * may not be known by the sending system when dealing with 
      * non-client registry patients.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050208CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient as known by the 
+     * client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p>
+     * 
+     * <p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p>
      */
     @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
     public AdministrativeGender getPatientPersonAdministrativeGenderCode() {
@@ -1678,47 +1667,14 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     }
 
     /**
-     * <p>PatientGender</p>
+     * <p>Business Name: PatientGender</p>
      * 
-     * <p>F:Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
      * 
-     * <p>Indicates the gender (sex) of the patient as known by the 
-     * client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p>
+     * <p>Relationship: 
+     * COCT_MT050207CA.Person.administrativeGenderCode</p>
      * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p>
-     * 
-     * <p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p>
-     * 
-     * <p>F:Patient Gender</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient as known by the 
      * client registry. Complex genetic genders are handled as 
@@ -1755,6 +1711,49 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * because there are some situations where the patient's gender 
      * may not be known by the sending system when dealing with 
      * non-client registry patients.</p>
+     * 
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050208CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient as known by the 
+     * client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p>
+     * 
+     * <p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p>
      */
     public void setPatientPersonAdministrativeGenderCode(AdministrativeGender patientPersonAdministrativeGenderCode) {
         this.patientPersonAdministrativeGenderCode.setValue(patientPersonAdministrativeGenderCode);
@@ -1762,9 +1761,13 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
 
 
     /**
-     * <p>PatientBirthDate</p>
+     * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the date on which the patient was born as known 
      * by the client registry.</p>
@@ -1804,7 +1807,11 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * particularly for patients not found in the client 
      * registry.</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the date on which the patient was born as known 
      * by the client registry.</p>
@@ -1853,9 +1860,13 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
     }
 
     /**
-     * <p>PatientBirthDate</p>
+     * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the date on which the patient was born as known 
      * by the client registry.</p>
@@ -1895,7 +1906,11 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * particularly for patients not found in the client 
      * registry.</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the date on which the patient was born as known 
      * by the client registry.</p>

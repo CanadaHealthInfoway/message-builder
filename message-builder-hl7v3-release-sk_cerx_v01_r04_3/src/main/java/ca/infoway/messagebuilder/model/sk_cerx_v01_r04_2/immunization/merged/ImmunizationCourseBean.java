@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ImmunizationCourse</p>
+ * <p>Business Name: ImmunizationCourse</p>
  * 
  * <p>POIZ_MT060150CA.ImmunizationPlan: Immunization Course</p>
  * 
@@ -59,26 +59,114 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.ImmunizationPlan","POIZ_MT030060CA.ImmunizationPlan","POIZ_MT060150CA.ImmunizationPlan"})
 public class ImmunizationCourseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private NextPlannedImmunizationBean fulfillmentNextPlannedImmunization;
     private NextImmunizationPlanBean successorNextImmunizationPlan;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf.nextPlannedImmunization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf.nextPlannedImmunization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf.nextPlannedImmunization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment/nextPlannedImmunization"})
     public NextPlannedImmunizationBean getFulfillmentNextPlannedImmunization() {
         return this.fulfillmentNextPlannedImmunization;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf.nextPlannedImmunization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf.nextPlannedImmunization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf.nextPlannedImmunization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillmentNextPlannedImmunization(NextPlannedImmunizationBean fulfillmentNextPlannedImmunization) {
         this.fulfillmentNextPlannedImmunization = fulfillmentNextPlannedImmunization;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Predecessor.nextImmunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Predecessor.nextImmunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Predecessor.nextImmunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"successor/nextImmunizationPlan"})
     public NextImmunizationPlanBean getSuccessorNextImmunizationPlan() {
         return this.successorNextImmunizationPlan;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Predecessor.nextImmunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Predecessor.nextImmunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Predecessor.nextImmunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSuccessorNextImmunizationPlan(NextImmunizationPlanBean successorNextImmunizationPlan) {
         this.successorNextImmunizationPlan = successorNextImmunizationPlan;
     }

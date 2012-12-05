@@ -46,7 +46,7 @@ import java.util.Set;
 
 
 /**
- * <p>Prescription Dispense</p>
+ * <p>Business Name: Prescription Dispense</p>
  * 
  * <p>This is the detailed information about a medication 
  * dispense that has been performed on behalf a patient.</p>
@@ -58,7 +58,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private BL subject = new BLImpl(false);
@@ -70,7 +70,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Local Dispense Id</p>
+     * <p>Business Name: A:Local Dispense Id</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifier assigned by the dispensing facility.</p>
      * 
@@ -83,7 +87,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Local Dispense Id</p>
+     * <p>Business Name: A:Local Dispense Id</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifier assigned by the dispensing facility.</p>
      * 
@@ -96,7 +104,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Prescription Masking Indicators</p>
+     * <p>Business Name: E:Prescription Masking Indicators</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.MedicationDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Communicates the intent that the dispense should be 
      * masked if it is created; If the dispense is masked, this 
@@ -158,11 +171,21 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public Boolean getSubject() {
         return this.subject.getValue();
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubject(Boolean subject) {
         this.subject.setValue(subject);
     }
@@ -194,21 +217,41 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component3/supplyEvent"})
     public SupplyEventBean getComponent3SupplyEvent() {
         return this.component3SupplyEvent;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public NotesBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

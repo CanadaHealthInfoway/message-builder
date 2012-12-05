@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.si.comt_mt300002ca.Gene
 
 
 /**
- * <p>COMT_IN300201CA: Patient note query</p>
+ * <p>Business Name: COMT_IN300201CA: Patient note query</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +40,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.si.comt_mt300002ca.Gene
 @Hl7PartTypeMapping({"COMT_IN300201CA"})
 public class PatientNoteQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

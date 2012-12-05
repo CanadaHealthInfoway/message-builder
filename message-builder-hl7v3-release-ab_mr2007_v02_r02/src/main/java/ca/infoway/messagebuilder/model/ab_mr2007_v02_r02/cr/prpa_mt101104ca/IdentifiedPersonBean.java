@@ -47,7 +47,7 @@ import java.util.Set;
 
 
 /**
- * <p>Identified Person</p>
+ * <p>Business Name: Identified Person</p>
  * 
  * <p>The IdentifiedEntity class is the entry point to the 
  * R-MIM and contains one or more identifiers (for example an 
@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
@@ -75,6 +75,10 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>A code specifying the major category of a Role as defined 
      * by HL7 vocabulary.</p>
      * 
@@ -88,6 +92,10 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>A code specifying the major category of a Role as defined 
      * by HL7 vocabulary.</p>
      * 
@@ -101,7 +109,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-100)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
@@ -121,7 +133,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the status of the Client role (e.g. Active)</p>
      * 
@@ -134,7 +150,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the status of the Client role (e.g. Active)</p>
      * 
@@ -147,7 +167,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the effective time of the Client role</p>
      * 
@@ -160,7 +185,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the effective time of the Client role</p>
      * 
@@ -173,7 +203,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code that controls the disclosure of information about 
      * this patient encounter.</p>
@@ -202,7 +237,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code that controls the disclosure of information about 
      * this patient encounter.</p>
@@ -230,11 +270,23 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101104CA.IdentifiedEntity.identifiedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson"})
     public PersonBean getIdentifiedPerson() {
         return this.identifiedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101104CA.IdentifiedEntity.identifiedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setIdentifiedPerson(PersonBean identifiedPerson) {
         this.identifiedPerson = identifiedPerson;
     }

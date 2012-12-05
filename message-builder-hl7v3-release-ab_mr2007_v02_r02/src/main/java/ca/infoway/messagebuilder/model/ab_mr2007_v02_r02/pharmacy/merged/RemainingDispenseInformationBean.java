@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>RemainingDispenseInformation</p>
+ * <p>Business Name: RemainingDispenseInformation</p>
  * 
  * <p>PORX_MT060040CA.SupplyEventFutureSummary: Remaining 
  * Dispense Information</p>
@@ -58,15 +58,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventFutureSummary","PORX_MT060060CA.SupplyEventFutureSummary"})
 public class RemainingDispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT repeatNumber = new INTImpl();
     private INT quantity = new INTImpl();
 
 
     /**
-     * <p>FillsRemaining</p>
+     * <p>Business Name: FillsRemaining</p>
      * 
-     * <p>A:Fills Remaining</p>
+     * <p>Other Business Name: FillsRemaining</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventFutureSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the number of remaining dispenses estimated, 
+     * assuming that each fill is equal to the quantity prescribed 
+     * for a single fill, rounding up.</p>
+     * 
+     * <p>Indicates the number of dispenses that may still 
+     * occur.</p>
+     * 
+     * <p>Other Business Name: FillsRemaining</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventFutureSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the number of remaining dispenses estimated, 
      * assuming that each fill is equal to the quantity prescribed 
@@ -81,9 +100,28 @@ public class RemainingDispenseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>FillsRemaining</p>
+     * <p>Business Name: FillsRemaining</p>
      * 
-     * <p>A:Fills Remaining</p>
+     * <p>Other Business Name: FillsRemaining</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventFutureSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the number of remaining dispenses estimated, 
+     * assuming that each fill is equal to the quantity prescribed 
+     * for a single fill, rounding up.</p>
+     * 
+     * <p>Indicates the number of dispenses that may still 
+     * occur.</p>
+     * 
+     * <p>Other Business Name: FillsRemaining</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventFutureSummary.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the number of remaining dispenses estimated, 
      * assuming that each fill is equal to the quantity prescribed 
@@ -98,9 +136,26 @@ public class RemainingDispenseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>RemainingTotalQuantity</p>
+     * <p>Business Name: RemainingTotalQuantity</p>
      * 
-     * <p>B:Remaining Total Quantity</p>
+     * <p>Other Business Name: RemainingTotalQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventFutureSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the total remaining undispensed quantity 
+     * authorized against the prescription.</p>
+     * 
+     * <p>Indicates how much can still be dispensed.</p>
+     * 
+     * <p>Other Business Name: RemainingTotalQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventFutureSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the total remaining undispensed quantity 
      * authorized against the prescription.</p>
@@ -113,9 +168,26 @@ public class RemainingDispenseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>RemainingTotalQuantity</p>
+     * <p>Business Name: RemainingTotalQuantity</p>
      * 
-     * <p>B:Remaining Total Quantity</p>
+     * <p>Other Business Name: RemainingTotalQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventFutureSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the total remaining undispensed quantity 
+     * authorized against the prescription.</p>
+     * 
+     * <p>Indicates how much can still be dispensed.</p>
+     * 
+     * <p>Other Business Name: RemainingTotalQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventFutureSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the total remaining undispensed quantity 
      * authorized against the prescription.</p>

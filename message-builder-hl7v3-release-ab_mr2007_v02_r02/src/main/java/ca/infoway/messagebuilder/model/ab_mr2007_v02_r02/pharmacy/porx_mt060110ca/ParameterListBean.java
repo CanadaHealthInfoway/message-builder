@@ -47,7 +47,7 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDrugIndicatorValue = new BLImpl();
@@ -55,7 +55,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Administration Effective Period</p>
+     * <p>Business Name: D:Administration Effective Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -81,7 +86,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Administration Effective Period</p>
+     * <p>Business Name: D:Administration Effective Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -107,7 +117,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -128,7 +142,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060110CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -149,7 +167,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Business Name: Most Recent By Drug Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not the medication records are to be 
      * retrieved based on the most recent by Drug Code. If true, 
@@ -178,7 +201,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Most Recent By Drug Indicator</p>
+     * <p>Business Name: Most Recent By Drug Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.MostRecentByDrugIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not the medication records are to be 
      * retrieved based on the most recent by Drug Code. If true, 
@@ -207,7 +235,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Business Name: Most Recent Dispense for each Rx Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not prescription dispenses returned 
      * on a query should be limited to only the most recent 
@@ -251,7 +284,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Business Name: Most Recent Dispense for each Rx Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not prescription dispenses returned 
      * on a query should be limited to only the most recent 

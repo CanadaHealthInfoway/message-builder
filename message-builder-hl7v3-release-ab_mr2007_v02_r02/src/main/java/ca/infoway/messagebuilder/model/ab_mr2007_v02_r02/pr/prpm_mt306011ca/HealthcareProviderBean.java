@@ -59,7 +59,7 @@ import java.util.Set;
 
 
 /**
- * <p>Healthcare Provider</p>
+ * <p>Business Name: Healthcare Provider</p>
  * 
  * <p>This roles the specific Healthcare provider role such as 
  * a Physician, Nurse or other type of caregivers.</p>
@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -91,7 +91,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Identification</p>
+     * <p>Business Name: Healthcare Provider Role Identification</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>A unique identifier for a provider in a specific 
      * healthcare role.</p>
@@ -105,6 +109,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"relatedTo"})
     public List<RelatedToBean> getRelatedTo() {
         return this.relatedTo;
@@ -112,7 +121,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Business Name: Healthcare Provider Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific healthcare provider 
      * role.</p>
@@ -126,7 +139,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Business Name: Healthcare Provider Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific healthcare provider 
      * role.</p>
@@ -140,7 +157,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Name</p>
+     * <p>Business Name: Healthcare Provider Role Name</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The provider&#226;&#128;&#153;s name pertaining to the 
      * specific healthcare provider role.</p>
@@ -155,7 +176,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Address</p>
+     * <p>Business Name: Healthcare Provider Role Address</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The address for the provider when playing the role of 
      * healthcare provider.</p>
@@ -170,7 +195,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Telecom</p>
+     * <p>Business Name: Healthcare Provider Role Telecom</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The telecom for the provider when playing the role of 
      * healthcare provider.</p>
@@ -185,7 +214,12 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Status Code</p>
+     * <p>Business Name: Healthcare Provider Role Status Code</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.HealthCareProvider.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The status of the provider in the healthcare provider 
      * role i.e. Active</p>
@@ -199,7 +233,12 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
     /**
-     * <p>Healthcare Provider Role Status Code</p>
+     * <p>Business Name: Healthcare Provider Role Status Code</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.HealthCareProvider.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The status of the provider in the healthcare provider 
      * role i.e. Active</p>
@@ -213,7 +252,12 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Effective Date</p>
+     * <p>Business Name: Healthcare Provider Role Effective Date</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.HealthCareProvider.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The effective date of the provider in the healthcare 
      * provider role.</p>
@@ -227,7 +271,12 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
     /**
-     * <p>Healthcare Provider Role Effective Date</p>
+     * <p>Business Name: Healthcare Provider Role Effective Date</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.HealthCareProvider.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The effective date of the provider in the healthcare 
      * provider role.</p>
@@ -250,11 +299,23 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.HealthCareProvider.issuingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"issuingOrganization"})
     public OrganizationBean getIssuingOrganization() {
         return this.issuingOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.HealthCareProvider.issuingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
     }

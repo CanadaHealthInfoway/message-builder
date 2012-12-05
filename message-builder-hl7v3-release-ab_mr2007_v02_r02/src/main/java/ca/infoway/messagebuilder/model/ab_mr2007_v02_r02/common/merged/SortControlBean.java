@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>SortControl</p>
+ * <p>Business Name: SortControl</p>
  * 
  * <p>MFMI_MT700751CA.SortControl: Sort Control</p>
  * 
@@ -57,16 +57,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.SortControl","MFMI_MT700751CA.SortControl"})
 public class SortControlBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private ST elementName = new STImpl();
     private CS directionCode = new CSImpl();
 
 
     /**
-     * <p>SequenceNumber</p>
+     * <p>Business Name: SequenceNumber</p>
      * 
-     * <p>Sequence Number</p>
+     * <p>Other Business Name: SequenceNumber</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.SortControl.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>When more than one sort control is specified, this is the 
+     * order of this sort element amongst the others.</p>
+     * 
+     * <p>This number determines which sort element is using 
+     * primarily, secondary, etc. and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: SequenceNumber</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.SortControl.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
@@ -80,9 +96,25 @@ public class SortControlBean extends MessagePartBean {
     }
 
     /**
-     * <p>SequenceNumber</p>
+     * <p>Business Name: SequenceNumber</p>
      * 
-     * <p>Sequence Number</p>
+     * <p>Other Business Name: SequenceNumber</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.SortControl.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>When more than one sort control is specified, this is the 
+     * order of this sort element amongst the others.</p>
+     * 
+     * <p>This number determines which sort element is using 
+     * primarily, secondary, etc. and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: SequenceNumber</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.SortControl.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>When more than one sort control is specified, this is the 
      * order of this sort element amongst the others.</p>
@@ -96,9 +128,23 @@ public class SortControlBean extends MessagePartBean {
 
 
     /**
-     * <p>SortElementName</p>
+     * <p>Business Name: SortElementName</p>
      * 
-     * <p>Sort Element Name</p>
+     * <p>Other Business Name: SortElementName</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.SortControl.elementName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Name of the element to sort.</p>
+     * 
+     * <p>The name of the element is mandatory.</p>
+     * 
+     * <p>Other Business Name: SortElementName</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.SortControl.elementName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of the element to sort.</p>
      * 
@@ -110,9 +156,23 @@ public class SortControlBean extends MessagePartBean {
     }
 
     /**
-     * <p>SortElementName</p>
+     * <p>Business Name: SortElementName</p>
      * 
-     * <p>Sort Element Name</p>
+     * <p>Other Business Name: SortElementName</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.SortControl.elementName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Name of the element to sort.</p>
+     * 
+     * <p>The name of the element is mandatory.</p>
+     * 
+     * <p>Other Business Name: SortElementName</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.SortControl.elementName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of the element to sort.</p>
      * 
@@ -124,9 +184,24 @@ public class SortControlBean extends MessagePartBean {
 
 
     /**
-     * <p>SortControlDirection</p>
+     * <p>Business Name: SortControlDirection</p>
      * 
-     * <p>Sort Control Direction</p>
+     * <p>Other Business Name: SortControlDirection</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.SortControl.directionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets the ascending or descending nature of the sort 
+     * request.</p>
+     * 
+     * <p>This element is required.</p>
+     * 
+     * <p>Other Business Name: SortControlDirection</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.SortControl.directionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>
@@ -139,9 +214,24 @@ public class SortControlBean extends MessagePartBean {
     }
 
     /**
-     * <p>SortControlDirection</p>
+     * <p>Business Name: SortControlDirection</p>
      * 
-     * <p>Sort Control Direction</p>
+     * <p>Other Business Name: SortControlDirection</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.SortControl.directionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Sets the ascending or descending nature of the sort 
+     * request.</p>
+     * 
+     * <p>This element is required.</p>
+     * 
+     * <p>Other Business Name: SortControlDirection</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.SortControl.directionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Sets the ascending or descending nature of the sort 
      * request.</p>

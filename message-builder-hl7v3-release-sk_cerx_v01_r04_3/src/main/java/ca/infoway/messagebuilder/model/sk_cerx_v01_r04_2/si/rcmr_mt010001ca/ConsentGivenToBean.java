@@ -30,7 +30,7 @@ import java.util.List;
 
 
 /**
- * <p>*consent given to</p>
+ * <p>Business Name: *consent given to</p>
  * 
  * <p>Identifies the beneficiary of the consent as being a 
  * Provider or Service Location.</p>
@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<Recipient> recipient = new ArrayList<Recipient>();
 
 

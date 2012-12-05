@@ -34,7 +34,7 @@ import java.util.Set;
 
 
 /**
- * <p>ReferencedRecord</p>
+ * <p>Business Name: ReferencedRecord</p>
  * 
  * <p>COMT_MT001101CA.ActRequest: Referenced Record</p>
  * 
@@ -64,14 +64,30 @@ import java.util.Set;
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
-     * <p>RecordIds</p>
+     * <p>Business Name: RecordIds</p>
      * 
-     * <p>Record Ids</p>
+     * <p>Other Business Name: RecordIds</p>
+     * 
+     * <p>Relationship: COMT_MT001101CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * 
+     * <p>The identifier assigned by the central system (EHR) to 
+     * the Event record being referred to.</p>
+     * 
+     * <p>Allows the event record to be uniquely referenced and is 
+     * therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: RecordIds</p>
+     * 
+     * <p>Relationship: COMT_MT001103CA.ActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
      * <p>The identifier assigned by the central system (EHR) to 
      * the Event record being referred to.</p>

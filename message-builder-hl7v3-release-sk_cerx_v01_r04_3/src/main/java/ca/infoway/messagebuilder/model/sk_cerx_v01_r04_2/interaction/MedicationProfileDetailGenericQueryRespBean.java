@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Medicat
 
 
 /**
- * <p>PORX_IN060360CA: Medication profile detail generic query 
- * resp.</p>
+ * <p>Business Name: PORX_IN060360CA: Medication profile detail 
+ * generic query resp.</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -49,6 +49,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Medicat
 @Hl7PartTypeMapping({"PORX_IN060360CA"})
 public class MedicationProfileDetailGenericQueryRespBean extends HL7Message_1Bean<TriggerEventBean<MedicationRecord,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

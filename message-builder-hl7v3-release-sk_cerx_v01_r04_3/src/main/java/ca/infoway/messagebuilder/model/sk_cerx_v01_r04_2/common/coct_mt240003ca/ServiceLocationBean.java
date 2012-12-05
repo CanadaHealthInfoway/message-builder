@@ -42,7 +42,7 @@ import java.util.Set;
 
 
 /**
- * <p>Service Location</p>
+ * <p>Business Name: Service Location</p>
  * 
  * <p>An identification of a service location (or facility) 
  * where health service has been or can be delivered. E.g. 
@@ -57,7 +57,7 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Recipient {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -65,7 +65,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>C:Service Location Id</p>
+     * <p>Business Name: C:Service Location Id</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
      * 
@@ -117,7 +121,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>C:Service Location Id</p>
+     * <p>Business Name: C:Service Location Id</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
      * 
@@ -169,7 +177,12 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>D:Service Location Address</p>
+     * <p>Business Name: D:Service Location Address</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
@@ -192,7 +205,12 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>D:Service Location Address</p>
+     * <p>Business Name: D:Service Location Address</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
@@ -215,7 +233,12 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>E:Service Location Phones and E-mails</p>
+     * <p>Business Name: E:Service Location Phones and E-mails</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      * 
      * <p>The phone numbers and/or electronic mail addresses by 
      * which a service location may be contacted.</p>
@@ -231,7 +254,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>B:Service Location Name</p>
+     * <p>Business Name: B:Service Location Name</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the service location.</p>
      * 
@@ -253,7 +280,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>B:Service Location Name</p>
+     * <p>Business Name: B:Service Location Name</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the service location.</p>
      * 

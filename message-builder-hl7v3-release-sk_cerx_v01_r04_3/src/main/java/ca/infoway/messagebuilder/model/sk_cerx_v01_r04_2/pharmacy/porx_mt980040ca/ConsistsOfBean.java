@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>b:consists of</p>
+ * <p>Business Name: b:consists of</p>
  * 
  * <p>Dosage instructions may be given as textual information 
  * (as in Ad-hoc Dosage Instructions specified above) or as a 
@@ -44,13 +44,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.Component17"})
 public class ConsistsOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private StructuredDosageLinesBean dosageLine;
 
 
     /**
-     * <p>A:Dosage Line Order</p>
+     * <p>Business Name: A:Dosage Line Order</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Component17.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the order in which dosage lines should be 
      * performed. Ensures that each step of multiple and complex 
@@ -76,7 +80,11 @@ public class ConsistsOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Dosage Line Order</p>
+     * <p>Business Name: A:Dosage Line Order</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Component17.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the order in which dosage lines should be 
      * performed. Ensures that each step of multiple and complex 
@@ -102,6 +110,10 @@ public class ConsistsOfBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT980040CA.Component17.dosageLine</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This information, along with the order/sequence 
      * of</p> <div>the dosage lines, constitutes the details of 
      * a</div> <div>structured dosage instruction.</div>
@@ -112,6 +124,10 @@ public class ConsistsOfBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PORX_MT980040CA.Component17.dosageLine</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This information, along with the order/sequence 
      * of</p> <div>the dosage lines, constitutes the details of 
      * a</div> <div>structured dosage instruction.</div>

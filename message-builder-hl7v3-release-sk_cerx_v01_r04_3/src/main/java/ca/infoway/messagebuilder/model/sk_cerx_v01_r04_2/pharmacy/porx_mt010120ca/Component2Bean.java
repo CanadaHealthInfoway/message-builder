@@ -40,12 +40,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.Component2"})
 public class Component2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL negationInd = new BLImpl();
 
 
     /**
-     * <p>G:Not Eligible for Trial?</p>
+     * <p>Business Name: G:Not Eligible for Trial?</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Component2.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication that a prescription is or is not eligible 
      * for trial dispensing from a clinical (not financial) 
@@ -78,7 +82,11 @@ public class Component2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Not Eligible for Trial?</p>
+     * <p>Business Name: G:Not Eligible for Trial?</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.Component2.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication that a prescription is or is not eligible 
      * for trial dispensing from a clinical (not financial) 

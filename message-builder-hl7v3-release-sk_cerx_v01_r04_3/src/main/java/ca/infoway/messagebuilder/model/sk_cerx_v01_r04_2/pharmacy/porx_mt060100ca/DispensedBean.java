@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Substan
 
 
 /**
- * <p>a:dispensed</p>
+ * <p>Business Name: a:dispensed</p>
  * 
  * <p>Indicates the prescription that was dispensed.</p>
  * 
@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Substan
 @Hl7PartTypeMapping({"PORX_MT060100CA.InFulfillmentOf"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SubstanceAdministrationRequestBean substanceAdministrationRequest;
 
 

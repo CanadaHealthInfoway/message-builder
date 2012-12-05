@@ -37,7 +37,7 @@ import java.util.List;
 
 
 /**
- * <p>Dispense Instructions</p>
+ * <p>Business Name: Dispense Instructions</p>
  * 
  * <p>Specification of how the prescribed medication is to be 
  * dispensed to the patient. Dispensed instruction information 
@@ -50,7 +50,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
     private CreatedAtBean location;
@@ -59,7 +59,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Dispensing Allowed Period</p>
+     * <p>Business Name: A:Dispensing Allowed Period</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This indicates the validity period of a prescription 
      * (stale dating the Prescription).</p><p>It reflects the 
@@ -101,7 +105,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Dispensing Allowed Period</p>
+     * <p>Business Name: A:Dispensing Allowed Period</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This indicates the validity period of a prescription 
      * (stale dating the Prescription).</p><p>It reflects the 
@@ -168,6 +176,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Component.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/supplyRequestItem"})
     public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
         return this.componentSupplyRequestItem;

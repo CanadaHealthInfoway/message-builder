@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>CareCompositions</p>
+ * <p>Business Name: CareCompositions</p>
  * 
  * <p>QUQI_MT020000CA.Component: Care Compositions</p>
  * 
@@ -97,37 +97,151 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700211CA.Component","QUQI_MT020000CA.Component","QUQI_MT120006CA.Component"})
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL contextConductionInd = new BLImpl();
     private ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
     private CS typeCode = new CSImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"patientCareProvisionEvent"})
     public ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt011001ca.CareCompositionsBean getPatientCareProvisionEvent() {
         return this.patientCareProvisionEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent) {
         this.patientCareProvisionEvent = patientCareProvisionEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ActRelationshipType getTypeCode() {
         return (ActRelationshipType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.Component.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }

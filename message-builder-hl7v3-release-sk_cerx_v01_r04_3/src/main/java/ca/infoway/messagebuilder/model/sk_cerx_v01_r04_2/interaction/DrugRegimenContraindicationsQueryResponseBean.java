@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt050010c
 
 
 /**
- * <p>PORX_IN050020CA: Drug regimen contraindications query 
- * response</p>
+ * <p>Business Name: PORX_IN050020CA: Drug regimen 
+ * contraindications query response</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt050010c
 @Hl7PartTypeMapping({"PORX_IN050020CA"})
 public class DrugRegimenContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

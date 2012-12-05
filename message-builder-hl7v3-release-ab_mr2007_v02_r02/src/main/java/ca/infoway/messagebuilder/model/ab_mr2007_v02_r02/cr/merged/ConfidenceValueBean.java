@@ -37,7 +37,7 @@ import java.math.BigDecimal;
 
 
 /**
- * <p>ConfidenceValue</p>
+ * <p>Business Name: ConfidenceValue</p>
  * 
  * <p>PRPA_MT101102CA.ObservationEvent: Confidence Value</p>
  * 
@@ -64,37 +64,106 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.ObservationEvent","PRPA_MT101104CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public ActClass getClassCode() {
         return (ActClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
     /**
-     * <p>ProbabilityMatchCode</p>
+     * <p>Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>*Probability Match Code</p>
+     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Supports the business requirement to identify type of 
+     * confidence matching used i.e. the code would be the name for 
+     * the algorithm for the confidence value</p>
+     * 
+     * <p>Mandatory attribute supports confident identification of 
+     * intended client</p>
+     * 
+     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Supports the business requirement to identify type of 
      * confidence matching used i.e. the code would be the name for 
@@ -109,9 +178,26 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
 
     /**
-     * <p>ProbabilityMatchCode</p>
+     * <p>Business Name: ProbabilityMatchCode</p>
      * 
-     * <p>*Probability Match Code</p>
+     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Supports the business requirement to identify type of 
+     * confidence matching used i.e. the code would be the name for 
+     * the algorithm for the confidence value</p>
+     * 
+     * <p>Mandatory attribute supports confident identification of 
+     * intended client</p>
+     * 
+     * <p>Other Business Name: ProbabilityMatchCode</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Supports the business requirement to identify type of 
      * confidence matching used i.e. the code would be the name for 
@@ -126,9 +212,26 @@ public class ConfidenceValueBean extends MessagePartBean {
 
 
     /**
-     * <p>ConfidenceValue</p>
+     * <p>Business Name: ConfidenceValue</p>
      * 
-     * <p>Confidence Value</p>
+     * <p>Other Business Name: ConfidenceValue</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A real number value indicating the confidence of the 
+     * query with regard to finding the intended target client i.e. 
+     * the value would be the computed confidence value.</p>
+     * 
+     * <p>Required attribute to provide information about success 
+     * of query</p>
+     * 
+     * <p>Other Business Name: ConfidenceValue</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target client i.e. 
@@ -143,9 +246,26 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConfidenceValue</p>
+     * <p>Business Name: ConfidenceValue</p>
      * 
-     * <p>Confidence Value</p>
+     * <p>Other Business Name: ConfidenceValue</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A real number value indicating the confidence of the 
+     * query with regard to finding the intended target client i.e. 
+     * the value would be the computed confidence value.</p>
+     * 
+     * <p>Required attribute to provide information about success 
+     * of query</p>
+     * 
+     * <p>Other Business Name: ConfidenceValue</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target client i.e. 

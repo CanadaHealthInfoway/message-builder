@@ -31,15 +31,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.SequelTo","PRPM_MT303010CA.SequelTo"})
 public class SequelToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private InformRequestBean informRequest;
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.SequelTo.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.SequelTo.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
@@ -47,20 +57,56 @@ public class SequelToBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.SequelTo.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Required</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.SequelTo.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.SequelTo.informRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.SequelTo.informRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informRequest"})
     public InformRequestBean getInformRequest() {
         return this.informRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.SequelTo.informRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.SequelTo.informRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformRequest(InformRequestBean informRequest) {
         this.informRequest = informRequest;
     }

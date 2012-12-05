@@ -48,7 +48,7 @@ import java.util.List;
 
 
 /**
- * <p>Unfilled Prescription Query Parameters</p>
+ * <p>Business Name: Unfilled Prescription Query Parameters</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private TS patientBirthDateValue = new TSImpl();
     private CV patientGenderValue = new CVImpl();
@@ -70,7 +70,12 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Administration Effective Period</p>
+     * <p>Business Name: D:Administration Effective Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060240CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -96,7 +101,12 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Administration Effective Period</p>
+     * <p>Business Name: D:Administration Effective Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060240CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -122,7 +132,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Birth Date</p>
+     * <p>Business Name: Patient Birth Date</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
@@ -135,7 +149,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Birth Date</p>
+     * <p>Business Name: Patient Birth Date</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
@@ -148,7 +166,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient.</p>
      * 
@@ -161,7 +183,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient.</p>
      * 
@@ -174,7 +200,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>Business Name: B:Patient ID</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
@@ -191,7 +221,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>Business Name: B:Patient ID</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
@@ -208,7 +242,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the patient who is the subject of the patient 
      * medication query.</p><p>Filter the result set to include 
@@ -230,7 +268,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the patient who is the subject of the patient 
      * medication query.</p><p>Filter the result set to include 
@@ -252,7 +294,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Prescription Statuses</p>
+     * <p>Business Name: E:Prescription Statuses</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PrescriptionStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that prescriptions of a specific statuses are 
      * to be included in the result set. Allowable prescription 
@@ -270,7 +316,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Rx Dispense Indicator</p>
+     * <p>Business Name: Rx Dispense Indicator</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.RxDispenseIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating the dispensing (fill) status of 
      * the prescription to be included in the result set. The only 
@@ -286,7 +336,11 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Rx Dispense Indicator</p>
+     * <p>Business Name: Rx Dispense Indicator</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.RxDispenseIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating the dispensing (fill) status of 
      * the prescription to be included in the result set. The only 

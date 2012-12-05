@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>has characteristic</p>
+ * <p>Business Name: has characteristic</p>
  * 
  * <p>Filters medications by their appearance.</p>
  * 
@@ -42,13 +42,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010090CA.DrugCharacteristics"})
 public class HasCharacteristicBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST drugCharacteristicValue = new STImpl();
     private CV drugCharacteristicTypeValue = new CVImpl();
 
 
     /**
-     * <p>G:Drug Characteristic</p>
+     * <p>Business Name: G:Drug Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugCharacteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color - red, shape - triangular, markings 
@@ -102,7 +106,11 @@ public class HasCharacteristicBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Drug Characteristic</p>
+     * <p>Business Name: G:Drug Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugCharacteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color - red, shape - triangular, markings 
@@ -156,7 +164,12 @@ public class HasCharacteristicBean extends MessagePartBean {
 
 
     /**
-     * <p>H:Drug Characteristic Type Code</p>
+     * <p>Business Name: H:Drug Characteristic Type Code</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010090CA.DrugCharacteristicType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the type of physical 
      * characteristic of a drug. Characteristics include: Color, 
@@ -173,7 +186,12 @@ public class HasCharacteristicBean extends MessagePartBean {
     }
 
     /**
-     * <p>H:Drug Characteristic Type Code</p>
+     * <p>Business Name: H:Drug Characteristic Type Code</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010090CA.DrugCharacteristicType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the type of physical 
      * characteristic of a drug. Characteristics include: Color, 

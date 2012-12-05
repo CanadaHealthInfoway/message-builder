@@ -48,7 +48,7 @@ import java.util.Date;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
@@ -59,7 +59,7 @@ import java.util.Date;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> immunizationPeriodValue = new IVLImpl<TS, Interval<Date>>();
     private BL includeIssuesIndicatorValue = new BLImpl();
     private BL includeNotesIndicatorValue = new BLImpl();
@@ -74,7 +74,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Immunization Period</p>
+     * <p>Business Name: G:Immunization Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.ImmunizationPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred within the 
@@ -95,7 +99,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Immunization Period</p>
+     * <p>Business Name: G:Immunization Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.ImmunizationPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunizations that occurred within the 
@@ -116,7 +124,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Include Issues Indicator</p>
+     * <p>Business Name: Include Issues Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060140CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not issues attached to the 
      * immunization record are to be returned along with the 
@@ -140,7 +153,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Include Issues Indicator</p>
+     * <p>Business Name: Include Issues Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060140CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not issues attached to the 
      * immunization record are to be returned along with the 
@@ -164,7 +182,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Include Notes Indicator</p>
+     * <p>Business Name: Include Notes Indicator</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * immunization record are to be returned along with the 
@@ -181,7 +203,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Include Notes Indicator</p>
+     * <p>Business Name: Include Notes Indicator</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not notes attached to the 
      * immunization record are to be returned along with the 
@@ -198,7 +224,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>H:Next Planned Dose Period</p>
+     * <p>Business Name: H:Next Planned Dose Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.NextPlannedDosePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunization records for which the next 
@@ -219,7 +249,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>H:Next Planned Dose Period</p>
+     * <p>Business Name: H:Next Planned Dose Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.NextPlannedDosePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunization records for which the next 
@@ -240,7 +274,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Patient Birth Date</p>
+     * <p>Business Name: D:Patient Birth Date</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on whic the patient was born.</p>
      * 
@@ -253,7 +291,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Patient Birth Date</p>
+     * <p>Business Name: D:Patient Birth Date</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientBirthDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on whic the patient was born.</p>
      * 
@@ -266,7 +308,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Gender</p>
+     * <p>Business Name: C:Patient Gender</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient.</p>
      * 
@@ -279,7 +325,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Gender</p>
+     * <p>Business Name: C:Patient Gender</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient.</p>
      * 
@@ -292,7 +342,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>Business Name: B:Patient ID</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient immunization query. Filter the result set to include 
@@ -309,7 +363,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>Business Name: B:Patient ID</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient immunization query. Filter the result set to include 
@@ -326,7 +384,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the patient who is the subject of the patient 
      * immunization query.</p><p>Filter the result set to include 
@@ -348,7 +410,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Business Name: C:Patient Name</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.PatientName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the patient who is the subject of the patient 
      * immunization query.</p><p>Filter the result set to include 
@@ -370,7 +436,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>I:Renewal Period</p>
+     * <p>Business Name: I:Renewal Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.RenewalPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunization records for which the 
@@ -390,7 +460,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>I:Renewal Period</p>
+     * <p>Business Name: I:Renewal Period</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.RenewalPeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those immunization records for which the 
@@ -410,7 +484,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Vaccine Code</p>
+     * <p>Business Name: E:Vaccine Code</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.VaccineCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating a specific vaccine to be used in 
      * searching for patient immunization record.</p><p>The result 
@@ -432,7 +510,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Vaccine Code</p>
+     * <p>Business Name: E:Vaccine Code</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.VaccineCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating a specific vaccine to be used in 
      * searching for patient immunization record.</p><p>The result 
@@ -454,7 +536,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Vaccine Dose Number</p>
+     * <p>Business Name: F:Vaccine Dose Number</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.VaccineDoseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A number representing the vaccine booster order that must 
      * be used in searching for patient immunization 
@@ -477,7 +563,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Vaccine Dose Number</p>
+     * <p>Business Name: F:Vaccine Dose Number</p>
+     * 
+     * <p>Relationship: POIZ_MT060140CA.VaccineDoseNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A number representing the vaccine booster order that must 
      * be used in searching for patient immunization 

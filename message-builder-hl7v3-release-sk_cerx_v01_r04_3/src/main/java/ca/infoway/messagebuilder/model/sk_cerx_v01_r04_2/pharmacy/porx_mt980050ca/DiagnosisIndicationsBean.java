@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Diagnosis Indications</p>
+ * <p>Business Name: Diagnosis Indications</p>
  * 
  * <p>Code must be fixed to DX if not using SNOMED</p><p>Value 
  * is mandatory if not using SNOMED</p>
@@ -51,14 +51,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationDiagnosis"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private CV value = new CVImpl();
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationDiagnosis.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the type of diagnosis</p>
      * 
@@ -76,7 +80,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationDiagnosis.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the type of diagnosis</p>
      * 
@@ -94,7 +102,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
 
 
     /**
-     * <p>Free Form Diagnosis Indication</p>
+     * <p>Business Name: Free Form Diagnosis Indication</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationDiagnosis.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description augmenting the specified 
      * diagnosis code.</p>
@@ -108,7 +120,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
 
     /**
-     * <p>Free Form Diagnosis Indication</p>
+     * <p>Business Name: Free Form Diagnosis Indication</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationDiagnosis.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description augmenting the specified 
      * diagnosis code.</p>
@@ -122,7 +138,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
 
 
     /**
-     * <p>A:Diagnosis Code</p>
+     * <p>Business Name: A:Diagnosis Code</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationDiagnosis.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A coded form of the diagnosis that is the reason for the 
      * current action.</p>
@@ -138,7 +158,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
 
     /**
-     * <p>A:Diagnosis Code</p>
+     * <p>Business Name: A:Diagnosis Code</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationDiagnosis.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A coded form of the diagnosis that is the reason for the 
      * current action.</p>

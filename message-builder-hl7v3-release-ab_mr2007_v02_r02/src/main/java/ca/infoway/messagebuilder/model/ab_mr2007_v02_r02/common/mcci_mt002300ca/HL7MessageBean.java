@@ -48,7 +48,7 @@ import java.util.List;
 
 
 /**
- * <p>HL7 Message</p>
+ * <p>Business Name: HL7 Message</p>
  * 
  * <p>The root class of all messages.</p>
  * 
@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class HL7MessageBean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private List<ST> securityText = new ArrayList<ST>();
@@ -77,7 +77,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>A:Message Identifier</p>
+     * <p>Business Name: A:Message Identifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the message.</p>
      * 
@@ -93,7 +97,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>A:Message Identifier</p>
+     * <p>Business Name: A:Message Identifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the message.</p>
      * 
@@ -109,7 +117,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>G:Message Timestamp</p>
+     * <p>Business Name: G:Message Timestamp</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.creationTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the time this particular message instance was 
      * constructed.</p>
@@ -125,7 +137,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>G:Message Timestamp</p>
+     * <p>Business Name: G:Message Timestamp</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.creationTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the time this particular message instance was 
      * constructed.</p>
@@ -141,7 +157,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>H:Security Token</p>
+     * <p>Business Name: H:Security Token</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.securityText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0)</p>
      * 
      * <p>A locally-defined field used to maintain a session, 
      * identify a user, and/or perform some other function related 
@@ -159,7 +179,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>DA: Response Type</p>
+     * <p>Business Name: DA: Response Type</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.responseModeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies whether the response is desired immediately 
      * (as a direct acknowledgement), on a deferred basis (as a 
@@ -178,7 +202,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>DA: Response Type</p>
+     * <p>Business Name: DA: Response Type</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.responseModeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies whether the response is desired immediately 
      * (as a direct acknowledgement), on a deferred basis (as a 
@@ -197,7 +225,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>B:Interaction Type</p>
+     * <p>Business Name: B:Interaction Type</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.interactionId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the interaction conveyed by this message.</p>
      * 
@@ -215,7 +247,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>B:Interaction Type</p>
+     * <p>Business Name: B:Interaction Type</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.interactionId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the interaction conveyed by this message.</p>
      * 
@@ -233,7 +269,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>F:Conformance Profile Identifiers</p>
+     * <p>Business Name: F:Conformance Profile Identifiers</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.profileId</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Identifies the conformance profile(s) this message 
      * complies with.</p>
@@ -249,7 +289,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>DB:Processing Code</p>
+     * <p>Business Name: DB:Processing Code</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.processingCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p>
@@ -267,7 +311,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>DB:Processing Code</p>
+     * <p>Business Name: DB:Processing Code</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.processingCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p>
@@ -285,7 +333,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
-     * <p>E:Desired Acknowledgment Type</p>
+     * <p>Business Name: E:Desired Acknowledgment Type</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.acceptAckCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates how the message is expected to be 
      * acknowledged.</p>
@@ -304,7 +356,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
     /**
-     * <p>E:Desired Acknowledgment Type</p>
+     * <p>Business Name: E:Desired Acknowledgment Type</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Message.acceptAckCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates how the message is expected to be 
      * acknowledged.</p>
@@ -322,11 +378,21 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ReceiverBean getReceiver() {
         return this.receiver;
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setReceiver(ReceiverBean receiver) {
         this.receiver = receiver;
     }
@@ -342,11 +408,21 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.sender</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"sender"})
     public SenderBean getSender() {
         return this.sender;
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.sender</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSender(SenderBean sender) {
         this.sender = sender;
     }
@@ -358,21 +434,41 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.acknowledgement</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"acknowledgement"})
     public AcknowledgementBean getAcknowledgement() {
         return this.acknowledgement;
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.acknowledgement</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAcknowledgement(AcknowledgementBean acknowledgement) {
         this.acknowledgement = acknowledgement;
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"controlActEvent"})
     public CAE getControlActEvent() {
         return this.controlActEvent;
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setControlActEvent(CAE controlActEvent) {
         this.controlActEvent = controlActEvent;
     }

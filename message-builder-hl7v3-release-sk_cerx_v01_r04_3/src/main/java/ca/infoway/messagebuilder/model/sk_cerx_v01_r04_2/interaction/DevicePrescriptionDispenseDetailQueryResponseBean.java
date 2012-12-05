@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.DeviceD
 
 
 /**
- * <p>PORX_IN060060CA: Device prescription dispense detail 
- * query response</p>
+ * <p>Business Name: PORX_IN060060CA: Device prescription 
+ * dispense detail query response</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.DeviceD
 @Hl7PartTypeMapping({"PORX_IN060060CA"})
 public class DevicePrescriptionDispenseDetailQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<DeviceDispenseBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

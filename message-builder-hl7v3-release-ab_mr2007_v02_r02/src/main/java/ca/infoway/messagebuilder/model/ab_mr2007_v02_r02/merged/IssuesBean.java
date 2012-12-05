@@ -46,7 +46,7 @@ import java.util.List;
 
 
 /**
- * <p>Issues</p>
+ * <p>Business Name: Issues</p>
  * 
  * <p>COCT_MT260030CA.DetectedIssueEvent: Issues</p>
  * 
@@ -180,7 +180,7 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
@@ -196,15 +196,19 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueType</p>
+     * <p>Business Name: IssueType</p>
      * 
-     * <p>A:Issue Type</p>
+     * <p>Other Business Name: IssueType</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value that is used to distinguish between 
      * different kinds of issues. Types of issue include: 
      * unrecognized identifiers, permission issues, drug-drug 
      * contraindications, drug-allergy alerts, duplicate therapies, 
-     * etc.</p>
+     * suspect fraud etc.</p>
      * 
      * <p>Contraindication.crossSensitive (if code is related 
      * reaction dected issue then crossSensitive is 
@@ -350,11 +354,7 @@ public class IssuesBean extends MessagePartBean {
      * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_DetectedMedicationIssue</p>
      * 
      * <p>Contraindication.crossSensitive (if code is related 
-     * reaction dected issue then crossSensitive is 
-     * 'True')</p><p>Distinguishes between DAI, DDI, DosageCheck, 
-     * DPD, and Duplicate Therapy 
-     * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.reasonDomain</p><p>ZP3.3</p><p>E06(for 
-     * contraindications errors are handled at transmission or
+
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -363,15 +363,19 @@ public class IssuesBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueType</p>
+     * <p>Business Name: IssueType</p>
      * 
-     * <p>A:Issue Type</p>
+     * <p>Other Business Name: IssueType</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.DetectedIssueEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value that is used to distinguish between 
      * different kinds of issues. Types of issue include: 
      * unrecognized identifiers, permission issues, drug-drug 
      * contraindications, drug-allergy alerts, duplicate therapies, 
-     * etc.</p>
+     * suspect fraud etc.</p>
      * 
      * <p>Contraindication.crossSensitive (if code is related 
      * reaction dected issue then crossSensitive is 
@@ -517,11 +521,7 @@ public class IssuesBean extends MessagePartBean {
      * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_DetectedMedicationIssue</p>
      * 
      * <p>Contraindication.crossSensitive (if code is related 
-     * reaction dected issue then crossSensitive is 
-     * 'True')</p><p>Distinguishes between DAI, DDI, DosageCheck, 
-     * DPD, and Duplicate Therapy 
-     * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.reasonDomain</p><p>ZP3.3</p><p>E06(for 
-     * contraindications errors are handled at transmission or
+
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActDetectedIssueCode code) {
@@ -530,43 +530,11 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Issue Comment</p>
+     * <p>Other Business Name: IssueDetails</p>
      * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
+     * <p>Relationship: COCT_MT260030CA.DetectedIssueEvent.text</p>
      * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>Issue Comment</p>
-     * 
-     * <p>A free form textual description regarding the issue. This 
-     * may be specified in place of, or in addition to the coded 
-     * issue.</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>Issue Comment</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>B:Issue Comment</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>D:Issue Details</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a detected issue. This 
      * textual information is provided to either augment the coded 
@@ -590,7 +558,11 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Lets providers see textual explanation of the issue.</p>
      * 
-     * <p>D:Issue Details</p>
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a detected issue. This 
      * textual information is provided to either augment the coded 
@@ -613,6 +585,186 @@ public class IssuesBean extends MessagePartBean {
      * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
      * 
      * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description of a detected issue. This 
+     * textual information is provided to either augment the coded 
+     * information or in place of the coded information.</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description of a detected issue. This 
+     * textual information is provided to either augment the coded 
+     * information or in place of the coded information.</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description of a detected issue. This 
+     * textual information is provided to either augment the coded 
+     * information or in place of the coded information.</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description of a detected issue. This 
+     * textual information is provided to either augment the coded 
+     * information or in place of the coded information.</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Busi
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -620,43 +772,11 @@ public class IssuesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Issue Comment</p>
+     * <p>Other Business Name: IssueDetails</p>
      * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
+     * <p>Relationship: COCT_MT260030CA.DetectedIssueEvent.text</p>
      * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>Issue Comment</p>
-     * 
-     * <p>A free form textual description regarding the issue. This 
-     * may be specified in place of, or in addition to the coded 
-     * issue.</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>Issue Comment</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>B:Issue Comment</p>
-     * 
-     * <p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p>
-     * 
-     * <p>Enables extra or more detailed description of the 
-     * alert</p>
-     * 
-     * <p>D:Issue Details</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a detected issue. This 
      * textual information is provided to either augment the coded 
@@ -680,7 +800,11 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Lets providers see textual explanation of the issue.</p>
      * 
-     * <p>D:Issue Details</p>
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a detected issue. This 
      * textual information is provided to either augment the coded 
@@ -703,6 +827,186 @@ public class IssuesBean extends MessagePartBean {
      * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
      * 
      * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description of a detected issue. This 
+     * textual information is provided to either augment the coded 
+     * information or in place of the coded information.</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description of a detected issue. This 
+     * textual information is provided to either augment the coded 
+     * information or in place of the coded information.</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Business Name: IssueComment</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p>
+     * 
+     * <p>Enables extra or more detailed description of the 
+     * alert</p>
+     * 
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description of a detected issue. This 
+     * textual information is provided to either augment the coded 
+     * information or in place of the coded information.</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form textual description of a detected issue. This 
+     * textual information is provided to either augment the coded 
+     * information or in place of the coded information.</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
+     * 
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Other Busi
+     * ... [rest of documentation truncated due to excessive length]
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -710,9 +1014,14 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>IssuePriority</p>
+     * <p>Business Name: IssuePriority</p>
      * 
-     * <p>C:Issue Priority</p>
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the importance of a detectable 
      * issue. Valid codes are: I - for Information, E - for Error, 
@@ -724,7 +1033,114 @@ public class IssuesBean extends MessagePartBean {
      * Attribute is mandatory because every issue needs to be 
      * prioritized.</p>
      * 
-     * <p>C:Issue Priority</p>
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the importance of a detectable 
      * issue. Valid codes are: I - for Information, E - for Error, 
@@ -742,9 +1158,14 @@ public class IssuesBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssuePriority</p>
+     * <p>Business Name: IssuePriority</p>
      * 
-     * <p>C:Issue Priority</p>
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the importance of a detectable 
      * issue. Valid codes are: I - for Information, E - for Error, 
@@ -756,7 +1177,114 @@ public class IssuesBean extends MessagePartBean {
      * Attribute is mandatory because every issue needs to be 
      * prioritized.</p>
      * 
-     * <p>C:Issue Priority</p>
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p>
+     * 
+     * <p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p>
+     * 
+     * <p>Other Business Name: IssuePriority</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueEvent.priorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the importance of a detectable 
      * issue. Valid codes are: I - for Information, E - for Error, 
@@ -773,22 +1301,202 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Subject2.causalActs</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Subject2.causalActs</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Subject2.causalActs</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Subject2.causalActs</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Subject2.causalActs</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Subject2.causalActs</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/causalActs"})
     public List<CausalActs> getSubjectCausalActs() {
         return this.subjectCausalActs;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
     public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
         return this.instantiationDetectedIssueDefinition;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.Definition.detectedIssueDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
         this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueEvent.mitigatedBy</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueEvent.mitigatedBy</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueEvent.mitigatedBy</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.DetectedIssueEvent.mitigatedBy</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.DetectedIssueEvent.mitigatedBy</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.DetectedIssueEvent.mitigatedBy</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueEvent.mitigatedBy</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueEvent.mitigatedBy</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     */
     @Hl7XmlMapping({"mitigatedBy"})
     public List<MitigatesBean> getMitigatedBy() {
         return this.mitigatedBy;
@@ -796,65 +1504,13 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>SeverityCode</p>
+     * <p>Business Name: SeverityCode</p>
      * 
-     * <p>B:Severity Code</p>
+     * <p>Other Business Name: SeverityCode</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Relationship: COCT_MT260030CA.SeverityObservation.value</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;mandatory&quot; 
-     * because the code denoting level of severity must be 
-     * specified.</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;mandatory&quot; 
-     * because the code denoting level of severity must be 
-     * specified.</p>
-     * 
-     * <p>B:Severity Code</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>B:Severity Code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the gravity of the detected 
      * issue.</p>
@@ -883,7 +1539,11 @@ public class IssuesBean extends MessagePartBean {
      * &quot;mandatory&quot; because the code denoting the level of 
      * severity must be specified.</p>
      * 
-     * <p>B:Severity Code</p>
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the gravity of the detected 
      * issue.</p>
@@ -910,7 +1570,42 @@ public class IssuesBean extends MessagePartBean {
      * how.</p><p>This attribute is marked as &quot;populated&quot; 
      * to allow the use of null flavors.</p>
      * 
-     * <p>B:Severity Code</p>
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
+     * 
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the gravity of the detected 
      * issue.</p>
@@ -936,6 +1631,59 @@ public class IssuesBean extends MessagePartBean {
      * <p>May be used to determine which contraindications must be 
      * managed and how.</p><p>This attribute is marked as 
      * &quot;populated&quot; to allow the use of null flavors.</p>
+     * 
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;mandatory&quot; because the code denoting the level of 
+     * severity must be specified.</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;mandatory&quot; because the code denoting the level of 
+     * severity must be specified.</p>
+     * 
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Cont
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"subjectOf/severityObservation/value","subjectOf2/severityObservation/value"})
     @Hl7MapByPartTypes({
@@ -956,65 +1704,13 @@ public class IssuesBean extends MessagePartBean {
     }
 
     /**
-     * <p>SeverityCode</p>
+     * <p>Business Name: SeverityCode</p>
      * 
-     * <p>B:Severity Code</p>
+     * <p>Other Business Name: SeverityCode</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Relationship: COCT_MT260030CA.SeverityObservation.value</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;mandatory&quot; 
-     * because the code denoting level of severity must be 
-     * specified.</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;mandatory&quot; 
-     * because the code denoting level of severity must be 
-     * specified.</p>
-     * 
-     * <p>B:Severity Code</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>B:Severity Code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the gravity of the detected 
      * issue.</p>
@@ -1043,7 +1739,11 @@ public class IssuesBean extends MessagePartBean {
      * &quot;mandatory&quot; because the code denoting the level of 
      * severity must be specified.</p>
      * 
-     * <p>B:Severity Code</p>
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the gravity of the detected 
      * issue.</p>
@@ -1070,7 +1770,42 @@ public class IssuesBean extends MessagePartBean {
      * how.</p><p>This attribute is marked as &quot;populated&quot; 
      * to allow the use of null flavors.</p>
      * 
-     * <p>B:Severity Code</p>
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
+     * 
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the gravity of the detected 
      * issue.</p>
@@ -1096,57 +1831,246 @@ public class IssuesBean extends MessagePartBean {
      * <p>May be used to determine which contraindications must be 
      * managed and how.</p><p>This attribute is marked as 
      * &quot;populated&quot; to allow the use of null flavors.</p>
+     * 
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;mandatory&quot; because the code denoting the level of 
+     * severity must be specified.</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;mandatory&quot; because the code denoting the level of 
+     * severity must be specified.</p>
+     * 
+     * <p>Other Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Cont
+     * ... [rest of documentation truncated due to excessive length]
      */
     public void setSubjectOfSeverityObservationValue(SeverityObservation subjectOfSeverityObservationValue) {
         this.subjectOfSeverityObservationValue.setValue(subjectOfSeverityObservationValue);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public ActClass getClassCode() {
         return (ActClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.DetectedIssueEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.DetectedIssueEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.DetectedIssueEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.DetectedIssueEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Trigger2.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Trigger2.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Trigger2.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"triggerFor/actRequest"})
     public Boolean getTriggerForActRequest() {
         return this.triggerForActRequest.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Trigger2.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Trigger2.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Trigger2.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setTriggerForActRequest(Boolean triggerForActRequest) {
         this.triggerForActRequest.setValue(triggerForActRequest);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Subject3.storageIntent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Subject3.storageIntent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/storageIntent"})
     public Boolean getSubjectOf1StorageIntent() {
         return this.subjectOf1StorageIntent.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Subject3.storageIntent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Subject3.storageIntent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1StorageIntent(Boolean subjectOf1StorageIntent) {
         this.subjectOf1StorageIntent.setValue(subjectOf1StorageIntent);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
         return (ActStatus) this.statusCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }

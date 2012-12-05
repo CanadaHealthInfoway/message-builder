@@ -49,7 +49,7 @@ import java.util.List;
 
 
 /**
- * <p>PrinicpalPerson</p>
+ * <p>Business Name: PrinicpalPerson</p>
  * 
  * <p>PRPM_MT303010CA.PrincipalPerson: Prinicpal Person</p>
  * 
@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrincipalPerson","PRPM_MT303010CA.PrincipalPerson"})
 public class PrinicpalPerson_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV administrativeGenderCode = new CVImpl();
@@ -84,9 +84,26 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonAggregateIdentifier</p>
+     * <p>Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Principal Person Aggregate Identifier</p>
+     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A unique identifier for the person who may play various 
+     * healthcare provider roles. This identifier is specific to 
+     * the person not their roles.</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for the person who may play various 
      * healthcare provider roles. This identifier is specific to 
@@ -101,9 +118,26 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonAggregateIdentifier</p>
+     * <p>Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Principal Person Aggregate Identifier</p>
+     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A unique identifier for the person who may play various 
+     * healthcare provider roles. This identifier is specific to 
+     * the person not their roles.</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonAggregateIdentifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for the person who may play various 
      * healthcare provider roles. This identifier is specific to 
@@ -118,9 +152,13 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonName</p>
+     * <p>Business Name: PrincipalPersonName</p>
      * 
-     * <p>Principal Person Name</p>
+     * <p>Other Business Name: PrincipalPersonName</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The person&#226;&#128;&#153;s name independent of any 
      * role they may play.</p>
@@ -131,7 +169,11 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Name Must Exist.</p>
      * 
-     * <p>Principal Person Name</p>
+     * <p>Other Business Name: PrincipalPersonName</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The person&#226;&#128;&#153;s name independent of any 
      * role they may play.</p>
@@ -151,13 +193,16 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonGender</p>
+     * <p>Business Name: PrincipalPersonGender</p>
      * 
-     * <p>Principal Person Gender</p>
+     * <p>Other Business Name: PrincipalPersonGender</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.PrincipalPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s gender.</p>
-     * 
-     * <p>STF.5</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -165,9 +210,16 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Gender is Expected to Exist.</p>
      * 
-     * <p>Principal Person Gender</p>
+     * <p>Other Business Name: PrincipalPersonGender</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.PrincipalPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s gender.</p>
+     * 
+     * <p>STF.5</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -181,13 +233,16 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonGender</p>
+     * <p>Business Name: PrincipalPersonGender</p>
      * 
-     * <p>Principal Person Gender</p>
+     * <p>Other Business Name: PrincipalPersonGender</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.PrincipalPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s gender.</p>
-     * 
-     * <p>STF.5</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -195,9 +250,16 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Gender is Expected to Exist.</p>
      * 
-     * <p>Principal Person Gender</p>
+     * <p>Other Business Name: PrincipalPersonGender</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.PrincipalPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s gender.</p>
+     * 
+     * <p>STF.5</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -211,9 +273,28 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonDateOfBirth</p>
+     * <p>Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Principal Person Date of Birth</p>
+     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The principal person&#226;&#128;&#153;s date of 
+     * birth.</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>If Principal Person is included in the message, then 
+     * Prinicpal Person Date of Birth is Expected to Exist.</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s date of 
      * birth.</p>
@@ -230,9 +311,28 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonDateOfBirth</p>
+     * <p>Business Name: PrincipalPersonDateOfBirth</p>
      * 
-     * <p>Principal Person Date of Birth</p>
+     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The principal person&#226;&#128;&#153;s date of 
+     * birth.</p>
+     * 
+     * <p>Populated attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>If Principal Person is included in the message, then 
+     * Prinicpal Person Date of Birth is Expected to Exist.</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonDateOfBirth</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s date of 
      * birth.</p>
@@ -249,9 +349,24 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonDeceasedIndicator</p>
+     * <p>Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Principal Person Deceased Indicator</p>
+     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>An indication that the principal person is deceased.</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication that the principal person is deceased.</p>
      * 
@@ -264,9 +379,24 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonDeceasedIndicator</p>
+     * <p>Business Name: PrincipalPersonDeceasedIndicator</p>
      * 
-     * <p>Principal Person Deceased Indicator</p>
+     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>An indication that the principal person is deceased.</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonDeceasedIndicator</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication that the principal person is deceased.</p>
      * 
@@ -279,9 +409,27 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonDeceasedDate</p>
+     * <p>Business Name: PrincipalPersonDeceasedDate</p>
      * 
-     * <p>Principal Person Deceased Date</p>
+     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.PrincipalPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date and time that a healthcare provider's death 
+     * occurred.</p>
+     * 
+     * <p>Required attribute supports verification of death from 
+     * official source such as Vital Statistics.</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.PrincipalPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time that a healthcare provider's death 
      * occurred.</p>
@@ -295,9 +443,27 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrincipalPersonDeceasedDate</p>
+     * <p>Business Name: PrincipalPersonDeceasedDate</p>
      * 
-     * <p>Principal Person Deceased Date</p>
+     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.PrincipalPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date and time that a healthcare provider's death 
+     * occurred.</p>
+     * 
+     * <p>Required attribute supports verification of death from 
+     * official source such as Vital Statistics.</p>
+     * 
+     * <p>Other Business Name: PrincipalPersonDeceasedDate</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.PrincipalPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time that a healthcare provider's death 
      * occurred.</p>
@@ -311,9 +477,27 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>BirthplaceAddress</p>
+     * <p>Business Name: BirthplaceAddress</p>
      * 
-     * <p>Birthplace Address</p>
+     * <p>Other Business Name: BirthplaceAddress</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Birthplace.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Principal person's address at time of birth</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>If Birthplace is included in the message, then Address is 
+     * Expected to Exist.</p>
+     * 
+     * <p>Other Business Name: BirthplaceAddress</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Birthplace.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Principal person's address at time of birth</p>
      * 
@@ -329,9 +513,27 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>BirthplaceAddress</p>
+     * <p>Business Name: BirthplaceAddress</p>
      * 
-     * <p>Birthplace Address</p>
+     * <p>Other Business Name: BirthplaceAddress</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Birthplace.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Principal person's address at time of birth</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p>
+     * 
+     * <p>If Birthplace is included in the message, then Address is 
+     * Expected to Exist.</p>
+     * 
+     * <p>Other Business Name: BirthplaceAddress</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Birthplace.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Principal person's address at time of birth</p>
      * 
@@ -346,6 +548,21 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.PrincipalPerson.languageCommunication</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.PrincipalPerson.languageCommunication</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"languageCommunication"})
     public List<LanguageOfCommunicationBean> getLanguageCommunication() {
         return this.languageCommunication;

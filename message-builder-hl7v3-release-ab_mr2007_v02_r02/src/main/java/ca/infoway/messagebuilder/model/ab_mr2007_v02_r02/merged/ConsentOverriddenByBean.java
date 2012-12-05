@@ -139,45 +139,210 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author2","COCT_MT470012CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060190CA.Author2","RCMR_MT010001CA.Author2"})
 public class ConsentOverriddenByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private HealthcareWorkerBean assignedEntity;
     private TS time = new TSImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author2.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ParticipationType getTypeCode() {
         return (ParticipationType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author2.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author2.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author2.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060100CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060100CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 
 
     /**
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date at which the drug was prescribed/dispensed. This 
+     * may differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
@@ -224,24 +389,11 @@ public class ConsentOverriddenByBean extends MessagePartBean {
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>Other Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>The date at which the device was prescribed/dispensed. 
-     * This may differ from the date on which the prescription 
-     * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or used for two weeks.</p>
+     * <p>Relationship: PORX_MT060100CA.Author2.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * mandatory because the creation date of the prescription will 
-     * always be known.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * mandatory because the creation date of the prescription will 
-     * always be known.</p>
-     * 
-     * <p>Prescription Order Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
@@ -258,26 +410,11 @@ public class ConsentOverriddenByBean extends MessagePartBean {
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
      * 
-     * <p>The date at which the drug was prescribed/dispensed. This 
-     * may differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
+     * <p>Relationship: PORX_MT060190CA.Author2.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p>
-     * 
-     * <p>Prescribed Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date that the prescription was written by the 
      * prescriber.</p>
@@ -291,6 +428,27 @@ public class ConsentOverriddenByBean extends MessagePartBean {
      * legal.</p><p>This information may not always be known for an 
      * inferred prescription, and is therefore marked as 
      * &quot;populated&quot;.</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date at which the device was prescribed/dispensed. 
+     * This may differ from the date on which the prescription 
+     * becomes effective. E.g. A prescription created today may not 
+     * be valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * mandatory because the creation date of the prescription will 
+     * always be known.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * mandatory because the creation date of the prescription will 
+     * always be known.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -298,7 +456,34 @@ public class ConsentOverriddenByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date at which the drug was prescribed/dispensed. This 
+     * may differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription will 
+     * not always be known (as in the case of 'inferred 
+     * prescription').</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
@@ -345,24 +530,11 @@ public class ConsentOverriddenByBean extends MessagePartBean {
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>Other Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>The date at which the device was prescribed/dispensed. 
-     * This may differ from the date on which the prescription 
-     * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or used for two weeks.</p>
+     * <p>Relationship: PORX_MT060100CA.Author2.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * mandatory because the creation date of the prescription will 
-     * always be known.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * mandatory because the creation date of the prescription will 
-     * always be known.</p>
-     * 
-     * <p>Prescription Order Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
@@ -379,26 +551,11 @@ public class ConsentOverriddenByBean extends MessagePartBean {
      * populated as it will not be there for inferred 
      * prescriptions.</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
      * 
-     * <p>The date at which the drug was prescribed/dispensed. This 
-     * may differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
+     * <p>Relationship: PORX_MT060190CA.Author2.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription will 
-     * not always be known (as in the case of 'inferred 
-     * prescription').</p>
-     * 
-     * <p>Prescribed Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date that the prescription was written by the 
      * prescriber.</p>
@@ -412,6 +569,27 @@ public class ConsentOverriddenByBean extends MessagePartBean {
      * legal.</p><p>This information may not always be known for an 
      * inferred prescription, and is therefore marked as 
      * &quot;populated&quot;.</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author2.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date at which the device was prescribed/dispensed. 
+     * This may differ from the date on which the prescription 
+     * becomes effective. E.g. A prescription created today may not 
+     * be valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * mandatory because the creation date of the prescription will 
+     * always be known.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * mandatory because the creation date of the prescription will 
+     * always be known.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);

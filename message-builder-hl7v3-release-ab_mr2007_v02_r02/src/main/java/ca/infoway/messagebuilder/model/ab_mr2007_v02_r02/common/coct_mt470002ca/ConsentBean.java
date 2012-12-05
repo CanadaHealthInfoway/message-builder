@@ -47,7 +47,7 @@ import java.util.Date;
 
 
 /**
- * <p>Consent</p>
+ * <p>Business Name: Consent</p>
  * 
  * <p>One and only one of author2 (Consenter) and author1 
  * (Provider) must be specified.</p><p>If author1 (provider) is 
@@ -84,7 +84,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
@@ -97,28 +97,52 @@ public class ConsentBean extends MessagePartBean {
     private ControlsBean subject2;
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public ActClass getClassCode() {
         return (ActClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>Business Name: D:Consent Form Number</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for a specific consent for a 
      * patient.</p>
@@ -134,7 +158,11 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>Business Name: D:Consent Form Number</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for a specific consent for a 
      * patient.</p>
@@ -150,6 +178,10 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>Authorization.dataType</p>
      */
     @Hl7XmlMapping({"code"})
@@ -158,6 +190,10 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>Authorization.dataType</p>
      */
     public void setCode(ActCode code) {
@@ -166,7 +202,11 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Business Name: C:Consent Effective and End Time</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time that the consent will expire. 'Low' is 
      * effective time and 'High' is end time.</p>
@@ -182,7 +222,11 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Business Name: C:Consent Effective and End Time</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time that the consent will expire. 'Low' is 
      * effective time and 'High' is end time.</p>
@@ -198,7 +242,11 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Consent Override Reason</p>
+     * <p>Business Name: E:Consent Override Reason</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules.</p>
@@ -217,7 +265,11 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Consent Override Reason</p>
+     * <p>Business Name: E:Consent Override Reason</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules.</p>
@@ -255,11 +307,21 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author2"})
     public ConsentedToByBean getAuthor2() {
         return this.author2;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor2(ConsentedToByBean author2) {
         this.author2 = author2;
     }

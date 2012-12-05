@@ -47,7 +47,7 @@ import java.util.Date;
 
 
 /**
- * <p>Consent</p>
+ * <p>Business Name: Consent</p>
  * 
  * <p>COCT_MT470000CA.ConsentEvent: Consent</p>
  * 
@@ -113,7 +113,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -127,9 +127,27 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentFormNumber</p>
+     * <p>Business Name: ConsentFormNumber</p>
      * 
-     * <p>D:Consent Form Number</p>
+     * <p>Other Business Name: ConsentFormNumber</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A unique identifier for a specific consent for a 
+     * patient.</p>
+     * 
+     * <p>Authorization.formNumber</p>
+     * 
+     * <p>Provides a traceable audit link between a physical 
+     * consent form and its electronic record</p>
+     * 
+     * <p>Other Business Name: ConsentFormNumber</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for a specific consent for a 
      * patient.</p>
@@ -145,9 +163,27 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentFormNumber</p>
+     * <p>Business Name: ConsentFormNumber</p>
      * 
-     * <p>D:Consent Form Number</p>
+     * <p>Other Business Name: ConsentFormNumber</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A unique identifier for a specific consent for a 
+     * patient.</p>
+     * 
+     * <p>Authorization.formNumber</p>
+     * 
+     * <p>Provides a traceable audit link between a physical 
+     * consent form and its electronic record</p>
+     * 
+     * <p>Other Business Name: ConsentFormNumber</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for a specific consent for a 
      * patient.</p>
@@ -163,9 +199,27 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentEffectiveAndEndTime</p>
+     * <p>Business Name: ConsentEffectiveAndEndTime</p>
      * 
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the time that the consent will expire. 'Low' is 
+     * effective time and 'High' is end time.</p>
+     * 
+     * <p>Authorization.endTime (high)</p>
+     * 
+     * <p>Most consents are not open-ended, to ensure the patient 
+     * retains a level of control.</p>
+     * 
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the time that the consent will expire. 'Low' is 
      * effective time and 'High' is end time.</p>
@@ -177,16 +231,6 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p><strong>CeRx defines this as 0..1 but the effective time 
      * is required in PIN so this is mandatory.</strong></p>
-     * 
-     * <p>C:Consent Effective and End Time</p>
-     * 
-     * <p>Indicates the time that the consent will expire. 'Low' is 
-     * effective time and 'High' is end time.</p>
-     * 
-     * <p>Authorization.endTime (high)</p>
-     * 
-     * <p>Most consents are not open-ended, to ensure the patient 
-     * retains a level of control.</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -194,9 +238,27 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentEffectiveAndEndTime</p>
+     * <p>Business Name: ConsentEffectiveAndEndTime</p>
      * 
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the time that the consent will expire. 'Low' is 
+     * effective time and 'High' is end time.</p>
+     * 
+     * <p>Authorization.endTime (high)</p>
+     * 
+     * <p>Most consents are not open-ended, to ensure the patient 
+     * retains a level of control.</p>
+     * 
+     * <p>Other Business Name: ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the time that the consent will expire. 'Low' is 
      * effective time and 'High' is end time.</p>
@@ -208,16 +270,6 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p><strong>CeRx defines this as 0..1 but the effective time 
      * is required in PIN so this is mandatory.</strong></p>
-     * 
-     * <p>C:Consent Effective and End Time</p>
-     * 
-     * <p>Indicates the time that the consent will expire. 'Low' is 
-     * effective time and 'High' is end time.</p>
-     * 
-     * <p>Authorization.endTime (high)</p>
-     * 
-     * <p>Most consents are not open-ended, to ensure the patient 
-     * retains a level of control.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -225,9 +277,13 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentOverrideReason</p>
+     * <p>Business Name: ConsentOverrideReason</p>
      * 
-     * <p>E:Consent Override Reason</p>
+     * <p>Other Business Name: ConsentOverrideReason</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules.</p>
@@ -240,7 +296,11 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Important for audit purposes</p>
      * 
-     * <p>E:Consent Override Reason</p>
+     * <p>Other Business Name: ConsentOverrideReason</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules or accessing information without consent.</p>
@@ -259,9 +319,13 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentOverrideReason</p>
+     * <p>Business Name: ConsentOverrideReason</p>
      * 
-     * <p>E:Consent Override Reason</p>
+     * <p>Other Business Name: ConsentOverrideReason</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules.</p>
@@ -274,7 +338,11 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Important for audit purposes</p>
      * 
-     * <p>E:Consent Override Reason</p>
+     * <p>Other Business Name: ConsentOverrideReason</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules or accessing information without consent.</p>
@@ -293,7 +361,17 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;This uses COCT_MT050202CA &ndash; Patient 
      * Person&nbsp;Identified Confirmable.</p>
@@ -309,7 +387,17 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;This uses COCT_MT050202CA &ndash; Patient 
      * Person&nbsp;Identified Confirmable.</p>
@@ -320,9 +408,19 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>OverriddenBy</p>
+     * <p>Business Name: OverriddenBy</p>
      * 
-     * <p>Overridden By</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: OverriddenBy</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&nbsp;Indicates that information access was approved</p> 
      * <div>by a provider rather than a patient.</div>
@@ -340,9 +438,19 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>OverriddenBy</p>
+     * <p>Business Name: OverriddenBy</p>
      * 
-     * <p>Overridden By</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: OverriddenBy</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&nbsp;Indicates that information access was approved</p> 
      * <div>by a provider rather than a patient.</div>
@@ -357,9 +465,19 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentedToBy</p>
+     * <p>Business Name: ConsentedToBy</p>
      * 
-     * <p>Consented To By</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentedToBy</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&nbsp;Indicates that the consent was provided by 
      * the&nbsp;patient or representative.</p> <div>&nbsp;</div>
@@ -377,9 +495,19 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentedToBy</p>
+     * <p>Business Name: ConsentedToBy</p>
      * 
-     * <p>Consented To By</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: ConsentedToBy</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&nbsp;Indicates that the consent was provided by 
      * the&nbsp;patient or representative.</p> <div>&nbsp;</div>
@@ -393,20 +521,38 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.Subject2.informDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject2/informDefinition"})
     public AccessTypeBean getSubject2InformDefinition() {
         return this.subject2InformDefinition;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.Subject2.informDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
         this.subject2InformDefinition = subject2InformDefinition;
     }
 
 
     /**
-     * <p>ConsentType</p>
+     * <p>Business Name: ConsentType</p>
      * 
-     * <p>A:Consent Type</p>
+     * <p>Other Business Name: ConsentType</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of consent being given: Information 
      * access or Information maintenance.</p>
@@ -420,9 +566,13 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentType</p>
+     * <p>Business Name: ConsentType</p>
      * 
-     * <p>A:Consent Type</p>
+     * <p>Other Business Name: ConsentType</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of consent being given: Information 
      * access or Information maintenance.</p>
@@ -436,9 +586,13 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentRefusedIndicator</p>
+     * <p>Business Name: ConsentRefusedIndicator</p>
      * 
-     * <p>B:Consent Refused Indicator</p>
+     * <p>Other Business Name: ConsentRefusedIndicator</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Must be either not present or non-null.</p>
      * 
@@ -467,9 +621,13 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentRefusedIndicator</p>
+     * <p>Business Name: ConsentRefusedIndicator</p>
      * 
-     * <p>B:Consent Refused Indicator</p>
+     * <p>Other Business Name: ConsentRefusedIndicator</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Must be either not present or non-null.</p>
      * 
@@ -498,9 +656,14 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentsTo</p>
+     * <p>Business Name: ConsentsTo</p>
      * 
-     * <p>Consents to</p>
+     * <p>Other Business Name: ConsentsTo</p>
+     * 
+     * <p>Relationship: 
+     * RCMR_MT010001CA.Component.permissionToInform</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Describes the type of information access being</p> 
      * <div>consented to.</div>
@@ -511,9 +674,14 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentsTo</p>
+     * <p>Business Name: ConsentsTo</p>
      * 
-     * <p>Consents to</p>
+     * <p>Other Business Name: ConsentsTo</p>
+     * 
+     * <p>Relationship: 
+     * RCMR_MT010001CA.Component.permissionToInform</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Describes the type of information access being</p> 
      * <div>consented to.</div>

@@ -38,7 +38,7 @@ import java.util.Date;
 
 
 /**
- * <p>StatusChanges</p>
+ * <p>Business Name: StatusChanges</p>
  * 
  * <p>PORX_MT060340CA.ControlActEvent: Status Changes</p>
  * 
@@ -63,7 +63,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060160CA.ControlActEvent","PORX_MT060340CA.ControlActEvent"})
 public class StatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -72,9 +72,28 @@ public class StatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>ChangeType</p>
+     * <p>Business Name: ChangeType</p>
      * 
-     * <p>Change Type</p>
+     * <p>Other Business Name: ChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of change occurred. Examples include 
+     * Suspended, Superseded, Released, Aborted (stopped), etc.</p>
+     * 
+     * <p>Distinguishes discontinueStatus, holdStatus, 
+     * reactivateStatus and releaseStatus</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     * 
+     * <p>Other Business Name: ChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. Examples include 
      * Suspended, Superseded, Released, Aborted (stopped), etc.</p>
@@ -91,9 +110,28 @@ public class StatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>ChangeType</p>
+     * <p>Business Name: ChangeType</p>
      * 
-     * <p>Change Type</p>
+     * <p>Other Business Name: ChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of change occurred. Examples include 
+     * Suspended, Superseded, Released, Aborted (stopped), etc.</p>
+     * 
+     * <p>Distinguishes discontinueStatus, holdStatus, 
+     * reactivateStatus and releaseStatus</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     * 
+     * <p>Other Business Name: ChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. Examples include 
      * Suspended, Superseded, Released, Aborted (stopped), etc.</p>
@@ -110,9 +148,61 @@ public class StatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>ChangeEffectivePeriod</p>
+     * <p>Business Name: ChangeEffectivePeriod</p>
      * 
-     * <p>Change Effective Period</p>
+     * <p>Other Business Name: ChangeEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various status changes of a 
+     * prescription become valid and applicable. In the case of a 
+     * suspend, may also indicate the scheduled time at which the 
+     * status change will end.</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ChangeEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various status changes of a 
      * prescription become valid and applicable. In the case of a 
@@ -160,9 +250,61 @@ public class StatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>ChangeEffectivePeriod</p>
+     * <p>Business Name: ChangeEffectivePeriod</p>
      * 
-     * <p>Change Effective Period</p>
+     * <p>Other Business Name: ChangeEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various status changes of a 
+     * prescription become valid and applicable. In the case of a 
+     * suspend, may also indicate the scheduled time at which the 
+     * status change will end.</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>PrescriptionStatus.initialEndDate</p><p>PrescriptionStatus.actualEndDate</p><p>Prescription.cancelTime</p><p>Prescription.holdReleaseDate</p><p>Prescription.holdStartDate</p><p>Prescription.modificationTime</p><p>Prescription.stopDate</p><p>Prescription.reactivateDate</p><p>ZPB3.14(when 
+     * code is discontinued)</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ChangeEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various status changes of a 
      * prescription become valid and applicable. In the case of a 
@@ -210,9 +352,30 @@ public class StatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>ChangeReason</p>
+     * <p>Business Name: ChangeReason</p>
      * 
-     * <p>Change Reason</p>
+     * <p>Other Business Name: ChangeReason</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the status of the prescription was 
+     * changed.</p>
+     * 
+     * <p>PrescriptionStatus.reason(mnemonic)</p><p>PrescriptionStatus.adhocReason(originalText)</p>
+     * 
+     * <p>PrescriptionStatus.reason(mnemonic)</p><p>PrescriptionStatus.adhocReason(originalText)</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Other Business Name: ChangeReason</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the status of the prescription was 
      * changed.</p>
@@ -231,9 +394,30 @@ public class StatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>ChangeReason</p>
+     * <p>Business Name: ChangeReason</p>
      * 
-     * <p>Change Reason</p>
+     * <p>Other Business Name: ChangeReason</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the status of the prescription was 
+     * changed.</p>
+     * 
+     * <p>PrescriptionStatus.reason(mnemonic)</p><p>PrescriptionStatus.adhocReason(originalText)</p>
+     * 
+     * <p>PrescriptionStatus.reason(mnemonic)</p><p>PrescriptionStatus.adhocReason(originalText)</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Other Business Name: ChangeReason</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the status of the prescription was 
      * changed.</p>
@@ -251,21 +435,77 @@ public class StatusChangesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ResponsibleParty3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ResponsibleParty6.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ResponsibleParty3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ResponsibleParty6.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public Author1Bean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(Author1Bean author) {
         this.author = author;
     }

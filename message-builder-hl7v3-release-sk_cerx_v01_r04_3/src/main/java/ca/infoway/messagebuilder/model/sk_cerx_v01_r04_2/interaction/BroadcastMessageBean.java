@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.TriggerEv
 
 
 /**
- * <p>COMT_IN500001CA: Broadcast Message</p>
+ * <p>Business Name: COMT_IN500001CA: Broadcast Message</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -39,6 +39,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.TriggerEv
 @Hl7PartTypeMapping({"COMT_IN500001CA"})
 public class BroadcastMessageBean extends HL7Message_1Bean<TriggerEvent_1Bean<ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.si.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

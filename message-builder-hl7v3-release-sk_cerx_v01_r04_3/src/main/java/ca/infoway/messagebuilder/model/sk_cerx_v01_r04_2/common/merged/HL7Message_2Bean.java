@@ -46,7 +46,7 @@ import java.util.Set;
 
 
 /**
- * <p>HL7Message</p>
+ * <p>Business Name: HL7Message</p>
  * 
  * <p>MCCI_MT102001CA.Message: HL7 Message</p>
  * 
@@ -66,7 +66,7 @@ import java.util.Set;
 @Hl7RootType
 public class HL7Message_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -83,9 +83,25 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>MessageIdentifier</p>
+     * <p>Business Name: MessageIdentifier</p>
      * 
-     * <p>A:Message Identifier</p>
+     * <p>Other Business Name: MessageIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the message.</p>
+     * 
+     * <p>Allows detection of duplicate messages, and allows tying 
+     * acknowledgments to the message they are acknowledging. The 
+     * attribute is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: MessageIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the message.</p>
      * 
@@ -94,14 +110,6 @@ public class HL7Message_2Bean extends MessagePartBean {
      * attribute is therefore mandatory.</p>
      * 
      * <p>PIN&rsquo;s unique identifier for this message.&nbsp;</p>
-     * 
-     * <p>A:Message Identifier</p>
-     * 
-     * <p>A unique identifier for the message.</p>
-     * 
-     * <p>Allows detection of duplicate messages, and allows tying 
-     * acknowledgments to the message they are acknowledging. The 
-     * attribute is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -109,9 +117,25 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>MessageIdentifier</p>
+     * <p>Business Name: MessageIdentifier</p>
      * 
-     * <p>A:Message Identifier</p>
+     * <p>Other Business Name: MessageIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the message.</p>
+     * 
+     * <p>Allows detection of duplicate messages, and allows tying 
+     * acknowledgments to the message they are acknowledging. The 
+     * attribute is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: MessageIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the message.</p>
      * 
@@ -120,14 +144,6 @@ public class HL7Message_2Bean extends MessagePartBean {
      * attribute is therefore mandatory.</p>
      * 
      * <p>PIN&rsquo;s unique identifier for this message.&nbsp;</p>
-     * 
-     * <p>A:Message Identifier</p>
-     * 
-     * <p>A unique identifier for the message.</p>
-     * 
-     * <p>Allows detection of duplicate messages, and allows tying 
-     * acknowledgments to the message they are acknowledging. The 
-     * attribute is therefore mandatory.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -135,9 +151,27 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>MessageTimestamp</p>
+     * <p>Business Name: MessageTimestamp</p>
      * 
-     * <p>G:Message Timestamp</p>
+     * <p>Other Business Name: MessageTimestamp</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.creationTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the time this particular message instance was 
+     * constructed.</p>
+     * 
+     * <p>Allows identification of how current the information in a 
+     * message is. Also provides a baseline for identifying the 
+     * time-zone of other times within the message. As a result, 
+     * the attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: MessageTimestamp</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.creationTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the time this particular message instance was 
      * constructed.</p>
@@ -153,9 +187,27 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>MessageTimestamp</p>
+     * <p>Business Name: MessageTimestamp</p>
      * 
-     * <p>G:Message Timestamp</p>
+     * <p>Other Business Name: MessageTimestamp</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.creationTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the time this particular message instance was 
+     * constructed.</p>
+     * 
+     * <p>Allows identification of how current the information in a 
+     * message is. Also provides a baseline for identifying the 
+     * time-zone of other times within the message. As a result, 
+     * the attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: MessageTimestamp</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.creationTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the time this particular message instance was 
      * constructed.</p>
@@ -171,9 +223,13 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>SecurityToken</p>
+     * <p>Business Name: SecurityToken</p>
      * 
-     * <p>H:Security Token</p>
+     * <p>Other Business Name: SecurityToken</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.securityText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A locally-defined field used to maintain a session, 
      * identify a user, and/or perform some other function related 
@@ -184,7 +240,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * optional because not all jurisdictions will require this 
      * capability.</p>
      * 
-     * <p>H:Security Token</p>
+     * <p>Other Business Name: SecurityToken</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.securityText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A locally-defined field used to maintain a session, 
      * identify a user, and/or perform some other function related 
@@ -204,9 +264,13 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>SecurityToken</p>
+     * <p>Business Name: SecurityToken</p>
      * 
-     * <p>H:Security Token</p>
+     * <p>Other Business Name: SecurityToken</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.securityText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A locally-defined field used to maintain a session, 
      * identify a user, and/or perform some other function related 
@@ -217,7 +281,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * optional because not all jurisdictions will require this 
      * capability.</p>
      * 
-     * <p>H:Security Token</p>
+     * <p>Other Business Name: SecurityToken</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.securityText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A locally-defined field used to maintain a session, 
      * identify a user, and/or perform some other function related 
@@ -237,9 +305,13 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>HL7StandardVersion</p>
+     * <p>Business Name: HL7StandardVersion</p>
      * 
-     * <p>C: HL7 Standard Version</p>
+     * <p>Other Business Name: HL7StandardVersion</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.versionCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the version of the messaging standard being 
      * referenced.</p>
@@ -248,7 +320,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * definition, vocabulary and other information and is 
      * therefore mandatory.</p>
      * 
-     * <p>C: HL7 Standard Version</p>
+     * <p>Other Business Name: HL7StandardVersion</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.versionCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the version of the messaging standard being 
      * referenced.</p>
@@ -265,9 +341,13 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>HL7StandardVersion</p>
+     * <p>Business Name: HL7StandardVersion</p>
      * 
-     * <p>C: HL7 Standard Version</p>
+     * <p>Other Business Name: HL7StandardVersion</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.versionCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the version of the messaging standard being 
      * referenced.</p>
@@ -276,7 +356,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * definition, vocabulary and other information and is 
      * therefore mandatory.</p>
      * 
-     * <p>C: HL7 Standard Version</p>
+     * <p>Other Business Name: HL7StandardVersion</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.versionCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the version of the messaging standard being 
      * referenced.</p>
@@ -293,9 +377,13 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>InteractionType</p>
+     * <p>Business Name: InteractionType</p>
      * 
-     * <p>B:Interaction Type</p>
+     * <p>Other Business Name: InteractionType</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.interactionId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the interaction conveyed by this message.</p>
      * 
@@ -303,7 +391,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * how the message should be validated. The attribute is 
      * therefore mandatory.</p>
      * 
-     * <p>B:Interaction Type</p>
+     * <p>Other Business Name: InteractionType</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.interactionId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the interaction conveyed by this message.</p>
      * 
@@ -319,9 +411,13 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>InteractionType</p>
+     * <p>Business Name: InteractionType</p>
      * 
-     * <p>B:Interaction Type</p>
+     * <p>Other Business Name: InteractionType</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.interactionId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the interaction conveyed by this message.</p>
      * 
@@ -329,7 +425,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * how the message should be validated. The attribute is 
      * therefore mandatory.</p>
      * 
-     * <p>B:Interaction Type</p>
+     * <p>Other Business Name: InteractionType</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.interactionId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the interaction conveyed by this message.</p>
      * 
@@ -345,9 +445,13 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>ConformanceProfileIdentifiers</p>
+     * <p>Business Name: ConformanceProfileIdentifiers</p>
      * 
-     * <p>F:Conformance Profile Identifiers</p>
+     * <p>Other Business Name: ConformanceProfileIdentifiers</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.profileId</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Identifies the conformance profile(s) this message 
      * complies with.</p>
@@ -356,7 +460,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * appropriate. Also influences what extensions can be 
      * processed.</p>
      * 
-     * <p>F:Conformance Profile Identifiers</p>
+     * <p>Other Business Name: ConformanceProfileIdentifiers</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.profileId</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Identifies the conformance profile(s) this message 
      * complies with.</p>
@@ -375,9 +483,13 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>ProcessingCode</p>
+     * <p>Business Name: ProcessingCode</p>
      * 
-     * <p>D:Processing Code</p>
+     * <p>Other Business Name: ProcessingCode</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.processingCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p>
@@ -385,7 +497,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>Indicates how the message should be handled and is 
      * therefore mandatory.</p>
      * 
-     * <p>D:Processing Code</p>
+     * <p>Other Business Name: ProcessingCode</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.processingCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p>
@@ -403,9 +519,13 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>ProcessingCode</p>
+     * <p>Business Name: ProcessingCode</p>
      * 
-     * <p>D:Processing Code</p>
+     * <p>Other Business Name: ProcessingCode</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.processingCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p>
@@ -413,7 +533,11 @@ public class HL7Message_2Bean extends MessagePartBean {
      * <p>Indicates how the message should be handled and is 
      * therefore mandatory.</p>
      * 
-     * <p>D:Processing Code</p>
+     * <p>Other Business Name: ProcessingCode</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.processingCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether this message is intended to be 
      * processed as production, test or debug message.</p>
@@ -431,9 +555,26 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>DesiredAcknowledgmentType</p>
+     * <p>Business Name: DesiredAcknowledgmentType</p>
      * 
-     * <p>E:Desired Acknowledgment Type</p>
+     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.acceptAckCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates how the message is expected to be 
+     * acknowledged.</p>
+     * 
+     * <p>Provides support for immediate, deferred and polling mode 
+     * and distinguishes which mode is desired. The attribute is 
+     * therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.acceptAckCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates how the message is expected to be 
      * acknowledged.</p>
@@ -443,15 +584,6 @@ public class HL7Message_2Bean extends MessagePartBean {
      * therefore mandatory.</p>
      * 
      * <p><strong>Fixed to "NE".</strong></p>
-     * 
-     * <p>E:Desired Acknowledgment Type</p>
-     * 
-     * <p>Indicates how the message is expected to be 
-     * acknowledged.</p>
-     * 
-     * <p>Provides support for immediate, deferred and polling mode 
-     * and distinguishes which mode is desired. The attribute is 
-     * therefore mandatory.</p>
      */
     @Hl7XmlMapping({"acceptAckCode"})
     public AcknowledgementCondition getAcceptAckCode() {
@@ -459,9 +591,26 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>DesiredAcknowledgmentType</p>
+     * <p>Business Name: DesiredAcknowledgmentType</p>
      * 
-     * <p>E:Desired Acknowledgment Type</p>
+     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.acceptAckCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates how the message is expected to be 
+     * acknowledged.</p>
+     * 
+     * <p>Provides support for immediate, deferred and polling mode 
+     * and distinguishes which mode is desired. The attribute is 
+     * therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: DesiredAcknowledgmentType</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.acceptAckCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates how the message is expected to be 
      * acknowledged.</p>
@@ -471,15 +620,6 @@ public class HL7Message_2Bean extends MessagePartBean {
      * therefore mandatory.</p>
      * 
      * <p><strong>Fixed to "NE".</strong></p>
-     * 
-     * <p>E:Desired Acknowledgment Type</p>
-     * 
-     * <p>Indicates how the message is expected to be 
-     * acknowledged.</p>
-     * 
-     * <p>Provides support for immediate, deferred and polling mode 
-     * and distinguishes which mode is desired. The attribute is 
-     * therefore mandatory.</p>
      */
     public void setAcceptAckCode(AcknowledgementCondition acceptAckCode) {
         this.acceptAckCode.setValue(acceptAckCode);
@@ -487,7 +627,17 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>This will echo the Sender section of the 
      * original</div> <p>message.&nbsp;</p></p>
@@ -498,7 +648,17 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>This will echo the Sender section of the 
      * original</div> <p>message.&nbsp;</p></p>
@@ -509,9 +669,19 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>RespondToSystem</p>
+     * <p>Business Name: RespondToSystem</p>
      * 
-     * <p>Respond to system</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.respondTo</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: RespondToSystem</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.respondTo</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>PIN does not require this field so it will not be 
      * sent.&nbsp;</p>
@@ -522,9 +692,19 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>RespondToSystem</p>
+     * <p>Business Name: RespondToSystem</p>
      * 
-     * <p>Respond to system</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.respondTo</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Other Business Name: RespondToSystem</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.respondTo</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>PIN does not require this field so it will not be 
      * sent.&nbsp;</p>
@@ -535,7 +715,17 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.sender</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.sender</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>This will echo the Receiver section of the 
      * original</div> <div>message.&nbsp;</div></p>
@@ -546,7 +736,17 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.sender</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.sender</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>This will echo the Receiver section of the 
      * original</div> <div>message.&nbsp;</div></p>
@@ -557,9 +757,19 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>RoutingInstructionLine</p>
+     * <p>Business Name: RoutingInstructionLine</p>
      * 
-     * <p>Routing Instruction Line</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     * 
+     * <p>Other Business Name: RoutingInstructionLine</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
      * 
      * <p>PIN does not require this field so it will not be 
      * sent.&nbsp;</p>
@@ -571,7 +781,11 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.acknowledgement</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates whether the previous interaction was</div> 
      * <p>successfully processed.&nbsp;</p></p>
@@ -582,7 +796,11 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.acknowledgement</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates whether the previous interaction was</div> 
      * <p>successfully processed.&nbsp;</p></p>

@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Language of Communication</p>
+ * <p>Business Name: Language of Communication</p>
  * 
  * <p>Information about what language(s) should be used to 
  * communicate with the focal person can be sent in the 
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.LanguageCommunication"})
 public class LanguageOfCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CE languageCode = new CEImpl();
     private CV modeCode = new CVImpl();
     private CV proficiencyLevelCode = new CVImpl();
@@ -56,7 +56,12 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Code</p>
+     * <p>Business Name: Language of Communication Code</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code indicating the language of communication</p>
      * 
@@ -69,7 +74,12 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Code</p>
+     * <p>Business Name: Language of Communication Code</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code indicating the language of communication</p>
      * 
@@ -82,7 +92,12 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Skills Code</p>
+     * <p>Business Name: Language of Communication Skills Code</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the healthcare provider's ability to 
      * communicate in the indicated language i.e. written, spoken, 
@@ -98,7 +113,12 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Skills Code</p>
+     * <p>Business Name: Language of Communication Skills Code</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the healthcare provider's ability to 
      * communicate in the indicated language i.e. written, spoken, 
@@ -114,7 +134,13 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Proficiency Level Code</p>
+     * <p>Business Name: Language of Communication Proficiency 
+     * Level Code</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.proficiencyLevelCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the proficiency level at which healthcare 
      * provider is able to communicate in the indicated language of 
@@ -130,7 +156,13 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Proficiency Level Code</p>
+     * <p>Business Name: Language of Communication Proficiency 
+     * Level Code</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.proficiencyLevelCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the proficiency level at which healthcare 
      * provider is able to communicate in the indicated language of 
@@ -146,7 +178,13 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Business Name: Language of Communication Preference 
+     * Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the preferred language for all 
      * communications.</p>
@@ -161,7 +199,13 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Preference Indicator</p>
+     * <p>Business Name: Language of Communication Preference 
+     * Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.LanguageCommunication.preferenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the preferred language for all 
      * communications.</p>

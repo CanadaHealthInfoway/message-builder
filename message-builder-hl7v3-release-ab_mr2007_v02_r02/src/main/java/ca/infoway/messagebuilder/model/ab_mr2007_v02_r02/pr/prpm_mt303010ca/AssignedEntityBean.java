@@ -57,7 +57,7 @@ import java.util.List;
 
 
 /**
- * <p>Assigned Entity</p>
+ * <p>Business Name: Assigned Entity</p>
  * 
  * <p>The role class, assigned entity, captures the critical 
  * information of the provider playing the role of interest. 
@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private II id = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -98,7 +98,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Identifier</p>
+     * <p>Business Name: Functional Role Identifier</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Identifies specific functional role that a provider may 
      * play within an organization.</p>
@@ -112,7 +116,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Functional Role Identifier</p>
+     * <p>Business Name: Functional Role Identifier</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Identifies specific functional role that a provider may 
      * play within an organization.</p>
@@ -125,6 +133,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT303010CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"relatedTo"})
     public List<RelatedToBean> getRelatedTo() {
         return this.relatedTo;
@@ -132,7 +145,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Type</p>
+     * <p>Business Name: Functional Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific functional role.</p>
      * 
@@ -145,7 +162,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Functional Role Type</p>
+     * <p>Business Name: Functional Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific functional role.</p>
      * 
@@ -158,7 +179,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Name</p>
+     * <p>Business Name: Functional Role Name</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The provider&#226;&#128;&#153;s name pertaining to the 
      * specific functional role.</p>
@@ -173,7 +198,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Address</p>
+     * <p>Business Name: Functional Role Address</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Address of the provider when playing the functional 
      * role.</p>
@@ -188,7 +217,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Telecom</p>
+     * <p>Business Name: Functional Role Telecom</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Telecom of the provider when playing the functional 
      * role.</p>
@@ -203,7 +236,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Status Code</p>
+     * <p>Business Name: Functional Role Status Code</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The status of the provider in the functional role i.e. 
      * Active</p>
@@ -217,7 +254,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Functional Role Status Code</p>
+     * <p>Business Name: Functional Role Status Code</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.AssignedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The status of the provider in the functional role i.e. 
      * Active</p>
@@ -231,7 +272,12 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Effective Date</p>
+     * <p>Business Name: Functional Role Effective Date</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.AssignedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The effective date of the provider in the functional 
      * role.</p>
@@ -245,7 +291,12 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Functional Role Effective Date</p>
+     * <p>Business Name: Functional Role Effective Date</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.AssignedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The effective date of the provider in the functional 
      * role.</p>
@@ -268,11 +319,23 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT303010CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"representedOrganization"})
     public OrganizationBean getRepresentedOrganization() {
         return this.representedOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT303010CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setRepresentedOrganization(OrganizationBean representedOrganization) {
         this.representedOrganization = representedOrganization;
     }

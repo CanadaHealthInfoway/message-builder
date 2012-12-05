@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>DrugIngredients</p>
+ * <p>Business Name: DrugIngredients</p>
  * 
  * <p>COCT_MT220210CA.Substance: Drug Ingredients</p>
  * 
@@ -112,13 +112,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Substance","COCT_MT220110CA.Substance","COCT_MT220200CA.Substance","COCT_MT220210CA.Substance","POME_MT010040CA.Substance","POME_MT010100CA.Substance"})
 public class DrugIngredientsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
 
 
     /**
-     * <p>Drug Ingredient Code</p>
+     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
@@ -174,19 +178,24 @@ public class DrugIngredientsBean extends MessagePartBean {
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in a vaccine.</p>
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in a vaccine.</p>
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
      * 
-     * <p>The unique identifier for the drug or chemical.<br 
-     * /><strong>This will be the FDB HIC of the 
-     * ingredient.</strong></p>
+     * <p><div>PIN requires that an ingredient code be given.</div> 
+     * <div>Ingredients that do not have a code will not be</div> 
+     * <div>sent.</div> <p>This identifier must be the FDB 
+     * HIC.&nbsp;</p></p>
      * 
-     * <p>A:Drug Ingredient Code</p>
+     * <p>Other Business Name: DrugIngredientCode</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
@@ -235,14 +244,7 @@ public class DrugIngredientsBean extends MessagePartBean {
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
      * name)</p><p>ZCP.2</p>
      * 
-     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p>
-     * 
-     * <p>Allows un-ambiguous identification of the ingredients of 
-     * a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.Ingredien
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -251,7 +253,11 @@ public class DrugIngredientsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Ingredient Code</p>
+     * <p>Other Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
@@ -307,19 +313,24 @@ public class DrugIngredientsBean extends MessagePartBean {
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in a vaccine.</p>
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of antigens as class of 
-     * ingredients in a vaccine.</p>
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
      * 
-     * <p>The unique identifier for the drug or chemical.<br 
-     * /><strong>This will be the FDB HIC of the 
-     * ingredient.</strong></p>
+     * <p><div>PIN requires that an ingredient code be given.</div> 
+     * <div>Ingredients that do not have a code will not be</div> 
+     * <div>sent.</div> <p>This identifier must be the FDB 
+     * HIC.&nbsp;</p></p>
      * 
-     * <p>A:Drug Ingredient Code</p>
+     * <p>Other Business Name: DrugIngredientCode</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The unique identifier for the drug or chemical.</p>
      * 
@@ -368,14 +379,7 @@ public class DrugIngredientsBean extends MessagePartBean {
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
      * name)</p><p>ZCP.2</p>
      * 
-     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.IngredientDrug.DIN</p><p>CompoundIngredient.IngredientDrug.hcAigNumber</p><p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p><p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
-     * system)</p><p>ZPB3.6(mnemonic)</p><p>ZPB3.7(print 
-     * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
-     * name)</p><p>ZCP.2</p>
-     * 
-     * <p>Allows un-ambiguous identification of the ingredients of 
-     * a drug for performing various alert checking.</p><p>Also 
-     * allows for the identification of
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.Ingredien
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActiveIngredientDrugEntityType code) {
@@ -384,39 +388,11 @@ public class DrugIngredientsBean extends MessagePartBean {
 
 
     /**
-     * <p>K:Ingredient Name</p>
+     * <p>Other Business Name: DrugIngredientName</p>
      * 
-     * <p>The name of the contained drug or chemical.</p>
+     * <p>Relationship: COCT_MT220200CA.Substance.name</p>
      * 
-     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
-     * 
-     * <p>Used for communication between and display to 
-     * providers.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p>
-     * 
-     * <p>Used for communication between and display to 
-     * providers.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p>
-     * 
-     * <p>Ingredient Name</p>
-     * 
-     * <p>The name of the contained drug or chemical.</p>
-     * 
-     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
-     * 
-     * <p>Used for communication between and display to 
-     * providers.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p>
-     * 
-     * <p>Used for communication between and display to 
-     * providers.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p>
-     * 
-     * <p>B:Drug Ingredient Name</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
@@ -424,6 +400,85 @@ public class DrugIngredientsBean extends MessagePartBean {
      * 
      * <p>Used for communication between and display to 
      * providers.</p>
+     * 
+     * <p>Other Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>Other Business Name: IngredientName</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Other Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>Other Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>Other Business Name: IngredientName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -431,39 +486,11 @@ public class DrugIngredientsBean extends MessagePartBean {
     }
 
     /**
-     * <p>K:Ingredient Name</p>
+     * <p>Other Business Name: DrugIngredientName</p>
      * 
-     * <p>The name of the contained drug or chemical.</p>
+     * <p>Relationship: COCT_MT220200CA.Substance.name</p>
      * 
-     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
-     * 
-     * <p>Used for communication between and display to 
-     * providers.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p>
-     * 
-     * <p>Used for communication between and display to 
-     * providers.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p>
-     * 
-     * <p>Ingredient Name</p>
-     * 
-     * <p>The name of the contained drug or chemical.</p>
-     * 
-     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
-     * 
-     * <p>Used for communication between and display to 
-     * providers.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p>
-     * 
-     * <p>Used for communication between and display to 
-     * providers.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as an ingredient name should be 
-     * available in most cases.</p>
-     * 
-     * <p>B:Drug Ingredient Name</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The name of the contained drug or chemical.</p>
      * 
@@ -471,6 +498,85 @@ public class DrugIngredientsBean extends MessagePartBean {
      * 
      * <p>Used for communication between and display to 
      * providers.</p>
+     * 
+     * <p>Other Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>Other Business Name: IngredientName</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Other Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>Other Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>Other Business Name: IngredientName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
      */
     public void setName(String name) {
         this.name.setValue(name);

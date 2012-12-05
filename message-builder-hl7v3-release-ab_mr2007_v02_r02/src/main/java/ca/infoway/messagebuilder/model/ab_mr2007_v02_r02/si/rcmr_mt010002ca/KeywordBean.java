@@ -39,7 +39,7 @@ import java.util.List;
 
 
 /**
- * <p>Keyword</p>
+ * <p>Business Name: Keyword</p>
  * 
  * <p>Information pertaining to a patient's secret password 
  * used to control access to his/her health information.</p>
@@ -52,14 +52,18 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
 
     /**
-     * <p>Keyword</p>
+     * <p>Business Name: Keyword</p>
+     * 
+     * <p>Relationship: RCMR_MT010002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicate the keyword associated with a particular 
      * consent.</p>
@@ -75,7 +79,11 @@ public class KeywordBean extends MessagePartBean {
     }
 
     /**
-     * <p>Keyword</p>
+     * <p>Business Name: Keyword</p>
+     * 
+     * <p>Relationship: RCMR_MT010002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicate the keyword associated with a particular 
      * consent.</p>
@@ -115,7 +123,11 @@ public class KeywordBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Consent Information Types</p>
+     * <p>Business Name: B:Consent Information Types</p>
+     * 
+     * <p>Relationship: RCMR_MT010002CA.RecordType.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The type of patient information that can be accessed or 
      * modified. Examples are: demographics, medications, lab, DI, 

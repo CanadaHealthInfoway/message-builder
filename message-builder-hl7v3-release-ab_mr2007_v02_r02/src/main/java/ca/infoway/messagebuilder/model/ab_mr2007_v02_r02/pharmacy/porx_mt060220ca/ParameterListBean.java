@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDValue = new ArrayList<II>();
@@ -66,7 +66,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Administration Effective Period</p>
+     * <p>Business Name: Administration Effective Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -90,7 +95,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Administration Effective Period</p>
+     * <p>Business Name: Administration Effective Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -114,7 +124,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Amended in Time Range</p>
+     * <p>Business Name: Amended in Time Range</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -137,7 +151,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Amended in Time Range</p>
+     * <p>Business Name: Amended in Time Range</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.AmendedInTimeRange.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the returned records should be filtered to 
      * only include those which have been amended in some way (had 
@@ -160,7 +178,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Care Composition IDs</p>
+     * <p>Business Name: Care Composition IDs</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.CareCompositionID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Filters the records retrieved to only include those 
      * associated with the specified encounter, episode or care 
@@ -192,7 +214,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Care Composition Types</p>
+     * <p>Business Name: Care Composition Types</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.CareCompositionType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Desc: Filters the records retrieved to only include those 
      * associated with the specified 'kind' of encounter, episode 
@@ -210,7 +236,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Include Issues Indicator</p>
+     * <p>Business Name: Include Issues Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not Issues (detected and/or managed) 
      * attached to the other medication records are to be returned 
@@ -232,7 +263,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Include Issues Indicator</p>
+     * <p>Business Name: Include Issues Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.IncludeIssuesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not Issues (detected and/or managed) 
      * attached to the other medication records are to be returned 
@@ -254,7 +290,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Include Notes Indicator</p>
+     * <p>Business Name: Include Notes Indicator</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not notes attached to the other 
      * medication records are to be returned along with the 
@@ -278,7 +318,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Include Notes Indicator</p>
+     * <p>Business Name: Include Notes Indicator</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.IncludeNotesIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not notes attached to the other 
      * medication records are to be returned along with the 
@@ -302,7 +346,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -323,7 +371,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060220CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -344,7 +396,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Other Medication Record Id</p>
+     * <p>Business Name: E:Other Medication Record Id</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.OtherMedicationRecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the other medication record for which 
      * detailed information is to be retrieved.</p>
@@ -358,7 +415,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Other Medication Record Id</p>
+     * <p>Business Name: E:Other Medication Record Id</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060220CA.OtherMedicationRecordId.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the other medication record for which 
      * detailed information is to be retrieved.</p>

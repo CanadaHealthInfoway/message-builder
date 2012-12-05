@@ -37,7 +37,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Subject2","COCT_MT470002CA.Subject2","COCT_MT470012CA.Subject2"})
 public class ControlsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private CS informDefinitionClassCode = new CSImpl();
@@ -47,67 +47,170 @@ public class ControlsBean extends MessagePartBean {
     private AccessTypeBean informDefinition;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Subject2.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ActRelationshipType getTypeCode() {
         return (ActRelationshipType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Subject2.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Subject2.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Subject2.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"informDefinition/classCode"})
     public ActClass getInformDefinitionClassCode() {
         return (ActClass) this.informDefinitionClassCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setInformDefinitionClassCode(ActClass informDefinitionClassCode) {
         this.informDefinitionClassCode.setValue(informDefinitionClassCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"informDefinition/moodCode"})
     public ActMood getInformDefinitionMoodCode() {
         return (ActMood) this.informDefinitionMoodCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setInformDefinitionMoodCode(ActMood informDefinitionMoodCode) {
         this.informDefinitionMoodCode.setValue(informDefinitionMoodCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informDefinition/receiver"})
     public ConsentGivenToBean getInformDefinitionReceiver() {
         return this.informDefinitionReceiver;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformDefinitionReceiver(ConsentGivenToBean informDefinitionReceiver) {
         this.informDefinitionReceiver = informDefinitionReceiver;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     */
     @Hl7XmlMapping({"informDefinition/subject"})
     public List<Subject3Bean> getInformDefinitionSubject() {
         return this.informDefinitionSubject;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.Subject2.informDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.Subject2.informDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"informDefinition"})
     public AccessTypeBean getInformDefinition() {
         return this.informDefinition;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.Subject2.informDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.Subject2.informDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInformDefinition(AccessTypeBean informDefinition) {
         this.informDefinition = informDefinition;
     }

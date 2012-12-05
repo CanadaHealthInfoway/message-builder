@@ -43,7 +43,7 @@ import java.util.List;
 
 
 /**
- * <p>UnfilledPrescriptionQueryParameters</p>
+ * <p>Business Name: UnfilledPrescriptionQueryParameters</p>
  * 
  * <p>PORX_MT060270CA.ParameterList: (no business name)</p>
  * 
@@ -64,7 +64,7 @@ import java.util.List;
 @Hl7RootType
 public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private II prescriberProviderIDValue = new IIImpl();
     private List<CV> prescriptionStatusValue = new ArrayList<CV>();
@@ -72,9 +72,14 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AdministrationEffectivePeriod</p>
+     * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>E:Administration Effective Period</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060270CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -94,7 +99,12 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>D:Administration Effective Period</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060240CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -120,9 +130,14 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdministrationEffectivePeriod</p>
+     * <p>Business Name: AdministrationEffectivePeriod</p>
      * 
-     * <p>E:Administration Effective Period</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060270CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -142,7 +157,12 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
      * of interest for the retrieval. Useful for constraining 
      * run-away queries.</p>
      * 
-     * <p>D:Administration Effective Period</p>
+     * <p>Other Business Name: AdministrationEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060240CA.AdministrationEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the administration period for which the 
      * request/query applies.</p><p>Filter the result set to 
@@ -168,9 +188,13 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriberProviderID</p>
+     * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>D:Prescriber Provider ID</p>
+     * <p>Other Business Name: PrescriberProviderID</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PrescriberProviderID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the prescriber who created and/or 
      * supervised the prescriptions being retrieved.</p><p>The 
@@ -193,9 +217,13 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriberProviderID</p>
+     * <p>Business Name: PrescriberProviderID</p>
      * 
-     * <p>D:Prescriber Provider ID</p>
+     * <p>Other Business Name: PrescriberProviderID</p>
+     * 
+     * <p>Relationship: PORX_MT060270CA.PrescriberProviderID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the prescriber who created and/or 
      * supervised the prescriptions being retrieved.</p><p>The 
@@ -218,9 +246,13 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionStatuses</p>
+     * <p>Business Name: PrescriptionStatuses</p>
      * 
-     * <p>E:Prescription Statuses</p>
+     * <p>Other Business Name: PrescriptionStatuses</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.PrescriptionStatus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that prescriptions of a specific statuses are 
      * to be included in the result set. Allowable prescription 
@@ -238,9 +270,13 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>RxDispenseIndicator</p>
+     * <p>Business Name: RxDispenseIndicator</p>
      * 
-     * <p>Rx Dispense Indicator</p>
+     * <p>Other Business Name: RxDispenseIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.RxDispenseIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating the dispensing (fill) status of 
      * the prescription to be included in the result set. The only 
@@ -256,9 +292,13 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>RxDispenseIndicator</p>
+     * <p>Business Name: RxDispenseIndicator</p>
      * 
-     * <p>Rx Dispense Indicator</p>
+     * <p>Other Business Name: RxDispenseIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060240CA.RxDispenseIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating the dispensing (fill) status of 
      * the prescription to be included in the result set. The only 

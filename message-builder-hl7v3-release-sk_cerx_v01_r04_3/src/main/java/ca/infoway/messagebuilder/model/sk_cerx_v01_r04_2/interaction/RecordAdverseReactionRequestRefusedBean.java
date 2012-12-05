@@ -28,7 +28,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.TriggerEv
 
 
 /**
- * <p>REPC_IN000006CA: Record adverse reaction request refused</p>
+ * <p>Business Name: REPC_IN000006CA: Record adverse reaction 
+ * request refused</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -37,6 +38,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.TriggerEv
 @Hl7PartTypeMapping({"REPC_IN000006CA"})
 public class RecordAdverseReactionRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

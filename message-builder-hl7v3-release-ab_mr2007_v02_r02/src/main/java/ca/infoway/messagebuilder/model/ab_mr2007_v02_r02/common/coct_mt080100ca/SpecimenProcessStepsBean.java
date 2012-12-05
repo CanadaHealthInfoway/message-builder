@@ -38,7 +38,7 @@ import java.util.Date;
 
 
 /**
- * <p>Specimen Process Steps</p>
+ * <p>Business Name: Specimen Process Steps</p>
  * 
  * <p>The specimen is subject to one or more process steps. 
  * e.g. the specimen receive date is documented using a process 
@@ -51,14 +51,18 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT080100CA.TransportationEvent"})
 public class SpecimenProcessStepsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>P:Transportation Type</p>
+     * <p>Business Name: P:Transportation Type</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.TransportationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Describes the type of process step being documented and 
      * communicated e.g. specimen received data, specimen action 
@@ -73,7 +77,11 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
     }
 
     /**
-     * <p>P:Transportation Type</p>
+     * <p>Business Name: P:Transportation Type</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.TransportationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Describes the type of process step being documented and 
      * communicated e.g. specimen received data, specimen action 
@@ -88,7 +96,12 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
 
 
     /**
-     * <p>R:Transportation Status</p>
+     * <p>Business Name: R:Transportation Status</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.TransportationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The state or status of this transportation process 
      * step.</p>
@@ -103,7 +116,12 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
     }
 
     /**
-     * <p>R:Transportation Status</p>
+     * <p>Business Name: R:Transportation Status</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.TransportationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The state or status of this transportation process 
      * step.</p>
@@ -118,7 +136,12 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
 
 
     /**
-     * <p>Q:Transportation Date/Time</p>
+     * <p>Business Name: Q:Transportation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.TransportationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time the process step took place or the duration 
      * of that step (days or time in transit, start time, end 
@@ -135,7 +158,12 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Q:Transportation Date/Time</p>
+     * <p>Business Name: Q:Transportation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.TransportationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time the process step took place or the duration 
      * of that step (days or time in transit, start time, end 

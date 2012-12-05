@@ -68,7 +68,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<AD> addressValue = new ArrayList<AD>();
     private CV administrativeGenderValue = new CVImpl();
     private List<CV> assignedRoleTypeValue = new ArrayList<CV>();
@@ -92,7 +92,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Address</p>
+     * <p>Business Name: Healthcare Provider Role Address</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Address.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The address for the provider when playing the role of 
      * healthcare provider.</p>
@@ -107,7 +111,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Gender</p>
+     * <p>Business Name: Principal Person Gender</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.AdministrativeGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s gender.</p>
      * 
@@ -120,7 +128,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Principal Person Gender</p>
+     * <p>Business Name: Principal Person Gender</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.AdministrativeGender.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s gender.</p>
      * 
@@ -133,7 +145,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Assigned Role Type Value</p>
+     * <p>Business Name: Assigned Role Type Value</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.AssignedRoleType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific functional role.</p>
      * 
@@ -147,7 +163,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Confidence Value</p>
+     * <p>Business Name: Confidence Value</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Confidence.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target provider 
@@ -162,7 +182,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Confidence Value</p>
+     * <p>Business Name: Confidence Value</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Confidence.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target provider 
@@ -177,7 +201,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Date of Birth</p>
+     * <p>Business Name: Principal Person Date of Birth</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.DOB.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s date of 
      * birth.</p>
@@ -191,7 +219,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Principal Person Date of Birth</p>
+     * <p>Business Name: Principal Person Date of Birth</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.DOB.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s date of 
      * birth.</p>
@@ -205,7 +237,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>History Indicator Value</p>
+     * <p>Business Name: History Indicator Value</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306010CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not historical records should be 
      * included in this query response</p>
@@ -218,7 +255,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>History Indicator Value</p>
+     * <p>Business Name: History Indicator Value</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306010CA.IncludeHistoryIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not historical records should be 
      * included in this query response</p>
@@ -231,7 +273,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Jurisdiction Type</p>
+     * <p>Business Name: Jurisdiction Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Jurisdiction.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A character value that represents the Canadian provincial 
      * or territorial geographical area within which the Provider 
@@ -247,7 +293,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Name</p>
+     * <p>Business Name: Healthcare Provider Role Name</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Name.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The provider&#226;&#128;&#153;s name pertaining to the 
      * specific healthcare provider role.</p>
@@ -261,7 +311,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Healthcare Provider Role Name</p>
+     * <p>Business Name: Healthcare Provider Role Name</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Name.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The provider&#226;&#128;&#153;s name pertaining to the 
      * specific healthcare provider role.</p>
@@ -275,7 +329,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Identification</p>
+     * <p>Business Name: Healthcare Provider Role Identification</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.ProviderID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for a provider in a specific 
      * healthcare role.</p>
@@ -290,7 +348,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Expertise or Credentials Role Identifier</p>
+     * <p>Business Name: Expertise or Credentials Role Identifier</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Qualification.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for the Expertise or Credential.</p>
      * 
@@ -303,6 +365,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306010CA.ParameterList.responseObject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"responseObject"})
     public List<ResponseObjectBean> getResponseObject() {
         return this.responseObject;
@@ -310,7 +378,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Role Class Value</p>
+     * <p>Business Name: Role Class Value</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.RoleClass.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>ASSIGNED or PROV</p>
      * 
@@ -325,7 +397,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Effective Date</p>
+     * <p>Business Name: Healthcare Provider Role Effective Date</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.RoleEffectiveDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The effective date of the provider in the healthcare 
      * provider role.</p>
@@ -339,7 +415,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Healthcare Provider Role Effective Date</p>
+     * <p>Business Name: Healthcare Provider Role Effective Date</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.RoleEffectiveDate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The effective date of the provider in the healthcare 
      * provider role.</p>
@@ -353,7 +433,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Business Name: Healthcare Provider Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.RoleType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific healthcare provider 
      * role.</p>
@@ -368,7 +452,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Routed Document Type</p>
+     * <p>Business Name: Routed Document Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.RoutedDocType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Supports the business requirement to identify the 
      * specified roleClass being queried upon</p>
@@ -382,7 +470,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Routed Document Type</p>
+     * <p>Business Name: Routed Document Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.RoutedDocType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Supports the business requirement to identify the 
      * specified roleClass being queried upon</p>
@@ -396,7 +488,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Service Delivery Location Address Detail</p>
+     * <p>Business Name: Service Delivery Location Address Detail</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306010CA.ServiceDeliveryLocationAddress.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Address for the Service Delivery Location</p>
      * 
@@ -409,7 +506,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Business Name: Service Delivery Location Identifier</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306010CA.ServiceDeliveryLocationID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the service delivery 
      * location.</p>
@@ -424,7 +526,12 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Service Delivery Location Type Value</p>
+     * <p>Business Name: Service Delivery Location Type Value</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306010CA.ServiceDeliveryLocationType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique value for the service delivery location 
      * type.</p>
@@ -439,7 +546,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Status Code</p>
+     * <p>Business Name: Healthcare Provider Role Status Code</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Status.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The status of the provider in the healthcare provider 
      * role i.e. Active</p>
@@ -454,7 +565,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Telecom</p>
+     * <p>Business Name: Healthcare Provider Role Telecom</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.Telecom.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The telecom for the provider when playing the role of 
      * healthcare provider.</p>

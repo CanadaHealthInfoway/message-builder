@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Device Product</p>
+ * <p>Business Name: Device Product</p>
  * 
  * <p>A medical device product intended to be supplied and/or 
  * used by a patient. Encompasses supplies, aids, etc.</p>
@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV manufacturedClinicalDeviceCode = new CVImpl();
     private ST manufacturedClinicalDeviceName = new STImpl();
     private ST manufacturedClinicalDeviceDesc = new STImpl();
@@ -58,7 +58,11 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Device Code</p>
+     * <p>Business Name: A:Device Code</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>An identifier for a type of device.</p>
      * 
@@ -74,7 +78,11 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Device Code</p>
+     * <p>Business Name: A:Device Code</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>An identifier for a type of device.</p>
      * 
@@ -90,7 +98,11 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Device Name</p>
+     * <p>Business Name: B:Device Name</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to a type of device.</p>
      * 
@@ -108,7 +120,11 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Device Name</p>
+     * <p>Business Name: B:Device Name</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to a type of device.</p>
      * 
@@ -126,7 +142,11 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Device Description</p>
+     * <p>Business Name: C:Device Description</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a device and its 
      * characteristics (e.g. size, shape, etc.). This is used when 
@@ -142,7 +162,11 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Device Description</p>
+     * <p>Business Name: C:Device Description</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.ClinicalDevice.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a device and its 
      * characteristics (e.g. size, shape, etc.). This is used when 
@@ -158,7 +182,11 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Device Package Quantity</p>
+     * <p>Business Name: F:Device Package Quantity</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The quantity of devices contained in the package given or 
      * to be given to the patient.</p>
@@ -181,7 +209,11 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Device Package Quantity</p>
+     * <p>Business Name: F:Device Package Quantity</p>
+     * 
+     * <p>Relationship: COCT_MT141007CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The quantity of devices contained in the package given or 
      * to be given to the patient.</p>

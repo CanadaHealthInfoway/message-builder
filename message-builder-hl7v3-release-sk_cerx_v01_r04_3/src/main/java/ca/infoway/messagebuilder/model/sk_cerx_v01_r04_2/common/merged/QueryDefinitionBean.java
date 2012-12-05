@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>QueryDefinition</p>
+ * <p>Business Name: QueryDefinition</p>
  * 
  * <p>QUQI_MT020000CA.QueryByParameter: Query definition</p>
  * 
@@ -58,7 +58,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II queryId = new IIImpl();
     private INT initialQuantity = new INTImpl();
     private CV initialQuantityCode = new CVImpl();
@@ -66,16 +66,13 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>QueryIdentifier</p>
+     * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>H:Query Identifier</p>
+     * <p>Other Business Name: QueryIdentifier</p>
      * 
-     * <p>Unique number for this particular query.</p>
+     * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
      * 
-     * <p>Needed to allow continuation of queries and linking of 
-     * query requests and responses and therefore mandatory.</p>
-     * 
-     * <p>H:Query Identifier</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique number for this particular query.</p>
      * 
@@ -84,6 +81,17 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p><div>The identifier of the query.</div> <p>PIN will 
      * ignore the contents of this field.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
      */
     @Hl7XmlMapping({"queryId"})
     public Identifier getQueryId() {
@@ -91,16 +99,13 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>QueryIdentifier</p>
+     * <p>Business Name: QueryIdentifier</p>
      * 
-     * <p>H:Query Identifier</p>
+     * <p>Other Business Name: QueryIdentifier</p>
      * 
-     * <p>Unique number for this particular query.</p>
+     * <p>Relationship: QUQI_MT020000CA.QueryByParameter.queryId</p>
      * 
-     * <p>Needed to allow continuation of queries and linking of 
-     * query requests and responses and therefore mandatory.</p>
-     * 
-     * <p>H:Query Identifier</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique number for this particular query.</p>
      * 
@@ -109,6 +114,17 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * 
      * <p><div>The identifier of the query.</div> <p>PIN will 
      * ignore the contents of this field.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: QueryIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.QueryByParameter.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique number for this particular query.</p>
+     * 
+     * <p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p>
      */
     public void setQueryId(Identifier queryId) {
         this.queryId.setValue(queryId);
@@ -116,9 +132,14 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>QueryLimit</p>
+     * <p>Business Name: QueryLimit</p>
      * 
-     * <p>I:Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of response item repetitions that should be 
      * included in the initial response.</p>
@@ -135,7 +156,12 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>I:Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of response item repetitions that should be 
      * included in the initial response.</p>
@@ -154,9 +180,14 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>QueryLimit</p>
+     * <p>Business Name: QueryLimit</p>
      * 
-     * <p>I:Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of response item repetitions that should be 
      * included in the initial response.</p>
@@ -173,7 +204,12 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * the number of rows returned will never exceed the number of 
      * matching rows based on the query parameters.</p>
      * 
-     * <p>I:Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of response item repetitions that should be 
      * included in the initial response.</p>
@@ -192,9 +228,14 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>QueryLimit</p>
+     * <p>Business Name: QueryLimit</p>
      * 
-     * <p>Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&nbsp;Must be &lsquo;RD&rsquo;.</p> <div>This must be 
      * sent if the initialQuantity field is</div> <div>sent and 
@@ -202,7 +243,12 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * not sent. In either case, a MISSCOND</div> <div>error issue 
      * will be returned..</div>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>If Query Limit is specified, this will be set to 
      * &lsquo;RD&rsquo;.&nbsp;</p>
@@ -213,9 +259,14 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>QueryLimit</p>
+     * <p>Business Name: QueryLimit</p>
      * 
-     * <p>Query Limit</p>
+     * <p>Other Business Name: QueryLimit</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&nbsp;Must be &lsquo;RD&rsquo;.</p> <div>This must be 
      * sent if the initialQuantity field is</div> <div>sent and 
@@ -223,7 +274,12 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      * not sent. In either case, a MISSCOND</div> <div>error issue 
      * will be returned..</div>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.initialQuantityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>If Query Limit is specified, this will be set to 
      * &lsquo;RD&rsquo;.&nbsp;</p>
@@ -234,17 +290,27 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>ParameterList</p>
+     * <p>Business Name: ParameterList</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: ParameterList</p>
      * 
-     * <p><div>This will simply echo the query parameters from 
-     * the</div> <p>original query.&nbsp;</p></p>
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.parameterList</p>
      * 
-     * <p>Parameter List</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;This is where the query-specific parameters are</p> 
      * <div>specified.</div>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>This will simply echo the query parameters from 
+     * the</div> <p>original query.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"parameterList"})
     public PL getParameterList() {
@@ -252,17 +318,27 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
     /**
-     * <p>ParameterList</p>
+     * <p>Business Name: ParameterList</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: ParameterList</p>
      * 
-     * <p><div>This will simply echo the query parameters from 
-     * the</div> <p>original query.&nbsp;</p></p>
+     * <p>Relationship: 
+     * QUQI_MT020000CA.QueryByParameter.parameterList</p>
      * 
-     * <p>Parameter List</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;This is where the query-specific parameters are</p> 
      * <div>specified.</div>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryByParameter.parameterList</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>This will simply echo the query parameters from 
+     * the</div> <p>original query.&nbsp;</p></p>
      */
     public void setParameterList(PL parameterList) {
         this.parameterList = parameterList;

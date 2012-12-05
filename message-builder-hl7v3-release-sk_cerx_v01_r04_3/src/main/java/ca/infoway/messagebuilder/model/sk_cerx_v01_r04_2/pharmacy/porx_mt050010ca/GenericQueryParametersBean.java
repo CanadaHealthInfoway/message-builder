@@ -34,7 +34,7 @@ import java.util.List;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
@@ -45,12 +45,16 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<CV> drugCodeValue = new ArrayList<CV>();
 
 
     /**
-     * <p>Drug Codes</p>
+     * <p>Business Name: Drug Codes</p>
+     * 
+     * <p>Relationship: PORX_MT050010CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those contraindications involving the specified 

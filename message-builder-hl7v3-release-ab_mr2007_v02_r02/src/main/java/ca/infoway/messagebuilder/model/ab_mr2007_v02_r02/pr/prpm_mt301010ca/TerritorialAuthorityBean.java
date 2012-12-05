@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Territorial Authority</p>
+ * <p>Business Name: Territorial Authority</p>
  * 
  * <p>RoleClass necessary to support the Jurisdiction within 
  * which the scoping organization exists</p>
@@ -43,14 +43,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV territoryCode = new CVImpl();
     private TerritorialAuthorityBean partTerritorialAuthority;
 
 
     /**
-     * <p>Territorial Authority Type</p>
+     * <p>Business Name: Territorial Authority Type</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.TerritorialAuthority.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific Territorial 
      * Authority</p>
@@ -64,7 +68,11 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Territorial Authority Type</p>
+     * <p>Business Name: Territorial Authority Type</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.TerritorialAuthority.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific Territorial 
      * Authority</p>
@@ -78,7 +86,11 @@ public class TerritorialAuthorityBean extends MessagePartBean {
 
 
     /**
-     * <p>Jurisdiction Type</p>
+     * <p>Business Name: Jurisdiction Type</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Jurisdiction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A character value that represents the Canadian provincial 
      * or territorial geographical area within which the Provider 
@@ -96,7 +108,11 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
 
     /**
-     * <p>Jurisdiction Type</p>
+     * <p>Business Name: Jurisdiction Type</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Jurisdiction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A character value that represents the Canadian provincial 
      * or territorial geographical area within which the Provider 
@@ -113,11 +129,21 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT301010CA.Part.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"part/territorialAuthority"})
     public TerritorialAuthorityBean getPartTerritorialAuthority() {
         return this.partTerritorialAuthority;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT301010CA.Part.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
         this.partTerritorialAuthority = partTerritorialAuthority;
     }

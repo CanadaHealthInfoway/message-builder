@@ -52,7 +52,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SubsequentSupplyRequest","PORX_MT060160CA.SubsequentSupplyRequest","PORX_MT060340CA.SubsequentSupplyRequest"})
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
@@ -60,9 +60,14 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseInterval</p>
+     * <p>Business Name: DispenseInterval</p>
      * 
-     * <p>F:Dispense Interval</p>
+     * <p>Other Business Name: DispenseInterval</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubsequentSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a minimum amount of time that must occur 
      * between dispenses.</p>
@@ -71,7 +76,26 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * ever receive more than the appropriate amount of medication 
      * in a particular timeframe.</p>
      * 
-     * <p>F:Dispense Interval</p>
+     * <p>Other Business Name: DispenseInterval</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates a minimum amount of time that must occur 
+     * between dispenses.</p>
+     * 
+     * <p>Helps the prescriber ensure that the patient does not 
+     * ever receive more than the appropriate amount of medication 
+     * in a particular timeframe.</p>
+     * 
+     * <p>Other Business Name: DispenseInterval</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a minimum amount of time that must occur 
      * between dispenses.</p>
@@ -86,9 +110,14 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>DispenseInterval</p>
+     * <p>Business Name: DispenseInterval</p>
      * 
-     * <p>F:Dispense Interval</p>
+     * <p>Other Business Name: DispenseInterval</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubsequentSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a minimum amount of time that must occur 
      * between dispenses.</p>
@@ -97,7 +126,26 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * ever receive more than the appropriate amount of medication 
      * in a particular timeframe.</p>
      * 
-     * <p>F:Dispense Interval</p>
+     * <p>Other Business Name: DispenseInterval</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates a minimum amount of time that must occur 
+     * between dispenses.</p>
+     * 
+     * <p>Helps the prescriber ensure that the patient does not 
+     * ever receive more than the appropriate amount of medication 
+     * in a particular timeframe.</p>
+     * 
+     * <p>Other Business Name: DispenseInterval</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a minimum amount of time that must occur 
      * between dispenses.</p>
@@ -112,24 +160,14 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>NumberOfFills</p>
+     * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>G:Number of Fills</p>
+     * <p>Other Business Name: NumberOfFills</p>
      * 
-     * <p>The number of times the prescribed quantity is to be 
-     * dispensed including the initial standard fill.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubsequentSupplyRequest.repeatNumber</p>
      * 
-     * <p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p>
-     * 
-     * <p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p>
-     * 
-     * <p>G:Number of Fills</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of times the prescribed quantity is to be 
      * dispensed, including the initial standard fill.</p>
@@ -154,7 +192,32 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * Fills rather than number of refills due to HL7 modeling 
      * constraints.</p>
      * 
-     * <p>G:Number of Fills</p>
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The number of times the prescribed quantity is to be 
+     * dispensed including the initial standard fill.</p>
+     * 
+     * <p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p>
+     * 
+     * <p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p>
+     * 
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of times the prescribed quantity is to be 
      * dispensed including the initial standard fill.</p>
@@ -185,24 +248,14 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>NumberOfFills</p>
+     * <p>Business Name: NumberOfFills</p>
      * 
-     * <p>G:Number of Fills</p>
+     * <p>Other Business Name: NumberOfFills</p>
      * 
-     * <p>The number of times the prescribed quantity is to be 
-     * dispensed including the initial standard fill.</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubsequentSupplyRequest.repeatNumber</p>
      * 
-     * <p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p>
-     * 
-     * <p>Used to calculate total prescribed quantity; and also 
-     * used for compliance checking.</p><p>Expressed as Number of 
-     * Fills rather than number of refills due to HL7 modeling 
-     * constraints.</p>
-     * 
-     * <p>G:Number of Fills</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of times the prescribed quantity is to be 
      * dispensed, including the initial standard fill.</p>
@@ -227,7 +280,32 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * Fills rather than number of refills due to HL7 modeling 
      * constraints.</p>
      * 
-     * <p>G:Number of Fills</p>
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The number of times the prescribed quantity is to be 
+     * dispensed including the initial standard fill.</p>
+     * 
+     * <p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p>
+     * 
+     * <p>Used to calculate total prescribed quantity; and also 
+     * used for compliance checking.</p><p>Expressed as Number of 
+     * Fills rather than number of refills due to HL7 modeling 
+     * constraints.</p>
+     * 
+     * <p>Other Business Name: NumberOfFills</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.repeatNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of times the prescribed quantity is to be 
      * dispensed including the initial standard fill.</p>
@@ -258,9 +336,14 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>FillQuantity</p>
+     * <p>Business Name: FillQuantity</p>
      * 
-     * <p>D:Fill Quantity</p>
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubsequentSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of medication to be dispensed to the patient 
      * for each normal fill (excluding trial or other special first 
@@ -281,7 +364,12 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Limits the quantity of medication in patient's possession 
      * at a time. Used in compliance checking</p>
      * 
-     * <p>D:Fill Quantity</p>
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of medication to be dispensed to the patient 
      * for each normal fill (excluding trial or other special first 
@@ -289,6 +377,32 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * 
      * <p>Limits the quantity of medication in patient's possession 
      * at a time. Used in compliance checking.</p>
+     * 
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The amount of medication to be dispensed to the patient 
+     * for each normal fill (excluding trial or other special first 
+     * fills).</p>
+     * 
+     * <p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p>
+     * 
+     * <p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p>
+     * 
+     * <p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p>
+     * 
+     * <p>Limits the quantity of medication in patient's possession 
+     * at a time. Used in compliance checking</p>
      */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getQuantity() {
@@ -296,9 +410,14 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>FillQuantity</p>
+     * <p>Business Name: FillQuantity</p>
      * 
-     * <p>D:Fill Quantity</p>
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubsequentSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of medication to be dispensed to the patient 
      * for each normal fill (excluding trial or other special first 
@@ -319,7 +438,12 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * <p>Limits the quantity of medication in patient's possession 
      * at a time. Used in compliance checking</p>
      * 
-     * <p>D:Fill Quantity</p>
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of medication to be dispensed to the patient 
      * for each normal fill (excluding trial or other special first 
@@ -327,6 +451,32 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * 
      * <p>Limits the quantity of medication in patient's possession 
      * at a time. Used in compliance checking.</p>
+     * 
+     * <p>Other Business Name: FillQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The amount of medication to be dispensed to the patient 
+     * for each normal fill (excluding trial or other special first 
+     * fills).</p>
+     * 
+     * <p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p>
+     * 
+     * <p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p>
+     * 
+     * <p>Prescription.fillAmount</p><p>Prescription.maximumDispensedAmount 
+     * (when SupplyRequest.effectiveTime id populated with an 
+     * interval)</p><p>Quantity</p>
+     * 
+     * <p>Limits the quantity of medication in patient's possession 
+     * at a time. Used in compliance checking</p>
      */
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
@@ -334,9 +484,34 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>DaysSupply</p>
+     * <p>Business Name: DaysSupply</p>
      * 
-     * <p>E:Days Supply</p>
+     * <p>Other Business Name: DaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubsequentSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The number of days that each standard fill is expected to 
+     * last. The dispenser must use the administration instructions 
+     * together with the Days Supply to calculate the total 
+     * quantity to dispense per fill. May be specified in addition 
+     * to quantity to indicate the length of time a quantity of 'as 
+     * needed' medication is expected to last.</p>
+     * 
+     * <p>Useful in determining and managing certain 
+     * contraindications ('Fill-Too-Soon', 'Fill-Too-Late', and 
+     * 'Duration of Therapy'). Also provides guidance to the 
+     * pharmacy on how much to dispense. Also useful in 
+     * research.</p>
+     * 
+     * <p>Other Business Name: DaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of days that each standard fill is expected to 
      * last. The dispenser must use the administration instructions 
@@ -351,7 +526,12 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * pharmacy on how much to dispense. Also useful in 
      * research</p>
      * 
-     * <p>E:Days Supply</p>
+     * <p>Other Business Name: DaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of days that each standard fill is expected to 
      * last. The dispenser must use the administration instructions 
@@ -372,9 +552,34 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>DaysSupply</p>
+     * <p>Business Name: DaysSupply</p>
      * 
-     * <p>E:Days Supply</p>
+     * <p>Other Business Name: DaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.SubsequentSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The number of days that each standard fill is expected to 
+     * last. The dispenser must use the administration instructions 
+     * together with the Days Supply to calculate the total 
+     * quantity to dispense per fill. May be specified in addition 
+     * to quantity to indicate the length of time a quantity of 'as 
+     * needed' medication is expected to last.</p>
+     * 
+     * <p>Useful in determining and managing certain 
+     * contraindications ('Fill-Too-Soon', 'Fill-Too-Late', and 
+     * 'Duration of Therapy'). Also provides guidance to the 
+     * pharmacy on how much to dispense. Also useful in 
+     * research.</p>
+     * 
+     * <p>Other Business Name: DaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubsequentSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of days that each standard fill is expected to 
      * last. The dispenser must use the administration instructions 
@@ -389,7 +594,12 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
      * pharmacy on how much to dispense. Also useful in 
      * research</p>
      * 
-     * <p>E:Days Supply</p>
+     * <p>Other Business Name: DaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.SubsequentSupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The number of days that each standard fill is expected to 
      * last. The dispenser must use the administration instructions 

@@ -81,7 +81,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.ControlActEvent","PORX_MT060040CA.ControlActEvent","PORX_MT060090CA.ControlActEvent","PORX_MT060210CA.ControlActEvent"})
 public class DispenseStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -90,7 +90,11 @@ public class DispenseStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Change Type</p>
+     * <p>Other Business Name: ChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. Examples include 
      * Suspended, Superseded, Released, Aborted (stopped), etc.</p>
@@ -98,7 +102,11 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Medication Status Change Type</p>
+     * <p>Other Business Name: OtherMedicationStatusChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. Examples include 
      * Completed, Aborted, etc.</p>
@@ -106,7 +114,23 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable</p>
      * 
-     * <p>Dispense Status Change Type</p>
+     * <p>Other Business Name: DispenseStatusChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of change occurred. Examples include 
+     * Suspended, Aborted, etc.</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     * 
+     * <p>Other Business Name: DispenseStatusChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. Examples include 
      * Suspended, Aborted, etc.</p>
@@ -120,7 +144,11 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Change Type</p>
+     * <p>Other Business Name: ChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. Examples include 
      * Suspended, Superseded, Released, Aborted (stopped), etc.</p>
@@ -128,7 +156,11 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Other Medication Status Change Type</p>
+     * <p>Other Business Name: OtherMedicationStatusChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. Examples include 
      * Completed, Aborted, etc.</p>
@@ -136,7 +168,23 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable</p>
      * 
-     * <p>Dispense Status Change Type</p>
+     * <p>Other Business Name: DispenseStatusChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of change occurred. Examples include 
+     * Suspended, Aborted, etc.</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     * 
+     * <p>Other Business Name: DispenseStatusChangeType</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. Examples include 
      * Suspended, Aborted, etc.</p>
@@ -150,22 +198,12 @@ public class DispenseStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Status Change Effective Date</p>
+     * <p>Other Business Name: ChangeEffectivePeriod</p>
      * 
-     * <p>The date on which the various status changes of a 
-     * prescription dispense become valid and applicable. In the 
-     * case of a suspend, may also indicate the scheduled time at 
-     * which the status change will end.</p>
+     * <p>Relationship: 
+     * PORX_MT060040CA.ControlActEvent.effectiveTime</p>
      * 
-     * <p>Allows applications to sort and filter by time.</p><p>The 
-     * effective date can be defaulted to change date, and thus is 
-     * mandatory.</p>
-     * 
-     * <p>Allows applications to sort and filter by time.</p><p>The 
-     * effective date can be defaulted to change date, and thus is 
-     * mandatory.</p>
-     * 
-     * <p>Change Effective Period</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various status changes of a 
      * prescription become valid and applicable. In the case of a 
@@ -180,12 +218,58 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Medication Status Change Effective Period</p>
+     * <p>Other Business Name: 
+     * OtherMedicationStatusChangeEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060210CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various status changes of an other 
      * medication record become valid and applicable. In the case 
      * of a suspend, may also indicate the scheduled time at which 
      * the status change will end.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: DispenseStatusChangeEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various status changes of a 
+     * prescription dispense become valid and applicable. In the 
+     * case of a suspend, may also indicate the scheduled time at 
+     * which the status change will end.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: DispenseStatusChangeEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various status changes of a 
+     * prescription dispense become valid and applicable. In the 
+     * case of a suspend, may also indicate the scheduled time at 
+     * which the status change will end.</p>
      * 
      * <p>Allows applications to sort and filter by time.</p><p>The 
      * effective date can be defaulted to change date, and thus is 
@@ -201,22 +285,12 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Status Change Effective Date</p>
+     * <p>Other Business Name: ChangeEffectivePeriod</p>
      * 
-     * <p>The date on which the various status changes of a 
-     * prescription dispense become valid and applicable. In the 
-     * case of a suspend, may also indicate the scheduled time at 
-     * which the status change will end.</p>
+     * <p>Relationship: 
+     * PORX_MT060040CA.ControlActEvent.effectiveTime</p>
      * 
-     * <p>Allows applications to sort and filter by time.</p><p>The 
-     * effective date can be defaulted to change date, and thus is 
-     * mandatory.</p>
-     * 
-     * <p>Allows applications to sort and filter by time.</p><p>The 
-     * effective date can be defaulted to change date, and thus is 
-     * mandatory.</p>
-     * 
-     * <p>Change Effective Period</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various status changes of a 
      * prescription become valid and applicable. In the case of a 
@@ -231,12 +305,58 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Other Medication Status Change Effective Period</p>
+     * <p>Other Business Name: 
+     * OtherMedicationStatusChangeEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060210CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various status changes of an other 
      * medication record become valid and applicable. In the case 
      * of a suspend, may also indicate the scheduled time at which 
      * the status change will end.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: DispenseStatusChangeEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various status changes of a 
+     * prescription dispense become valid and applicable. In the 
+     * case of a suspend, may also indicate the scheduled time at 
+     * which the status change will end.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Allows applications to sort and filter by time.</p><p>The 
+     * effective date can be defaulted to change date, and thus is 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: DispenseStatusChangeEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various status changes of a 
+     * prescription dispense become valid and applicable. In the 
+     * case of a suspend, may also indicate the scheduled time at 
+     * which the status change will end.</p>
      * 
      * <p>Allows applications to sort and filter by time.</p><p>The 
      * effective date can be defaulted to change date, and thus is 
@@ -252,16 +372,24 @@ public class DispenseStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Status Change Reason</p>
+     * <p>Other Business Name: ChangeReason</p>
      * 
-     * <p>Denotes the reason the status of the prescription 
-     * dispense was changed.</p>
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the status of the prescription was 
+     * changed.</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Medication Status Change Reason</p>
+     * <p>Other Business Name: OtherMedicationStatusChangeReason</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the status of the other medication was 
      * changed.</p>
@@ -270,10 +398,27 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Change Reason</p>
+     * <p>Other Business Name: DispenseStatusChangeReason</p>
      * 
-     * <p>Denotes the reason the status of the prescription was 
-     * changed.</p>
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the status of the prescription 
+     * dispense was changed.</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Other Business Name: DispenseStatusChangeReason</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the status of the prescription 
+     * dispense was changed.</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
@@ -285,16 +430,24 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Status Change Reason</p>
+     * <p>Other Business Name: ChangeReason</p>
      * 
-     * <p>Denotes the reason the status of the prescription 
-     * dispense was changed.</p>
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the status of the prescription was 
+     * changed.</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Other Medication Status Change Reason</p>
+     * <p>Other Business Name: OtherMedicationStatusChangeReason</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the status of the other medication was 
      * changed.</p>
@@ -303,10 +456,27 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Change Reason</p>
+     * <p>Other Business Name: DispenseStatusChangeReason</p>
      * 
-     * <p>Denotes the reason the status of the prescription was 
-     * changed.</p>
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the status of the prescription 
+     * dispense was changed.</p>
+     * 
+     * <p>Ensures consistent terminology in capturing and 
+     * interpreting reasons for change. Allows CWE because not all 
+     * reasons will correspond to a pre-defined code.</p>
+     * 
+     * <p>Other Business Name: DispenseStatusChangeReason</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the status of the prescription 
+     * dispense was changed.</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
@@ -317,21 +487,129 @@ public class DispenseStatusChangesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ResponsibleParty4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060210CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.ResponsibleParty4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060210CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public Author1Bean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(Author1Bean author) {
         this.author = author;
     }

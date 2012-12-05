@@ -37,7 +37,7 @@ import java.util.Date;
 
 
 /**
- * <p>Notes</p>
+ * <p>Business Name: Notes</p>
  * 
  * <p>This is a list of comments made about the record by 
  * providers. Information captured here includes the provider 
@@ -63,7 +63,7 @@ import java.util.Date;
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
     private CV languageCode = new CVImpl();
     private TS authorTime = new TSImpl();
@@ -71,7 +71,11 @@ public class NotesBean extends MessagePartBean {
 
 
     /**
-     * <p>Note Text</p>
+     * <p>Business Name: Note Text</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Free text comments. Additional textual iinformation 
      * entered about an object.</p>
@@ -87,7 +91,11 @@ public class NotesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Note Text</p>
+     * <p>Business Name: Note Text</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Free text comments. Additional textual iinformation 
      * entered about an object.</p>
@@ -103,7 +111,11 @@ public class NotesBean extends MessagePartBean {
 
 
     /**
-     * <p>Written in</p>
+     * <p>Business Name: Written in</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the language in which the note is 
      * written.</p>
@@ -124,7 +136,11 @@ public class NotesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Written in</p>
+     * <p>Business Name: Written in</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the language in which the note is 
      * written.</p>
@@ -145,7 +161,11 @@ public class NotesBean extends MessagePartBean {
 
 
     /**
-     * <p>Note Timestamp</p>
+     * <p>Business Name: Note Timestamp</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date and time at which the note was posted.</p>
      * 
@@ -165,7 +185,11 @@ public class NotesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Note Timestamp</p>
+     * <p>Business Name: Note Timestamp</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date and time at which the note was posted.</p>
      * 
@@ -184,11 +208,21 @@ public class NotesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT120600CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedPerson"})
     public ProviderBean getAuthorAssignedPerson() {
         return this.authorAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: COCT_MT120600CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
         this.authorAssignedPerson = authorAssignedPerson;
     }

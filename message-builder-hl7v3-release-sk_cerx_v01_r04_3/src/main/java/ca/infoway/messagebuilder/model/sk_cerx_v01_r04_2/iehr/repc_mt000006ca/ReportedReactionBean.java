@@ -57,7 +57,7 @@ import java.util.List;
 
 
 /**
- * <p>Reported Reaction</p>
+ * <p>Business Name: Reported Reaction</p>
  * 
  * <p>Value is mandatory if not using SNOMED</p><p>Code is 
  * fixed to DX if not using SNOMED</p>
@@ -79,7 +79,7 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -98,7 +98,11 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Reaction Record Id</p>
+     * <p>Business Name: C:Reaction Record Id</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.ReactionObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An identifier assigned to the record of the adverse 
      * reaction.</p>
@@ -112,7 +116,11 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Reaction Record Id</p>
+     * <p>Business Name: C:Reaction Record Id</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.ReactionObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An identifier assigned to the record of the adverse 
      * reaction.</p>
@@ -126,7 +134,12 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of diagnosis being captured.</p>
      * 
@@ -143,7 +156,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of diagnosis being captured.</p>
      * 
@@ -160,7 +178,12 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Description</p>
+     * <p>Business Name: G:Description</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of the reaction.</p>
      * 
@@ -175,7 +198,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Description</p>
+     * <p>Business Name: G:Description</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of the reaction.</p>
      * 
@@ -190,7 +218,12 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>Business Name: F:Reaction Onset Date</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date on which the reaction occurrence began.</p>
      * 
@@ -204,7 +237,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>Business Name: F:Reaction Onset Date</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date on which the reaction occurrence began.</p>
      * 
@@ -218,7 +256,12 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Adverse Reaction Masking Indicator</p>
+     * <p>Business Name: G:Adverse Reaction Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their adverse reactions. Provides support for additional 
@@ -241,7 +284,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Adverse Reaction Masking Indicator</p>
+     * <p>Business Name: G:Adverse Reaction Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their adverse reactions. Provides support for additional 
@@ -264,7 +312,12 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Reaction</p>
+     * <p>Business Name: B:Reaction</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Specifies the kind of reaction, as experienced by the 
      * patient.</p>
@@ -284,7 +337,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Reaction</p>
+     * <p>Business Name: B:Reaction</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000006CA.ReactionObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Specifies the kind of reaction, as experienced by the 
      * patient.</p>
@@ -313,11 +371,23 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000006CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000006CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -359,11 +429,23 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000006CA.Subject4.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000006CA.Subject4.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }

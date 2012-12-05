@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT000200CA.Acknowledgement","MCCI_MT000300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private INT messageWaitingNumber = new INTImpl();
     private CV messageWaitingPriorityCode = new CVImpl();
@@ -51,9 +51,25 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>AcknowledgementCode</p>
+     * <p>Business Name: AcknowledgementCode</p>
      * 
-     * <p>GA:Acknowledgement Code</p>
+     * <p>Other Business Name: AcknowledgementCode</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Acknowledgement.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates whether the previous interaction was 
+     * successfully processed.</p>
+     * 
+     * <p>Key to understanding whether the interaction has been 
+     * successful and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: AcknowledgementCode</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Acknowledgement.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether the previous interaction was 
      * successfully processed.</p>
@@ -65,14 +81,6 @@ public class AcknowledgementBean extends MessagePartBean {
      * detected</div> <div>transport-level errors in which case it 
      * will be &lsquo;AE&rsquo;.</div> <p>&lsquo;AR&rsquo; will 
      * never be sent.&nbsp;</p></p>
-     * 
-     * <p>GA:Acknowledgement Code</p>
-     * 
-     * <p>Indicates whether the previous interaction was 
-     * successfully processed.</p>
-     * 
-     * <p>Key to understanding whether the interaction has been 
-     * successful and is therefore mandatory.</p>
      */
     @Hl7XmlMapping({"typeCode"})
     public AcknowledgementType getTypeCode() {
@@ -80,9 +88,25 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
     /**
-     * <p>AcknowledgementCode</p>
+     * <p>Business Name: AcknowledgementCode</p>
      * 
-     * <p>GA:Acknowledgement Code</p>
+     * <p>Other Business Name: AcknowledgementCode</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Acknowledgement.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates whether the previous interaction was 
+     * successfully processed.</p>
+     * 
+     * <p>Key to understanding whether the interaction has been 
+     * successful and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: AcknowledgementCode</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Acknowledgement.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether the previous interaction was 
      * successfully processed.</p>
@@ -94,14 +118,6 @@ public class AcknowledgementBean extends MessagePartBean {
      * detected</div> <div>transport-level errors in which case it 
      * will be &lsquo;AE&rsquo;.</div> <p>&lsquo;AR&rsquo; will 
      * never be sent.&nbsp;</p></p>
-     * 
-     * <p>GA:Acknowledgement Code</p>
-     * 
-     * <p>Indicates whether the previous interaction was 
-     * successfully processed.</p>
-     * 
-     * <p>Key to understanding whether the interaction has been 
-     * successful and is therefore mandatory.</p>
      */
     public void setTypeCode(AcknowledgementType typeCode) {
         this.typeCode.setValue(typeCode);
@@ -109,23 +125,33 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>NumberOfWaitingMessages</p>
+     * <p>Business Name: NumberOfWaitingMessages</p>
      * 
-     * <p>GC:Number of Waiting Messages</p>
+     * <p>Other Business Name: NumberOfWaitingMessages</p>
      * 
-     * <p> <p>This will indicate the number of messages that 
-     * are</p> <p>waiting for the specified system to retrieve.</p> 
-     * </p>
+     * <p>Relationship: 
+     * MCCI_MT000300CA.Acknowledgement.messageWaitingNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>For applications which support polling, indicates the 
+     * total number of messages waiting to be retrieved.</p>
      * 
      * <p>Indicates to a system how many polled messages are 
      * available without the need so send a separate query. The 
      * element is optional because not all systems will support 
      * polling.</p>
      * 
-     * <p>GC:Number of Waiting Messages</p>
+     * <p>Other Business Name: NumberOfWaitingMessages</p>
      * 
-     * <p>For applications which support polling, indicates the 
-     * total number of messages waiting to be retrieved.</p>
+     * <p>Relationship: 
+     * MCCI_MT000200CA.Acknowledgement.messageWaitingNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p> <p>This will indicate the number of messages that 
+     * are</p> <p>waiting for the specified system to retrieve.</p> 
+     * </p>
      * 
      * <p>Indicates to a system how many polled messages are 
      * available without the need so send a separate query. The 
@@ -138,23 +164,33 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
     /**
-     * <p>NumberOfWaitingMessages</p>
+     * <p>Business Name: NumberOfWaitingMessages</p>
      * 
-     * <p>GC:Number of Waiting Messages</p>
+     * <p>Other Business Name: NumberOfWaitingMessages</p>
      * 
-     * <p> <p>This will indicate the number of messages that 
-     * are</p> <p>waiting for the specified system to retrieve.</p> 
-     * </p>
+     * <p>Relationship: 
+     * MCCI_MT000300CA.Acknowledgement.messageWaitingNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>For applications which support polling, indicates the 
+     * total number of messages waiting to be retrieved.</p>
      * 
      * <p>Indicates to a system how many polled messages are 
      * available without the need so send a separate query. The 
      * element is optional because not all systems will support 
      * polling.</p>
      * 
-     * <p>GC:Number of Waiting Messages</p>
+     * <p>Other Business Name: NumberOfWaitingMessages</p>
      * 
-     * <p>For applications which support polling, indicates the 
-     * total number of messages waiting to be retrieved.</p>
+     * <p>Relationship: 
+     * MCCI_MT000200CA.Acknowledgement.messageWaitingNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p> <p>This will indicate the number of messages that 
+     * are</p> <p>waiting for the specified system to retrieve.</p> 
+     * </p>
      * 
      * <p>Indicates to a system how many polled messages are 
      * available without the need so send a separate query. The 
@@ -167,9 +203,30 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageWaitingPriority</p>
+     * <p>Business Name: MessageWaitingPriority</p>
      * 
-     * <p>GD:Message Waiting Priority</p>
+     * <p>Other Business Name: MessageWaitingPriority</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000300CA.Acknowledgement.messageWaitingPriorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the priority of the highest-priority message 
+     * that is waiting on the poll queue for the system being 
+     * responded to.</p>
+     * 
+     * <p>The priority of the waiting message may influence how 
+     * quickly the polling system may choose to download queued 
+     * messages. The element is optional because not all systems 
+     * will support polling.</p>
+     * 
+     * <p>Other Business Name: MessageWaitingPriority</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000200CA.Acknowledgement.messageWaitingPriorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the priority of the highest-priority message 
      * that is waiting on the poll queue for the system being 
@@ -186,9 +243,30 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
     /**
-     * <p>MessageWaitingPriority</p>
+     * <p>Business Name: MessageWaitingPriority</p>
      * 
-     * <p>GD:Message Waiting Priority</p>
+     * <p>Other Business Name: MessageWaitingPriority</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000300CA.Acknowledgement.messageWaitingPriorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the priority of the highest-priority message 
+     * that is waiting on the poll queue for the system being 
+     * responded to.</p>
+     * 
+     * <p>The priority of the waiting message may influence how 
+     * quickly the polling system may choose to download queued 
+     * messages. The element is optional because not all systems 
+     * will support polling.</p>
+     * 
+     * <p>Other Business Name: MessageWaitingPriority</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000200CA.Acknowledgement.messageWaitingPriorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the priority of the highest-priority message 
      * that is waiting on the poll queue for the system being 
@@ -205,9 +283,26 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>AcknowledgedMessageId</p>
+     * <p>Business Name: AcknowledgedMessageId</p>
      * 
-     * <p>BA:Acknowledged Message Id</p>
+     * <p>Other Business Name: AcknowledgedMessageId</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.TargetMessage.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>References the identifier of the message this current 
+     * message is acknowledging.</p>
+     * 
+     * <p>Provides the necessary link to complete a conversation 
+     * for systems using communication technologies which are not 
+     * conversational. This attribute is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: AcknowledgedMessageId</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.TargetMessage.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>References the identifier of the message this current 
      * message is acknowledging.</p>
@@ -222,9 +317,26 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
     /**
-     * <p>AcknowledgedMessageId</p>
+     * <p>Business Name: AcknowledgedMessageId</p>
      * 
-     * <p>BA:Acknowledged Message Id</p>
+     * <p>Other Business Name: AcknowledgedMessageId</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.TargetMessage.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>References the identifier of the message this current 
+     * message is acknowledging.</p>
+     * 
+     * <p>Provides the necessary link to complete a conversation 
+     * for systems using communication technologies which are not 
+     * conversational. This attribute is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: AcknowledgedMessageId</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.TargetMessage.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>References the identifier of the message this current 
      * message is acknowledging.</p>
@@ -239,7 +351,19 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000300CA.Acknowledgement.acknowledgementDetail</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000200CA.Acknowledgement.acknowledgementDetail</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
      * 
      * <p><div>Any errors, warnings, or information messages will 
      * be</div> <p>go here.&nbsp;</p></p>

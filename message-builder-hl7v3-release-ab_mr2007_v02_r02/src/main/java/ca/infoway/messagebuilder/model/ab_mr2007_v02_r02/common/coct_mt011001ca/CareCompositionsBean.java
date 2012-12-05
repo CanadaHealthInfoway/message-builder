@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Care Compositions</p>
+ * <p>Business Name: Care Compositions</p>
  * 
  * <p>A care composition is a record with two purposes. It 
  * indicates that care of a given type has occurred or is 
@@ -50,13 +50,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 
 
     /**
-     * <p>B: Care Composition Identifier</p>
+     * <p>Business Name: B: Care Composition Identifier</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier of an encounter, condition or 
      * care-based collection.</p>
@@ -72,7 +77,12 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>B: Care Composition Identifier</p>
+     * <p>Business Name: B: Care Composition Identifier</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier of an encounter, condition or 
      * care-based collection.</p>
@@ -88,7 +98,12 @@ public class CareCompositionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A: Care Composition Type</p>
+     * <p>Business Name: A: Care Composition Type</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the kind of composition represented. Examples 
      * include encounters (&quot;Emergency Encounter&quot;, 
@@ -112,7 +127,12 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A: Care Composition Type</p>
+     * <p>Business Name: A: Care Composition Type</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT011001CA.PatientCareProvisionEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the kind of composition represented. Examples 
      * include encounters (&quot;Emergency Encounter&quot;, 

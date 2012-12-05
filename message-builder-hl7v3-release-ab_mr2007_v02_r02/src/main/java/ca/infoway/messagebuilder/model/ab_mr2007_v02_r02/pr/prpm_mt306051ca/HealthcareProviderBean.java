@@ -43,7 +43,7 @@ import java.util.Set;
 
 
 /**
- * <p>Healthcare Provider</p>
+ * <p>Business Name: Healthcare Provider</p>
  * 
  * <p>This roles the specific Healthcare provider role such as 
  * a Physician, Nurse or other type of caregivers.</p>
@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -63,7 +63,11 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
 
 
     /**
-     * <p>Healthcare Provider Role Identification</p>
+     * <p>Business Name: Healthcare Provider Role Identification</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.HealthCareProvider.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-50)</p>
      * 
      * <p>A unique identifier for a provider in a specific 
      * healthcare role.</p>
@@ -78,7 +82,11 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
 
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Business Name: Healthcare Provider Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific healthcare provider 
      * role.</p>
@@ -92,7 +100,11 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Business Name: Healthcare Provider Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.HealthCareProvider.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The code identifying the specific healthcare provider 
      * role.</p>
@@ -106,7 +118,11 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
 
 
     /**
-     * <p>Healthcare Provider Role Name</p>
+     * <p>Business Name: Healthcare Provider Role Name</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.HealthCareProvider.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The provider&#226;&#128;&#153;s name pertaining to the 
      * specific healthcare provider role.</p>
@@ -130,11 +146,23 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.HealthCareProvider.issuingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"issuingOrganization"})
     public OrganizationBean getIssuingOrganization() {
         return this.issuingOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.HealthCareProvider.issuingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
     }

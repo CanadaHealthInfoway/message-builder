@@ -38,7 +38,7 @@ import java.util.List;
 
 
 /**
- * <p>Specimen Collection Procedure</p>
+ * <p>Business Name: Specimen Collection Procedure</p>
  * 
  * <p>This is the procedure act which describes the 
  * process/procedure used to collect the associated 
@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareWorkerBean performerAssignedEntity;
@@ -59,7 +59,12 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Specimen Collection Text</p>
+     * <p>Business Name: G:Specimen Collection Text</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used to describe any additional information regarding the 
      * specimen collection procedure or the collected material, 
@@ -82,7 +87,12 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
     /**
-     * <p>G:Specimen Collection Text</p>
+     * <p>Business Name: G:Specimen Collection Text</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Used to describe any additional information regarding the 
      * specimen collection procedure or the collected material, 
@@ -105,7 +115,12 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Specimen Collection Date/Time</p>
+     * <p>Business Name: E:Specimen Collection Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time the specimen was collected. This can be a 
      * date/time interval (start - stop).</p><p>The time may not 
@@ -125,7 +140,12 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Specimen Collection Date/Time</p>
+     * <p>Business Name: E:Specimen Collection Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date/time the specimen was collected. This can be a 
      * date/time interval (start - stop).</p><p>The time may not 
@@ -154,6 +174,11 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT080100CA.Subject2.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public List<NotesBean> getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;

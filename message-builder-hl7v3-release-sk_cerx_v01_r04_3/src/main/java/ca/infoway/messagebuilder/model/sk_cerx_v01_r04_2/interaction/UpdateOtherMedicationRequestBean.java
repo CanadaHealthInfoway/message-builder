@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.OtherMe
 
 
 /**
- * <p>PORX_IN040070CA: Update other medication request</p>
+ * <p>Business Name: PORX_IN040070CA: Update other medication 
+ * request</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.OtherMe
 @Hl7PartTypeMapping({"PORX_IN040070CA"})
 public class UpdateOtherMedicationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<OtherMedicationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

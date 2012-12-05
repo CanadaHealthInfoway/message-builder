@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PriorRegistrationEvent</p>
+ * <p>Business Name: PriorRegistrationEvent</p>
  * 
  * <p>MFMI_MT700711CA.PriorRegistration: Prior Registration 
  * Event</p>
@@ -68,15 +68,73 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegistration","MFMI_MT700716CA.PriorRegistration","MFMI_MT700726CA.PriorRegistration","MFMI_MT700746CA.PriorRegistration"})
 public class PriorRegistrationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PriorRegistrationRoleIdsBean subjectPriorRegisteredRole;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/priorRegisteredRole"})
     public PriorRegistrationRoleIdsBean getSubjectPriorRegisteredRole() {
         return this.subjectPriorRegisteredRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.Subject5.priorRegisteredRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPriorRegisteredRole(PriorRegistrationRoleIdsBean subjectPriorRegisteredRole) {
         this.subjectPriorRegisteredRole = subjectPriorRegisteredRole;
     }

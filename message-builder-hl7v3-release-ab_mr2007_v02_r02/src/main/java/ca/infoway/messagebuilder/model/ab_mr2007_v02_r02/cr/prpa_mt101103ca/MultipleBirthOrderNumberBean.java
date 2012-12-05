@@ -31,12 +31,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MultipleBirthOrderNumber"})
 public class MultipleBirthOrderNumberBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT value = new INTImpl();
 
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101103CA.MultipleBirthOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The order in which this client was born if part of a 
      * multiple birth.</p>
@@ -50,7 +55,12 @@ public class MultipleBirthOrderNumberBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101103CA.MultipleBirthOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The order in which this client was born if part of a 
      * multiple birth.</p>

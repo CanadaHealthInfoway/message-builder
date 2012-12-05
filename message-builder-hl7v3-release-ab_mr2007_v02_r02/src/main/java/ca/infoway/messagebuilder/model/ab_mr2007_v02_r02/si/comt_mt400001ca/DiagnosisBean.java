@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Diagnosis</p>
+ * <p>Business Name: Diagnosis</p>
  * 
  * <p>If code is SNOMED, value must not be specified. Otherwise 
  * value is mandatory and code must be 
@@ -45,13 +45,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
 
 
     /**
-     * <p>A:Diagnosis Type</p>
+     * <p>Business Name: A:Diagnosis Type</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to indicate that this observation is a diagnosis, 
      * and for SNOMED, provides details of what the diagnosis 
@@ -66,7 +70,11 @@ public class DiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Diagnosis Type</p>
+     * <p>Business Name: A:Diagnosis Type</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Used to indicate that this observation is a diagnosis, 
      * and for SNOMED, provides details of what the diagnosis 
@@ -81,7 +89,11 @@ public class DiagnosisBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Diagnosis</p>
+     * <p>Business Name: B:Diagnosis</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The diagnosis whose associated records should be 
      * masked.</p>
@@ -97,7 +109,11 @@ public class DiagnosisBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Diagnosis</p>
+     * <p>Business Name: B:Diagnosis</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.Diagnosis.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The diagnosis whose associated records should be 
      * masked.</p>

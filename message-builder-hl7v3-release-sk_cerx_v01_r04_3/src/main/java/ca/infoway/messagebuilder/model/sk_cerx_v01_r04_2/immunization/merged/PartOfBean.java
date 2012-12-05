@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PartOf</p>
+ * <p>Business Name: PartOf</p>
  * 
  * <p>POIZ_MT030050CA.InFulfillmentOf3: part of</p>
  * 
@@ -56,15 +56,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InFulfillmentOf3","POIZ_MT030060CA.InFulfillmentOf3","POIZ_MT060150CA.InFulfillmentOf3"})
 public class PartOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private INT sequenceNumber = new INTImpl();
     private ImmunizationCourseBean immunizationPlan;
 
 
     /**
-     * <p>VaccineDoseNumber</p>
+     * <p>Business Name: VaccineDoseNumber</p>
      * 
-     * <p>Vaccine Dose Number</p>
+     * <p>Other Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates whether this is the initial immunization (Dose 
      * Number = 1) or a specific booster (Dose Number = 2 means 
@@ -75,7 +80,28 @@ public class PartOfBean extends MessagePartBean {
      * <p>Used in compliance checking regarding completion of a 
      * planned immunization therapy.</p>
      * 
-     * <p>Vaccine Dose Number</p>
+     * <p>Other Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
+     * 
+     * <p>RXA.2</p>
+     * 
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p>
+     * 
+     * <p>Other Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates whether this is the initial immunization (Dose 
      * Number = 1) or a specific booster (Dose Number = 2 means 
@@ -93,9 +119,14 @@ public class PartOfBean extends MessagePartBean {
     }
 
     /**
-     * <p>VaccineDoseNumber</p>
+     * <p>Business Name: VaccineDoseNumber</p>
      * 
-     * <p>Vaccine Dose Number</p>
+     * <p>Other Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates whether this is the initial immunization (Dose 
      * Number = 1) or a specific booster (Dose Number = 2 means 
@@ -106,7 +137,28 @@ public class PartOfBean extends MessagePartBean {
      * <p>Used in compliance checking regarding completion of a 
      * planned immunization therapy.</p>
      * 
-     * <p>Vaccine Dose Number</p>
+     * <p>Other Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates whether this is the initial immunization (Dose 
+     * Number = 1) or a specific booster (Dose Number = 2 means 
+     * first booster, 3 means 2nd booster, etc.).</p>
+     * 
+     * <p>RXA.2</p>
+     * 
+     * <p>Used in compliance checking regarding completion of a 
+     * planned immunization therapy.</p>
+     * 
+     * <p>Other Business Name: VaccineDoseNumber</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf3.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates whether this is the initial immunization (Dose 
      * Number = 1) or a specific booster (Dose Number = 2 means 
@@ -123,11 +175,55 @@ public class PartOfBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf3.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf3.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf3.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"immunizationPlan"})
     public ImmunizationCourseBean getImmunizationPlan() {
         return this.immunizationPlan;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InFulfillmentOf3.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT060150CA.InFulfillmentOf3.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InFulfillmentOf3.immunizationPlan</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setImmunizationPlan(ImmunizationCourseBean immunizationPlan) {
         this.immunizationPlan = immunizationPlan;
     }

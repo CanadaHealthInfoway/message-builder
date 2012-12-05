@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt060090c
 
 
 /**
- * <p>PORX_IN060220CA: Medication dispense detail query 
- * response</p>
+ * <p>Business Name: PORX_IN060220CA: Medication dispense 
+ * detail query response</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt060090c
 @Hl7PartTypeMapping({"PORX_IN060220CA"})
 public class MedicationDispenseDetailQueryResponseBean extends HL7MessageBean<TriggerEvent_4Bean<DispenseBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

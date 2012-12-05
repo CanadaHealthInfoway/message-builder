@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Other indications</p>
+ * <p>Business Name: Other indications</p>
  * 
  * <p>Must have at least one of code or text</p>
  * 
@@ -45,13 +45,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.OtherIndication"})
 public class OtherIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
 
     /**
-     * <p>Other Indication</p>
+     * <p>Business Name: Other Indication</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.OtherIndication.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code indicating some other action which is the reason 
      * for a therapy.</p>
@@ -66,7 +70,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     }
 
     /**
-     * <p>Other Indication</p>
+     * <p>Business Name: Other Indication</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.OtherIndication.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code indicating some other action which is the reason 
      * for a therapy.</p>
@@ -81,7 +89,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
 
 
     /**
-     * <p>Other indication ad-hoc description</p>
+     * <p>Business Name: Other indication ad-hoc description</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.OtherIndication.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A textual description of an indication not meant to be 
      * either diagnosis or symptom.</p>
@@ -96,7 +108,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     }
 
     /**
-     * <p>Other indication ad-hoc description</p>
+     * <p>Business Name: Other indication ad-hoc description</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.OtherIndication.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A textual description of an indication not meant to be 
      * either diagnosis or symptom.</p>

@@ -29,8 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.GenericQueryPara
 
 
 /**
- * <p>PORX_IN060170CA: Med. prescr. with hist. and dispenses 
- * query</p>
+ * <p>Business Name: PORX_IN060170CA: Med. prescr. with hist. 
+ * and dispenses query</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.GenericQueryPara
 @Hl7PartTypeMapping({"PORX_IN060170CA"})
 public class MedPrescrWithHistAndDispensesQueryBean extends HL7MessageBean<TriggerEvent_3Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

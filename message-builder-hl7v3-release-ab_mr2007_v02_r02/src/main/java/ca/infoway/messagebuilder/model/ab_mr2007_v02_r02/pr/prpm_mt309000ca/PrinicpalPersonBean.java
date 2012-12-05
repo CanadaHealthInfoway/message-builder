@@ -51,7 +51,7 @@ import java.util.Set;
 
 
 /**
- * <p>Prinicpal Person</p>
+ * <p>Business Name: Prinicpal Person</p>
  * 
  * <p>Identification of playing entity is required (0..1) to 
  * support the case in which information directly related to 
@@ -63,7 +63,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.PrincipalPerson"})
 public class PrinicpalPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV administrativeGenderCode = new CVImpl();
@@ -75,7 +75,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Aggregate Identifier</p>
+     * <p>Business Name: Principal Person Aggregate Identifier</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.PrincipalPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>A unique identifier for the person who may play various 
      * healthcare provider roles. This identifier is specific to 
@@ -91,7 +95,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Name</p>
+     * <p>Business Name: Principal Person Name</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.PrincipalPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The person&#226;&#128;&#153;s name independent of any 
      * role they may play.</p>
@@ -109,7 +117,12 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Gender</p>
+     * <p>Business Name: Principal Person Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.PrincipalPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s gender.</p>
      * 
@@ -125,7 +138,12 @@ public class PrinicpalPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Principal Person Gender</p>
+     * <p>Business Name: Principal Person Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.PrincipalPerson.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s gender.</p>
      * 
@@ -141,7 +159,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Date of Birth</p>
+     * <p>Business Name: Principal Person Date of Birth</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.PrincipalPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s date of 
      * birth.</p>
@@ -158,7 +180,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Principal Person Date of Birth</p>
+     * <p>Business Name: Principal Person Date of Birth</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.PrincipalPerson.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The principal person&#226;&#128;&#153;s date of 
      * birth.</p>
@@ -175,7 +201,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Deceased Indicator</p>
+     * <p>Business Name: Principal Person Deceased Indicator</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.PrincipalPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication that the principal person is deceased.</p>
      * 
@@ -188,7 +218,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Principal Person Deceased Indicator</p>
+     * <p>Business Name: Principal Person Deceased Indicator</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.PrincipalPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication that the principal person is deceased.</p>
      * 
@@ -201,7 +235,12 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Principal Person Deceased Date</p>
+     * <p>Business Name: Principal Person Deceased Date</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.PrincipalPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time that a healthcare provider's death 
      * occurred.</p>
@@ -215,7 +254,12 @@ public class PrinicpalPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Principal Person Deceased Date</p>
+     * <p>Business Name: Principal Person Deceased Date</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.PrincipalPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time that a healthcare provider's death 
      * occurred.</p>
@@ -229,7 +273,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Birthplace Address</p>
+     * <p>Business Name: Birthplace Address</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Birthplace.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Principal person's address at time of birth</p>
      * 
@@ -245,7 +293,11 @@ public class PrinicpalPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Birthplace Address</p>
+     * <p>Business Name: Birthplace Address</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Birthplace.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Principal person's address at time of birth</p>
      * 
@@ -260,6 +312,12 @@ public class PrinicpalPersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT309000CA.PrincipalPerson.languageCommunication</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
+     */
     @Hl7XmlMapping({"languageCommunication"})
     public List<LanguageOfCommunicationBean> getLanguageCommunication() {
         return this.languageCommunication;

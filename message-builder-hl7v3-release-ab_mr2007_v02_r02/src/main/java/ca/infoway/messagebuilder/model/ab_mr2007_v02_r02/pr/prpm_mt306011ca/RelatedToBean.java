@@ -37,37 +37,67 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RelatedTo.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public RoleLinkType getTypeCode() {
         return (RoleLinkType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RelatedTo.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setTypeCode(RoleLinkType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RelatedTo.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RelatedTo.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RelatedTo.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"roleChoice"})
     public RoleChoice getRoleChoice() {
         return this.roleChoice;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RelatedTo.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;
     }

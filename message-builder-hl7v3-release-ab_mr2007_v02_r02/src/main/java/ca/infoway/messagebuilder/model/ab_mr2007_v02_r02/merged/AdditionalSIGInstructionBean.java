@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>AdditionalSIGInstruction</p>
+ * <p>Business Name: AdditionalSIGInstruction</p>
  * 
  * <p>COCT_MT270010CA.SupplementalInstruction: Additional SIG 
  * Instruction</p>
@@ -67,15 +67,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.SupplementalInstruction","PORX_MT980040CA.SupplementalInstruction"})
 public class AdditionalSIGInstructionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
 
 
     /**
-     * <p>DosageUsageContext</p>
+     * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.SupplementalInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -108,7 +113,12 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.SupplementalInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -147,9 +157,14 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageUsageContext</p>
+     * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.SupplementalInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -182,7 +197,12 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.SupplementalInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -221,9 +241,14 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
 
 
     /**
-     * <p>AdditionalDosageInstruction</p>
+     * <p>Business Name: AdditionalDosageInstruction</p>
      * 
-     * <p>F:Additional Dosage Instruction</p>
+     * <p>Other Business Name: AdditionalDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.SupplementalInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual description of extended instruction 
      * regarding the administration of the drug.</p>
@@ -242,7 +267,12 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * attribute is marked as 'mandatory' as it is the only 
      * information that can be specified here.</p>
      * 
-     * <p>F:Additional Dosage Instruction</p>
+     * <p>Other Business Name: AdditionalDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.SupplementalInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual description of extended instruction 
      * regarding the administration of the drug.</p>
@@ -267,9 +297,14 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdditionalDosageInstruction</p>
+     * <p>Business Name: AdditionalDosageInstruction</p>
      * 
-     * <p>F:Additional Dosage Instruction</p>
+     * <p>Other Business Name: AdditionalDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.SupplementalInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual description of extended instruction 
      * regarding the administration of the drug.</p>
@@ -288,7 +323,12 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
      * attribute is marked as 'mandatory' as it is the only 
      * information that can be specified here.</p>
      * 
-     * <p>F:Additional Dosage Instruction</p>
+     * <p>Other Business Name: AdditionalDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.SupplementalInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual description of extended instruction 
      * regarding the administration of the drug.</p>

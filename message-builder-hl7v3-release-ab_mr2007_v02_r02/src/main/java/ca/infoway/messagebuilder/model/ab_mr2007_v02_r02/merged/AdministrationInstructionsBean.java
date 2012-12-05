@@ -57,7 +57,7 @@ import java.util.Set;
 
 
 /**
- * <p>AdministrationInstructions</p>
+ * <p>Business Name: AdministrationInstructions</p>
  * 
  * <p>PORX_MT980040CA.DosageInstruction: Administration 
  * Instructions</p>
@@ -109,7 +109,7 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -124,9 +124,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>DosageUsageContext</p>
+     * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -159,7 +163,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -198,9 +206,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageUsageContext</p>
+     * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -233,7 +245,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -272,9 +288,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>DosageType</p>
+     * <p>Business Name: DosageType</p>
      * 
-     * <p>Dosage Type</p>
+     * <p>Other Business Name: DosageType</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes types of dosage.</p>
      * 
@@ -286,7 +306,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * potentially drug. For non-SNOMED, this will be a fixed value 
      * of DRUG.</p>
      * 
-     * <p>Dosage Type</p>
+     * <p>Other Business Name: DosageType</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes types of dosage.</p>
      * 
@@ -304,9 +328,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageType</p>
+     * <p>Business Name: DosageType</p>
      * 
-     * <p>Dosage Type</p>
+     * <p>Other Business Name: DosageType</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes types of dosage.</p>
      * 
@@ -318,7 +346,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * potentially drug. For non-SNOMED, this will be a fixed value 
      * of DRUG.</p>
      * 
-     * <p>Dosage Type</p>
+     * <p>Other Business Name: DosageType</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes types of dosage.</p>
      * 
@@ -336,16 +368,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>RenderedDosageInstruction</p>
+     * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Other Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -354,13 +383,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * route, dosage unit, and other pertinent administration 
      * information specified by the provider.</p>
      * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p>
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
      * 
      * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
@@ -378,7 +406,19 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * is mandatory as dosage instructions must always be available 
      * in rendered form.</p>
      * 
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses.</p><p>This 
+     * is mandatory as dosage instructions must always be available 
+     * in rendered form.</p>
+     * 
+     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -424,16 +464,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>RenderedDosageInstruction</p>
+     * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Other Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p>
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -442,13 +479,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * route, dosage unit, and other pertinent administration 
      * information specified by the provider.</p>
      * 
-     * <p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses.</p><p>This 
-     * is mandatory as dosage instructions must always be available 
-     * in rendered form.</p>
+     * <p>A free form textual specification generated from the 
+     * input specifications as created by the provider.</p><p>This 
+     * is made up of either an 'Ad-hoc dosage instruction' or 
+     * 'Textual rendition of the structured dosage lines', plus 
+     * route, dosage unit, and other pertinent administration 
+     * information specified by the provider.</p>
      * 
      * <p>Allows the provider to verify the codified structured 
      * dosage information entered and ensure that the exploded 
@@ -466,7 +502,19 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * is mandatory as dosage instructions must always be available 
      * in rendered form.</p>
      * 
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Allows the provider to verify the codified structured 
+     * dosage information entered and ensure that the exploded 
+     * instruction is consistent with the intended 
+     * instructions.</p><p>Also useful in bringing back 
+     * administration instructions on query responses.</p><p>This 
+     * is mandatory as dosage instructions must always be available 
+     * in rendered form.</p>
+     * 
+     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -512,9 +560,14 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>AdministrationPeriod</p>
+     * <p>Business Name: AdministrationPeriod</p>
      * 
-     * <p>A:Administration Period</p>
+     * <p>Other Business Name: AdministrationPeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The time period (begin and end dates) within which the 
      * dispensed medication is to be completely administered to/by 
@@ -559,7 +612,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * start date is presumed to be the date the prescription was 
      * written</p>
      * 
-     * <p>A:Administration Period</p>
+     * <p>Other Business Name: AdministrationPeriod</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The time period (begin and end dates) within which the 
      * dispensed medication is to be completely administered to/by 
@@ -610,9 +668,14 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdministrationPeriod</p>
+     * <p>Business Name: AdministrationPeriod</p>
      * 
-     * <p>A:Administration Period</p>
+     * <p>Other Business Name: AdministrationPeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The time period (begin and end dates) within which the 
      * dispensed medication is to be completely administered to/by 
@@ -657,7 +720,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * start date is presumed to be the date the prescription was 
      * written</p>
      * 
-     * <p>A:Administration Period</p>
+     * <p>Other Business Name: AdministrationPeriod</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The time period (begin and end dates) within which the 
      * dispensed medication is to be completely administered to/by 
@@ -708,9 +776,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>RouteCode</p>
+     * <p>Business Name: RouteCode</p>
      * 
-     * <p>A:Route Code</p>
+     * <p>Other Business Name: RouteCode</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the means by which the dispensed drug is to be 
      * administered to the patient.</p>
@@ -728,7 +800,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * an optional because it is pre-coordinated with 
      * SubstanceAdministration.code when using SNOMED.</p>
      * 
-     * <p>A:Route Code</p>
+     * <p>Other Business Name: RouteCode</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the means by which the dispensed drug is to be 
      * administered to the patient.</p>
@@ -752,9 +828,13 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>RouteCode</p>
+     * <p>Business Name: RouteCode</p>
      * 
-     * <p>A:Route Code</p>
+     * <p>Other Business Name: RouteCode</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the means by which the dispensed drug is to be 
      * administered to the patient.</p>
@@ -772,7 +852,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * an optional because it is pre-coordinated with 
      * SubstanceAdministration.code when using SNOMED.</p>
      * 
-     * <p>A:Route Code</p>
+     * <p>Other Business Name: RouteCode</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageInstruction.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the means by which the dispensed drug is to be 
      * administered to the patient.</p>
@@ -796,9 +880,14 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>AdministrationSites</p>
+     * <p>Business Name: AdministrationSites</p>
      * 
-     * <p>Administration Sites</p>
+     * <p>Other Business Name: AdministrationSites</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
      * 
      * <p>A value denoting the body area where the medicine should 
      * be administered. E.g. 'Right Elbow', 'Left Ear'. When 
@@ -814,7 +903,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * be pre-coordinated with SubstanceAdministration.code when 
      * using SNOMED.</p>
      * 
-     * <p>Administration Sites</p>
+     * <p>Other Business Name: AdministrationSites</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
      * 
      * <p>A value denoting the body area where the medicine should 
      * be administered. E.g. 'Right Elbow', 'Left Ear'. When 
@@ -837,11 +931,17 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Maximum Daily/Weekly Doses</p>
+     * <p>Other Business Name: MaximumDosesPerPeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.maxDoseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>The maximum amount of the dispensed medication to be 
-     * administered to the patient in a 24-hr period (doses per 
-     * day) or in a 7 day period (doses per week).</p>
+     * administered to the patient in a specified period of time. 
+     * Examples include: per hour, 24-hr period (doses per day), 7 
+     * day period (doses per week), yearly.</p>
      * 
      * <p>ZPB3.5(denominator=1D)</p>
      * 
@@ -855,12 +955,16 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * be recorded using additional dosage instruction 
      * comments.</p>
      * 
-     * <p>D:Maximum Doses per Period</p>
+     * <p>Other Business Name: MaximumDailyWeeklyDoses</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.maxDoseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>The maximum amount of the dispensed medication to be 
-     * administered to the patient in a specified period of time. 
-     * Examples include: per hour, 24-hr period (doses per day), 7 
-     * day period (doses per week), yearly.</p>
+     * administered to the patient in a 24-hr period (doses per 
+     * day) or in a 7 day period (doses per week).</p>
      * 
      * <p>ZPB3.5(denominator=1D)</p>
      * 
@@ -881,9 +985,14 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>DosageUnit</p>
+     * <p>Business Name: DosageUnit</p>
      * 
-     * <p>Dosage Unit</p>
+     * <p>Other Business Name: DosageUnit</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.administrationUnitCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies how the drug is measured for 
      * administration.</p><p>Specified when not implicit from the 
@@ -898,7 +1007,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * form (capsules, tablets). Examples are Puffs, Actuations, 
      * etc.</p>
      * 
-     * <p>Dosage Unit</p>
+     * <p>Other Business Name: DosageUnit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.administrationUnitCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies how the drug is measured for 
      * administration.</p><p>Specified when not implicit from the 
@@ -919,9 +1033,14 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageUnit</p>
+     * <p>Business Name: DosageUnit</p>
      * 
-     * <p>Dosage Unit</p>
+     * <p>Other Business Name: DosageUnit</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.administrationUnitCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies how the drug is measured for 
      * administration.</p><p>Specified when not implicit from the 
@@ -936,7 +1055,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
      * form (capsules, tablets). Examples are Puffs, Actuations, 
      * etc.</p>
      * 
-     * <p>Dosage Unit</p>
+     * <p>Other Business Name: DosageUnit</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.administrationUnitCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies how the drug is measured for 
      * administration.</p><p>Specified when not implicit from the 
@@ -956,26 +1080,97 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication1"})
     public Medication getConsumableMedication1() {
         return this.consumableMedication1;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsumableMedication1(Medication consumableMedication1) {
         this.consumableMedication1 = consumableMedication1;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.Component.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/supplementalInstruction"})
     public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
         return this.component1SupplementalInstruction;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.Component.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
         this.component1SupplementalInstruction = component1SupplementalInstruction;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.component2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.DosageInstruction.component2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"component2"})
     public List<ConsistsOfBean> getComponent2() {
         return this.component2;

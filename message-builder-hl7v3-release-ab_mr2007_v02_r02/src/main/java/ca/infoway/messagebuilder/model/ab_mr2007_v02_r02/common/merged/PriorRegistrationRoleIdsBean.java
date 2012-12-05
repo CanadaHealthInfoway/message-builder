@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PriorRegistrationRoleIds</p>
+ * <p>Business Name: PriorRegistrationRoleIds</p>
  * 
  * <p>MFMI_MT700716CA.PriorRegisteredRole: Prior Registration 
  * Role Ids</p>
@@ -74,25 +74,123 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.PriorRegisteredRole","MFMI_MT700716CA.PriorRegisteredRole","MFMI_MT700726CA.PriorRegisteredRole","MFMI_MT700746CA.PriorRegisteredRole"})
 public class PriorRegistrationRoleIdsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.PriorRegisteredRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.PriorRegisteredRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.PriorRegisteredRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.PriorRegisteredRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public RoleClass getClassCode() {
         return (RoleClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.PriorRegisteredRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.PriorRegisteredRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.PriorRegisteredRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.PriorRegisteredRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
     /**
-     * <p>PriorRegisteredRoleIds</p>
+     * <p>Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Prior Registered Role Ids</p>
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies &quot;duplicate&quot; records of the 
      * registered item that have been superseded by this 
@@ -106,9 +204,49 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
     }
 
     /**
-     * <p>PriorRegisteredRoleIds</p>
+     * <p>Business Name: PriorRegisteredRoleIds</p>
      * 
-     * <p>Prior Registered Role Ids</p>
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies &quot;duplicate&quot; records of the 
+     * registered item that have been superseded by this 
+     * record.</p>
+     * 
+     * <p>Provides support for merges.</p>
+     * 
+     * <p>Other Business Name: PriorRegisteredRoleIds</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.PriorRegisteredRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies &quot;duplicate&quot; records of the 
      * registered item that have been superseded by this 

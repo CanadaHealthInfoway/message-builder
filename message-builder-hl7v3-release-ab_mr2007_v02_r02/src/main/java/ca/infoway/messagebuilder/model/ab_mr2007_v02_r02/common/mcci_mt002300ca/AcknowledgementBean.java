@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private List<INT> messageWaitingNumber = new ArrayList<INT>();
     private List<CV> messageWaitingPriorityCode = new ArrayList<CV>();
@@ -53,7 +53,11 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>GA:Acknowledgement Code</p>
+     * <p>Business Name: GA:Acknowledgement Code</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Acknowledgement.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether the previous interaction was 
      * successfully processed.</p>
@@ -67,7 +71,11 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
     /**
-     * <p>GA:Acknowledgement Code</p>
+     * <p>Business Name: GA:Acknowledgement Code</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Acknowledgement.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether the previous interaction was 
      * successfully processed.</p>
@@ -81,7 +89,12 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>GC:Number of Waiting Messages</p>
+     * <p>Business Name: GC:Number of Waiting Messages</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002300CA.Acknowledgement.messageWaitingNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0)</p>
      * 
      * <p>For applications which support polling, indicates the 
      * total number of messages waiting to be retrieved.</p>
@@ -98,7 +111,12 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>GD:Message Waiting Priority</p>
+     * <p>Business Name: GD:Message Waiting Priority</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002300CA.Acknowledgement.messageWaitingPriorityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0)</p>
      * 
      * <p>Indicates the priority of the highest-priority message 
      * that is waiting on the poll queue for the system being 
@@ -116,7 +134,11 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>BA:Acknowledged Message Id</p>
+     * <p>Business Name: BA:Acknowledged Message Id</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.TargetMessage.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>References the identifier of the message this current 
      * message is acknowledging.</p>
@@ -133,7 +155,11 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
     /**
-     * <p>BA:Acknowledged Message Id</p>
+     * <p>Business Name: BA:Acknowledged Message Id</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.TargetMessage.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>References the identifier of the message this current 
      * message is acknowledging.</p>

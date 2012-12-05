@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Manufacturer</p>
+ * <p>Business Name: Manufacturer</p>
  * 
  * <p>POME_MT010040CA.Manufacturer: Manufacturer</p>
  * 
@@ -65,13 +65,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220110CA.Manufacturer","COCT_MT220210CA.Manufacturer","POME_MT010040CA.Manufacturer","POME_MT010100CA.Manufacturer"})
 public class ManufacturerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST name = new STImpl();
 
 
     /**
-     * <p>Organization Id</p>
+     * <p>Other Business Name: ManufacturerId</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Manufacturer.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
@@ -79,7 +83,11 @@ public class ManufacturerBean extends MessagePartBean {
      * name. May be used in drug search where specific manufacturer 
      * is a criterion.</p>
      * 
-     * <p>Manufacturer Id</p>
+     * <p>Other Business Name: OrganizationId</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Manufacturer.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
@@ -87,7 +95,23 @@ public class ManufacturerBean extends MessagePartBean {
      * name. May be used in drug search where specific manufacturer 
      * is a criterion.</p>
      * 
-     * <p>Manufacturer Id</p>
+     * <p>Other Business Name: ManufacturerId</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Manufacturer.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>An identifier denoting a specific drug manufacturer.</p>
+     * 
+     * <p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p>
+     * 
+     * <p>Other Business Name: ManufacturerId</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Manufacturer.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
@@ -101,7 +125,11 @@ public class ManufacturerBean extends MessagePartBean {
     }
 
     /**
-     * <p>Organization Id</p>
+     * <p>Other Business Name: ManufacturerId</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Manufacturer.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
@@ -109,7 +137,11 @@ public class ManufacturerBean extends MessagePartBean {
      * name. May be used in drug search where specific manufacturer 
      * is a criterion.</p>
      * 
-     * <p>Manufacturer Id</p>
+     * <p>Other Business Name: OrganizationId</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Manufacturer.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
@@ -117,7 +149,23 @@ public class ManufacturerBean extends MessagePartBean {
      * name. May be used in drug search where specific manufacturer 
      * is a criterion.</p>
      * 
-     * <p>Manufacturer Id</p>
+     * <p>Other Business Name: ManufacturerId</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Manufacturer.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>An identifier denoting a specific drug manufacturer.</p>
+     * 
+     * <p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p>
+     * 
+     * <p>Other Business Name: ManufacturerId</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Manufacturer.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An identifier denoting a specific drug manufacturer.</p>
      * 
@@ -131,9 +179,61 @@ public class ManufacturerBean extends MessagePartBean {
 
 
     /**
-     * <p>ManufacturerName</p>
+     * <p>Business Name: ManufacturerName</p>
      * 
-     * <p>Manufacturer Name</p>
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Manufacturer.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Manufacturer.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Manufacturer.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Manufacturer.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the drug manufacturer.</p>
      * 
@@ -142,30 +242,6 @@ public class ManufacturerBean extends MessagePartBean {
      * for an organization.</p>
      * 
      * <p>Used for reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p>
-     * 
-     * <p>Manufacturer Name</p>
-     * 
-     * <p>The name of the drug manufacturer.</p>
-     * 
-     * <p>Used in reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p>
-     * 
-     * <p>Used in reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p>
-     * 
-     * <p>Manufacturer Name</p>
-     * 
-     * <p>The name of the drug manufacturer.</p>
-     * 
-     * <p>Used in reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p>
-     * 
-     * <p>Used in reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p>
      */
@@ -175,9 +251,61 @@ public class ManufacturerBean extends MessagePartBean {
     }
 
     /**
-     * <p>ManufacturerName</p>
+     * <p>Business Name: ManufacturerName</p>
      * 
-     * <p>Manufacturer Name</p>
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Manufacturer.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Manufacturer.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Manufacturer.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the drug manufacturer.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Used in reporting.</p><p>The attribute is marked as 
+     * &quot;mandatory&quot; because there will always be a name 
+     * for an organization.</p>
+     * 
+     * <p>Other Business Name: ManufacturerName</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Manufacturer.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the drug manufacturer.</p>
      * 
@@ -186,30 +314,6 @@ public class ManufacturerBean extends MessagePartBean {
      * for an organization.</p>
      * 
      * <p>Used for reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p>
-     * 
-     * <p>Manufacturer Name</p>
-     * 
-     * <p>The name of the drug manufacturer.</p>
-     * 
-     * <p>Used in reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p>
-     * 
-     * <p>Used in reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p>
-     * 
-     * <p>Manufacturer Name</p>
-     * 
-     * <p>The name of the drug manufacturer.</p>
-     * 
-     * <p>Used in reporting.</p><p>The attribute is marked as 
-     * &quot;mandatory&quot; because there will always be a name 
-     * for an organization.</p>
-     * 
-     * <p>Used in reporting.</p><p>The attribute is marked as 
      * &quot;mandatory&quot; because there will always be a name 
      * for an organization.</p>
      */

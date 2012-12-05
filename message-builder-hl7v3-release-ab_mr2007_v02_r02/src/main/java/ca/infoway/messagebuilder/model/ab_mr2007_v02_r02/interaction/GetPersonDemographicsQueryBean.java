@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101101ca.Para
 
 
 /**
- * <p>PRPA_IN101101CA: Get Person Demographics Query</p>
+ * <p>Business Name: PRPA_IN101101CA: Get Person Demographics 
+ * Query</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101101ca.Para
 @Hl7PartTypeMapping({"PRPA_IN101101CA"})
 public class GetPersonDemographicsQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

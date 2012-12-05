@@ -57,7 +57,7 @@ import java.util.Set;
 
 
 /**
- * <p>AllergyIntolerance</p>
+ * <p>Business Name: AllergyIntolerance</p>
  * 
  * <p>REPC_MT000001CA.IntoleranceCondition: Allergy/Intolerance</p>
  * 
@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -97,9 +97,28 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceType</p>
+     * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>A:Allergy/Intolerance Type</p>
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting whether the record pertains to an 
+     * intolerance or a true allergy. (Allergies result from 
+     * immunologic reactions. Intolerances do not.)</p>
+     * 
+     * <p>Allows for the separation of allergy and intolerance 
+     * records. The type of condition is critical to understanding 
+     * the record and is therefore mandatory. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting whether the record pertains to an 
      * intolerance or a true allergy. (Allergies result from 
@@ -116,9 +135,28 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceType</p>
+     * <p>Business Name: AllergyIntoleranceType</p>
      * 
-     * <p>A:Allergy/Intolerance Type</p>
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting whether the record pertains to an 
+     * intolerance or a true allergy. (Allergies result from 
+     * immunologic reactions. Intolerances do not.)</p>
+     * 
+     * <p>Allows for the separation of allergy and intolerance 
+     * records. The type of condition is critical to understanding 
+     * the record and is therefore mandatory. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.IntoleranceCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting whether the record pertains to an 
      * intolerance or a true allergy. (Allergies result from 
@@ -135,9 +173,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceRefuted</p>
+     * <p>Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>G:Allergy/Intolerance Refuted</p>
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication that the allergy/intolerance has been 
      * refuted. I.e. A clinician has positively determined that the 
@@ -148,7 +191,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * suspected allergy. The attribute is mandatory because it is 
      * essential to know whether a record is refuted or not.</p>
      * 
-     * <p>G:Allergy/Intolerance Refuted</p>
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication that the allergy/intolerance has been 
      * refuted. I.e. A clinician has positively determined that the 
@@ -166,9 +214,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceRefuted</p>
+     * <p>Business Name: AllergyIntoleranceRefuted</p>
      * 
-     * <p>G:Allergy/Intolerance Refuted</p>
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication that the allergy/intolerance has been 
      * refuted. I.e. A clinician has positively determined that the 
@@ -179,7 +232,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * suspected allergy. The attribute is mandatory because it is 
      * essential to know whether a record is refuted or not.</p>
      * 
-     * <p>G:Allergy/Intolerance Refuted</p>
+     * <p>Other Business Name: AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication that the allergy/intolerance has been 
      * refuted. I.e. A clinician has positively determined that the 
@@ -197,9 +255,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>E:Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value that indicates whether an 
      * allergy/intolerance is 'active' or 'completed' (indicating 
@@ -211,7 +274,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * 
      * <p>System must default the status to 'active'.</p>
      * 
-     * <p>E:Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value that indicates whether an 
      * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
@@ -229,9 +297,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>Business Name: AllergyIntoleranceStatus</p>
      * 
-     * <p>E:Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value that indicates whether an 
      * allergy/intolerance is 'active' or 'completed' (indicating 
@@ -243,7 +316,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * 
      * <p>System must default the status to 'active'.</p>
      * 
-     * <p>E:Allergy/Intolerance Status</p>
+     * <p>Other Business Name: AllergyIntoleranceStatus</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value that indicates whether an 
      * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
@@ -261,9 +339,27 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceDate</p>
+     * <p>Business Name: AllergyIntoleranceDate</p>
      * 
-     * <p>I:Allergy/Intolerance Date</p>
+     * <p>Other Business Name: AllergyIntoleranceDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the recorded allergy is considered 
+     * active.</p>
+     * 
+     * <p>Allows providers to evaluate the period of relevance for 
+     * the allergy/intolerance record.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date on which the recorded allergy is considered 
      * active.</p>
@@ -277,9 +373,27 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceDate</p>
+     * <p>Business Name: AllergyIntoleranceDate</p>
      * 
-     * <p>I:Allergy/Intolerance Date</p>
+     * <p>Other Business Name: AllergyIntoleranceDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the recorded allergy is considered 
+     * active.</p>
+     * 
+     * <p>Allows providers to evaluate the period of relevance for 
+     * the allergy/intolerance record.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date on which the recorded allergy is considered 
      * active.</p>
@@ -293,83 +407,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceMaskingIndicators</p>
+     * <p>Business Name: AllergyIntoleranceMaskingIndicators</p>
      * 
-     * <p>H:Allergy/Intolerance Masking Indicators</p>
+     * <p>Other Business Name: AllergyIntoleranceMaskingIndicators</p>
      * 
-     * <p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.confidentialityCode</p>
      * 
-     * <p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
-     * 
-     * <p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
-     * 
-     * <p>Denotes access restriction placed on the allergy or 
-     * intolerance record. Methods for accessing masked allergy 
-     * records will be governed by each jurisdiction (e.g. court 
-     * orders, shared secret/consent, etc.).</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: 
-     * Can&#226;&#128;&#153;t have both normal and one of the other 
-     * codes simultaneously.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: 
-     * Can&#226;&#128;&#153;t have both normal and one of the other 
-     * codes simultaneously.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: 
-     * Can&#226;&#128;&#153;t have both normal and one of the other 
-     * codes simultaneously.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: 
-     * Can&#226;&#128;&#153;t have both normal and one of the other 
-     * codes simultaneously.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>H:Allergy/Intolerance Masking Indicators</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Denotes access restriction placed on the allergy or 
      * intolerance record. Methods for accessing masked allergy 
@@ -414,6 +459,85 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * denotes 'Masked') and 'T' (taboo - denotes 'Patient Access 
      * Restricted').</p><p>The default is 'normal' signifying 'Not 
      * Masked'.</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: 
+     * Can&#226;&#128;&#153;t have both normal and one of the other 
+     * codes simultaneously.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: 
+     * Can&#226;&#128;&#153;t have both normal and one of the other 
+     * codes simultaneously.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: 
+     * Can&#226;&#128;&#153;t have both normal and one of the other 
+     * codes simultaneously.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: 
+     * Can&#226;&#128;&#153;t have both normal and one of the other 
+     * codes simultaneously.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceMaskingIndicators</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
+     * 
+     * <p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p>
+     * 
+     * <p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p>
+     * 
+     * <p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p>
+     * 
+     * <p>Denotes access restriction placed on the allergy or 
+     * intolerance record. Methods for accessing masked allergy 
+     * records will be governed by each jurisdiction (e.g. court 
+     * orders, shared secret/consent, etc.).</p><p>Allows a 
+     * provider to request restricted access by the 
+     * patient.</p><p>Valid values are: 'N' (normal - denotes 'Not 
+     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
+     * - denotes 'Patient Access Restricted').</p><p>The default is 
+     * 'normal' signifying 'Not Masked'.</p>
      * 
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
@@ -454,9 +578,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>ConfirmedIndicator</p>
+     * <p>Business Name: ConfirmedIndicator</p>
      * 
-     * <p>F:Confirmed Indicator</p>
+     * <p>Other Business Name: ConfirmedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication of the level of confidence/surety placed in 
      * the recorded information.</p><p>The two valid codes 
@@ -555,7 +684,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * allergy or intolerance record must be tagged as either U or 
      * N.</p>
      * 
-     * <p>F:Confirmed Indicator</p>
+     * <p>Other Business Name: ConfirmedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication of the level of confidence/surety placed in 
      * the recorded information.</p><p>The two valid codes 
@@ -615,15 +749,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * statement. In other words, they know that parts of the act 
      * statement are not certain or are inferred. An example of 
      * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the rec
+     * inferred
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"uncertaintyCode"})
@@ -632,9 +758,14 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConfirmedIndicator</p>
+     * <p>Business Name: ConfirmedIndicator</p>
      * 
-     * <p>F:Confirmed Indicator</p>
+     * <p>Other Business Name: ConfirmedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication of the level of confidence/surety placed in 
      * the recorded information.</p><p>The two valid codes 
@@ -733,7 +864,12 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * allergy or intolerance record must be tagged as either U or 
      * N.</p>
      * 
-     * <p>F:Confirmed Indicator</p>
+     * <p>Other Business Name: ConfirmedIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.uncertaintyCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication of the level of confidence/surety placed in 
      * the recorded information.</p><p>The two valid codes 
@@ -793,15 +929,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * statement. In other words, they know that parts of the act 
      * statement are not certain or are inferred. An example of 
      * this is an inferred prescription where some order data is 
-     * inferred from a supply event (i.e. dispense).</p><p>- N 
-     * (stated with no assertion of uncertainty) - Specifies that 
-     * the act statement is made without any explicit expression of 
-     * certainty/uncertainty. This is the normal statement, meaning 
-     * that it may not be free of errors and uncertainty may still 
-     * exist. In healthcare, N is believed to express certainty to 
-     * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication checking 
-     * whether the rec
+     * inferred
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
@@ -810,9 +938,13 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Agent</p>
+     * <p>Business Name: Agent</p>
      * 
-     * <p>B:Agent</p>
+     * <p>Other Business Name: Agent</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.IntoleranceCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the substance to which the patient is 
      * allergic</p>
@@ -827,9 +959,13 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>Agent</p>
+     * <p>Business Name: Agent</p>
      * 
-     * <p>B:Agent</p>
+     * <p>Other Business Name: Agent</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.IntoleranceCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the substance to which the patient is 
      * allergic</p>
@@ -843,32 +979,104 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
         return this.informant;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.IntoleranceCondition.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.IntoleranceCondition.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInformant(ReportedByBean informant) {
         this.informant = informant;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Support.records</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Support.records</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"support/records"})
     public List<Records> getSupportRecords() {
         return this.supportRecords;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject3.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotation"})
     public NotesBean getSubjectOf1Annotation() {
         return this.subjectOf1Annotation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject3.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1Annotation(NotesBean subjectOf1Annotation) {
         this.subjectOf1Annotation = subjectOf1Annotation;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="REPC_MT000013CA.Subject1"),
@@ -879,15 +1087,34 @@ public class AllergyIntoleranceBean extends MessagePartBean {
         return this.subjectOfSeverityObservation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
         this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }
 
 
     /**
-     * <p>AllergyIntoleranceRecordId</p>
+     * <p>Business Name: AllergyIntoleranceRecordId</p>
      * 
-     * <p>D:Allergy/Intolerance Record Id</p>
+     * <p>Other Business Name: AllergyIntoleranceRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for an allergy/intolerance record.</p>
      * 
@@ -900,9 +1127,13 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
     /**
-     * <p>AllergyIntoleranceRecordId</p>
+     * <p>Business Name: AllergyIntoleranceRecordId</p>
      * 
-     * <p>D:Allergy/Intolerance Record Id</p>
+     * <p>Other Business Name: AllergyIntoleranceRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.IntoleranceCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for an allergy/intolerance record.</p>
      * 

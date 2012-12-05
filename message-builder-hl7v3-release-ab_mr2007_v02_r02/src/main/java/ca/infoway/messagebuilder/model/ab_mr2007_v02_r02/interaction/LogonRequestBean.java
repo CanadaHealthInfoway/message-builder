@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7M
 
 
 /**
- * <p>COMT_IN900010AB: Logon request</p>
+ * <p>Business Name: COMT_IN900010AB: Logon request</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +40,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7M
 @Hl7PartTypeMapping({"COMT_IN900010AB"})
 public class LogonRequestBean extends HL7MessageBean<TriggerEventBean<ActPermissionRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

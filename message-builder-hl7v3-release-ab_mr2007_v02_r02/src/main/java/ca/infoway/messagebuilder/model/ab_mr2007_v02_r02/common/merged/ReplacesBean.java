@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Replaces</p>
+ * <p>Business Name: Replaces</p>
  * 
  * <p>MFMI_MT700716CA.ReplacementOf: replaces</p>
  * 
@@ -66,26 +66,142 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.ReplacementOf","MFMI_MT700716CA.ReplacementOf","MFMI_MT700726CA.ReplacementOf","MFMI_MT700746CA.ReplacementOf"})
 public class ReplacesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL contextConductionInd = new BLImpl();
     private PriorRegistrationEventBean priorRegistration;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.ReplacementOf.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.ReplacementOf.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ReplacementOf.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.ReplacementOf.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.ReplacementOf.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.ReplacementOf.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ReplacementOf.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.ReplacementOf.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"priorRegistration"})
     public PriorRegistrationEventBean getPriorRegistration() {
         return this.priorRegistration;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700726CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.ReplacementOf.priorRegistration</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPriorRegistration(PriorRegistrationEventBean priorRegistration) {
         this.priorRegistration = priorRegistration;
     }

@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>StructuredDosageLines</p>
+ * <p>Business Name: StructuredDosageLines</p>
  * 
  * <p>COCT_MT270010CA.DosageLine: Structured Dosage Lines</p>
  * 
@@ -93,7 +93,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.DosageLine","PORX_MT980040CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
     private GTS effectiveTime = new GTSImpl();
@@ -104,9 +104,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>DosageUsageContext</p>
+     * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -139,7 +143,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -178,9 +186,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageUsageContext</p>
+     * <p>Business Name: DosageUsageContext</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -213,7 +225,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Puts the class in context, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Dosage Usage Context</p>
+     * <p>Other Business Name: DosageUsageContext</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -252,9 +268,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>AdHocDosageInstruction</p>
+     * <p>Business Name: AdHocDosageInstruction</p>
      * 
-     * <p>C:Ad-hoc Dosage Instruction</p>
+     * <p>Other Business Name: AdHocDosageInstruction</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of how the dispensed medication 
      * is to be administered to the patient.</p>
@@ -285,7 +305,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * prescription that are coded elsewhere.(e.g. Coded Dosage 
      * Timing).</p>
      * 
-     * <p>C:Ad-hoc Dosage Instruction</p>
+     * <p>Other Business Name: AdHocDosageInstruction</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of how the dispensed medication 
      * is to be administered to the patient.</p>
@@ -322,9 +346,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdHocDosageInstruction</p>
+     * <p>Business Name: AdHocDosageInstruction</p>
      * 
-     * <p>C:Ad-hoc Dosage Instruction</p>
+     * <p>Other Business Name: AdHocDosageInstruction</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of how the dispensed medication 
      * is to be administered to the patient.</p>
@@ -355,7 +383,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * prescription that are coded elsewhere.(e.g. Coded Dosage 
      * Timing).</p>
      * 
-     * <p>C:Ad-hoc Dosage Instruction</p>
+     * <p>Other Business Name: AdHocDosageInstruction</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of how the dispensed medication 
      * is to be administered to the patient.</p>
@@ -392,9 +424,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>DosageTimingFrequency</p>
+     * <p>Business Name: DosageTimingFrequency</p>
      * 
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Other Business Name: DosageTimingFrequency</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A structure describing the frequency (how often the drug 
      * is to be administered), offset (elapse time between 
@@ -505,7 +541,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Together with the dose quantity, indicates the overall 
      * quantity of drug.</p>
      * 
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Other Business Name: DosageTimingFrequency</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A structure describing the frequency (how often the drug 
      * is to be administered), offset (elapse time between 
@@ -567,17 +607,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * - codes will need to be mapped to and from formal GTS 
      * expressions)</p><p>RepeatPattern.uncodedPattern 
      * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     
+     * (PIVL.period)</p><p>DP.13.2.2 (single t
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -586,9 +616,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageTimingFrequency</p>
+     * <p>Business Name: DosageTimingFrequency</p>
      * 
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Other Business Name: DosageTimingFrequency</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A structure describing the frequency (how often the drug 
      * is to be administered), offset (elapse time between 
@@ -699,7 +733,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Together with the dose quantity, indicates the overall 
      * quantity of drug.</p>
      * 
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Other Business Name: DosageTimingFrequency</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A structure describing the frequency (how often the drug 
      * is to be administered), offset (elapse time between 
@@ -761,17 +799,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * - codes will need to be mapped to and from formal GTS 
      * expressions)</p><p>RepeatPattern.uncodedPattern 
      * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
-     * times)</p><p>PID.13.3 (outer 
-     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
-     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
-     * IVL&lt;TS&gt;.high)</p><p>Frequency</p>
-     * 
-     * <p>DosageItem.Duration(OuterInterval.Width)</p><p>DosageItem.StartDate(OuterInterval.Low)</p><p>RepeatPattern.PatternCode(PIVL 
-     * - codes will need to be mapped to and from formal GTS 
-     * expressions)</p><p>RepeatPattern.uncodedPattern 
-     * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     
+     * (PIVL.period)</p><p>DP.13.2.2 (single t
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setEffectiveTime(GeneralTimingSpecification effectiveTime) {
@@ -780,9 +808,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>DosageRange</p>
+     * <p>Business Name: DosageRange</p>
      * 
-     * <p>D:Dosage Range</p>
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This specifies the minimum and maximum amount of the 
      * medication to be taken during a single administration.</p>
@@ -801,7 +833,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Where no range is needed, a single value should be 
      * specified as the center, with a width of 0.</p>
      * 
-     * <p>D:Dosage Range</p>
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This specifies the minimum and maximum amount of the 
      * medication to be taken during a single administration.</p>
@@ -826,9 +862,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageRange</p>
+     * <p>Business Name: DosageRange</p>
      * 
-     * <p>D:Dosage Range</p>
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This specifies the minimum and maximum amount of the 
      * medication to be taken during a single administration.</p>
@@ -847,7 +887,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * <p>Where no range is needed, a single value should be 
      * specified as the center, with a width of 0.</p>
      * 
-     * <p>D:Dosage Range</p>
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This specifies the minimum and maximum amount of the 
      * medication to be taken during a single administration.</p>
@@ -872,9 +916,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>DosageRate</p>
+     * <p>Business Name: DosageRate</p>
      * 
-     * <p>E:Dosage Rate</p>
+     * <p>Other Business Name: DosageRate</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.rateQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>For intravenous and other such routes, this is the time 
      * period over which one dose is to be administered. The flow 
@@ -883,7 +931,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * 
      * <p>Required for intravenous administration</p>
      * 
-     * <p>E:Dosage Rate</p>
+     * <p>Other Business Name: DosageRate</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.rateQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>For intravenous and other such routes, this is the time 
      * period over which one dose is to be administered. The flow 
@@ -898,9 +950,13 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageRate</p>
+     * <p>Business Name: DosageRate</p>
      * 
-     * <p>E:Dosage Rate</p>
+     * <p>Other Business Name: DosageRate</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.DosageLine.rateQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>For intravenous and other such routes, this is the time 
      * period over which one dose is to be administered. The flow 
@@ -909,7 +965,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * 
      * <p>Required for intravenous administration</p>
      * 
-     * <p>E:Dosage Rate</p>
+     * <p>Other Business Name: DosageRate</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.rateQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>For intravenous and other such routes, this is the time 
      * period over which one dose is to be administered. The flow 
@@ -923,21 +983,77 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"trigger/actEventCriterion"})
     public AdministrationPreconditionBean getTriggerActEventCriterion() {
         return this.triggerActEventCriterion;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
         this.triggerActEventCriterion = triggerActEventCriterion;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/supplementalInstruction"})
     public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
         return this.componentSupplementalInstruction;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT270010CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
         this.componentSupplementalInstruction = componentSupplementalInstruction;
     }

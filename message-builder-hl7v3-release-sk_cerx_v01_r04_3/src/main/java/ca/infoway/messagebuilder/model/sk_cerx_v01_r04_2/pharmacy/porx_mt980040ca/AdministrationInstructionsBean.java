@@ -58,7 +58,7 @@ import java.util.Set;
 
 
 /**
- * <p>Administration Instructions</p>
+ * <p>Business Name: Administration Instructions</p>
  * 
  * <p>routeCode is mandatory and apporachSiteCode is required 
  * if not using SNOMED</p><p>- moodCode must be DEFN for drug 
@@ -84,7 +84,7 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -99,7 +99,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>Business Name: Dosage Usage Context</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -138,7 +142,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>Business Name: Dosage Usage Context</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -177,7 +185,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Type</p>
+     * <p>Business Name: Dosage Type</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes types of dosage.</p>
      * 
@@ -195,7 +207,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dosage Type</p>
+     * <p>Business Name: Dosage Type</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes types of dosage.</p>
      * 
@@ -213,7 +229,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Business Name: C:Rendered Dosage Instruction</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -259,7 +279,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Business Name: C:Rendered Dosage Instruction</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -305,7 +329,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Administration Period</p>
+     * <p>Business Name: A:Administration Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The time period (begin and end dates) within which the 
      * dispensed medication is to be completely administered to/by 
@@ -372,7 +401,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Administration Period</p>
+     * <p>Business Name: A:Administration Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The time period (begin and end dates) within which the 
      * dispensed medication is to be completely administered to/by 
@@ -439,7 +473,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Route Code</p>
+     * <p>Business Name: A:Route Code</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the means by which the dispensed drug is to be 
      * administered to the patient.</p>
@@ -463,7 +501,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Route Code</p>
+     * <p>Business Name: A:Route Code</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageInstruction.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the means by which the dispensed drug is to be 
      * administered to the patient.</p>
@@ -487,7 +529,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Administration Sites</p>
+     * <p>Business Name: Administration Sites</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
      * 
      * <p>A value denoting the body area where the medicine should 
      * be administered. E.g. 'Right Elbow', 'Left Ear'. When 
@@ -510,7 +557,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Maximum Doses per Period</p>
+     * <p>Business Name: D:Maximum Doses per Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.maxDoseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>The maximum amount of the dispensed medication to be 
      * administered to the patient in a specified period of time. 
@@ -536,7 +588,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Unit</p>
+     * <p>Business Name: Dosage Unit</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.administrationUnitCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies how the drug is measured for 
      * administration.</p><p>Specified when not implicit from the 
@@ -557,7 +614,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dosage Unit</p>
+     * <p>Business Name: Dosage Unit</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.administrationUnitCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies how the drug is measured for 
      * administration.</p><p>Specified when not implicit from the 
@@ -578,7 +640,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Administers Package Component</p>
+     * <p>Business Name: Administers Package Component</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Administrable is used for dispenses and 
      * orderable</div> <div>otherwise. The Responses are used in 
@@ -591,7 +657,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Administers Package Component</p>
+     * <p>Business Name: Administers Package Component</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Administrable is used for dispenses and 
      * orderable</div> <div>otherwise. The Responses are used in 
@@ -632,6 +702,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This is a modifier for the entire SIG.</p> 
      * <div>&nbsp;</div>
      */
@@ -641,6 +716,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This is a modifier for the entire SIG.</p> 
      * <div>&nbsp;</div>
      */
@@ -650,6 +730,11 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.DosageInstruction.component2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     * 
      * <p>dosageLine.text:<b><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 

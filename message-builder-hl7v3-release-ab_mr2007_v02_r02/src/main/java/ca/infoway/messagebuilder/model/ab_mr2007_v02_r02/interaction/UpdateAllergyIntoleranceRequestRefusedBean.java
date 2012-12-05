@@ -29,8 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 
 
 /**
- * <p>REPC_IN000022CA: Update allergy/intolerance request 
- * refused</p>
+ * <p>Business Name: REPC_IN000022CA: Update 
+ * allergy/intolerance request refused</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 @Hl7PartTypeMapping({"REPC_IN000022CA"})
 public class UpdateAllergyIntoleranceRequestRefusedBean extends HL7MessageBean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

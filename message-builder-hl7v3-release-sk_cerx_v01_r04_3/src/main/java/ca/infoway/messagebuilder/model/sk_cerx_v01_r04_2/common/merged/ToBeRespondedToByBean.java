@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ToBeRespondedToBy</p>
+ * <p>Business Name: ToBeRespondedToBy</p>
  * 
  * <p>MCCI_MT102001CA.RespondTo: to be responded to by</p>
  * 
@@ -86,7 +86,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.RespondTo","MCCI_MT000200CA.RespondTo","MCCI_MT000300CA.RespondTo","MCCI_MT102001CA.RespondTo"})
 public class ToBeRespondedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private II deviceAsAgentRepresentedOrganizationId = new IIImpl();
@@ -94,9 +94,52 @@ public class ToBeRespondedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>RespondToNetworkAddress</p>
+     * <p>Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>KB:Respond to Network Address</p>
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the address to send acknowledgments of this 
      * message to.</p>
@@ -111,9 +154,52 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>RespondToNetworkAddress</p>
+     * <p>Business Name: RespondToNetworkAddress</p>
      * 
-     * <p>KB:Respond to Network Address</p>
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the address to send acknowledgments of this 
+     * message to.</p>
+     * 
+     * <p>Needed when the address to respond to is different than 
+     * that of the sender. This is optional because not all 
+     * environments require network addresses.</p>
+     * 
+     * <p>Other Business Name: RespondToNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.RespondTo.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the address to send acknowledgments of this 
      * message to.</p>
@@ -128,9 +214,58 @@ public class ToBeRespondedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>RespondToApplicationIdentifier</p>
+     * <p>Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>KA:Respond to Application Identifier</p>
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the applications to which 
      * responses should be sent. Only populated when different from 
@@ -147,9 +282,58 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>RespondToApplicationIdentifier</p>
+     * <p>Business Name: RespondToApplicationIdentifier</p>
      * 
-     * <p>KA:Respond to Application Identifier</p>
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the applications to which 
+     * responses should be sent. Only populated when different from 
+     * the sending application id.</p>
+     * 
+     * <p>Allows unique identification and routing to the 
+     * application to be responded to. This attribute is mandatory 
+     * be cause it is the principal identifier of the application 
+     * to respond to.</p>
+     * 
+     * <p>Other Business Name: RespondToApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the applications to which 
      * responses should be sent. Only populated when different from 
@@ -166,9 +350,55 @@ public class ToBeRespondedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>RespondToOrganizationId</p>
+     * <p>Business Name: RespondToOrganizationId</p>
      * 
-     * <p>KC:Respond to Organization Id</p>
+     * <p>Other Business Name: RespondToOrganizationId</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Organization3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application who is to be 
+     * responsible for responses to this message.</p>
+     * 
+     * <p>Needed for circumstances where the 'respond to' 
+     * organization is different than the sending organization. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: RespondToOrganizationId</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Organization3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application who is to be 
+     * responsible for responses to this message.</p>
+     * 
+     * <p>Needed for circumstances where the 'respond to' 
+     * organization is different than the sending organization. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: RespondToOrganizationId</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Organization3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application who is to be 
+     * responsible for responses to this message.</p>
+     * 
+     * <p>Needed for circumstances where the 'respond to' 
+     * organization is different than the sending organization. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: RespondToOrganizationId</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Organization3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application who is to be 
      * responsible for responses to this message.</p>
@@ -184,9 +414,55 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>RespondToOrganizationId</p>
+     * <p>Business Name: RespondToOrganizationId</p>
      * 
-     * <p>KC:Respond to Organization Id</p>
+     * <p>Other Business Name: RespondToOrganizationId</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Organization3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application who is to be 
+     * responsible for responses to this message.</p>
+     * 
+     * <p>Needed for circumstances where the 'respond to' 
+     * organization is different than the sending organization. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: RespondToOrganizationId</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Organization3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application who is to be 
+     * responsible for responses to this message.</p>
+     * 
+     * <p>Needed for circumstances where the 'respond to' 
+     * organization is different than the sending organization. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: RespondToOrganizationId</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Organization3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application who is to be 
+     * responsible for responses to this message.</p>
+     * 
+     * <p>Needed for circumstances where the 'respond to' 
+     * organization is different than the sending organization. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: RespondToOrganizationId</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Organization3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application who is to be 
      * responsible for responses to this message.</p>
@@ -202,9 +478,52 @@ public class ToBeRespondedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>RespondToFacilityId</p>
+     * <p>Business Name: RespondToFacilityId</p>
      * 
-     * <p>KD:Respond to Facility Id</p>
+     * <p>Other Business Name: RespondToFacilityId</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Place3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the clinic or other facility to which responses 
+     * to this interaction should be sent.</p>
+     * 
+     * <p>May affect the routing of a message. This attribute is 
+     * optional because not all environments require communicating 
+     * this information.</p>
+     * 
+     * <p>Other Business Name: RespondToFacilityId</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Place3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the clinic or other facility to which responses 
+     * to this interaction should be sent.</p>
+     * 
+     * <p>May affect the routing of a message. This attribute is 
+     * optional because not all environments require communicating 
+     * this information.</p>
+     * 
+     * <p>Other Business Name: RespondToFacilityId</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Place3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the clinic or other facility to which responses 
+     * to this interaction should be sent.</p>
+     * 
+     * <p>May affect the routing of a message. This attribute is 
+     * optional because not all environments require communicating 
+     * this information.</p>
+     * 
+     * <p>Other Business Name: RespondToFacilityId</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Place3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the clinic or other facility to which responses 
      * to this interaction should be sent.</p>
@@ -219,9 +538,52 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>RespondToFacilityId</p>
+     * <p>Business Name: RespondToFacilityId</p>
      * 
-     * <p>KD:Respond to Facility Id</p>
+     * <p>Other Business Name: RespondToFacilityId</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Place3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the clinic or other facility to which responses 
+     * to this interaction should be sent.</p>
+     * 
+     * <p>May affect the routing of a message. This attribute is 
+     * optional because not all environments require communicating 
+     * this information.</p>
+     * 
+     * <p>Other Business Name: RespondToFacilityId</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Place3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the clinic or other facility to which responses 
+     * to this interaction should be sent.</p>
+     * 
+     * <p>May affect the routing of a message. This attribute is 
+     * optional because not all environments require communicating 
+     * this information.</p>
+     * 
+     * <p>Other Business Name: RespondToFacilityId</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Place3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the clinic or other facility to which responses 
+     * to this interaction should be sent.</p>
+     * 
+     * <p>May affect the routing of a message. This attribute is 
+     * optional because not all environments require communicating 
+     * this information.</p>
+     * 
+     * <p>Other Business Name: RespondToFacilityId</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Place3.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the clinic or other facility to which responses 
      * to this interaction should be sent.</p>

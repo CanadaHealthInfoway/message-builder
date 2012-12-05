@@ -49,7 +49,7 @@ import java.util.Date;
 
 
 /**
- * <p>Active Medication</p>
+ * <p>Business Name: Active Medication</p>
  * 
  * <p>Indicates an active medication (prescription or 
  * non-prescription medication) that is recorded in the 
@@ -62,7 +62,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.CausalActs {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -74,7 +74,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Other Medication Indicator</p>
+     * <p>Business Name: Other Medication Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -90,7 +95,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Other Medication Indicator</p>
+     * <p>Business Name: Other Medication Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -106,7 +116,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>A:Active Medication Record Number</p>
+     * <p>Business Name: A:Active Medication Record Number</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SubstanceAdministration.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
@@ -147,7 +161,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>A:Active Medication Record Number</p>
+     * <p>Business Name: A:Active Medication Record Number</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SubstanceAdministration.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
@@ -188,7 +206,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Administration Type</p>
+     * <p>Business Name: Administration Type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
@@ -217,7 +240,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>Administration Type</p>
+     * <p>Business Name: Administration Type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
@@ -246,7 +274,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>B:Active Medication Status</p>
+     * <p>Business Name: B:Active Medication Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the status of the medication record at the time 
      * of the issue.</p>
@@ -265,7 +298,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>B:Active Medication Status</p>
+     * <p>Business Name: B:Active Medication Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the status of the medication record at the time 
      * of the issue.</p>
@@ -284,7 +322,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>C:Active Medication Time-range</p>
+     * <p>Business Name: C:Active Medication Time-range</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -300,7 +343,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>C:Active Medication Time-range</p>
+     * <p>Business Name: C:Active Medication Time-range</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -316,7 +364,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>E:Active Medication Masking Indicator</p>
+     * <p>Business Name: E:Active Medication Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
@@ -336,7 +389,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>E:Active Medication Masking Indicator</p>
+     * <p>Business Name: E:Active Medication Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
@@ -356,7 +414,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>D:Active Medication Dose Quantity</p>
+     * <p>Business Name: D:Active Medication Dose Quantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of medication administered to the patient</p>
      * 
@@ -380,7 +443,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
     /**
-     * <p>D:Active Medication Dose Quantity</p>
+     * <p>Business Name: D:Active Medication Dose Quantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministration.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of medication administered to the patient</p>
      * 
@@ -403,11 +471,21 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT980030CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT980030CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
     }

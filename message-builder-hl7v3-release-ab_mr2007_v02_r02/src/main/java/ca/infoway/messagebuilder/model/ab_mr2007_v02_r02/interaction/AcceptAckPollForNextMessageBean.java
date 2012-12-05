@@ -27,13 +27,14 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HL7Messag
 
 
 /**
- * <p>MCCI_IN100004CA: Accept Ack Poll for Next Message</p>
+ * <p>Business Name: MCCI_IN100004CA: Accept Ack Poll for Next 
+ * Message</p>
  * 
  * <p>Message: MCCI_MT002200CA.Message</p>
  */
 @Hl7PartTypeMapping({"MCCI_IN100004CA"})
 public class AcceptAckPollForNextMessageBean extends HL7MessageBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -34,7 +34,7 @@ import java.util.Date;
 
 
 /**
- * <p>PrescriptionReference</p>
+ * <p>Business Name: PrescriptionReference</p>
  * 
  * <p>PORX_MT060010CA.SupplyRequest: Prescription Reference</p>
  * 
@@ -52,7 +52,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private TS authorTime = new TSImpl();
@@ -60,11 +60,15 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>This is an identifier assigned to a specific medication 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
@@ -79,9 +83,14 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
      * because the DIS will always assign a Prescription Order 
      * Number.</p>
      * 
-     * <p>Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>This is an identifier assigned to a specific device 
+     * <p>Relationship: 
+     * PORX_MT060090CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
@@ -102,11 +111,15 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>This is an identifier assigned to a specific medication 
+     * <p>Relationship: PORX_MT060010CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
@@ -121,9 +134,14 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
      * because the DIS will always assign a Prescription Order 
      * Number.</p>
      * 
-     * <p>Prescription Order Number</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>This is an identifier assigned to a specific device 
+     * <p>Relationship: 
+     * PORX_MT060090CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 
      * the order, regardless of the number of providers or 
      * pharmacies involved in fulfilling the order.</p>
@@ -143,42 +161,80 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
     /**
-     * <p>PrescriptionOrderDate</p>
+     * <p>Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
+     * <p>Relationship: PORX_MT060010CA.Author5.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Prescription Order Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
      * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author5.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -196,31 +252,39 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionOrderDate</p>
+     * <p>Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
+     * <p>Relationship: PORX_MT060010CA.Author5.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Prescription Order Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
      * effective. E.g. A prescription created today may not be 
      * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author5.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -237,11 +301,37 @@ public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author5.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author5.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedEntity"})
     public HealthcareWorkerBean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author5.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author5.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }

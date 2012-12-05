@@ -32,26 +32,46 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Part"})
 public class PartBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private TerritorialAuthorityBean territorialAuthority;
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.Part.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public RoleLinkType getTypeCode() {
         return (RoleLinkType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.Part.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setTypeCode(RoleLinkType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.Part.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"territorialAuthority"})
     public TerritorialAuthorityBean getTerritorialAuthority() {
         return this.territorialAuthority;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.Part.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
         this.territorialAuthority = territorialAuthority;
     }

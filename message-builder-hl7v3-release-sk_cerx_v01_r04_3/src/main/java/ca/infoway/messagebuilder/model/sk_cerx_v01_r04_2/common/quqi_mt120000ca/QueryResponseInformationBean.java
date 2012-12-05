@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Query response information</p>
+ * <p>Business Name: Query response information</p>
  * 
  * <p>Describes the results of a particular query.</p>
  * 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT120000CA.QueryAck"})
 public class QueryResponseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II queryId = new IIImpl();
     private CS queryResponseCode = new CSImpl();
     private INT resultTotalQuantity = new INTImpl();
@@ -56,7 +56,11 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>M:Query Identifier</p>
+     * <p>Business Name: M:Query Identifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the query this response is related 
      * to.</p>
@@ -75,7 +79,11 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>M:Query Identifier</p>
+     * <p>Business Name: M:Query Identifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.QueryAck.queryId</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the query this response is related 
      * to.</p>
@@ -94,7 +102,11 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>N:Query Result Status</p>
+     * <p>Business Name: N:Query Result Status</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the overall result status of the query.</p>
      * 
@@ -107,7 +119,11 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>N:Query Result Status</p>
+     * <p>Business Name: N:Query Result Status</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.QueryAck.queryResponseCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the overall result status of the query.</p>
      * 
@@ -120,7 +136,12 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>O:Query Result-set Size</p>
+     * <p>Business Name: O:Query Result-set Size</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The total number of matching rows found by the query. 
      * (This may differ from the number of rows actually 
@@ -136,7 +157,12 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>O:Query Result-set Size</p>
+     * <p>Business Name: O:Query Result-set Size</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultTotalQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The total number of matching rows found by the query. 
      * (This may differ from the number of rows actually 
@@ -152,7 +178,12 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>P:Query Items Returned</p>
+     * <p>Business Name: P:Query Items Returned</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is how many items are returned in this query.</p>
      * 
@@ -166,7 +197,12 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>P:Query Items Returned</p>
+     * <p>Business Name: P:Query Items Returned</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultCurrentQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is how many items are returned in this query.</p>
      * 
@@ -180,7 +216,12 @@ public class QueryResponseInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Q:Query Items Remaining</p>
+     * <p>Business Name: Q:Query Items Remaining</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The number of item repetitions yet to be returned in the 
      * current response.</p>
@@ -194,7 +235,12 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Q:Query Items Remaining</p>
+     * <p>Business Name: Q:Query Items Remaining</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120000CA.QueryAck.resultRemainingQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The number of item repetitions yet to be returned in the 
      * current response.</p>

@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Referen
 
 
 /**
- * <p>PORX_IN010720CA: Prescription renewal request</p>
+ * <p>Business Name: PORX_IN010720CA: Prescription renewal 
+ * request</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Referen
 @Hl7PartTypeMapping({"PORX_IN010720CA"})
 public class PrescriptionRenewalRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

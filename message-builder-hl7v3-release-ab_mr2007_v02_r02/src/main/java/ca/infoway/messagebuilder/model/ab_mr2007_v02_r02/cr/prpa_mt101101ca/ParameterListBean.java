@@ -38,13 +38,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II clientIDBusValue = new IIImpl();
     private II clientIDPubValue = new IIImpl();
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
+     * 
+     * <p>Relationship: PRPA_MT101101CA.ClientIDBus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
@@ -71,7 +75,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
+     * 
+     * <p>Relationship: PRPA_MT101101CA.ClientIDBus.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
@@ -98,7 +106,11 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
+     * 
+     * <p>Relationship: PRPA_MT101101CA.ClientIDPub.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
@@ -125,7 +137,11 @@ public class ParameterListBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
+     * 
+     * <p>Relationship: PRPA_MT101101CA.ClientIDPub.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 

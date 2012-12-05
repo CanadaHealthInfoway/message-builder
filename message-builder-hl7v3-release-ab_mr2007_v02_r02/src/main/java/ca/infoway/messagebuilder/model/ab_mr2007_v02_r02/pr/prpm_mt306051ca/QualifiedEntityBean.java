@@ -37,7 +37,7 @@ import java.util.Set;
 
 
 /**
- * <p>Qualified Entity</p>
+ * <p>Business Name: Qualified Entity</p>
  * 
  * <p>This role describes specific qualifications that may be 
  * held the provider as a result of training or experience, but 
@@ -52,7 +52,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
@@ -60,7 +60,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Expertise or Credentials Role Identifier</p>
+     * <p>Business Name: Expertise or Credentials Role Identifier</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.QualifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-50)</p>
      * 
      * <p>Unique identifier for the Expertise or Credential.</p>
      * 
@@ -74,7 +78,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise or Credentials Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.QualifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code for the degree or educational rank that the 
      * credential specifies. May also apply to an Expertise 
@@ -92,7 +100,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise or Credentials Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT306051CA.QualifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code for the degree or educational rank that the 
      * credential specifies. May also apply to an Expertise 
@@ -119,11 +131,23 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"qualificationGrantingOrganization"})
     public OrganizationBean getQualificationGrantingOrganization() {
         return this.qualificationGrantingOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
         this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }

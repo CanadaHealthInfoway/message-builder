@@ -46,7 +46,7 @@ import java.util.Set;
 
 
 /**
- * <p>Related Person</p>
+ * <p>Business Name: Related Person</p>
  * 
  * <p>Describes a person (other than a health-care provider or 
  * employee) who is providing information and making decision 
@@ -71,7 +71,7 @@ import java.util.Set;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ActingPerson {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN relationshipHolderName = new PNImpl();
@@ -80,7 +80,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>B:Related Person Identifier</p>
+     * <p>Business Name: B:Related Person Identifier</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.PersonalRelationship.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the related person (as found in a 
      * client registry).</p>
@@ -272,14 +276,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>ProviderRegistration.Identifier 
      * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
-     * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PV
+    
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -288,7 +285,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>B:Related Person Identifier</p>
+     * <p>Business Name: B:Related Person Identifier</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.PersonalRelationship.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the related person (as found in a 
      * client registry).</p>
@@ -480,14 +481,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>ProviderRegistration.Identifier 
      * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Extension)</p>
-     * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PV
+    
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -496,7 +490,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>C:Responsible Person Type</p>
+     * <p>Business Name: C:Responsible Person Type</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating how the person is related to the 
      * patient. If the code is &quot;SELF&quot;, it indicates that 
@@ -535,7 +533,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>C:Responsible Person Type</p>
+     * <p>Business Name: C:Responsible Person Type</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating how the person is related to the 
      * patient. If the code is &quot;SELF&quot;, it indicates that 
@@ -574,7 +576,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>A:Related Person Name</p>
+     * <p>Business Name: A:Related Person Name</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the responsible person is known</p>
      * 
@@ -743,12 +749,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when
+     * Prefix)</
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
@@ -757,7 +758,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>A:Related Person Name</p>
+     * <p>Business Name: A:Related Person Name</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the responsible person is known</p>
      * 
@@ -926,12 +931,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer when
+     * Prefix)</
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setRelationshipHolderName(PersonName relationshipHolderName) {
@@ -940,7 +940,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>E:Related Person Phones and Emails</p>
+     * <p>Business Name: E:Related Person Phones and Emails</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The phone number(s) and email address(s) by which a 
      * related person may be contacted as known by the client 
@@ -955,7 +959,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>D:Related Person Address</p>
+     * <p>Business Name: D:Related Person Address</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The mail and/or physical address associated with a 
      * related person as known by the client registry.</p>
@@ -968,7 +976,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>D:Related Person Address</p>
+     * <p>Business Name: D:Related Person Address</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The mail and/or physical address associated with a 
      * related person as known by the client registry.</p>

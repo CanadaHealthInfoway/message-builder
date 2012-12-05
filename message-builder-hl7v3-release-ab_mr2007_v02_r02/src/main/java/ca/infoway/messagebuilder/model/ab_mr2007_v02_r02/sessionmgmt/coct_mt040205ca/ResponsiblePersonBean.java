@@ -46,7 +46,7 @@ import java.util.Set;
 
 
 /**
- * <p>Responsible Person</p>
+ * <p>Business Name: Responsible Person</p>
  * 
  * <p>Describes a person (other than a health-care provider or 
  * patient) who is providing information and making decision on 
@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7RootType
 public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Consenter {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -69,7 +69,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
 
 
     /**
-     * <p>B:Responsible Person ID</p>
+     * <p>Business Name: B:Responsible Person ID</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.ResponsibleParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for the responsible person.</p>
      * 
@@ -262,13 +266,7 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
      * (part of Extension)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyPr
+     * 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -277,7 +275,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
     }
 
     /**
-     * <p>B:Responsible Person ID</p>
+     * <p>Business Name: B:Responsible Person ID</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.ResponsibleParty.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for the responsible person.</p>
      * 
@@ -470,13 +472,7 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
      * (part of Extension)</p>
      * 
-     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
-     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
-     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
-     * (Root)</p><p>ZPB3.19 (EXtension)</p><p>D60 (Root)</p><p>D61 
-     * (Extension)</p><p>D76</p><p>PVD.020-01 
-     * (Extension)</p><p>PVD.020-02 
-     * (Root)</p><p>PharmacyPr
+     * 
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -485,7 +481,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
 
 
     /**
-     * <p>C:Responsible Person Type</p>
+     * <p>Business Name: C:Responsible Person Type</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.ResponsibleParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value indicating how the responsible person is 
      * related to the person for whom they have accepted 
@@ -502,7 +502,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
     }
 
     /**
-     * <p>C:Responsible Person Type</p>
+     * <p>Business Name: C:Responsible Person Type</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.ResponsibleParty.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value indicating how the responsible person is 
      * related to the person for whom they have accepted 
@@ -519,7 +523,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
 
 
     /**
-     * <p>D:Responsible Person Address</p>
+     * <p>Business Name: D:Responsible Person Address</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.ResponsibleParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The mail and/or physical address associated with a 
      * responsible person.</p>
@@ -612,7 +620,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
     }
 
     /**
-     * <p>D:Responsible Person Address</p>
+     * <p>Business Name: D:Responsible Person Address</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.ResponsibleParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The mail and/or physical address associated with a 
      * responsible person.</p>
@@ -705,7 +717,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
 
 
     /**
-     * <p>E:Responsible Person Phones and Emails</p>
+     * <p>Business Name: E:Responsible Person Phones and Emails</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.ResponsibleParty.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The phone number(s) and email address(s) by which a 
      * responsible person may be contacted.</p>
@@ -779,7 +795,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
 
 
     /**
-     * <p>A:Responsible Person Name</p>
+     * <p>Business Name: A:Responsible Person Name</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the responsible person is known</p>
      * 
@@ -948,12 +968,7 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer 
+     * Prefi
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"agentPerson/name"})
@@ -962,7 +977,11 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
     }
 
     /**
-     * <p>A:Responsible Person Name</p>
+     * <p>Business Name: A:Responsible Person Name</p>
+     * 
+     * <p>Relationship: COCT_MT040205CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the responsible person is known</p>
      * 
@@ -1131,12 +1150,7 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
-     * author/performer when supervisor is also 
-     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
-     * author/performer when supervisor is also specified 
-     * )</p><p>PVD.100-03 PartType = Given - any rep other than the 
-     * first; author/performer 
+     * Prefi
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setAgentPersonName(PersonName agentPersonName) {

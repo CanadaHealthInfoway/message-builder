@@ -39,7 +39,7 @@ import java.util.List;
 
 
 /**
- * <p>RecommendedDosage</p>
+ * <p>Business Name: RecommendedDosage</p>
  * 
  * <p>PORX_MT980030CA.SubstanceAdministrationEventCriterion: 
  * Recommended Dosage</p>
@@ -77,16 +77,49 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministrationEventCriterion","PORX_MT980020CA.SubstanceAdministrationEventCriterion","PORX_MT980030CA.SubstanceAdministrationEventCriterion"})
 public class RecommendedDosageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
 
 
     /**
-     * <p>DoseDuration</p>
+     * <p>Business Name: DoseDuration</p>
      * 
-     * <p>A:Dose Duration</p>
+     * <p>Other Business Name: DoseDuration</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the recommended duration for drug therapy that 
+     * was exceeded or not met.</p>
+     * 
+     * <p>Recommended Duration (width)</p>
+     * 
+     * <p>Allows calculation of amount under or over.</p>
+     * 
+     * <p>Other Business Name: DoseDuration</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the recommended duration for drug therapy that 
+     * was exceeded or not met.</p>
+     * 
+     * <p>Recommended Duration (width)</p>
+     * 
+     * <p>Allows calculation of amount under or over.</p>
+     * 
+     * <p>Other Business Name: DoseDuration</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the recommended duration for drug therapy that 
      * was exceeded or not met.</p>
@@ -101,9 +134,42 @@ public class RecommendedDosageBean extends MessagePartBean {
     }
 
     /**
-     * <p>DoseDuration</p>
+     * <p>Business Name: DoseDuration</p>
      * 
-     * <p>A:Dose Duration</p>
+     * <p>Other Business Name: DoseDuration</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the recommended duration for drug therapy that 
+     * was exceeded or not met.</p>
+     * 
+     * <p>Recommended Duration (width)</p>
+     * 
+     * <p>Allows calculation of amount under or over.</p>
+     * 
+     * <p>Other Business Name: DoseDuration</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the recommended duration for drug therapy that 
+     * was exceeded or not met.</p>
+     * 
+     * <p>Recommended Duration (width)</p>
+     * 
+     * <p>Allows calculation of amount under or over.</p>
+     * 
+     * <p>Other Business Name: DoseDuration</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the recommended duration for drug therapy that 
      * was exceeded or not met.</p>
@@ -118,9 +184,58 @@ public class RecommendedDosageBean extends MessagePartBean {
 
 
     /**
-     * <p>DosageRange</p>
+     * <p>Business Name: DosageRange</p>
      * 
-     * <p>B:Dosage Range</p>
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is a specification of the range of quantity of 
+     * medication (Min/Max figures) that is recommended for the 
+     * drug to avoid triggering of dosage issues.</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>Allows calculation of amount over/under.</p>
+     * 
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is a specification of the range of quantity of 
+     * medication (Min/Max figures) that is recommended for the 
+     * drug to avoid triggering of dosage issues.</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>Allows calculation of amount over/under.</p>
+     * 
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This is a specification of the range of quantity of 
      * medication (Min/Max figures) that is recommended for the 
@@ -143,9 +258,58 @@ public class RecommendedDosageBean extends MessagePartBean {
     }
 
     /**
-     * <p>DosageRange</p>
+     * <p>Business Name: DosageRange</p>
      * 
-     * <p>B:Dosage Range</p>
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is a specification of the range of quantity of 
+     * medication (Min/Max figures) that is recommended for the 
+     * drug to avoid triggering of dosage issues.</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>Allows calculation of amount over/under.</p>
+     * 
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is a specification of the range of quantity of 
+     * medication (Min/Max figures) that is recommended for the 
+     * drug to avoid triggering of dosage issues.</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>ContraIndication.recommendedRange</p><p>Maximum Dosage 
+     * Level (high)</p><p>Minimum Dosage Level (low)</p>
+     * 
+     * <p>Allows calculation of amount over/under.</p>
+     * 
+     * <p>Other Business Name: DosageRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministrationEventCriterion.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This is a specification of the range of quantity of 
      * medication (Min/Max figures) that is recommended for the 
@@ -167,6 +331,28 @@ public class RecommendedDosageBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980030CA.Component2.observationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.Component2.observationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.Component2.observationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/observationEventCriterion"})
     public List<DosagePreconditionsBean> getComponentObservationEventCriterion() {
         return this.componentObservationEventCriterion;

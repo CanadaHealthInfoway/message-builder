@@ -43,7 +43,7 @@ import java.util.Date;
 
 
 /**
- * <p>Consent</p>
+ * <p>Business Name: Consent</p>
  * 
  * <p>One and only one of author2 (Consenter) and author1 
  * (Provider) must be specified.</p><p>If author1 (provider) is 
@@ -80,7 +80,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -91,7 +91,11 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>Business Name: D:Consent Form Number</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for a specific consent for a 
      * patient.</p>
@@ -107,7 +111,11 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>Business Name: D:Consent Form Number</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for a specific consent for a 
      * patient.</p>
@@ -123,7 +131,11 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Business Name: C:Consent Effective and End Time</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time that the consent will expire. 'Low' is 
      * effective time and 'High' is end time.</p>
@@ -139,7 +151,11 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Consent Effective and End Time</p>
+     * <p>Business Name: C:Consent Effective and End Time</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time that the consent will expire. 'Low' is 
      * effective time and 'High' is end time.</p>
@@ -155,7 +171,11 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Consent Override Reason</p>
+     * <p>Business Name: E:Consent Override Reason</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules.</p>
@@ -174,7 +194,11 @@ public class ConsentBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Consent Override Reason</p>
+     * <p>Business Name: E:Consent Override Reason</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a reason for overriding a patient's consent 
      * rules.</p>
@@ -192,21 +216,41 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject1/patient"})
     public PatientBean getSubject1Patient() {
         return this.subject1Patient;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject1Patient(PatientBean subject1Patient) {
         this.subject1Patient = subject1Patient;
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.Author2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author1/assignedPerson"})
     public ProviderBean getAuthor1AssignedPerson() {
         return this.author1AssignedPerson;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.Author2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthor1AssignedPerson(ProviderBean author1AssignedPerson) {
         this.author1AssignedPerson = author1AssignedPerson;
     }

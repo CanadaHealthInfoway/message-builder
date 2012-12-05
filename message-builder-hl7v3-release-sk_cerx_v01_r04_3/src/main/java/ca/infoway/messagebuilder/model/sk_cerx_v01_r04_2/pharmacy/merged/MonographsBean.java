@@ -63,7 +63,7 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
@@ -74,7 +74,29 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Medication Document Id</p>
+     * <p>Other Business Name: MonographId</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Document.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier assigned to a monograph record.</p>
+     * 
+     * <p>Monograph.monographId</p>
+     * 
+     * <p>Allows matching and replacing of locally-stored 
+     * monographs.</p><p>This attribute is marked as 'mandatory', 
+     * as it is always available.</p>
+     * 
+     * <p>Allows matching and replacing of locally-stored 
+     * monographs.</p><p>This attribute is marked as 'mandatory', 
+     * as it is always available.</p>
+     * 
+     * <p>Other Business Name: MedicationDocumentId</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Document.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier assigned to a medication document 
      * record.</p>
@@ -88,20 +110,6 @@ public class MonographsBean extends MessagePartBean {
      * <p>Allows matching and replacing of locally-stored 
      * medication documents.</p><p>This attribute is marked as 
      * 'mandatory', as it is always available.</p>
-     * 
-     * <p>Monograph Id</p>
-     * 
-     * <p>Unique identifier assigned to a monograph record.</p>
-     * 
-     * <p>Monograph.monographId</p>
-     * 
-     * <p>Allows matching and replacing of locally-stored 
-     * monographs.</p><p>This attribute is marked as 'mandatory', 
-     * as it is always available.</p>
-     * 
-     * <p>Allows matching and replacing of locally-stored 
-     * monographs.</p><p>This attribute is marked as 'mandatory', 
-     * as it is always available.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -109,7 +117,29 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Medication Document Id</p>
+     * <p>Other Business Name: MonographId</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Document.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier assigned to a monograph record.</p>
+     * 
+     * <p>Monograph.monographId</p>
+     * 
+     * <p>Allows matching and replacing of locally-stored 
+     * monographs.</p><p>This attribute is marked as 'mandatory', 
+     * as it is always available.</p>
+     * 
+     * <p>Allows matching and replacing of locally-stored 
+     * monographs.</p><p>This attribute is marked as 'mandatory', 
+     * as it is always available.</p>
+     * 
+     * <p>Other Business Name: MedicationDocumentId</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Document.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier assigned to a medication document 
      * record.</p>
@@ -123,20 +153,6 @@ public class MonographsBean extends MessagePartBean {
      * <p>Allows matching and replacing of locally-stored 
      * medication documents.</p><p>This attribute is marked as 
      * 'mandatory', as it is always available.</p>
-     * 
-     * <p>Monograph Id</p>
-     * 
-     * <p>Unique identifier assigned to a monograph record.</p>
-     * 
-     * <p>Monograph.monographId</p>
-     * 
-     * <p>Allows matching and replacing of locally-stored 
-     * monographs.</p><p>This attribute is marked as 'mandatory', 
-     * as it is always available.</p>
-     * 
-     * <p>Allows matching and replacing of locally-stored 
-     * monographs.</p><p>This attribute is marked as 'mandatory', 
-     * as it is always available.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -144,7 +160,11 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>Monograph Type</p>
+     * <p>Other Business Name: MonographType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes between different kinds of documents and 
      * monographs. Kinds of monographs include: Clinical Monograph, 
@@ -169,7 +189,11 @@ public class MonographsBean extends MessagePartBean {
      * application can't know what to do with a monograph without 
      * knowing its type.</p>
      * 
-     * <p>A:Medication Document Type</p>
+     * <p>Other Business Name: MedicationDocumentType</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes between different kinds of documents and 
      * medication documents. Kinds of medication documents include: 
@@ -196,7 +220,11 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Monograph Type</p>
+     * <p>Other Business Name: MonographType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes between different kinds of documents and 
      * monographs. Kinds of monographs include: Clinical Monograph, 
@@ -221,7 +249,11 @@ public class MonographsBean extends MessagePartBean {
      * application can't know what to do with a monograph without 
      * knowing its type.</p>
      * 
-     * <p>A:Medication Document Type</p>
+     * <p>Other Business Name: MedicationDocumentType</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Document.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Distinguishes between different kinds of documents and 
      * medication documents. Kinds of medication documents include: 
@@ -248,9 +280,13 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>MonographContent</p>
+     * <p>Business Name: MonographContent</p>
      * 
-     * <p>Monograph Content</p>
+     * <p>Other Business Name: MonographContent</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Document.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Includes either the full-blown content of the monograph 
      * (as a PDF, HTML or HL7 CDA document), or provides a 
@@ -288,9 +324,13 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>MonographContent</p>
+     * <p>Business Name: MonographContent</p>
      * 
-     * <p>Monograph Content</p>
+     * <p>Other Business Name: MonographContent</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Document.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Includes either the full-blown content of the monograph 
      * (as a PDF, HTML or HL7 CDA document), or provides a 
@@ -328,33 +368,11 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Medication Document Effective/Expiry Date</p>
+     * <p>Other Business Name: MonographEffectiveExpiryDate</p>
      * 
-     * <p>The date on which the information in the medication 
-     * document became effective, and/or the date on which the 
-     * information in the medication document was superseded.</p>
+     * <p>Relationship: POME_MT010040CA.Document.effectiveTime</p>
      * 
-     * <p>Monograph.EffectiveDate</p><p>Monograph.EndDate</p>
-     * 
-     * <p>Monograph.EffectiveDate</p><p>Monograph.EndDate</p>
-     * 
-     * <p>Indicates currency of information or when monograph no 
-     * longer applies. Different systems may update their 
-     * monographs at different times, and it is important to know 
-     * what version contains the most current 
-     * information</p><p>Monograph effective and/or expiry date 
-     * should be available in most situations and is clinically 
-     * relevant; thus attribute is marked as 'populated'.</p>
-     * 
-     * <p>Indicates currency of information or when monograph no 
-     * longer applies. Different systems may update their 
-     * monographs at different times, and it is important to know 
-     * what version contains the most current 
-     * information</p><p>Monograph effective and/or expiry date 
-     * should be available in most situations and is clinically 
-     * relevant; thus attribute is marked as 'populated'.</p>
-     * 
-     * <p>Monograph Effective/Expiry Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date on which the information in the monograph became 
      * effective, and/or the date on which the information in the 
@@ -377,6 +395,37 @@ public class MonographsBean extends MessagePartBean {
      * monographs at different times, and it is important to know 
      * what version contains the most current 
      * information.</p><p>Monograph effective and/or expiry date 
+     * should be available in most situations and is clinically 
+     * relevant; thus attribute is marked as 'populated'.</p>
+     * 
+     * <p>Other Business Name: 
+     * MedicationDocumentEffectiveExpiryDate</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Document.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date on which the information in the medication 
+     * document became effective, and/or the date on which the 
+     * information in the medication document was superseded.</p>
+     * 
+     * <p>Monograph.EffectiveDate</p><p>Monograph.EndDate</p>
+     * 
+     * <p>Monograph.EffectiveDate</p><p>Monograph.EndDate</p>
+     * 
+     * <p>Indicates currency of information or when monograph no 
+     * longer applies. Different systems may update their 
+     * monographs at different times, and it is important to know 
+     * what version contains the most current 
+     * information</p><p>Monograph effective and/or expiry date 
+     * should be available in most situations and is clinically 
+     * relevant; thus attribute is marked as 'populated'.</p>
+     * 
+     * <p>Indicates currency of information or when monograph no 
+     * longer applies. Different systems may update their 
+     * monographs at different times, and it is important to know 
+     * what version contains the most current 
+     * information</p><p>Monograph effective and/or expiry date 
      * should be available in most situations and is clinically 
      * relevant; thus attribute is marked as 'populated'.</p>
      */
@@ -386,33 +435,11 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Medication Document Effective/Expiry Date</p>
+     * <p>Other Business Name: MonographEffectiveExpiryDate</p>
      * 
-     * <p>The date on which the information in the medication 
-     * document became effective, and/or the date on which the 
-     * information in the medication document was superseded.</p>
+     * <p>Relationship: POME_MT010040CA.Document.effectiveTime</p>
      * 
-     * <p>Monograph.EffectiveDate</p><p>Monograph.EndDate</p>
-     * 
-     * <p>Monograph.EffectiveDate</p><p>Monograph.EndDate</p>
-     * 
-     * <p>Indicates currency of information or when monograph no 
-     * longer applies. Different systems may update their 
-     * monographs at different times, and it is important to know 
-     * what version contains the most current 
-     * information</p><p>Monograph effective and/or expiry date 
-     * should be available in most situations and is clinically 
-     * relevant; thus attribute is marked as 'populated'.</p>
-     * 
-     * <p>Indicates currency of information or when monograph no 
-     * longer applies. Different systems may update their 
-     * monographs at different times, and it is important to know 
-     * what version contains the most current 
-     * information</p><p>Monograph effective and/or expiry date 
-     * should be available in most situations and is clinically 
-     * relevant; thus attribute is marked as 'populated'.</p>
-     * 
-     * <p>Monograph Effective/Expiry Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date on which the information in the monograph became 
      * effective, and/or the date on which the information in the 
@@ -437,6 +464,37 @@ public class MonographsBean extends MessagePartBean {
      * information.</p><p>Monograph effective and/or expiry date 
      * should be available in most situations and is clinically 
      * relevant; thus attribute is marked as 'populated'.</p>
+     * 
+     * <p>Other Business Name: 
+     * MedicationDocumentEffectiveExpiryDate</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Document.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date on which the information in the medication 
+     * document became effective, and/or the date on which the 
+     * information in the medication document was superseded.</p>
+     * 
+     * <p>Monograph.EffectiveDate</p><p>Monograph.EndDate</p>
+     * 
+     * <p>Monograph.EffectiveDate</p><p>Monograph.EndDate</p>
+     * 
+     * <p>Indicates currency of information or when monograph no 
+     * longer applies. Different systems may update their 
+     * monographs at different times, and it is important to know 
+     * what version contains the most current 
+     * information</p><p>Monograph effective and/or expiry date 
+     * should be available in most situations and is clinically 
+     * relevant; thus attribute is marked as 'populated'.</p>
+     * 
+     * <p>Indicates currency of information or when monograph no 
+     * longer applies. Different systems may update their 
+     * monographs at different times, and it is important to know 
+     * what version contains the most current 
+     * information</p><p>Monograph effective and/or expiry date 
+     * should be available in most situations and is clinically 
+     * relevant; thus attribute is marked as 'populated'.</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -444,9 +502,13 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>WrittenIn</p>
+     * <p>Business Name: WrittenIn</p>
      * 
-     * <p>Written in</p>
+     * <p>Other Business Name: WrittenIn</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Document.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the language in which the 
      * monograph is written.</p>
@@ -469,9 +531,13 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>WrittenIn</p>
+     * <p>Business Name: WrittenIn</p>
      * 
-     * <p>Written in</p>
+     * <p>Other Business Name: WrittenIn</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Document.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the language in which the 
      * monograph is written.</p>
@@ -493,20 +559,50 @@ public class MonographsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedEntity"})
     public AssignedEntity3Bean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
 
 
     /**
-     * <p>MedicationDocumentContentLanguage</p>
+     * <p>Business Name: MedicationDocumentContentLanguage</p>
      * 
-     * <p>F:Medication Document Content + Language</p>
+     * <p>Other Business Name: MedicationDocumentContentLanguage</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.DocumentBodyEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Includes either the full-blown content of the medication 
      * document (as a PDF, HTML or HL7 CDA document), or provides a 
@@ -549,9 +645,13 @@ public class MonographsBean extends MessagePartBean {
     }
 
     /**
-     * <p>MedicationDocumentContentLanguage</p>
+     * <p>Business Name: MedicationDocumentContentLanguage</p>
      * 
-     * <p>F:Medication Document Content + Language</p>
+     * <p>Other Business Name: MedicationDocumentContentLanguage</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.DocumentBodyEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Includes either the full-blown content of the medication 
      * document (as a PDF, HTML or HL7 CDA document), or provides a 

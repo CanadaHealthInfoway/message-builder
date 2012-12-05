@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>GroupedWithin</p>
+ * <p>Business Name: GroupedWithin</p>
  * 
  * <p>POME_MT010040CA.SpecializedKind: grouped within</p>
  * 
@@ -88,16 +88,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.SpecializedKind","POME_MT010100CA.SpecializedKind"})
 public class GroupedWithinBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV generalizedMedicineClassCode = new CVImpl();
     private ST generalizedMedicineClassName = new STImpl();
 
 
     /**
-     * <p>DrugCategoryCode</p>
+     * <p>Business Name: DrugCategoryCode</p>
      * 
-     * <p>Drug Category Code</p>
+     * <p>Other Business Name: DrugCategoryCode</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.SpecializedKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A coded value denoting a specific level in the 
+     * hierarchical definition of drugs.</p>
+     * 
+     * <p>Describes the relationship between two levels of drug 
+     * products (e.g. Drug A is the generic for Drug B)</p>
+     * 
+     * <p>Other Business Name: DrugCategoryCode</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.SpecializedKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value denoting a specific level in the 
      * hierarchical definition of drugs.</p>
@@ -111,9 +127,25 @@ public class GroupedWithinBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugCategoryCode</p>
+     * <p>Business Name: DrugCategoryCode</p>
      * 
-     * <p>Drug Category Code</p>
+     * <p>Other Business Name: DrugCategoryCode</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.SpecializedKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A coded value denoting a specific level in the 
+     * hierarchical definition of drugs.</p>
+     * 
+     * <p>Describes the relationship between two levels of drug 
+     * products (e.g. Drug A is the generic for Drug B)</p>
+     * 
+     * <p>Other Business Name: DrugCategoryCode</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.SpecializedKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value denoting a specific level in the 
      * hierarchical definition of drugs.</p>
@@ -127,54 +159,13 @@ public class GroupedWithinBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
      * 
-     * <p>An identifier for a drug at a higher level of 
-     * abstraction.</p>
+     * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
      * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>Used to uniquely identify a particular drug product when 
-     * prescribing/dispensing at a higher level of abstraction 
-     * (e.g. generic drug, generic formulation).</p><p>This 
-     * attribute is marked as &quot;populated&quot; as a drug code 
-     * should be available in most cases.</p>
-     * 
-     * <p>Used to uniquely identify a particular drug product when 
-     * prescribing/dispensing at a higher level of abstraction 
-     * (e.g. generic drug, generic formulation).</p><p>This 
-     * attribute is marked as &quot;populated&quot; as a drug code 
-     * should be available in most cases.</p>
-     * 
-     * <p>Drug Code</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code that uniquely identifiers a drug within a specific 
      * drug identification scheme.</p>
@@ -217,6 +208,55 @@ public class GroupedWithinBean extends MessagePartBean {
      * prescribing/dispensing at a higher level of abstraction 
      * (e.g. generic drug, generic formulation).</p><p>This 
      * attribute is marked as &quot;populated&quot; as drug code 
+     * should be available in most cases.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.MedicineClass.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>An identifier for a drug at a higher level of 
+     * abstraction.</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>Used to uniquely identify a particular drug product when 
+     * prescribing/dispensing at a higher level of abstraction 
+     * (e.g. generic drug, generic formulation).</p><p>This 
+     * attribute is marked as &quot;populated&quot; as a drug code 
+     * should be available in most cases.</p>
+     * 
+     * <p>Used to uniquely identify a particular drug product when 
+     * prescribing/dispensing at a higher level of abstraction 
+     * (e.g. generic drug, generic formulation).</p><p>This 
+     * attribute is marked as &quot;populated&quot; as a drug code 
      * should be available in most cases.</p>
      */
     @Hl7XmlMapping({"generalizedMedicineClass/code"})
@@ -225,54 +265,13 @@ public class GroupedWithinBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
      * 
-     * <p>An identifier for a drug at a higher level of 
-     * abstraction.</p>
+     * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
      * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
-     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
-     * 
-     * <p>Used to uniquely identify a particular drug product when 
-     * prescribing/dispensing at a higher level of abstraction 
-     * (e.g. generic drug, generic formulation).</p><p>This 
-     * attribute is marked as &quot;populated&quot; as a drug code 
-     * should be available in most cases.</p>
-     * 
-     * <p>Used to uniquely identify a particular drug product when 
-     * prescribing/dispensing at a higher level of abstraction 
-     * (e.g. generic drug, generic formulation).</p><p>This 
-     * attribute is marked as &quot;populated&quot; as a drug code 
-     * should be available in most cases.</p>
-     * 
-     * <p>Drug Code</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code that uniquely identifiers a drug within a specific 
      * drug identification scheme.</p>
@@ -316,6 +315,55 @@ public class GroupedWithinBean extends MessagePartBean {
      * (e.g. generic drug, generic formulation).</p><p>This 
      * attribute is marked as &quot;populated&quot; as drug code 
      * should be available in most cases.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.MedicineClass.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>An identifier for a drug at a higher level of 
+     * abstraction.</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>HICL</p><p>Therapeutic Class</p><p>Therapeutic Sub 
+     * Classification</p><p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code System)</p>
+     * 
+     * <p>Used to uniquely identify a particular drug product when 
+     * prescribing/dispensing at a higher level of abstraction 
+     * (e.g. generic drug, generic formulation).</p><p>This 
+     * attribute is marked as &quot;populated&quot; as a drug code 
+     * should be available in most cases.</p>
+     * 
+     * <p>Used to uniquely identify a particular drug product when 
+     * prescribing/dispensing at a higher level of abstraction 
+     * (e.g. generic drug, generic formulation).</p><p>This 
+     * attribute is marked as &quot;populated&quot; as a drug code 
+     * should be available in most cases.</p>
      */
     public void setGeneralizedMedicineClassCode(ClinicalDrug generalizedMedicineClassCode) {
         this.generalizedMedicineClassCode.setValue(generalizedMedicineClassCode);
@@ -323,9 +371,13 @@ public class GroupedWithinBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugName</p>
+     * <p>Business Name: DrugName</p>
      * 
-     * <p>Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The name assigned to a drug within a specific drug 
      * identification scheme.</p>
@@ -342,7 +394,11 @@ public class GroupedWithinBean extends MessagePartBean {
      * &quot;populated&quot; as a drug name should be available in 
      * most cases.</p>
      * 
-     * <p>Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.MedicineClass.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The name assigned to the drug at the higher level of 
      * abstraction.</p>
@@ -365,9 +421,13 @@ public class GroupedWithinBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugName</p>
+     * <p>Business Name: DrugName</p>
      * 
-     * <p>Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The name assigned to a drug within a specific drug 
      * identification scheme.</p>
@@ -384,7 +444,11 @@ public class GroupedWithinBean extends MessagePartBean {
      * &quot;populated&quot; as a drug name should be available in 
      * most cases.</p>
      * 
-     * <p>Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.MedicineClass.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The name assigned to the drug at the higher level of 
      * abstraction.</p>

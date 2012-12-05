@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Organization</p>
+ * <p>Business Name: Organization</p>
  * 
  * <p>The scoping organization for the specified role class</p>
  * 
@@ -38,15 +38,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TerritorialAuthorityBean territorialAuthority;
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT309000CA.Organization.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"territorialAuthority"})
     public TerritorialAuthorityBean getTerritorialAuthority() {
         return this.territorialAuthority;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT309000CA.Organization.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
         this.territorialAuthority = territorialAuthority;
     }

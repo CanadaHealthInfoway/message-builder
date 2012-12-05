@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt470002ca.
 
 
 /**
- * <p>AuthorizedBy</p>
+ * <p>Business Name: AuthorizedBy</p>
  * 
  * <p>QUQI_MT120006CA.Subject3: c:authorized by</p>
  * 
@@ -231,35 +231,132 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt470002ca.
  * 
  * <p>Provides authorization to record and/or view patient 
  * information.</p><p>Indicates the consent or keyword used to 
- * authorize access or update, including a reason for access; 
- * May also be used to override access restriction to the 
- * information ('break the glass') on a message by message 
- * basis.</p><p>May be required on a Prescription Reques
+ * authorize access or
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700211CA.Subject3","MCAI_MT700212CA.Subject3","MFMI_MT700751CA.Subject1","QUQI_MT020000CA.Subject3","QUQI_MT020002CA.Subject3","QUQI_MT120006CA.Subject3","QUQI_MT120008CA.Subject3"})
 public class AuthorizedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ConsentBean consentEvent;
     private CS contextControlCode = new CSImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Subject1.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consentEvent"})
     public ConsentBean getConsentEvent() {
         return this.consentEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Subject1.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020002CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700212CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsentEvent(ConsentBean consentEvent) {
         this.consentEvent = consentEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Subject1.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Subject1.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }

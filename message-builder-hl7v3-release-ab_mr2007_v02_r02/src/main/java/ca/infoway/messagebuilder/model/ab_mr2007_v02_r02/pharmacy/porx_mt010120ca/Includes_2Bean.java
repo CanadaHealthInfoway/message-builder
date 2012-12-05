@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescriptionPati
 
 
 /**
- * <p>g:includes</p>
+ * <p>Business Name: g:includes</p>
  * 
  * <p>Indicates other patient information that is an important 
  * consideration for the prescription. This information is 
@@ -53,16 +53,28 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescriptionPati
 @Hl7PartTypeMapping({"PORX_MT010120CA.PertinentInformation"})
 public class Includes_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL contextConductionInd = new BLImpl();
     private PrescriptionPatientMeasurementsBean quantityObservationEvent;
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.PertinentInformation.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.PertinentInformation.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }

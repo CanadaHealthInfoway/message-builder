@@ -47,7 +47,7 @@ import java.util.Set;
 
 
 /**
- * <p>HealthcareOrganization</p>
+ * <p>Business Name: HealthcareOrganization</p>
  * 
  * <p>COCT_MT090508CA.AssignedEntity: Healthcare Organization</p>
  * 
@@ -72,7 +72,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EntererChoice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ActingPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthorPerson {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II representedOrganizationId = new IIImpl();
     private ST representedOrganizationName = new STImpl();
     private CV representedOrganizationAssignedOrganizationCode = new CVImpl();
@@ -83,9 +83,13 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>E: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the organization</p>
      * 
@@ -94,7 +98,11 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>D: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the organization</p>
      * 
@@ -109,9 +117,13 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     }
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>E: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the organization</p>
      * 
@@ -120,7 +132,11 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * information. Because of its importance, the attribute is 
      * mandatory.</p>
      * 
-     * <p>D: Organization identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the organization</p>
      * 
@@ -135,9 +151,13 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>E: Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the name of the organization</p>
      * 
@@ -145,7 +165,11 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
      * 
-     * <p>G: Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the name of the organization</p>
      * 
@@ -159,9 +183,13 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     }
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>E: Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the name of the organization</p>
      * 
@@ -169,7 +197,11 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
      * as confirmation of the identifier. As a result, the 
      * attribute is mandatory.</p>
      * 
-     * <p>G: Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the name of the organization</p>
      * 
@@ -183,9 +215,13 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>F: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the type of organization on whose behalf the 
      * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
@@ -199,9 +235,13 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     }
 
     /**
-     * <p>OrganizationType</p>
+     * <p>Business Name: OrganizationType</p>
      * 
-     * <p>F: Organization Type</p>
+     * <p>Other Business Name: OrganizationType</p>
+     * 
+     * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the type of organization on whose behalf the 
      * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
@@ -215,9 +255,14 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
-     * <p>OrganizationPhoneAndEmails</p>
+     * <p>Business Name: OrganizationPhoneAndEmails</p>
      * 
-     * <p>H: Organization Phone and Emails</p>
+     * <p>Other Business Name: OrganizationPhoneAndEmails</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090508CA.AssignedOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>Identifies contact information for the responsible 
      * organization.</p>
@@ -232,31 +277,73 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.AssignedEntity.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public RoleClass getClassCode() {
         return (RoleClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.AssignedEntity.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"representedOrganization/classCode"})
     public EntityClass getRepresentedOrganizationClassCode() {
         return (EntityClass) this.representedOrganizationClassCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setRepresentedOrganizationClassCode(EntityClass representedOrganizationClassCode) {
         this.representedOrganizationClassCode.setValue(representedOrganizationClassCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"representedOrganization/determinerCode"})
     public EntityDeterminer getRepresentedOrganizationDeterminerCode() {
         return (EntityDeterminer) this.representedOrganizationDeterminerCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setRepresentedOrganizationDeterminerCode(EntityDeterminer representedOrganizationDeterminerCode) {
         this.representedOrganizationDeterminerCode.setValue(representedOrganizationDeterminerCode);
     }

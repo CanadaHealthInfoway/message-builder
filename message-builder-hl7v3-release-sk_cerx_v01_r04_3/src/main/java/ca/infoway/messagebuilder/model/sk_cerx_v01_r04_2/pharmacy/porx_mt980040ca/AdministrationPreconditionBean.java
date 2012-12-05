@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Administration Precondition</p>
+ * <p>Business Name: Administration Precondition</p>
  * 
  * <p>This sets the conditions for which a specific 
  * administration of the drug may be undertaken. Example: if 
@@ -47,12 +47,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.ActEventCriterion"})
 public class AdministrationPreconditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
 
 
     /**
-     * <p>A:Dosage Condition</p>
+     * <p>Business Name: A:Dosage Condition</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.ActEventCriterion.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free-form textual description of condition that must be 
      * met before the product may be administered to/by the 
@@ -82,7 +86,11 @@ public class AdministrationPreconditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Dosage Condition</p>
+     * <p>Business Name: A:Dosage Condition</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.ActEventCriterion.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free-form textual description of condition that must be 
      * met before the product may be administered to/by the 

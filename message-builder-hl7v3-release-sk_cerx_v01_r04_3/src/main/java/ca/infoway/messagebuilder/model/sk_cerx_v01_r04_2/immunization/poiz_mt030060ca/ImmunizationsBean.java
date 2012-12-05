@@ -52,7 +52,7 @@ import java.util.Date;
 
 
 /**
- * <p>Immunizations</p>
+ * <p>Business Name: Immunizations</p>
  * 
  * <p>approachSite must be required if not using 
  * SNOMED</p><p>Route must be required if not using SNOMED</p>
@@ -70,7 +70,7 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -88,7 +88,11 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Immunization Record Id</p>
+     * <p>Business Name: A:Immunization Record Id</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a unique instance of an 
      * immunization record.</p>
@@ -102,7 +106,11 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Immunization Record Id</p>
+     * <p>Business Name: A:Immunization Record Id</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a unique instance of an 
      * immunization record.</p>
@@ -116,7 +124,11 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Immunization Type</p>
+     * <p>Business Name: Immunization Type</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates what type of administration is being 
      * performed.</p>
@@ -132,7 +144,11 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Immunization Type</p>
+     * <p>Business Name: Immunization Type</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates what type of administration is being 
      * performed.</p>
@@ -148,7 +164,11 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Not Immunized?</p>
+     * <p>Business Name: Not Immunized?</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An explicit indication that a person has not been 
      * immunized with the specified vaccine at the time 
@@ -165,7 +185,11 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Not Immunized?</p>
+     * <p>Business Name: Not Immunized?</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An explicit indication that a person has not been 
      * immunized with the specified vaccine at the time 
@@ -182,7 +206,11 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Immunization Date</p>
+     * <p>Business Name: Immunization Date</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date vaccination(s) was administered to the 
      * patient.</p>
@@ -197,7 +225,11 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Immunization Date</p>
+     * <p>Business Name: Immunization Date</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date vaccination(s) was administered to the 
      * patient.</p>
@@ -212,7 +244,12 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Immunization masking Indicator</p>
+     * <p>Business Name: Immunization masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Denotes access restriction placed on the immunization 
      * record. Methods for accessing masked immunization records 
@@ -235,7 +272,12 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Immunization masking Indicator</p>
+     * <p>Business Name: Immunization masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Denotes access restriction placed on the immunization 
      * record. Methods for accessing masked immunization records 
@@ -258,7 +300,11 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Immunization Refusal Reason</p>
+     * <p>Business Name: Immunization Refusal Reason</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value denoting a patient's reason for refusing to 
      * be immunized. Typical reasons include: Parental decision, 
@@ -273,7 +319,11 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Immunization Refusal Reason</p>
+     * <p>Business Name: Immunization Refusal Reason</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value denoting a patient's reason for refusing to 
      * be immunized. Typical reasons include: Parental decision, 
@@ -288,7 +338,11 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Route of Administration</p>
+     * <p>Business Name: Route of Administration</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the means by which the drug was administered to 
      * the patient.</p>
@@ -307,7 +361,11 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Route of Administration</p>
+     * <p>Business Name: Route of Administration</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>This is the means by which the drug was administered to 
      * the patient.</p>
@@ -326,7 +384,12 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Administration Site</p>
+     * <p>Business Name: Administration Site</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A coded value denoting the body area where the 
      * immunization was administered. This is also referred to as 
@@ -350,7 +413,12 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Administration Site</p>
+     * <p>Business Name: Administration Site</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030060CA.Immunization.approachSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A coded value denoting the body area where the 
      * immunization was administered. This is also referred to as 
@@ -374,7 +442,11 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Quantity Administered</p>
+     * <p>Business Name: Quantity Administered</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of the vaccine administered to/by the 
      * patient.</p>
@@ -388,7 +460,11 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Quantity Administered</p>
+     * <p>Business Name: Quantity Administered</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Immunization.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of the vaccine administered to/by the 
      * patient.</p>
@@ -411,11 +487,21 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT030060CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT030060CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
     }
@@ -441,11 +527,23 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT030060CA.CauseOf.adverseReactionObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
     public Boolean getCauseAdverseReactionObservationEvent() {
         return this.causeAdverseReactionObservationEvent.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT030060CA.CauseOf.adverseReactionObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
         this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);
     }

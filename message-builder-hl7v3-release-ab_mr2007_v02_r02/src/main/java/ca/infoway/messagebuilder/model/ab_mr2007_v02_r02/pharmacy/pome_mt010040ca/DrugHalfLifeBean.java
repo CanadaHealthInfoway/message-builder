@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Drug Half-Life</p>
+ * <p>Business Name: Drug Half-Life</p>
  * 
  * <p>Specification of the length of time a particular drug 
  * remains in the body (as active)</p>
@@ -41,12 +41,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.HalfLife"})
 public class DrugHalfLifeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ value = new PQImpl();
 
 
     /**
-     * <p>Half-Life Period</p>
+     * <p>Business Name: Half-Life Period</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.HalfLife.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Different drugs are absorbed and degraded by the body at 
      * different rates. The half-life indicates the length of time 
@@ -67,7 +71,11 @@ public class DrugHalfLifeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Half-Life Period</p>
+     * <p>Business Name: Half-Life Period</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.HalfLife.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Different drugs are absorbed and degraded by the body at 
      * different rates. The half-life indicates the length of time 

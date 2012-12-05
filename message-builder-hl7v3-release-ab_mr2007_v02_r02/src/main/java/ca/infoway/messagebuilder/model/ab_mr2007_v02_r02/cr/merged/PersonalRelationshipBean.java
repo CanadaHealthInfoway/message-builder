@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>PersonalRelationship</p>
+ * <p>Business Name: PersonalRelationship</p>
  * 
  * <p>PRPA_MT101001CA.PersonalRelationship: Personal 
  * Relationship</p>
@@ -127,7 +127,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.PersonalRelationship","PRPA_MT101002CA.PersonalRelationship","PRPA_MT101102CA.PersonalRelationship","PRPA_MT101104CA.PersonalRelationship"})
 public class PersonalRelationshipBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private II relationshipHolderId = new IIImpl();
     private PN relationshipHolderName = new PNImpl();
@@ -137,9 +137,25 @@ public class PersonalRelationshipBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientNextOfKin</p>
+     * <p>Business Name: ClientNextOfKin</p>
      * 
-     * <p>Client Next of Kin</p>
+     * <p>Other Business Name: ClientNextOfKin</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
+     * 
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the ParentClient</p>
+     * 
+     * <p>Other Business Name: ClientNextOfKin</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
@@ -147,7 +163,23 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>Mandatory attribute that supports understanding the 
      * relationship between the client and the Next of Kin</p>
      * 
-     * <p>Client Next of Kin</p>
+     * <p>Other Business Name: ClientNextOfKin</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
+     * 
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the Next of Kin</p>
+     * 
+     * <p>Other Business Name: ClientNextOfKin</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
@@ -161,9 +193,25 @@ public class PersonalRelationshipBean extends MessagePartBean {
     }
 
     /**
-     * <p>ClientNextOfKin</p>
+     * <p>Business Name: ClientNextOfKin</p>
      * 
-     * <p>Client Next of Kin</p>
+     * <p>Other Business Name: ClientNextOfKin</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
+     * 
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the ParentClient</p>
+     * 
+     * <p>Other Business Name: ClientNextOfKin</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
@@ -171,7 +219,23 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * <p>Mandatory attribute that supports understanding the 
      * relationship between the client and the Next of Kin</p>
      * 
-     * <p>Client Next of Kin</p>
+     * <p>Other Business Name: ClientNextOfKin</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code further specifying the kind of Role such as 
+     * Mother, Father, Natural Parent or Step Parent</p>
+     * 
+     * <p>Mandatory attribute that supports understanding the 
+     * relationship between the client and the Next of Kin</p>
+     * 
+     * <p>Other Business Name: ClientNextOfKin</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.PersonalRelationship.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code further specifying the kind of Role such as 
      * Mother, Father, Natural Parent or Step Parent</p>
@@ -185,9 +249,46 @@ public class PersonalRelationshipBean extends MessagePartBean {
 
 
     /**
-     * <p>NextOfKinIdentifier</p>
+     * <p>Business Name: NextOfKinIdentifier</p>
      * 
-     * <p>Next of Kin Identifier</p>
+     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.ParentPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the next of kin</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ParentPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the next of kin</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ParentPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the next of kin</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.ParentPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the next of kin</p>
      * 
@@ -200,9 +301,46 @@ public class PersonalRelationshipBean extends MessagePartBean {
     }
 
     /**
-     * <p>NextOfKinIdentifier</p>
+     * <p>Business Name: NextOfKinIdentifier</p>
      * 
-     * <p>Next of Kin Identifier</p>
+     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.ParentPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the next of kin</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ParentPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the next of kin</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ParentPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for the next of kin</p>
+     * 
+     * <p>Mandatory attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinIdentifier</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.ParentPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the next of kin</p>
      * 
@@ -215,9 +353,46 @@ public class PersonalRelationshipBean extends MessagePartBean {
 
 
     /**
-     * <p>NextOfKinName</p>
+     * <p>Business Name: NextOfKinName</p>
      * 
-     * <p>Next of Kin Name</p>
+     * <p>Other Business Name: NextOfKinName</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.ParentPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A name for the next of kin</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinName</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ParentPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A name for the next of kin</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinName</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ParentPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A name for the next of kin</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinName</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.ParentPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A name for the next of kin</p>
      * 
@@ -230,9 +405,46 @@ public class PersonalRelationshipBean extends MessagePartBean {
     }
 
     /**
-     * <p>NextOfKinName</p>
+     * <p>Business Name: NextOfKinName</p>
      * 
-     * <p>Next of Kin Name</p>
+     * <p>Other Business Name: NextOfKinName</p>
+     * 
+     * <p>Relationship: PRPA_MT101001CA.ParentPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A name for the next of kin</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinName</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ParentPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A name for the next of kin</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinName</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ParentPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A name for the next of kin</p>
+     * 
+     * <p>Required attribute supports the identification of the 
+     * next of kin</p>
+     * 
+     * <p>Other Business Name: NextOfKinName</p>
+     * 
+     * <p>Relationship: PRPA_MT101002CA.ParentPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A name for the next of kin</p>
      * 
@@ -245,7 +457,12 @@ public class PersonalRelationshipBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.PersonalRelationship.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A code specifying the major category of a Role as defined 
      * by HL7 vocabulary.</p>
@@ -256,6 +473,13 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * character of the relationship must be defined by a 
      * PersonalRelationshipRoleType code. The player and scoper are 
      * determined by PersonalRelationshipRoleType code as well.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.PersonalRelationship.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"classCode"})
     public RoleClass getClassCode() {
@@ -263,7 +487,12 @@ public class PersonalRelationshipBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.PersonalRelationship.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A code specifying the major category of a Role as defined 
      * by HL7 vocabulary.</p>
@@ -274,6 +503,13 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * character of the relationship must be defined by a 
      * PersonalRelationshipRoleType code. The player and scoper are 
      * determined by PersonalRelationshipRoleType code as well.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101102CA.PersonalRelationship.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
@@ -281,7 +517,11 @@ public class PersonalRelationshipBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ParentPerson.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An HL7 defined value representing the class or category 
      * that the Entity instance represents.</p><p>Examples: Person, 
@@ -300,6 +540,12 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * attribute.</p>
      * 
      * <p>http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/EntityClass.htm</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ParentPerson.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"relationshipHolder/classCode"})
     public EntityClass getRelationshipHolderClassCode() {
@@ -307,7 +553,11 @@ public class PersonalRelationshipBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ParentPerson.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An HL7 defined value representing the class or category 
      * that the Entity instance represents.</p><p>Examples: Person, 
@@ -326,6 +576,12 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * attribute.</p>
      * 
      * <p>http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/EntityClass.htm</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ParentPerson.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setRelationshipHolderClassCode(EntityClass relationshipHolderClassCode) {
         this.relationshipHolderClassCode.setValue(relationshipHolderClassCode);
@@ -333,7 +589,11 @@ public class PersonalRelationshipBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ParentPerson.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An HL7 defined value representing whether the Entity 
      * represents a kind-of or a specific instance.</p><p>Examples: 
@@ -351,6 +611,12 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * This code distinguishes these different representations.</p>
      * 
      * <p>http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/EntityDeterminer.htm</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ParentPerson.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"relationshipHolder/determinerCode"})
     public EntityDeterminer getRelationshipHolderDeterminerCode() {
@@ -358,7 +624,11 @@ public class PersonalRelationshipBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.ParentPerson.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An HL7 defined value representing whether the Entity 
      * represents a kind-of or a specific instance.</p><p>Examples: 
@@ -376,6 +646,12 @@ public class PersonalRelationshipBean extends MessagePartBean {
      * This code distinguishes these different representations.</p>
      * 
      * <p>http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/EntityDeterminer.htm</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPA_MT101102CA.ParentPerson.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setRelationshipHolderDeterminerCode(EntityDeterminer relationshipHolderDeterminerCode) {
         this.relationshipHolderDeterminerCode.setValue(relationshipHolderDeterminerCode);

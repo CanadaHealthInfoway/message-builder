@@ -54,7 +54,7 @@ import java.util.Set;
 
 
 /**
- * <p>Dispense</p>
+ * <p>Business Name: Dispense</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
  * not present</p><p>Annotation is only permitted if Annotation 
@@ -75,7 +75,7 @@ import java.util.Set;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -94,7 +94,11 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Business Name: A:Prescription Dispense Number</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -124,7 +128,11 @@ public class DispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Business Name: A:Prescription Dispense Number</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -154,7 +162,12 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Dispense Status</p>
+     * <p>Business Name: C:Dispense Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
@@ -173,7 +186,12 @@ public class DispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Dispense Status</p>
+     * <p>Business Name: C:Dispense Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
@@ -192,7 +210,12 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Prescription Masking Indicators</p>
+     * <p>Business Name: E:Prescription Masking Indicators</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their prescriptions. Provides support for additional 
@@ -358,27 +381,56 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060090CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/annotation"})
     public List<NotesBean> getSubjectOf3Annotation() {
         return this.subjectOf3Annotation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf4/detectedIssueIndicator"})
     public Boolean getSubjectOf4DetectedIssueIndicator() {
         return this.subjectOf4DetectedIssueIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf4DetectedIssueIndicator(Boolean subjectOf4DetectedIssueIndicator) {
         this.subjectOf4DetectedIssueIndicator.setValue(subjectOf4DetectedIssueIndicator);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf5/annotationIndicator"})
     public Boolean getSubjectOf5AnnotationIndicator() {
         return this.subjectOf5AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf5AnnotationIndicator(Boolean subjectOf5AnnotationIndicator) {
         this.subjectOf5AnnotationIndicator.setValue(subjectOf5AnnotationIndicator);
     }

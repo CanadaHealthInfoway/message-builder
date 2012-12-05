@@ -43,7 +43,7 @@ import java.util.Date;
 
 
 /**
- * <p>Office Supply</p>
+ * <p>Business Name: Office Supply</p>
  * 
  * <p>This is the detailed information about a medication being 
  * supplied for office use.</p>
@@ -55,7 +55,7 @@ import java.util.Date;
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -67,7 +67,11 @@ public class OfficeSupplyBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Local Dispense ID</p>
+     * <p>Business Name: A:Local Dispense ID</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifier assigned by the dispensing facility.</p>
      * 
@@ -80,7 +84,11 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Local Dispense ID</p>
+     * <p>Business Name: A:Local Dispense ID</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifier assigned by the dispensing facility.</p>
      * 
@@ -93,7 +101,11 @@ public class OfficeSupplyBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Type</p>
+     * <p>Business Name: Dispense Type</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of dispensing event that is being 
      * performed.</p><p>This is a fixed dispense type of 'Office 
@@ -113,7 +125,11 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Type</p>
+     * <p>Business Name: Dispense Type</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of dispensing event that is being 
      * performed.</p><p>This is a fixed dispense type of 'Office 
@@ -133,7 +149,11 @@ public class OfficeSupplyBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Supply Date</p>
+     * <p>Business Name: A:Supply Date</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the date medication was supplied.</p>
      * 
@@ -152,7 +172,11 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Supply Date</p>
+     * <p>Business Name: A:Supply Date</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the date medication was supplied.</p>
      * 
@@ -171,7 +195,11 @@ public class OfficeSupplyBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Supplied Quantity</p>
+     * <p>Business Name: B:Supplied Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p>
@@ -186,7 +214,11 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Supplied Quantity</p>
+     * <p>Business Name: B:Supplied Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p>
@@ -200,18 +232,32 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }
 
 
     /**
-     * <p>C:Ship-to Facility Id</p>
+     * <p>Business Name: C:Ship-to Facility Id</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the facility where the dispensed medication 
      * was shipped.</p>
@@ -226,7 +272,11 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Ship-to Facility Id</p>
+     * <p>Business Name: C:Ship-to Facility Id</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the facility where the dispensed medication 
      * was shipped.</p>
@@ -250,11 +300,21 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020050CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public NotesBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020050CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

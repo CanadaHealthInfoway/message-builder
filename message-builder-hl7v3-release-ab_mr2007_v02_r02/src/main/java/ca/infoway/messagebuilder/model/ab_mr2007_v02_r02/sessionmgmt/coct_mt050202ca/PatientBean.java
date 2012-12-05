@@ -40,7 +40,7 @@ import java.util.Date;
 
 
 /**
- * <p>Patient</p>
+ * <p>Business Name: Patient</p>
  * 
  * <p>A person who is receiving or may receive healthcare 
  * services and has personal attributes (e.g. name, birth 
@@ -56,7 +56,7 @@ import java.util.Date;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.SubjectChoice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.Patient_2 {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PN patientPersonName = new PNImpl();
     private CV patientPersonAdministrativeGenderCode = new CVImpl();
@@ -64,7 +64,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>A:Patient ID</p>
+     * <p>Business Name: A:Patient ID</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Patient.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier assigned to a person by Federal, 
      * Provincial and Territorial jurisdiction for the purposes of 
@@ -210,7 +214,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>A:Patient ID</p>
+     * <p>Business Name: A:Patient ID</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Patient.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier assigned to a person by Federal, 
      * Provincial and Territorial jurisdiction for the purposes of 
@@ -356,7 +364,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>B:Patient Name</p>
+     * <p>Business Name: B:Patient Name</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the patient is known and which apply to 
      * a particular clinical action that has been reported or 
@@ -540,15 +552,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
-     * 
-     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuff
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientPerson/name"})
@@ -557,7 +561,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>B:Patient Name</p>
+     * <p>Business Name: B:Patient Name</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the patient is known and which apply to 
      * a particular clinical action that has been reported or 
@@ -741,15 +749,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
-     * 
-     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuff
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientPersonName(PersonName patientPersonName) {
@@ -758,7 +758,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>F:Patient Gender</p>
+     * <p>Business Name: F:Patient Gender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050202CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient. Complex 
      * genetic genders are handled as observations if they are 
@@ -782,7 +787,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>F:Patient Gender</p>
+     * <p>Business Name: F:Patient Gender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050202CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient. Complex 
      * genetic genders are handled as observations if they are 
@@ -806,7 +816,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>E:Patient Birth Date</p>
+     * <p>Business Name: E:Patient Birth Date</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
@@ -834,7 +848,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>E:Patient Birth Date</p>
+     * <p>Business Name: E:Patient Birth Date</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 

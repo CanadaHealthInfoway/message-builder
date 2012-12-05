@@ -45,7 +45,7 @@ import java.util.List;
 
 
 /**
- * <p>Drug Product</p>
+ * <p>Business Name: Drug Product</p>
  * 
  * <p>A pharmaceutical product to be supplied and/or 
  * administered to a patient. Encompasses manufactured drug 
@@ -62,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Medication {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CE playerCode = new CEImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
@@ -74,7 +74,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>A:Drug Code</p>
+     * <p>Business Name: A:Drug Code</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>An identifier for a type of drug. Depending on where the 
      * drug is being referenced, the drug may be identified at 
@@ -233,12 +237,7 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)<
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardP
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"player/code"})
@@ -247,7 +246,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>A:Drug Code</p>
+     * <p>Business Name: A:Drug Code</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>An identifier for a type of drug. Depending on where the 
      * drug is being referenced, the drug may be identified at 
@@ -406,12 +409,7 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-     * a specialized kind of therapeutic 
-     * equivalent)<
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardP
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPlayerCode(ManufacturedDrug playerCode) {
@@ -420,7 +418,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>B:Drug Name</p>
+     * <p>Business Name: B:Drug Name</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to a drug.</p>
      * 
@@ -533,9 +535,8 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
-     * identifier. The attribute is therefore mandatory.</p>
-     * 
-     * <p>First occurrence is preferred for display.</p>
+     * identifier. The attribute is therefor
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"player/name"})
     public String getPlayerName() {
@@ -543,7 +544,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>B:Drug Name</p>
+     * <p>Business Name: B:Drug Name</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to a drug.</p>
      * 
@@ -656,9 +661,8 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
-     * identifier. The attribute is therefore mandatory.</p>
-     * 
-     * <p>First occurrence is preferred for display.</p>
+     * identifier. The attribute is therefor
+     * ... [rest of documentation truncated due to excessive length]
      */
     public void setPlayerName(String playerName) {
         this.playerName.setValue(playerName);
@@ -666,7 +670,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>C:Drug Description</p>
+     * <p>Business Name: C:Drug Description</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a drug. This usually 
      * is only populated for custom compounds, providing 
@@ -694,7 +702,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>C:Drug Description</p>
+     * <p>Business Name: C:Drug Description</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a drug. This usually 
      * is only populated for custom compounds, providing 
@@ -722,7 +734,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>D:Drug Form</p>
+     * <p>Business Name: D:Drug Form</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared.</p>
@@ -800,7 +816,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>D:Drug Form</p>
+     * <p>Business Name: D:Drug Form</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared.</p>
@@ -878,7 +898,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>E:Drug Lot Number</p>
+     * <p>Business Name: E:Drug Lot Number</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.lotNumberText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identification of a batch in which a specific 
      * manufactured drug belongs.</p>
@@ -898,7 +922,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>E:Drug Lot Number</p>
+     * <p>Business Name: E:Drug Lot Number</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.lotNumberText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identification of a batch in which a specific 
      * manufactured drug belongs.</p>
@@ -918,7 +946,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>F:Drug Expiry Date</p>
+     * <p>Business Name: F:Drug Expiry Date</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.expirationTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates either the length of time a drug product can 
      * remain viable (when talking about a drug in general terms), 
@@ -951,7 +983,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>F:Drug Expiry Date</p>
+     * <p>Business Name: F:Drug Expiry Date</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Medicine.expirationTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates either the length of time a drug product can 
      * remain viable (when talking about a drug in general terms), 

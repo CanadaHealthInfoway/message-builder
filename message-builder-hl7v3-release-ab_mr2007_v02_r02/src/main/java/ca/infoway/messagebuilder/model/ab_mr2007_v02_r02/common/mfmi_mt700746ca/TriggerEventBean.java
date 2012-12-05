@@ -45,7 +45,7 @@ import java.util.List;
 
 
 /**
- * <p>Trigger Event</p>
+ * <p>Business Name: Trigger Event</p>
  * 
  * <p>Identifies the action that resulted in this message being 
  * sent.</p>
@@ -62,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -74,7 +74,11 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
 
     /**
-     * <p>B:Event Identifier</p>
+     * <p>Business Name: B:Event Identifier</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -96,7 +100,11 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     }
 
     /**
-     * <p>B:Event Identifier</p>
+     * <p>Business Name: B:Event Identifier</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -118,7 +126,11 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
 
     /**
-     * <p>A:Event Type</p>
+     * <p>Business Name: A:Event Type</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
@@ -135,7 +147,11 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     }
 
     /**
-     * <p>A:Event Type</p>
+     * <p>Business Name: A:Event Type</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
@@ -152,7 +168,12 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
 
     /**
-     * <p>C:Event Effective Period</p>
+     * <p>Business Name: C:Event Effective Period</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time the event (e.g. query, change, 
      * activation) should begin and occasionally when it should 
@@ -172,7 +193,12 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     }
 
     /**
-     * <p>C:Event Effective Period</p>
+     * <p>Business Name: C:Event Effective Period</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time the event (e.g. query, change, 
      * activation) should begin and occasionally when it should 
@@ -192,7 +218,11 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>Business Name: E:Event Reason</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies why this specific message interaction (e.g. 
      * query, activation request, modification request) 
@@ -212,7 +242,11 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     }
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>Business Name: E:Event Reason</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies why this specific message interaction (e.g. 
      * query, activation request, modification request) 
@@ -231,6 +265,11 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public List<RefersToBean<RR>> getSubject() {
         return this.subject;

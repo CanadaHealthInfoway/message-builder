@@ -35,13 +35,17 @@ import java.util.List;
 @Hl7PartTypeMapping({"COMT_MT900004AB.TransactionPermission"})
 public class TransactionPermissionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private List<HealthcareWorkerBean> responsiblePartyAssignedEntity = new ArrayList<HealthcareWorkerBean>();
 
 
     /**
-     * <p>D: Transaction Codes</p>
+     * <p>Business Name: D: Transaction Codes</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.TransactionPermission.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the transaction(s) to which the user has 
      * access within this logon session.</p>
@@ -55,7 +59,11 @@ public class TransactionPermissionBean extends MessagePartBean {
     }
 
     /**
-     * <p>D: Transaction Codes</p>
+     * <p>Business Name: D: Transaction Codes</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.TransactionPermission.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the transaction(s) to which the user has 
      * access within this logon session.</p>

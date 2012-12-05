@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 
 
 /**
- * <p>Dispense Pickup</p>
+ * <p>Business Name: Dispense Pickup</p>
  * 
  * <p>Captures information about what prescription was picked 
  * up and who received it.</p>
@@ -45,14 +45,18 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 @Hl7RootType
 public class DispensePickupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
 
 
     /**
-     * <p>Dispense Id</p>
+     * <p>Business Name: Dispense Id</p>
+     * 
+     * <p>Relationship: PORX_MT020020CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identity of prescription dispense that has been picked 
      * up.</p>
@@ -67,7 +71,11 @@ public class DispensePickupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Id</p>
+     * <p>Business Name: Dispense Id</p>
+     * 
+     * <p>Relationship: PORX_MT020020CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identity of prescription dispense that has been picked 
      * up.</p>
@@ -82,7 +90,7 @@ public class DispensePickupBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispensed For</p>
+     * <p>Business Name: Dispensed For</p>
      * 
      * <p>Identity of the Patient who is being dispensed 
      * to.&nbsp;</p>
@@ -93,7 +101,7 @@ public class DispensePickupBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispensed For</p>
+     * <p>Business Name: Dispensed For</p>
      * 
      * <p>Identity of the Patient who is being dispensed 
      * to.&nbsp;</p>
@@ -103,11 +111,21 @@ public class DispensePickupBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020020CA.Receiver.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"receiver/responsibleParty"})
     public ResponsiblePersonBean getReceiverResponsibleParty() {
         return this.receiverResponsibleParty;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020020CA.Receiver.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
         this.receiverResponsibleParty = receiverResponsibleParty;
     }

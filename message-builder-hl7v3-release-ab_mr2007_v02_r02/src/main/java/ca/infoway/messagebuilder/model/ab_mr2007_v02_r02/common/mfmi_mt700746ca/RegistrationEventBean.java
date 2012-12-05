@@ -39,7 +39,7 @@ import java.util.List;
 
 
 /**
- * <p>Registration Event</p>
+ * <p>Business Name: Registration Event</p>
  * 
  * <p>This class contains information relevant to the 
  * registration of the payload item(s) into the Master File or 
@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CS statusCode = new CSImpl();
@@ -63,31 +63,63 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public ActClass getClassCode() {
         return (ActClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700746CA.RegistrationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
         return (ActStatus) this.statusCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700746CA.RegistrationEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
     }
@@ -103,21 +135,43 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Custodian.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"custodian/typeCode"})
     public ParticipationType getCustodianTypeCode() {
         return (ParticipationType) this.custodianTypeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Custodian.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setCustodianTypeCode(ParticipationType custodianTypeCode) {
         this.custodianTypeCode.setValue(custodianTypeCode);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700746CA.Custodian.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"custodian/contextControlCode"})
     public ContextControl getCustodianContextControlCode() {
         return (ContextControl) this.custodianContextControlCode.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700746CA.Custodian.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setCustodianContextControlCode(ContextControl custodianContextControlCode) {
         this.custodianContextControlCode.setValue(custodianContextControlCode);
     }

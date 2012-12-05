@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.CommentBean;
 
 
 /**
- * <p>COMT_IN301001CA: Add note to record request</p>
+ * <p>Business Name: COMT_IN301001CA: Add note to record 
+ * request</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.CommentBean;
 @Hl7PartTypeMapping({"COMT_IN301001CA"})
 public class AddNoteToRecordRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

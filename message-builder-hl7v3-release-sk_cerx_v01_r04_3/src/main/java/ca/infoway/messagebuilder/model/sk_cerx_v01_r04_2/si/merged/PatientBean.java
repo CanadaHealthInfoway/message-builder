@@ -26,7 +26,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Patient</p>
+ * <p>Business Name: Patient</p>
  * 
  * <p>RCMR_MT010002CA.Patient: Patient</p>
  * 
@@ -46,6 +46,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Patient","RCMR_MT010002CA.Patient"})
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Consenter {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

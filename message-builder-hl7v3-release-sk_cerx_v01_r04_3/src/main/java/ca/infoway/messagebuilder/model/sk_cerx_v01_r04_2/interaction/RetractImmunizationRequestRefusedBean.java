@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Referen
 
 
 /**
- * <p>POIZ_IN010120CA: Retract immunization request refused</p>
+ * <p>Business Name: POIZ_IN010120CA: Retract immunization 
+ * request refused</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Referen
 @Hl7PartTypeMapping({"POIZ_IN010120CA"})
 public class RetractImmunizationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

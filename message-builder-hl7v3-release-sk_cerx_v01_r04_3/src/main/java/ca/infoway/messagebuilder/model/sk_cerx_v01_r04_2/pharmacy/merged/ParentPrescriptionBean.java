@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>ParentPrescription</p>
+ * <p>Business Name: ParentPrescription</p>
  * 
  * <p>PORX_MT060040CA.PriorSupplyRequest: Parent Prescription</p>
  * 
@@ -64,14 +64,84 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest","PORX_MT060040CA.PriorSupplyRequest","PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
 
 
     /**
-     * <p>PreviousPrescriptionOrderNumber</p>
+     * <p>Business Name: PreviousPrescriptionOrderNumber</p>
      * 
-     * <p>B:Previous Prescription Order Number</p>
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.PriorSupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A reference to a previous prescription which the current 
      * prescription replaces.</p>
@@ -94,9 +164,79 @@ public class ParentPrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>PreviousPrescriptionOrderNumber</p>
+     * <p>Business Name: PreviousPrescriptionOrderNumber</p>
      * 
-     * <p>B:Previous Prescription Order Number</p>
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.PriorSupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>Other Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.PriorCombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A reference to a previous prescription which the current 
      * prescription replaces.</p>

@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Referen
 
 
 /**
- * <p>COMT_IN300002CA: Add patient note request accepted</p>
+ * <p>Business Name: COMT_IN300002CA: Add patient note request 
+ * accepted</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Referen
 @Hl7PartTypeMapping({"COMT_IN300002CA"})
 public class AddPatientNoteRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

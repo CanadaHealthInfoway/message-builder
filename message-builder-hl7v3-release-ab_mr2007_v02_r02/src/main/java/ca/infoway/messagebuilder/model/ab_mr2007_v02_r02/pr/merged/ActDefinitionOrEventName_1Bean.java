@@ -34,7 +34,7 @@ import java.util.List;
 
 
 /**
- * <p>ActDefinitionOrEventName</p>
+ * <p>Business Name: ActDefinitionOrEventName</p>
  * 
  * <p>PRPM_MT303010CA.ActDefinitionOrEvent: Act Definition or 
  * Event Name</p>
@@ -83,16 +83,35 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.ActDefinitionOrEvent","PRPM_MT303010CA.ActDefinitionOrEvent"})
 public class ActDefinitionOrEventName_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<Location_1Bean> location = new ArrayList<Location_1Bean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();
 
 
     /**
-     * <p>ActDefinitionOrEventNameEffectiveTime</p>
+     * <p>Business Name: ActDefinitionOrEventNameEffectiveTime</p>
      * 
-     * <p>Act Definition or Event Name Effective Time</p>
+     * <p>Other Business Name: 
+     * ActDefinitionOrEventNameEffectiveTime</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ActDefinitionOrEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Effective Time with regard to the act involved</p>
+     * 
+     * <p>Required attribute indicating effective time of this 
+     * act</p>
+     * 
+     * <p>Other Business Name: 
+     * ActDefinitionOrEventNameEffectiveTime</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ActDefinitionOrEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective Time with regard to the act involved</p>
      * 
@@ -105,9 +124,28 @@ public class ActDefinitionOrEventName_1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>ActDefinitionOrEventNameEffectiveTime</p>
+     * <p>Business Name: ActDefinitionOrEventNameEffectiveTime</p>
      * 
-     * <p>Act Definition or Event Name Effective Time</p>
+     * <p>Other Business Name: 
+     * ActDefinitionOrEventNameEffectiveTime</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ActDefinitionOrEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Effective Time with regard to the act involved</p>
+     * 
+     * <p>Required attribute indicating effective time of this 
+     * act</p>
+     * 
+     * <p>Other Business Name: 
+     * ActDefinitionOrEventNameEffectiveTime</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ActDefinitionOrEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Effective Time with regard to the act involved</p>
      * 
@@ -119,12 +157,40 @@ public class ActDefinitionOrEventName_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.ActDefinitionOrEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.ActDefinitionOrEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     */
     @Hl7XmlMapping({"location"})
     public List<Location_1Bean> getLocation() {
         return this.location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.ActDefinitionOrEvent.sequel</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.ActDefinitionOrEvent.sequel</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     */
     @Hl7XmlMapping({"sequel"})
     public List<SequelToBean> getSequel() {
         return this.sequel;

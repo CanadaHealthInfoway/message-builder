@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.Logo
 
 
 /**
- * <p>COMT_IN900040AB: Renew logon request</p>
+ * <p>Business Name: COMT_IN900040AB: Renew logon request</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +40,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.Logo
 @Hl7PartTypeMapping({"COMT_IN900040AB"})
 public class RenewLogonRequestBean extends HL7MessageBean<TriggerEventBean<LogoffBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

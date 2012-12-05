@@ -33,7 +33,7 @@ import java.math.BigDecimal;
 
 
 /**
- * <p>Confidence Value</p>
+ * <p>Business Name: Confidence Value</p>
  * 
  * <p>Each returned IdentifiedPerson can have an associated 
  * ObservationEvent reporting the confidence value (degree of 
@@ -47,13 +47,17 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"PRPA_MT101106CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private REAL value = new REALImpl();
 
 
     /**
-     * <p>*Probability Match Code</p>
+     * <p>Business Name: *Probability Match Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Supports the business requirement to identify type of 
      * confidence matching used i.e. the code would be the name for 
@@ -68,7 +72,11 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
 
     /**
-     * <p>*Probability Match Code</p>
+     * <p>Business Name: *Probability Match Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Supports the business requirement to identify type of 
      * confidence matching used i.e. the code would be the name for 
@@ -83,7 +91,11 @@ public class ConfidenceValueBean extends MessagePartBean {
 
 
     /**
-     * <p>Confidence Value</p>
+     * <p>Business Name: Confidence Value</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target client i.e. 
@@ -98,7 +110,11 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
 
     /**
-     * <p>Confidence Value</p>
+     * <p>Business Name: Confidence Value</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A real number value indicating the confidence of the 
      * query with regard to finding the intended target client i.e. 

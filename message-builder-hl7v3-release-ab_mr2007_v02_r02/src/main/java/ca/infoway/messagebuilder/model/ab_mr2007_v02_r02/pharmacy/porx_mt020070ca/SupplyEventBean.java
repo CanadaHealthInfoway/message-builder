@@ -42,7 +42,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
@@ -52,7 +52,11 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Type</p>
+     * <p>Business Name: Dispense Type</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of dispensing event that is performed. 
      * Examples include: Trial Fill, Completion of Trial, Partial 
@@ -68,7 +72,11 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Type</p>
+     * <p>Business Name: Dispense Type</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of dispensing event that is performed. 
      * Examples include: Trial Fill, Completion of Trial, Partial 
@@ -84,7 +92,11 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Processing and Pickup Date</p>
+     * <p>Business Name: Dispense Processing and Pickup Date</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the date the dispense product was prepared and 
      * when the product was picked up by or delivered to the 
@@ -108,7 +120,11 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Processing and Pickup Date</p>
+     * <p>Business Name: Dispense Processing and Pickup Date</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Represents the date the dispense product was prepared and 
      * when the product was picked up by or delivered to the 
@@ -132,7 +148,11 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispensed Quantity</p>
+     * <p>Business Name: Dispensed Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p>
@@ -148,7 +168,11 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispensed Quantity</p>
+     * <p>Business Name: Dispensed Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The amount of medication that has been dispensed. 
      * Includes unit of measure.</p>
@@ -164,7 +188,11 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispensed Days Supply</p>
+     * <p>Business Name: Dispensed Days Supply</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The number of days that the dispensed quantity is 
      * expected to last.</p>
@@ -182,7 +210,11 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispensed Days Supply</p>
+     * <p>Business Name: Dispensed Days Supply</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The number of days that the dispensed quantity is 
      * expected to last.</p>
@@ -199,11 +231,21 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }

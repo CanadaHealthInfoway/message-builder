@@ -48,7 +48,7 @@ import java.util.Set;
 
 
 /**
- * <p>Drug or Compound</p>
+ * <p>Business Name: Drug or Compound</p>
  * 
  * <p>A catalog of drugs (manufactured material) from which 
  * drugs may be selected for prescribing/dispensing. This 
@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private SET<TN, TrivialName> name = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST desc = new STImpl();
@@ -77,7 +77,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Code</p>
+     * <p>Business Name: Drug Code</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An identifier for a type of drug. Depending on where the 
      * drug is being referenced, the drug may be identified at 
@@ -237,11 +241,7 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredien
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -250,7 +250,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Code</p>
+     * <p>Business Name: Drug Code</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An identifier for a type of drug. Depending on where the 
      * drug is being referenced, the drug may be identified at 
@@ -410,11 +414,7 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
-     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
-     * System)</p><p>D56(use code system to distinguish different 
-     * types)</p><p>ZPB2.1</p><p>ZPB3.1</p><p>ZPC.1</p><p>ZPC1.3</p><p>ZPD.1</p><p>ZPD1.1</p><p>ZPD.6(scoping 
-
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredien
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ClinicalDrug code) {
@@ -423,7 +423,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Names</p>
+     * <p>Business Name: Drug Names</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
      * 
      * <p>The name assigned to a drug.</p>
      * 
@@ -536,13 +540,7 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * allow selection from dropdowns and for local searching. Up 
      * to two names are supported: a 'search name' which is fully 
      * formed with no abbreviations, and a 'display name' which may 
-     * contain abbreviations to fit within a smaller area on the 
-     * screen.</p><p>This attribute is marked as 'mandatory' as 
-     * drugs at any level of the drug hierarchy is supposed to have 
-     * a name.</p>
-     * 
-     * <p>Names are used for human reference communication, to 
-     
+     * contain abbreviations to fi
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"name"})
@@ -552,7 +550,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Description</p>
+     * <p>Business Name: Description</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a drug. This usually 
      * is only populated for custom compounds, providing 
@@ -584,7 +586,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Description</p>
+     * <p>Business Name: Description</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form textual description of a drug. This usually 
      * is only populated for custom compounds, providing 
@@ -616,7 +622,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared.</p>
@@ -691,7 +701,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Drug Form</p>
+     * <p>Business Name: Drug Form</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared.</p>
@@ -776,7 +790,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Regulatory Status Code</p>
+     * <p>Business Name: Regulatory Status Code</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.RegulatedProduct.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether the drug is approved for use in Canada 
      * or not. (active = currently approved, terminated or pending 
@@ -791,7 +809,11 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Regulatory Status Code</p>
+     * <p>Business Name: Regulatory Status Code</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.RegulatedProduct.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether the drug is approved for use in Canada 
      * or not. (active = currently approved, terminated or pending 
@@ -806,7 +828,7 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispensed In</p>
+     * <p>Business Name: Dispensed In</p>
      * 
      * <p><div>Information about how the dispensed drug is or 
      * should&nbsp;asContent be contained.</div> <p>&nbsp;</p></p>
@@ -817,7 +839,7 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispensed In</p>
+     * <p>Business Name: Dispensed In</p>
      * 
      * <p><div>Information about how the dispensed drug is or 
      * should&nbsp;asContent be contained.</div> <p>&nbsp;</p></p>
@@ -828,7 +850,7 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
-     * <p>Group Within</p>
+     * <p>Business Name: Group Within</p>
      * 
      * <p>&nbsp;Indicates the location of a medication in a 
      * particular</p> <div>abstract hierarchy. For example, what 

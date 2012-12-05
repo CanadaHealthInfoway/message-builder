@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.prpm_mt309000ca.Role
 
 
 /**
- * <p>PRPM_IN303011CA: Update Provider Confirmation</p>
+ * <p>Business Name: PRPM_IN303011CA: Update Provider 
+ * Confirmation</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -47,6 +48,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.prpm_mt309000ca.Role
 @Hl7PartTypeMapping({"PRPM_IN303011CA"})
 public class UpdateProviderConfirmationBean extends HL7MessageBean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

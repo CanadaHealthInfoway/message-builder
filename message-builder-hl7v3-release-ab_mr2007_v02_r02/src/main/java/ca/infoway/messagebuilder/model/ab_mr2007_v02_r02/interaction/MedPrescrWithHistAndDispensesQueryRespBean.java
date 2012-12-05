@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.porx_mt0603
 
 
 /**
- * <p>PORX_IN060180CA: Med. prescr. with hist. and dispenses 
- * query resp.</p>
+ * <p>Business Name: PORX_IN060180CA: Med. prescr. with hist. 
+ * and dispenses query resp.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -45,6 +45,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.porx_mt0603
 @Hl7PartTypeMapping({"PORX_IN060180CA"})
 public class MedPrescrWithHistAndDispensesQueryRespBean extends HL7MessageBean<TriggerEvent_4Bean<PrescriptionBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

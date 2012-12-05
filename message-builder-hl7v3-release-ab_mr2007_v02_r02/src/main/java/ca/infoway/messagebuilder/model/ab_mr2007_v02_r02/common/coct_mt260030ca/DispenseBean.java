@@ -43,7 +43,7 @@ import java.util.Date;
 
 
 /**
- * <p>Dispense</p>
+ * <p>Business Name: Dispense</p>
  * 
  * <p>Indicates a particular dispense event that resulted in 
  * the issue.</p>
@@ -55,7 +55,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausalActs {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -65,7 +65,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Business Name: A:Prescription Dispense Number</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier of the dispensed event that triggered 
      * the issue.</p>
@@ -80,7 +84,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Business Name: A:Prescription Dispense Number</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier of the dispensed event that triggered 
      * the issue.</p>
@@ -95,7 +103,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>B:Dispense Status</p>
+     * <p>Business Name: B:Dispense Status</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
@@ -114,7 +126,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>B:Dispense Status</p>
+     * <p>Business Name: B:Dispense Status</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
@@ -133,7 +149,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>B:Dispensed Date</p>
+     * <p>Business Name: B:Dispensed Date</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the product was issued to the 
      * patient.</p>
@@ -160,7 +180,11 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>B:Dispensed Date</p>
+     * <p>Business Name: B:Dispensed Date</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the product was issued to the 
      * patient.</p>
@@ -187,7 +211,12 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>C:Dispense Masking Indicator</p>
+     * <p>Business Name: C:Dispense Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.SupplyEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
@@ -207,7 +236,12 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
 
     /**
-     * <p>C:Dispense Masking Indicator</p>
+     * <p>Business Name: C:Dispense Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT260030CA.SupplyEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 

@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>f:refers to</p>
+ * <p>Business Name: f:refers to</p>
  * 
  * <p>Indicates the item(s) being acted upon by this trigger 
  * event.</p><p>Will be mandatory in wrappers with payload 
@@ -53,35 +53,60 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.Subject2"})
 public class RefersToBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private BL contextConductionInd = new BLImpl();
     private RegistrationEventBean<RR> registrationEvent;
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Subject2.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ActRelationshipType getTypeCode() {
         return (ActRelationshipType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Subject2.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Subject2.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Subject2.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
 
 
     /**
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Business Name: Cascade Responsibility Indicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates whether or not objects of the trigger event are 
      * to be cascaded to the payload.</p><p>If true, associations 
@@ -138,7 +163,12 @@ public class RefersToBean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Business Name: Cascade Responsibility Indicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700746CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates whether or not objects of the trigger event are 
      * to be cascaded to the payload.</p><p>If true, associations 
@@ -194,11 +224,21 @@ public class RefersToBean<RR> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"registrationEvent"})
     public RegistrationEventBean<RR> getRegistrationEvent() {
         return this.registrationEvent;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRegistrationEvent(RegistrationEventBean<RR> registrationEvent) {
         this.registrationEvent = registrationEvent;
     }

@@ -35,7 +35,7 @@ import java.util.Date;
 
 
 /**
- * <p>CreatedBy</p>
+ * <p>Business Name: CreatedBy</p>
  * 
  * <p>MFMI_MT700751CA.Author: a:*created by</p>
  * 
@@ -61,7 +61,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -69,9 +69,38 @@ public class CreatedByBean extends MessagePartBean {
 
 
     /**
-     * <p>TimeOfCreation</p>
+     * <p>Business Name: TimeOfCreation</p>
      * 
-     * <p>D:Time of Creation</p>
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The time the person responsible for the event made the 
      * decision for it to occur. This may be different than the 
@@ -98,9 +127,38 @@ public class CreatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>TimeOfCreation</p>
+     * <p>Business Name: TimeOfCreation</p>
      * 
-     * <p>D:Time of Creation</p>
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The time the person responsible for the event made the 
      * decision for it to occur. This may be different than the 
@@ -127,9 +185,25 @@ public class CreatedByBean extends MessagePartBean {
 
 
     /**
-     * <p>InformationReceivedMethod</p>
+     * <p>Business Name: InformationReceivedMethod</p>
      * 
-     * <p>F:Information Received Method</p>
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates how the person who recorded the event became 
      * aware of it.. E.g. Verbal, written, fax, etc.</p>
@@ -143,9 +217,25 @@ public class CreatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>InformationReceivedMethod</p>
+     * <p>Business Name: InformationReceivedMethod</p>
      * 
-     * <p>F:Information Received Method</p>
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates how the person who recorded the event became 
      * aware of it.. E.g. Verbal, written, fax, etc.</p>
@@ -159,9 +249,27 @@ public class CreatedByBean extends MessagePartBean {
 
 
     /**
-     * <p>DigitalSignature</p>
+     * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>G:Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the formal digital signature of the message 
      * content.</p>
@@ -177,9 +285,27 @@ public class CreatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>DigitalSignature</p>
+     * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>G:Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the formal digital signature of the message 
      * content.</p>
@@ -194,11 +320,37 @@ public class CreatedByBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"authorPerson"})
     public AuthorPerson getAuthorPerson() {
         return this.authorPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700751CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Author.authorPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorPerson(AuthorPerson authorPerson) {
         this.authorPerson = authorPerson;
     }

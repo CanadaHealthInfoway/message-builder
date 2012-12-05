@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>f:includes</p>
+ * <p>Business Name: f:includes</p>
  * 
  * <p>Identifies the instructions for how the prescribed 
  * medication should be dispensed to the patient.</p>
@@ -48,11 +48,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060340CA.Component6"})
 public class IncludesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DispenseInstructionsBean supplyRequest;
 
 
     /**
+     * <p>Relationship: PORX_MT060340CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p><div>Specification of how the prescribed medication 
      * is</div> <p>to be dispensed to the patient.&nbsp;</p></p>
      */
@@ -62,6 +66,10 @@ public class IncludesBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PORX_MT060340CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p><div>Specification of how the prescribed medication 
      * is</div> <p>to be dispensed to the patient.&nbsp;</p></p>
      */

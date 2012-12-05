@@ -29,8 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 
 
 /**
- * <p>PORX_IN010070CA: Record refusal to dispense request 
- * accepted</p>
+ * <p>Business Name: PORX_IN010070CA: Record refusal to 
+ * dispense request accepted</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 @Hl7PartTypeMapping({"PORX_IN010070CA"})
 public class RecordRefusalToDispenseRequestAcceptedBean extends HL7MessageBean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

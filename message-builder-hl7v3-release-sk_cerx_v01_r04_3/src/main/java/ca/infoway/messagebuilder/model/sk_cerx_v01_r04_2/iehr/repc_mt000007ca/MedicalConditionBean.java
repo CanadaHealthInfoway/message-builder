@@ -56,7 +56,7 @@ import java.util.List;
 
 
 /**
- * <p>Medical Condition</p>
+ * <p>Business Name: Medical Condition</p>
  * 
  * <p>Value is mandatory if not using SNOMED</p><p>Code is 
  * fixed to DX if not using SNOMED</p>
@@ -75,7 +75,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -93,7 +93,11 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Medical Condition Record Id</p>
+     * <p>Business Name: A:Medical Condition Record Id</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for medical condition record.</p>
      * 
@@ -107,7 +111,11 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Medical Condition Record Id</p>
+     * <p>Business Name: A:Medical Condition Record Id</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for medical condition record.</p>
      * 
@@ -121,7 +129,11 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Condition Type</p>
+     * <p>Business Name: Condition Type</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates what kind of condition is being reported.</p>
      * 
@@ -140,7 +152,11 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Condition Type</p>
+     * <p>Business Name: Condition Type</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates what kind of condition is being reported.</p>
      * 
@@ -159,7 +175,11 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Condition Status</p>
+     * <p>Business Name: D:Condition Status</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value that indicates whether the condition is 
      * still impacting the patient. 'ACTIVE' means the condition is 
@@ -177,7 +197,11 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Condition Status</p>
+     * <p>Business Name: D:Condition Status</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value that indicates whether the condition is 
      * still impacting the patient. 'ACTIVE' means the condition is 
@@ -195,7 +219,12 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Condition Time Period</p>
+     * <p>Business Name: E:Condition Time Period</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000007CA.MedicalCondition.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date on which the condition first began and when it 
      * ended.</p><p>For ongoing conditions such as chronic 
@@ -227,7 +256,12 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Condition Time Period</p>
+     * <p>Business Name: E:Condition Time Period</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000007CA.MedicalCondition.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date on which the condition first began and when it 
      * ended.</p><p>For ongoing conditions such as chronic 
@@ -259,7 +293,12 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Condition Masking Indicator</p>
+     * <p>Business Name: F:Condition Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000007CA.MedicalCondition.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Denotes access restriction placed on the medical 
      * condition record. Methods for accessing masked medical 
@@ -289,7 +328,12 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Condition Masking Indicator</p>
+     * <p>Business Name: F:Condition Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000007CA.MedicalCondition.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Denotes access restriction placed on the medical 
      * condition record. Methods for accessing masked medical 
@@ -319,7 +363,11 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Condition</p>
+     * <p>Business Name: C:Condition</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A code indicating the specific condition. E.g. 
      * Hypertension, Pregnancy.</p>
@@ -335,7 +383,11 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Condition</p>
+     * <p>Business Name: C:Condition</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.MedicalCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A code indicating the specific condition. E.g. 
      * Hypertension, Pregnancy.</p>
@@ -360,11 +412,23 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000007CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000007CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -400,11 +464,21 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
@@ -416,11 +490,21 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject6.chronicIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/chronicIndicator"})
     public Boolean getSubjectOf3ChronicIndicator() {
         return this.subjectOf3ChronicIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject6.chronicIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ChronicIndicator(Boolean subjectOf3ChronicIndicator) {
         this.subjectOf3ChronicIndicator.setValue(subjectOf3ChronicIndicator);
     }

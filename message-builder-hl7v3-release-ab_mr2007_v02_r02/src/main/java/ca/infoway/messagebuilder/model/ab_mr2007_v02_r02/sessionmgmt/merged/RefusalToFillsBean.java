@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
     private ProviderBean authorAssignedPerson;
@@ -82,9 +82,19 @@ public class RefusalToFillsBean extends MessagePartBean {
 
 
     /**
-     * <p>RefusalToFillDate</p>
+     * <p>Business Name: RefusalToFillDate</p>
      * 
-     * <p>Refusal To Fill Date</p>
+     * <p>Other Business Name: RefusalToFillDate</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.RefusalToFill.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: RefusalToFillDate</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.RefusalToFill.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getEffectiveTime() {
@@ -92,9 +102,19 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
     /**
-     * <p>RefusalToFillDate</p>
+     * <p>Business Name: RefusalToFillDate</p>
      * 
-     * <p>Refusal To Fill Date</p>
+     * <p>Other Business Name: RefusalToFillDate</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.RefusalToFill.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: RefusalToFillDate</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.RefusalToFill.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -102,9 +122,13 @@ public class RefusalToFillsBean extends MessagePartBean {
 
 
     /**
-     * <p>RefusalToFillReason</p>
+     * <p>Business Name: RefusalToFillReason</p>
      * 
-     * <p>Refusal to Fill Reason</p>
+     * <p>Other Business Name: RefusalToFillReason</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.RefusalToFill.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
@@ -113,7 +137,11 @@ public class RefusalToFillsBean extends MessagePartBean {
      * which are not tied to specific issues. Set to CWE to allow 
      * non-coded reasons.</p>
      * 
-     * <p>Refusal To Fill Reason</p>
+     * <p>Other Business Name: RefusalToFillReason</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.RefusalToFill.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
@@ -128,9 +156,13 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
     /**
-     * <p>RefusalToFillReason</p>
+     * <p>Business Name: RefusalToFillReason</p>
      * 
-     * <p>Refusal to Fill Reason</p>
+     * <p>Other Business Name: RefusalToFillReason</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.RefusalToFill.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
@@ -139,7 +171,11 @@ public class RefusalToFillsBean extends MessagePartBean {
      * which are not tied to specific issues. Set to CWE to allow 
      * non-coded reasons.</p>
      * 
-     * <p>Refusal To Fill Reason</p>
+     * <p>Other Business Name: RefusalToFillReason</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.RefusalToFill.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a non-clinical-issue based reason for refusing 
      * to fill.</p>
@@ -153,26 +189,91 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author5.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedPerson"})
     public ProviderBean getAuthorAssignedPerson() {
         return this.authorAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author5.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
         this.authorAssignedPerson = authorAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.RefusalToFill.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.RefusalToFill.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.RefusalToFill.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.RefusalToFill.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Reason.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Reason.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reason/detectedIssueEvent"})
     public List<IssuesBean> getReasonDetectedIssueEvent() {
         return this.reasonDetectedIssueEvent;

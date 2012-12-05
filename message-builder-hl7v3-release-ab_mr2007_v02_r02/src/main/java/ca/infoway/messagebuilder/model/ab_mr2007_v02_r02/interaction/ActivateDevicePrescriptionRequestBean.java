@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt7002
 
 
 /**
- * <p>PORX_IN010300CA: Activate device prescription request</p>
+ * <p>Business Name: PORX_IN010300CA: Activate device 
+ * prescription request</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt7002
 @Hl7PartTypeMapping({"PORX_IN010300CA"})
 public class ActivateDevicePrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<DeviceRequest_1Bean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

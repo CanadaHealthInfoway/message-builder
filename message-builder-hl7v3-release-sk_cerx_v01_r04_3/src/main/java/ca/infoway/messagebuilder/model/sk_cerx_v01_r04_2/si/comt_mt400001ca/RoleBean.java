@@ -32,12 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT400001CA.Role"})
 public class RoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV playingEntityKindCode = new CVImpl();
 
 
     /**
-     * <p>Maskable Material</p>
+     * <p>Business Name: Maskable Material</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.EntityKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the materia (e.g drug) whose associated records 
      * should be masked.</p>
@@ -55,7 +59,11 @@ public class RoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Maskable Material</p>
+     * <p>Business Name: Maskable Material</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.EntityKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the materia (e.g drug) whose associated records 
      * should be masked.</p>

@@ -42,7 +42,7 @@ import java.util.List;
 
 
 /**
- * <p>Qualified Entity</p>
+ * <p>Business Name: Qualified Entity</p>
  * 
  * <p>This role describes specific qualifications that may be 
  * held the provider as a result of training or experience, but 
@@ -57,7 +57,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private II id = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -74,7 +74,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Expertise or Credentials Role Identifier</p>
+     * <p>Business Name: Expertise or Credentials Role Identifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.QualifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for the Expertise or Credential.</p>
      * 
@@ -87,7 +91,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Expertise or Credentials Role Identifier</p>
+     * <p>Business Name: Expertise or Credentials Role Identifier</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.QualifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for the Expertise or Credential.</p>
      * 
@@ -99,6 +107,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT301010CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"relatedTo"})
     public List<RelatedToBean> getRelatedTo() {
         return this.relatedTo;
@@ -106,7 +119,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise or Credentials Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.QualifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code for the degree or educational rank that the 
      * credential specifies. May also apply to an Expertise 
@@ -124,7 +141,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise or Credentials Role Type</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.QualifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code for the degree or educational rank that the 
      * credential specifies. May also apply to an Expertise 
@@ -142,7 +163,13 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Expertise or Credentials Role Effective Date</p>
+     * <p>Business Name: Expertise or Credentials Role Effective 
+     * Date</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.QualifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The effective date of the provider expertise or 
      * credentials in the healthcare provider role.</p>
@@ -159,7 +186,13 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Expertise or Credentials Role Effective Date</p>
+     * <p>Business Name: Expertise or Credentials Role Effective 
+     * Date</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.QualifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The effective date of the provider expertise or 
      * credentials in the healthcare provider role.</p>
@@ -185,11 +218,23 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT301010CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"qualificationGrantingOrganization"})
     public OrganizationBean getQualificationGrantingOrganization() {
         return this.qualificationGrantingOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT301010CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
         this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }

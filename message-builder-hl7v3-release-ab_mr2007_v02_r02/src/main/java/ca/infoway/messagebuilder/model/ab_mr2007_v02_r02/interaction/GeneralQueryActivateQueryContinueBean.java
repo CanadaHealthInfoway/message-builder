@@ -28,7 +28,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7M
 
 
 /**
- * <p>QUQI_IN000003CA: General Query Activate Query Continue</p>
+ * <p>Business Name: QUQI_IN000003CA: General Query Activate 
+ * Query Continue</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -37,6 +38,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7M
 @Hl7PartTypeMapping({"QUQI_IN000003CA"})
 public class GeneralQueryActivateQueryContinueBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

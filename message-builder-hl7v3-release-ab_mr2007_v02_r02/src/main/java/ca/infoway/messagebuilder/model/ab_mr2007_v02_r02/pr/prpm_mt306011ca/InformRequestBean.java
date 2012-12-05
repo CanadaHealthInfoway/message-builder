@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.ServiceDelive
 
 
 /**
- * <p>Inform Request</p>
+ * <p>Business Name: Inform Request</p>
  * 
  * <p>A record of something that is being done, has been done, 
  * can be done, or is intended or requested to be done.</p>
@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.ServiceDelive
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
@@ -65,28 +65,52 @@ public class InformRequestBean extends MessagePartBean {
     private Choice indirectTargetChoice;
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.InformRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public ActClass getClassCode() {
         return (ActClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.InformRequest.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.InformRequest.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"moodCode"})
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.InformRequest.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
 
     /**
-     * <p>Inform Request Code</p>
+     * <p>Business Name: Inform Request Code</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code specifying the particular kind of Act that the 
      * Act-instance represents within its class. Ex. Document 
@@ -101,7 +125,11 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>Inform Request Code</p>
+     * <p>Business Name: Inform Request Code</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code specifying the particular kind of Act that the 
      * Act-instance represents within its class. Ex. Document 
@@ -115,11 +143,21 @@ public class InformRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/modeCode"})
     public ParticipationMode getSubjectModeCode() {
         return (ParticipationMode) this.subjectModeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectModeCode(ParticipationMode subjectModeCode) {
         this.subjectModeCode.setValue(subjectModeCode);
     }
@@ -135,11 +173,21 @@ public class InformRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.IndirectTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"indirectTarget/typeCode"})
     public ParticipationType getIndirectTargetTypeCode() {
         return (ParticipationType) this.indirectTargetTypeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.IndirectTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setIndirectTargetTypeCode(ParticipationType indirectTargetTypeCode) {
         this.indirectTargetTypeCode.setValue(indirectTargetTypeCode);
     }

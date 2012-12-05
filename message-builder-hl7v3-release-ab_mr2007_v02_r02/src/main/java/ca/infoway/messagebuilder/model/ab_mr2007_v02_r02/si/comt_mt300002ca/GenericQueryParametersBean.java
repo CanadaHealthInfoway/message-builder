@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
@@ -42,12 +42,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV patientNoteCategoryCodeValue = new CVImpl();
 
 
     /**
-     * <p>Patient Note Category Code</p>
+     * <p>Business Name: Patient Note Category Code</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT300002CA.PatientNoteCategoryCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those patient annotation pertaining to the 
@@ -68,7 +73,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Note Category Code</p>
+     * <p>Business Name: Patient Note Category Code</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT300002CA.PatientNoteCategoryCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those patient annotation pertaining to the 

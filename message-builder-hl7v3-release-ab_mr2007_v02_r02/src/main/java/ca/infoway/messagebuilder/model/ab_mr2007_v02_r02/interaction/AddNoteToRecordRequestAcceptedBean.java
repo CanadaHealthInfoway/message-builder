@@ -28,7 +28,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TriggerEventBean
 
 
 /**
- * <p>COMT_IN301002CA: Add note to record request accepted</p>
+ * <p>Business Name: COMT_IN301002CA: Add note to record 
+ * request accepted</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -37,6 +38,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TriggerEventBean
 @Hl7PartTypeMapping({"COMT_IN301002CA"})
 public class AddNoteToRecordRequestAcceptedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -263,17 +263,13 @@ import java.util.Date;
  * must be specified.</p>
  * 
  * <p>In an EHR integrated health services environment, it is 
- * important that other providers are able to query who is 
- * responsible for status changes. Also used by applications 
- * for auditing and sorting.</p><p>The attribute is populated 
- * because provider or application maintaining the prescription 
- * dispen
+ * important that other provid
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"COCT_MT130001CA.Author3","COCT_MT260010CA.Author1","COCT_MT260012CA.Author1","COCT_MT260020CA.Author1","COCT_MT260022CA.Author1","COCT_MT260030CA.Author1","PORX_MT060010CA.Author6","PORX_MT060040CA.Author1","PORX_MT060090CA.Author6","PORX_MT060160CA.Author1","PORX_MT060210CA.Author7","PORX_MT060340CA.Author1","PORX_MT980010CA.Author1","PORX_MT980020CA.Author1","PORX_MT980030CA.Author1","REPC_MT000009CA.Author3"})
 public class Author1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private ChangedBy changedBy;
     private HealthcareWorkerBean assignedEntity;
@@ -283,15 +279,11 @@ public class Author1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Change Timestamp</p>
+     * <p>Other Business Name: ChangeTimestamp</p>
      * 
-     * <p>The date and time at which the change was made.</p>
+     * <p>Relationship: PORX_MT060340CA.Author1.time</p>
      * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription 
-     * dispense. Also used for sorting and audit purposes.</p>
-     * 
-     * <p>Change Timestamp</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the change was made.</p>
      * 
@@ -309,7 +301,25 @@ public class Author1Bean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider used this 
+     * management for the issue in the past.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record but not always available and 
+     * therefore only marked as 'populated'.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the provider managed the 
      * issue.</p>
@@ -319,7 +329,59 @@ public class Author1Bean extends MessagePartBean {
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
      * 
-     * <p>Change Datetime</p>
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>Other Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author6.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit 
+     * purposes.</p><p>The attribute is mandatory as the time of 
+     * change is known.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit 
+     * purposes.</p><p>The attribute is mandatory as the time of 
+     * change is known.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>Other Business Name: ChangeDatetime</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the change was made. Note that this may 
      * be earlier or occassionally later than when the change is 
@@ -330,55 +392,11 @@ public class Author1Bean extends MessagePartBean {
      * for sorting and audit purposes. Time of change is always 
      * known and thus the attribute is mandatory.</p>
      * 
-     * <p>Change Timestamp</p>
+     * <p>Other Business Name: ChangeTimestamp</p>
      * 
-     * <p>The date and time at which the change was made.</p>
+     * <p>Relationship: PORX_MT060160CA.Author1.time</p>
      * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the other medication. 
-     * Also used for sorting and audit purposes.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the time of change must 
-     * be known.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the other medication. 
-     * Also used for sorting and audit purposes.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the time of change must 
-     * be known.</p>
-     * 
-     * <p>Change Timestamp</p>
-     * 
-     * <p>The date on which the change was made.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription. 
-     * Also used for sorting and audit purposes.</p><p>This 
-     * attribute is marked as &quot;mandatory&quot; as the time the 
-     * comment was posted will always be known.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription. 
-     * Also used for sorting and audit purposes.</p><p>This 
-     * attribute is marked as &quot;mandatory&quot; as the time the 
-     * comment was posted will always be known.</p>
-     * 
-     * <p>Change Timestamp</p>
-     * 
-     * <p>The date and time at which the change was made.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription 
-     * dispense. Also used for sorting and audit 
-     * purposes.</p><p>The attribute is mandatory as the time of 
-     * change is known.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription 
-     * dispense. Also used for sorting and audit 
-     * purposes.</p><p>The attribute is mandatory as the time of 
-     * change is known.</p>
-     * 
-     * <p>Change Timestamp</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date and time at which the change was made.</p>
      * 
@@ -396,17 +414,11 @@ public class Author1Bean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ChangeTime</p>
      * 
-     * <p>The date and time on which the provider used this 
-     * management for the issue in the past.</p>
+     * <p>Relationship: REPC_MT000009CA.Author3.time</p>
      * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record but not always available and 
-     * therefore only marked as 'populated'.</p>
-     * 
-     * <p>Change Time</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the change was made.</p>
      * 
@@ -415,7 +427,25 @@ public class Author1Bean extends MessagePartBean {
      * used for sorting and audit purposes. Time of change is 
      * always known and thus the attribute is mandatory.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the provider used this 
      * management for the issue in the past.</p>
@@ -425,7 +455,51 @@ public class Author1Bean extends MessagePartBean {
      * <p>Part of the audit record but not always available and 
      * therefore only marked as 'populated'.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>This 
+     * attribute is marked as &quot;mandatory&quot; as the time the 
+     * comment was posted will always be known.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>This 
+     * attribute is marked as &quot;mandatory&quot; as the time the 
+     * comment was posted will always be known.</p>
+     * 
+     * <p>Other Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author7.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the other medication. 
+     * Also used for sorting and audit purposes.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the time of change must 
+     * be known.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the other medication. 
+     * Also used for sorting and audit purposes.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the time of change must 
+     * be known.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the provider managed the 
      * issue.</p>
@@ -434,6 +508,32 @@ public class Author1Bean extends MessagePartBean {
      * 
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider used this 
+     * management for the issue in the past.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record but not always available and 
+     * therefore only marked as 'populated'.</p>
+     * 
+     * <p>Other Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author6.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit purposes.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -441,15 +541,11 @@ public class Author1Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Change Timestamp</p>
+     * <p>Other Business Name: ChangeTimestamp</p>
      * 
-     * <p>The date and time at which the change was made.</p>
+     * <p>Relationship: PORX_MT060340CA.Author1.time</p>
      * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription 
-     * dispense. Also used for sorting and audit purposes.</p>
-     * 
-     * <p>Change Timestamp</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the change was made.</p>
      * 
@@ -467,7 +563,25 @@ public class Author1Bean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider used this 
+     * management for the issue in the past.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record but not always available and 
+     * therefore only marked as 'populated'.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the provider managed the 
      * issue.</p>
@@ -477,7 +591,59 @@ public class Author1Bean extends MessagePartBean {
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
      * 
-     * <p>Change Datetime</p>
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>Other Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author6.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit 
+     * purposes.</p><p>The attribute is mandatory as the time of 
+     * change is known.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit 
+     * purposes.</p><p>The attribute is mandatory as the time of 
+     * change is known.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>Other Business Name: ChangeDatetime</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the change was made. Note that this may 
      * be earlier or occassionally later than when the change is 
@@ -488,55 +654,11 @@ public class Author1Bean extends MessagePartBean {
      * for sorting and audit purposes. Time of change is always 
      * known and thus the attribute is mandatory.</p>
      * 
-     * <p>Change Timestamp</p>
+     * <p>Other Business Name: ChangeTimestamp</p>
      * 
-     * <p>The date and time at which the change was made.</p>
+     * <p>Relationship: PORX_MT060160CA.Author1.time</p>
      * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the other medication. 
-     * Also used for sorting and audit purposes.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the time of change must 
-     * be known.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the other medication. 
-     * Also used for sorting and audit purposes.</p><p>Attribute is 
-     * marked as &quot;mandatory&quot; as the time of change must 
-     * be known.</p>
-     * 
-     * <p>Change Timestamp</p>
-     * 
-     * <p>The date on which the change was made.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription. 
-     * Also used for sorting and audit purposes.</p><p>This 
-     * attribute is marked as &quot;mandatory&quot; as the time the 
-     * comment was posted will always be known.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription. 
-     * Also used for sorting and audit purposes.</p><p>This 
-     * attribute is marked as &quot;mandatory&quot; as the time the 
-     * comment was posted will always be known.</p>
-     * 
-     * <p>Change Timestamp</p>
-     * 
-     * <p>The date and time at which the change was made.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription 
-     * dispense. Also used for sorting and audit 
-     * purposes.</p><p>The attribute is mandatory as the time of 
-     * change is known.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the prescription 
-     * dispense. Also used for sorting and audit 
-     * purposes.</p><p>The attribute is mandatory as the time of 
-     * change is known.</p>
-     * 
-     * <p>Change Timestamp</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date and time at which the change was made.</p>
      * 
@@ -554,17 +676,11 @@ public class Author1Bean extends MessagePartBean {
      * attribute is marked as &quot;mandatory&quot; because the 
      * time of change must be known.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ChangeTime</p>
      * 
-     * <p>The date and time on which the provider used this 
-     * management for the issue in the past.</p>
+     * <p>Relationship: REPC_MT000009CA.Author3.time</p>
      * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record but not always available and 
-     * therefore only marked as 'populated'.</p>
-     * 
-     * <p>Change Time</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the change was made.</p>
      * 
@@ -573,7 +689,25 @@ public class Author1Bean extends MessagePartBean {
      * used for sorting and audit purposes. Time of change is 
      * always known and thus the attribute is mandatory.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the provider used this 
      * management for the issue in the past.</p>
@@ -583,7 +717,51 @@ public class Author1Bean extends MessagePartBean {
      * <p>Part of the audit record but not always available and 
      * therefore only marked as 'populated'.</p>
      * 
-     * <p>B:Management Date</p>
+     * <p>Other Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>This 
+     * attribute is marked as &quot;mandatory&quot; as the time the 
+     * comment was posted will always be known.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>This 
+     * attribute is marked as &quot;mandatory&quot; as the time the 
+     * comment was posted will always be known.</p>
+     * 
+     * <p>Other Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author7.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the other medication. 
+     * Also used for sorting and audit purposes.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the time of change must 
+     * be known.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the other medication. 
+     * Also used for sorting and audit purposes.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the time of change must 
+     * be known.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the provider managed the 
      * issue.</p>
@@ -592,57 +770,297 @@ public class Author1Bean extends MessagePartBean {
      * 
      * <p>Part of the audit record, but not always available and 
      * therefore 'populated'.</p>
+     * 
+     * <p>Other Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the provider used this 
+     * management for the issue in the past.</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record but not always available and 
+     * therefore only marked as 'populated'.</p>
+     * 
+     * <p>Other Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author6.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit purposes.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author1.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author1.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author1.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author7.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author6.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author6.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"changedBy"})
     public ChangedBy getChangedBy() {
         return this.changedBy;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author1.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author1.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author1.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author7.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author6.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author6.changedBy</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setChangedBy(ChangedBy changedBy) {
         this.changedBy = changedBy;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"assignedPerson"})
     public ProviderBean getAssignedPerson() {
         return this.assignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Author1.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAssignedPerson(ProviderBean assignedPerson) {
         this.assignedPerson = assignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.Author1.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ParticipationType getTypeCode() {
         return (ParticipationType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260012CA.Author1.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"actingPerson"})
     public ActingPerson getActingPerson() {
         return this.actingPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setActingPerson(ActingPerson actingPerson) {
         this.actingPerson = actingPerson;
     }

@@ -52,7 +52,7 @@ import java.util.List;
 
 
 /**
- * <p>Prescription</p>
+ * <p>Business Name: Prescription</p>
  * 
  * <p>Id should not be specified if the order is being sent by 
  * prescriber; Id is mandatory if the order is being sent by 
@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -92,7 +92,12 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Prescription Number</p>
+     * <p>Business Name: A:Prescription Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
@@ -130,7 +135,12 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Prescription Number</p>
+     * <p>Business Name: A:Prescription Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
@@ -168,7 +178,12 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>Business Name: C:Prescription Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: new, 
@@ -194,7 +209,12 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>Business Name: C:Prescription Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: new, 
@@ -220,7 +240,12 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Prescription Masking Indicator</p>
+     * <p>Business Name: F:Prescription Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their prescriptions. Provides support for additional 
@@ -249,7 +274,12 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>F:Prescription Masking Indicator</p>
+     * <p>Business Name: F:Prescription Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their prescriptions. Provides support for additional 
@@ -277,11 +307,21 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/medication"})
     public DrugProductBean getDirectTargetMedication() {
         return this.directTargetMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
         this.directTargetMedication = directTargetMedication;
     }
@@ -334,7 +374,12 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Non-authoritative Indicator</p>
+     * <p>Business Name: Non-authoritative Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that the prescription is 
      * nonauthoritative.I.e. A paper copy must be viewed</p> 
@@ -346,7 +391,12 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Non-authoritative Indicator</p>
+     * <p>Business Name: Non-authoritative Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that the prescription is 
      * nonauthoritative.I.e. A paper copy must be viewed</p> 
@@ -358,7 +408,7 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Includes</p>
+     * <p>Business Name: Includes</p>
      * 
      * <p>&nbsp;This comprises the height and/or weight of 
      * a&nbsp;patient as measured/observed/known by 
@@ -376,6 +426,12 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component1.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponent1DosageInstruction() {
         return this.component1DosageInstruction;
@@ -383,6 +439,11 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component2</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates that a prescription is part of a 
      * Trial&nbsp;Program.&nbsp;</div></p>
      */
@@ -392,6 +453,11 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component2</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates that a prescription is part of a 
      * Trial&nbsp;Program.&nbsp;</div></p>
      */
@@ -401,6 +467,11 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component3</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;Identifies the instructions for how the 
      * prescribed&nbsp;medication should be dispensed to the 
      * patient.</p>
@@ -411,6 +482,11 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component3</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;Identifies the instructions for how the 
      * prescribed&nbsp;medication should be dispensed to the 
      * patient.</p>

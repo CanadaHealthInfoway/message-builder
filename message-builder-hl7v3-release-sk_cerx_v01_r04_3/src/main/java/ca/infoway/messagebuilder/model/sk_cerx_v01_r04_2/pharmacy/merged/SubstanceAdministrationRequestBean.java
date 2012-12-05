@@ -47,7 +47,7 @@ import java.util.List;
 
 
 /**
- * <p>Prescription</p>
+ * <p>Business Name: Prescription</p>
  * 
  * <p>PORX_MT030040CA.CombinedMedicationRequest: Prescription</p>
  * 
@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean implements Prescription {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -95,7 +95,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>A:Prescription Identifier</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
@@ -228,23 +233,18 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * (route)</p><p>Claim.402-D2 
      * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>Links the dispense to the prescription it fulfilled.</p>
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
      * 
-     * <p>A:Prescription Order Number</p>
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
      * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
+     * <p>Other Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.pres
+     * <p>Relationship: 
+
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -253,7 +253,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>A:Prescription Identifier</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
@@ -386,23 +391,18 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * (route)</p><p>Claim.402-D2 
      * (extension)</p><p>Claim.456-EN</p><p>Claim.454-EK</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>Links the dispense to the prescription it fulfilled.</p>
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
      * 
-     * <p>A:Prescription Order Number</p>
+     * <p>Allows prescriptions to be uniquely referenced.</p><p>The 
+     * number is mandatory to allow every prescription record to be 
+     * uniquely identified.</p>
      * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
+     * <p>Other Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>The Prescription Order Number is a globally unique number 
-     * assigned to a prescription by the EHR/DIS irrespective of 
-     * the source of the order</p><p>It is created by the EHR/DIS 
-     * once the prescription has passed all edits and 
-     * validation.</p>
-     * 
-     * <p>Prescription.prescriptionNumber</p><p>Prescription.pres
+     * <p>Relationship: 
+
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -411,9 +411,14 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>PrescriptionStatus</p>
+     * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>C:Prescription Status</p>
+     * <p>Other Business Name: PrescriptionStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: NEW, 
@@ -446,9 +451,14 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>PrescriptionStatus</p>
+     * <p>Business Name: PrescriptionStatus</p>
      * 
-     * <p>C:Prescription Status</p>
+     * <p>Other Business Name: PrescriptionStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: NEW, 
@@ -481,9 +491,14 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>PrescriptionMaskingIndicator</p>
+     * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>F:Prescription Masking Indicator</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their prescriptions.</p><p>Provides support for 
@@ -533,9 +548,14 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>PrescriptionMaskingIndicator</p>
+     * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>F:Prescription Masking Indicator</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their prescriptions.</p><p>Provides support for 
@@ -584,44 +604,112 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/medication"})
     public DrugProductBean getDirectTargetMedication() {
         return this.directTargetMedication;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
         this.directTargetMedication = directTargetMedication;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>This is the provider who authorized the 
      * medication</div> <p>to be dispensed to the 
      * patient.&nbsp;</p></p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the prescriber of the prescription.</p>
      */
@@ -631,13 +719,23 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>This is the provider who authorized the 
      * medication</div> <p>to be dispensed to the 
      * patient.&nbsp;</p></p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.SubstanceAdministrationRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the prescriber of the prescription.</p>
      */
@@ -647,7 +745,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      * 
      * <p><div>Denotes the reason(s) for this specific</div> 
      * <div>prescription; it must not be interpreted as a</div> 
@@ -663,7 +766,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>If present, indicates that the prescription is 
      * nonauthoritative.</div> <div>I.e. A paper copy must be 
@@ -676,7 +784,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>If present, indicates that the prescription is 
      * nonauthoritative.</div> <div>I.e. A paper copy must be 
@@ -689,7 +802,11 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that the data associated 
      * with</p> <div>the prescription is uncertain because 
@@ -703,7 +820,11 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that the data associated 
      * with</p> <div>the prescription is uncertain because 
@@ -717,9 +838,14 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>RenderedDosageInstruction</p>
+     * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -757,9 +883,14 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>RenderedDosageInstruction</p>
+     * <p>Business Name: RenderedDosageInstruction</p>
      * 
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Other Business Name: RenderedDosageInstruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A free form textual specification generated from the 
      * input specifications as created by the provider.</p><p>This 
@@ -797,7 +928,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.component2</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Identifies the instructions for how the 
      * prescribed</div> <p>medication should be dispensed to the 
@@ -809,7 +945,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.component2</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Identifies the instructions for how the 
      * prescribed</div> <p>medication should be dispensed to the 
@@ -820,48 +961,116 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.InFulfillmentOf4.supplyEventFutureSummary</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment1/supplyEventFutureSummary"})
     public RemainingDispenseInformation_1Bean getFulfillment1SupplyEventFutureSummary() {
         return this.fulfillment1SupplyEventFutureSummary;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.InFulfillmentOf4.supplyEventFutureSummary</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillment1SupplyEventFutureSummary(RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary) {
         this.fulfillment1SupplyEventFutureSummary = fulfillment1SupplyEventFutureSummary;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.InFulfillmentOf5.supplyEventFirstSummary</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment2/supplyEventFirstSummary"})
     public FirstDispenseInformation_1Bean getFulfillment2SupplyEventFirstSummary() {
         return this.fulfillment2SupplyEventFirstSummary;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.InFulfillmentOf5.supplyEventFirstSummary</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillment2SupplyEventFirstSummary(FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary) {
         this.fulfillment2SupplyEventFirstSummary = fulfillment2SupplyEventFirstSummary;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.InFulfillmentOf6.supplyEventLastSummary</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment3/supplyEventLastSummary"})
     public LastDispenseInformation_1Bean getFulfillment3SupplyEventLastSummary() {
         return this.fulfillment3SupplyEventLastSummary;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.InFulfillmentOf6.supplyEventLastSummary</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillment3SupplyEventLastSummary(LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary) {
         this.fulfillment3SupplyEventLastSummary = fulfillment3SupplyEventLastSummary;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.InFulfillmentOf2.supplyEventPastSummary</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment4/supplyEventPastSummary"})
     public PreviousDispenseInformation_1Bean getFulfillment4SupplyEventPastSummary() {
         return this.fulfillment4SupplyEventPastSummary;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.InFulfillmentOf2.supplyEventPastSummary</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillment4SupplyEventPastSummary(PreviousDispenseInformation_1Bean fulfillment4SupplyEventPastSummary) {
         this.fulfillment4SupplyEventPastSummary = fulfillment4SupplyEventPastSummary;
     }
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that there are notes</p> 
      * <div>associated with the drug prescription.</div>
@@ -872,7 +1081,11 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that there are notes</p> 
      * <div>associated with the drug prescription.</div>
@@ -883,7 +1096,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Subject2.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that there are issues 
      * that</p> <div>have been recorded against the drug 
@@ -895,7 +1113,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Subject2.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that there are issues 
      * that</p> <div>have been recorded against the drug 
@@ -907,7 +1130,11 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Subject3.refusalToFill</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;</p> <div>Indicates that the identified issue 
      * resulted in a</div> <p>dispenser refusing to fill the 
@@ -920,7 +1147,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Indicates the clinical use category in which 
      * the</p> <div>prescription has been put.</div>
@@ -931,7 +1163,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Indicates the clinical use category in which 
      * the</p> <div>prescription has been put.</div>

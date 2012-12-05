@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002300CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<TEL> telecom = new ArrayList<TEL>();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -56,7 +56,11 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>JB:Receiver Network Address</p>
+     * <p>Business Name: JB:Receiver Network Address</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0)</p>
      * 
      * <p>The address to which this message is being sent.</p>
      * 
@@ -74,7 +78,11 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>JA:Receiver Application Identifier</p>
+     * <p>Business Name: JA:Receiver Application Identifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
@@ -92,7 +100,11 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>JA:Receiver Application Identifier</p>
+     * <p>Business Name: JA:Receiver Application Identifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
@@ -110,7 +122,11 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>JE:Receiver Application Name</p>
+     * <p>Business Name: JE:Receiver Application Name</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device2.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Optional name of receiver application.</p>
      * 
@@ -122,7 +138,11 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>JE:Receiver Application Name</p>
+     * <p>Business Name: JE:Receiver Application Name</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device2.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Optional name of receiver application.</p>
      * 
@@ -133,38 +153,72 @@ public class ReceiverBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Agent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"device/agent/classCode"})
     public RoleClass getDeviceAgentClassCode() {
         return (RoleClass) this.deviceAgentClassCode.getValue();
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Agent.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setDeviceAgentClassCode(RoleClass deviceAgentClassCode) {
         this.deviceAgentClassCode.setValue(deviceAgentClassCode);
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Organization.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"device/agent/agentOrganization/classCode"})
     public EntityClass getDeviceAgentAgentOrganizationClassCode() {
         return (EntityClass) this.deviceAgentAgentOrganizationClassCode.getValue();
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Organization.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setDeviceAgentAgentOrganizationClassCode(EntityClass deviceAgentAgentOrganizationClassCode) {
         this.deviceAgentAgentOrganizationClassCode.setValue(deviceAgentAgentOrganizationClassCode);
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Organization.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"device/agent/agentOrganization/determinerCode"})
     public EntityDeterminer getDeviceAgentAgentOrganizationDeterminerCode() {
         return (EntityDeterminer) this.deviceAgentAgentOrganizationDeterminerCode.getValue();
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Organization.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setDeviceAgentAgentOrganizationDeterminerCode(EntityDeterminer deviceAgentAgentOrganizationDeterminerCode) {
         this.deviceAgentAgentOrganizationDeterminerCode.setValue(deviceAgentAgentOrganizationDeterminerCode);
     }
 
 
     /**
-     * <p>JK:Receiver Organization Identifier</p>
+     * <p>Business Name: JK:Receiver Organization Identifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Organization intended to receive this message</p>
      * 
@@ -178,7 +232,11 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>JK:Receiver Organization Identifier</p>
+     * <p>Business Name: JK:Receiver Organization Identifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Organization intended to receive this message</p>
      * 

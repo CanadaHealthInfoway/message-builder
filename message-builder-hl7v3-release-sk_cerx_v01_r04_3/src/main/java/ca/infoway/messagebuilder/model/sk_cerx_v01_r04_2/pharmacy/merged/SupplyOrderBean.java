@@ -51,16 +51,20 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.PrescribedByBean
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private PrescribedByBean author;
 
 
     /**
-     * <p>PrescriptionIdentifier</p>
+     * <p>Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>A:Prescription Identifier</p>
+     * <p>Other Business Name: PrescriptionIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
@@ -83,9 +87,13 @@ public class SupplyOrderBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionIdentifier</p>
+     * <p>Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>A:Prescription Identifier</p>
+     * <p>Other Business Name: PrescriptionIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
@@ -107,20 +115,60 @@ public class SupplyOrderBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the prescriber of the prescription.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"author"})
     public PrescribedByBean getAuthor() {
@@ -128,9 +176,19 @@ public class SupplyOrderBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the prescriber of the prescription.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAuthor(PrescribedByBean author) {
         this.author = author;

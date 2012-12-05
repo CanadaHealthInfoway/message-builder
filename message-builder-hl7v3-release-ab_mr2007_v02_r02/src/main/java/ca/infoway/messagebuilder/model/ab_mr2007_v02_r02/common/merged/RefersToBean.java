@@ -32,7 +32,7 @@ import java.util.List;
 
 
 /**
- * <p>RefersTo</p>
+ * <p>Business Name: RefersTo</p>
  * 
  * <p>MFMI_MT700711CA.Subject2: f:refers to</p>
  * 
@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2","MFMI_MT700716CA.Subject2"})
 public class RefersToBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL contextConductionInd = new BLImpl();
     private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;
@@ -84,9 +84,14 @@ public class RefersToBean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>CascadeResponsibilityIndicator</p>
+     * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not objects of the trigger event are 
      * to be cascaded to the payload.</p><p>If true, associations 
@@ -137,7 +142,12 @@ public class RefersToBean<RR> extends MessagePartBean {
      * objects.</p><p>Attribute is mandatory to ensure that 
      * cascading will be specified one way or another.</p>
      * 
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>On &#226;&#128;&#152;creation&#226;&#128;&#153; 
      * interactions (where the state transition is 
@@ -199,9 +209,14 @@ public class RefersToBean<RR> extends MessagePartBean {
     }
 
     /**
-     * <p>CascadeResponsibilityIndicator</p>
+     * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not objects of the trigger event are 
      * to be cascaded to the payload.</p><p>If true, associations 
@@ -252,7 +267,12 @@ public class RefersToBean<RR> extends MessagePartBean {
      * objects.</p><p>Attribute is mandatory to ensure that 
      * cascading will be specified one way or another.</p>
      * 
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>On &#226;&#128;&#152;creation&#226;&#128;&#153; 
      * interactions (where the state transition is 
@@ -313,26 +333,93 @@ public class RefersToBean<RR> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.RegistrationRequest.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.RegistrationRequest.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"registrationRequest/subject"})
     public RegisteredItemBean<RR> getRegistrationRequestSubject() {
         return this.registrationRequestSubject;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.RegistrationRequest.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.RegistrationRequest.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setRegistrationRequestSubject(RegisteredItemBean<RR> registrationRequestSubject) {
         this.registrationRequestSubject = registrationRequestSubject;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"registrationRequest/custodian/assignedDevice"})
     public EHRRepositoryBean getRegistrationRequestCustodianAssignedDevice() {
         return this.registrationRequestCustodianAssignedDevice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setRegistrationRequestCustodianAssignedDevice(EHRRepositoryBean registrationRequestCustodianAssignedDevice) {
         this.registrationRequestCustodianAssignedDevice = registrationRequestCustodianAssignedDevice;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700711CA.RegistrationRequest.replacementOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MFMI_MT700716CA.RegistrationRequest.replacementOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
+     */
     @Hl7XmlMapping({"registrationRequest/replacementOf"})
     public List<ReplacesBean> getRegistrationRequestReplacementOf() {
         return this.registrationRequestReplacementOf;

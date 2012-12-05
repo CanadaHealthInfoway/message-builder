@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 
 
 /**
- * <p>ReferencedRecord</p>
+ * <p>Business Name: ReferencedRecord</p>
  * 
  * <p>PORX_MT990020CA.ActRequest: Referenced Record</p>
  * 
@@ -69,14 +69,18 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private PatientBean recordTargetPatient;
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
 
 
     /**
-     * <p>Record Id</p>
+     * <p>Other Business Name: RecordId</p>
+     * 
+     * <p>Relationship: PORX_MT990020CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier assigned by the central system (EHR) to 
      * the Request or Order record being referred to.</p>
@@ -88,15 +92,11 @@ public class ReferencedRecordBean extends MessagePartBean {
      * can</p> <div>be stored by the receiving system for 
      * future</div> <div>reference to this order.</div>
      * 
-     * <p>Record Id</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>The identifier assigned by the central system (EHR) to 
-     * the Event record being referred to.</p>
+     * <p>Relationship: PORX_MT010140CA.ActRequest.id</p>
      * 
-     * <p>Allows the event record to be uniquely referenced and is 
-     * therefore mandatory.</p>
-     * 
-     * <p>A:Prescription Order Number</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 
@@ -224,11 +224,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * 
      * <p>Allows prescriptions to be uniquely referenced. Multiple 
      * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
-     * 
-     * <p>Allows prescriptions to be unique
+     * ids by the prescriber, EHR, and potenti
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -237,7 +233,11 @@ public class ReferencedRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>Record Id</p>
+     * <p>Other Business Name: RecordId</p>
+     * 
+     * <p>Relationship: PORX_MT990020CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier assigned by the central system (EHR) to 
      * the Request or Order record being referred to.</p>
@@ -249,15 +249,11 @@ public class ReferencedRecordBean extends MessagePartBean {
      * can</p> <div>be stored by the receiving system for 
      * future</div> <div>reference to this order.</div>
      * 
-     * <p>Record Id</p>
+     * <p>Other Business Name: PrescriptionOrderNumber</p>
      * 
-     * <p>The identifier assigned by the central system (EHR) to 
-     * the Event record being referred to.</p>
+     * <p>Relationship: PORX_MT010140CA.ActRequest.id</p>
      * 
-     * <p>Allows the event record to be uniquely referenced and is 
-     * therefore mandatory.</p>
-     * 
-     * <p>A:Prescription Order Number</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 
@@ -385,11 +381,7 @@ public class ReferencedRecordBean extends MessagePartBean {
      * 
      * <p>Allows prescriptions to be uniquely referenced. Multiple 
      * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
-     * 
-     * <p>Allows prescriptions to be unique
+     * ids by the prescriber, EHR, and potenti
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -398,9 +390,21 @@ public class ReferencedRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>PertainsTo</p>
+     * <p>Business Name: PertainsTo</p>
      * 
-     * <p>Pertains To</p>
+     * <p>Other Business Name: PertainsTo</p>
+     * 
+     * <p>Relationship: PORX_MT990020CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identity of the patient who was acted on.&nbsp;</p>
+     * 
+     * <p>Other Business Name: PertainsTo</p>
+     * 
+     * <p>Relationship: PORX_MT990010CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identity of the patient who was acted on.&nbsp;</p>
      */
@@ -415,9 +419,21 @@ public class ReferencedRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>PertainsTo</p>
+     * <p>Business Name: PertainsTo</p>
      * 
-     * <p>Pertains To</p>
+     * <p>Other Business Name: PertainsTo</p>
+     * 
+     * <p>Relationship: PORX_MT990020CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identity of the patient who was acted on.&nbsp;</p>
+     * 
+     * <p>Other Business Name: PertainsTo</p>
+     * 
+     * <p>Relationship: PORX_MT990010CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identity of the patient who was acted on.&nbsp;</p>
      */
@@ -427,9 +443,14 @@ public class ReferencedRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>NonAuthoritative</p>
+     * <p>Business Name: NonAuthoritative</p>
      * 
-     * <p>Non-Authoritative</p>
+     * <p>Other Business Name: NonAuthoritative</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010140CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If this is present, it indicates that the 
      * prescription</p> <div>is non-authoritative.</div>
@@ -440,9 +461,14 @@ public class ReferencedRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>NonAuthoritative</p>
+     * <p>Business Name: NonAuthoritative</p>
      * 
-     * <p>Non-Authoritative</p>
+     * <p>Other Business Name: NonAuthoritative</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010140CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If this is present, it indicates that the 
      * prescription</p> <div>is non-authoritative.</div>

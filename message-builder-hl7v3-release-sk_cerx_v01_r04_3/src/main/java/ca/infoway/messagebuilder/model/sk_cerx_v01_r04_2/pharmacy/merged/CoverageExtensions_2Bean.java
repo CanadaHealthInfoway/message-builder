@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>CoverageExtensions</p>
+ * <p>Business Name: CoverageExtensions</p>
  * 
  * <p>PORX_MT060160CA.Coverage: Coverage Extensions</p>
  * 
@@ -54,25 +54,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Coverage","PORX_MT060340CA.Coverage"})
 public class CoverageExtensions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CarrierRoleBean authorCarrierRole;
 
 
     /**
-     * <p>ExtensionGrantedIndicator</p>
+     * <p>Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Extension Granted Indicator</p>
+     * <p>Other Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>If set to 'EVN', then coverage has been granted. 
-     * Otherwise it has merely been requested.</p>
+     * <p>Relationship: PORX_MT060160CA.Coverage.moodCode</p>
      * 
-     * <p>Indicates to the pharmacy whether they need to check the 
-     * status of coverage prior to dispensing. The element is 
-     * mandatory to satisfy HL7 rules.</p>
-     * 
-     * <p>Extension Granted Indicator</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If set to 'EVN', then coverage has been requested. 
      * Otherwise it has merely been requested.</p>
@@ -80,6 +75,19 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * <p>Indicates to the pharmacy whether they need to check the 
      * status of coverage prior to dispensing. Mandatory due to HL7 
      * rules.</p>
+     * 
+     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Coverage.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>If set to 'EVN', then coverage has been granted. 
+     * Otherwise it has merely been requested.</p>
+     * 
+     * <p>Indicates to the pharmacy whether they need to check the 
+     * status of coverage prior to dispensing. The element is 
+     * mandatory to satisfy HL7 rules.</p>
      */
     @Hl7XmlMapping({"moodCode"})
     public x_ActMoodOrderEvent getMoodCode() {
@@ -87,18 +95,13 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>ExtensionGrantedIndicator</p>
+     * <p>Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>Extension Granted Indicator</p>
+     * <p>Other Business Name: ExtensionGrantedIndicator</p>
      * 
-     * <p>If set to 'EVN', then coverage has been granted. 
-     * Otherwise it has merely been requested.</p>
+     * <p>Relationship: PORX_MT060160CA.Coverage.moodCode</p>
      * 
-     * <p>Indicates to the pharmacy whether they need to check the 
-     * status of coverage prior to dispensing. The element is 
-     * mandatory to satisfy HL7 rules.</p>
-     * 
-     * <p>Extension Granted Indicator</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If set to 'EVN', then coverage has been requested. 
      * Otherwise it has merely been requested.</p>
@@ -106,6 +109,19 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * <p>Indicates to the pharmacy whether they need to check the 
      * status of coverage prior to dispensing. Mandatory due to HL7 
      * rules.</p>
+     * 
+     * <p>Other Business Name: ExtensionGrantedIndicator</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Coverage.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>If set to 'EVN', then coverage has been granted. 
+     * Otherwise it has merely been requested.</p>
+     * 
+     * <p>Indicates to the pharmacy whether they need to check the 
+     * status of coverage prior to dispensing. The element is 
+     * mandatory to satisfy HL7 rules.</p>
      */
     public void setMoodCode(x_ActMoodOrderEvent moodCode) {
         this.moodCode.setValue(moodCode);
@@ -113,9 +129,13 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>CoverageExtensionId</p>
+     * <p>Business Name: CoverageExtensionId</p>
      * 
-     * <p>A:Coverage Extension Id</p>
+     * <p>Other Business Name: CoverageExtensionId</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Coverage.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identification for a specific coverage 
      * extension.</p>
@@ -138,7 +158,11 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * available (such as when the request has just been 
      * submitted), the attribute is 'populated'.</p>
      * 
-     * <p>A:Coverage Extension Id</p>
+     * <p>Other Business Name: CoverageExtensionId</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Coverage.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identification for a specific coverage 
      * extension.</p>
@@ -167,9 +191,13 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>CoverageExtensionId</p>
+     * <p>Business Name: CoverageExtensionId</p>
      * 
-     * <p>A:Coverage Extension Id</p>
+     * <p>Other Business Name: CoverageExtensionId</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Coverage.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identification for a specific coverage 
      * extension.</p>
@@ -192,7 +220,11 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
      * available (such as when the request has just been 
      * submitted), the attribute is 'populated'.</p>
      * 
-     * <p>A:Coverage Extension Id</p>
+     * <p>Other Business Name: CoverageExtensionId</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Coverage.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identification for a specific coverage 
      * extension.</p>
@@ -220,11 +252,37 @@ public class CoverageExtensions_2Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author2.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author2.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/carrierRole"})
     public CarrierRoleBean getAuthorCarrierRole() {
         return this.authorCarrierRole;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author2.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author2.carrierRole</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
         this.authorCarrierRole = authorCarrierRole;
     }

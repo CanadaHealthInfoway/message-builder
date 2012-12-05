@@ -30,7 +30,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Monogra
 
 
 /**
- * <p>POME_IN010020CA: Drug document query response</p>
+ * <p>Business Name: POME_IN010020CA: Drug document query 
+ * response</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -43,6 +44,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Monogra
 @Hl7PartTypeMapping({"POME_IN010020CA"})
 public class DrugDocumentQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MonographsBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

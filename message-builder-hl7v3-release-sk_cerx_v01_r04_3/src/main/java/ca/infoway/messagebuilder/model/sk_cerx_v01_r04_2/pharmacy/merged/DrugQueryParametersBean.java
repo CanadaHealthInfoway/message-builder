@@ -75,7 +75,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV drugCodeValue = new CVImpl();
     private II medicationDocumentIDValue = new IIImpl();
     private CV medicationDocumentTypeValue = new CVImpl();
@@ -89,9 +89,28 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>B:Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010050CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>An identifier for a type of drug. Types of drugs include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>Allows the requester to retrieve drugs of certain 
+     * abstraction only. These drug abstractions include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010030CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An identifier for a specific drug product. Types of drugs 
      * identified by drug code include: Manufactured drug, generic 
@@ -100,7 +119,11 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * <p>Allows the requester to retrieve detail information about 
      * a specific drug product.</p>
      * 
-     * <p>B:Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An identifier that describes a drug at any level of the 
      * clinical drug hierarchy. The code may describe (point to) a 
@@ -127,17 +150,6 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * in the drug data base. By including the DoseForm, DoseRoute, 
      * DrugManufacturerName or DrugCharacteristic, the list could 
      * be further constrained.</p>
-     * 
-     * <p>Allows the requester to retrieve drugs of certain 
-     * abstraction only. These drug abstractions include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>An identifier for a type of drug. Types of drugs include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
      * 
      * <p>Allows the requester to retrieve drugs of certain 
      * abstraction only. These drug abstractions include: 
@@ -150,9 +162,28 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugCode</p>
+     * <p>Business Name: DrugCode</p>
      * 
-     * <p>B:Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010050CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>An identifier for a type of drug. Types of drugs include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>Allows the requester to retrieve drugs of certain 
+     * abstraction only. These drug abstractions include: 
+     * Manufactured drug, generic formulation, generic, therapeutic 
+     * class, etc.</p>
+     * 
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010030CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An identifier for a specific drug product. Types of drugs 
      * identified by drug code include: Manufactured drug, generic 
@@ -161,7 +192,11 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * <p>Allows the requester to retrieve detail information about 
      * a specific drug product.</p>
      * 
-     * <p>B:Drug Code</p>
+     * <p>Other Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An identifier that describes a drug at any level of the 
      * clinical drug hierarchy. The code may describe (point to) a 
@@ -188,17 +223,6 @@ public class DrugQueryParametersBean extends MessagePartBean {
      * in the drug data base. By including the DoseForm, DoseRoute, 
      * DrugManufacturerName or DrugCharacteristic, the list could 
      * be further constrained.</p>
-     * 
-     * <p>Allows the requester to retrieve drugs of certain 
-     * abstraction only. These drug abstractions include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
-     * 
-     * <p>B:Drug Code</p>
-     * 
-     * <p>An identifier for a type of drug. Types of drugs include: 
-     * Manufactured drug, generic formulation, generic, therapeutic 
-     * class, etc.</p>
      * 
      * <p>Allows the requester to retrieve drugs of certain 
      * abstraction only. These drug abstractions include: 
@@ -211,9 +235,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MedicationDocumentID</p>
+     * <p>Business Name: MedicationDocumentID</p>
      * 
-     * <p>E:Medication Document ID</p>
+     * <p>Other Business Name: MedicationDocumentID</p>
+     * 
+     * <p>Relationship: POME_MT010050CA.MedicationDocumentID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for a particular medication document. 
      * This will reference a specific kind of documentation (e.g. 
@@ -230,9 +258,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MedicationDocumentID</p>
+     * <p>Business Name: MedicationDocumentID</p>
      * 
-     * <p>E:Medication Document ID</p>
+     * <p>Other Business Name: MedicationDocumentID</p>
+     * 
+     * <p>Relationship: POME_MT010050CA.MedicationDocumentID.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for a particular medication document. 
      * This will reference a specific kind of documentation (e.g. 
@@ -249,9 +281,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>MedicationDocumentType</p>
+     * <p>Business Name: MedicationDocumentType</p>
      * 
-     * <p>D:Medication Document Type</p>
+     * <p>Other Business Name: MedicationDocumentType</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010050CA.MedicationDocumentType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those medication documents pertaining to the 
@@ -274,9 +311,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>MedicationDocumentType</p>
+     * <p>Business Name: MedicationDocumentType</p>
      * 
-     * <p>D:Medication Document Type</p>
+     * <p>Other Business Name: MedicationDocumentType</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010050CA.MedicationDocumentType.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that the result set is to be filtered to 
      * include only those medication documents pertaining to the 
@@ -299,9 +341,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescribingIndicationDiagnosisCode</p>
+     * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>C:Prescribing Indication Diagnosis Code</p>
+     * <p>Other Business Name: PrescribingIndicationDiagnosisCode</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Returns documents which relate to a particular 
      * diagnosis</p>
@@ -315,9 +362,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescribingIndicationDiagnosisCode</p>
+     * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>C:Prescribing Indication Diagnosis Code</p>
+     * <p>Other Business Name: PrescribingIndicationDiagnosisCode</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Returns documents which relate to a particular 
      * diagnosis</p>
@@ -331,9 +383,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescribingIndicationSymptomCode</p>
+     * <p>Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Prescribing Indication Symptom Code</p>
+     * <p>Other Business Name: PrescribingIndicationSymptomCode</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010050CA.PrescribingSymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Returns documents which relate to a particular 
      * symptom</p>
@@ -347,9 +404,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescribingIndicationSymptomCode</p>
+     * <p>Business Name: PrescribingIndicationSymptomCode</p>
      * 
-     * <p>Prescribing Indication Symptom Code</p>
+     * <p>Other Business Name: PrescribingIndicationSymptomCode</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010050CA.PrescribingSymptomCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Returns documents which relate to a particular 
      * symptom</p>
@@ -363,9 +425,14 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>HasCharacteristic</p>
+     * <p>Business Name: HasCharacteristic</p>
      * 
-     * <p>Has Characteristic</p>
+     * <p>Other Business Name: HasCharacteristic</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010090CA.ParameterList.drugCharacteristics</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>&nbsp;Filters medications by their appearance.</p> 
      * <div>&nbsp;</div>
@@ -382,9 +449,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>OrderableDrugForm</p>
+     * <p>Business Name: OrderableDrugForm</p>
      * 
-     * <p>D:Orderable Drug Form</p>
+     * <p>Other Business Name: OrderableDrugForm</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugForm.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the form in which the drug product must is 
      * manufactured.</p>
@@ -398,9 +469,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrderableDrugForm</p>
+     * <p>Business Name: OrderableDrugForm</p>
      * 
-     * <p>D:Orderable Drug Form</p>
+     * <p>Other Business Name: OrderableDrugForm</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugForm.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the form in which the drug product must is 
      * manufactured.</p>
@@ -414,9 +489,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugManufacturerName</p>
+     * <p>Business Name: DrugManufacturerName</p>
      * 
-     * <p>F:Drug Manufacturer Name</p>
+     * <p>Other Business Name: DrugManufacturerName</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugManufacturerName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of a drug manufacturer.</p>
      * 
@@ -432,9 +511,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugManufacturerName</p>
+     * <p>Business Name: DrugManufacturerName</p>
      * 
-     * <p>F:Drug Manufacturer Name</p>
+     * <p>Other Business Name: DrugManufacturerName</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugManufacturerName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of a drug manufacturer.</p>
      * 
@@ -450,9 +533,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugName</p>
+     * <p>Business Name: DrugName</p>
      * 
-     * <p>C:Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to a drug.</p>
      * 
@@ -465,9 +552,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugName</p>
+     * <p>Business Name: DrugName</p>
      * 
-     * <p>C:Drug Name</p>
+     * <p>Other Business Name: DrugName</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugName.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to a drug.</p>
      * 
@@ -480,9 +571,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugRouteCode</p>
+     * <p>Business Name: DrugRouteCode</p>
      * 
-     * <p>E:Drug Route Code</p>
+     * <p>Other Business Name: DrugRouteCode</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugRoute.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A filter based on how the drug should be introduced into 
      * the patient's body (e.g. Oral, topical, etc.)</p>
@@ -496,9 +591,13 @@ public class DrugQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugRouteCode</p>
+     * <p>Business Name: DrugRouteCode</p>
      * 
-     * <p>E:Drug Route Code</p>
+     * <p>Other Business Name: DrugRouteCode</p>
+     * 
+     * <p>Relationship: POME_MT010090CA.DrugRoute.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A filter based on how the drug should be introduced into 
      * the patient's body (e.g. Oral, topical, etc.)</p>

@@ -34,7 +34,7 @@ import java.util.List;
 
 
 /**
- * <p>Information Access</p>
+ * <p>Business Name: Information Access</p>
  * 
  * <p>Describes the type of information access being consented 
  * to.</p>
@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
@@ -61,7 +61,11 @@ public class InformationAccessBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Consent Information Types</p>
+     * <p>Business Name: B:Consent Information Types</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.RecordType.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The type of patient information that can be accessed or 
      * modified.</p>

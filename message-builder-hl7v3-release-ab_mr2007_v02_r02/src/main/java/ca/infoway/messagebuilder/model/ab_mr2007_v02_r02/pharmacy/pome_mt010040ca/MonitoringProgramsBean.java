@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Assigne
 
 
 /**
- * <p>Monitoring Programs</p>
+ * <p>Business Name: Monitoring Programs</p>
  * 
  * <p>A system of additional business rules, documentation or 
  * reporting associated with a particular drug or group of 
@@ -49,14 +49,18 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Assigne
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private AssignedEntity3Bean custodianAssignedEntity;
 
 
     /**
-     * <p>Program Type</p>
+     * <p>Business Name: Program Type</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MonitoringProgram.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting a specific kind of monitoring 
      * program. For example, &quot;Drugs of potential abuse&quot;, 
@@ -76,7 +80,11 @@ public class MonitoringProgramsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Program Type</p>
+     * <p>Business Name: Program Type</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MonitoringProgram.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting a specific kind of monitoring 
      * program. For example, &quot;Drugs of potential abuse&quot;, 
@@ -96,7 +104,11 @@ public class MonitoringProgramsBean extends MessagePartBean {
 
 
     /**
-     * <p>Program Name</p>
+     * <p>Business Name: Program Name</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MonitoringProgram.title</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A user-friendly label assigned to the monitoring 
      * program.</p>
@@ -110,7 +122,11 @@ public class MonitoringProgramsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Program Name</p>
+     * <p>Business Name: Program Name</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.MonitoringProgram.title</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A user-friendly label assigned to the monitoring 
      * program.</p>

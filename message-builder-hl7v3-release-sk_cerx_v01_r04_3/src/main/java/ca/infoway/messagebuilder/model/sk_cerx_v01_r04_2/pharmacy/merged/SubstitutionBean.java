@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Substitution</p>
+ * <p>Business Name: Substitution</p>
  * 
  * <p>PORX_MT060160CA.SubstitutionMade: Substitution</p>
  * 
@@ -76,16 +76,77 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private AgentBean responsiblePartyAgent;
 
 
     /**
-     * <p>SubstitutionCode</p>
+     * <p>Business Name: SubstitutionCode</p>
      * 
-     * <p>Substitution Code</p>
+     * <p>Other Business Name: SubstitutionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.SubstitutionMade.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code signifying whether a different drug was dispensed 
+     * from what was prescribed.</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Indicates that substitution was done (or not). This 
+     * attribute is mandatory because it is essential to 
+     * understanding the substitution.</p>
+     * 
+     * <p>Other Business Name: SubstitutionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SubstitutionMade.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code signifying whether a different drug was dispensed 
+     * from what was prescribed.</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Indicates that substitution was done (or not). This 
+     * attribute is mandatory because it is essential to 
+     * understanding the substitution.</p>
+     * 
+     * <p>Other Business Name: SubstitutionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SubstitutionMade.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code signifying whether a different drug was dispensed 
+     * from what was prescribed.</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Indicates that substitution was done (or not). This 
+     * attribute is mandatory because it is essential to 
+     * understanding the substitution.</p>
+     * 
+     * <p>Other Business Name: SubstitutionCode</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SubstitutionMade.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code signifying whether a different drug was dispensed 
      * from what was prescribed.</p>
@@ -106,9 +167,70 @@ public class SubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>SubstitutionCode</p>
+     * <p>Business Name: SubstitutionCode</p>
      * 
-     * <p>Substitution Code</p>
+     * <p>Other Business Name: SubstitutionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.SubstitutionMade.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code signifying whether a different drug was dispensed 
+     * from what was prescribed.</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Indicates that substitution was done (or not). This 
+     * attribute is mandatory because it is essential to 
+     * understanding the substitution.</p>
+     * 
+     * <p>Other Business Name: SubstitutionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SubstitutionMade.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code signifying whether a different drug was dispensed 
+     * from what was prescribed.</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Indicates that substitution was done (or not). This 
+     * attribute is mandatory because it is essential to 
+     * understanding the substitution.</p>
+     * 
+     * <p>Other Business Name: SubstitutionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SubstitutionMade.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A code signifying whether a different drug was dispensed 
+     * from what was prescribed.</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DRU.050</p><p>Claim.408-D8</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Indicates that substitution was done (or not). This 
+     * attribute is mandatory because it is essential to 
+     * understanding the substitution.</p>
+     * 
+     * <p>Other Business Name: SubstitutionCode</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SubstitutionMade.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A code signifying whether a different drug was dispensed 
      * from what was prescribed.</p>
@@ -129,23 +251,11 @@ public class SubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Product Selection Code</p>
+     * <p>Other Business Name: ProductSelectionReasonCode</p>
      * 
-     * <p>Indicates the reason for the substitution of (or failure 
-     * to substitute) the medication from what was prescribed.</p>
+     * <p>Relationship: PORX_MT060090CA.SubstitutionMade.reasonCode</p>
      * 
-     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Standardized reasons for substitution performed (or not 
-     * performed). Useful in analysis of dispensing patterns.</p>
-     * 
-     * <p>Product Selection Reason Code</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the reason for the substitution of (or failure 
      * to substitute) the medication from what was prescribed.</p>
@@ -165,7 +275,51 @@ public class SubstitutionBean extends MessagePartBean {
      * <div>prescriber identifier, or the dispenser 
      * identifier.</div>
      * 
-     * <p>Product Selection Reason Code</p>
+     * <p>Other Business Name: ProductSelectionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Other Business Name: ProductSelectionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Other Business Name: ProductSelectionReasonCode</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the reason for the substitution of (or lack of 
      * substitution) from what was prescribed.</p>
@@ -191,23 +345,11 @@ public class SubstitutionBean extends MessagePartBean {
     }
 
     /**
-     * <p>Product Selection Code</p>
+     * <p>Other Business Name: ProductSelectionReasonCode</p>
      * 
-     * <p>Indicates the reason for the substitution of (or failure 
-     * to substitute) the medication from what was prescribed.</p>
+     * <p>Relationship: PORX_MT060090CA.SubstitutionMade.reasonCode</p>
      * 
-     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
-     * 
-     * <p>Standardized reasons for substitution performed (or not 
-     * performed). Useful in analysis of dispensing patterns.</p>
-     * 
-     * <p>Product Selection Reason Code</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the reason for the substitution of (or failure 
      * to substitute) the medication from what was prescribed.</p>
@@ -227,7 +369,51 @@ public class SubstitutionBean extends MessagePartBean {
      * <div>prescriber identifier, or the dispenser 
      * identifier.</div>
      * 
-     * <p>Product Selection Reason Code</p>
+     * <p>Other Business Name: ProductSelectionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Other Business Name: ProductSelectionCode</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the reason for the substitution of (or failure 
+     * to substitute) the medication from what was prescribed.</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>DispensedItem.productSelectionCode</p><p>D62</p><p>ZDP.12</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>Standardized reasons for substitution performed (or not 
+     * performed). Useful in analysis of dispensing patterns.</p>
+     * 
+     * <p>Other Business Name: ProductSelectionReasonCode</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.SubstitutionMade.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the reason for the substitution of (or lack of 
      * substitution) from what was prescribed.</p>
@@ -252,11 +438,61 @@ public class SubstitutionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.ResponsibleParty.agent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.ResponsibleParty.agent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.ResponsibleParty.agent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.ResponsibleParty.agent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/agent"})
     public AgentBean getResponsiblePartyAgent() {
         return this.responsiblePartyAgent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.ResponsibleParty.agent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.ResponsibleParty.agent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.ResponsibleParty.agent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.ResponsibleParty.agent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
         this.responsiblePartyAgent = responsiblePartyAgent;
     }

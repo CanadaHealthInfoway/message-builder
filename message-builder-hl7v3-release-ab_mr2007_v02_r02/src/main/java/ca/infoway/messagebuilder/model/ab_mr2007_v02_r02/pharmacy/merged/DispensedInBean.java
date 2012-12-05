@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>DispensedIn</p>
+ * <p>Business Name: DispensedIn</p>
  * 
  * <p>POME_MT010100CA.Content: dispensed in</p>
  * 
@@ -58,15 +58,37 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private RTO<PhysicalQuantity, PhysicalQuantity> quantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
     private CV containerPackagedMedicineFormCode = new CVImpl();
 
 
     /**
-     * <p>PackageQuantity</p>
+     * <p>Business Name: PackageQuantity</p>
      * 
-     * <p>Package Quantity</p>
+     * <p>Other Business Name: PackageQuantity</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>Because of the constraint imposed by the RIM that in a 
+     * role, PQ.DRUG must be expressed as a ratio, the numerator 
+     * should be the package quantity and the denominator a 
+     * '1'.</p>
+     * 
+     * <p>Other Business Name: PackageQuantity</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
@@ -86,9 +108,31 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>PackageQuantity</p>
+     * <p>Business Name: PackageQuantity</p>
      * 
-     * <p>Package Quantity</p>
+     * <p>Other Business Name: PackageQuantity</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>Because of the constraint imposed by the RIM that in a 
+     * role, PQ.DRUG must be expressed as a ratio, the numerator 
+     * should be the package quantity and the denominator a 
+     * '1'.</p>
+     * 
+     * <p>Other Business Name: PackageQuantity</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
@@ -108,9 +152,13 @@ public class DispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>ContainerType</p>
+     * <p>Business Name: ContainerType</p>
      * 
-     * <p>H:Container Type</p>
+     * <p>Other Business Name: ContainerType</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
@@ -120,7 +168,11 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Container Type</p>
+     * <p>Other Business Name: ContainerType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
@@ -136,9 +188,13 @@ public class DispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>ContainerType</p>
+     * <p>Business Name: ContainerType</p>
      * 
-     * <p>H:Container Type</p>
+     * <p>Other Business Name: ContainerType</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
@@ -148,7 +204,11 @@ public class DispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>Container Type</p>
+     * <p>Other Business Name: ContainerType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 

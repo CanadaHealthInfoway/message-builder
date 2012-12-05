@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101103ca.Para
 
 
 /**
- * <p>PRPA_IN101103CA: Find Candidates Query</p>
+ * <p>Business Name: PRPA_IN101103CA: Find Candidates Query</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +40,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101103ca.Para
 @Hl7PartTypeMapping({"PRPA_IN101103CA"})
 public class FindCandidatesQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

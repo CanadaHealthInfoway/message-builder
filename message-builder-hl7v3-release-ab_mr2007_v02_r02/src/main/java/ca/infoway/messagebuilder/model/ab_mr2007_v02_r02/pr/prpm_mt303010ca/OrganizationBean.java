@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Organization</p>
+ * <p>Business Name: Organization</p>
  * 
  * <p>The scoping organization for the specified role class</p>
  * 
@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST name = new STImpl();
     private AD addr = new ADImpl();
@@ -54,7 +54,11 @@ public class OrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Organization Id</p>
+     * <p>Business Name: Organization Id</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for the organization that assigned the 
      * specified roleClass identifier.</p><p>Required attribute 
@@ -132,7 +136,11 @@ public class OrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Organization Id</p>
+     * <p>Business Name: Organization Id</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier for the organization that assigned the 
      * specified roleClass identifier.</p><p>Required attribute 
@@ -210,8 +218,12 @@ public class OrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Name(s</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Name(s</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>1. Organization that is responsible for registering the 
      * provider for a specific healthcare provider role.</p><p>2. 
@@ -240,8 +252,12 @@ public class OrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Name(s</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Name(s</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>1. Organization that is responsible for registering the 
      * provider for a specific healthcare provider role.</p><p>2. 
@@ -270,8 +286,12 @@ public class OrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Address(es)</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Address(es)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Address for any of the supported roles</p><p>1. Issuing 
      * Oganization</p><p>2. Representing Organization</p><p>3. 
@@ -298,8 +318,12 @@ public class OrganizationBean extends MessagePartBean {
     }
 
     /**
-     * <p>(Issuing Representing Qualification Granting Organization 
-     * Address(es)</p>
+     * <p>Business Name: (Issuing Representing Qualification 
+     * Granting Organization Address(es)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Address for any of the supported roles</p><p>1. Issuing 
      * Oganization</p><p>2. Representing Organization</p><p>3. 
@@ -325,11 +349,23 @@ public class OrganizationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Organization.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"territorialAuthority"})
     public TerritorialAuthorityBean getTerritorialAuthority() {
         return this.territorialAuthority;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Organization.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
         this.territorialAuthority = territorialAuthority;
     }

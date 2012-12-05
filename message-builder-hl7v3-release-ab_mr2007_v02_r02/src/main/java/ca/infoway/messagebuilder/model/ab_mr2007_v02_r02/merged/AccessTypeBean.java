@@ -29,7 +29,7 @@ import java.util.List;
 
 
 /**
- * <p>AccessType</p>
+ * <p>Business Name: AccessType</p>
  * 
  * <p>COCT_MT470000CA.InformDefinition: Access Type</p>
  * 
@@ -50,21 +50,60 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470000CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ConsentGivenToBean receiver;
     private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.InformDefinition.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.InformDefinition.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public List<Subject3Bean> getSubject() {
         return this.subject;

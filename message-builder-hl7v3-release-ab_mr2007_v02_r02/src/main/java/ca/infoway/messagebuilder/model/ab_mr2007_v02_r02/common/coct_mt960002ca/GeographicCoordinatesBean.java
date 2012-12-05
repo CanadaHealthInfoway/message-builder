@@ -33,7 +33,7 @@ import java.util.List;
 
 
 /**
- * <p>Geographic Coordinates</p>
+ * <p>Business Name: Geographic Coordinates</p>
  * 
  * <p>Allows the capturing of a physical location according to 
  * a particular coordinate system, such as GPS, legal 
@@ -47,13 +47,17 @@ import java.util.List;
 @Hl7RootType
 public class GeographicCoordinatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private List<CoordinateAxisBean> componentPositionCoordinate = new ArrayList<CoordinateAxisBean>();
 
 
     /**
-     * <p>Coordinate System</p>
+     * <p>Business Name: Coordinate System</p>
+     * 
+     * <p>Relationship: COCT_MT960002CA.Position.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the coordinate system inclusive of any 
      * transformation projections.</p>
@@ -67,7 +71,11 @@ public class GeographicCoordinatesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Coordinate System</p>
+     * <p>Business Name: Coordinate System</p>
+     * 
+     * <p>Relationship: COCT_MT960002CA.Position.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the coordinate system inclusive of any 
      * transformation projections.</p>
@@ -80,6 +88,12 @@ public class GeographicCoordinatesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT960002CA.Component1.positionCoordinate</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/positionCoordinate"})
     public List<CoordinateAxisBean> getComponentPositionCoordinate() {
         return this.componentPositionCoordinate;

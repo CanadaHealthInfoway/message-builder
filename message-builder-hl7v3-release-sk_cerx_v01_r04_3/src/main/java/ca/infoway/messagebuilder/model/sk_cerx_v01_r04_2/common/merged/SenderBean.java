@@ -42,7 +42,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.Sender","MCCI_MT000200CA.Sender","MCCI_MT000300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -55,9 +55,13 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingNetworkAddress</p>
+     * <p>Business Name: SendingNetworkAddress</p>
      * 
-     * <p>IB:Sending Network Address</p>
+     * <p>Other Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The network address of the application which sent the 
      * message.</p>
@@ -66,7 +70,24 @@ public class SenderBean extends MessagePartBean {
      * address to which responses are sent. This is optional 
      * because not all environments require network addresses.</p>
      * 
-     * <p>IB:Sending Network Address</p>
+     * <p>Other Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses.</p>
+     * 
+     * <p>Other Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The network address of the application which sent the 
      * message.</p>
@@ -77,6 +98,19 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p><div>Although PIN will echo this field back in the 
      * response</div> <p>if sent, it is not used by PIN.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -84,9 +118,13 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingNetworkAddress</p>
+     * <p>Business Name: SendingNetworkAddress</p>
      * 
-     * <p>IB:Sending Network Address</p>
+     * <p>Other Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The network address of the application which sent the 
      * message.</p>
@@ -95,7 +133,24 @@ public class SenderBean extends MessagePartBean {
      * address to which responses are sent. This is optional 
      * because not all environments require network addresses.</p>
      * 
-     * <p>IB:Sending Network Address</p>
+     * <p>Other Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses.</p>
+     * 
+     * <p>Other Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The network address of the application which sent the 
      * message.</p>
@@ -106,6 +161,19 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p><div>Although PIN will echo this field back in the 
      * response</div> <p>if sent, it is not used by PIN.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses.</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
@@ -113,9 +181,37 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationIdentifier</p>
+     * <p>Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>IA:Sending Application Identifier</p>
+     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the system sending the message.</p>
      * 
@@ -124,7 +220,11 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Used in message authorization.&nbsp;</p>
      * 
-     * <p>IA:Sending Application Identifier</p>
+     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
@@ -138,9 +238,37 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingApplicationIdentifier</p>
+     * <p>Business Name: SendingApplicationIdentifier</p>
      * 
-     * <p>IA:Sending Application Identifier</p>
+     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the system sending the message.</p>
      * 
@@ -149,7 +277,11 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Used in message authorization.&nbsp;</p>
      * 
-     * <p>IA:Sending Application Identifier</p>
+     * <p>Other Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
@@ -163,16 +295,35 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationName</p>
+     * <p>Business Name: SendingApplicationName</p>
      * 
-     * <p>IE:Sending Application Name</p>
+     * <p>Other Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
      * 
      * <p>Provides useful information when debugging.</p>
      * 
-     * <p>IE:Sending Application Name</p>
+     * <p>Other Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is the name associated with the system or 
+     * application sending the message.</p>
+     * 
+     * <p>Provides useful information when debugging.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
@@ -181,6 +332,17 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
+     * 
+     * <p>Other Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is the name associated with the system or 
+     * application sending the message.</p>
+     * 
+     * <p>Provides useful information when debugging.</p>
      */
     @Hl7XmlMapping({"device/name"})
     public String getDeviceName() {
@@ -188,16 +350,35 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingApplicationName</p>
+     * <p>Business Name: SendingApplicationName</p>
      * 
-     * <p>IE:Sending Application Name</p>
+     * <p>Other Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
      * 
      * <p>Provides useful information when debugging.</p>
      * 
-     * <p>IE:Sending Application Name</p>
+     * <p>Other Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is the name associated with the system or 
+     * application sending the message.</p>
+     * 
+     * <p>Provides useful information when debugging.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
@@ -206,6 +387,17 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
+     * 
+     * <p>Other Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is the name associated with the system or 
+     * application sending the message.</p>
+     * 
+     * <p>Provides useful information when debugging.</p>
      */
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
@@ -213,9 +405,40 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationConfigurationInformation</p>
+     * <p>Business Name: SendingApplicationConfigurationInformation</p>
      * 
-     * <p>II:Sending Application Configuration Information</p>
+     * <p>Other Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides additional information about the configuration 
+     * of the sending application. Useful when debugging.</p>
+     * 
+     * <p>Provides additional information that may assist in 
+     * debugging interactions.</p>
+     * 
+     * <p>Other Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides additional information about the configuration 
+     * of the sending application. Useful when debugging.</p>
+     * 
+     * <p>Provides additional information that may assist in 
+     * debugging interactions.</p>
+     * 
+     * <p>Other Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
@@ -226,7 +449,12 @@ public class SenderBean extends MessagePartBean {
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
      * 
-     * <p>II:Sending Application Configuration Information</p>
+     * <p>Other Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
@@ -240,9 +468,40 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingApplicationConfigurationInformation</p>
+     * <p>Business Name: SendingApplicationConfigurationInformation</p>
      * 
-     * <p>II:Sending Application Configuration Information</p>
+     * <p>Other Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides additional information about the configuration 
+     * of the sending application. Useful when debugging.</p>
+     * 
+     * <p>Provides additional information that may assist in 
+     * debugging interactions.</p>
+     * 
+     * <p>Other Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides additional information about the configuration 
+     * of the sending application. Useful when debugging.</p>
+     * 
+     * <p>Provides additional information that may assist in 
+     * debugging interactions.</p>
+     * 
+     * <p>Other Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
@@ -253,7 +512,12 @@ public class SenderBean extends MessagePartBean {
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
      * 
-     * <p>II:Sending Application Configuration Information</p>
+     * <p>Other Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
@@ -267,9 +531,37 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationVersionDate</p>
+     * <p>Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>IH:Sending Application Version Date</p>
+     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p>
+     * 
+     * <p>Can help to isolate the source of a problem when 
+     * debugging.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p>
+     * 
+     * <p>Can help to isolate the source of a problem when 
+     * debugging.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
@@ -280,7 +572,11 @@ public class SenderBean extends MessagePartBean {
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
      * 
-     * <p>IH:Sending Application Version Date</p>
+     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
@@ -294,9 +590,37 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingApplicationVersionDate</p>
+     * <p>Business Name: SendingApplicationVersionDate</p>
      * 
-     * <p>IH:Sending Application Version Date</p>
+     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p>
+     * 
+     * <p>Can help to isolate the source of a problem when 
+     * debugging.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p>
+     * 
+     * <p>Can help to isolate the source of a problem when 
+     * debugging.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
@@ -307,7 +631,11 @@ public class SenderBean extends MessagePartBean {
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
      * 
-     * <p>IH:Sending Application Version Date</p>
+     * <p>Other Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
@@ -321,9 +649,40 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingSoftwareVersionNumber</p>
+     * <p>Business Name: SendingSoftwareVersionNumber</p>
      * 
-     * <p>IG:Sending Software Version Number</p>
+     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000300CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the version number of the piece of software 
+     * used to construct the message.</p>
+     * 
+     * <p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p>
+     * 
+     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT102001CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the version number of the piece of software 
+     * used to construct the message.</p>
+     * 
+     * <p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p>
+     * 
+     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000100CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
@@ -334,7 +693,12 @@ public class SenderBean extends MessagePartBean {
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
      * 
-     * <p>IG:Sending Software Version Number</p>
+     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000200CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
@@ -348,9 +712,40 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingSoftwareVersionNumber</p>
+     * <p>Business Name: SendingSoftwareVersionNumber</p>
      * 
-     * <p>IG:Sending Software Version Number</p>
+     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000300CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the version number of the piece of software 
+     * used to construct the message.</p>
+     * 
+     * <p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p>
+     * 
+     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT102001CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the version number of the piece of software 
+     * used to construct the message.</p>
+     * 
+     * <p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p>
+     * 
+     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000100CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
@@ -361,7 +756,12 @@ public class SenderBean extends MessagePartBean {
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
      * 
-     * <p>IG:Sending Software Version Number</p>
+     * <p>Other Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000200CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
@@ -375,9 +775,37 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationSoftwareName</p>
+     * <p>Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>IF:Sending Application Software Name</p>
+     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the name of the software used to construct the 
+     * message.</p>
+     * 
+     * <p>May be used to filter messages based on sending 
+     * application compliance testing.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the name of the software used to construct the 
+     * message.</p>
+     * 
+     * <p>May be used to filter messages based on sending 
+     * application compliance testing.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
@@ -388,7 +816,11 @@ public class SenderBean extends MessagePartBean {
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
      * 
-     * <p>IF:Sending Application Software Name</p>
+     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
@@ -402,9 +834,37 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingApplicationSoftwareName</p>
+     * <p>Business Name: SendingApplicationSoftwareName</p>
      * 
-     * <p>IF:Sending Application Software Name</p>
+     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the name of the software used to construct the 
+     * message.</p>
+     * 
+     * <p>May be used to filter messages based on sending 
+     * application compliance testing.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the name of the software used to construct the 
+     * message.</p>
+     * 
+     * <p>May be used to filter messages based on sending 
+     * application compliance testing.</p>
+     * 
+     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
@@ -415,7 +875,11 @@ public class SenderBean extends MessagePartBean {
      * <p>PIN does not use this field and it will be 
      * ignored.&nbsp;</p>
      * 
-     * <p>IF:Sending Application Software Name</p>
+     * <p>Other Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
@@ -429,9 +893,58 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingOrganizationIdentifier</p>
+     * <p>Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>IC:Sending Organization Identifier</p>
+     * <p>Other Business Name: SendingOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Organization1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Uniquely identifies the legal entity responsible for the 
+     * content of the message.</p>
+     * 
+     * <p>May be used for routing/filtering purposes. Also allows 
+     * tracking of the original responsible party for messages 
+     * which may undergo multiple routing or translation steps. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: SendingOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Organization1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Uniquely identifies the legal entity responsible for the 
+     * content of the message.</p>
+     * 
+     * <p>May be used for routing/filtering purposes. Also allows 
+     * tracking of the original responsible party for messages 
+     * which may undergo multiple routing or translation steps. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: SendingOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Organization1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Uniquely identifies the legal entity responsible for the 
+     * content of the message.</p>
+     * 
+     * <p>May be used for routing/filtering purposes. Also allows 
+     * tracking of the original responsible party for messages 
+     * which may undergo multiple routing or translation steps. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: SendingOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Organization1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Uniquely identifies the legal entity responsible for the 
      * content of the message.</p>
@@ -448,9 +961,58 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingOrganizationIdentifier</p>
+     * <p>Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>IC:Sending Organization Identifier</p>
+     * <p>Other Business Name: SendingOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Organization1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Uniquely identifies the legal entity responsible for the 
+     * content of the message.</p>
+     * 
+     * <p>May be used for routing/filtering purposes. Also allows 
+     * tracking of the original responsible party for messages 
+     * which may undergo multiple routing or translation steps. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: SendingOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Organization1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Uniquely identifies the legal entity responsible for the 
+     * content of the message.</p>
+     * 
+     * <p>May be used for routing/filtering purposes. Also allows 
+     * tracking of the original responsible party for messages 
+     * which may undergo multiple routing or translation steps. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: SendingOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Organization1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Uniquely identifies the legal entity responsible for the 
+     * content of the message.</p>
+     * 
+     * <p>May be used for routing/filtering purposes. Also allows 
+     * tracking of the original responsible party for messages 
+     * which may undergo multiple routing or translation steps. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: SendingOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Organization1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Uniquely identifies the legal entity responsible for the 
      * content of the message.</p>
@@ -467,9 +1029,13 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingFacilityIdentifier</p>
+     * <p>Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>ICA:Sending Facility Identifier</p>
+     * <p>Other Business Name: SendingFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Place1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the hospital, clinic or other 
      * facility which constructed the message.</p>
@@ -478,7 +1044,24 @@ public class SenderBean extends MessagePartBean {
      * This attribute is optional because not all environments 
      * require communicating this information.</p>
      * 
-     * <p>ICA:Sending Facility Identifier</p>
+     * <p>Other Business Name: SendingFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Place1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the hospital, clinic or other 
+     * facility which constructed the message.</p>
+     * 
+     * <p>May be used for routing, or for configuration control. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: SendingFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Place1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the facility sending the message.</p> 
      * <p>&nbsp;</p>
@@ -488,6 +1071,19 @@ public class SenderBean extends MessagePartBean {
      * require communicating this information.</p>
      * 
      * <p>Used in message authorization.&nbsp;</p>
+     * 
+     * <p>Other Business Name: SendingFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Place1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the hospital, clinic or other 
+     * facility which constructed the message.</p>
+     * 
+     * <p>May be used for routing, or for configuration control. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
      */
     @Hl7XmlMapping({"device/asLocatedEntity/location/id"})
     public Identifier getDeviceAsLocatedEntityLocationId() {
@@ -495,9 +1091,13 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>SendingFacilityIdentifier</p>
+     * <p>Business Name: SendingFacilityIdentifier</p>
      * 
-     * <p>ICA:Sending Facility Identifier</p>
+     * <p>Other Business Name: SendingFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Place1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the hospital, clinic or other 
      * facility which constructed the message.</p>
@@ -506,7 +1106,24 @@ public class SenderBean extends MessagePartBean {
      * This attribute is optional because not all environments 
      * require communicating this information.</p>
      * 
-     * <p>ICA:Sending Facility Identifier</p>
+     * <p>Other Business Name: SendingFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Place1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the hospital, clinic or other 
+     * facility which constructed the message.</p>
+     * 
+     * <p>May be used for routing, or for configuration control. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
+     * 
+     * <p>Other Business Name: SendingFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Place1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the facility sending the message.</p> 
      * <p>&nbsp;</p>
@@ -516,6 +1133,19 @@ public class SenderBean extends MessagePartBean {
      * require communicating this information.</p>
      * 
      * <p>Used in message authorization.&nbsp;</p>
+     * 
+     * <p>Other Business Name: SendingFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Place1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the hospital, clinic or other 
+     * facility which constructed the message.</p>
+     * 
+     * <p>May be used for routing, or for configuration control. 
+     * This attribute is optional because not all environments 
+     * require communicating this information.</p>
      */
     public void setDeviceAsLocatedEntityLocationId(Identifier deviceAsLocatedEntityLocationId) {
         this.deviceAsLocatedEntityLocationId.setValue(deviceAsLocatedEntityLocationId);

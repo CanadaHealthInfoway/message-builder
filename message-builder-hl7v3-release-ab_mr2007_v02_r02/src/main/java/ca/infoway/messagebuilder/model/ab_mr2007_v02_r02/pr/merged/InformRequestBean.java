@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseShipToLo
 
 
 /**
- * <p>InformRequest</p>
+ * <p>Business Name: InformRequest</p>
  * 
  * <p>PRPM_MT301010CA.InformRequest: Inform Request</p>
  * 
@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseShipToLo
 @Hl7PartTypeMapping({"PRPM_MT301010CA.InformRequest","PRPM_MT303010CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CV subjectModeCode = new CVImpl();
     private DispenseShipToLocationBean subjectServiceDeliveryLocation;
@@ -74,9 +74,25 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>InformRequestCode</p>
+     * <p>Business Name: InformRequestCode</p>
      * 
-     * <p>Inform Request Code</p>
+     * <p>Other Business Name: InformRequestCode</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A code specifying the particular kind of Act that the 
+     * Act-instance represents within its class. Ex. Document 
+     * Type</p>
+     * 
+     * <p>Populated</p>
+     * 
+     * <p>Other Business Name: InformRequestCode</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code specifying the particular kind of Act that the 
      * Act-instance represents within its class. Ex. Document 
@@ -84,14 +100,6 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Populated attribute supports the business requirement to 
      * provide coded information about the Act being described</p>
-     * 
-     * <p>Inform Request Code</p>
-     * 
-     * <p>A code specifying the particular kind of Act that the 
-     * Act-instance represents within its class. Ex. Document 
-     * Type</p>
-     * 
-     * <p>Populated</p>
      */
     @Hl7XmlMapping({"code"})
     public ActCode getCode() {
@@ -99,9 +107,25 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>InformRequestCode</p>
+     * <p>Business Name: InformRequestCode</p>
      * 
-     * <p>Inform Request Code</p>
+     * <p>Other Business Name: InformRequestCode</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A code specifying the particular kind of Act that the 
+     * Act-instance represents within its class. Ex. Document 
+     * Type</p>
+     * 
+     * <p>Populated</p>
+     * 
+     * <p>Other Business Name: InformRequestCode</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code specifying the particular kind of Act that the 
      * Act-instance represents within its class. Ex. Document 
@@ -109,14 +133,6 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Populated attribute supports the business requirement to 
      * provide coded information about the Act being described</p>
-     * 
-     * <p>Inform Request Code</p>
-     * 
-     * <p>A code specifying the particular kind of Act that the 
-     * Act-instance represents within its class. Ex. Document 
-     * Type</p>
-     * 
-     * <p>Populated</p>
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
@@ -124,9 +140,19 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subject/modeCode"})
     public ParticipationMode getSubjectModeCode() {
@@ -134,30 +160,96 @@ public class InformRequestBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Populated</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSubjectModeCode(ParticipationMode subjectModeCode) {
         this.subjectModeCode.setValue(subjectModeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectServiceDeliveryLocation(DispenseShipToLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"indirectTarget/choice"})
     public Choice getIndirectTargetChoice() {
         return this.indirectTargetChoice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setIndirectTargetChoice(Choice indirectTargetChoice) {
         this.indirectTargetChoice = indirectTargetChoice;
     }

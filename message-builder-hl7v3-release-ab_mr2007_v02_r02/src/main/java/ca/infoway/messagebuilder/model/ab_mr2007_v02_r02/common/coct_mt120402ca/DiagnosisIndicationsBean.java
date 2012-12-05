@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Diagnosis Indications</p>
+ * <p>Business Name: Diagnosis Indications</p>
  * 
  * <p>Describes diagnosis-related indications</p>
  * 
@@ -43,13 +43,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationCondition"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private CD value = new CDImpl();
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.ObservationCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the type of condition described (diagnosis or 
      * indication)</p>
@@ -63,7 +67,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>Business Name: Diagnosis Type</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.ObservationCondition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the type of condition described (diagnosis or 
      * indication)</p>
@@ -77,7 +85,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>A:Diagnosis Code</p>
+     * <p>Business Name: A:Diagnosis Code</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.ObservationCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded form of the diagnosis that is the reason for the 
      * current action.</p>
@@ -104,7 +116,11 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements ca.info
     }
 
     /**
-     * <p>A:Diagnosis Code</p>
+     * <p>Business Name: A:Diagnosis Code</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.ObservationCondition.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded form of the diagnosis that is the reason for the 
      * current action.</p>

@@ -44,7 +44,7 @@ import java.util.List;
 
 
 /**
- * <p>TriggerEvent</p>
+ * <p>Business Name: TriggerEvent</p>
  * 
  * <p>QUQI_MT120008CA.ControlActEvent: Trigger Event</p>
  * 
@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -91,9 +91,30 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>EventIdentifier</p>
+     * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>B:Event Identifier</p>
+     * <p>Other Business Name: EventIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
+     * 
+     * <p>Allows the event to be referenced (for undos) and also 
+     * indicates whether multiple interactions were caused by the 
+     * same triggering event. Also used for audit purposes.</p>
+     * 
+     * <p>Identifier needs to be persisted by receiving 
+     * applications, except for queries (queries cannot be 
+     * retracted or undone).</p>
+     * 
+     * <p>Other Business Name: EventIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -112,9 +133,30 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>EventIdentifier</p>
+     * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>B:Event Identifier</p>
+     * <p>Other Business Name: EventIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A unique identifier for this particular event assigned by 
+     * the system in which the event occurred.</p>
+     * 
+     * <p>Allows the event to be referenced (for undos) and also 
+     * indicates whether multiple interactions were caused by the 
+     * same triggering event. Also used for audit purposes.</p>
+     * 
+     * <p>Identifier needs to be persisted by receiving 
+     * applications, except for queries (queries cannot be 
+     * retracted or undone).</p>
+     * 
+     * <p>Other Business Name: EventIdentifier</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -133,9 +175,24 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>EventType</p>
+     * <p>Business Name: EventType</p>
      * 
-     * <p>A:Event Type</p>
+     * <p>Other Business Name: EventType</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
+     * 
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
+     * 
+     * <p>Other Business Name: EventType</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
@@ -148,9 +205,24 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>EventType</p>
+     * <p>Business Name: EventType</p>
      * 
-     * <p>A:Event Type</p>
+     * <p>Other Business Name: EventType</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
+     * 
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
+     * 
+     * <p>Other Business Name: EventType</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
@@ -163,9 +235,30 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>EventEffectivePeriod</p>
+     * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>C:Event Effective Period</p>
+     * <p>Other Business Name: EventEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the time the event (e.g. query, change, 
+     * activation) should begin and occasionally when it should 
+     * end.</p>
+     * 
+     * <p>The time an event becomes effective may differ from the 
+     * time the event is recorded (i.e. it may be in the future or 
+     * the past). For events such as 'suspend', an intended end 
+     * date may also be indicated.</p>
+     * 
+     * <p>Other Business Name: EventEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time the event (e.g. query, change, 
      * activation) should begin and occasionally when it should 
@@ -182,9 +275,30 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>EventEffectivePeriod</p>
+     * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>C:Event Effective Period</p>
+     * <p>Other Business Name: EventEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the time the event (e.g. query, change, 
+     * activation) should begin and occasionally when it should 
+     * end.</p>
+     * 
+     * <p>The time an event becomes effective may differ from the 
+     * time the event is recorded (i.e. it may be in the future or 
+     * the past). For events such as 'suspend', an intended end 
+     * date may also be indicated.</p>
+     * 
+     * <p>Other Business Name: EventEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time the event (e.g. query, change, 
      * activation) should begin and occasionally when it should 
@@ -201,9 +315,31 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>EventReason</p>
+     * <p>Business Name: EventReason</p>
      * 
-     * <p>E:Event Reason</p>
+     * <p>Other Business Name: EventReason</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p>
+     * 
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold' or 'reason for accessing 
+     * information'.</p>
+     * 
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
+     * 
+     * <p>Other Business Name: EventReason</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies why this specific message interaction (e.g. 
      * query, activation request, modification request) 
@@ -223,9 +359,31 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
     /**
-     * <p>EventReason</p>
+     * <p>Business Name: EventReason</p>
      * 
-     * <p>E:Event Reason</p>
+     * <p>Other Business Name: EventReason</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p>
+     * 
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold' or 'reason for accessing 
+     * information'.</p>
+     * 
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
+     * 
+     * <p>Other Business Name: EventReason</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies why this specific message interaction (e.g. 
      * query, activation request, modification request) 
@@ -244,58 +402,189 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public List<RefersToBean<ACT>> getSubject() {
         return this.subject;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     */
     @Hl7XmlMapping({"subjectOf1"})
     public List<CausedBean> getSubjectOf1() {
         return this.subjectOf1;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2"})
     public AuthorizedByBean getSubjectOf2() {
         return this.subjectOf2;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubjectOf2(AuthorizedByBean subjectOf2) {
         this.subjectOf2 = subjectOf2;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"queryAck"})
     public QueryAckBean getQueryAck() {
         return this.queryAck;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setQueryAck(QueryAckBean queryAck) {
         this.queryAck = queryAck;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"queryByParameter"})
     public QueryByParameterBean<PL> getQueryByParameter() {
         return this.queryByParameter;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120008CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.ControlActEvent.recordTarget</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"recordTarget"})
     public StoredInBean getRecordTarget() {
         return this.recordTarget;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.ControlActEvent.recordTarget</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setRecordTarget(StoredInBean recordTarget) {
         this.recordTarget = recordTarget;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"componentOf"})
     public List<CareCompositionsBean> getComponentOf() {
         return this.componentOf;

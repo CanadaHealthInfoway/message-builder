@@ -32,12 +32,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.LanguageCode"})
 public class LanguageCodeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV value = new CVImpl();
 
 
     /**
-     * <p>Language of Communication Code</p>
+     * <p>Business Name: Language of Communication Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.LanguageCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code indicating the language of communication</p>
      * 
@@ -50,7 +54,11 @@ public class LanguageCodeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Language of Communication Code</p>
+     * <p>Business Name: Language of Communication Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101103CA.LanguageCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code indicating the language of communication</p>
      * 

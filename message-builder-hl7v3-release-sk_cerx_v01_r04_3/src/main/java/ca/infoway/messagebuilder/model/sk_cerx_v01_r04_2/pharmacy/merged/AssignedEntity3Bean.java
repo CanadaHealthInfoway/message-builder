@@ -33,12 +33,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.AssignedEntity1","POME_MT010040CA.AssignedEntity2","POME_MT010040CA.AssignedEntity3","PORR_MT050016CA.AssignedEntity"})
 public class AssignedEntity3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST assignedOrganizationName = new STImpl();
 
 
     /**
-     * <p>Formulary Owner Name</p>
+     * <p>Other Business Name: MedicationDocumentAuthorName</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Organization4.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the organization responsible for creating the 
+     * medication document.</p>
+     * 
+     * <p>Helps the receiver evaluate the supplied information.</p>
+     * 
+     * <p>Other Business Name: FormularyOwnerName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization3.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization or facility responsible for 
      * the formulary.</p>
@@ -46,14 +61,11 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>Helps identify the circumstances in which the formulary 
      * applies.</p>
      * 
-     * <p>D:Medication Document Author Name</p>
+     * <p>Other Business Name: MonitoringOrganizationName</p>
      * 
-     * <p>The name of the organization responsible for creating the 
-     * medication document.</p>
+     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
      * 
-     * <p>Helps the receiver evaluate the supplied information.</p>
-     * 
-     * <p>Monitoring Organization Name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization responsible for the 
      * monitoring program</p>
@@ -61,7 +73,11 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>Helps identify the program and understand its context. 
      * May also indicate who to send reports to.</p>
      * 
-     * <p>Monograph Author Name</p>
+     * <p>Other Business Name: MonographAuthorName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization1.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization responsible for creating the 
      * monograph</p>
@@ -79,7 +95,22 @@ public class AssignedEntity3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Formulary Owner Name</p>
+     * <p>Other Business Name: MedicationDocumentAuthorName</p>
+     * 
+     * <p>Relationship: PORR_MT050016CA.Organization4.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name of the organization responsible for creating the 
+     * medication document.</p>
+     * 
+     * <p>Helps the receiver evaluate the supplied information.</p>
+     * 
+     * <p>Other Business Name: FormularyOwnerName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization3.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization or facility responsible for 
      * the formulary.</p>
@@ -87,14 +118,11 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>Helps identify the circumstances in which the formulary 
      * applies.</p>
      * 
-     * <p>D:Medication Document Author Name</p>
+     * <p>Other Business Name: MonitoringOrganizationName</p>
      * 
-     * <p>The name of the organization responsible for creating the 
-     * medication document.</p>
+     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
      * 
-     * <p>Helps the receiver evaluate the supplied information.</p>
-     * 
-     * <p>Monitoring Organization Name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization responsible for the 
      * monitoring program</p>
@@ -102,7 +130,11 @@ public class AssignedEntity3Bean extends MessagePartBean {
      * <p>Helps identify the program and understand its context. 
      * May also indicate who to send reports to.</p>
      * 
-     * <p>Monograph Author Name</p>
+     * <p>Other Business Name: MonographAuthorName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization1.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the organization responsible for creating the 
      * monograph</p>

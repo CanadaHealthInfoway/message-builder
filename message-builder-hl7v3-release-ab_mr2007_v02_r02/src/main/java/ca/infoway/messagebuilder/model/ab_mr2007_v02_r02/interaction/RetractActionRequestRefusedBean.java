@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 
 
 /**
- * <p>COMT_IN600003CA: Retract action request refused</p>
+ * <p>Business Name: COMT_IN600003CA: Retract action request 
+ * refused</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 @Hl7PartTypeMapping({"COMT_IN600003CA"})
 public class RetractActionRequestRefusedBean extends HL7MessageBean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

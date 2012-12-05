@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Broadcast Message</p>
+ * <p>Business Name: Broadcast Message</p>
  * 
  * <p>Information being transmitted to proviers as a 'mass 
  * broadcast'</p>
@@ -42,12 +42,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class BroadcastMessageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST text = new STImpl();
 
 
     /**
-     * <p>Broadcast Message</p>
+     * <p>Business Name: Broadcast Message</p>
+     * 
+     * <p>Relationship: COMT_MT500001CA.InformEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Contains the text to be displayed to the user of the 
      * system.</p>
@@ -62,7 +66,11 @@ public class BroadcastMessageBean extends MessagePartBean {
     }
 
     /**
-     * <p>Broadcast Message</p>
+     * <p>Business Name: Broadcast Message</p>
+     * 
+     * <p>Relationship: COMT_MT500001CA.InformEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Contains the text to be displayed to the user of the 
      * system.</p>

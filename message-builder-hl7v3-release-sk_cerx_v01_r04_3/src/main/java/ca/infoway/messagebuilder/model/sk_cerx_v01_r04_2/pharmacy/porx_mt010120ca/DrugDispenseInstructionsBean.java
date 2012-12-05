@@ -38,7 +38,7 @@ import java.util.Date;
 
 
 /**
- * <p>Drug Dispense Instructions</p>
+ * <p>Business Name: Drug Dispense Instructions</p>
  * 
  * <p>Specification of the overall use duration of the 
  * prescrbed medication and/or overall quantity to be 
@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -59,7 +59,11 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Business Name: B:Total Prescribed Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.SupplyRequestItem.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
@@ -86,7 +90,11 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Total Prescribed Quantity</p>
+     * <p>Business Name: B:Total Prescribed Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT010120CA.SupplyRequestItem.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The overall amount of amount medication to be dispensed 
      * under this prescription. Includes any first fills (trials, 
@@ -113,7 +121,12 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Total Days Supply</p>
+     * <p>Business Name: A:Total Days Supply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SupplyRequestItem.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
@@ -143,7 +156,12 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Total Days Supply</p>
+     * <p>Business Name: A:Total Days Supply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.SupplyRequestItem.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
@@ -172,11 +190,21 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }

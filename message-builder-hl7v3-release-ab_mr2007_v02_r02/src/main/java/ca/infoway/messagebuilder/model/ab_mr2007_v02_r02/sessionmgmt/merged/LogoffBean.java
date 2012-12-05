@@ -62,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class LogoffBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> performerTime = new IVLImpl<TS, Interval<Date>>();
     private II performerAssignedEntityId = new IIImpl();
@@ -70,7 +70,22 @@ public class LogoffBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Security Token</p>
+     * <p>Other Business Name: AuthenticationToken</p>
+     * 
+     * <p>Relationship: COMT_MT900002AB.ActPermission.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the authentication token to be 
+     * revoked/ended</p>
+     * 
+     * <p>Needed to identify which session is to be logged off.</p>
+     * 
+     * <p>Other Business Name: SecurityToken</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.ActPermission.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique token indicating that the user has been 
      * authenticated to the system.</p>
@@ -78,13 +93,6 @@ public class LogoffBean extends MessagePartBean {
      * <p>The token is needed for inclusion in subsequent messages 
      * to identify that the transaction is being performed under 
      * the auspices of an authenticated user.</p>
-     * 
-     * <p>Authentication Token</p>
-     * 
-     * <p>Indicates the authentication token to be 
-     * revoked/ended</p>
-     * 
-     * <p>Needed to identify which session is to be logged off.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -92,7 +100,22 @@ public class LogoffBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Security Token</p>
+     * <p>Other Business Name: AuthenticationToken</p>
+     * 
+     * <p>Relationship: COMT_MT900002AB.ActPermission.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the authentication token to be 
+     * revoked/ended</p>
+     * 
+     * <p>Needed to identify which session is to be logged off.</p>
+     * 
+     * <p>Other Business Name: SecurityToken</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.ActPermission.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique token indicating that the user has been 
      * authenticated to the system.</p>
@@ -100,13 +123,6 @@ public class LogoffBean extends MessagePartBean {
      * <p>The token is needed for inclusion in subsequent messages 
      * to identify that the transaction is being performed under 
      * the auspices of an authenticated user.</p>
-     * 
-     * <p>Authentication Token</p>
-     * 
-     * <p>Indicates the authentication token to be 
-     * revoked/ended</p>
-     * 
-     * <p>Needed to identify which session is to be logged off.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -114,9 +130,13 @@ public class LogoffBean extends MessagePartBean {
 
 
     /**
-     * <p>PasswordExpiryDate</p>
+     * <p>Business Name: PasswordExpiryDate</p>
      * 
-     * <p>C: Password Expiry Date</p>
+     * <p>Other Business Name: PasswordExpiryDate</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.Performer.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the last date that the current password for the 
      * authenticating user will be considered valid.</p>
@@ -130,9 +150,13 @@ public class LogoffBean extends MessagePartBean {
     }
 
     /**
-     * <p>PasswordExpiryDate</p>
+     * <p>Business Name: PasswordExpiryDate</p>
      * 
-     * <p>C: Password Expiry Date</p>
+     * <p>Other Business Name: PasswordExpiryDate</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.Performer.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the last date that the current password for the 
      * authenticating user will be considered valid.</p>
@@ -146,9 +170,13 @@ public class LogoffBean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderId</p>
+     * <p>Business Name: ProviderId</p>
      * 
-     * <p>B: Provider id</p>
+     * <p>Other Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the provider logged on</p>
      * 
@@ -163,9 +191,13 @@ public class LogoffBean extends MessagePartBean {
     }
 
     /**
-     * <p>ProviderId</p>
+     * <p>Business Name: ProviderId</p>
      * 
-     * <p>B: Provider id</p>
+     * <p>Other Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the provider logged on</p>
      * 
@@ -179,6 +211,14 @@ public class LogoffBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT900004AB.Component.transactionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/transactionPermission"})
     public List<TransactionPermissionBean> getComponentTransactionPermission() {
         return this.componentTransactionPermission;

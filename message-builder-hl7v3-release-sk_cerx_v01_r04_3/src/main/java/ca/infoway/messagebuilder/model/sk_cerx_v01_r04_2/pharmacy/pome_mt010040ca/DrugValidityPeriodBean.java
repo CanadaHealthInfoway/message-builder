@@ -32,7 +32,7 @@ import java.util.Date;
 
 
 /**
- * <p>Drug Validity Period</p>
+ * <p>Business Name: Drug Validity Period</p>
  * 
  * <p>Defines upper limits for period in which a prescribed 
  * drug may be dispensed. Although an attempt will be made to 
@@ -47,12 +47,17 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.InitialDispense"})
 public class DrugValidityPeriodBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>First Fill Period</p>
+     * <p>Business Name: First Fill Period</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.InitialDispense.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The period within which the prescribed drug has to be 
      * dispensed for the first time.</p><p>This is usually 
@@ -90,7 +95,12 @@ public class DrugValidityPeriodBean extends MessagePartBean {
     }
 
     /**
-     * <p>First Fill Period</p>
+     * <p>Business Name: First Fill Period</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.InitialDispense.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The period within which the prescribed drug has to be 
      * dispensed for the first time.</p><p>This is usually 

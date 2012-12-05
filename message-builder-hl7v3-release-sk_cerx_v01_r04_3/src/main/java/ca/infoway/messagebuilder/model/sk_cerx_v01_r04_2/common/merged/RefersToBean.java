@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>RefersTo</p>
+ * <p>Business Name: RefersTo</p>
  * 
  * <p>MCAI_MT700210CA.Subject2: f:refers to</p>
  * 
@@ -94,15 +94,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Subject2","MCAI_MT700211CA.Subject2","MCAI_MT700220CA.Subject2","MCAI_MT700221CA.Subject2","QUQI_MT120000CA.Subject2"})
 public class RefersToBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL contextConductionInd = new BLImpl();
     private ACT act;
 
 
     /**
-     * <p>CascadeResponsibilityIndicator</p>
+     * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>On creation interactions (where the state transition is 
      * null-&gt;active), this must be true otherwise it must be 
@@ -127,9 +132,14 @@ public class RefersToBean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>CascadeResponsibilityIndicator</p>
+     * <p>Business Name: CascadeResponsibilityIndicator</p>
      * 
-     * <p>Cascade Responsibility Indicator</p>
+     * <p>Other Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>On creation interactions (where the state transition is 
      * null-&gt;active), this must be true otherwise it must be 
@@ -153,11 +163,73 @@ public class RefersToBean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"act"})
     public ACT getAct() {
         return this.act;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120000CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAct(ACT act) {
         this.act = act;
     }

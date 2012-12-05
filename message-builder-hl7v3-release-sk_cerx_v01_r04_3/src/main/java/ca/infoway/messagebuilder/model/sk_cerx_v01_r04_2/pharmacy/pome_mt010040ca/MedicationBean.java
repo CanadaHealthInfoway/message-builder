@@ -33,7 +33,7 @@ import java.util.List;
 
 
 /**
- * <p>Medication</p>
+ * <p>Business Name: Medication</p>
  * 
  * <p>Represents a particular medicine or herbal product which 
  * might be prescribed or administered.</p>
@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DrugOrCompoundBean player;
     private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private DrugHalfLifeBean subjectOf2HalfLife;
@@ -59,6 +59,10 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: POME_MT010040CA.Medication.player</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><font color="#000080" size="2" face="Helvetica"><font 
      * color="#000080" size="2" face="Helvetica"><font 
      * color="#000080" size="2" face="Helvetica"> <p 
@@ -81,6 +85,10 @@ public class MedicationBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: POME_MT010040CA.Medication.player</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><font color="#000080" size="2" face="Helvetica"><font 
      * color="#000080" size="2" face="Helvetica"><font 
      * color="#000080" size="2" face="Helvetica"> <p 
@@ -108,11 +116,21 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject5.halfLife</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/halfLife"})
     public DrugHalfLifeBean getSubjectOf2HalfLife() {
         return this.subjectOf2HalfLife;
     }
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject5.halfLife</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2HalfLife(DrugHalfLifeBean subjectOf2HalfLife) {
         this.subjectOf2HalfLife = subjectOf2HalfLife;
     }
@@ -125,7 +143,11 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Subject To</p>
+     * <p>Business Name: Subject To</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Subject8.monitoringProgram</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;A system of additional business rules, 
      * documentation</p> <div>or reporting associated with a 
@@ -148,6 +170,11 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * POME_MT010040CA.Consumable2.administrationGuideline</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This comprises the route of administration,</p> 
      * <div>maximum/minimum daily dose, and overall use</div> 
      * <div>instructions for the drug.</div>
@@ -159,6 +186,10 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: POME_MT010040CA.Product2.dispenseGuidelines</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;Either component1 or component2 must be filled.</p>
      */
     @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
@@ -167,6 +198,10 @@ public class MedicationBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: POME_MT010040CA.Product2.dispenseGuidelines</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;Either component1 or component2 must be filled.</p>
      */
     public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
@@ -175,6 +210,10 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: POME_MT010040CA.Product.potentialSupply</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>Either id or title must be specified.</p>
      */
     @Hl7XmlMapping({"productOf2/potentialSupply"})

@@ -43,7 +43,7 @@ import java.util.List;
 
 
 /**
- * <p>Specimen Role</p>
+ * <p>Business Name: Specimen Role</p>
  * 
  * <p>The specimen role represents the information regarding a 
  * material collected from a patient to serve as a specimen for 
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private CV specimenMaterialCode = new CVImpl();
@@ -65,18 +65,32 @@ public class SpecimenRoleBean extends MessagePartBean {
     private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
 
 
+    /**
+     * <p>Relationship: COCT_MT080100CA.Specimen.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public RoleClass getClassCode() {
         return (RoleClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT080100CA.Specimen.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
     /**
-     * <p>A:Specimen Identifier</p>
+     * <p>Business Name: A:Specimen Identifier</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Specimen.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for the specimen. Frequently the 
      * accession number which often uniquely identifies the 
@@ -111,7 +125,11 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Specimen Identifier</p>
+     * <p>Business Name: A:Specimen Identifier</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Specimen.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for the specimen. Frequently the 
      * accession number which often uniquely identifies the 
@@ -146,7 +164,11 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>V:Specimen Code</p>
+     * <p>Business Name: V:Specimen Code</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Material.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The code of the specimen material collected e.g. skin, 
      * blood, etc.</p>
@@ -160,7 +182,11 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>V:Specimen Code</p>
+     * <p>Business Name: V:Specimen Code</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Material.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The code of the specimen material collected e.g. skin, 
      * blood, etc.</p>
@@ -174,7 +200,11 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>W:Specimen Text</p>
+     * <p>Business Name: W:Specimen Text</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Any descriptive specimen information not sufficiently 
      * communicated by the code attribute.</p>
@@ -188,7 +218,11 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>W:Specimen Text</p>
+     * <p>Business Name: W:Specimen Text</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Material.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Any descriptive specimen information not sufficiently 
      * communicated by the code attribute.</p>
@@ -208,7 +242,11 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Y:Specimen Container Risk</p>
+     * <p>Business Name: Y:Specimen Container Risk</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes any risk to the handlers of this container 
      * (containing a specimen).</p>
@@ -222,7 +260,11 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Y:Specimen Container Risk</p>
+     * <p>Business Name: Y:Specimen Container Risk</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes any risk to the handlers of this container 
      * (containing a specimen).</p>
@@ -235,23 +277,47 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Subject3.transportationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/transportationEvent"})
     public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
         return this.subjectOf1TransportationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Subject4.specimenObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
     public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
         return this.subjectOf2SpecimenObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"productOf/specimenCollectionProcedureEvent"})
     public SpecimenCollectionProcedureBean getProductOfSpecimenCollectionProcedureEvent() {
         return this.productOfSpecimenCollectionProcedureEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
         this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
     }

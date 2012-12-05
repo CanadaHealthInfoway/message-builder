@@ -50,7 +50,7 @@ import java.util.List;
 
 
 /**
- * <p>ProfessionalService</p>
+ * <p>Business Name: ProfessionalService</p>
  * 
  * <p>REPC_MT000017CA.ProcedureEvent: Professional Service</p>
  * 
@@ -83,7 +83,7 @@ import java.util.List;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
@@ -98,9 +98,98 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>ServiceCode</p>
+     * <p>Business Name: ServiceCode</p>
      * 
-     * <p>B:Service Code</p>
+     * <p>Other Business Name: ServiceCode</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.ProcedureEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the specific service that has been performed. 
+     * This is obtained from the professional service catalog 
+     * pertaining to the discipline of the health service 
+     * provider.</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>Allows the service to be sorted and filtered. Ensures 
+     * consistency for analysis and reporting purposes and is 
+     * therefore mandatory</p>
+     * 
+     * <p>Other Business Name: ServiceCode</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.ProcedureEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the specific service that has been performed. 
      * This is obtained from the professional service catalog 
@@ -187,9 +276,98 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>ServiceCode</p>
+     * <p>Business Name: ServiceCode</p>
      * 
-     * <p>B:Service Code</p>
+     * <p>Other Business Name: ServiceCode</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.ProcedureEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the specific service that has been performed. 
+     * This is obtained from the professional service catalog 
+     * pertaining to the discipline of the health service 
+     * provider.</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
+     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
+     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
+     * (modifier)</p><p>Claim.418-DI 
+     * (modifier)</p><p>DUR/PPS.474-8E 
+     * (modifier)</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>Allows the service to be sorted and filtered. Ensures 
+     * consistency for analysis and reporting purposes and is 
+     * therefore mandatory</p>
+     * 
+     * <p>Other Business Name: ServiceCode</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.ProcedureEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the specific service that has been performed. 
      * This is obtained from the professional service catalog 
@@ -276,9 +454,56 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsultationTimeAndLength</p>
+     * <p>Business Name: ConsultationTimeAndLength</p>
      * 
-     * <p>C:Consultation Time and Length</p>
+     * <p>Other Business Name: ConsultationTimeAndLength</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000017CA.ProcedureEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Center date cannot be null But duration can be left 
+     * unspecified if not known.</p>
+     * 
+     * <p>The date and time on which the professional service was 
+     * performed, as well as the duration of the service.</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>Allows the service-event to be located in a particular 
+     * time. Because a time won't always be known, the attribute is 
+     * only marked as &quot;populated&quot;. The duration of the 
+     * consultation may also be of clinical interest.</p>
+     * 
+     * <p>Other Business Name: ConsultationTimeAndLength</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.ProcedureEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Center date cannot be null But duration can be left 
      * unspecified if not known.</p>
@@ -321,9 +546,56 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsultationTimeAndLength</p>
+     * <p>Business Name: ConsultationTimeAndLength</p>
      * 
-     * <p>C:Consultation Time and Length</p>
+     * <p>Other Business Name: ConsultationTimeAndLength</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000017CA.ProcedureEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Center date cannot be null But duration can be left 
+     * unspecified if not known.</p>
+     * 
+     * <p>The date and time on which the professional service was 
+     * performed, as well as the duration of the service.</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p>
+     * 
+     * <p>Allows the service-event to be located in a particular 
+     * time. Because a time won't always be known, the attribute is 
+     * only marked as &quot;populated&quot;. The duration of the 
+     * consultation may also be of clinical interest.</p>
+     * 
+     * <p>Other Business Name: ConsultationTimeAndLength</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.ProcedureEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Center date cannot be null But duration can be left 
      * unspecified if not known.</p>
@@ -366,12 +638,17 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>ProfessionalServiceMaskingIndicator</p>
+     * <p>Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
-     * <p>D:Professional Service Masking Indicator</p>
+     * <p>Other Business Name: ProfessionalServiceMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000017CA.ProcedureEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
-     * to their professional service records. Provides support for 
+     * to their professional service record. Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information. Valid values are: 
      * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
@@ -386,10 +663,15 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * to their medication data.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>D:Professional Service Masking Indicator</p>
+     * <p>Other Business Name: ProfessionalServiceMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.ProcedureEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
-     * to their professional service record. Provides support for 
+     * to their professional service records. Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information. Valid values are: 
      * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
@@ -410,12 +692,17 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>ProfessionalServiceMaskingIndicator</p>
+     * <p>Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
-     * <p>D:Professional Service Masking Indicator</p>
+     * <p>Other Business Name: ProfessionalServiceMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000017CA.ProcedureEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
-     * to their professional service records. Provides support for 
+     * to their professional service record. Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information. Valid values are: 
      * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
@@ -430,10 +717,15 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * to their medication data.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>D:Professional Service Masking Indicator</p>
+     * <p>Other Business Name: ProfessionalServiceMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.ProcedureEvent.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
-     * to their professional service record. Provides support for 
+     * to their professional service records. Provides support for 
      * additional confidentiality constraint, giving patients a 
      * level of control over their information. Valid values are: 
      * 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' (denotes 
@@ -453,26 +745,91 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.InFulfillmentOf.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.InFulfillmentOf.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
     public OrderForServiceBean getInFulfillmentOfActRequest() {
         return this.inFulfillmentOfActRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.InFulfillmentOf.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.InFulfillmentOf.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInFulfillmentOfActRequest(OrderForServiceBean inFulfillmentOfActRequest) {
         this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.Subject2.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.Subject2.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation","subjectOf2/annotation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="REPC_MT000017CA.Subject2"),
@@ -485,9 +842,13 @@ public class ProfessionalServiceBean extends MessagePartBean {
 
 
     /**
-     * <p>ServiceRecordIdentifier</p>
+     * <p>Business Name: ServiceRecordIdentifier</p>
      * 
-     * <p>A:Service Record Identifier</p>
+     * <p>Other Business Name: ServiceRecordIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.ProcedureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for a patient consultation service 
      * record.</p>
@@ -533,9 +894,13 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
     /**
-     * <p>ServiceRecordIdentifier</p>
+     * <p>Business Name: ServiceRecordIdentifier</p>
      * 
-     * <p>A:Service Record Identifier</p>
+     * <p>Other Business Name: ServiceRecordIdentifier</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.ProcedureEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for a patient consultation service 
      * record.</p>
@@ -580,41 +945,101 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.Performer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedPerson"})
     public ProviderBean getPerformerAssignedPerson() {
         return this.performerAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.Performer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
         this.performerAssignedPerson = performerAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.ProcedureEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.ProcedureEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100001CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }

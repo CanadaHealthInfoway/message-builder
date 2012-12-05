@@ -41,7 +41,7 @@ import java.util.Date;
 
 
 /**
- * <p>Version Information</p>
+ * <p>Business Name: Version Information</p>
  * 
  * <p>This records the history of changes that have been made 
  * to the record, including why the changes were made, who made 
@@ -54,7 +54,7 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -63,7 +63,11 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Change Identifier</p>
+     * <p>Business Name: B:Change Identifier</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular change.</p>
      * 
@@ -77,7 +81,11 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Change Identifier</p>
+     * <p>Business Name: B:Change Identifier</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular change.</p>
      * 
@@ -91,7 +99,11 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Change Type</p>
+     * <p>Business Name: A:Change Type</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred.</p>
      * 
@@ -104,7 +116,11 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Change Type</p>
+     * <p>Business Name: A:Change Type</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred.</p>
      * 
@@ -117,7 +133,12 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Change Effective Date and End Date</p>
+     * <p>Business Name: C:Change Effective Date and End Date</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT130001CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various changes of an event become 
      * valid and applicable and potentially when the change is 
@@ -135,7 +156,12 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Change Effective Date and End Date</p>
+     * <p>Business Name: C:Change Effective Date and End Date</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT130001CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various changes of an event become 
      * valid and applicable and potentially when the change is 
@@ -153,7 +179,11 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Change Reason</p>
+     * <p>Business Name: D:Change Reason</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the record was modified.</p>
      * 
@@ -167,7 +197,11 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Change Reason</p>
+     * <p>Business Name: D:Change Reason</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the record was modified.</p>
      * 

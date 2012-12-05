@@ -34,12 +34,17 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.SubsequentDispense"})
 public class SubsequentDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>Refill period</p>
+     * <p>Business Name: Refill period</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.SubsequentDispense.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The interval within which subsequent dispensing can be 
      * made against a prescription, after the first/initial 
@@ -54,7 +59,12 @@ public class SubsequentDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Refill period</p>
+     * <p>Business Name: Refill period</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.SubsequentDispense.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The interval within which subsequent dispensing can be 
      * made against a prescription, after the first/initial 

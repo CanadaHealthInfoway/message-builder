@@ -30,7 +30,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.pome_mt010040c
 
 
 /**
- * <p>POME_IN010060CA: Drug product detail query response</p>
+ * <p>Business Name: POME_IN010060CA: Drug product detail query 
+ * response</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -43,6 +44,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.pome_mt010040c
 @Hl7PartTypeMapping({"POME_IN010060CA"})
 public class DrugProductDetailQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicationBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

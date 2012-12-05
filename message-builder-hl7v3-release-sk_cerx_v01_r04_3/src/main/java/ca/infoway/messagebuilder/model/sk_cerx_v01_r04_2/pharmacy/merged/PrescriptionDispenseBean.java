@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt060020c
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
@@ -85,9 +85,13 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.DeviceDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifier assigned by the dispensing facility.</p>
      * 
@@ -106,7 +110,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * allow for retrieval of this dispense using a given 
      * identifier.</p> </font></font></font></b></p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -136,9 +144,13 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.DeviceDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifier assigned by the dispensing facility.</p>
      * 
@@ -157,7 +169,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * allow for retrieval of this dispense using a given 
      * identifier.</p> </font></font></font></b></p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -187,51 +203,14 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionMaskingIndicator</p>
+     * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Relationship: 
+     * PORX_MT020060CA.DeviceDispense.confidentialityCode</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their medication data.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their medication data.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent that the dispense should be 
      * masked if it is created; If the dispense is masked, this 
@@ -268,6 +247,53 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p align="left">As SK does not implement record-level</p> <p 
      * align="left">masking, this must be &lsquo;Normal&rsquo; or 
      * a</p> <p>CODE_INVAL error issue will be returned.</p>
+     * 
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.DeviceDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -275,51 +301,14 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionMaskingIndicator</p>
+     * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
+     * <p>Relationship: 
+     * PORX_MT020060CA.DeviceDispense.confidentialityCode</p>
      * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Communicates the intent of the patient to restrict access 
-     * to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Valid values 
-     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
-     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
-     * 'Not Masked'.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their medication data.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>Allows the patient to have discrete control over access 
-     * to their medication data.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
-     * 
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Communicates the intent that the dispense should be 
      * masked if it is created; If the dispense is masked, this 
@@ -356,52 +345,172 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p align="left">As SK does not implement record-level</p> <p 
      * align="left">masking, this must be &lsquo;Normal&rsquo; or 
      * a</p> <p>CODE_INVAL error issue will be returned.</p>
+     * 
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.DeviceDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Communicates the intent of the patient to restrict access 
+     * to their prescriptions.</p><p>Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information.</p><p>Valid values 
+     * are: 'NORMAL' (denotes 'Not Masked'); and 'RESTRICTED' 
+     * (denotes 'Masked').</p><p>The default is 'NORMAL' signifying 
+     * 'Not Masked'.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
+     * 
+     * <p>Allows the patient to have discrete control over access 
+     * to their medication data.</p><p>The attribute is optional 
+     * because not all systems will support masking.</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Subject8.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient1"})
     public Patient getSubjectPatient1() {
         return this.subjectPatient1;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Subject8.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient1(Patient subjectPatient1) {
         this.subjectPatient1 = subjectPatient1;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recordTarget/patient"})
     public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.InFulfillmentOf1.deviceRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/deviceRequest"})
     public PrescriptionReferenceBean getInFulfillmentOfDeviceRequest() {
         return this.inFulfillmentOfDeviceRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.InFulfillmentOf1.deviceRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInFulfillmentOfDeviceRequest(PrescriptionReferenceBean inFulfillmentOfDeviceRequest) {
         this.inFulfillmentOfDeviceRequest = inFulfillmentOfDeviceRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.Component11.procedureRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/procedureRequest"})
     public ProcedureRequestBean getComponent1ProcedureRequest() {
         return this.component1ProcedureRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.Component11.procedureRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
         this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Component2.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/supplyEvent","component2/supplyEvent"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component", type="PORX_MT060020CA.Component2"),
@@ -412,25 +521,56 @@ public class PrescriptionDispenseBean extends MessagePartBean {
         return this.componentSupplyEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Component2.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentSupplyEvent(DispenseDetailsBean componentSupplyEvent) {
         this.componentSupplyEvent = componentSupplyEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public CommentBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
     /**
-     * <p>DispenseStatus</p>
+     * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>C:Dispense Status</p>
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
@@ -449,9 +589,13 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>DispenseStatus</p>
+     * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>C:Dispense Status</p>
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If 'Active' it means that the dispense has been 
@@ -469,28 +613,62 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Performer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedPerson"})
     public ProviderBean getPerformerAssignedPerson() {
         return this.performerAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.Performer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
         this.performerAssignedPerson = performerAssignedPerson;
     }
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates the facility/location where the 
      * dispensing</div> <p>was performed.&nbsp;</p></p>
@@ -501,7 +679,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates the facility/location where the 
      * dispensing</div> <p>was performed.&nbsp;</p></p>
@@ -512,7 +694,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.fulfillment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the prescription that was dispensed.</p>
      * 
@@ -526,7 +712,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.fulfillment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the prescription that was dispensed.</p>
      * 
@@ -540,9 +730,14 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>IssueIndicator</p>
+     * <p>Business Name: IssueIndicator</p>
      * 
-     * <p>Issue Indicator</p>
+     * <p>Other Business Name: IssueIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.Subject4.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that there are issues</p> 
      * <div>associated with this record.</div> <div>This will only 
@@ -556,9 +751,14 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>IssueIndicator</p>
+     * <p>Business Name: IssueIndicator</p>
      * 
-     * <p>Issue Indicator</p>
+     * <p>Other Business Name: IssueIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.Subject4.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;If present, indicates that there are issues</p> 
      * <div>associated with this record.</div> <div>This will only 
@@ -572,9 +772,14 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>AnnotationIndicator</p>
+     * <p>Business Name: AnnotationIndicator</p>
      * 
-     * <p>Annotation Indicator</p>
+     * <p>Other Business Name: AnnotationIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>If present, indicates that there are notes</div> 
      * <div>associated with the record.</div> <div>This will only 
@@ -587,9 +792,14 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>AnnotationIndicator</p>
+     * <p>Business Name: AnnotationIndicator</p>
      * 
-     * <p>Annotation Indicator</p>
+     * <p>Other Business Name: AnnotationIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.Subject3.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>If present, indicates that there are notes</div> 
      * <div>associated with the record.</div> <div>This will only 

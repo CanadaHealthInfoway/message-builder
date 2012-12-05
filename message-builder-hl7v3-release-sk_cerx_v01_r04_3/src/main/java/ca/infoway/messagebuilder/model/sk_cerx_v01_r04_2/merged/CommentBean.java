@@ -93,7 +93,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.si.comt_mt301001ca.Anno
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private PatientBean recordTargetPatient;
@@ -106,13 +106,17 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientNoteCategory</p>
+     * <p>Business Name: PatientNoteCategory</p>
      * 
-     * <p>A:Patient Note Category</p>
+     * <p>Other Business Name: PatientNoteCategory</p>
+     * 
+     * <p>Relationship: COMT_MT300001CA.Annotation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the category of note being 
      * attached to a Patient's record. Categories of note include: 
-     * General, Medication, Lab, DI, etc.</p>
+     * General, Medication, Lab, DI, Immunization, etc</p>
      * 
      * <p>Allows patient notes of different purposes and use, to be 
      * attached to a patient. Attribute is mandatory to ensure that 
@@ -120,11 +124,15 @@ public class CommentBean extends MessagePartBean {
      * may also be used by DISs to enforce different access control 
      * to different types of notes.</p>
      * 
-     * <p>Patient Note Category</p>
+     * <p>Other Business Name: PatientNoteCategory</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Annotation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the category of note being 
      * attached to a Patient's record. Categories of note include: 
-     * General, Medication, Lab, DI, Immunization, etc</p>
+     * General, Medication, Lab, DI, etc.</p>
      * 
      * <p>Allows patient notes of different purposes and use, to be 
      * attached to a patient. Attribute is mandatory to ensure that 
@@ -138,13 +146,17 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientNoteCategory</p>
+     * <p>Business Name: PatientNoteCategory</p>
      * 
-     * <p>A:Patient Note Category</p>
+     * <p>Other Business Name: PatientNoteCategory</p>
+     * 
+     * <p>Relationship: COMT_MT300001CA.Annotation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the category of note being 
      * attached to a Patient's record. Categories of note include: 
-     * General, Medication, Lab, DI, etc.</p>
+     * General, Medication, Lab, DI, Immunization, etc</p>
      * 
      * <p>Allows patient notes of different purposes and use, to be 
      * attached to a patient. Attribute is mandatory to ensure that 
@@ -152,11 +164,15 @@ public class CommentBean extends MessagePartBean {
      * may also be used by DISs to enforce different access control 
      * to different types of notes.</p>
      * 
-     * <p>Patient Note Category</p>
+     * <p>Other Business Name: PatientNoteCategory</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Annotation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the category of note being 
      * attached to a Patient's record. Categories of note include: 
-     * General, Medication, Lab, DI, Immunization, etc</p>
+     * General, Medication, Lab, DI, etc.</p>
      * 
      * <p>Allows patient notes of different purposes and use, to be 
      * attached to a patient. Attribute is mandatory to ensure that 
@@ -170,7 +186,11 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Note Text</p>
+     * <p>Other Business Name: PatientNoteText</p>
+     * 
+     * <p>Relationship: COMT_MT300001CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Free textual description of the patient note.</p>
      * 
@@ -180,17 +200,25 @@ public class CommentBean extends MessagePartBean {
      * point in having a patient note unless there's actually 
      * content in the note.</p>
      * 
-     * <p>Note Text</p>
+     * <p>Other Business Name: PatientNoteText</p>
      * 
-     * <p>Free text comments. Additional textual iinformation 
-     * entered about an object.</p>
+     * <p>Relationship: COMT_MT300003CA.Annotation.text</p>
      * 
-     * <p>Allows a provider to attach comments to objects for 
-     * communication. This attribute is mandatory because there's 
-     * no point in having a note class unless there's actually 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Free textual description of the patient note.</p>
+     * 
+     * <p>Allows a provider to attach comments to a patient as a 
+     * whole or to the patient's profile (such as medication, lab. 
+     * DI, etc). This attribute is mandatory because there's no 
+     * point in having a patient note unless there's actually 
      * content in the note.</p>
      * 
-     * <p>C:Annotation Text</p>
+     * <p>Other Business Name: AnnotationText</p>
+     * 
+     * <p>Relationship: COMT_MT301001CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Free text comment to be attached to a record.</p>
      * 
@@ -199,6 +227,20 @@ public class CommentBean extends MessagePartBean {
      * allergies, etc) for communication. This attribute is 
      * mandatory because there's no point in having an annotation 
      * unless there's actually content in the note.</p>
+     * 
+     * <p>Other Business Name: NoteText</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Free text comments. Additional textual iinformation 
+     * entered about an object.</p>
+     * 
+     * <p>Allows a provider to attach comments to objects for 
+     * communication. This attribute is mandatory because there's 
+     * no point in having a note class unless there's actually 
+     * content in the note.</p>
      */
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -206,7 +248,11 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Patient Note Text</p>
+     * <p>Other Business Name: PatientNoteText</p>
+     * 
+     * <p>Relationship: COMT_MT300001CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Free textual description of the patient note.</p>
      * 
@@ -216,17 +262,25 @@ public class CommentBean extends MessagePartBean {
      * point in having a patient note unless there's actually 
      * content in the note.</p>
      * 
-     * <p>Note Text</p>
+     * <p>Other Business Name: PatientNoteText</p>
      * 
-     * <p>Free text comments. Additional textual iinformation 
-     * entered about an object.</p>
+     * <p>Relationship: COMT_MT300003CA.Annotation.text</p>
      * 
-     * <p>Allows a provider to attach comments to objects for 
-     * communication. This attribute is mandatory because there's 
-     * no point in having a note class unless there's actually 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Free textual description of the patient note.</p>
+     * 
+     * <p>Allows a provider to attach comments to a patient as a 
+     * whole or to the patient's profile (such as medication, lab. 
+     * DI, etc). This attribute is mandatory because there's no 
+     * point in having a patient note unless there's actually 
      * content in the note.</p>
      * 
-     * <p>C:Annotation Text</p>
+     * <p>Other Business Name: AnnotationText</p>
+     * 
+     * <p>Relationship: COMT_MT301001CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Free text comment to be attached to a record.</p>
      * 
@@ -235,6 +289,20 @@ public class CommentBean extends MessagePartBean {
      * allergies, etc) for communication. This attribute is 
      * mandatory because there's no point in having an annotation 
      * unless there's actually content in the note.</p>
+     * 
+     * <p>Other Business Name: NoteText</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Free text comments. Additional textual iinformation 
+     * entered about an object.</p>
+     * 
+     * <p>Allows a provider to attach comments to objects for 
+     * communication. This attribute is mandatory because there's 
+     * no point in having a note class unless there's actually 
+     * content in the note.</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
@@ -242,12 +310,22 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>CommentPertainsTo</p>
+     * <p>Business Name: CommentPertainsTo</p>
      * 
-     * <p>Comment Pertains To</p>
+     * <p>Other Business Name: CommentPertainsTo</p>
+     * 
+     * <p>Relationship: COMT_MT300001CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>This uses COCT_MT050202CA &ndash; Patient 
      * Person&nbsp;Identified Confirmable.&nbsp;</div></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient"})
     public PatientBean getRecordTargetPatient() {
@@ -255,12 +333,22 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>CommentPertainsTo</p>
+     * <p>Business Name: CommentPertainsTo</p>
      * 
-     * <p>Comment Pertains To</p>
+     * <p>Other Business Name: CommentPertainsTo</p>
+     * 
+     * <p>Relationship: COMT_MT300001CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>This uses COCT_MT050202CA &ndash; Patient 
      * Person&nbsp;Identified Confirmable.&nbsp;</div></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
@@ -268,9 +356,13 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>PatientNoteId</p>
+     * <p>Business Name: PatientNoteId</p>
      * 
-     * <p>B:Patient Note Id</p>
+     * <p>Other Business Name: PatientNoteId</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Annotation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the patient note record.</p>
      * 
@@ -290,9 +382,13 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>PatientNoteId</p>
+     * <p>Business Name: PatientNoteId</p>
      * 
-     * <p>B:Patient Note Id</p>
+     * <p>Other Business Name: PatientNoteId</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Annotation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the patient note record.</p>
      * 
@@ -312,9 +408,14 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>SupervisedBy</p>
+     * <p>Business Name: SupervisedBy</p>
      * 
-     * <p>Supervised By</p>
+     * <p>Other Business Name: SupervisedBy</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT300003CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Identifies the provider who is taking 
      * responsibility</p> <div>for the actions of the author.</div>
@@ -325,9 +426,14 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>SupervisedBy</p>
+     * <p>Business Name: SupervisedBy</p>
      * 
-     * <p>Supervised By</p>
+     * <p>Other Business Name: SupervisedBy</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT300003CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Identifies the provider who is taking 
      * responsibility</p> <div>for the actions of the author.</div>
@@ -338,7 +444,17 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Annotation.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Identifies the provider responsible for the content 
      * of</div> <p>the note.&nbsp;</p></p>
@@ -349,7 +465,17 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Annotation.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Identifies the provider responsible for the content 
      * of</div> <p>the note.&nbsp;</p></p>
@@ -359,20 +485,44 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Annotation.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Annotation.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
     /**
-     * <p>WrittenIn</p>
+     * <p>Business Name: WrittenIn</p>
      * 
-     * <p>Written in</p>
+     * <p>Other Business Name: WrittenIn</p>
+     * 
+     * <p>Relationship: COMT_MT301001CA.Annotation.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: WrittenIn</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the language in which the note is 
      * written.</p>
@@ -386,8 +536,6 @@ public class CommentBean extends MessagePartBean {
      * choice.</p><p>This attribute is marked as 'populated' 
      * because the language of the note must always be 
      * known/available or a null flavor must be specified.</p>
-     * 
-     * <p>D:Written in</p>
      */
     @Hl7XmlMapping({"languageCode"})
     public HumanLanguage getLanguageCode() {
@@ -395,9 +543,19 @@ public class CommentBean extends MessagePartBean {
     }
 
     /**
-     * <p>WrittenIn</p>
+     * <p>Business Name: WrittenIn</p>
      * 
-     * <p>Written in</p>
+     * <p>Other Business Name: WrittenIn</p>
+     * 
+     * <p>Relationship: COMT_MT301001CA.Annotation.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: WrittenIn</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Annotation.languageCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A coded value denoting the language in which the note is 
      * written.</p>
@@ -411,19 +569,31 @@ public class CommentBean extends MessagePartBean {
      * choice.</p><p>This attribute is marked as 'populated' 
      * because the language of the note must always be 
      * known/available or a null flavor must be specified.</p>
-     * 
-     * <p>D:Written in</p>
      */
     public void setLanguageCode(HumanLanguage languageCode) {
         this.languageCode.setValue(languageCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT301001CA.Subject.annotatedAct</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/annotatedAct"})
     public AnnotatedActBean getSubjectAnnotatedAct() {
         return this.subjectAnnotatedAct;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT301001CA.Subject.annotatedAct</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectAnnotatedAct(AnnotatedActBean subjectAnnotatedAct) {
         this.subjectAnnotatedAct = subjectAnnotatedAct;
     }

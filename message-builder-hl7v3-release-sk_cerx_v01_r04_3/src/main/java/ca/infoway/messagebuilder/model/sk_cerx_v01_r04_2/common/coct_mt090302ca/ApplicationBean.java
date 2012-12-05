@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Application</p>
+ * <p>Business Name: Application</p>
  * 
  * <p>An identification of a system/application that can 
  * initiate an event to change the status of an object.</p>
@@ -44,13 +44,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ApplicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST assignedDeviceName = new STImpl();
 
 
     /**
-     * <p>C:Application Id</p>
+     * <p>Business Name: C:Application Id</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier of an application or a system.</p>
      * 
@@ -92,7 +96,11 @@ public class ApplicationBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>C:Application Id</p>
+     * <p>Business Name: C:Application Id</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier of an application or a system.</p>
      * 
@@ -134,7 +142,11 @@ public class ApplicationBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>B:Application Name</p>
+     * <p>Business Name: B:Application Name</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.Device.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the application/system.</p>
      * 
@@ -156,7 +168,11 @@ public class ApplicationBean extends MessagePartBean implements ca.infoway.messa
     }
 
     /**
-     * <p>B:Application Name</p>
+     * <p>Business Name: B:Application Name</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.Device.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the application/system.</p>
      * 

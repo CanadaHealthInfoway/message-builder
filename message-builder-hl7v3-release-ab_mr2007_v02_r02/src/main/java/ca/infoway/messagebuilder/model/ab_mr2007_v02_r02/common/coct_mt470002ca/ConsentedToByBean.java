@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RelatedPe
 
 
 /**
- * <p>b:consented to by</p>
+ * <p>Business Name: b:consented to by</p>
  * 
  * <p>Indicates that the consent was provided by the patient or 
  * representative.</p>
@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RelatedPe
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private CV modeCode = new CVImpl();
@@ -60,28 +60,52 @@ public class ConsentedToByBean extends MessagePartBean {
     private RelatedPersonBean personalRelationship;
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.Author.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ParticipationType getTypeCode() {
         return (ParticipationType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.Author.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.Author.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.Author.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
 
 
     /**
-     * <p>Patient Consent Mechanism</p>
+     * <p>Business Name: Patient Consent Mechanism</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates whether the patient's consent is written or 
      * verbal.</p>
@@ -95,7 +119,11 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Consent Mechanism</p>
+     * <p>Business Name: Patient Consent Mechanism</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates whether the patient's consent is written or 
      * verbal.</p>
@@ -109,7 +137,11 @@ public class ConsentedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>Keyword</p>
+     * <p>Business Name: Keyword</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the keyword appropriate to the action being 
      * performed by the message.</p>
@@ -123,7 +155,11 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Keyword</p>
+     * <p>Business Name: Keyword</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the keyword appropriate to the action being 
      * performed by the message.</p>

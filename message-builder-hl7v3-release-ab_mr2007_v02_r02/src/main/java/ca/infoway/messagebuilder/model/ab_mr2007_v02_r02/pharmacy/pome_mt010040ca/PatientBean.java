@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Patient</p>
+ * <p>Business Name: Patient</p>
  * 
  * <p>Indicates the type of patient for whom the dosage 
  * instruction applies.</p>
@@ -41,12 +41,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV patientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
 
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.LivingSubjectKind.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender of patient to whom the dosage 
      * specification applies.</p>
@@ -59,7 +64,12 @@ public class PatientBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Business Name: Patient Gender</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.LivingSubjectKind.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender of patient to whom the dosage 
      * specification applies.</p>

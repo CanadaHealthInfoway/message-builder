@@ -33,7 +33,7 @@ import java.util.List;
 
 
 /**
- * <p>Recommended Administration Instructions</p>
+ * <p>Business Name: Recommended Administration Instructions</p>
  * 
  * <p>This comprises the route of administration, 
  * maximum/minimum daily dose, and overall use instructions for 
@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PatientBean subjectPatient;
     private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
@@ -53,18 +53,32 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
 
     /**
-     * <p>Recommending Authority Name</p>
+     * <p>Business Name: Recommending Authority Name</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization4.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the name of the organization or agency that 
      * created the dosage recommendation</p>
@@ -79,7 +93,11 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Recommending Authority Name</p>
+     * <p>Business Name: Recommending Authority Name</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization4.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the name of the organization or agency that 
      * created the dosage recommendation</p>
@@ -105,6 +123,12 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010040CA.Precondition.observationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"precondition/observationEventCriterion"})
     public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
         return this.preconditionObservationEventCriterion;

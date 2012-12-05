@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Prescription Dispense Response</p>
+ * <p>Business Name: Prescription Dispense Response</p>
  * 
  * <p>Represents the information returned when a dispense has 
  * been accepted</p>
@@ -43,13 +43,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private II inFulfillmentOfActRequestId = new IIImpl();
 
 
     /**
-     * <p>Dispense Identifier</p>
+     * <p>Business Name: Dispense Identifier</p>
+     * 
+     * <p>Relationship: PORX_MT020030CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of a dispense event to be used by the 
      * requesting dispenser.</p>
@@ -65,7 +69,11 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dispense Identifier</p>
+     * <p>Business Name: Dispense Identifier</p>
+     * 
+     * <p>Relationship: PORX_MT020030CA.SupplyEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of a dispense event to be used by the 
      * requesting dispenser.</p>
@@ -81,7 +89,11 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Prescription Order Number</p>
+     * <p>Business Name: A:Prescription Order Number</p>
+     * 
+     * <p>Relationship: PORX_MT020030CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 
@@ -225,7 +237,11 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Prescription Order Number</p>
+     * <p>Business Name: A:Prescription Order Number</p>
+     * 
+     * <p>Relationship: PORX_MT020030CA.ActRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a specific medication 
      * order. The number remains constant across the lifetime of 

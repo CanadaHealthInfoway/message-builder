@@ -32,12 +32,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InformantionSourceRole"})
 public class InformantionSourceRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
 
 
     /**
-     * <p>Information Source</p>
+     * <p>Business Name: Information Source</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InformantionSourceRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting a patient, patient's agent, or a 
      * provider as the source of the recorded immunization 
@@ -52,7 +57,12 @@ public class InformantionSourceRoleBean extends MessagePartBean {
     }
 
     /**
-     * <p>Information Source</p>
+     * <p>Business Name: Information Source</p>
+     * 
+     * <p>Relationship: 
+     * POIZ_MT030050CA.InformantionSourceRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting a patient, patient's agent, or a 
      * provider as the source of the recorded immunization 

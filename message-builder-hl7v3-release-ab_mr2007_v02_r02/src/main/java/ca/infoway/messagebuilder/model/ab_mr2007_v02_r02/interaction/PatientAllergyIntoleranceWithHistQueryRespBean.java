@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.repc_mt000019ca.Co
 
 
 /**
- * <p>REPC_IN000018CA: Patient allergy/intolerance with hist. 
- * query resp.</p>
+ * <p>Business Name: REPC_IN000018CA: Patient 
+ * allergy/intolerance with hist. query resp.</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.repc_mt000019ca.Co
 @Hl7PartTypeMapping({"REPC_IN000018CA"})
 public class PatientAllergyIntoleranceWithHistQueryRespBean extends HL7MessageBean<TriggerEvent_4Bean<AllergyIntoleranceBean,ConditionHistoryQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -29,8 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseBean;
 
 
 /**
- * <p>PORX_IN020220CA: Record supply event (ward stock) request 
- * accept</p>
+ * <p>Business Name: PORX_IN020220CA: Record supply event (ward 
+ * stock) request accept</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseBean;
 @Hl7PartTypeMapping({"PORX_IN020220CA"})
 public class RecordSupplyEventWardStockRequestAcceptBean extends HL7MessageBean<TriggerEvent_1Bean<DispenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

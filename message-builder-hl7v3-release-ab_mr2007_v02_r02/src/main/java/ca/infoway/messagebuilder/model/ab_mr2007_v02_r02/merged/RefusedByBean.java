@@ -125,60 +125,175 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000009CA.Author"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private HealthcareWorkerBean assignedEntity;
     private TS time = new TSImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author3.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 
 
     /**
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: CreateTimestamp</p>
      * 
-     * <p>The calendar date on which the device was prescribed. 
-     * This may differ from the date on which the prescription 
-     * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or used for two weeks.</p>
+     * <p>Relationship: REPC_MT000009CA.Author.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Create Timestamp</p>
-     * 
-     * <p>The date and time on which the adverse reaction record 
-     * was created.</p>
-     * 
-     * <p>Identifies timing of adverse reaction for sorting and for 
-     * audit purposes. Attribute is populated because the source of 
-     * the data may not be through the 'record common observation' 
-     * interaction.</p>
-     * 
-     * <p>Create Timestamp</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the allergy/intolerance record 
      * was created.</p>
      * 
      * <p>Identifies timing of allergy/intolerance for sorting and 
      * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record 
-     * allergy/intolerance' interaction.</p>
+     * source of the data may not be through the 'record common 
+     * observation' interaction.</p>
      * 
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
@@ -195,15 +310,54 @@ public class RefusedByBean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p>
      * 
-     * <p>Create Timestamp</p>
+     * <p>Other Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the allergy/intolerance record 
      * was created.</p>
      * 
      * <p>Identifies timing of allergy/intolerance for sorting and 
      * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record common 
-     * observation' interaction.</p>
+     * source of the data may not be through the 'record 
+     * allergy/intolerance' interaction.</p>
+     * 
+     * <p>Other Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the adverse reaction record 
+     * was created.</p>
+     * 
+     * <p>Identifies timing of adverse reaction for sorting and for 
+     * audit purposes. Attribute is populated because the source of 
+     * the data may not be through the 'record common observation' 
+     * interaction.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The calendar date on which the device was prescribed. 
+     * This may differ from the date on which the prescription 
+     * becomes effective. E.g. A prescription created today may not 
+     * be valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -211,44 +365,25 @@ public class RefusedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: CreateTimestamp</p>
      * 
-     * <p>The calendar date on which the device was prescribed. 
-     * This may differ from the date on which the prescription 
-     * becomes effective. E.g. A prescription created today may not 
-     * be valid to be dispensed or used for two weeks.</p>
+     * <p>Relationship: REPC_MT000009CA.Author.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Create Timestamp</p>
-     * 
-     * <p>The date and time on which the adverse reaction record 
-     * was created.</p>
-     * 
-     * <p>Identifies timing of adverse reaction for sorting and for 
-     * audit purposes. Attribute is populated because the source of 
-     * the data may not be through the 'record common observation' 
-     * interaction.</p>
-     * 
-     * <p>Create Timestamp</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the allergy/intolerance record 
      * was created.</p>
      * 
      * <p>Identifies timing of allergy/intolerance for sorting and 
      * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record 
-     * allergy/intolerance' interaction.</p>
+     * source of the data may not be through the 'record common 
+     * observation' interaction.</p>
      * 
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
@@ -265,15 +400,54 @@ public class RefusedByBean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p>
      * 
-     * <p>Create Timestamp</p>
+     * <p>Other Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time on which the allergy/intolerance record 
      * was created.</p>
      * 
      * <p>Identifies timing of allergy/intolerance for sorting and 
      * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record common 
-     * observation' interaction.</p>
+     * source of the data may not be through the 'record 
+     * allergy/intolerance' interaction.</p>
+     * 
+     * <p>Other Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the adverse reaction record 
+     * was created.</p>
+     * 
+     * <p>Identifies timing of adverse reaction for sorting and for 
+     * audit purposes. Attribute is populated because the source of 
+     * the data may not be through the 'record common observation' 
+     * interaction.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The calendar date on which the device was prescribed. 
+     * This may differ from the date on which the prescription 
+     * becomes effective. E.g. A prescription created today may not 
+     * be valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);

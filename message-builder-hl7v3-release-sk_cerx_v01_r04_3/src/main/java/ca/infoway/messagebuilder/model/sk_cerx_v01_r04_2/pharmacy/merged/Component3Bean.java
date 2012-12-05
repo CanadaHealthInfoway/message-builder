@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Includes</p>
+ * <p>Business Name: Includes</p>
  * 
  * <p>PORX_MT060340CA.Component3: a:includes</p>
  * 
@@ -68,16 +68,28 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Component3","PORX_MT060340CA.Component3"})
 public class Component3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ExtendedDispenseInstructionsBean supplyRequestItem;
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Specification of the overall use duration of 
      * the</p> <div>prescrbed medication and/or overall quantity to 
      * be</div> <div>dispensed.</div>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"supplyRequestItem"})
     public ExtendedDispenseInstructionsBean getSupplyRequestItem() {
@@ -85,11 +97,23 @@ public class Component3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Specification of the overall use duration of 
      * the</p> <div>prescrbed medication and/or overall quantity to 
      * be</div> <div>dispensed.</div>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSupplyRequestItem(ExtendedDispenseInstructionsBean supplyRequestItem) {
         this.supplyRequestItem = supplyRequestItem;

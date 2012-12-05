@@ -27,14 +27,14 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.HL7Messag
 
 
 /**
- * <p>MCCI_IN100005CA: Exception Ack in Response to Poll 
- * Request</p>
+ * <p>Business Name: MCCI_IN100005CA: Exception Ack in Response 
+ * to Poll Request</p>
  * 
  * <p>Message: MCCI_MT002200CA.Message</p>
  */
 @Hl7PartTypeMapping({"MCCI_IN100005CA"})
 public class ExceptionAckInResponseToPollRequestBean extends HL7MessageBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

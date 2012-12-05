@@ -38,7 +38,7 @@ import java.util.Date;
 
 
 /**
- * <p>Allergy/Intolerance Status Changes</p>
+ * <p>Business Name: Allergy/Intolerance Status Changes</p>
  * 
  * <p>This records the history of changes that have been made 
  * to the allergy/intolerance, including why the changes were 
@@ -51,7 +51,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -60,7 +60,11 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>Business Name: A:Allergy/Intolerance Status Change Type</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
@@ -75,7 +79,11 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>Business Name: A:Allergy/Intolerance Status Change Type</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
@@ -90,7 +98,13 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * <p>Business Name: B:Allergy/intolerance Status Change 
+     * Effective Date</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various changes of an 
      * allergy/intolerance become valid and applicable.</p>
@@ -105,7 +119,13 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * <p>Business Name: B:Allergy/intolerance Status Change 
+     * Effective Date</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the various changes of an 
      * allergy/intolerance become valid and applicable.</p>
@@ -120,7 +140,11 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>Business Name: C:Allergy/Intolerance Status Change Reason</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the the allergy/intolerance was 
      * changed.</p>
@@ -135,7 +159,11 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>Business Name: C:Allergy/Intolerance Status Change Reason</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the the allergy/intolerance was 
      * changed.</p>

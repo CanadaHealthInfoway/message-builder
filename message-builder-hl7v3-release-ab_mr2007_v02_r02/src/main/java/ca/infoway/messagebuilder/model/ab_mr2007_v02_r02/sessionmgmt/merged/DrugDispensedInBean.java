@@ -92,15 +92,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content"})
 public class DrugDispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ quantity = new PQImpl();
     private CV containerPackagedMedicineFormCode = new CVImpl();
 
 
     /**
-     * <p>DrugPackageQuantity</p>
+     * <p>Business Name: DrugPackageQuantity</p>
      * 
-     * <p>B:Drug Package Quantity</p>
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
@@ -113,7 +117,45 @@ public class DrugDispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>F:Drug Package Quantity</p>
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * 
+     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * 
+     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
@@ -132,9 +174,13 @@ public class DrugDispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugPackageQuantity</p>
+     * <p>Business Name: DrugPackageQuantity</p>
      * 
-     * <p>B:Drug Package Quantity</p>
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
@@ -147,7 +193,45 @@ public class DrugDispensedInBean extends MessagePartBean {
      * than individual units, and package is important in 
      * calculating total amount supplied.</p>
      * 
-     * <p>F:Drug Package Quantity</p>
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * 
+     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The quantity of the medication dosage form contained in 
+     * the package given or to be given to the patient.</p>
+     * 
+     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * 
+     * <p>ZDP.10.2.2</p><p>ZDP.9.2.2</p>
+     * 
+     * <p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p>
+     * 
+     * <p>Other Business Name: DrugPackageQuantity</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Content.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
@@ -166,19 +250,13 @@ public class DrugDispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugContainerType</p>
+     * <p>Business Name: DrugContainerType</p>
      * 
-     * <p>Drug Container Type</p>
+     * <p>Other Business Name: DrugContainerType</p>
      * 
-     * <p>A coded value denoting a specific kind of a container. 
-     * Used to identify a requirement for a particular type of 
-     * compliance packaging</p>
+     * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
-     * <p>Many insurance plans require that a prescriber 
-     * specifically authorize the use of compliance packaging 
-     * before it will be covered by the plan.</p>
-     * 
-     * <p>A:Drug Container Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
@@ -188,7 +266,39 @@ public class DrugDispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>E:Drug Container Type</p>
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
+     * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
+     * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
@@ -204,19 +314,13 @@ public class DrugDispensedInBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugContainerType</p>
+     * <p>Business Name: DrugContainerType</p>
      * 
-     * <p>Drug Container Type</p>
+     * <p>Other Business Name: DrugContainerType</p>
      * 
-     * <p>A coded value denoting a specific kind of a container. 
-     * Used to identify a requirement for a particular type of 
-     * compliance packaging</p>
+     * <p>Relationship: COCT_MT220200CA.PackagedMedicine.formCode</p>
      * 
-     * <p>Many insurance plans require that a prescriber 
-     * specifically authorize the use of compliance packaging 
-     * before it will be covered by the plan.</p>
-     * 
-     * <p>A:Drug Container Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 
@@ -226,7 +330,39 @@ public class DrugDispensedInBean extends MessagePartBean {
      * specifically authorize the use of compliance packaging 
      * before it will be covered by the plan.</p>
      * 
-     * <p>E:Drug Container Type</p>
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
+     * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>A coded value denoting a specific kind of a container. 
+     * Used to identify a requirement for a particular type of 
+     * compliance packaging</p>
+     * 
+     * <p>Many insurance plans require that a prescriber 
+     * specifically authorize the use of compliance packaging 
+     * before it will be covered by the plan.</p>
+     * 
+     * <p>Other Business Name: DrugContainerType</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.PackagedMedicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting a specific kind of a container. 
      * Used to identify a requirement for a particular type of 

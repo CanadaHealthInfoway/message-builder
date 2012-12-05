@@ -49,7 +49,7 @@ import java.util.List;
 
 
 /**
- * <p>Patient</p>
+ * <p>Business Name: Patient</p>
  * 
  * <p>COCT_MT050203CA.Patient: Patient</p>
  * 
@@ -121,7 +121,7 @@ import java.util.List;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Patient, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -131,9 +131,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>PatientID</p>
+     * <p>Business Name: PatientID</p>
      * 
-     * <p>A:Patient ID</p>
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Patient.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier assigned to a person by Federal, 
      * Provincial and Territorial jurisdiction for the purposes of 
@@ -275,10 +279,17 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p><font color="#000080" size="2" face="Helvetica"><font 
      * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"> 
+     * </font></font></font></p> <p align="left"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica">Unique identifier 
+     * assigned to a person by a Federal,</font></font></font></p> 
+     * <p><font color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
      * color="#000080" size="2" face="Helvetica"> <p 
-     * align="left">Unique identifier assigned to a person by a 
-     * Federal,</p> <p align="left">Provincial, and Territorial 
-     * jurisdiction.</p> </font></font></font></p> <p 
+     * align="left">Provincial, and Territorial jurisdiction.</p> 
+     * </font></font></font></p> <p>&nbsp;</p> <p 
      * align="left"><b><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 
@@ -294,7 +305,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * registry, then a KEY204 error</p> <p>issue will be 
      * returned.</p>
      * 
-     * <p>Patient ID</p>
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: COCT_MT050203CA.Patient.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier assigned to a person by Federal, 
      * Provincial and Territorial jurisdiction for the purposes of 
@@ -325,27 +340,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (Root)</p><p>Person.PHN (Extension)</p>
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
-     * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
-     * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</
+     * (Extension)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -354,9 +349,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>PatientID</p>
+     * <p>Business Name: PatientID</p>
      * 
-     * <p>A:Patient ID</p>
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Patient.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier assigned to a person by Federal, 
      * Provincial and Territorial jurisdiction for the purposes of 
@@ -498,10 +497,17 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p><font color="#000080" size="2" face="Helvetica"><font 
      * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"> 
+     * </font></font></font></p> <p align="left"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica">Unique identifier 
+     * assigned to a person by a Federal,</font></font></font></p> 
+     * <p><font color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
      * color="#000080" size="2" face="Helvetica"> <p 
-     * align="left">Unique identifier assigned to a person by a 
-     * Federal,</p> <p align="left">Provincial, and Territorial 
-     * jurisdiction.</p> </font></font></font></p> <p 
+     * align="left">Provincial, and Territorial jurisdiction.</p> 
+     * </font></font></font></p> <p>&nbsp;</p> <p 
      * align="left"><b><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 
@@ -517,7 +523,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * registry, then a KEY204 error</p> <p>issue will be 
      * returned.</p>
      * 
-     * <p>Patient ID</p>
+     * <p>Other Business Name: PatientID</p>
+     * 
+     * <p>Relationship: COCT_MT050203CA.Patient.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier assigned to a person by Federal, 
      * Provincial and Territorial jurisdiction for the purposes of 
@@ -548,27 +558,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (Root)</p><p>Person.PHN (Extension)</p>
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
-     * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p>
-     * 
-     * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</
+     * (Extension)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -577,9 +567,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>PatientContactAddress</p>
+     * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>C:Patient Contact Address</p>
+     * <p>Other Business Name: PatientContactAddress</p>
+     * 
+     * <p>Relationship: COCT_MT050203CA.Patient.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Physical address for the patient where they may be 
      * visited or found for the purposes of this particular action. 
@@ -777,14 +771,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
      * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
-     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
-     * (partType=ZIP)</p><p>ZPA2.11 
-     * (partType=SINST=PST)</p><p>ZPA2.12 
-     * (partTYpe=STA)</p><p>ZPA2.13 
-     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
-     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
-     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
-     * (usablePeriod (IVL&lt;TS).high)</p><p
+     * (partType=CNT - populate mnemonic of SC)<
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"addr"})
@@ -793,9 +780,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>PatientContactAddress</p>
+     * <p>Business Name: PatientContactAddress</p>
      * 
-     * <p>C:Patient Contact Address</p>
+     * <p>Other Business Name: PatientContactAddress</p>
+     * 
+     * <p>Relationship: COCT_MT050203CA.Patient.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Physical address for the patient where they may be 
      * visited or found for the purposes of this particular action. 
@@ -993,14 +984,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
      * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
-     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
-     * (partType=ZIP)</p><p>ZPA2.11 
-     * (partType=SINST=PST)</p><p>ZPA2.12 
-     * (partTYpe=STA)</p><p>ZPA2.13 
-     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
-     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
-     * (partType=BNR) BC:ZPA2.17 (partType=STTYP)</p><p>ZPA2.18 
-     * (usablePeriod (IVL&lt;TS).high)</p><p
+     * (partType=CNT - populate mnemonic of SC)<
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setAddr(PostalAddress addr) {
@@ -1009,9 +993,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>PatientContactPhoneAndEMails</p>
+     * <p>Business Name: PatientContactPhoneAndEMails</p>
      * 
-     * <p>D:Patient Contact Phone and E-mails</p>
+     * <p>Other Business Name: PatientContactPhoneAndEMails</p>
+     * 
+     * <p>Relationship: COCT_MT050203CA.Patient.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      * 
      * <p>Telephone, fax or e-mail addresses intended as the 
      * principal means of contact for the patient with regard to 
@@ -1158,9 +1146,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>PatientName</p>
+     * <p>Business Name: PatientName</p>
      * 
-     * <p>B:Patient Name</p>
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the patient is known and which apply to 
      * a particular clinical action that has been reported or 
@@ -1344,14 +1336,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
-     * 
-     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.mi
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientPerson/name"})
@@ -1360,9 +1345,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>PatientName</p>
+     * <p>Business Name: PatientName</p>
      * 
-     * <p>B:Patient Name</p>
+     * <p>Other Business Name: PatientName</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the patient is known and which apply to 
      * a particular clinical action that has been reported or 
@@ -1546,14 +1535,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
-     * 
-     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.mi
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientPersonName(PersonName patientPersonName) {
@@ -1562,31 +1544,18 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>PatientGender</p>
+     * <p>Business Name: PatientGender</p>
      * 
-     * <p>F:Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050202CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient. Complex 
      * genetic genders are handled as observations if they are 
      * considered relevant.</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
      * <p>Used to confirm patient identity. May affect dosing or 
      * therapy appropriateness.</p><p>Element is mandatory because 
@@ -1619,11 +1588,34 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * color="#000080" size="2" 
      * face="Helvetica">.</font></font></font></p>
      * 
-     * <p>F:Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050203CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient. Complex 
      * genetic genders are handled as observations if they are 
      * considered relevant.</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
      * <p>Used to confirm patient identity. May affect dosing or 
      * therapy appropriateness.</p><p>Element is mandatory because 
@@ -1662,31 +1654,18 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>PatientGender</p>
+     * <p>Business Name: PatientGender</p>
      * 
-     * <p>F:Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050202CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient. Complex 
      * genetic genders are handled as observations if they are 
      * considered relevant.</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
-     * 
-     * <p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
      * <p>Used to confirm patient identity. May affect dosing or 
      * therapy appropriateness.</p><p>Element is mandatory because 
@@ -1719,11 +1698,34 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * color="#000080" size="2" 
      * face="Helvetica">.</font></font></font></p>
      * 
-     * <p>F:Patient Gender</p>
+     * <p>Other Business Name: PatientGender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050203CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the gender (sex) of the patient. Complex 
      * genetic genders are handled as observations if they are 
      * considered relevant.</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
+     * 
+     * <p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p>
      * 
      * <p>Used to confirm patient identity. May affect dosing or 
      * therapy appropriateness.</p><p>Element is mandatory because 
@@ -1762,9 +1764,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>PatientBirthDate</p>
+     * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
@@ -1797,7 +1803,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * match the birth month and year</p> <p>associated with the 
      * ID.</p> </font></font></font></b></p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT050203CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
@@ -1850,9 +1860,13 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
     /**
-     * <p>PatientBirthDate</p>
+     * <p>Business Name: PatientBirthDate</p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 
@@ -1885,7 +1899,11 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * match the birth month and year</p> <p>associated with the 
      * ID.</p> </font></font></font></b></p>
      * 
-     * <p>E:Patient Birth Date</p>
+     * <p>Other Business Name: PatientBirthDate</p>
+     * 
+     * <p>Relationship: COCT_MT050203CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the date on which the patient was born.</p>
      * 

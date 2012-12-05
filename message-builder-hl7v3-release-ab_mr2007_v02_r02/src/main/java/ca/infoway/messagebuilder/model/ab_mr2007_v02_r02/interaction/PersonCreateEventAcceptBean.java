@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101106ca.Iden
 
 
 /**
- * <p>PRPA_IN101202CA: Person Create Event Accept</p>
+ * <p>Business Name: PRPA_IN101202CA: Person Create Event 
+ * Accept</p>
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101106ca.Iden
 @Hl7PartTypeMapping({"PRPA_IN101202CA"})
 public class PersonCreateEventAcceptBean extends HL7MessageBean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>OtherIndications</p>
+ * <p>Business Name: OtherIndications</p>
  * 
  * <p>COCT_MT120402CA.OtherIndication: Other indications</p>
  * 
@@ -57,24 +57,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT120402CA.OtherIndication","PORX_MT980050CA.OtherIndication"})
 public class OtherIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 
 
     /**
-     * <p>OtherIndication</p>
+     * <p>Business Name: OtherIndication</p>
      * 
-     * <p>Other Indication</p>
+     * <p>Other Business Name: OtherIndication</p>
      * 
-     * <p>A code indicating some other action which is the reason 
-     * for a therapy.</p>
+     * <p>Relationship: COCT_MT120402CA.OtherIndication.code</p>
      * 
-     * <p>Allows for coded representation of a non-condition based 
-     * indication such as administration of a contrast agent for a 
-     * lab test.</p>
-     * 
-     * <p>Other Indication</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code indicating some other action which is the reason 
      * for a therapy.</p>
@@ -84,6 +79,19 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * symptom not related to investigation disease. EPHS: act.code 
      * value needed for encounter reason; reason for treatment; 
      * immunization interpretation reason</p>
+     * 
+     * <p>Allows for coded representation of a non-condition based 
+     * indication such as administration of a contrast agent for a 
+     * lab test.</p>
+     * 
+     * <p>Other Business Name: OtherIndication</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.OtherIndication.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A code indicating some other action which is the reason 
+     * for a therapy.</p>
      * 
      * <p>Allows for coded representation of a non-condition based 
      * indication such as administration of a contrast agent for a 
@@ -95,18 +103,13 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     }
 
     /**
-     * <p>OtherIndication</p>
+     * <p>Business Name: OtherIndication</p>
      * 
-     * <p>Other Indication</p>
+     * <p>Other Business Name: OtherIndication</p>
      * 
-     * <p>A code indicating some other action which is the reason 
-     * for a therapy.</p>
+     * <p>Relationship: COCT_MT120402CA.OtherIndication.code</p>
      * 
-     * <p>Allows for coded representation of a non-condition based 
-     * indication such as administration of a contrast agent for a 
-     * lab test.</p>
-     * 
-     * <p>Other Indication</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A code indicating some other action which is the reason 
      * for a therapy.</p>
@@ -120,6 +123,19 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * <p>Allows for coded representation of a non-condition based 
      * indication such as administration of a contrast agent for a 
      * lab test.</p>
+     * 
+     * <p>Other Business Name: OtherIndication</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.OtherIndication.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A code indicating some other action which is the reason 
+     * for a therapy.</p>
+     * 
+     * <p>Allows for coded representation of a non-condition based 
+     * indication such as administration of a contrast agent for a 
+     * lab test.</p>
      */
     public void setCode(ActNonConditionIndicationCode code) {
         this.code.setValue(code);
@@ -127,9 +143,13 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
 
 
     /**
-     * <p>OtherIndicationAdHocDescription</p>
+     * <p>Business Name: OtherIndicationAdHocDescription</p>
      * 
-     * <p>Other indication ad-hoc description</p>
+     * <p>Other Business Name: OtherIndicationAdHocDescription</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.OtherIndication.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A textual description of an indication not meant to be 
      * either diagnosis or symptom.</p>
@@ -138,7 +158,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * it a diagnosis or symptom. Attribute as free form text is 
      * the only information allowed.</p>
      * 
-     * <p>Other indication ad-hoc description</p>
+     * <p>Other Business Name: OtherIndicationAdHocDescription</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.OtherIndication.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A textual description of an indication not meant to be 
      * either diagnosis or symptom.</p>
@@ -153,9 +177,13 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     }
 
     /**
-     * <p>OtherIndicationAdHocDescription</p>
+     * <p>Business Name: OtherIndicationAdHocDescription</p>
      * 
-     * <p>Other indication ad-hoc description</p>
+     * <p>Other Business Name: OtherIndicationAdHocDescription</p>
+     * 
+     * <p>Relationship: COCT_MT120402CA.OtherIndication.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A textual description of an indication not meant to be 
      * either diagnosis or symptom.</p>
@@ -164,7 +192,11 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
      * it a diagnosis or symptom. Attribute as free form text is 
      * the only information allowed.</p>
      * 
-     * <p>Other indication ad-hoc description</p>
+     * <p>Other Business Name: OtherIndicationAdHocDescription</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.OtherIndication.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A textual description of an indication not meant to be 
      * either diagnosis or symptom.</p>

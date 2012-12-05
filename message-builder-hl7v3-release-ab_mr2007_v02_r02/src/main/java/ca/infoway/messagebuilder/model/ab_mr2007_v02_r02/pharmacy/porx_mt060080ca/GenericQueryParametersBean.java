@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
@@ -45,13 +45,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV issueFilterCodeValue = new CVImpl();
     private II prescriptionOrderNumberValue = new IIImpl();
 
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -72,7 +76,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060080CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -93,7 +101,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Prescription Order Number</p>
+     * <p>Business Name: D:Prescription Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060080CA.PrescriptionOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the prescription for which detailed 
      * information is required.</p><p>The result set will be 
@@ -112,7 +125,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Prescription Order Number</p>
+     * <p>Business Name: D:Prescription Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060080CA.PrescriptionOrderNumber.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the prescription for which detailed 
      * information is required.</p><p>The result set will be 

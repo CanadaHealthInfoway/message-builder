@@ -306,19 +306,13 @@ import java.util.Date;
  * the responsible provider should always be known.</p>
  * 
  * <p>REPC_MT000005CA.Author: *f:authored by</p>
- * 
- * <p>Identifies the provider who reported the allergy or 
- * intolerance.</p>
- * 
- * <p>AllergyIntolerance.authorizingProvider</p><p>ZPB1.3</p><p>AllergyIntolerance.authorizingPhysician</p>
- * 
- * <p>AllergyIntolerance.authorizingProvider</p><p>ZPB1.3</p><p>AllergyIntol
+ * 
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"COCT_MT120600CA.Author","COCT_MT130001CA.Author3","COMT_MT300003CA.Author","MCAI_MT700210CA.Author","MCAI_MT700221CA.Author","MCAI_MT700223CA.Author","POIZ_MT060150CA.Author","PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","QUQI_MT020000CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000007CA.Author","REPC_MT000009CA.Author","REPC_MT000009CA.Author3","REPC_MT000010CA.Author","REPC_MT000010CA.Author3","REPC_MT000017CA.Author","REPC_MT100001CA.Author","REPC_MT100002CA.Author3"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private ProviderBean assignedPerson;
     private CV modeCode = new CVImpl();
@@ -326,86 +320,11 @@ public class RefusedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PatientNoteDate</p>
      * 
-     * <p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
+     * <p>Relationship: COMT_MT300003CA.Author.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Recording Datetime</p>
-     * 
-     * <p>The date and time on which the observation was 
-     * recorded.</p>
-     * 
-     * <p>ZPB3.20</p><p>Annotation.annotationDate</p>
-     * 
-     * <p>ZPB3.20</p><p>Annotation.annotationDate</p>
-     * 
-     * <p>The date and time on which the observation was recorded. 
-     * Identifies timing of observation for sorting and for audit 
-     * purposes. Attribute is populated because the source of the 
-     * data may not be through the 'record common observation' 
-     * interaction.</p>
-     * 
-     * <p>If not specified, the author time of the overall order 
-     * will be assumed.</p>
-     * 
-     * <p>CreateTimestamp</p>
-     * 
-     * <p>The date and time at which the note was posted.</p>
-     * 
-     * <p>Identifies timing of the annotation for sorting and for 
-     * audit purposes.</p><p>This attribute is mandatory because 
-     * the time of creation of the annotation will always be 
-     * known.</p>
-     * 
-     * <p>Identifies timing of the annotation for sorting and for 
-     * audit purposes.</p><p>This attribute is mandatory because 
-     * the time of creation of the annotation will always be 
-     * known.</p>
-     * 
-     * <p>Create Timestamp</p>
-     * 
-     * <p>The date and time on which the allergy/intolerance record 
-     * was created.</p>
-     * 
-     * <p>Identifies timing of allergy/intolerance for sorting and 
-     * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record common 
-     * observation' interaction.</p>
-     * 
-     * <p>Create Timestamp</p>
-     * 
-     * <p>The date and time on which the allergy/intolerance record 
-     * was created.</p>
-     * 
-     * <p>Identifies timing of allergy/intolerance for sorting and 
-     * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record 
-     * allergy/intolerance' interaction.</p>
-     * 
-     * <p>*Create Timestamp</p>
-     * 
-     * <p>The date and time on which the medication condition 
-     * record was created.</p>
-     * 
-     * <p>Identifies timing of medical condition for sorting and 
-     * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record medical 
-     * condition' interaction.</p>
-     * 
-     * <p>B:Patient Note Date</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the patient note was created.</p>
      * 
@@ -419,74 +338,11 @@ public class RefusedByBean extends MessagePartBean {
      * note creation is always known and is therefore 
      * mandatory.</p>
      * 
-     * <p>Change Time</p>
+     * <p>Other Business Name: TimeOfCreation</p>
      * 
-     * <p>The date and time on which the change was made.</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.time</p>
      * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the medical 
-     * condition. Also used for sorting and audit purposes. Time of 
-     * change is always known and thus the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Create Timestamp</p>
-     * 
-     * <p>The date and time on which the medical condition record 
-     * was created.</p>
-     * 
-     * <p>Identifies timing of the medical condition for sorting 
-     * and for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record common 
-     * observation' interaction.</p>
-     * 
-     * <p>D:Time of Creation</p>
-     * 
-     * <p>The time the person responsible for the event made the 
-     * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * decides today to put a prescription on hold starting next 
-     * Tuesday, the time of creation would be today and the change 
-     * effective period would be next Tuesday.)</p><p>This date can 
-     * be back-dated.</p>
-     * 
-     * <p>The time the person responsible for the event made the 
-     * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * decides today to put a prescription on hold starting next 
-     * Tuesday, the time of creation would be today and the change 
-     * effective period would be next Tuesday.)</p><p>This date can 
-     * be back-dated.</p>
-     * 
-     * <p>The time a change is made is a critical piece of audit 
-     * information and is therefore mandatory.</p>
-     * 
-     * <p>D:Time of Creation</p>
-     * 
-     * <p>The time the person responsible for the query made the 
-     * decision for it to occur. This may be different than the 
-     * time the time the query was actually performed.</p>
-     * 
-     * <p>The time a decision is made is a critical piece of audit 
-     * information and is therefore mandatory.</p>
-     * 
-     * <p>Prescription Order Date</p>
-     * 
-     * <p>The date at which the device was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>D:Time of Creation</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The time the person responsible for the event made the 
      * decision for it to occur. This may be different than the 
@@ -512,37 +368,11 @@ public class RefusedByBean extends MessagePartBean {
      * different from the time that the message</div> <p>was 
      * constructed.&nbsp;</p></p>
      * 
-     * <p>Create Timestamp</p>
+     * <p>Other Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>The date and time on which the adverse reaction record 
-     * was created.</p>
+     * <p>Relationship: PORX_MT020070CA.Author.time</p>
      * 
-     * <p>Identifies timing of adverse reaction for sorting and for 
-     * audit purposes. Attribute is populated because the source of 
-     * the data may not be through the 'record common observation' 
-     * interaction.</p>
-     * 
-     * <p>Change Time</p>
-     * 
-     * <p>The date on which the change was made.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the allergy. Also 
-     * used for sorting and audit purposes. Time of change is 
-     * always known and thus the attribute is mandatory.</p>
-     * 
-     * <p>Change Datetime</p>
-     * 
-     * <p>The date on which the change was made. Note that this may 
-     * be earlier or occassionally later than when the change is 
-     * actually effective.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the event. Also used 
-     * for sorting and audit purposes. Time of change is always 
-     * known and thus the attribute is mandatory.</p>
-     * 
-     * <p>Prescription Order Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
@@ -559,7 +389,168 @@ public class RefusedByBean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p>
      * 
-     * <p>The date and time at whi
+     * <p>The date and time at which the drug was prescribed. This 
+     * may differ for mthe date on which the prescription becomes 
+     * effective.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700223CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: ChangeTime</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date and time on which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the medical 
+     * condition. Also used for sorting and audit purposes. Time of 
+     * change is always known and thus the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author5.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Other Business Name: RecordingDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT100002CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the observation was 
+     * recorded.</p>
+     * 
+     * <p>ZPB3.20</p><p>Annotation.annotationDate</p>
+     * 
+     * <p>ZPB3.20</p><p>Annotation.annotationDate</p>
+     * 
+     * <p>The date and time on which the observation was recorded. 
+     * Identifies timing of observation for sorting and for audit 
+     * purposes. Attribute is populated because the source of the 
+     * data may not be through the 'record common observation' 
+     * interaction.</p>
+     * 
+     * <p>If not specified, the author time of the overall order 
+     * will be assumed.</p>
+     * 
+     * <p>Other Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the medical condition record 
+     * was created.</p>
+     * 
+     * <p>Identifies timing of the medical condition for sorting 
+     * and for audit purposes. Attribute is populated because the 
+     * source of the data may not be through the 'record common 
+     * observation' interaction.</p>
+     * 
+     * <p>Other Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the allergy/intolerance record 
+     * was created.</p>
+     * 
+     * <p>Identifies timing of allergy/intolerance for sorting and 
+     * for audit purposes. Attribute is populated because the 
+     * source of the data may not be through the 'record common 
+     * observation' interaction.</p>
+     * 
+     * <p>Other Business Name: ChangeDatetime</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the change was made. Note that this may 
+     * be earlier or occassionally later than when the change is 
+     * actually effective.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the event. Also used 
+     * for sorting and audit purposes. Time of change is always 
+     * known and thus the attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time the person responsible for the query made the 
+
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"time"})
@@ -568,86 +559,11 @@ public class RefusedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Prescription Order Date</p>
+     * <p>Other Business Name: PatientNoteDate</p>
      * 
-     * <p>The date at which the drug was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or administered for two weeks.</p>
+     * <p>Relationship: COMT_MT300003CA.Author.time</p>
      * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Recording Datetime</p>
-     * 
-     * <p>The date and time on which the observation was 
-     * recorded.</p>
-     * 
-     * <p>ZPB3.20</p><p>Annotation.annotationDate</p>
-     * 
-     * <p>ZPB3.20</p><p>Annotation.annotationDate</p>
-     * 
-     * <p>The date and time on which the observation was recorded. 
-     * Identifies timing of observation for sorting and for audit 
-     * purposes. Attribute is populated because the source of the 
-     * data may not be through the 'record common observation' 
-     * interaction.</p>
-     * 
-     * <p>If not specified, the author time of the overall order 
-     * will be assumed.</p>
-     * 
-     * <p>CreateTimestamp</p>
-     * 
-     * <p>The date and time at which the note was posted.</p>
-     * 
-     * <p>Identifies timing of the annotation for sorting and for 
-     * audit purposes.</p><p>This attribute is mandatory because 
-     * the time of creation of the annotation will always be 
-     * known.</p>
-     * 
-     * <p>Identifies timing of the annotation for sorting and for 
-     * audit purposes.</p><p>This attribute is mandatory because 
-     * the time of creation of the annotation will always be 
-     * known.</p>
-     * 
-     * <p>Create Timestamp</p>
-     * 
-     * <p>The date and time on which the allergy/intolerance record 
-     * was created.</p>
-     * 
-     * <p>Identifies timing of allergy/intolerance for sorting and 
-     * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record common 
-     * observation' interaction.</p>
-     * 
-     * <p>Create Timestamp</p>
-     * 
-     * <p>The date and time on which the allergy/intolerance record 
-     * was created.</p>
-     * 
-     * <p>Identifies timing of allergy/intolerance for sorting and 
-     * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record 
-     * allergy/intolerance' interaction.</p>
-     * 
-     * <p>*Create Timestamp</p>
-     * 
-     * <p>The date and time on which the medication condition 
-     * record was created.</p>
-     * 
-     * <p>Identifies timing of medical condition for sorting and 
-     * for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record medical 
-     * condition' interaction.</p>
-     * 
-     * <p>B:Patient Note Date</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the patient note was created.</p>
      * 
@@ -661,74 +577,11 @@ public class RefusedByBean extends MessagePartBean {
      * note creation is always known and is therefore 
      * mandatory.</p>
      * 
-     * <p>Change Time</p>
+     * <p>Other Business Name: TimeOfCreation</p>
      * 
-     * <p>The date and time on which the change was made.</p>
+     * <p>Relationship: MCAI_MT700210CA.Author.time</p>
      * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the medical 
-     * condition. Also used for sorting and audit purposes. Time of 
-     * change is always known and thus the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>Create Timestamp</p>
-     * 
-     * <p>The date and time on which the medical condition record 
-     * was created.</p>
-     * 
-     * <p>Identifies timing of the medical condition for sorting 
-     * and for audit purposes. Attribute is populated because the 
-     * source of the data may not be through the 'record common 
-     * observation' interaction.</p>
-     * 
-     * <p>D:Time of Creation</p>
-     * 
-     * <p>The time the person responsible for the event made the 
-     * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * decides today to put a prescription on hold starting next 
-     * Tuesday, the time of creation would be today and the change 
-     * effective period would be next Tuesday.)</p><p>This date can 
-     * be back-dated.</p>
-     * 
-     * <p>The time the person responsible for the event made the 
-     * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * decides today to put a prescription on hold starting next 
-     * Tuesday, the time of creation would be today and the change 
-     * effective period would be next Tuesday.)</p><p>This date can 
-     * be back-dated.</p>
-     * 
-     * <p>The time a change is made is a critical piece of audit 
-     * information and is therefore mandatory.</p>
-     * 
-     * <p>D:Time of Creation</p>
-     * 
-     * <p>The time the person responsible for the query made the 
-     * decision for it to occur. This may be different than the 
-     * time the time the query was actually performed.</p>
-     * 
-     * <p>The time a decision is made is a critical piece of audit 
-     * information and is therefore mandatory.</p>
-     * 
-     * <p>Prescription Order Date</p>
-     * 
-     * <p>The date at which the device was prescribed. This may 
-     * differ from the date on which the prescription becomes 
-     * effective. E.g. A prescription created today may not be 
-     * valid to be dispensed or used for two weeks.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation date of the prescription 
-     * shall always be known or absent for a reason.</p>
-     * 
-     * <p>D:Time of Creation</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The time the person responsible for the event made the 
      * decision for it to occur. This may be different than the 
@@ -754,37 +607,11 @@ public class RefusedByBean extends MessagePartBean {
      * different from the time that the message</div> <p>was 
      * constructed.&nbsp;</p></p>
      * 
-     * <p>Create Timestamp</p>
+     * <p>Other Business Name: PrescriptionOrderDate</p>
      * 
-     * <p>The date and time on which the adverse reaction record 
-     * was created.</p>
+     * <p>Relationship: PORX_MT020070CA.Author.time</p>
      * 
-     * <p>Identifies timing of adverse reaction for sorting and for 
-     * audit purposes. Attribute is populated because the source of 
-     * the data may not be through the 'record common observation' 
-     * interaction.</p>
-     * 
-     * <p>Change Time</p>
-     * 
-     * <p>The date on which the change was made.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the allergy. Also 
-     * used for sorting and audit purposes. Time of change is 
-     * always known and thus the attribute is mandatory.</p>
-     * 
-     * <p>Change Datetime</p>
-     * 
-     * <p>The date on which the change was made. Note that this may 
-     * be earlier or occassionally later than when the change is 
-     * actually effective.</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the event. Also used 
-     * for sorting and audit purposes. Time of change is always 
-     * known and thus the attribute is mandatory.</p>
-     * 
-     * <p>Prescription Order Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the drug was prescribed. This may 
      * differ from the date on which the prescription becomes 
@@ -801,7 +628,168 @@ public class RefusedByBean extends MessagePartBean {
      * populated because the creation date of the prescription 
      * shall always be known or absent for a reason.</p>
      * 
-     * <p>The date and time at whi
+     * <p>The date and time at which the drug was prescribed. This 
+     * may differ for mthe date on which the prescription becomes 
+     * effective.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700223CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: ChangeTime</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date and time on which the change was made.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the medical 
+     * condition. Also used for sorting and audit purposes. Time of 
+     * change is always known and thus the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time the person responsible for the event made the 
+     * decision for it to occur. This may be different than the 
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p><p>This date can 
+     * be back-dated.</p>
+     * 
+     * <p>The time a change is made is a critical piece of audit 
+     * information and is therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: PrescriptionOrderDate</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author5.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p>
+     * 
+     * <p>Other Business Name: RecordingDatetime</p>
+     * 
+     * <p>Relationship: REPC_MT100002CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the observation was 
+     * recorded.</p>
+     * 
+     * <p>ZPB3.20</p><p>Annotation.annotationDate</p>
+     * 
+     * <p>ZPB3.20</p><p>Annotation.annotationDate</p>
+     * 
+     * <p>The date and time on which the observation was recorded. 
+     * Identifies timing of observation for sorting and for audit 
+     * purposes. Attribute is populated because the source of the 
+     * data may not be through the 'record common observation' 
+     * interaction.</p>
+     * 
+     * <p>If not specified, the author time of the overall order 
+     * will be assumed.</p>
+     * 
+     * <p>Other Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the medical condition record 
+     * was created.</p>
+     * 
+     * <p>Identifies timing of the medical condition for sorting 
+     * and for audit purposes. Attribute is populated because the 
+     * source of the data may not be through the 'record common 
+     * observation' interaction.</p>
+     * 
+     * <p>Other Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time on which the allergy/intolerance record 
+     * was created.</p>
+     * 
+     * <p>Identifies timing of allergy/intolerance for sorting and 
+     * for audit purposes. Attribute is populated because the 
+     * source of the data may not be through the 'record common 
+     * observation' interaction.</p>
+     * 
+     * <p>Other Business Name: ChangeDatetime</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the change was made. Note that this may 
+     * be earlier or occassionally later than when the change is 
+     * actually effective.</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the event. Also used 
+     * for sorting and audit purposes. Time of change is always 
+     * known and thus the attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: TimeOfCreation</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The time the person responsible for the query made the 
+
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setTime(Date time) {
@@ -810,33 +798,209 @@ public class RefusedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Authored By</p>
+     * <p>Other Business Name: AuthoredBy</p>
      * 
-     * <p>&nbsp;Identifies the provider who reported the allergy 
-     * or&nbsp;intolerance.</p>
+     * <p>Relationship: COMT_MT300003CA.Author.assignedPerson</p>
      * 
-     * <p>Authored By</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p><div>Identifies the provider who reported the allergy 
-     * or&nbsp;intolerance.&nbsp;</div></p>
+     * <p>&nbsp;Identifies the provider who reported the note.</p>
      * 
-     * <p>Created By</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author5.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100002CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CreatedBy</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates the person who is making the query. 
      * This</div> <div>provider&rsquo;s permissions will be checked 
      * to see if they</div> <p>are allowed to do the specified 
      * interaction.&nbsp;</p></p>
      * 
-     * <p>Created By</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CreatedBy</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates the person responsible for the event 
      * that</div> <div>caused this message. This provider&rsquo;s 
      * permissions</div> <div>will be checked to see if they are 
      * allowed to do the</div> <p>specified interaction.&nbsp;</p></p>
      * 
-     * <p>Authored By</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>&nbsp;Identifies the provider who reported the note.</p>
+     * <p>Relationship: PORX_MT020070CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700223CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author5.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AuthoredBy</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>Identifies the provider who reported the allergy 
+     * or&nbsp;intolerance.&nbsp;</div></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AuthoredBy</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>&nbsp;Identifies the provider who reported the allergy 
+     * or&nbsp;intolerance.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author5.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"assignedPerson"})
     public ProviderBean getAssignedPerson() {
@@ -844,33 +1008,209 @@ public class RefusedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Authored By</p>
+     * <p>Other Business Name: AuthoredBy</p>
      * 
-     * <p>&nbsp;Identifies the provider who reported the allergy 
-     * or&nbsp;intolerance.</p>
+     * <p>Relationship: COMT_MT300003CA.Author.assignedPerson</p>
      * 
-     * <p>Authored By</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p><div>Identifies the provider who reported the allergy 
-     * or&nbsp;intolerance.&nbsp;</div></p>
+     * <p>&nbsp;Identifies the provider who reported the note.</p>
      * 
-     * <p>Created By</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT060150CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author5.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100002CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CreatedBy</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates the person who is making the query. 
      * This</div> <div>provider&rsquo;s permissions will be checked 
      * to see if they</div> <p>are allowed to do the specified 
      * interaction.&nbsp;</p></p>
      * 
-     * <p>Created By</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: CreatedBy</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates the person responsible for the event 
      * that</div> <div>caused this message. This provider&rsquo;s 
      * permissions</div> <div>will be checked to see if they are 
      * allowed to do the</div> <p>specified interaction.&nbsp;</p></p>
      * 
-     * <p>Authored By</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p>&nbsp;Identifies the provider who reported the note.</p>
+     * <p>Relationship: PORX_MT020070CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700223CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author5.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AuthoredBy</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>Identifies the provider who reported the allergy 
+     * or&nbsp;intolerance.&nbsp;</div></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000017CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: AuthoredBy</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>&nbsp;Identifies the provider who reported the allergy 
+     * or&nbsp;intolerance.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author5.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT100001CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAssignedPerson(ProviderBean assignedPerson) {
         this.assignedPerson = assignedPerson;
@@ -878,9 +1218,37 @@ public class RefusedByBean extends MessagePartBean {
 
 
     /**
-     * <p>InformationReceivedMethod</p>
+     * <p>Business Name: InformationReceivedMethod</p>
      * 
-     * <p>F:Information Received Method</p>
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700223CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates how the person who recorded the event became 
      * aware of it. E.g. Verbal, written, fax, etc.</p>
@@ -888,10 +1256,14 @@ public class RefusedByBean extends MessagePartBean {
      * <p>May have ramifications for the audit trail and 
      * reliability of the information.</p>
      * 
-     * <p>F:Information Received Method</p>
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates how the person who recorded the event became 
-     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * aware of it. E.g. Verbal, written, fax, etc.</p>
      * 
      * <p>May have ramifications for the audit trail and 
      * reliability of the information.</p>
@@ -902,9 +1274,37 @@ public class RefusedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>InformationReceivedMethod</p>
+     * <p>Business Name: InformationReceivedMethod</p>
      * 
-     * <p>F:Information Received Method</p>
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * 
+     * <p>May have ramifications for the audit trail and 
+     * reliability of the information.</p>
+     * 
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700223CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates how the person who recorded the event became 
      * aware of it. E.g. Verbal, written, fax, etc.</p>
@@ -912,10 +1312,14 @@ public class RefusedByBean extends MessagePartBean {
      * <p>May have ramifications for the audit trail and 
      * reliability of the information.</p>
      * 
-     * <p>F:Information Received Method</p>
+     * <p>Other Business Name: InformationReceivedMethod</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates how the person who recorded the event became 
-     * aware of it.. E.g. Verbal, written, fax, etc.</p>
+     * aware of it. E.g. Verbal, written, fax, etc.</p>
      * 
      * <p>May have ramifications for the audit trail and 
      * reliability of the information.</p>
@@ -926,9 +1330,13 @@ public class RefusedByBean extends MessagePartBean {
 
 
     /**
-     * <p>DigitalSignature</p>
+     * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>G:Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the formal digital signature of the message 
      * content.</p>
@@ -938,7 +1346,11 @@ public class RefusedByBean extends MessagePartBean {
      * it is not yet clear whether there is a use-case for this, or 
      * where it will be used.</p>
      * 
-     * <p>G:Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the formal digital signature of the message 
      * content.</p>
@@ -951,6 +1363,34 @@ public class RefusedByBean extends MessagePartBean {
      * <p><div>At this time, PIN does not support digital 
      * signatures.</div> <p>This field will be ignored if it is 
      * sent.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700223CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
      */
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
@@ -958,9 +1398,13 @@ public class RefusedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>DigitalSignature</p>
+     * <p>Business Name: DigitalSignature</p>
      * 
-     * <p>G:Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: QUQI_MT020000CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the formal digital signature of the message 
      * content.</p>
@@ -970,7 +1414,11 @@ public class RefusedByBean extends MessagePartBean {
      * it is not yet clear whether there is a use-case for this, or 
      * where it will be used.</p>
      * 
-     * <p>G:Digital Signature</p>
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Indicates the formal digital signature of the message 
      * content.</p>
@@ -983,6 +1431,34 @@ public class RefusedByBean extends MessagePartBean {
      * <p><div>At this time, PIN does not support digital 
      * signatures.</div> <p>This field will be ignored if it is 
      * sent.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700223CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
+     * 
+     * <p>Other Business Name: DigitalSignature</p>
+     * 
+     * <p>Relationship: MCAI_MT700221CA.Author.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Indicates the formal digital signature of the message 
+     * content.</p>
+     * 
+     * <p>Digital signatures may be needed for authentication of 
+     * message content. The attribute is marked as optional because 
+     * it is not yet clear whether there is a use-case for this, or 
+     * where it will be used.</p>
      */
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);

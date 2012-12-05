@@ -46,7 +46,7 @@ import java.util.Date;
 
 
 /**
- * <p>ReportedReactions</p>
+ * <p>Business Name: ReportedReactions</p>
  * 
  * <p>REPC_MT000005CA.ObservationEvent: Reported Reactions</p>
  * 
@@ -94,7 +94,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.ObservationEvent","REPC_MT000005CA.ObservationEvent","REPC_MT000009CA.ObservationEvent","REPC_MT000013CA.ObservationEvent"})
 public class ObservationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -105,9 +105,37 @@ public class ObservationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>ReactionRecordId</p>
+     * <p>Business Name: ReactionRecordId</p>
      * 
-     * <p>C:Reaction Record Id</p>
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
+     * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
+     * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An identifier assigned to the record of the adverse 
      * reaction.</p>
@@ -121,9 +149,37 @@ public class ObservationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReactionRecordId</p>
+     * <p>Business Name: ReactionRecordId</p>
      * 
-     * <p>C:Reaction Record Id</p>
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
+     * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>An identifier assigned to the record of the adverse 
+     * reaction.</p>
+     * 
+     * <p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p>
+     * 
+     * <p>Other Business Name: ReactionRecordId</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An identifier assigned to the record of the adverse 
      * reaction.</p>
@@ -137,9 +193,43 @@ public class ObservationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>DiagnosisType</p>
+     * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>Diagnosis Type</p>
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of diagnosis being captured.</p>
      * 
@@ -156,9 +246,43 @@ public class ObservationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>DiagnosisType</p>
+     * <p>Business Name: DiagnosisType</p>
      * 
-     * <p>Diagnosis Type</p>
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the type of diagnosis being captured.</p>
+     * 
+     * <p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p>
+     * 
+     * <p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p>
+     * 
+     * <p>Other Business Name: DiagnosisType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of diagnosis being captured.</p>
      * 
@@ -175,76 +299,14 @@ public class ObservationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>NoReactionOccurred</p>
+     * <p>Business Name: NoReactionOccurred</p>
      * 
-     * <p>D:No reaction occurred</p>
+     * <p>Other Business Name: NoReactionOccurred</p>
      * 
-     * <p>Indicates if there was an there was no adverse reaction 
-     * when the patient was exposed to the agent .</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.ObservationEvent.negationInd</p>
      * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     * 
-     * <p>Indicates that there was no adverse reaction when the 
-     * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * reaction occurred or not, this attribute is mandatory.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * reaction occurred or not, this attribute is mandatory.</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     * 
-     * <p>Indicates that there was no adverse reaction when the 
-     * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * record reflects a reaction that did or did not occur, this 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * record reflects a reaction that did or did not occur, this 
-     * attribute is mandatory.</p>
-     * 
-     * <p>D:No reaction occurred</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates if there there was an adverse reaction when the 
      * patient was exposed to the agent to which an 
@@ -265,6 +327,88 @@ public class ObservationEventBean extends MessagePartBean {
      * that the likely cause of the allergy is Codeine.</p><p>The 
      * attribute is mandatory because it is essential to know 
      * whether the reaction occurred or not.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates if there was an there was no adverse reaction 
+     * when the patient was exposed to the agent .</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is Codeine.</p><p>The 
+     * element is mandatory because it is essential to know for a 
+     * given record whether the reaction occurred or not.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is Codeine.</p><p>The 
+     * element is mandatory because it is essential to know for a 
+     * given record whether the reaction occurred or not.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates that there was no adverse reaction when the 
+     * patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * record reflects a reaction that did or did not occur, this 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * record reflects a reaction that did or did not occur, this 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates that there was no adverse reaction when the 
+     * patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * reaction occurred or not, this attribute is mandatory.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * reaction occurred or not, this attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -272,76 +416,14 @@ public class ObservationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>NoReactionOccurred</p>
+     * <p>Business Name: NoReactionOccurred</p>
      * 
-     * <p>D:No reaction occurred</p>
+     * <p>Other Business Name: NoReactionOccurred</p>
      * 
-     * <p>Indicates if there was an there was no adverse reaction 
-     * when the patient was exposed to the agent .</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.ObservationEvent.negationInd</p>
      * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is Codeine.</p><p>The 
-     * element is mandatory because it is essential to know for a 
-     * given record whether the reaction occurred or not.</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     * 
-     * <p>Indicates that there was no adverse reaction when the 
-     * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * reaction occurred or not, this attribute is mandatory.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * reaction occurred or not, this attribute is mandatory.</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     * 
-     * <p>Indicates that there was no adverse reaction when the 
-     * patient was exposed to the agent to which an 
-     * allergy/intolerance has been recorded.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * record reflects a reaction that did or did not occur, this 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Allows providers to confirm or eliminate specific agents 
-     * as being the cause for the allergy/intolerance. E.g. If a 
-     * reaction is recorded for Tylenol 3, but no reaction is 
-     * recorded for regular Tylenol or for coffee, this suggests 
-     * that the likely cause of the allergy is 
-     * Codeine.</p><p>Because it is essential to know whether the 
-     * record reflects a reaction that did or did not occur, this 
-     * attribute is mandatory.</p>
-     * 
-     * <p>D:No reaction occurred</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates if there there was an adverse reaction when the 
      * patient was exposed to the agent to which an 
@@ -362,6 +444,88 @@ public class ObservationEventBean extends MessagePartBean {
      * that the likely cause of the allergy is Codeine.</p><p>The 
      * attribute is mandatory because it is essential to know 
      * whether the reaction occurred or not.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates if there was an there was no adverse reaction 
+     * when the patient was exposed to the agent .</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is Codeine.</p><p>The 
+     * element is mandatory because it is essential to know for a 
+     * given record whether the reaction occurred or not.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is Codeine.</p><p>The 
+     * element is mandatory because it is essential to know for a 
+     * given record whether the reaction occurred or not.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates that there was no adverse reaction when the 
+     * patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * record reflects a reaction that did or did not occur, this 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * record reflects a reaction that did or did not occur, this 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: NoReactionOccurred</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.ObservationEvent.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates that there was no adverse reaction when the 
+     * patient was exposed to the agent to which an 
+     * allergy/intolerance has been recorded.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * reaction occurred or not, this attribute is mandatory.</p>
+     * 
+     * <p>Allows providers to confirm or eliminate specific agents 
+     * as being the cause for the allergy/intolerance. E.g. If a 
+     * reaction is recorded for Tylenol 3, but no reaction is 
+     * recorded for regular Tylenol or for coffee, this suggests 
+     * that the likely cause of the allergy is 
+     * Codeine.</p><p>Because it is essential to know whether the 
+     * reaction occurred or not, this attribute is mandatory.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -369,9 +533,52 @@ public class ObservationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Description</p>
+     * <p>Business Name: Description</p>
      * 
-     * <p>G:Description</p>
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>B.4</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>B.4</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>B.4</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of the reaction.</p>
      * 
@@ -386,9 +593,52 @@ public class ObservationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Description</p>
+     * <p>Business Name: Description</p>
      * 
-     * <p>G:Description</p>
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>B.4</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>B.4</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A free form description of the reaction.</p>
+     * 
+     * <p>B.4</p>
+     * 
+     * <p>Allows for flexibility in the recording and reporting of 
+     * the reaction.</p>
+     * 
+     * <p>Other Business Name: Description</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of the reaction.</p>
      * 
@@ -403,9 +653,53 @@ public class ObservationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>ReactionOnsetDate</p>
+     * <p>Business Name: ReactionOnsetDate</p>
      * 
-     * <p>F:Reaction Onset Date</p>
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date on which the reaction occurrence began.</p>
      * 
@@ -419,9 +713,53 @@ public class ObservationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReactionOnsetDate</p>
+     * <p>Business Name: ReactionOnsetDate</p>
      * 
-     * <p>F:Reaction Onset Date</p>
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000001CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the reaction occurrence began.</p>
+     * 
+     * <p>Indicates when evidence of the condition first appeared. 
+     * May also provide information on the duration of the 
+     * reaction.</p>
+     * 
+     * <p>Other Business Name: ReactionOnsetDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.ObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date on which the reaction occurrence began.</p>
      * 
@@ -435,9 +773,13 @@ public class ObservationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Reaction</p>
+     * <p>Business Name: Reaction</p>
      * 
-     * <p>B:Reaction</p>
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Specifies the kind of reaction, as experienced by the 
      * patient.</p>
@@ -451,7 +793,11 @@ public class ObservationEventBean extends MessagePartBean {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Reaction</p>
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Specifies the kind of reaction, as experienced by the 
      * patient.</p>
@@ -468,6 +814,42 @@ public class ObservationEventBean extends MessagePartBean {
      * <p><strong>Specifies the kind of reaction, as experienced by 
      * the patient. Because PIN does not support ADRs, this field 
      * is now mandatory.</strong></p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>B.1</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>B.1</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
      */
     @Hl7XmlMapping({"value"})
     public SubjectReaction getValue() {
@@ -475,9 +857,13 @@ public class ObservationEventBean extends MessagePartBean {
     }
 
     /**
-     * <p>Reaction</p>
+     * <p>Business Name: Reaction</p>
      * 
-     * <p>B:Reaction</p>
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Specifies the kind of reaction, as experienced by the 
      * patient.</p>
@@ -491,7 +877,11 @@ public class ObservationEventBean extends MessagePartBean {
      * not all possible types of reactions are expressible by coded 
      * values.</p>
      * 
-     * <p>Reaction</p>
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Specifies the kind of reaction, as experienced by the 
      * patient.</p>
@@ -508,17 +898,103 @@ public class ObservationEventBean extends MessagePartBean {
      * <p><strong>Specifies the kind of reaction, as experienced by 
      * the patient. Because PIN does not support ADRs, this field 
      * is now mandatory.</strong></p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>B.1</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
+     * 
+     * <p>Other Business Name: Reaction</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.ObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p>
+     * 
+     * <p>B.1</p>
+     * 
+     * <p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p>
      */
     public void setValue(SubjectReaction value) {
         this.value.setValue(value);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
         return this.subjectOfSeverityObservation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
         this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }

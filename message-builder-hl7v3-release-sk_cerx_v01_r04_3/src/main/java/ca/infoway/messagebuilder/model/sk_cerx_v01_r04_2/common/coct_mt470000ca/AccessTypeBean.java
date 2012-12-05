@@ -33,7 +33,7 @@ import java.util.List;
 
 
 /**
- * <p>Access Type</p>
+ * <p>Business Name: Access Type</p>
  * 
  * <p>Defines the types of information permission is being 
  * granted to access.</p>
@@ -44,23 +44,37 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470000CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
     }
 
 
     /**
-     * <p>B:Consent Information Types</p>
+     * <p>Business Name: B:Consent Information Types</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The type of patient information that can be accessed or 
      * modified.</p>

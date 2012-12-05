@@ -33,7 +33,7 @@ import java.math.BigDecimal;
 
 
 /**
- * <p>Coordinate Axis</p>
+ * <p>Business Name: Coordinate Axis</p>
  * 
  * <p>Describes the postion of the location along a specific 
  * axis.</p>
@@ -43,13 +43,17 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"COCT_MT960002CA.PositionCoordinate"})
 public class CoordinateAxisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 
 
     /**
-     * <p>Coordinate Axis Type</p>
+     * <p>Business Name: Coordinate Axis Type</p>
+     * 
+     * <p>Relationship: COCT_MT960002CA.PositionCoordinate.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the individual coordinate in the coordinate 
      * system inclusive of any transformations or 
@@ -72,7 +76,11 @@ public class CoordinateAxisBean extends MessagePartBean {
     }
 
     /**
-     * <p>Coordinate Axis Type</p>
+     * <p>Business Name: Coordinate Axis Type</p>
+     * 
+     * <p>Relationship: COCT_MT960002CA.PositionCoordinate.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the individual coordinate in the coordinate 
      * system inclusive of any transformations or 
@@ -95,7 +103,11 @@ public class CoordinateAxisBean extends MessagePartBean {
 
 
     /**
-     * <p>Coordinate Axis Value</p>
+     * <p>Business Name: Coordinate Axis Value</p>
+     * 
+     * <p>Relationship: COCT_MT960002CA.PositionCoordinate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Denotes the individual coordinate value as a a physical 
      * quantity. For example, lot number, range number, latitude, 
@@ -111,7 +123,11 @@ public class CoordinateAxisBean extends MessagePartBean {
     }
 
     /**
-     * <p>Coordinate Axis Value</p>
+     * <p>Business Name: Coordinate Axis Value</p>
+     * 
+     * <p>Relationship: COCT_MT960002CA.PositionCoordinate.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Denotes the individual coordinate value as a a physical 
      * quantity. For example, lot number, range number, latitude, 

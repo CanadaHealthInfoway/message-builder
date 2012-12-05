@@ -32,26 +32,46 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private RoleChoice roleChoice;
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RelatedTo.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public RoleLinkType getTypeCode() {
         return (RoleLinkType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RelatedTo.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setTypeCode(RoleLinkType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RelatedTo.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"roleChoice"})
     public RoleChoice getRoleChoice() {
         return this.roleChoice;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RelatedTo.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;
     }

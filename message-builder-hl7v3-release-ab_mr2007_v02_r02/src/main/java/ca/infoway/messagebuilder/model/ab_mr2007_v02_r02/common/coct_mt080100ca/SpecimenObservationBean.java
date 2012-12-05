@@ -37,7 +37,7 @@ import java.util.Date;
 
 
 /**
- * <p>Specimen Observation</p>
+ * <p>Business Name: Specimen Observation</p>
  * 
  * <p>One or more observation acts which describe aspects of a 
  * specimen (color, adequacy, etc.)</p>
@@ -49,14 +49,19 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenObservationEvent"})
 public class SpecimenObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ANY<Object> value = new ANYImpl<Object>();
 
 
     /**
-     * <p>Specimen Observation Type</p>
+     * <p>Business Name: Specimen Observation Type</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Describes the specific observation being 
      * performed/documented.</p>
@@ -69,7 +74,12 @@ public class SpecimenObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Specimen Observation Type</p>
+     * <p>Business Name: Specimen Observation Type</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenObservationEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Describes the specific observation being 
      * performed/documented.</p>
@@ -82,7 +92,12 @@ public class SpecimenObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Specimen Observation Date/Time</p>
+     * <p>Business Name: Specimen Observation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>When this observation took place (or over what time 
      * interval; for collection).</p>
@@ -97,7 +112,12 @@ public class SpecimenObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Specimen Observation Date/Time</p>
+     * <p>Business Name: Specimen Observation Date/Time</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenObservationEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>When this observation took place (or over what time 
      * interval; for collection).</p>
@@ -112,7 +132,12 @@ public class SpecimenObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Specimen Observation Value</p>
+     * <p>Business Name: Specimen Observation Value</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"value"})
     public Object getValue() {
@@ -120,7 +145,12 @@ public class SpecimenObservationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Specimen Observation Value</p>
+     * <p>Business Name: Specimen Observation Value</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT080100CA.SpecimenObservationEvent.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setValue(Object value) {
         this.value.setValue(value);

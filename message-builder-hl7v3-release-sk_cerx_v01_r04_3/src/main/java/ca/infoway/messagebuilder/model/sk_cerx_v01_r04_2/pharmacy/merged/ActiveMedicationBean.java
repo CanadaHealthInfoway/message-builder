@@ -49,7 +49,7 @@ import java.util.Date;
 
 
 /**
- * <p>ActiveMedication</p>
+ * <p>Business Name: ActiveMedication</p>
  * 
  * <p>PORX_MT980020CA.SubstanceAdministration: Active 
  * Medication</p>
@@ -81,7 +81,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministration","PORX_MT980020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -93,9 +93,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>OtherMedicationIndicator</p>
+     * <p>Business Name: OtherMedicationIndicator</p>
      * 
-     * <p>Other Medication Indicator</p>
+     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -109,7 +114,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * or dispense</p> <div>record or &lsquo;EVN&rsquo; for an 
      * Other Medication record.</div>
      * 
-     * <p>Other Medication Indicator</p>
+     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -125,9 +135,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>OtherMedicationIndicator</p>
+     * <p>Business Name: OtherMedicationIndicator</p>
      * 
-     * <p>Other Medication Indicator</p>
+     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -141,7 +156,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * or dispense</p> <div>record or &lsquo;EVN&rsquo; for an 
      * Other Medication record.</div>
      * 
-     * <p>Other Medication Indicator</p>
+     * <p>Other Business Name: OtherMedicationIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If the attribute is 'RQO', represents a prescription or 
      * dispense record. Otherwise if 'EVN', it represents an 'Other 
@@ -157,44 +177,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>ActiveMedicationRecordNumber</p>
+     * <p>Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>A:Active Medication Record Number</p>
+     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Unique identifier of the prescription or other medication 
-     * drug record that triggered the issue.</p>
+     * <p>Relationship: PORX_MT980020CA.SubstanceAdministration.id</p>
      * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the 
-     * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the 
-     * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p>
-     * 
-     * <p>A:Active Medication Record Number</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
@@ -228,6 +217,45 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * determining their management approach for the 
      * issue</p><p>The attribute is only marked as 'populated' 
      * because it may be masked.</p>
+     * 
+     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SubstanceAdministration.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Unique identifier of the prescription or other medication 
+     * drug record that triggered the issue.</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue.</p><p>The attribute is marked as populated because it 
+     * may be masked.</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue.</p><p>The attribute is marked as populated because it 
+     * may be masked.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -235,44 +263,13 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>ActiveMedicationRecordNumber</p>
+     * <p>Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>A:Active Medication Record Number</p>
+     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
      * 
-     * <p>Unique identifier of the prescription or other medication 
-     * drug record that triggered the issue.</p>
+     * <p>Relationship: PORX_MT980020CA.SubstanceAdministration.id</p>
      * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
-     * Therapy.SourceNumber (All senders must uniquely identify 
-     * prescriptions on request)</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the 
-     * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p>
-     * 
-     * <p>Allows provider to drill-down and retrieve additional 
-     * information about the implicated drug therapy to either 
-     * modify the therapy or to learn more information in 
-     * determining their management approach for the 
-     * issue.</p><p>The attribute is marked as populated because it 
-     * may be masked.</p>
-     * 
-     * <p>A:Active Medication Record Number</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Unique identifier of the prescription or other medication 
      * drug record that triggered the issue.</p>
@@ -306,6 +303,45 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * determining their management approach for the 
      * issue</p><p>The attribute is only marked as 'populated' 
      * because it may be masked.</p>
+     * 
+     * <p>Other Business Name: ActiveMedicationRecordNumber</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SubstanceAdministration.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Unique identifier of the prescription or other medication 
+     * drug record that triggered the issue.</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p><p>InteractingPrescription.PrescriptionExternalKey</p><p>InteractingPrescription.PrescriptionNumber</p><p>DDI/Dosage/Duplicate 
+     * Therapy.SourceNumber (All senders must uniquely identify 
+     * prescriptions on request)</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue.</p><p>The attribute is marked as populated because it 
+     * may be masked.</p>
+     * 
+     * <p>Allows provider to drill-down and retrieve additional 
+     * information about the implicated drug therapy to either 
+     * modify the therapy or to learn more information in 
+     * determining their management approach for the 
+     * issue.</p><p>The attribute is marked as populated because it 
+     * may be masked.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -313,9 +349,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>AdministrationType</p>
+     * <p>Business Name: AdministrationType</p>
      * 
-     * <p>Administration Type</p>
+     * <p>Other Business Name: AdministrationType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
@@ -334,7 +375,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p><strong>Must be "DRUG" or a CODE_INVAL error issue will 
      * be returned.</strong></p>
      * 
-     * <p>Administration Type</p>
+     * <p>Other Business Name: AdministrationType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
@@ -363,9 +409,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>AdministrationType</p>
+     * <p>Business Name: AdministrationType</p>
      * 
-     * <p>Administration Type</p>
+     * <p>Other Business Name: AdministrationType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
@@ -384,7 +435,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p><strong>Must be "DRUG" or a CODE_INVAL error issue will 
      * be returned.</strong></p>
      * 
-     * <p>Administration Type</p>
+     * <p>Other Business Name: AdministrationType</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Identifies whether the interaction is with a drug or a 
      * vaccine. For SNOMED, may also indicate the specific drug or 
@@ -413,9 +469,32 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>ActiveMedicationStatus</p>
+     * <p>Business Name: ActiveMedicationStatus</p>
      * 
-     * <p>B:Active Medication Status</p>
+     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the status of the medication record at the time 
+     * of the issue.</p>
+     * 
+     * <p>ZPB3.8 (aborted = discontinued; nullified = 
+     * reversed/system reversed; active=filled/not-filled)</p>
+     * 
+     * <p>Used to determine the relevance of the issue and the need 
+     * to manage it. For example, if the medication is on hold, it 
+     * may be less of an issue than if it is being actively 
+     * taken.</p>
+     * 
+     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the status of the medication record at the time 
      * of the issue.</p>
@@ -434,9 +513,32 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>ActiveMedicationStatus</p>
+     * <p>Business Name: ActiveMedicationStatus</p>
      * 
-     * <p>B:Active Medication Status</p>
+     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the status of the medication record at the time 
+     * of the issue.</p>
+     * 
+     * <p>ZPB3.8 (aborted = discontinued; nullified = 
+     * reversed/system reversed; active=filled/not-filled)</p>
+     * 
+     * <p>Used to determine the relevance of the issue and the need 
+     * to manage it. For example, if the medication is on hold, it 
+     * may be less of an issue than if it is being actively 
+     * taken.</p>
+     * 
+     * <p>Other Business Name: ActiveMedicationStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the status of the medication record at the time 
      * of the issue.</p>
@@ -455,9 +557,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>ActiveMedicationTimeRange</p>
+     * <p>Business Name: ActiveMedicationTimeRange</p>
      * 
-     * <p>C:Active Medication Time-range</p>
+     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -467,7 +574,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Allows the provider to evaluate 'duplicate therapy' and 
      * similar timing-based issues.</p>
      * 
-     * <p>C:Active Medication Time-range</p>
+     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -483,9 +595,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>ActiveMedicationTimeRange</p>
+     * <p>Business Name: ActiveMedicationTimeRange</p>
      * 
-     * <p>C:Active Medication Time-range</p>
+     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -495,7 +612,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * <p>Allows the provider to evaluate 'duplicate therapy' and 
      * similar timing-based issues.</p>
      * 
-     * <p>C:Active Medication Time-range</p>
+     * <p>Other Business Name: ActiveMedicationTimeRange</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -511,9 +633,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>ActiveMedicationMaskingIndicator</p>
+     * <p>Business Name: ActiveMedicationMaskingIndicator</p>
      * 
-     * <p>E:Active Medication Masking Indicator</p>
+     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An indication of sensitivity surrounding the implicated 
      * drug, and thus defines the required sensitivity for the 
@@ -527,7 +654,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * of the drug.</p><p>The attribute is optional because not all 
      * systems will support masking.</p>
      * 
-     * <p>E:Active Medication Masking Indicator</p>
+     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
@@ -547,9 +679,14 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>ActiveMedicationMaskingIndicator</p>
+     * <p>Business Name: ActiveMedicationMaskingIndicator</p>
      * 
-     * <p>E:Active Medication Masking Indicator</p>
+     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An indication of sensitivity surrounding the implicated 
      * drug, and thus defines the required sensitivity for the 
@@ -563,7 +700,12 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * of the drug.</p><p>The attribute is optional because not all 
      * systems will support masking.</p>
      * 
-     * <p>E:Active Medication Masking Indicator</p>
+     * <p>Other Business Name: ActiveMedicationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
@@ -583,9 +725,37 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>ActiveMedicationDoseQuantity</p>
+     * <p>Business Name: ActiveMedicationDoseQuantity</p>
      * 
-     * <p>D:Active Medication Dose Quantity</p>
+     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The amount of medication administered to the patient</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Used in Low Dose/High Dose issues.</p>
+     * 
+     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of medication administered to the patient</p>
      * 
@@ -609,9 +779,37 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>ActiveMedicationDoseQuantity</p>
+     * <p>Business Name: ActiveMedicationDoseQuantity</p>
      * 
-     * <p>D:Active Medication Dose Quantity</p>
+     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980020CA.SubstanceAdministration.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The amount of medication administered to the patient</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p>
+     * 
+     * <p>Used in Low Dose/High Dose issues.</p>
+     * 
+     * <p>Other Business Name: ActiveMedicationDoseQuantity</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT980010CA.SubstanceAdministration.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The amount of medication administered to the patient</p>
      * 
@@ -635,10 +833,20 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Identification of the drug that caused the 
      * issue.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
@@ -646,10 +854,20 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Identification of the drug that caused the 
      * issue.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Consumable.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;

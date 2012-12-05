@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.si.rcmr_mt010002ca.Keyw
 
 
 /**
- * <p>RCMR_IN010006CA: Update keyword request</p>
+ * <p>Business Name: RCMR_IN010006CA: Update keyword request</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +40,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.si.rcmr_mt010002ca.Keyw
 @Hl7PartTypeMapping({"RCMR_IN010006CA"})
 public class UpdateKeywordRequestBean extends HL7MessageBean<TriggerEvent_1Bean<KeywordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

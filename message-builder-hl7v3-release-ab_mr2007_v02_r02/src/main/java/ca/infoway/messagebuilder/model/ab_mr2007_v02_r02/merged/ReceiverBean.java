@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT000100CA.Receiver","MCCI_MT000300CA.Receiver","MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -56,9 +56,25 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>ReceiverNetworkAddress</p>
+     * <p>Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>JB:Receiver Network Address</p>
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses.</p>
+     * 
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The address to which this message is being sent.</p>
      * 
@@ -69,13 +85,47 @@ public class ReceiverBean extends MessagePartBean {
      * addresses. It is mandatory when communicating using 
      * SOAP.</p>
      * 
-     * <p>JB:Receiver Network Address</p>
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The address to which this message is being sent.</p>
      * 
      * <p>Indicates where the message should be sent. This is 
      * optional because not all environments require network 
      * addresses.</p>
+     * 
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses. It is mandatory when communicating using 
+     * SOAP.</p>
+     * 
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses. It is mandatory when communicating using 
+     * SOAP.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -83,9 +133,25 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReceiverNetworkAddress</p>
+     * <p>Business Name: ReceiverNetworkAddress</p>
      * 
-     * <p>JB:Receiver Network Address</p>
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses.</p>
+     * 
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The address to which this message is being sent.</p>
      * 
@@ -96,13 +162,47 @@ public class ReceiverBean extends MessagePartBean {
      * addresses. It is mandatory when communicating using 
      * SOAP.</p>
      * 
-     * <p>JB:Receiver Network Address</p>
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>The address to which this message is being sent.</p>
      * 
      * <p>Indicates where the message should be sent. This is 
      * optional because not all environments require network 
      * addresses.</p>
+     * 
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses. It is mandatory when communicating using 
+     * SOAP.</p>
+     * 
+     * <p>Other Business Name: ReceiverNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Receiver.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>The address to which this message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To</p>
+     * 
+     * <p>Indicates where the message should be sent. This is 
+     * optional because not all environments require network 
+     * addresses. It is mandatory when communicating using 
+     * SOAP.</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
@@ -110,9 +210,27 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>ReceiverApplicationIdentifier</p>
+     * <p>Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>JA:Receiver Application Identifier</p>
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
+     * 
+     * <p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p>
+     * 
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
@@ -124,10 +242,46 @@ public class ReceiverBean extends MessagePartBean {
      * because it is the key identifier of the receiving 
      * application.</p>
      * 
-     * <p>JA:Receiver Application Identifier</p>
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
+     * 
+     * <p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p>
+     * 
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To\@endpointID</p>
+     * 
+     * <p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p>
+     * 
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To\@endpointID</p>
      * 
      * <p>Used for routing and for verification that &quot;yes, 
      * this message is intended for me.&quot; This is mandatory 
@@ -140,9 +294,27 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReceiverApplicationIdentifier</p>
+     * <p>Business Name: ReceiverApplicationIdentifier</p>
      * 
-     * <p>JA:Receiver Application Identifier</p>
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
+     * 
+     * <p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p>
+     * 
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
@@ -154,10 +326,46 @@ public class ReceiverBean extends MessagePartBean {
      * because it is the key identifier of the receiving 
      * application.</p>
      * 
-     * <p>JA:Receiver Application Identifier</p>
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application to which the 
      * message is being sent.</p>
+     * 
+     * <p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p>
+     * 
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To\@endpointID</p>
+     * 
+     * <p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p>
+     * 
+     * <p>Other Business Name: ReceiverApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Device2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application to which the 
+     * message is being sent.</p>
+     * 
+     * <p>soap:Header\wsa:To\@endpointID</p>
      * 
      * <p>Used for routing and for verification that &quot;yes, 
      * this message is intended for me.&quot; This is mandatory 
@@ -170,21 +378,33 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>JE:Receiver Application Name</p>
+     * <p>Other Business Name: ReceiverApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device2.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Name of receiver application.</p>
      * 
-     * <p>JE:Receiver Application Name</p>
+     * <p>Other Business Name: ReceivingApplicationName</p>
      * 
-     * <p>Name of receiver application.</p>
+     * <p>Relationship: MCCI_MT002100CA.Device2.name</p>
      * 
-     * <p>Optional name of receiver application</p>
-     * 
-     * <p>JE:Receiving Application Name</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Name of the receiving application.</p>
      * 
      * <p>Optional name of the receiving application.</p>
+     * 
+     * <p>Other Business Name: ReceiverApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Device2.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Name of receiver application.</p>
+     * 
+     * <p>Optional name of receiver application</p>
      */
     @Hl7XmlMapping({"device/name"})
     public String getDeviceName() {
@@ -192,21 +412,33 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>JE:Receiver Application Name</p>
+     * <p>Other Business Name: ReceiverApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Device2.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Name of receiver application.</p>
      * 
-     * <p>JE:Receiver Application Name</p>
+     * <p>Other Business Name: ReceivingApplicationName</p>
      * 
-     * <p>Name of receiver application.</p>
+     * <p>Relationship: MCCI_MT002100CA.Device2.name</p>
      * 
-     * <p>Optional name of receiver application</p>
-     * 
-     * <p>JE:Receiving Application Name</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Name of the receiving application.</p>
      * 
      * <p>Optional name of the receiving application.</p>
+     * 
+     * <p>Other Business Name: ReceiverApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Device2.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Name of receiver application.</p>
+     * 
+     * <p>Optional name of receiver application</p>
      */
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
@@ -214,9 +446,13 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>ReceiverOrganizationIdentifier</p>
+     * <p>Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>JC:Receiver Organization Identifier</p>
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Organization2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the organization with 
      * responsibility to act on the contents of this message.</p>
@@ -226,7 +462,11 @@ public class ReceiverBean extends MessagePartBean {
      * steps. This attribute is optional because not all 
      * environments require communicating this information.</p>
      * 
-     * <p>JK:Receiver Organization Identifier</p>
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Organization2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of receiver application.</p>
      * 
@@ -235,7 +475,37 @@ public class ReceiverBean extends MessagePartBean {
      * the receiver device (application) to the agent role is 
      * optional.</p>
      * 
-     * <p>JK:Receiver Organization Identifier</p>
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Organization2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the organization with 
+     * responsibility to act on the contents of this message.</p>
+     * 
+     * <p>Important when the eventual entity responsible for acting 
+     * on an interaction may be reached through several routing 
+     * steps. This attribute is optional because not all 
+     * environments require communicating this information.</p>
+     * 
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier for the receiver organization.</p>
+     * 
+     * <p>The identifier is the only non-structural attribute in 
+     * this class and is therefore mandatory. The association from 
+     * receiver device to agent is optional.</p>
+     * 
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Organization2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Receiver organization.</p>
      * 
@@ -243,14 +513,6 @@ public class ReceiverBean extends MessagePartBean {
      * only non-structural attribute in this class and is therefore 
      * mandatory. Receiver organization is optional (as the scoper 
      * association from the receiver application is optional).</p>
-     * 
-     * <p>JK:Receiver Organization Identifier</p>
-     * 
-     * <p>Unique identifier for the receiver organization.</p>
-     * 
-     * <p>The identifier is the only non-structural attribute in 
-     * this class and is therefore mandatory. The association from 
-     * receiver device to agent is optional.</p>
      */
     @Hl7XmlMapping({"device/agent/agentOrganization/id","device/asAgent/representedOrganization/id"})
     @Hl7MapByPartTypes({
@@ -274,9 +536,13 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReceiverOrganizationIdentifier</p>
+     * <p>Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>JC:Receiver Organization Identifier</p>
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Organization2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the organization with 
      * responsibility to act on the contents of this message.</p>
@@ -286,7 +552,11 @@ public class ReceiverBean extends MessagePartBean {
      * steps. This attribute is optional because not all 
      * environments require communicating this information.</p>
      * 
-     * <p>JK:Receiver Organization Identifier</p>
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Organization2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name of receiver application.</p>
      * 
@@ -295,7 +565,37 @@ public class ReceiverBean extends MessagePartBean {
      * the receiver device (application) to the agent role is 
      * optional.</p>
      * 
-     * <p>JK:Receiver Organization Identifier</p>
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Organization2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the organization with 
+     * responsibility to act on the contents of this message.</p>
+     * 
+     * <p>Important when the eventual entity responsible for acting 
+     * on an interaction may be reached through several routing 
+     * steps. This attribute is optional because not all 
+     * environments require communicating this information.</p>
+     * 
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier for the receiver organization.</p>
+     * 
+     * <p>The identifier is the only non-structural attribute in 
+     * this class and is therefore mandatory. The association from 
+     * receiver device to agent is optional.</p>
+     * 
+     * <p>Other Business Name: ReceiverOrganizationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002200CA.Organization2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Receiver organization.</p>
      * 
@@ -303,14 +603,6 @@ public class ReceiverBean extends MessagePartBean {
      * only non-structural attribute in this class and is therefore 
      * mandatory. Receiver organization is optional (as the scoper 
      * association from the receiver application is optional).</p>
-     * 
-     * <p>JK:Receiver Organization Identifier</p>
-     * 
-     * <p>Unique identifier for the receiver organization.</p>
-     * 
-     * <p>The identifier is the only non-structural attribute in 
-     * this class and is therefore mandatory. The association from 
-     * receiver device to agent is optional.</p>
      */
     public void setDeviceAgentAgentOrganizationId(Identifier deviceAgentAgentOrganizationId) {
         this.deviceAgentAgentOrganizationId.setValue(deviceAgentAgentOrganizationId);
@@ -318,9 +610,26 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>ReceiverFacilityIdentifier</p>
+     * <p>Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>JD:Receiver Facility Identifier</p>
+     * <p>Other Business Name: ReceiverFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Place2.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Identifies the facility expected to receive the 
+     * message.</p>
+     * 
+     * <p>May be used to assist in routing the message. This 
+     * attribute is optional because not all environments require 
+     * communicating this information.</p>
+     * 
+     * <p>Other Business Name: ReceiverFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Place2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the facility expected to receive the 
      * message.</p>
@@ -335,9 +644,26 @@ public class ReceiverBean extends MessagePartBean {
     }
 
     /**
-     * <p>ReceiverFacilityIdentifier</p>
+     * <p>Business Name: ReceiverFacilityIdentifier</p>
      * 
-     * <p>JD:Receiver Facility Identifier</p>
+     * <p>Other Business Name: ReceiverFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Place2.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Identifies the facility expected to receive the 
+     * message.</p>
+     * 
+     * <p>May be used to assist in routing the message. This 
+     * attribute is optional because not all environments require 
+     * communicating this information.</p>
+     * 
+     * <p>Other Business Name: ReceiverFacilityIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Place2.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the facility expected to receive the 
      * message.</p>
@@ -351,31 +677,73 @@ public class ReceiverBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Receiver.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public CommunicationFunctionType getTypeCode() {
         return (CommunicationFunctionType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Receiver.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setTypeCode(CommunicationFunctionType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device2.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"device/classCode"})
     public EntityClass getDeviceClassCode() {
         return (EntityClass) this.deviceClassCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device2.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setDeviceClassCode(EntityClass deviceClassCode) {
         this.deviceClassCode.setValue(deviceClassCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device2.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"device/determinerCode"})
     public EntityDeterminer getDeviceDeterminerCode() {
         return (EntityDeterminer) this.deviceDeterminerCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device2.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setDeviceDeterminerCode(EntityDeterminer deviceDeterminerCode) {
         this.deviceDeterminerCode.setValue(deviceDeterminerCode);
     }

@@ -48,7 +48,7 @@ import java.util.Set;
 
 
 /**
- * <p>ServiceLocation</p>
+ * <p>Business Name: ServiceLocation</p>
  * 
  * <p>COCT_MT240007CA.ServiceDeliveryLocation: Service Location</p>
  * 
@@ -111,7 +111,7 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -121,91 +121,11 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>C:Service Location Identifier</p>
+     * <p>Other Business Name: ServiceLocationIdentifier</p>
      * 
-     * <p>Unique identifier for a healthcare service location.</p>
+     * <p>Relationship: COCT_MT240007CA.ServiceDeliveryLocation.id</p>
      * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>C:Service Location Id</p>
-     * 
-     * <p>Unique identifier for a healthcare service location.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>C:Service Location Identifier</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
      * 
@@ -236,6 +156,144 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Allows for a location to be uniquely referenced. However, 
      * because this CMET is used for locations not necessarily 
      * found in a registry, the attribute is only 'required'.</p>
+     * 
+     * <p>Other Business Name: ServiceLocationId</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier for a healthcare service location.</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT240002CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier for a healthcare service location.</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT240012CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier for a healthcare service location.</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -243,91 +301,11 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     }
 
     /**
-     * <p>C:Service Location Identifier</p>
+     * <p>Other Business Name: ServiceLocationIdentifier</p>
      * 
-     * <p>Unique identifier for a healthcare service location.</p>
+     * <p>Relationship: COCT_MT240007CA.ServiceDeliveryLocation.id</p>
      * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>C:Service Location Id</p>
-     * 
-     * <p>Unique identifier for a healthcare service location.</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
-     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
-     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>Allows for lookup and retrieval of detailed information 
-     * about a specific service location. Also ensures unique 
-     * identification of service location and is therefore 
-     * mandatory.</p><p>The identifier is mandatory because it is 
-     * the principal mechanism for uniquely identifying the 
-     * facility.</p>
-     * 
-     * <p>C:Service Location Identifier</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
      * 
@@ -358,6 +336,144 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Allows for a location to be uniquely referenced. However, 
      * because this CMET is used for locations not necessarily 
      * found in a registry, the attribute is only 'required'.</p>
+     * 
+     * <p>Other Business Name: ServiceLocationId</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier for a healthcare service location.</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT240002CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier for a healthcare service location.</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Other Business Name: ServiceLocationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT240012CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Unique identifier for a healthcare service location.</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>PVD.020-01 (extension)</p><p>PVD.020-02 
+     * (root)</p><p>Dispensing Pharmacy number</p><p>Pharmacy 
+     * Identifier</p><p>Facility.facilityKey</p><p>DispensedItem.facilityKey</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
+     * 
+     * <p>Allows for lookup and retrieval of detailed information 
+     * about a specific service location. Also ensures unique 
+     * identification of service location and is therefore 
+     * mandatory.</p><p>The identifier is mandatory because it is 
+     * the principal mechanism for uniquely identifying the 
+     * facility.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -365,9 +481,14 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>ServiceLocationType</p>
+     * <p>Business Name: ServiceLocationType</p>
      * 
-     * <p>A: Service Location Type</p>
+     * <p>Other Business Name: ServiceLocationType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240007CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Describes the basic type or category of the service 
      * delivery location.</p>
@@ -382,9 +503,14 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     }
 
     /**
-     * <p>ServiceLocationType</p>
+     * <p>Business Name: ServiceLocationType</p>
      * 
-     * <p>A: Service Location Type</p>
+     * <p>Other Business Name: ServiceLocationType</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240007CA.ServiceDeliveryLocation.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Describes the basic type or category of the service 
      * delivery location.</p>
@@ -399,9 +525,14 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>ServiceLocationAddress</p>
+     * <p>Business Name: ServiceLocationAddress</p>
      * 
-     * <p>D:Service Location Address</p>
+     * <p>Other Business Name: ServiceLocationAddress</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240007CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
@@ -418,7 +549,12 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * critical piece of information about the facility, but may 
      * not always be available or meaningful.</p>
      * 
-     * <p>D:Service Location Address</p>
+     * <p>Other Business Name: ServiceLocationAddress</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
@@ -441,9 +577,14 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     }
 
     /**
-     * <p>ServiceLocationAddress</p>
+     * <p>Business Name: ServiceLocationAddress</p>
      * 
-     * <p>D:Service Location Address</p>
+     * <p>Other Business Name: ServiceLocationAddress</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240007CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
@@ -460,7 +601,12 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * critical piece of information about the facility, but may 
      * not always be available or meaningful.</p>
      * 
-     * <p>D:Service Location Address</p>
+     * <p>Other Business Name: ServiceLocationAddress</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The information by which a service location may be 
      * contacted either physically or by mail.</p>
@@ -483,9 +629,14 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>ServiceLocationPhonesAndEMails</p>
+     * <p>Business Name: ServiceLocationPhonesAndEMails</p>
      * 
-     * <p>E:Service Location Phones and E-mails</p>
+     * <p>Other Business Name: ServiceLocationPhonesAndEMails</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240007CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      * 
      * <p>The phone numbers and/or electronic mail addresses by 
      * which a service location may be contacted.</p>
@@ -494,7 +645,12 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * therefore important. Because a contact number won't always 
      * exist, the field is marked 'populated'.</p>
      * 
-     * <p>E:Service Location Phones and E-mails</p>
+     * <p>Other Business Name: ServiceLocationPhonesAndEMails</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT240003CA.ServiceDeliveryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      * 
      * <p>The phone numbers and/or electronic mail addresses by 
      * which a service location may be contacted.</p>
@@ -510,9 +666,13 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>ServiceLocationName</p>
+     * <p>Business Name: ServiceLocationName</p>
      * 
-     * <p>B:Service Location Name</p>
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240007CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the service location.</p>
      * 
@@ -528,7 +688,51 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Used for human communication, and for cross-checking of 
      * location Id and is therefore mandatory</p>
      * 
-     * <p>B:Service Location Name</p>
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name assigned to the service location.</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>Used for human communication, and for cross-checking of 
+     * location Id and is therefore mandatory</p>
+     * 
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240002CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name assigned to the service location.</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>Used for human communication, and for cross-checking of 
+     * location Id and is therefore mandatory</p>
+     * 
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240012CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the service location.</p>
      * 
@@ -550,9 +754,13 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     }
 
     /**
-     * <p>ServiceLocationName</p>
+     * <p>Business Name: ServiceLocationName</p>
      * 
-     * <p>B:Service Location Name</p>
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240007CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the service location.</p>
      * 
@@ -568,7 +776,51 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Used for human communication, and for cross-checking of 
      * location Id and is therefore mandatory</p>
      * 
-     * <p>B:Service Location Name</p>
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240003CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name assigned to the service location.</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>Used for human communication, and for cross-checking of 
+     * location Id and is therefore mandatory</p>
+     * 
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240002CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The name assigned to the service location.</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p>
+     * 
+     * <p>Used for human communication, and for cross-checking of 
+     * location Id and is therefore mandatory</p>
+     * 
+     * <p>Other Business Name: ServiceLocationName</p>
+     * 
+     * <p>Relationship: COCT_MT240012CA.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the service location.</p>
      * 
@@ -589,6 +841,19 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT240007CA.Subject.position</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT240002CA.Subject.position</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/position"})
     public List<GeographicCoordinatesBean> getSubjectOfPosition() {
         return this.subjectOfPosition;

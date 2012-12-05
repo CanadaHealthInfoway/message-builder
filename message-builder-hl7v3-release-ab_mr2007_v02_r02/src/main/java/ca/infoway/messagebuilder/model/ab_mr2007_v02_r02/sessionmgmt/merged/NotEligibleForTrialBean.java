@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>NotEligibleForTrial</p>
+ * <p>Business Name: NotEligibleForTrial</p>
  * 
  * <p>PORX_MT060340CA.Component2: G:not eligible for Trial?</p>
  * 
@@ -61,41 +61,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Component2","PORX_MT060340CA.Component2"})
 public class NotEligibleForTrialBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL negationInd = new BLImpl();
 
 
     /**
-     * <p>NotEligibleForTrial</p>
+     * <p>Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Not Eligible for Trial?</p>
+     * <p>Other Business Name: NotEligibleForTrial</p>
      * 
-     * <p>An indication that a prescription is or is not eligible 
-     * for trial dispensing from a clinical (not financial) 
-     * perspective. False = Eligible, True = Not Eligible.</p>
+     * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
      * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The attribute is 
-     * mandatory as it must be known whether it is true or 
-     * false.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The attribute is 
-     * mandatory as it must be known whether it is true or 
-     * false.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The attribute is 
-     * mandatory as it must be known whether it is true or 
-     * false.</p>
-     * 
-     * <p>Not Eligible for Trial?</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication that a prescription is or is not eligible 
      * for trial dispensing from a clinical (not financial) 
@@ -121,6 +98,37 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * restrictions in HL7 modeling.</p><p>The attribute is 
      * mandatory because it must be known whether trials are 
      * allowed or not.</p>
+     * 
+     * <p>Other Business Name: NotEligibleForTrial</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Component2.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>An indication that a prescription is or is not eligible 
+     * for trial dispensing from a clinical (not financial) 
+     * perspective. False = Eligible, True = Not Eligible.</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The attribute is 
+     * mandatory as it must be known whether it is true or 
+     * false.</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The attribute is 
+     * mandatory as it must be known whether it is true or 
+     * false.</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The attribute is 
+     * mandatory as it must be known whether it is true or 
+     * false.</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -128,36 +136,13 @@ public class NotEligibleForTrialBean extends MessagePartBean {
     }
 
     /**
-     * <p>NotEligibleForTrial</p>
+     * <p>Business Name: NotEligibleForTrial</p>
      * 
-     * <p>Not Eligible for Trial?</p>
+     * <p>Other Business Name: NotEligibleForTrial</p>
      * 
-     * <p>An indication that a prescription is or is not eligible 
-     * for trial dispensing from a clinical (not financial) 
-     * perspective. False = Eligible, True = Not Eligible.</p>
+     * <p>Relationship: PORX_MT060340CA.Component2.negationInd</p>
      * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The attribute is 
-     * mandatory as it must be known whether it is true or 
-     * false.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The attribute is 
-     * mandatory as it must be known whether it is true or 
-     * false.</p>
-     * 
-     * <p>May affect dispensers' discretion to dispense anything 
-     * other than prescribed fill quantity.</p><p>Expressed as 
-     * 'Non-Eligibility' rather than 'Eligibility' due to 
-     * restrictions in HL7 modeling.</p><p>The attribute is 
-     * mandatory as it must be known whether it is true or 
-     * false.</p>
-     * 
-     * <p>Not Eligible for Trial?</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>An indication that a prescription is or is not eligible 
      * for trial dispensing from a clinical (not financial) 
@@ -183,6 +168,37 @@ public class NotEligibleForTrialBean extends MessagePartBean {
      * restrictions in HL7 modeling.</p><p>The attribute is 
      * mandatory because it must be known whether trials are 
      * allowed or not.</p>
+     * 
+     * <p>Other Business Name: NotEligibleForTrial</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Component2.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>An indication that a prescription is or is not eligible 
+     * for trial dispensing from a clinical (not financial) 
+     * perspective. False = Eligible, True = Not Eligible.</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The attribute is 
+     * mandatory as it must be known whether it is true or 
+     * false.</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The attribute is 
+     * mandatory as it must be known whether it is true or 
+     * false.</p>
+     * 
+     * <p>May affect dispensers' discretion to dispense anything 
+     * other than prescribed fill quantity.</p><p>Expressed as 
+     * 'Non-Eligibility' rather than 'Eligibility' due to 
+     * restrictions in HL7 modeling.</p><p>The attribute is 
+     * mandatory as it must be known whether it is true or 
+     * false.</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);

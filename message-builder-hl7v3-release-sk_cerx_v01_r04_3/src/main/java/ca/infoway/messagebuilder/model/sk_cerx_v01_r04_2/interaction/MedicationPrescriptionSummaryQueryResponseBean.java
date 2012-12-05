@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Substan
 
 
 /**
- * <p>PORX_IN060300CA: Medication prescription summary query 
- * response</p>
+ * <p>Business Name: PORX_IN060300CA: Medication prescription 
+ * summary query response</p>
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
@@ -45,6 +45,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Substan
 @Hl7PartTypeMapping({"PORX_IN060300CA"})
 public class MedicationPrescriptionSummaryQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<SubstanceAdministrationRequestBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

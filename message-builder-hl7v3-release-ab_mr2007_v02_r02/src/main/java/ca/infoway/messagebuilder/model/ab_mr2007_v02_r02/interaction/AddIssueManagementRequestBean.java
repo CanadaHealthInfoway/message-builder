@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt7002
 
 
 /**
- * <p>COMT_IN700001CA: Add issue management request</p>
+ * <p>Business Name: COMT_IN700001CA: Add issue management 
+ * request</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt7002
 @Hl7PartTypeMapping({"COMT_IN700001CA"})
 public class AddIssueManagementRequestBean extends HL7MessageBean<TriggerEventBean<IssuesBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

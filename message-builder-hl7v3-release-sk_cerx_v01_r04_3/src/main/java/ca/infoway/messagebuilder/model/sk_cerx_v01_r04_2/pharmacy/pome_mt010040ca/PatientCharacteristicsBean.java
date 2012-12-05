@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Patient Characteristics</p>
+ * <p>Business Name: Patient Characteristics</p>
  * 
  * <p>Value should be mandatory if not using SNOMED</p>
  * 
@@ -50,14 +50,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.ObservationEventCriterion"})
 public class PatientCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private IVL<PQ, Interval<PhysicalQuantity>> value = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
 
 
     /**
-     * <p>Patient Characteristic Type</p>
+     * <p>Business Name: Patient Characteristic Type</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of patient characteristic being 
      * expressed. E.g. Height, weight, age, lab values, etc. If 
@@ -73,7 +78,12 @@ public class PatientCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Characteristic Type</p>
+     * <p>Business Name: Patient Characteristic Type</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.ObservationEventCriterion.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the type of patient characteristic being 
      * expressed. E.g. Height, weight, age, lab values, etc. If 
@@ -89,7 +99,12 @@ public class PatientCharacteristicsBean extends MessagePartBean {
 
 
     /**
-     * <p>Exclude characteristic?</p>
+     * <p>Business Name: Exclude characteristic?</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.ObservationEventCriterion.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If true, indicates that the characteristic is one which 
      * should *not* be held by the patient for the dosage to 
@@ -111,7 +126,12 @@ public class PatientCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Exclude characteristic?</p>
+     * <p>Business Name: Exclude characteristic?</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.ObservationEventCriterion.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>If true, indicates that the characteristic is one which 
      * should *not* be held by the patient for the dosage to 
@@ -133,7 +153,12 @@ public class PatientCharacteristicsBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Characteristic Value</p>
+     * <p>Business Name: Patient Characteristic Value</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.ObservationEventCriterion.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the specific value or range of values of the 
      * characteristic a patient should have for the dosage to be 
@@ -157,7 +182,12 @@ public class PatientCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Patient Characteristic Value</p>
+     * <p>Business Name: Patient Characteristic Value</p>
+     * 
+     * <p>Relationship: 
+     * POME_MT010040CA.ObservationEventCriterion.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the specific value or range of values of the 
      * characteristic a patient should have for the dosage to be 

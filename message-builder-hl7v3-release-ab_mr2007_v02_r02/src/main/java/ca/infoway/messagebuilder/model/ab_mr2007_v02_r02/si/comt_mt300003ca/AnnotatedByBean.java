@@ -31,7 +31,7 @@ import java.util.Date;
 
 
 /**
- * <p>*b:annotated by</p>
+ * <p>Business Name: *b:annotated by</p>
  * 
  * <p>Identifier of the provider who created the patient 
  * note.</p>
@@ -44,13 +44,17 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COMT_MT300003CA.Author"})
 public class AnnotatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private HealthcareWorkerBean assignedEntity;
 
 
     /**
-     * <p>B:Patient Note Date</p>
+     * <p>Business Name: B:Patient Note Date</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the patient note was created.</p>
      * 
@@ -70,7 +74,11 @@ public class AnnotatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Patient Note Date</p>
+     * <p>Business Name: B:Patient Note Date</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the patient note was created.</p>
      * 

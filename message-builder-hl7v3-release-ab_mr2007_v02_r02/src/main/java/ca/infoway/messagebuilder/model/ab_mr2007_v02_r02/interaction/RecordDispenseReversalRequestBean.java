@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 
 
 /**
- * <p>PORX_IN020370CA: Record dispense reversal request</p>
+ * <p>Business Name: PORX_IN020370CA: Record dispense reversal 
+ * request</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.TriggerEv
 @Hl7PartTypeMapping({"PORX_IN020370CA"})
 public class RecordDispenseReversalRequestBean extends HL7MessageBean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

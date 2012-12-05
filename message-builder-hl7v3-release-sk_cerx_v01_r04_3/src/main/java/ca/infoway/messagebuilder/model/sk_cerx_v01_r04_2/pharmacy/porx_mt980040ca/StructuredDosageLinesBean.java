@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Structured Dosage Lines</p>
+ * <p>Business Name: Structured Dosage Lines</p>
  * 
  * <p>- moodCode must be DEFN for drug definitions (such as 
  * monographs) - moodCode must be RQO for orders; - moodCode 
@@ -67,7 +67,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
     private GTS effectiveTime = new GTSImpl();
@@ -78,7 +78,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>Business Name: Dosage Usage Context</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -117,7 +121,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>Business Name: Dosage Usage Context</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the context of the 
      * administration.</p><p>moodCode = RQO, for administration 
@@ -156,7 +164,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Ad-hoc Dosage Instruction</p>
+     * <p>Business Name: C:Ad-hoc Dosage Instruction</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of how the dispensed medication 
      * is to be administered to the patient.</p>
@@ -197,7 +209,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Ad-hoc Dosage Instruction</p>
+     * <p>Business Name: C:Ad-hoc Dosage Instruction</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description of how the dispensed medication 
      * is to be administered to the patient.</p>
@@ -238,7 +254,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Business Name: C:Dosage Timing/Frequency</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A structure describing the frequency (how often the drug 
      * is to be administered), offset (elapse time between 
@@ -359,7 +379,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Business Name: C:Dosage Timing/Frequency</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A structure describing the frequency (how often the drug 
      * is to be administered), offset (elapse time between 
@@ -480,7 +504,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Dosage Range</p>
+     * <p>Business Name: D:Dosage Range</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This specifies the minimum and maximum amount of the 
      * medication to be taken during a single administration.</p>
@@ -512,7 +540,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Dosage Range</p>
+     * <p>Business Name: D:Dosage Range</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.doseQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This specifies the minimum and maximum amount of the 
      * medication to be taken during a single administration.</p>
@@ -544,7 +576,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Dosage Rate</p>
+     * <p>Business Name: E:Dosage Rate</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.rateQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>For intravenous and other such routes, this is the time 
      * period over which one dose is to be administered. The flow 
@@ -563,7 +599,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Dosage Rate</p>
+     * <p>Business Name: E:Dosage Rate</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.DosageLine.rateQuantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>For intravenous and other such routes, this is the time 
      * period over which one dose is to be administered. The flow 
@@ -582,6 +622,10 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;To flag a prescription as &lsquo;PRN&rsquo; without 
      * specifying</p> <div>a condition, include the association but 
      * specify a</div> <div>null flavor for the Dosage 
@@ -593,6 +637,10 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;To flag a prescription as &lsquo;PRN&rsquo; without 
      * specifying</p> <div>a condition, include the association but 
      * specify a</div> <div>null flavor for the Dosage 
@@ -604,6 +652,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This is a modifier for this specific dosage 
      * line.</p>
      */
@@ -613,6 +666,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This is a modifier for this specific dosage 
      * line.</p>
      */

@@ -34,37 +34,67 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.SequelTo"})
 public class SequelToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS typeCode = new CSImpl();
     private INT sequenceNumber = new INTImpl();
     private InformRequestBean informRequest;
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ActRelationshipType getTypeCode() {
         return (ActRelationshipType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
         return this.sequenceNumber.getValue();
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.informRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informRequest"})
     public InformRequestBean getInformRequest() {
         return this.informRequest;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.SequelTo.informRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformRequest(InformRequestBean informRequest) {
         this.informRequest = informRequest;
     }

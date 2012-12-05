@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Assigne
 
 
 /**
- * <p>Formularies</p>
+ * <p>Business Name: Formularies</p>
  * 
  * <p>At least One of Id or Title must be specified</p>
  * 
@@ -49,14 +49,18 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Assigne
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private ST title = new STImpl();
     private AssignedEntity3Bean performerAssignedEntity;
 
 
     /**
-     * <p>Formulary Id</p>
+     * <p>Business Name: Formulary Id</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.PotentialSupply.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for a specific formulary.</p>
      * 
@@ -68,7 +72,11 @@ public class FormulariesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Formulary Id</p>
+     * <p>Business Name: Formulary Id</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.PotentialSupply.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A unique identifier for a specific formulary.</p>
      * 
@@ -80,7 +88,11 @@ public class FormulariesBean extends MessagePartBean {
 
 
     /**
-     * <p>Formulary Name</p>
+     * <p>Business Name: Formulary Name</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.PotentialSupply.title</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The name by which the formulary is commonly known.</p>
      * 
@@ -93,7 +105,11 @@ public class FormulariesBean extends MessagePartBean {
     }
 
     /**
-     * <p>Formulary Name</p>
+     * <p>Business Name: Formulary Name</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.PotentialSupply.title</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The name by which the formulary is commonly known.</p>
      * 

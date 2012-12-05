@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt2201
 
 
 /**
- * <p>Remaining Dispenses</p>
+ * <p>Business Name: Remaining Dispenses</p>
  * 
  * <p>Indicates dispenses yet to be made against the 
  * prescription</p>
@@ -42,13 +42,17 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt2201
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private PQ quantity = new PQImpl();
     private DrugProductBean productMedication;
 
 
     /**
-     * <p>C:Remaining Quantity</p>
+     * <p>Business Name: C:Remaining Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT010140CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the remaining quantity to be dispensed.</p>
      * 
@@ -68,7 +72,11 @@ public class RemainingDispensesBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Remaining Quantity</p>
+     * <p>Business Name: C:Remaining Quantity</p>
+     * 
+     * <p>Relationship: PORX_MT010140CA.SupplyEvent.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the remaining quantity to be dispensed.</p>
      * 
@@ -87,11 +95,21 @@ public class RemainingDispensesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010140CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
         return this.productMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010140CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
     }

@@ -34,7 +34,7 @@ import java.util.Set;
 
 
 /**
- * <p>Response Object</p>
+ * <p>Business Name: Response Object</p>
  * 
  * <p>This is an optional output control parameter. Sender 
  * indicates via coded values which class or class attributes 
@@ -137,12 +137,16 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306010CA.ResponseObject"})
 public class ResponseObjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<CV, Code> value = new SETImpl<CV, Code>(CVImpl.class);
 
 
     /**
-     * <p>Provider Query Response Object</p>
+     * <p>Business Name: Provider Query Response Object</p>
+     * 
+     * <p>Relationship: PRPM_MT306010CA.ResponseObject.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
      * 
      * <p>Outlines the values expected to be received by this 
      * query</p>

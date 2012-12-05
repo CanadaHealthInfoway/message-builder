@@ -34,7 +34,7 @@ import java.util.Date;
 
 
 /**
- * <p>LastDispenseInformation</p>
+ * <p>Business Name: LastDispenseInformation</p>
  * 
  * <p>PORX_MT060060CA.SupplyEventLastSummary: Last Dispense 
  * Information</p>
@@ -57,15 +57,20 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventLastSummary","PORX_MT060060CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT quantity = new INTImpl();
 
 
     /**
-     * <p>LastDispensePickupDate</p>
+     * <p>Business Name: LastDispensePickupDate</p>
      * 
-     * <p>A:Last Dispense Pickup Date</p>
+     * <p>Other Business Name: LastDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventLastSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
@@ -74,7 +79,12 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Last Dispense Pickup Date</p>
+     * <p>Other Business Name: LastDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventLastSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
@@ -89,9 +99,14 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>LastDispensePickupDate</p>
+     * <p>Business Name: LastDispensePickupDate</p>
      * 
-     * <p>A:Last Dispense Pickup Date</p>
+     * <p>Other Business Name: LastDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventLastSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
@@ -100,7 +115,12 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * to be dispensed. Also provides an indication of 
      * compliance.</p>
      * 
-     * <p>Last Dispense Pickup Date</p>
+     * <p>Other Business Name: LastDispensePickupDate</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventLastSummary.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the most recent date on which a dispense on the 
      * prescription was picked up.</p>
@@ -115,24 +135,14 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>LastQuantityDispensed</p>
+     * <p>Business Name: LastQuantityDispensed</p>
      * 
-     * <p>Last Quantity Dispensed</p>
+     * <p>Other Business Name: LastQuantityDispensed</p>
      * 
-     * <p>Indicates the most recent quantity of the drug that was 
-     * picked up for the prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventLastSummary.quantity</p>
      * 
-     * <p>Useful in determining number of devices that a patient 
-     * should have on-hand. Also provides an indication of 
-     * compliance.</p><p>If the last dispense is known, then the 
-     * quantity must be known, thus the element is mandatory.</p>
-     * 
-     * <p>Useful in determining number of devices that a patient 
-     * should have on-hand. Also provides an indication of 
-     * compliance.</p><p>If the last dispense is known, then the 
-     * quantity must be known, thus the element is mandatory.</p>
-     * 
-     * <p>B:Last Quantity Dispensed</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the most recent quantity of the drug that was 
      * picked up for the prescription.</p>
@@ -148,6 +158,26 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
      * mandatory.</p>
+     * 
+     * <p>Other Business Name: LastQuantityDispensed</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventLastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
+     * 
+     * <p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the last dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p>
+     * 
+     * <p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the last dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p>
      */
     @Hl7XmlMapping({"quantity"})
     public Integer getQuantity() {
@@ -155,24 +185,14 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>LastQuantityDispensed</p>
+     * <p>Business Name: LastQuantityDispensed</p>
      * 
-     * <p>Last Quantity Dispensed</p>
+     * <p>Other Business Name: LastQuantityDispensed</p>
      * 
-     * <p>Indicates the most recent quantity of the drug that was 
-     * picked up for the prescription.</p>
+     * <p>Relationship: 
+     * PORX_MT060060CA.SupplyEventLastSummary.quantity</p>
      * 
-     * <p>Useful in determining number of devices that a patient 
-     * should have on-hand. Also provides an indication of 
-     * compliance.</p><p>If the last dispense is known, then the 
-     * quantity must be known, thus the element is mandatory.</p>
-     * 
-     * <p>Useful in determining number of devices that a patient 
-     * should have on-hand. Also provides an indication of 
-     * compliance.</p><p>If the last dispense is known, then the 
-     * quantity must be known, thus the element is mandatory.</p>
-     * 
-     * <p>B:Last Quantity Dispensed</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the most recent quantity of the drug that was 
      * picked up for the prescription.</p>
@@ -188,6 +208,26 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
      * compliance.</p><p>Because the quantity should always be 
      * known if the last dispense is known, this attribute is 
      * mandatory.</p>
+     * 
+     * <p>Other Business Name: LastQuantityDispensed</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.SupplyEventLastSummary.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the most recent quantity of the drug that was 
+     * picked up for the prescription.</p>
+     * 
+     * <p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the last dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p>
+     * 
+     * <p>Useful in determining number of devices that a patient 
+     * should have on-hand. Also provides an indication of 
+     * compliance.</p><p>If the last dispense is known, then the 
+     * quantity must be known, thus the element is mandatory.</p>
      */
     public void setQuantity(Integer quantity) {
         this.quantity.setValue(quantity);

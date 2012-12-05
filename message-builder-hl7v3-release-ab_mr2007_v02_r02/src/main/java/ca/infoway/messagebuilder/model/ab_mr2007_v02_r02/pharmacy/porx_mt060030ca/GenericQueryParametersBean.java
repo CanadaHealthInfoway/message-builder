@@ -42,7 +42,7 @@ import java.util.List;
 
 
 /**
- * <p>Generic Query Parameters</p>
+ * <p>Business Name: Generic Query Parameters</p>
  * 
  * <p>Defines the set of parameters that may be used to filter 
  * the query response.</p>
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDeviceIndicatorValue = new BLImpl();
     private BL mostRecentDispenseForEachRxIndicatorValue = new BLImpl();
@@ -62,7 +62,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060030CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -83,7 +87,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Issue Filter Code</p>
+     * <p>Business Name: Issue Filter Code</p>
+     * 
+     * <p>Relationship: PORX_MT060030CA.IssueFilterCode.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether records to be returned (e.g. 
      * prescription order, prescription dispense and/or other 
@@ -104,7 +112,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent By Device Indicator</p>
+     * <p>Business Name: Most Recent By Device Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060030CA.MostRecentByDeviceIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not the records are to be retrieved 
      * based on the most recent by Device Code. If true, only the 
@@ -131,7 +144,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Most Recent By Device Indicator</p>
+     * <p>Business Name: Most Recent By Device Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060030CA.MostRecentByDeviceIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not the records are to be retrieved 
      * based on the most recent by Device Code. If true, only the 
@@ -158,7 +176,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Business Name: Most Recent Dispense for each Rx Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060030CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not prescription dispenses returned 
      * on a query should be limited to only the most recent 
@@ -202,7 +225,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * <p>Business Name: Most Recent Dispense for each Rx Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060030CA.MostRecentDispenseForEachRxIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates whether or not prescription dispenses returned 
      * on a query should be limited to only the most recent 
@@ -246,7 +274,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Rx Dispenser Indicators</p>
+     * <p>Business Name: Rx Dispenser Indicators</p>
+     * 
+     * <p>Relationship: PORX_MT060030CA.RxDispenseIndicator.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value indicating the dispensing (fill) status of 
      * the prescription to be included in the result set. The only 
@@ -274,7 +306,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Usage Effective Period</p>
+     * <p>Business Name: D:Usage Effective Period</p>
+     * 
+     * <p>Relationship: PORX_MT060030CA.UsageEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the usage period for which the request/query 
      * applies.</p><p>Filter the result set to include only those 
@@ -298,7 +334,11 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Usage Effective Period</p>
+     * <p>Business Name: D:Usage Effective Period</p>
+     * 
+     * <p>Relationship: PORX_MT060030CA.UsageEffectivePeriod.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the usage period for which the request/query 
      * applies.</p><p>Filter the result set to include only those 

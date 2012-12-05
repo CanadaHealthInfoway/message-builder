@@ -62,7 +62,7 @@ import java.util.Set;
 
 
 /**
- * <p>Prescription</p>
+ * <p>Business Name: Prescription</p>
  * 
  * <p>Where the prescription is for a combination of drugs 
  * (e.g. 10mg tablets + 40mg tablets) repeatNumber cannot be 
@@ -75,7 +75,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.CombinedMedicationRequest"})
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -101,7 +101,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>A:Prescription Order Number</p>
+     * <p>Business Name: A:Prescription Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
@@ -129,7 +134,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>A:Prescription Order Number</p>
+     * <p>Business Name: A:Prescription Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Order Number is a globally unique number 
      * assigned to a prescription by the EHR/DIS irrespective of 
@@ -157,7 +167,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Prescription Type</p>
+     * <p>Business Name: Prescription Type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that this is a prescription for a drug as 
      * opposed to an immunization. For SNOMED, may also contain 
@@ -177,7 +192,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>Prescription Type</p>
+     * <p>Business Name: Prescription Type</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates that this is a prescription for a drug as 
      * opposed to an immunization. For SNOMED, may also contain 
@@ -197,7 +217,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>Business Name: C:Prescription Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: NEW, 
@@ -218,7 +243,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>Business Name: C:Prescription Status</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This denotes the state of the prescription in the 
      * lifecycle of the prescription. Valid statuses are: NEW, 
@@ -239,7 +269,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>F:Prescription Masking Indicators</p>
+     * <p>Business Name: F:Prescription Masking Indicators</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their prescriptions.</p><p>Provides support for 
@@ -337,11 +372,21 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060190CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/medication"})
     public DrugProductBean getDirectTargetMedication() {
         return this.directTargetMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060190CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
         this.directTargetMedication = directTargetMedication;
     }
@@ -383,28 +428,55 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
         return this.preconditionVerificationEventCriterion.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060190CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"derivedFrom/sourceDispense"})
     public Boolean getDerivedFromSourceDispense() {
         return this.derivedFromSourceDispense.getValue();
     }
 
+    /**
+     * <p>Relationship: PORX_MT060190CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
         this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
     }
 
 
     /**
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Business Name: Rendered Dosage Instruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A textual rendition of structured (or non-structure) 
      * original dosage instruction specified by the prescriber.</p>
@@ -427,7 +499,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
     /**
-     * <p>Rendered Dosage Instruction</p>
+     * <p>Business Name: Rendered Dosage Instruction</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.AdministrationInstructions.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A textual rendition of structured (or non-structure) 
      * original dosage instruction specified by the prescriber.</p>
@@ -499,21 +576,43 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060190CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
         return this.subjectOf1AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: PORX_MT060190CA.Subject.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Subject2.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
     public Boolean getSubjectOf2DetectedIssueIndicator() {
         return this.subjectOf2DetectedIssueIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Subject2.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
         this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
     }
@@ -525,6 +624,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf1/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOf1PatientCareProvisionEvent() {
         return this.componentOf1PatientCareProvisionEvent;

@@ -108,7 +108,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;
@@ -127,9 +127,13 @@ public class MedicationDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -265,7 +269,11 @@ public class MedicationDispenseBean extends MessagePartBean {
      * that dispenses may be uniquely referenced. Thus the 
      * mandatory requirement.</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -285,14 +293,8 @@ public class MedicationDispenseBean extends MessagePartBean {
      * mandatory requirement.</p>
      * 
      * <p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p>
-     * 
-     * <p><div>The Prescription Dispense Number is a globally</div> 
-     * <div>unique number assigned to a dispense (single 
-     * fill)</div> <p>by PIN irrespective of the source of the 
-     * dispense.&nbsp;</p></p>
+     * record.
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -300,9 +302,13 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>Business Name: PrescriptionDispenseNumber</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -438,7 +444,11 @@ public class MedicationDispenseBean extends MessagePartBean {
      * that dispenses may be uniquely referenced. Thus the 
      * mandatory requirement.</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>Other Business Name: PrescriptionDispenseNumber</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The Prescription Dispense Number is a globally unique 
      * number assigned to a dispense (single fill) by the EHR/DIS 
@@ -458,14 +468,8 @@ public class MedicationDispenseBean extends MessagePartBean {
      * mandatory requirement.</p>
      * 
      * <p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p>
-     * 
-     * <p><div>The Prescription Dispense Number is a globally</div> 
-     * <div>unique number assigned to a dispense (single 
-     * fill)</div> <p>by PIN irrespective of the source of the 
-     * dispense.&nbsp;</p></p>
+     * record.
+     * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -473,40 +477,55 @@ public class MedicationDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseStatus</p>
+     * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>C:Dispense Status</p>
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If Active it means that the dispense has been 
      * processed but not yet given to the patient. If Complete, it 
      * indicates that the medication has been delivered to the 
-     * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
-     * 
-     * <p>Dispense Status</p>
-     * 
-     * <p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
-     * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
-     * 
-     * <p>C:Dispense Status</p>
-     * 
-     * <p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
      * patient.</p>
      * 
      * <p>Important in understanding what medication the patient 
@@ -520,40 +539,55 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>DispenseStatus</p>
+     * <p>Business Name: DispenseStatus</p>
      * 
-     * <p>C:Dispense Status</p>
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p>
+     * 
+     * <p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p>
+     * 
+     * <p>Other Business Name: DispenseStatus</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.MedicationDispense.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the dispense record created on 
      * the EHR/DIS. If Active it means that the dispense has been 
      * processed but not yet given to the patient. If Complete, it 
      * indicates that the medication has been delivered to the 
-     * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
-     * 
-     * <p>Dispense Status</p>
-     * 
-     * <p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
-     * patient.</p>
-     * 
-     * <p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p>
-     * 
-     * <p>C:Dispense Status</p>
-     * 
-     * <p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
      * patient.</p>
      * 
      * <p>Important in understanding what medication the patient 
@@ -566,31 +600,129 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ResponsibleParty4.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ResponsibleParty3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.ResponsibleParty4.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.ResponsibleParty3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedPerson"})
     public ProviderBean getPerformerAssignedPerson() {
         return this.performerAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Performer3.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
         this.performerAssignedPerson = performerAssignedPerson;
     }
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates the facility/location where the 
      * dispensing</div> <p>was performed.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
@@ -598,16 +730,54 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Indicates the facility/location where the 
      * dispensing</div> <p>was performed.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component11.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/dosageInstruction","component2/dosageInstruction"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060090CA.Component11"),
@@ -621,10 +791,29 @@ public class MedicationDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>An indication of what kind of substitution made, 
      * if</div> <p>any.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"component2/substitutionMade","component3/substitutionMade"})
     @Hl7MapByPartTypes({
@@ -639,16 +828,54 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>An indication of what kind of substitution made, 
      * if</div> <p>any.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setComponent3SubstitutionMade(SubstitutionBean component3SubstitutionMade) {
         this.component3SubstitutionMade = component3SubstitutionMade;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/supplyEvent","component3/supplyEvent"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component"),
@@ -661,17 +888,74 @@ public class MedicationDispenseBean extends MessagePartBean {
         return this.component1SupplyEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Component.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1SupplyEvent(SupplyEvent_1Bean component1SupplyEvent) {
         this.component1SupplyEvent = component1SupplyEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Subject10.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Subject.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Subject.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotation","subjectOf3/annotation","subjectOf4/annotation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060340CA.Subject7"),
@@ -686,13 +970,32 @@ public class MedicationDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>If present, indicates that there are issues</div> 
      * <div>associated with this record.</div> <div>This will only 
      * be present if the query indicated that</div> <div>issues 
      * were not to be included and there are</div> 
      * <p>issues.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator","subjectOf4/detectedIssueIndicator"})
     @Hl7MapByPartTypes({
@@ -707,19 +1010,57 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>If present, indicates that there are issues</div> 
      * <div>associated with this record.</div> <div>This will only 
      * be present if the query indicated that</div> <div>issues 
      * were not to be included and there are</div> 
      * <p>issues.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject13.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSubjectOf3DetectedIssueIndicator(Boolean subjectOf3DetectedIssueIndicator) {
         this.subjectOf3DetectedIssueIndicator.setValue(subjectOf3DetectedIssueIndicator);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Subject6.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Subject6.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Subject6.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueEvent","subjectOf4/detectedIssueEvent","subjectOf5/detectedIssueEvent"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060090CA.Subject6"),
@@ -734,12 +1075,31 @@ public class MedicationDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>If present, indicates that there are notes</div> 
      * <div>associated with the record.</div> <div>This will only 
      * be present if the query indicated that</div> <p>notes were 
      * not to be included and there are notes.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator","subjectOf5/annotationIndicator"})
     @Hl7MapByPartTypes({
@@ -754,12 +1114,31 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>If present, indicates that there are notes</div> 
      * <div>associated with the record.</div> <div>This will only 
      * be present if the query indicated that</div> <p>notes were 
      * not to be included and there are notes.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject12.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
@@ -767,9 +1146,14 @@ public class MedicationDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionMaskingIndicator</p>
+     * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getConfidentialityCode() {
@@ -777,20 +1161,41 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionMaskingIndicator</p>
+     * <p>Business Name: PrescriptionMaskingIndicator</p>
      * 
-     * <p>E:Prescription Masking Indicator</p>
+     * <p>Other Business Name: PrescriptionMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.MedicationDispense.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.InFulfillmentOf.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
     public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.InFulfillmentOf.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }

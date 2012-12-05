@@ -58,7 +58,7 @@ import java.util.List;
 
 
 /**
- * <p>*Person</p>
+ * <p>Business Name: *Person</p>
  * 
  * <p>deceasedTime is only present when deceasedInd = TRUE</p>
  * 
@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT101104CA.Person"})
 public class PersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private CS determinerCode = new CSImpl();
     private PN name = new PNImpl();
@@ -91,6 +91,10 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PRPA_MT101104CA.Person.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>An HL7 defined value representing the class or category 
      * that the Entity instance represents.</p><p>Examples: Person, 
      * Animal, Chemical Substance, Group, Organization</p>
@@ -115,6 +119,10 @@ public class PersonBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PRPA_MT101104CA.Person.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>An HL7 defined value representing the class or category 
      * that the Entity instance represents.</p><p>Examples: Person, 
      * Animal, Chemical Substance, Group, Organization</p>
@@ -139,6 +147,10 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PRPA_MT101104CA.Person.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>An HL7 defined value representing whether the Entity 
      * represents a kind-of or a specific instance.</p><p>Examples: 
      * 1 human being (an instance), 3 syringes (quantified kind) or 
@@ -162,6 +174,10 @@ public class PersonBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PRPA_MT101104CA.Person.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
      * <p>An HL7 defined value representing whether the Entity 
      * represents a kind-of or a specific instance.</p><p>Examples: 
      * 1 human being (an instance), 3 syringes (quantified kind) or 
@@ -185,7 +201,11 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Name</p>
+     * <p>Business Name: Client Name</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Name(s) for the Client</p>
      * 
@@ -198,7 +218,11 @@ public class PersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Name</p>
+     * <p>Business Name: Client Name</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Name(s) for the Client</p>
      * 
@@ -211,7 +235,11 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Telecom</p>
+     * <p>Business Name: Client Telecom</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-3)</p>
      * 
      * <p>Provides information about telecom</p>
      * 
@@ -225,7 +253,12 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
@@ -241,7 +274,12 @@ public class PersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Gender</p>
+     * <p>Business Name: Client Gender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
@@ -257,7 +295,11 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Date of birth of the Client</p>
      * 
@@ -270,7 +312,11 @@ public class PersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Date of Birth</p>
+     * <p>Business Name: Client Date of Birth</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Date of birth of the Client</p>
      * 
@@ -283,7 +329,11 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Deceased Indicator</p>
+     * <p>Business Name: Client Deceased Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication that the client is deceased.</p>
      * 
@@ -296,7 +346,11 @@ public class PersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Deceased Indicator</p>
+     * <p>Business Name: Client Deceased Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>An indication that the client is deceased.</p>
      * 
@@ -309,7 +363,11 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Deceased Date</p>
+     * <p>Business Name: Client Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time that a client's death occurred.</p>
      * 
@@ -322,7 +380,11 @@ public class PersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Deceased Date</p>
+     * <p>Business Name: Client Deceased Date</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time that a client's death occurred.</p>
      * 
@@ -335,7 +397,11 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Multiple Birth Indicator</p>
+     * <p>Business Name: Client Multiple Birth Indicator</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.multipleBirthInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0)</p>
      * 
      * <p>An indication as to whether the client is part of a 
      * multiple birth.</p>
@@ -350,7 +416,12 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Multiple Birth Order Number</p>
+     * <p>Business Name: Client Multiple Birth Order Number</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101104CA.Person.multipleBirthOrderNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0)</p>
      * 
      * <p>The order in which this client was born if part of a 
      * multiple birth.</p>
@@ -365,7 +436,11 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Address</p>
+     * <p>Business Name: Client Address</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Address(es) of the Client</p>
      * 
@@ -378,7 +453,11 @@ public class PersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Address</p>
+     * <p>Business Name: Client Address</p>
+     * 
+     * <p>Relationship: PRPA_MT101104CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Address(es) of the Client</p>
      * 

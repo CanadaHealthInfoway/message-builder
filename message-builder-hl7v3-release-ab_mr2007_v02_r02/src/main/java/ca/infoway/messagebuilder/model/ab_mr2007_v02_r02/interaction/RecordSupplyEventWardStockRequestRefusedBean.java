@@ -28,8 +28,8 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TriggerEventBean
 
 
 /**
- * <p>PORX_IN020230CA: Record supply event (ward stock) request 
- * refused</p>
+ * <p>Business Name: PORX_IN020230CA: Record supply event (ward 
+ * stock) request refused</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -38,6 +38,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TriggerEventBean
 @Hl7PartTypeMapping({"PORX_IN020230CA"})
 public class RecordSupplyEventWardStockRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

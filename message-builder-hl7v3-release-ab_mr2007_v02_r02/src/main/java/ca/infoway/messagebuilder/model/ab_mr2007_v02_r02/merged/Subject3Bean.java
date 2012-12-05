@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Subject3","COCT_MT470002CA.Subject3","COCT_MT470012CA.Subject3"})
 public class Subject3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV actDefinitionCode = new CVImpl();
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
@@ -47,9 +47,43 @@ public class Subject3Bean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentInformationTypes</p>
+     * <p>Business Name: ConsentInformationTypes</p>
      * 
-     * <p>B:Consent Information Types</p>
+     * <p>Other Business Name: ConsentInformationTypes</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
+     * 
+     * <p>Different consents (or even keywords) may be needed to 
+     * access different types of patient information (e.g. 
+     * demographics, medications, allergies, lab results). 
+     * Understanding the type of information the consent applies to 
+     * is critical, and therefore the attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: ConsentInformationTypes</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
+     * 
+     * <p>Different consents (or even keywords) may be needed to 
+     * access different types of patient information (e.g. 
+     * demographics, medications, allergies, lab results). 
+     * Understanding the type of information the consent applies to 
+     * is critical, and therefore the attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: ConsentInformationTypes</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The type of patient, client, or provider information that 
      * can be accessed or modified.</p>
@@ -60,28 +94,6 @@ public class Subject3Bean extends MessagePartBean {
      * results). Understanding the type of information the consent 
      * applies to is critical, and therefore the attribute is 
      * mandatory.</p>
-     * 
-     * <p>B:Consent Information Types</p>
-     * 
-     * <p>The type of patient information that can be accessed or 
-     * modified.</p>
-     * 
-     * <p>Different consents (or even keywords) may be needed to 
-     * access different types of patient information (e.g. 
-     * demographics, medications, allergies, lab results). 
-     * Understanding the type of information the consent applies to 
-     * is critical, and therefore the attribute is mandatory.</p>
-     * 
-     * <p>B:Consent Information Types</p>
-     * 
-     * <p>The type of patient information that can be accessed or 
-     * modified.</p>
-     * 
-     * <p>Different consents (or even keywords) may be needed to 
-     * access different types of patient information (e.g. 
-     * demographics, medications, allergies, lab results). 
-     * Understanding the type of information the consent applies to 
-     * is critical, and therefore the attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"actDefinition/code"})
     public ActInformationAccessTypeCode getActDefinitionCode() {
@@ -89,9 +101,43 @@ public class Subject3Bean extends MessagePartBean {
     }
 
     /**
-     * <p>ConsentInformationTypes</p>
+     * <p>Business Name: ConsentInformationTypes</p>
      * 
-     * <p>B:Consent Information Types</p>
+     * <p>Other Business Name: ConsentInformationTypes</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
+     * 
+     * <p>Different consents (or even keywords) may be needed to 
+     * access different types of patient information (e.g. 
+     * demographics, medications, allergies, lab results). 
+     * Understanding the type of information the consent applies to 
+     * is critical, and therefore the attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: ConsentInformationTypes</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The type of patient information that can be accessed or 
+     * modified.</p>
+     * 
+     * <p>Different consents (or even keywords) may be needed to 
+     * access different types of patient information (e.g. 
+     * demographics, medications, allergies, lab results). 
+     * Understanding the type of information the consent applies to 
+     * is critical, and therefore the attribute is mandatory.</p>
+     * 
+     * <p>Other Business Name: ConsentInformationTypes</p>
+     * 
+     * <p>Relationship: COCT_MT470012CA.ActDefinition.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The type of patient, client, or provider information that 
      * can be accessed or modified.</p>
@@ -102,69 +148,103 @@ public class Subject3Bean extends MessagePartBean {
      * results). Understanding the type of information the consent 
      * applies to is critical, and therefore the attribute is 
      * mandatory.</p>
-     * 
-     * <p>B:Consent Information Types</p>
-     * 
-     * <p>The type of patient information that can be accessed or 
-     * modified.</p>
-     * 
-     * <p>Different consents (or even keywords) may be needed to 
-     * access different types of patient information (e.g. 
-     * demographics, medications, allergies, lab results). 
-     * Understanding the type of information the consent applies to 
-     * is critical, and therefore the attribute is mandatory.</p>
-     * 
-     * <p>B:Consent Information Types</p>
-     * 
-     * <p>The type of patient information that can be accessed or 
-     * modified.</p>
-     * 
-     * <p>Different consents (or even keywords) may be needed to 
-     * access different types of patient information (e.g. 
-     * demographics, medications, allergies, lab results). 
-     * Understanding the type of information the consent applies to 
-     * is critical, and therefore the attribute is mandatory.</p>
      */
     public void setActDefinitionCode(ActInformationAccessTypeCode actDefinitionCode) {
         this.actDefinitionCode.setValue(actDefinitionCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Subject3.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"typeCode"})
     public ActRelationshipType getTypeCode() {
         return (ActRelationshipType) this.typeCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Subject3.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Subject3.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"contextControlCode"})
     public ContextControl getContextControlCode() {
         return (ContextControl) this.contextControlCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.Subject3.contextControlCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setContextControlCode(ContextControl contextControlCode) {
         this.contextControlCode.setValue(contextControlCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ActDefinition.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"actDefinition/classCode"})
     public ActClass getActDefinitionClassCode() {
         return (ActClass) this.actDefinitionClassCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ActDefinition.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setActDefinitionClassCode(ActClass actDefinitionClassCode) {
         this.actDefinitionClassCode.setValue(actDefinitionClassCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ActDefinition.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"actDefinition/moodCode"})
     public ActMood getActDefinitionMoodCode() {
         return (ActMood) this.actDefinitionMoodCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470002CA.ActDefinition.moodCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setActDefinitionMoodCode(ActMood actDefinitionMoodCode) {
         this.actDefinitionMoodCode.setValue(actDefinitionMoodCode);
     }

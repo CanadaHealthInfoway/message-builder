@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Includes</p>
+ * <p>Business Name: Includes</p>
  * 
  * <p>PORX_MT060060CA.Component6: f:includes</p>
  * 
@@ -86,18 +86,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Component6","PORX_MT060040CA.Component6","PORX_MT060060CA.Component6"})
 public class IncludesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DispenseInstructions_1Bean supplyRequest;
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Specification of how the prescribed device is to 
      * be</div> <div>component2.supplyRequest dispensed to the 
      * patient.&nbsp;</div></p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Specification of how the prescribed device is to 
      * be</p> <div>dispensed to the patient.</div>
@@ -108,13 +122,27 @@ public class IncludesBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><div>Specification of how the prescribed device is to 
      * be</div> <div>component2.supplyRequest dispensed to the 
      * patient.&nbsp;</div></p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Specification of how the prescribed device is to 
      * be</p> <div>dispensed to the patient.</div>

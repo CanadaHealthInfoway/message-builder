@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private CS assignedRepositoryClassCode = new CSImpl();
@@ -68,25 +68,47 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     private ST assignedDeviceName = new STImpl();
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.AssignedDevice.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"classCode"})
     public RoleClass getClassCode() {
         return (RoleClass) this.classCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.AssignedDevice.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setClassCode(RoleClass classCode) {
         this.classCode.setValue(classCode);
     }
 
 
     /**
-     * <p>Repository Identifier</p>
+     * <p>Other Business Name: RepositoryIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the EHR repository.</p>
      * 
      * <p>Allows repositories to be uniquely identified for linking 
      * or grouping purposes and is therefore mandatory.</p>
      * 
-     * <p>C:Application Id</p>
+     * <p>Other Business Name: ApplicationId</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier of an application or a system.</p>
      * 
@@ -128,14 +150,22 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>Repository Identifier</p>
+     * <p>Other Business Name: RepositoryIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the EHR repository.</p>
      * 
      * <p>Allows repositories to be uniquely identified for linking 
      * or grouping purposes and is therefore mandatory.</p>
      * 
-     * <p>C:Application Id</p>
+     * <p>Other Business Name: ApplicationId</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.AssignedDevice.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Unique identifier of an application or a system.</p>
      * 
@@ -176,30 +206,62 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.Repository.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"assignedRepository/classCode"})
     public EntityClass getAssignedRepositoryClassCode() {
         return (EntityClass) this.assignedRepositoryClassCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.Repository.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setAssignedRepositoryClassCode(EntityClass assignedRepositoryClassCode) {
         this.assignedRepositoryClassCode.setValue(assignedRepositoryClassCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.Repository.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"assignedRepository/determinerCode"})
     public EntityDeterminer getAssignedRepositoryDeterminerCode() {
         return (EntityDeterminer) this.assignedRepositoryDeterminerCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.Repository.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setAssignedRepositoryDeterminerCode(EntityDeterminer assignedRepositoryDeterminerCode) {
         this.assignedRepositoryDeterminerCode.setValue(assignedRepositoryDeterminerCode);
     }
 
 
     /**
-     * <p>RepositoryName</p>
+     * <p>Business Name: RepositoryName</p>
      * 
-     * <p>Repository Name</p>
+     * <p>Other Business Name: RepositoryName</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.Repository.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the repository which is responsible for 
      * maintaining the record. E.g. &quot;Ontario Health 
@@ -214,9 +276,13 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>RepositoryName</p>
+     * <p>Business Name: RepositoryName</p>
      * 
-     * <p>Repository Name</p>
+     * <p>Other Business Name: RepositoryName</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.Repository.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the repository which is responsible for 
      * maintaining the record. E.g. &quot;Ontario Health 
@@ -230,30 +296,66 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090310CA.RepositoryJurisdiction.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"representedRepositoryJurisdiction/classCode"})
     public EntityClass getRepresentedRepositoryJurisdictionClassCode() {
         return (EntityClass) this.representedRepositoryJurisdictionClassCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090310CA.RepositoryJurisdiction.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setRepresentedRepositoryJurisdictionClassCode(EntityClass representedRepositoryJurisdictionClassCode) {
         this.representedRepositoryJurisdictionClassCode.setValue(representedRepositoryJurisdictionClassCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090310CA.RepositoryJurisdiction.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"representedRepositoryJurisdiction/determinerCode"})
     public EntityDeterminer getRepresentedRepositoryJurisdictionDeterminerCode() {
         return (EntityDeterminer) this.representedRepositoryJurisdictionDeterminerCode.getValue();
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT090310CA.RepositoryJurisdiction.determinerCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setRepresentedRepositoryJurisdictionDeterminerCode(EntityDeterminer representedRepositoryJurisdictionDeterminerCode) {
         this.representedRepositoryJurisdictionDeterminerCode.setValue(representedRepositoryJurisdictionDeterminerCode);
     }
 
 
     /**
-     * <p>RepositoryJurisdictionName</p>
+     * <p>Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>Repository Jurisdiction Name</p>
+     * <p>Other Business Name: RepositoryJurisdictionName</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the jurisdiction that is responsible for the 
      * EHR infostructure that contains and manages the record.</p>
@@ -267,9 +369,13 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>RepositoryJurisdictionName</p>
+     * <p>Business Name: RepositoryJurisdictionName</p>
      * 
-     * <p>Repository Jurisdiction Name</p>
+     * <p>Other Business Name: RepositoryJurisdictionName</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the jurisdiction that is responsible for the 
      * EHR infostructure that contains and manages the record.</p>
@@ -283,9 +389,13 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
 
 
     /**
-     * <p>ApplicationName</p>
+     * <p>Business Name: ApplicationName</p>
      * 
-     * <p>B:Application Name</p>
+     * <p>Other Business Name: ApplicationName</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.Device.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the application/system.</p>
      * 
@@ -307,9 +417,13 @@ public class EHRRepositoryBean extends MessagePartBean implements ChangedBy {
     }
 
     /**
-     * <p>ApplicationName</p>
+     * <p>Business Name: ApplicationName</p>
      * 
-     * <p>B:Application Name</p>
+     * <p>Other Business Name: ApplicationName</p>
+     * 
+     * <p>Relationship: COCT_MT090302CA.Device.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name assigned to the application/system.</p>
      * 

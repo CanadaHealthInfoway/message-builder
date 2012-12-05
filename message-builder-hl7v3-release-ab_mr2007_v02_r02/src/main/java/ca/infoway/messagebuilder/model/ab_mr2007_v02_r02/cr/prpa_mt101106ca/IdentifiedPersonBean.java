@@ -48,7 +48,7 @@ import java.util.Set;
 
 
 /**
- * <p>Identified Person</p>
+ * <p>Business Name: Identified Person</p>
  * 
  * <p>The IdentifiedEntity class is the entry point to the 
  * R-MIM and contains one or more identifiers (for example an 
@@ -65,7 +65,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -75,7 +75,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Business Name: Client Healthcare Identification Number</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-100)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
@@ -95,7 +99,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the status of the Client role (e.g. Active)</p>
      * 
@@ -108,7 +116,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Status Code</p>
+     * <p>Business Name: Client Status Code</p>
+     * 
+     * <p>Relationship: PRPA_MT101106CA.IdentifiedEntity.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the status of the Client role (e.g. Active)</p>
      * 
@@ -121,7 +133,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101106CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the effective time of the Client role</p>
      * 
@@ -134,7 +151,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Effective Time</p>
+     * <p>Business Name: Client Effective Time</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101106CA.IdentifiedEntity.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the effective time of the Client role</p>
      * 
@@ -147,7 +169,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101106CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code that controls the disclosure of information about 
      * this patient encounter.</p>
@@ -175,7 +202,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Masked Information</p>
+     * <p>Business Name: Client Masked Information</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101106CA.IdentifiedEntity.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>A code that controls the disclosure of information about 
      * this patient encounter.</p>
@@ -208,11 +240,21 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101106CA.Subject.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/observationEvent"})
     public ConfidenceValueBean getSubjectOfObservationEvent() {
         return this.subjectOfObservationEvent;
     }
 
+    /**
+     * <p>Relationship: PRPA_MT101106CA.Subject.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
         this.subjectOfObservationEvent = subjectOfObservationEvent;
     }

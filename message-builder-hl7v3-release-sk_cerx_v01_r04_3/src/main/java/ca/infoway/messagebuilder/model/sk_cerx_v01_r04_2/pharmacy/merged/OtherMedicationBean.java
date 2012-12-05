@@ -49,7 +49,7 @@ import java.util.List;
 
 
 /**
- * <p>OtherMedication</p>
+ * <p>Business Name: OtherMedication</p>
  * 
  * <p>PORX_MT040020CA.OtherMedication: Other Medication</p>
  * 
@@ -92,7 +92,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -105,9 +105,13 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>AdministrationRecordID</p>
+     * <p>Business Name: AdministrationRecordID</p>
      * 
-     * <p>Administration Record ID</p>
+     * <p>Other Business Name: AdministrationRecordID</p>
+     * 
+     * <p>Relationship: PORX_MT040020CA.OtherMedication.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the Other Medication record that needs to 
      * be updated.</p>
@@ -121,9 +125,13 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>AdministrationRecordID</p>
+     * <p>Business Name: AdministrationRecordID</p>
      * 
-     * <p>Administration Record ID</p>
+     * <p>Other Business Name: AdministrationRecordID</p>
+     * 
+     * <p>Relationship: PORX_MT040020CA.OtherMedication.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifier of the Other Medication record that needs to 
      * be updated.</p>
@@ -137,9 +145,46 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationStatus</p>
+     * <p>Business Name: OtherMedicationStatus</p>
      * 
-     * <p>C:Other Medication Status</p>
+     * <p>Other Business Name: OtherMedicationStatus</p>
+     * 
+     * <p>Relationship: PORX_MT040020CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p>
+     * 
+     * <p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p>
+     * 
+     * <p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p>
+     * 
+     * <p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p>
+     * 
+     * <p>If not active or completed, a CODE_INVAL error issue will 
+     * be returned.</p>
+     * 
+     * <p>Other Business Name: OtherMedicationStatus</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This denotes a state in the lifecycle of the other 
      * medication. Valid statuses are: 'ACTIVE' and 'COMPLETED' 
@@ -169,35 +214,6 @@ public class OtherMedicationBean extends MessagePartBean {
      * <strong>Only 'active' and 'completed' are allowed. 
      * Otherwise, a CODE_INVAL error issue will be 
      * returned.</strong></p>
-     * 
-     * <p>Other Medication Status</p>
-     * 
-     * <p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p>
-     * 
-     * <p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p>
-     * 
-     * <p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
-     * 
-     * <p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
-     * 
-     * <p>If not active or completed, a CODE_INVAL error issue will 
-     * be returned.</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getStatusCode() {
@@ -205,9 +221,46 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>OtherMedicationStatus</p>
+     * <p>Business Name: OtherMedicationStatus</p>
      * 
-     * <p>C:Other Medication Status</p>
+     * <p>Other Business Name: OtherMedicationStatus</p>
+     * 
+     * <p>Relationship: PORX_MT040020CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p>
+     * 
+     * <p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p>
+     * 
+     * <p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p>
+     * 
+     * <p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p>
+     * 
+     * <p>If not active or completed, a CODE_INVAL error issue will 
+     * be returned.</p>
+     * 
+     * <p>Other Business Name: OtherMedicationStatus</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This denotes a state in the lifecycle of the other 
      * medication. Valid statuses are: 'ACTIVE' and 'COMPLETED' 
@@ -237,35 +290,6 @@ public class OtherMedicationBean extends MessagePartBean {
      * <strong>Only 'active' and 'completed' are allowed. 
      * Otherwise, a CODE_INVAL error issue will be 
      * returned.</strong></p>
-     * 
-     * <p>Other Medication Status</p>
-     * 
-     * <p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p>
-     * 
-     * <p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p>
-     * 
-     * <p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
-     * 
-     * <p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p>
-     * 
-     * <p>If not active or completed, a CODE_INVAL error issue will 
-     * be returned.</p>
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
@@ -273,9 +297,14 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugActivePeriod</p>
+     * <p>Business Name: DrugActivePeriod</p>
      * 
-     * <p>C:Drug Active Period</p>
+     * <p>Other Business Name: DrugActivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT040020CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The new period in which the active medication is deemed 
      * to be active.</p>
@@ -283,7 +312,12 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Allows the drug active period information to be 
      * changed.</p>
      * 
-     * <p>d:Drug Active Period</p>
+     * <p>Other Business Name: DrugActivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT040010CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the time-period in which the patient has been 
      * taking or is expected to be taking the medication.</p>
@@ -309,9 +343,14 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>DrugActivePeriod</p>
+     * <p>Business Name: DrugActivePeriod</p>
      * 
-     * <p>C:Drug Active Period</p>
+     * <p>Other Business Name: DrugActivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT040020CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The new period in which the active medication is deemed 
      * to be active.</p>
@@ -319,7 +358,12 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Allows the drug active period information to be 
      * changed.</p>
      * 
-     * <p>d:Drug Active Period</p>
+     * <p>Other Business Name: DrugActivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT040010CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the time-period in which the patient has been 
      * taking or is expected to be taking the medication.</p>
@@ -345,9 +389,13 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>RouteOfAdministration</p>
+     * <p>Business Name: RouteOfAdministration</p>
      * 
-     * <p>E:Route of Administration</p>
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: PORX_MT040020CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the means by which the patient is taking the 
      * other medication.</p>
@@ -360,7 +408,11 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p><strong>Because PIN is not using SNOMED, this element is 
      * mandatory.</strong></p>
      * 
-     * <p>F:Route of Administration</p>
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the means by which the patient is taking the 
      * other medication.</p>
@@ -381,9 +433,13 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>RouteOfAdministration</p>
+     * <p>Business Name: RouteOfAdministration</p>
      * 
-     * <p>E:Route of Administration</p>
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: PORX_MT040020CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the means by which the patient is taking the 
      * other medication.</p>
@@ -396,7 +452,11 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p><strong>Because PIN is not using SNOMED, this element is 
      * mandatory.</strong></p>
      * 
-     * <p>F:Route of Administration</p>
+     * <p>Other Business Name: RouteOfAdministration</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the means by which the patient is taking the 
      * other medication.</p>
@@ -417,12 +477,20 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040020CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the patient who is taking the drug</p> 
      * <div>product.</div>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the patient who is taking the 
      * drug&nbsp;product.</p>
@@ -433,12 +501,20 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040020CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the patient who is taking the drug</p> 
      * <div>product.</div>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the patient who is taking the 
      * drug&nbsp;product.</p>
@@ -449,9 +525,14 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationMaskingIndicator</p>
+     * <p>Business Name: OtherMedicationMaskingIndicator</p>
      * 
-     * <p>E:Other Medication Masking Indicator</p>
+     * <p>Other Business Name: OtherMedicationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT040010CA.OtherMedication.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Denotes access restriction place on the other medication 
      * record. Methods for accessing masked other medications will 
@@ -478,9 +559,14 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>OtherMedicationMaskingIndicator</p>
+     * <p>Business Name: OtherMedicationMaskingIndicator</p>
      * 
-     * <p>E:Other Medication Masking Indicator</p>
+     * <p>Other Business Name: OtherMedicationMaskingIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT040010CA.OtherMedication.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Denotes access restriction place on the other medication 
      * record. Methods for accessing masked other medications will 
@@ -506,27 +592,62 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.Component.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
         return this.componentDosageInstruction;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.Subject9.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public CommentBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT040010CA.Subject9.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

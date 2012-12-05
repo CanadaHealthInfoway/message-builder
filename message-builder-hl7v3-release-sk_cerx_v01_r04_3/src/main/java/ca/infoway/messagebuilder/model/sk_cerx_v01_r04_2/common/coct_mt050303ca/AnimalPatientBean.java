@@ -42,7 +42,7 @@ import java.util.Set;
 
 
 /**
- * <p>Animal Patient</p>
+ * <p>Business Name: Animal Patient</p>
  * 
  * <p>An animal that is receiving or may receive healthcare 
  * services.</p>
@@ -55,7 +55,7 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Patient {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST patientAnimalName = new STImpl();
     private AD patientAnimalContactPartyAddr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> patientAnimalContactPartyTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -63,7 +63,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>B:Animal name</p>
+     * <p>Business Name: B:Animal name</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.Animal.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name by which the animal patient is known.</p>
      * 
@@ -248,14 +252,7 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
      * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
      * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partTyp
+     * (partType=Family)</p><p>ZPA.
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientAnimal/name"})
@@ -264,7 +261,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>B:Animal name</p>
+     * <p>Business Name: B:Animal name</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.Animal.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Name by which the animal patient is known.</p>
      * 
@@ -449,14 +450,7 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
      * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
      * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partTyp
+     * (partType=Family)</p><p>ZPA.
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientAnimalName(String patientAnimalName) {
@@ -465,7 +459,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Owner address</p>
+     * <p>Business Name: Owner address</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.ContactParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The mail and/or physical address associated with the 
      * owner or contact person for the animal.</p>
@@ -478,7 +476,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>Owner address</p>
+     * <p>Business Name: Owner address</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.ContactParty.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>The mail and/or physical address associated with the 
      * owner or contact person for the animal.</p>
@@ -491,7 +493,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Owner Phones and Emails</p>
+     * <p>Business Name: Owner Phones and Emails</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.ContactParty.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
      * 
      * <p>The phone number(s) and email address(s) by which the 
      * owner may be contacted.</p>
@@ -505,7 +511,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Owner Name</p>
+     * <p>Business Name: Owner Name</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.ContactPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the owner person is known</p>
      * 
@@ -519,7 +529,11 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
     }
 
     /**
-     * <p>Owner Name</p>
+     * <p>Business Name: Owner Name</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.ContactPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name by which the owner person is known</p>
      * 

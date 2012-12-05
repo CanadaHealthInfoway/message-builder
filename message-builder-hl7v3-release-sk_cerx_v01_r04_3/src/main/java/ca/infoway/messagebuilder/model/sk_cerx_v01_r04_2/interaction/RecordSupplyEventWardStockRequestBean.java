@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt020050c
 
 
 /**
- * <p>PORX_IN020210CA: Record supply event (ward stock) request</p>
+ * <p>Business Name: PORX_IN020210CA: Record supply event (ward 
+ * stock) request</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt020050c
 @Hl7PartTypeMapping({"PORX_IN020210CA"})
 public class RecordSupplyEventWardStockRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<OfficeSupplyBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

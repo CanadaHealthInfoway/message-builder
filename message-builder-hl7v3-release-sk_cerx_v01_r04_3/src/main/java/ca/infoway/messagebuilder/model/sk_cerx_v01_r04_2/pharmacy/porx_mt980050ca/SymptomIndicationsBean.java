@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Symptom Indications</p>
+ * <p>Business Name: Symptom Indications</p>
  * 
  * <p>Code must be fixed to SYMPT if not using 
  * SNOMED</p><p>Value is mandatory if not using SNOMED</p>
@@ -51,14 +51,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationSymptom"})
 public class SymptomIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private CV value = new CVImpl();
 
 
     /**
-     * <p>Symptom Type</p>
+     * <p>Business Name: Symptom Type</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the category of symptom being 
      * communicated.</p>
@@ -76,7 +80,11 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     }
 
     /**
-     * <p>Symptom Type</p>
+     * <p>Business Name: Symptom Type</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the category of symptom being 
      * communicated.</p>
@@ -94,7 +102,11 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
 
 
     /**
-     * <p>Free Form Symptom Indication</p>
+     * <p>Business Name: Free Form Symptom Indication</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description to augment the specified 
      * symptom.</p>
@@ -108,7 +120,11 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     }
 
     /**
-     * <p>Free Form Symptom Indication</p>
+     * <p>Business Name: Free Form Symptom Indication</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>A free form description to augment the specified 
      * symptom.</p>
@@ -122,7 +138,11 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
 
 
     /**
-     * <p>A:Symptom Code</p>
+     * <p>Business Name: A:Symptom Code</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A coded representation of the symptom that is the reason 
      * for the current therapy.</p>
@@ -137,7 +157,11 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     }
 
     /**
-     * <p>A:Symptom Code</p>
+     * <p>Business Name: A:Symptom Code</p>
+     * 
+     * <p>Relationship: PORX_MT980050CA.ObservationSymptom.value</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>A coded representation of the symptom that is the reason 
      * for the current therapy.</p>

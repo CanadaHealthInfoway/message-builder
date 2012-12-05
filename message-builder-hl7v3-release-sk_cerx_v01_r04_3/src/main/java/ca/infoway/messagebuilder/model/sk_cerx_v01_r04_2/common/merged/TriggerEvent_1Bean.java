@@ -50,7 +50,7 @@ import java.util.List;
 
 
 /**
- * <p>TriggerEvent</p>
+ * <p>Business Name: TriggerEvent</p>
  * 
  * <p>MCAI_MT700210CA.ControlActEvent: Trigger Event</p>
  * 
@@ -82,7 +82,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -98,9 +98,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>EventIdentifier</p>
+     * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>B:Event Identifier</p>
+     * <p>Other Business Name: EventIdentifier</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -114,7 +118,11 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * used to refer to this event in</div> <p>future transactions, 
      * eg. Retract.&nbsp;</p></p>
      * 
-     * <p>B:Event Identifier</p>
+     * <p>Other Business Name: EventIdentifier</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -137,9 +145,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>EventIdentifier</p>
+     * <p>Business Name: EventIdentifier</p>
      * 
-     * <p>B:Event Identifier</p>
+     * <p>Other Business Name: EventIdentifier</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -153,7 +165,11 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * used to refer to this event in</div> <p>future transactions, 
      * eg. Retract.&nbsp;</p></p>
      * 
-     * <p>B:Event Identifier</p>
+     * <p>Other Business Name: EventIdentifier</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular event assigned by 
      * the system in which the event occurred.</p>
@@ -176,16 +192,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>EventType</p>
+     * <p>Business Name: EventType</p>
      * 
-     * <p>A:Event Type</p>
+     * <p>Other Business Name: EventType</p>
      * 
-     * <p>Identifies the trigger event that occurred.</p>
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.code</p>
      * 
-     * <p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p>
-     * 
-     * <p>A:Event Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
@@ -195,6 +208,17 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p><div>A CODE_INVAL error issue will be returned if 
      * this</div> <div>does not contain the trigger event code 
      * associated</div> <p>with this interaction.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: EventType</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
+     * 
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
      */
     @Hl7XmlMapping({"code"})
     public HL7TriggerEventCode getCode() {
@@ -202,16 +226,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>EventType</p>
+     * <p>Business Name: EventType</p>
      * 
-     * <p>A:Event Type</p>
+     * <p>Other Business Name: EventType</p>
      * 
-     * <p>Identifies the trigger event that occurred.</p>
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.code</p>
      * 
-     * <p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p>
-     * 
-     * <p>A:Event Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the trigger event that occurred.</p>
      * 
@@ -221,6 +242,17 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p><div>A CODE_INVAL error issue will be returned if 
      * this</div> <div>does not contain the trigger event code 
      * associated</div> <p>with this interaction.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: EventType</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies the trigger event that occurred.</p>
+     * 
+     * <p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p>
      */
     public void setCode(HL7TriggerEventCode code) {
         this.code.setValue(code);
@@ -228,9 +260,14 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>EventEffectivePeriod</p>
+     * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>C:Event Effective Period</p>
+     * <p>Other Business Name: EventEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time the change should begin (and 
      * occasionally when it should end). If not specified, 
@@ -248,7 +285,12 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * wrong start</div> <div>date or an end date is specified, a 
      * BUS error</div> <div>issue will be returned.</div>
      * 
-     * <p>C:Event Effective Period</p>
+     * <p>Other Business Name: EventEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time the change should begin (and 
      * occasionally when it should end). If not specified, 
@@ -277,9 +319,14 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>EventEffectivePeriod</p>
+     * <p>Business Name: EventEffectivePeriod</p>
      * 
-     * <p>C:Event Effective Period</p>
+     * <p>Other Business Name: EventEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time the change should begin (and 
      * occasionally when it should end). If not specified, 
@@ -297,7 +344,12 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * wrong start</div> <div>date or an end date is specified, a 
      * BUS error</div> <div>issue will be returned.</div>
      * 
-     * <p>C:Event Effective Period</p>
+     * <p>Other Business Name: EventEffectivePeriod</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the time the change should begin (and 
      * occasionally when it should end). If not specified, 
@@ -326,22 +378,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>EventReason</p>
+     * <p>Business Name: EventReason</p>
      * 
-     * <p>E:Event Reason</p>
+     * <p>Other Business Name: EventReason</p>
      * 
-     * <p>Identifies why this specific query, modification request, 
-     * or modification occurred.</p>
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.reasonCode</p>
      * 
-     * <p>Allows identifying a reason for a specific action, such 
-     * as 'reason for hold'. Also allows identifying reason for 
-     * accessing information for a query.</p>
-     * 
-     * <p>The domain associated with this attribute will vary for 
-     * each interaction and will be noted as part of the 
-     * interaction description.</p>
-     * 
-     * <p>E:Event Reason</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies why this specific query, modification request, 
      * or modification occurred.</p>
@@ -358,6 +401,23 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * is being</div> <div>sent. For messages with a specified 
      * domain, if a</div> <div>code is sent, PIN will validate that 
      * the code</div> <p>comes from the specified domain.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: EventReason</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Identifies why this specific query, modification request, 
+     * or modification occurred.</p>
+     * 
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold'. Also allows identifying reason for 
+     * accessing information for a query.</p>
+     * 
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
      */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getReasonCode() {
@@ -365,22 +425,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>EventReason</p>
+     * <p>Business Name: EventReason</p>
      * 
-     * <p>E:Event Reason</p>
+     * <p>Other Business Name: EventReason</p>
      * 
-     * <p>Identifies why this specific query, modification request, 
-     * or modification occurred.</p>
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.reasonCode</p>
      * 
-     * <p>Allows identifying a reason for a specific action, such 
-     * as 'reason for hold'. Also allows identifying reason for 
-     * accessing information for a query.</p>
-     * 
-     * <p>The domain associated with this attribute will vary for 
-     * each interaction and will be noted as part of the 
-     * interaction description.</p>
-     * 
-     * <p>E:Event Reason</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Identifies why this specific query, modification request, 
      * or modification occurred.</p>
@@ -397,36 +448,87 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * is being</div> <div>sent. For messages with a specified 
      * domain, if a</div> <div>code is sent, PIN will validate that 
      * the code</div> <p>comes from the specified domain.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: EventReason</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Identifies why this specific query, modification request, 
+     * or modification occurred.</p>
+     * 
+     * <p>Allows identifying a reason for a specific action, such 
+     * as 'reason for hold'. Also allows identifying reason for 
+     * accessing information for a query.</p>
+     * 
+     * <p>The domain associated with this attribute will vary for 
+     * each interaction and will be noted as part of the 
+     * interaction description.</p>
      */
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 
 
     /**
-     * <p>EnteredBy</p>
+     * <p>Business Name: EnteredBy</p>
      * 
-     * <p>Entered By</p>
+     * <p>Other Business Name: EnteredBy</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.DataEnterer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Indicates the person responsible for recording 
      * the</p> <div>information into the system. This should only 
@@ -438,9 +540,13 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>EnteredBy</p>
+     * <p>Business Name: EnteredBy</p>
      * 
-     * <p>Entered By</p>
+     * <p>Other Business Name: EnteredBy</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.DataEnterer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;Indicates the person responsible for recording 
      * the</p> <div>information into the system. This should only 
@@ -451,20 +557,39 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
     /**
-     * <p>RecordedAt</p>
+     * <p>Business Name: RecordedAt</p>
      * 
-     * <p>Recorded At</p>
+     * <p>Other Business Name: RecordedAt</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Indicates the location where the record of this 
      * event</div> <div>was entered. The may be different from the 
@@ -476,9 +601,14 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
     /**
-     * <p>RecordedAt</p>
+     * <p>Business Name: RecordedAt</p>
      * 
-     * <p>Recorded At</p>
+     * <p>Other Business Name: RecordedAt</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700210CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Indicates the location where the record of this 
      * event</div> <div>was entered. The may be different from the 
@@ -489,23 +619,59 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public RefersToBean<ACT> getSubject() {
         return this.subject;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject(RefersToBean<ACT> subject) {
         this.subject = subject;
     }
 
 
     /**
-     * <p>Caused</p>
+     * <p>Business Name: Caused</p>
      * 
-     * <p>Caused</p>
+     * <p>Other Business Name: Caused</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>Identifies errors or warnings that are being 
      * managed</div> <p>as part of the current message.&nbsp;</p></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700211CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent","subjectOf1/detectedIssueEvent"})
     @Hl7MapByPartTypes({
@@ -518,11 +684,25 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/consentEvent"})
     public ConsentBean getSubjectOf2ConsentEvent() {
         return this.subjectOf2ConsentEvent;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700210CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
         this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
     }

@@ -51,16 +51,20 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorker
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private ConsentOverriddenByBean author;
 
 
     /**
-     * <p>PrescriptionIdentifier</p>
+     * <p>Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>A:Prescription Identifier</p>
+     * <p>Other Business Name: PrescriptionIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
@@ -83,9 +87,13 @@ public class SupplyOrderBean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionIdentifier</p>
+     * <p>Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>A:Prescription Identifier</p>
+     * <p>Other Business Name: PrescriptionIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a specific device 
      * order. The number remains constant across the lifetime of 
@@ -107,21 +115,77 @@ public class SupplyOrderBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public ConsentOverriddenByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060020CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthor(ConsentOverriddenByBean author) {
         this.author = author;
     }

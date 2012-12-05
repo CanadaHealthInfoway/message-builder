@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101001ca.Iden
 
 
 /**
- * <p>PRPA_IN101201CA: Add Person Request</p>
+ * <p>Business Name: PRPA_IN101201CA: Add Person Request</p>
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
@@ -40,6 +40,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101001ca.Iden
 @Hl7PartTypeMapping({"PRPA_IN101201CA"})
 public class AddPersonRequestBean extends HL7MessageBean<TriggerEvent_2Bean<IdentifiedClientBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

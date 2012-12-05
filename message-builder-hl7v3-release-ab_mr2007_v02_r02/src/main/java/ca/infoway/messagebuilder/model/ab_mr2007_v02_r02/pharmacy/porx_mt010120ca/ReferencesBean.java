@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ProtocolsBean;
 
 
 /**
- * <p>references</p>
+ * <p>Business Name: references</p>
  * 
  * <p>Enables the communication of a reference to a protocol, 
  * study or guideline id, specific to the jurisdiction;</p>
@@ -43,16 +43,28 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ProtocolsBean;
 @Hl7PartTypeMapping({"PORX_MT010120CA.Definition"})
 public class ReferencesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private BL contextConductionInd = new BLImpl();
     private ProtocolsBean substanceAdministrationDefinition;
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Definition.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
         return this.contextConductionInd.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Definition.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
     }

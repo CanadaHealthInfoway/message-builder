@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt2202
 
 
 /**
- * <p>Dispensed</p>
+ * <p>Business Name: Dispensed</p>
  * 
  * <p>COCT_MT260030CA.Product: *a:dispensed</p>
  * 
@@ -57,15 +57,41 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt2202
 @Hl7PartTypeMapping({"COCT_MT260030CA.Product","PORX_MT980030CA.Product"})
 public class Dispensed_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private DrugProductBean medication;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"medication"})
     public DrugProductBean getMedication() {
         return this.medication;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Product.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setMedication(DrugProductBean medication) {
         this.medication = medication;
     }

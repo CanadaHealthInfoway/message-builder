@@ -58,7 +58,7 @@ import java.util.Set;
 
 
 /**
- * <p>Other Medication</p>
+ * <p>Business Name: Other Medication</p>
  * 
  * <p>routeCode must not be used when code is SNOMED and is 
  * mandatory otherwise</p><p>Status can only be 
@@ -89,7 +89,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -106,7 +106,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>A:Other Medication Record Number</p>
+     * <p>Business Name: A:Other Medication Record Number</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a unique instance of an 
      * other medication record.</p>
@@ -120,7 +124,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>A:Other Medication Record Number</p>
+     * <p>Business Name: A:Other Medication Record Number</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a unique instance of an 
      * other medication record.</p>
@@ -134,7 +142,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>Other Medication Type</p>
+     * <p>Business Name: Other Medication Type</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Must be 'DRUG' unless using SNOMED</p>
      * 
@@ -157,7 +169,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>Other Medication Type</p>
+     * <p>Business Name: Other Medication Type</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Must be 'DRUG' unless using SNOMED</p>
      * 
@@ -180,7 +196,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>B:Other Medication Status</p>
+     * <p>Business Name: B:Other Medication Status</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the other medication record 
      * created on the EHR/DIS. Valid statuses for other medication 
@@ -210,7 +230,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>B:Other Medication Status</p>
+     * <p>Business Name: B:Other Medication Status</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the other medication record 
      * created on the EHR/DIS. Valid statuses for other medication 
@@ -240,7 +264,12 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>C:Drug Active Period</p>
+     * <p>Business Name: C:Drug Active Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the time-period in which the patient has been 
      * taking or is expected to be taking the active 
@@ -256,7 +285,12 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>C:Drug Active Period</p>
+     * <p>Business Name: C:Drug Active Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the time-period in which the patient has been 
      * taking or is expected to be taking the active 
@@ -272,7 +306,12 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>D:Other Medication Masking Indicators</p>
+     * <p>Business Name: D:Other Medication Masking Indicators</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.OtherMedication.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>Denotes access restriction place on the other medication 
      * record. Methods for accessing masked other medications will 
@@ -326,7 +365,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>E:Route of Administration</p>
+     * <p>Business Name: E:Route of Administration</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Ensures consistency in description of routes. Provides 
      * potential for cross-checking dosage form and route. Because 
@@ -349,7 +392,11 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
-     * <p>E:Route of Administration</p>
+     * <p>Business Name: E:Route of Administration</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Ensures consistency in description of routes. Provides 
      * potential for cross-checking dosage form and route. Because 
@@ -371,11 +418,21 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060190CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060190CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
     }
@@ -411,26 +468,56 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Subject7.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
         return this.subjectOf1DetectedIssueIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Subject7.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
         this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Subject6.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
         return this.subjectOf2AnnotationIndicator.getValue();
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Subject6.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Component2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;

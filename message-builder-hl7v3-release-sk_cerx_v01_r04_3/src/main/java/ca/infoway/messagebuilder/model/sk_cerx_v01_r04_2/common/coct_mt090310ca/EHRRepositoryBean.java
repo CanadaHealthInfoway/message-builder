@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>EHR Repository</p>
+ * <p>Business Name: EHR Repository</p>
  * 
  * <p>Identification of the EHR infostructure responsible for 
  * the storage and management of the record</p>
@@ -44,14 +44,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ST assignedRepositoryLocationName = new STImpl();
     private TEL assignedRepositoryLocationTelecom = new TELImpl();
     private ST representedRepositoryJurisdictionName = new STImpl();
 
 
     /**
-     * <p>Repository Name</p>
+     * <p>Business Name: Repository Name</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryLocation.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the repository which is responsible for 
      * maintaining the record. E.g. &quot;Ontario Health 
@@ -66,7 +70,11 @@ public class EHRRepositoryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Repository Name</p>
+     * <p>Business Name: Repository Name</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryLocation.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the repository which is responsible for 
      * maintaining the record. E.g. &quot;Ontario Health 
@@ -81,7 +89,11 @@ public class EHRRepositoryBean extends MessagePartBean {
 
 
     /**
-     * <p>Repository URL</p>
+     * <p>Business Name: Repository URL</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identification of the electronic address for reaching the 
      * repository where the event is stored.</p>
@@ -95,7 +107,11 @@ public class EHRRepositoryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Repository URL</p>
+     * <p>Business Name: Repository URL</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryLocation.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identification of the electronic address for reaching the 
      * repository where the event is stored.</p>
@@ -109,7 +125,11 @@ public class EHRRepositoryBean extends MessagePartBean {
 
 
     /**
-     * <p>Repository Jurisdiction Name</p>
+     * <p>Business Name: Repository Jurisdiction Name</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the jurisdiction that is responsible for the 
      * EHR infostructure that contains and manages the record.</p>
@@ -123,7 +143,11 @@ public class EHRRepositoryBean extends MessagePartBean {
     }
 
     /**
-     * <p>Repository Jurisdiction Name</p>
+     * <p>Business Name: Repository Jurisdiction Name</p>
+     * 
+     * <p>Relationship: COCT_MT090310CA.RepositoryJurisdiction.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The name of the jurisdiction that is responsible for the 
      * EHR infostructure that contains and manages the record.</p>

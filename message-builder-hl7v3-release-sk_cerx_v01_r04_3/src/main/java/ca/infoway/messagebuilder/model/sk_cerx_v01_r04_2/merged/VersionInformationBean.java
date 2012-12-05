@@ -75,7 +75,7 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -85,7 +85,22 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>Other Business Name: MedicalConditionStatusChangeType</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of change occurred.</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceStatusChangeType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
@@ -94,14 +109,11 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>A:Change Type</p>
+     * <p>Other Business Name: ChangeType</p>
      * 
-     * <p>Identifies what kind of change occurred.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.code</p>
      * 
-     * <p>This attribute is mandatory to ensure that change types 
-     * are distinguishable.</p>
-     * 
-     * <p>C:Medical Condition Status Change Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred.</p>
      * 
@@ -114,7 +126,22 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * <p>Other Business Name: MedicalConditionStatusChangeType</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identifies what kind of change occurred.</p>
+     * 
+     * <p>This attribute is mandatory to ensure that change types 
+     * are distinguishable.</p>
+     * 
+     * <p>Other Business Name: AllergyIntoleranceStatusChangeType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred. 
      * Allergy/Intolerance change types are Revise, Reactivate and 
@@ -123,14 +150,11 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>A:Change Type</p>
+     * <p>Other Business Name: ChangeType</p>
      * 
-     * <p>Identifies what kind of change occurred.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.code</p>
      * 
-     * <p>This attribute is mandatory to ensure that change types 
-     * are distinguishable.</p>
-     * 
-     * <p>C:Medical Condition Status Change Type</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies what kind of change occurred.</p>
      * 
@@ -143,28 +167,13 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * <p>Other Business Name: 
+     * MedicalConditionStatusChangeEffectiveDate</p>
      * 
-     * <p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p>
+     * <p>Relationship: 
+     * REPC_MT000010CA.ControlActEvent.effectiveTime</p>
      * 
-     * <p>Allows applications to sort and filter by time. The date 
-     * on which a change is effective should always be known and 
-     * thus is mandatory.</p>
-     * 
-     * <p>C:Change Effective Date and End Date</p>
-     * 
-     * <p>The date on which the various changes of an event become 
-     * valid and applicable and potentially when the change is 
-     * supposed to cease.</p>
-     * 
-     * <p>Allows applications to sort and filter by time. The date 
-     * on which a change is effective should always be known and 
-     * thus is mandatory. The end date may be left unspecified if 
-     * there isn't a specific targetted end date (e.g. with a 
-     * suspend including a planned release date).</p>
-     * 
-     * <p>A:Medical Condition Status Change Effective Date</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the changes to the medical condition 
      * become valid and applicable.</p>
@@ -176,6 +185,38 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>Allows applications to sort and filter by time.</p><p>The 
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
+     * 
+     * <p>Other Business Name: 
+     * AllergyIntoleranceStatusChangeEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
+     * 
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory.</p>
+     * 
+     * <p>Other Business Name: ChangeEffectiveDateAndEndDate</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT130001CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various changes of an event become 
+     * valid and applicable and potentially when the change is 
+     * supposed to cease.</p>
+     * 
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory. The end date may be left unspecified if 
+     * there isn't a specific targetted end date (e.g. with a 
+     * suspend including a planned release date).</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -183,28 +224,13 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * <p>Other Business Name: 
+     * MedicalConditionStatusChangeEffectiveDate</p>
      * 
-     * <p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p>
+     * <p>Relationship: 
+     * REPC_MT000010CA.ControlActEvent.effectiveTime</p>
      * 
-     * <p>Allows applications to sort and filter by time. The date 
-     * on which a change is effective should always be known and 
-     * thus is mandatory.</p>
-     * 
-     * <p>C:Change Effective Date and End Date</p>
-     * 
-     * <p>The date on which the various changes of an event become 
-     * valid and applicable and potentially when the change is 
-     * supposed to cease.</p>
-     * 
-     * <p>Allows applications to sort and filter by time. The date 
-     * on which a change is effective should always be known and 
-     * thus is mandatory. The end date may be left unspecified if 
-     * there isn't a specific targetted end date (e.g. with a 
-     * suspend including a planned release date).</p>
-     * 
-     * <p>A:Medical Condition Status Change Effective Date</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the changes to the medical condition 
      * become valid and applicable.</p>
@@ -216,6 +242,38 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>Allows applications to sort and filter by time.</p><p>The 
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
+     * 
+     * <p>Other Business Name: 
+     * AllergyIntoleranceStatusChangeEffectiveDate</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p>
+     * 
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory.</p>
+     * 
+     * <p>Other Business Name: ChangeEffectiveDateAndEndDate</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT130001CA.ControlActEvent.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the various changes of an event become 
+     * valid and applicable and potentially when the change is 
+     * supposed to cease.</p>
+     * 
+     * <p>Allows applications to sort and filter by time. The date 
+     * on which a change is effective should always be known and 
+     * thus is mandatory. The end date may be left unspecified if 
+     * there isn't a specific targetted end date (e.g. with a 
+     * suspend including a planned release date).</p>
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
@@ -223,7 +281,11 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Medical Condition Status Change Reason</p>
+     * <p>Other Business Name: MedicalConditionStatusChangeReason</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the medical condition record was 
      * changed.</p>
@@ -232,18 +294,26 @@ public class VersionInformationBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>D:Change Reason</p>
+     * <p>Other Business Name: AllergyIntoleranceStatusChangeReason</p>
      * 
-     * <p>Denotes the reason the record was modified.</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the the allergy/intolerance was 
+     * changed.</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>Other Business Name: ChangeReason</p>
      * 
-     * <p>Denotes the reason the the allergy/intolerance was 
-     * changed.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the record was modified.</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
@@ -255,7 +325,11 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Medical Condition Status Change Reason</p>
+     * <p>Other Business Name: MedicalConditionStatusChangeReason</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Denotes the reason the medical condition record was 
      * changed.</p>
@@ -264,18 +338,26 @@ public class VersionInformationBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>D:Change Reason</p>
+     * <p>Other Business Name: AllergyIntoleranceStatusChangeReason</p>
      * 
-     * <p>Denotes the reason the record was modified.</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the the allergy/intolerance was 
+     * changed.</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>C:Allergy/Intolerance Status Change Reason</p>
+     * <p>Other Business Name: ChangeReason</p>
      * 
-     * <p>Denotes the reason the the allergy/intolerance was 
-     * changed.</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.reasonCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Denotes the reason the record was modified.</p>
      * 
      * <p>Ensures consistent terminology in capturing and 
      * interpreting reasons for change. Allows CWE because not all 
@@ -286,21 +368,67 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000010CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000010CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Identity of the health service provider responsible 
      * for&nbsp;the change in the allergy/intolerance status.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
@@ -308,10 +436,26 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Identity of the health service provider responsible 
      * for&nbsp;the change in the allergy/intolerance status.</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
@@ -319,9 +463,13 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>ChangeIdentifier</p>
+     * <p>Business Name: ChangeIdentifier</p>
      * 
-     * <p>B:Change Identifier</p>
+     * <p>Other Business Name: ChangeIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular change.</p>
      * 
@@ -335,9 +483,13 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>ChangeIdentifier</p>
+     * <p>Business Name: ChangeIdentifier</p>
      * 
-     * <p>B:Change Identifier</p>
+     * <p>Other Business Name: ChangeIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for this particular change.</p>
      * 

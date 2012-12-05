@@ -36,7 +36,7 @@ import java.util.Date;
 
 
 /**
- * <p>PrescribedBy</p>
+ * <p>Business Name: PrescribedBy</p>
  * 
  * <p>PORX_MT060040CA.Author4: *b:prescribed by</p>
  * 
@@ -76,7 +76,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.Author4","PORX_MT060160CA.Author4","PORX_MT060340CA.Author4"})
 public class Author4Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -85,59 +85,13 @@ public class Author4Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrescribedDate</p>
+     * <p>Business Name: PrescribedDate</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
      * 
-     * <p>The date and time at which the drug was 
-     * prescribed/dispensed. This may differ from the date on which 
-     * the prescription becomes effective. E.g. A prescription 
-     * created today may not be valid to be dispensed or 
-     * administered for two weeks.</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation datetime of the prescription 
-     * may not be known, as in the case of 'inferred 
-     * prescription'.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation datetime of the prescription 
-     * may not be known, as in the case of 'inferred 
-     * prescription'.</p>
-     * 
-     * <p>Prescribed Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the device was prescribed/dispensed. 
      * This may differ from the date on which the prescription 
@@ -154,7 +108,11 @@ public class Author4Bean extends MessagePartBean {
      * populated because the creation date of the prescription will 
      * always be known, except for inferred prescriptions.</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time at which the drug was 
      * prescribed/dispensed. This may differ from the date on which 
@@ -203,6 +161,60 @@ public class Author4Bean extends MessagePartBean {
      * populated because the creation datetime of the prescription 
      * will not always be known (as in the case of 'inferred 
      * prescription').</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time at which the drug was 
+     * prescribed/dispensed. This may differ from the date on which 
+     * the prescription becomes effective. E.g. A prescription 
+     * created today may not be valid to be dispensed or 
+     * administered for two weeks.</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation datetime of the prescription 
+     * may not be known, as in the case of 'inferred 
+     * prescription'.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation datetime of the prescription 
+     * may not be known, as in the case of 'inferred 
+     * prescription'.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -210,59 +222,13 @@ public class Author4Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescribedDate</p>
+     * <p>Business Name: PrescribedDate</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
      * 
-     * <p>The date and time at which the drug was 
-     * prescribed/dispensed. This may differ from the date on which 
-     * the prescription becomes effective. E.g. A prescription 
-     * created today may not be valid to be dispensed or 
-     * administered for two weeks.</p>
+     * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Prescription.prescribedDate</p><p>Date prescription 
-     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
-     * where filter type = most recent)</p><p>Claim:414-DE</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation datetime of the prescription 
-     * may not be known, as in the case of 'inferred 
-     * prescription'.</p>
-     * 
-     * <p>Indicates when the action was performed, and may 
-     * influence expiry dates for the order.</p><p>The attribute is 
-     * populated because the creation datetime of the prescription 
-     * may not be known, as in the case of 'inferred 
-     * prescription'.</p>
-     * 
-     * <p>Prescribed Date</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date at which the device was prescribed/dispensed. 
      * This may differ from the date on which the prescription 
@@ -279,7 +245,11 @@ public class Author4Bean extends MessagePartBean {
      * populated because the creation date of the prescription will 
      * always be known, except for inferred prescriptions.</p>
      * 
-     * <p>Prescribed Date</p>
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>The date and time at which the drug was 
      * prescribed/dispensed. This may differ from the date on which 
@@ -328,6 +298,60 @@ public class Author4Bean extends MessagePartBean {
      * populated because the creation datetime of the prescription 
      * will not always be known (as in the case of 'inferred 
      * prescription').</p>
+     * 
+     * <p>Other Business Name: PrescribedDate</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.time</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>The date and time at which the drug was 
+     * prescribed/dispensed. This may differ from the date on which 
+     * the prescription becomes effective. E.g. A prescription 
+     * created today may not be valid to be dispensed or 
+     * administered for two weeks.</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Prescription.prescribedDate</p><p>Date prescription 
+     * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
+     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, format=102, 
+     * where filter type = most recent)</p><p>Claim:414-DE</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation datetime of the prescription 
+     * may not be known, as in the case of 'inferred 
+     * prescription'.</p>
+     * 
+     * <p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation datetime of the prescription 
+     * may not be known, as in the case of 'inferred 
+     * prescription'.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -335,9 +359,27 @@ public class Author4Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionTransmissionMethod</p>
+     * <p>Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Prescription Transmission Method</p>
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p>
+     * 
+     * <p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p>
+     * 
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the medium in which a prescription was 
      * transmitted to or received by the person who entered it into 
@@ -351,11 +393,19 @@ public class Author4Bean extends MessagePartBean {
      * order was received. May also be important when orders are 
      * entered into a central repository from the pharmacy.</p>
      * 
-     * <p>Prescription Transmission Method</p>
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the medium in which a prescription was 
      * transmitted to or received by the person who entered it into 
      * the electronic record.</p>
+     * 
+     * <p>ZDP.4</p><p>Claim.419-DJ</p>
+     * 
+     * <p>ZDP.4</p><p>Claim.419-DJ</p>
      * 
      * <p>Some jurisdictions have a requirement to track how an 
      * order was received. May also be important when orders are 
@@ -367,9 +417,27 @@ public class Author4Bean extends MessagePartBean {
     }
 
     /**
-     * <p>PrescriptionTransmissionMethod</p>
+     * <p>Business Name: PrescriptionTransmissionMethod</p>
      * 
-     * <p>Prescription Transmission Method</p>
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p>
+     * 
+     * <p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p>
+     * 
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the medium in which a prescription was 
      * transmitted to or received by the person who entered it into 
@@ -383,11 +451,19 @@ public class Author4Bean extends MessagePartBean {
      * order was received. May also be important when orders are 
      * entered into a central repository from the pharmacy.</p>
      * 
-     * <p>Prescription Transmission Method</p>
+     * <p>Other Business Name: PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the medium in which a prescription was 
      * transmitted to or received by the person who entered it into 
      * the electronic record.</p>
+     * 
+     * <p>ZDP.4</p><p>Claim.419-DJ</p>
+     * 
+     * <p>ZDP.4</p><p>Claim.419-DJ</p>
      * 
      * <p>Some jurisdictions have a requirement to track how an 
      * order was received. May also be important when orders are 
@@ -399,9 +475,13 @@ public class Author4Bean extends MessagePartBean {
 
 
     /**
-     * <p>Signature</p>
+     * <p>Business Name: Signature</p>
      * 
-     * <p>Signature</p>
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An electronic signature of the prescription by the 
      * prescriber.</p>
@@ -410,7 +490,26 @@ public class Author4Bean extends MessagePartBean {
      * trusted intermediary. The attribute is optional because all 
      * jurisdictions may not support digital signatures.</p>
      * 
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
+     * 
      * <p>Signature</p>
+     * 
+     * <p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p>
+     * 
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An electronic signature of the prescription by the 
      * prescriber.</p>
@@ -427,9 +526,13 @@ public class Author4Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Signature</p>
+     * <p>Business Name: Signature</p>
      * 
-     * <p>Signature</p>
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An electronic signature of the prescription by the 
      * prescriber.</p>
@@ -438,7 +541,26 @@ public class Author4Bean extends MessagePartBean {
      * trusted intermediary. The attribute is optional because all 
      * jurisdictions may not support digital signatures.</p>
      * 
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>An electronic signature of the prescription by the 
+     * prescriber.</p>
+     * 
      * <p>Signature</p>
+     * 
+     * <p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p>
+     * 
+     * <p>Other Business Name: Signature</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>An electronic signature of the prescription by the 
      * prescriber.</p>
@@ -454,21 +576,61 @@ public class Author4Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedPerson"})
     public ProviderBean getAssignedPerson() {
         return this.assignedPerson;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author4.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author4.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedPerson(ProviderBean assignedPerson) {
         this.assignedPerson = assignedPerson;
     }

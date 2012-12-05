@@ -56,7 +56,7 @@ import java.util.List;
 
 
 /**
- * <p>Other Medication</p>
+ * <p>Business Name: Other Medication</p>
  * 
  * <p>routeCode must not be used when code is SNOMED and is 
  * mandatory otherwise</p><p>Status can only be ACTIVE or 
@@ -106,7 +106,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -126,7 +126,11 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Administration Record Id</p>
+     * <p>Business Name: A:Administration Record Id</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a unique instance of an 
      * active medication record.</p>
@@ -143,7 +147,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Administration Record Id</p>
+     * <p>Business Name: A:Administration Record Id</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is an identifier assigned to a unique instance of an 
      * active medication record.</p>
@@ -160,7 +168,11 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Other Medication Status</p>
+     * <p>Business Name: B:Other Medication Status</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the other medication record 
      * created on the EHR/DIS. Valid statuses for other medication 
@@ -202,7 +214,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Other Medication Status</p>
+     * <p>Business Name: B:Other Medication Status</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.statusCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the status of the other medication record 
      * created on the EHR/DIS. Valid statuses for other medication 
@@ -244,7 +260,12 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Drug Active Period</p>
+     * <p>Business Name: C:Drug Active Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060210CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the time-period in which the patient has been 
      * taking or is expected to be taking the medication.</p>
@@ -267,7 +288,12 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Drug Active Period</p>
+     * <p>Business Name: C:Drug Active Period</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060210CA.OtherMedication.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Indicates the time-period in which the patient has been 
      * taking or is expected to be taking the medication.</p>
@@ -290,7 +316,12 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Other Medication Masking Indicator</p>
+     * <p>Business Name: D:Other Medication Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060210CA.OtherMedication.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Denotes access restriction place on the other medication 
      * record. Methods for accessing masked other medications will 
@@ -313,7 +344,12 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>D:Other Medication Masking Indicator</p>
+     * <p>Business Name: D:Other Medication Masking Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060210CA.OtherMedication.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Denotes access restriction place on the other medication 
      * record. Methods for accessing masked other medications will 
@@ -336,7 +372,11 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Route of Administration</p>
+     * <p>Business Name: E:Route of Administration</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the means by which the patient is taking the 
      * medication.</p>
@@ -359,7 +399,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
-     * <p>E:Route of Administration</p>
+     * <p>Business Name: E:Route of Administration</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.routeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This is the means by which the patient is taking the 
      * medication.</p>
@@ -399,21 +443,43 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
         return this.responsiblePartyAssignedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
@@ -457,6 +523,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Component.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
         return this.componentDosageInstruction;
@@ -476,6 +547,11 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Subject9.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p><div>If present, indicates that there are issues</div> 
      * <div>associated with this record.</div> <div>This will only 
      * be present if the query indicated that</div> <div>issues 
@@ -488,6 +564,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Subject9.detectedIssueIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p><div>If present, indicates that there are issues</div> 
      * <div>associated with this record.</div> <div>This will only 
      * be present if the query indicated that</div> <div>issues 
@@ -506,6 +587,11 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Subject15.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;If present, indicates that there are notes</p> 
      * <div>associated with the record.</div> <div>This will only 
      * be present if the query indicated that</div> <div>notes were 
@@ -517,6 +603,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Subject15.annotationIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;If present, indicates that there are notes</p> 
      * <div>associated with the record.</div> <div>This will only 
      * be present if the query indicated that</div> <div>notes were 

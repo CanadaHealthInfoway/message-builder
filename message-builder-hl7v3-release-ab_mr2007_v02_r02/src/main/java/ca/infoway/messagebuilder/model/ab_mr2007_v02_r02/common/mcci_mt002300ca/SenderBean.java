@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002300CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private List<TEL> telecom = new ArrayList<TEL>();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -56,7 +56,11 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>IB:Sending Network Address</p>
+     * <p>Business Name: IB:Sending Network Address</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0)</p>
      * 
      * <p>The network address of the application which sent the 
      * message.</p>
@@ -75,7 +79,11 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>IA:Sending Application Identifier</p>
+     * <p>Business Name: IA:Sending Application Identifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
@@ -91,7 +99,11 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>IA:Sending Application Identifier</p>
+     * <p>Business Name: IA:Sending Application Identifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The unique identifier of the application or system to 
      * whom the message is being routed.</p>
@@ -107,7 +119,11 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>IE:Sending Application Name</p>
+     * <p>Business Name: IE:Sending Application Name</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
@@ -122,7 +138,11 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>IE:Sending Application Name</p>
+     * <p>Business Name: IE:Sending Application Name</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>This is the name associated with the system or 
      * application sending the message.</p>
@@ -137,7 +157,12 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>II:Sending Application Configuration Information</p>
+     * <p>Business Name: II:Sending Application Configuration 
+     * Information</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
@@ -151,7 +176,12 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>II:Sending Application Configuration Information</p>
+     * <p>Business Name: II:Sending Application Configuration 
+     * Information</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Provides additional information about the configuration 
      * of the sending application. Useful when debugging.</p>
@@ -165,7 +195,11 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>IH:Sending Application Version Date</p>
+     * <p>Business Name: IH:Sending Application Version Date</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
@@ -179,7 +213,11 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>IH:Sending Application Version Date</p>
+     * <p>Business Name: IH:Sending Application Version Date</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
@@ -193,7 +231,12 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>IG:Sending Software Version Number</p>
+     * <p>Business Name: IG:Sending Software Version Number</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002300CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
@@ -207,7 +250,12 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>IG:Sending Software Version Number</p>
+     * <p>Business Name: IG:Sending Software Version Number</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002300CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
@@ -221,7 +269,11 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>IF:Sending Application Software Name</p>
+     * <p>Business Name: IF:Sending Application Software Name</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the name of the software used to construct the 
      * message.</p>
@@ -235,7 +287,11 @@ public class SenderBean extends MessagePartBean {
     }
 
     /**
-     * <p>IF:Sending Application Software Name</p>
+     * <p>Business Name: IF:Sending Application Software Name</p>
+     * 
+     * <p>Relationship: MCCI_MT002300CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates the name of the software used to construct the 
      * message.</p>

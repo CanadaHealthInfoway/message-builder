@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>AppearanceCharacteristics</p>
+ * <p>Business Name: AppearanceCharacteristics</p>
  * 
  * <p>POME_MT010100CA.Characteristic: Appearance 
  * Characteristics</p>
@@ -55,15 +55,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Characteristic","POME_MT010100CA.Characteristic"})
 public class AppearanceCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private CV code = new CVImpl();
     private ST value = new STImpl();
 
 
     /**
-     * <p>CharacteristicType</p>
+     * <p>Business Name: CharacteristicType</p>
      * 
-     * <p>A:Characteristic Type</p>
+     * <p>Other Business Name: CharacteristicType</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the type of physical 
      * characteristic being documented. Kinds of characteristics 
@@ -74,7 +78,11 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * characteristic alone without specifying the type can result 
      * in ambiguity.</p>
      * 
-     * <p>Characteristic Type</p>
+     * <p>Other Business Name: CharacteristicType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the type of physical 
      * characteristic being documented. Kinds of characteristics 
@@ -91,9 +99,13 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>CharacteristicType</p>
+     * <p>Business Name: CharacteristicType</p>
      * 
-     * <p>A:Characteristic Type</p>
+     * <p>Other Business Name: CharacteristicType</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Characteristic.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the type of physical 
      * characteristic being documented. Kinds of characteristics 
@@ -104,7 +116,11 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * characteristic alone without specifying the type can result 
      * in ambiguity.</p>
      * 
-     * <p>Characteristic Type</p>
+     * <p>Other Business Name: CharacteristicType</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Characteristic.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A coded value denoting the type of physical 
      * characteristic being documented. Kinds of characteristics 
@@ -121,9 +137,13 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
 
 
     /**
-     * <p>Characteristic</p>
+     * <p>Business Name: Characteristic</p>
      * 
-     * <p>E:Characteristic</p>
+     * <p>Other Business Name: Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc).</p>
@@ -140,7 +160,11 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * &quot;mandatory&quot; as there must be a value for a 
      * mandatory code.</p>
      * 
-     * <p>Characteristic</p>
+     * <p>Other Business Name: Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc)</p>
@@ -161,9 +185,13 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Characteristic</p>
+     * <p>Business Name: Characteristic</p>
      * 
-     * <p>E:Characteristic</p>
+     * <p>Other Business Name: Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Characteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc).</p>
@@ -180,7 +208,11 @@ public class AppearanceCharacteristicsBean extends MessagePartBean {
      * &quot;mandatory&quot; as there must be a value for a 
      * mandatory code.</p>
      * 
-     * <p>Characteristic</p>
+     * <p>Other Business Name: Characteristic</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Characteristic.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Information pertaining to a specific instance of drug 
      * characteristic (color, shape, markings etc)</p>

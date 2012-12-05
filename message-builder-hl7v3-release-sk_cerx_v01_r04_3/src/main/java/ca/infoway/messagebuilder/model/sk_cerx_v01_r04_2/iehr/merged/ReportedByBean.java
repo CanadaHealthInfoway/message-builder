@@ -32,7 +32,7 @@ import java.util.Date;
 
 
 /**
- * <p>ReportedBy</p>
+ * <p>Business Name: ReportedBy</p>
  * 
  * <p>REPC_MT000005CA.Informant: d:reported by</p>
  * 
@@ -151,7 +151,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000003CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000007CA.Informant","REPC_MT000009CA.Informant","REPC_MT000010CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant","REPC_MT000014CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private TS time = new TSImpl();
     private Party party;
     private Consenter consenter;
@@ -159,56 +159,11 @@ public class ReportedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Reported Timestamp</p>
+     * <p>Other Business Name: ReportedDate</p>
      * 
-     * <p>The date on which the medical condition was reported.</p>
+     * <p>Relationship: REPC_MT000005CA.Informant.time</p>
      * 
-     * <p>Allows for establishment of timelines between condition 
-     * onset date, reported date and recorded date.</p>
-     * 
-     * <p>Reported Date</p>
-     * 
-     * <p> <p>This is the date when the recorded 
-     * allergy/intolerance&nbsp;was reported.</p> </p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Date</p>
-     * 
-     * <p>The date on which the adverse reaction was reported.</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Timestamp</p>
-     * 
-     * <p>The date on which the adverse reaction was reported.</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Date</p>
-     * 
-     * <p>The date on which the medical condition was reported.</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Date</p>
-     * 
-     * <p>This is the date&nbsp;when&nbsp;the recorded 
-     * allergy/intolerance was reported.</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Date</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
@@ -217,13 +172,127 @@ public class ReportedByBean extends MessagePartBean {
      * reported date and recorded date, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Reported date</p>
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the date&nbsp;when&nbsp;the recorded 
+     * allergy/intolerance was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <p>This is the date when the recorded 
+     * allergy/intolerance&nbsp;was reported.</p> </p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between condition 
+     * onset date, reported date and recorded date.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the adverse reaction was reported.</p>
      * 
      * <p>Allows for establishment of timelines between reaction 
      * onset date, reported date and recorded date, and is 
      * therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the allergy/intolerance was 
+     * reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000014CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
      */
     @Hl7XmlMapping({"time"})
     public Date getTime() {
@@ -231,56 +300,11 @@ public class ReportedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Reported Timestamp</p>
+     * <p>Other Business Name: ReportedDate</p>
      * 
-     * <p>The date on which the medical condition was reported.</p>
+     * <p>Relationship: REPC_MT000005CA.Informant.time</p>
      * 
-     * <p>Allows for establishment of timelines between condition 
-     * onset date, reported date and recorded date.</p>
-     * 
-     * <p>Reported Date</p>
-     * 
-     * <p> <p>This is the date when the recorded 
-     * allergy/intolerance&nbsp;was reported.</p> </p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Date</p>
-     * 
-     * <p>The date on which the adverse reaction was reported.</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Timestamp</p>
-     * 
-     * <p>The date on which the adverse reaction was reported.</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Date</p>
-     * 
-     * <p>The date on which the medical condition was reported.</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Date</p>
-     * 
-     * <p>This is the date&nbsp;when&nbsp;the recorded 
-     * allergy/intolerance was reported.</p>
-     * 
-     * <p>Allows for establishment of timelines between onset date, 
-     * reported date and recorded date, and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Reported Date</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the allergy/intolerance was 
      * reported.</p>
@@ -289,13 +313,127 @@ public class ReportedByBean extends MessagePartBean {
      * reported date and recorded date, and is therefore 
      * mandatory.</p>
      * 
-     * <p>Reported date</p>
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the date&nbsp;when&nbsp;the recorded 
+     * allergy/intolerance was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p> <p>This is the date when the recorded 
+     * allergy/intolerance&nbsp;was reported.</p> </p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between condition 
+     * onset date, reported date and recorded date.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The date on which the adverse reaction was reported.</p>
      * 
      * <p>Allows for establishment of timelines between reaction 
      * onset date, reported date and recorded date, and is 
      * therefore mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the allergy/intolerance was 
+     * reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000014CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>Other Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Allows for establishment of timelines between onset date, 
+     * reported date and recorded date, and is therefore 
+     * mandatory.</p>
      */
     public void setTime(Date time) {
         this.time.setValue(time);
@@ -303,21 +441,28 @@ public class ReportedByBean extends MessagePartBean {
 
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p><div>This is the party that reported the 
-     * allergy/intolerance.</div> <div>It can be the patient, the 
-     * patient&rsquo;s representative, or a&nbsp;health-care 
-     * provider.&nbsp;</div></p>
+     * <p>Relationship: REPC_MT000005CA.Informant.party</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>This is the party that reported the 
      * allergy/intolerance.&nbsp;It can be the patient, the 
      * patient&rsquo;s representative, or a&nbsp;health-care 
      * provider.&nbsp;</div></p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>This is the party that reported the alleryg/intolerance. 
      * It can be the patient, the patient's representative, or a 
@@ -326,12 +471,51 @@ public class ReportedByBean extends MessagePartBean {
      * IntoleranceCondition.subject or a BUS error issue will be 
      * returned.</strong></p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p><div>This is the party that reported the 
+     * allergy/intolerance.</div> <div>It can be the patient, the 
+     * patient&rsquo;s representative, or a&nbsp;health-care 
+     * provider.&nbsp;</div></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>This is the party that reported the 
      * allergy/intolerance.&nbsp;It can be the patient, the 
      * patient&rsquo;s representative, or a</p> <div>health-care 
      * provider.</div>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000014CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"party"})
     public Party getParty() {
@@ -339,21 +523,28 @@ public class ReportedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
      * 
-     * <p><div>This is the party that reported the 
-     * allergy/intolerance.</div> <div>It can be the patient, the 
-     * patient&rsquo;s representative, or a&nbsp;health-care 
-     * provider.&nbsp;</div></p>
+     * <p>Relationship: REPC_MT000005CA.Informant.party</p>
      * 
-     * <p>(no business name)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p><div>This is the party that reported the 
      * allergy/intolerance.&nbsp;It can be the patient, the 
      * patient&rsquo;s representative, or a&nbsp;health-care 
      * provider.&nbsp;</div></p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000003CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>This is the party that reported the alleryg/intolerance. 
      * It can be the patient, the patient's representative, or a 
@@ -362,33 +553,100 @@ public class ReportedByBean extends MessagePartBean {
      * IntoleranceCondition.subject or a BUS error issue will be 
      * returned.</strong></p>
      * 
-     * <p>(no business name)</p>
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p><div>This is the party that reported the 
+     * allergy/intolerance.</div> <div>It can be the patient, the 
+     * patient&rsquo;s representative, or a&nbsp;health-care 
+     * provider.&nbsp;</div></p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>This is the party that reported the 
      * allergy/intolerance.&nbsp;It can be the patient, the 
      * patient&rsquo;s representative, or a</p> <div>health-care 
      * provider.</div>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000014CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000010CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000002CA.Informant.party</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setParty(Party party) {
         this.party = party;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Informant.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consenter"})
     public Consenter getConsenter() {
         return this.consenter;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Informant.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsenter(Consenter consenter) {
         this.consenter = consenter;
     }
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.Informant.choice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"choice"})
     public Choice getChoice() {
         return this.choice;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.Informant.choice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setChoice(Choice choice) {
         this.choice = choice;
     }

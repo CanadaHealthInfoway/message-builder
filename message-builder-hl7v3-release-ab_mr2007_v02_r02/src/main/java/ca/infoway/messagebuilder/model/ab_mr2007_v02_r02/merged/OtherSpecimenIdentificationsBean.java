@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningOrganizationId = new IIImpl();
@@ -83,7 +83,23 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Other Business Name: OtherSpecimenIdentifiers</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Associated specimen identifiers.</p>
+     * 
+     * <p>For referral and redirected orders, this information 
+     * helps keep track of the different id's assigned during each 
+     * phase of processing.</p>
+     * 
+     * <p>Other Business Name: ClientHealthcareIdentificationNumber</p>
+     * 
+     * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
@@ -92,14 +108,6 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client.</p>
-     * 
-     * <p>Other Specimen Identifiers</p>
-     * 
-     * <p>Associated specimen identifiers.</p>
-     * 
-     * <p>For referral and redirected orders, this information 
-     * helps keep track of the different id's assigned during each 
-     * phase of processing.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -107,7 +115,23 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Other Business Name: OtherSpecimenIdentifiers</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Associated specimen identifiers.</p>
+     * 
+     * <p>For referral and redirected orders, this information 
+     * helps keep track of the different id's assigned during each 
+     * phase of processing.</p>
+     * 
+     * <p>Other Business Name: ClientHealthcareIdentificationNumber</p>
+     * 
+     * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>This identification attribute supports capture of a 
      * healthcare identifier specific to the client. This 
@@ -116,14 +140,6 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client.</p>
-     * 
-     * <p>Other Specimen Identifiers</p>
-     * 
-     * <p>Associated specimen identifiers.</p>
-     * 
-     * <p>For referral and redirected orders, this information 
-     * helps keep track of the different id's assigned during each 
-     * phase of processing.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -131,9 +147,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherSpecimenIdentifierType</p>
+     * <p>Business Name: OtherSpecimenIdentifierType</p>
      * 
-     * <p>Other Specimen Identifier Type</p>
+     * <p>Other Business Name: OtherSpecimenIdentifierType</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of other specimen identifier 
      * (referral, primary, etc.)</p>
@@ -146,9 +166,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>OtherSpecimenIdentifierType</p>
+     * <p>Business Name: OtherSpecimenIdentifierType</p>
      * 
-     * <p>Other Specimen Identifier Type</p>
+     * <p>Other Business Name: OtherSpecimenIdentifierType</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Describes the type of other specimen identifier 
      * (referral, primary, etc.)</p>
@@ -161,9 +185,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Organization Identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the organization</p>
      * 
@@ -178,9 +206,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Organization Identifier</p>
+     * <p>Other Business Name: OrganizationIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>A unique identifier for the organization</p>
      * 
@@ -195,9 +227,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the name of the organization</p>
      * 
@@ -211,9 +247,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Business Name: OrganizationName</p>
      * 
-     * <p>Organization Name</p>
+     * <p>Other Business Name: OrganizationName</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identifies the name of the organization</p>
      * 
@@ -227,9 +267,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientName</p>
+     * <p>Business Name: ClientName</p>
      * 
-     * <p>Client Name</p>
+     * <p>Other Business Name: ClientName</p>
+     * 
+     * <p>Relationship: PRPA_MT101003CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
      * 
      * <p>Name(s) for the Client</p>
      * 
@@ -243,9 +287,14 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientGender</p>
+     * <p>Business Name: ClientGender</p>
      * 
-     * <p>Client Gender</p>
+     * <p>Other Business Name: ClientGender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101003CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
@@ -261,9 +310,14 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ClientGender</p>
+     * <p>Business Name: ClientGender</p>
      * 
-     * <p>Client Gender</p>
+     * <p>Other Business Name: ClientGender</p>
+     * 
+     * <p>Relationship: 
+     * PRPA_MT101003CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Gender of the Client, this is not to be confused with 
      * Clinical Gender of a client. Administrative Gender is 
@@ -279,9 +333,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientDateOfBirth</p>
+     * <p>Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Client Date of Birth</p>
+     * <p>Other Business Name: ClientDateOfBirth</p>
+     * 
+     * <p>Relationship: PRPA_MT101003CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Date of birth of the Client</p>
      * 
@@ -294,9 +352,13 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
 
     /**
-     * <p>ClientDateOfBirth</p>
+     * <p>Business Name: ClientDateOfBirth</p>
      * 
-     * <p>Client Date of Birth</p>
+     * <p>Other Business Name: ClientDateOfBirth</p>
+     * 
+     * <p>Relationship: PRPA_MT101003CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Date of birth of the Client</p>
      * 

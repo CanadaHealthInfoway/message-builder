@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 
 
 /**
- * <p>Maskable Record</p>
+ * <p>Business Name: Maskable Record</p>
  * 
  * <p>A particular record or type of record for which masking 
  * is supported.</p>
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
@@ -58,7 +58,11 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Record Identifier</p>
+     * <p>Business Name: C:Record Identifier</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.MaskableActType.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the prescription, dispense, allergy, 
      * lab test result or other record for which the masking status 
@@ -94,7 +98,11 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>C:Record Identifier</p>
+     * <p>Business Name: C:Record Identifier</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.MaskableActType.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>The identifier of the prescription, dispense, allergy, 
      * lab test result or other record for which the masking status 
@@ -130,7 +138,11 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Record Type</p>
+     * <p>Business Name: B:Record Type</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.MaskableActType.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a detailed type of record to be masked. E.g. 
      * All lab tests of a given type.</p>
@@ -145,7 +157,11 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>B:Record Type</p>
+     * <p>Business Name: B:Record Type</p>
+     * 
+     * <p>Relationship: COMT_MT400001CA.MaskableActType.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Indicates a detailed type of record to be masked. E.g. 
      * All lab tests of a given type.</p>
@@ -160,7 +176,12 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Masked Indicator</p>
+     * <p>Business Name: A:Masked Indicator</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT400001CA.MaskableActType.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the new value for the masking status of the 
      * item.</p>
@@ -176,7 +197,12 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
     /**
-     * <p>A:Masked Indicator</p>
+     * <p>Business Name: A:Masked Indicator</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT400001CA.MaskableActType.confidentialityCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the new value for the masking status of the 
      * item.</p>
@@ -191,11 +217,21 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COMT_MT400001CA.DirectTarget.role</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/role"})
     public RoleBean getDirectTargetRole() {
         return this.directTargetRole;
     }
 
+    /**
+     * <p>Relationship: COMT_MT400001CA.DirectTarget.role</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDirectTargetRole(RoleBean directTargetRole) {
         this.directTargetRole = directTargetRole;
     }
@@ -211,11 +247,21 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COMT_MT400001CA.Reason.diagnosis</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reason/diagnosis"})
     public DiagnosisBean getReasonDiagnosis() {
         return this.reasonDiagnosis;
     }
 
+    /**
+     * <p>Relationship: COMT_MT400001CA.Reason.diagnosis</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
         this.reasonDiagnosis = reasonDiagnosis;
     }

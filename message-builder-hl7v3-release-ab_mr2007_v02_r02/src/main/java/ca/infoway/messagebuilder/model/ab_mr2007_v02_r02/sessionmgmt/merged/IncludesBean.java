@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Includes</p>
+ * <p>Business Name: Includes</p>
  * 
  * <p>PORX_MT060340CA.Component3: a:includes</p>
  * 
@@ -68,15 +68,45 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Component3","PORX_MT060340CA.Component3"})
 public class IncludesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private ExtendedDispenseInstructionsBean supplyRequestItem;
 
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"supplyRequestItem"})
     public ExtendedDispenseInstructionsBean getSupplyRequestItem() {
         return this.supplyRequestItem;
     }
 
+    /**
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Other Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSupplyRequestItem(ExtendedDispenseInstructionsBean supplyRequestItem) {
         this.supplyRequestItem = supplyRequestItem;
     }

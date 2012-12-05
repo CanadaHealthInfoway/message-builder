@@ -29,7 +29,8 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.IssuesB
 
 
 /**
- * <p>COMT_IN700001CA: Add issue management request</p>
+ * <p>Business Name: COMT_IN700001CA: Add issue management 
+ * request</p>
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
@@ -40,6 +41,6 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.IssuesB
 @Hl7PartTypeMapping({"COMT_IN700001CA"})
 public class AddIssueManagementRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<IssuesBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
 
 }

@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Dispense Information</p>
+ * <p>Business Name: Dispense Information</p>
  * 
  * <p>At least one of the 2 components of SupplyDefinition3 
  * First Fill Period or Refill Period must be specified.</p>
@@ -41,26 +41,48 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.DispenseGuidelines"})
 public class DispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121122L;
+    private static final long serialVersionUID = 20121204L;
     private SubsequentDispenseBean component1SubsequentDispense;
     private DrugValidityPeriodBean component2InitialDispense;
 
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010040CA.Component2.subsequentDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/subsequentDispense"})
     public SubsequentDispenseBean getComponent1SubsequentDispense() {
         return this.component1SubsequentDispense;
     }
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010040CA.Component2.subsequentDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1SubsequentDispense(SubsequentDispenseBean component1SubsequentDispense) {
         this.component1SubsequentDispense = component1SubsequentDispense;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Component.initialDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/initialDispense"})
     public DrugValidityPeriodBean getComponent2InitialDispense() {
         return this.component2InitialDispense;
     }
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Component.initialDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2InitialDispense(DrugValidityPeriodBean component2InitialDispense) {
         this.component2InitialDispense = component2InitialDispense;
     }
