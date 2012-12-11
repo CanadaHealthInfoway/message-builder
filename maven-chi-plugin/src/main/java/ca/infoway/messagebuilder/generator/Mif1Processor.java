@@ -247,6 +247,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setName(element.getAttribute("name"));
 		relationship.setStructural("true".equals(element.getAttribute("isStructural")));
 		relationship.setFixedValue(StringUtils.trimToNull(element.getAttribute("fixedValue")));
+		relationship.setDefaultValue(StringUtils.trimToNull(element.getAttribute("defaultValue")));
 		relationship.setType(MifXPathHelper.getAttributeType(element));
 		relationship.setLength(element.hasAttribute("maximumLength") 
 				? Integer.valueOf(element.getAttribute("maximumLength")) 
