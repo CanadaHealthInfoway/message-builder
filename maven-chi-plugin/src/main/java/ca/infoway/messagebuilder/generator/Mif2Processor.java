@@ -397,7 +397,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 	}
 
-	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) throws GeneratorException {
+	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) {
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(part.getRelationships().size());
@@ -406,14 +406,16 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		if (isTemplateParameter(targetConnection)) {
 			String parameterName = targetConnection.getAttribute("participantClassName");
 			if (StringUtils.isBlank(parameterName)) {
-				throw new GeneratorException("Cannot determine the template parameter name for relationship " + part.getName() + "." + relationship.getName());
+				this.outputUI.log(LogLevel.ERROR, "Cannot determine the template parameter name for relationship " + part.getName() + "." + relationship.getName());
+//				throw new GeneratorException("Cannot determine the template parameter name for relationship " + part.getName() + "." + relationship.getName());
 			} else {
 				relationship.setTemplateParameterName(parameterName);
 			}
 		} else {
 			String type = determineType(messageSet, targetConnection);
 			if (StringUtils.isBlank(type)) {
-				throw new GeneratorException("Cannot determine the type name for relationship " + part.getName() + "." + relationship.getName());
+				this.outputUI.log(LogLevel.ERROR, "Cannot determine the type name for relationship " + part.getName() + "." + relationship.getName());
+//				throw new GeneratorException("Cannot determine the type name for relationship " + part.getName() + "." + relationship.getName());
 			} else {
 				relationship.setType(type);
 			}
@@ -454,14 +456,15 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return determineType(partName, messageSet, targetConnection);
 	}
 
-	private String determineType(String name, MessageSet messageSet,
-			Element element) throws GeneratorException {
+	private String determineType(String name, MessageSet messageSet, Element element) {
 		if (isInternalReference(messageSet, element, name)) {
 			return getPart(messageSet, name, element).getName();
 		} else if (isCmetReference(element, name)) {
 			Mif mif = this.mifRegistry.getMifByName(name);
 			if (mif == null) {
-				throw new GeneratorException("Cannot resolve MIF name " + name);
+				this.outputUI.log(LogLevel.ERROR, "Cannot resolve MIF name " + name + " (check coremif files for possible missing MIF file)");
+				return null;
+//				throw new GeneratorException("Cannot resolve MIF name " + name);
 			} else {
 				String packageLocation = mif.getPackageLocation();
 				return messageSet.getPackageLocationRootType(packageLocation);

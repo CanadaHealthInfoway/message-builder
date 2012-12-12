@@ -24,6 +24,7 @@ import static ca.infoway.messagebuilder.generator.Namespaces.MIF2_NAMESPACE;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
@@ -113,7 +114,10 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 		MessagePart messagePart = resolver.getMessagePart(currentContext.getName());
 		NodeList nodes = Mif2XPathHelper.getNodes(parameterModel, "./mif2:" + childElementName);
 		
-		if (messagePart.getSpecializationChilds().size() == nodes.getLength()) {
+		if (messagePart == null) {
+			this.outputUI.log(LogLevel.ERROR, "Mif2InteractionDefinition.getAllChoices(): Could not find message part (likely due to an earlier error)");
+			return Collections.<MifChoiceItem>emptyList();
+		} else if (messagePart.getSpecializationChilds().size() == nodes.getLength()) {
 			List<MifChoiceItem> result = new ArrayList<MifChoiceItem>();
 			for (int i = 0, length = nodes.getLength(); i < length; i++) {
 				TypeName child = new TypeName(messagePart.getSpecializationChilds().get(i));
