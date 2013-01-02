@@ -1,5 +1,5 @@
 /**
- * Copyright 2012 Canada Health Infoway, Inc.
+ * Copyright 2013 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
 import ca.infoway.messagebuilder.generator.java.Choice;
 import ca.infoway.messagebuilder.generator.java.JavaCodeGenerator;
-import ca.infoway.messagebuilder.generator.java.MergedAssociation;
 import ca.infoway.messagebuilder.generator.java.MergedRelationshipSupport;
 import ca.infoway.messagebuilder.generator.java.PropertyGenerator;
 import ca.infoway.messagebuilder.generator.java.RenderedType;
@@ -104,7 +103,7 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 
 	protected Relationship getRelationshipForDocumentation(BaseRelationship relationship) {
 		Relationship relForDocs = null;
-		if (!(relationship instanceof MergedRelationshipSupport || relationship instanceof MergedAssociation)) {
+		if (!(relationship instanceof MergedRelationshipSupport)) {
 			relForDocs = relationship.getRelationship();
 		}
 		return relForDocs;

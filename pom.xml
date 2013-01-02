@@ -423,7 +423,7 @@
 				    <mappingml>XML_STYLE</mappingml>
 				</mapping>
 				<properties>
-				    <year>2012</year>
+				    <year>2013</year>
 				</properties>
 			        <excludes>
 			            <exclude>**/LICENSE_main.txt</exclude>
@@ -561,14 +561,14 @@
 		</pluginManagement>
 
 	<resources>
-		  <resource>
+		  <!-- resource>
 		    <directory>${basedir}/../etc</directory>
 		    <filtering>false</filtering>
 		    <includes>
 		      <include>LICENSE.txt</include>
 		      <include>RELEASE-NOTES.txt</include>
 		    </includes>
-		  </resource>
+		  </resource -->
 
 		  <resource>
 		    <directory>${basedir}/src/main/resources</directory>
