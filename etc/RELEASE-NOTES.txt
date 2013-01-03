@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.4.3
+                               Version 1.4.4
                                Release Notes
 
 INTRODUCTION:
@@ -32,7 +32,7 @@ This document contains the release notes for this version of Infoway Message Bui
 SYSTEM PROPERTIES USED WITHIN MESSAGEBUILDER:
 =============================================
 
-(new for 1.4) messagebuilder.abstract.ts.ignore.specializationtype.error
+(new for 1.4.x) messagebuilder.abstract.ts.ignore.specializationtype.error
 - used to suppress errors caused by not specifying specializationType for the TS.FULLDATEWITHTIME type
 - defaults to "false"
 
@@ -57,10 +57,18 @@ messagebuilder.simplexml.transportclass
  - defaults to "ca.infoway.messagebuilder.transport.rest.RestTransportLayer"
 
 
-BUGS FIXED in 1.4.3:
+CHANGES for 1.4.4:
 =======================
 
-- minor miscellaneous bug fixes
+- API documentation improvements (including the addition of Class diagrams)
+- CHI public Maven repository created
+- New User Guide released
+
+
+CHANGES for 1.4.3:
+=======================
+
+- minor miscellaneous improvements
 
 
 BUGS FIXED in 1.4.2:
