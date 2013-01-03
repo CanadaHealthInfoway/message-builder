@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT101104CA.Person"})
 public class PersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS classCode = new CSImpl();
     private CS determinerCode = new CSImpl();
     private PN name = new PNImpl();
@@ -469,18 +469,34 @@ public class PersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101104CA.Person.asOtherIDs</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"asOtherIDs"})
     public List<OtherIDsNonHealthcareIdentifiersBean> getAsOtherIDs() {
         return this.asOtherIDs;
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101104CA.Person.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"personalRelationship"})
     public List<PersonalRelationshipBean> getPersonalRelationship() {
         return this.personalRelationship;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101104CA.Person.languageCommunication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     */
     @Hl7XmlMapping({"languageCommunication"})
     public List<LanguageCommunicationBean> getLanguageCommunication() {
         return this.languageCommunication;

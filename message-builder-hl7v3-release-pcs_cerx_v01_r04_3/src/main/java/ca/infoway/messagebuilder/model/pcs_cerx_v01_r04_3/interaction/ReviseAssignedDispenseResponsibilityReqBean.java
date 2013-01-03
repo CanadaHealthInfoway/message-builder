@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt010140
 @Hl7PartTypeMapping({"PORX_IN010100CA"})
 public class ReviseAssignedDispenseResponsibilityReqBean extends HL7Message_1Bean<TriggerEvent_1Bean<DispenseInstructionsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
 
 }

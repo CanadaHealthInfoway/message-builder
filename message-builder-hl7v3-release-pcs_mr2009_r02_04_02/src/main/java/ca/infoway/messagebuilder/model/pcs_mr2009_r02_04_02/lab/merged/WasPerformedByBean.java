@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Performer","POLB_MT004200CA.Performer"})
 public class WasPerformedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private RoleChoice roleChoice;
 
 

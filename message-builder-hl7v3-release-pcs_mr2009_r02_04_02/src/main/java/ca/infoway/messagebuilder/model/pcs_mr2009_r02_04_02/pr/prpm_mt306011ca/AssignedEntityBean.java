@@ -79,7 +79,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -94,6 +94,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private List<ActDefinitionOrEventName_2Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_2Bean>();
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.ResponsibleParty.privilege</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleFor/privilege"})
     public List<PrivilegeBean> getResponsibleForPrivilege() {
         return this.responsibleForPrivilege;
@@ -295,11 +300,23 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.AssignedEntity.assignedPrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"assignedPrincipalPerson"})
     public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
         return this.assignedPrincipalPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.AssignedEntity.assignedPrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
         this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
@@ -327,6 +344,12 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.PrimaryPerformer3.actDefinitionOrEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
     public List<ActDefinitionOrEventName_2Bean> getPerformanceActDefinitionOrEvent() {
         return this.performanceActDefinitionOrEvent;

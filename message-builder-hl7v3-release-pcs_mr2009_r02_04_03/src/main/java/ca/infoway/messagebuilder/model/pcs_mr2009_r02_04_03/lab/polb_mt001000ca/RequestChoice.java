@@ -44,11 +44,26 @@ import java.util.List;
 public interface RequestChoice {
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<SpecimenRoleBean> getSpecimenSpecimen();
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public Patient_1Bean getRecordTargetPatient();
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
 
@@ -67,9 +82,21 @@ public interface RequestChoice {
     public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.CallBackContact.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<HealthcareWorkerBean> getCallBackContactAssignedEntity();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.InformationRecipient.recipientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RecipientChoice> getInformationRecipientRecipientChoice();
 
 
@@ -81,31 +108,95 @@ public interface RequestChoice {
     public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean> getVerifierAssignedEntity();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ParentTestBean getOccurrenceOfActParentPointer();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public OutbreakBean getPertinentInformation1OutbreakEvent();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.PertinentInformation.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ReferralRedirectIndicatorBean getComponent1ReferralRedirectIndicator();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1ReferralRedirectIndicator(ReferralRedirectIndicatorBean component1ReferralRedirectIndicator);
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public OrderSortKeyBean getComponent2RequestSortKey();
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2RequestSortKey(OrderSortKeyBean component2RequestSortKey);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public LabInitiatedOrderIndicatorBean getComponent3LabInitiatedOrderIndicator();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001000CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator);
 
 
@@ -117,11 +208,26 @@ public interface RequestChoice {
     public List<RequestChoice> getComponent4RequestChoice();
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.RequestChoice.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     public List<IncludesBean> getSubjectOf();
 
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public PriorTestRequestBean getComponentOfPriorActRequest();
 
+    /**
+     * <p>Relationship: POLB_MT001000CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentOfPriorActRequest(PriorTestRequestBean componentOfPriorActRequest);
 
 }

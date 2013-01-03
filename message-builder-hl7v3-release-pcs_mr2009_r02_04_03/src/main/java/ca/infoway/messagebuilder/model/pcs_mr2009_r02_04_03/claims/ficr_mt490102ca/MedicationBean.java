@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.DrugContainsB
 @Hl7PartTypeMapping({"FICR_MT490102CA.Medication"})
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV administerableMedicineCode = new CVImpl();
     private ST administerableMedicineName = new STImpl();
     private ST administerableMedicineDesc = new STImpl();
@@ -148,11 +148,21 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"administerableMedicine/ingredient"})
     public DrugContainsBean getAdministerableMedicineIngredient() {
         return this.administerableMedicineIngredient;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAdministerableMedicineIngredient(DrugContainsBean administerableMedicineIngredient) {
         this.administerableMedicineIngredient = administerableMedicineIngredient;
     }

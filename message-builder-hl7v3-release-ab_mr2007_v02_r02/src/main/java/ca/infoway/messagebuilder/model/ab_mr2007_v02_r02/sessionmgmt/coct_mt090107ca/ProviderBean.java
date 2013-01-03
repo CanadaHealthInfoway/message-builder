@@ -61,7 +61,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ChangedBy, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Recipient {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN representedPersonName = new PNImpl();

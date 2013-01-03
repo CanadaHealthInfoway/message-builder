@@ -60,7 +60,7 @@ import java.util.List;
 @Hl7RootType
 public class HL7MessageBean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -398,36 +398,71 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002100CA.Message.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ReceiverBean getReceiver() {
         return this.receiver;
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002100CA.Message.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setReceiver(ReceiverBean receiver) {
         this.receiver = receiver;
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002100CA.Message.respondTo</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"respondTo"})
     public ToBeRespondedToByBean getRespondTo() {
         return this.respondTo;
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002100CA.Message.respondTo</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setRespondTo(ToBeRespondedToByBean respondTo) {
         this.respondTo = respondTo;
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002100CA.Message.sender</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"sender"})
     public SenderBean getSender() {
         return this.sender;
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002100CA.Message.sender</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSender(SenderBean sender) {
         this.sender = sender;
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002100CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     */
     @Hl7XmlMapping({"attentionLine"})
     public List<RoutingInstructionLinesBean> getAttentionLine() {
         return this.attentionLine;

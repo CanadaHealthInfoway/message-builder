@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
     private RecordedAtBean location;
@@ -240,6 +240,10 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p><div>Indicates the pharmacy to which the 
      * prescription&nbsp;has been directed or which has currently 
      * assumed</div> <div>responsibility for dispensing the 
@@ -258,6 +262,10 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p><div>Indicates the pharmacy to which the 
      * prescription&nbsp;has been directed or which has currently 
      * assumed</div> <div>responsibility for dispensing the 
@@ -275,11 +283,23 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Destination1.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Destination1.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }

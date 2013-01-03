@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -211,6 +211,11 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>&nbsp;Dispensing instruction for all dispenses subsequent 
      * to the first fill.</p>
      */
@@ -220,6 +225,11 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>&nbsp;Dispensing instruction for all dispenses subsequent 
      * to the first fill.</p>
      */
@@ -229,6 +239,11 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component7.initialSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;Special instructions regarding the very first 
      * supply&nbsp;of medication to a patient.</p>
      */
@@ -238,6 +253,11 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component7.initialSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;Special instructions regarding the very first 
      * supply&nbsp;of medication to a patient.</p>
      */

@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private AllowableAmountBean reference1Allowable;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private II id = new IIImpl();
@@ -93,11 +93,23 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"outcomeOf"})
     public AdjudicatedResultOutcomeBean getOutcomeOf() {
         return this.outcomeOf;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
         this.outcomeOf = outcomeOf;
     }
@@ -379,6 +391,12 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.Reference2.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
@@ -409,11 +427,23 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsRef.adjudResultsGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
     public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
         return this.referencedByAdjudResultsGroup;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudResultsRef.adjudResultsGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
         this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
     }

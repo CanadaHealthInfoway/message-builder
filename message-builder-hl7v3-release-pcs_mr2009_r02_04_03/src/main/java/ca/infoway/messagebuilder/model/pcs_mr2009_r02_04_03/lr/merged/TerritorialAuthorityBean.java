@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.TerritorialAuthority","PRPA_MT202302CA.TerritorialAuthority","PRPA_MT202303CA.TerritorialAuthority","PRPA_MT202317CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
 
 

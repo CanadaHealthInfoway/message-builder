@@ -65,7 +65,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -288,11 +288,21 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author2"})
     public PrescribedByBean getAuthor2() {
         return this.author2;
     }
 
+    /**
+     * <p>Relationship: RCMR_MT010001CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor2(PrescribedByBean author2) {
         this.author2 = author2;
     }

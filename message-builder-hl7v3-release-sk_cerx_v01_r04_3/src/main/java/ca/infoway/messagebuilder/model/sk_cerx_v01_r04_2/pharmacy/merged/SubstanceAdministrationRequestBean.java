@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean implements Prescription {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -243,8 +243,7 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>Relationship: 
-
+     * <p>Relation
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -401,8 +400,7 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>Relationship: 
-
+     * <p>Relation
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {

@@ -57,7 +57,7 @@ import java.util.Date;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.SubjectChoice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Patient_2 {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private PN patientPersonName = new PNImpl();
     private CV patientPersonAdministrativeGenderCode = new CVImpl();

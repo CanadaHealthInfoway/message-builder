@@ -99,7 +99,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -469,11 +469,21 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Subject6.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject1/specimen"})
     public SpecimenRoleBean getSubject1Specimen() {
         return this.subject1Specimen;
     }
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Subject6.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubject1Specimen(SpecimenRoleBean subject1Specimen) {
         this.subject1Specimen = subject1Specimen;
     }
@@ -592,21 +602,43 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.PatientCareProvisionEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public ChangedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.PatientCareProvisionEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Informant.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informant/actingPerson"})
     public ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Informant.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformantActingPerson(ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
@@ -674,65 +706,132 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"custodian1/assignedDevice"})
     public EHRRepositoryBean getCustodian1AssignedDevice() {
         return this.custodian1AssignedDevice;
     }
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCustodian1AssignedDevice(EHRRepositoryBean custodian1AssignedDevice) {
         this.custodian1AssignedDevice = custodian1AssignedDevice;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.Custodian2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"custodian2/serviceDeliveryLocation"})
     public ServiceLocationBean getCustodian2ServiceDeliveryLocation() {
         return this.custodian2ServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.Custodian2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCustodian2ServiceDeliveryLocation(ServiceLocationBean custodian2ServiceDeliveryLocation) {
         this.custodian2ServiceDeliveryLocation = custodian2ServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.PatientCareProvisionEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"location"})
     public List<OccurredAtBean> getLocation() {
         return this.location;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Outcome.diagnosisEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"outcome/diagnosisEvent"})
     public List<DischargeDiagnosisBean> getOutcomeDiagnosisEvent() {
         return this.outcomeDiagnosisEvent;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.InFulfillmentOf.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
     public Request_1Bean getInFulfillmentOfActRequest() {
         return this.inFulfillmentOfActRequest;
     }
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.InFulfillmentOf.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInFulfillmentOfActRequest(Request_1Bean inFulfillmentOfActRequest) {
         this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.Predecessor.oldPatientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent"})
     public List<OldPatientCareProvisionEventBean> getPredecessorOldPatientCareProvisionEvent() {
         return this.predecessorOldPatientCareProvisionEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.PatientCareProvisionEvent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<BecauseOfBean> getReason() {
         return this.reason;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.Predecessor2.newPatientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"successor/newPatientCareProvisionEvent"})
     public NewPatientCareProvisionEventBean getSuccessorNewPatientCareProvisionEvent() {
         return this.successorNewPatientCareProvisionEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.Predecessor2.newPatientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSuccessorNewPatientCareProvisionEvent(NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent) {
         this.successorNewPatientCareProvisionEvent = successorNewPatientCareProvisionEvent;
     }
@@ -758,16 +857,32 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Subject4.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/controlActEvent"})
     public ControlActEventBean getSubjectOf2ControlActEvent() {
         return this.subjectOf2ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: REPC_MT500003CA.Subject4.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2ControlActEvent(ControlActEventBean subjectOf2ControlActEvent) {
         this.subjectOf2ControlActEvent = subjectOf2ControlActEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT500003CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;

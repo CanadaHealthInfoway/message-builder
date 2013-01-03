@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.merged.ServiceDeliv
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
@@ -163,11 +163,23 @@ public class InformRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
     public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
@@ -193,11 +205,21 @@ public class InformRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"indirectTarget/choice"})
     public Choice getIndirectTargetChoice() {
         return this.indirectTargetChoice;
     }
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setIndirectTargetChoice(Choice indirectTargetChoice) {
         this.indirectTargetChoice = indirectTargetChoice;
     }

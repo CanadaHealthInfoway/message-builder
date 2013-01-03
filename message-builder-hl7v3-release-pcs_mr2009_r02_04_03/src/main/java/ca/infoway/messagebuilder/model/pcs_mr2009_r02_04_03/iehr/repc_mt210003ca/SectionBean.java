@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private DocumentContent_1 component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
@@ -93,11 +93,21 @@ public class SectionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT210003CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/documentContent"})
     public DocumentContent_1 getComponent1DocumentContent() {
         return this.component1DocumentContent;
     }
 
+    /**
+     * <p>Relationship: REPC_MT210003CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1DocumentContent(DocumentContent_1 component1DocumentContent) {
         this.component1DocumentContent = component1DocumentContent;
     }
@@ -110,12 +120,22 @@ public class SectionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT210003CA.Component.subSection</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/subSection"})
     public List<DocumentSectionsBean> getComponent2SubSection() {
         return this.component2SubSection;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT210003CA.Component5.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/reference"})
     public List<ReferenceBean> getComponent3Reference() {
         return this.component3Reference;

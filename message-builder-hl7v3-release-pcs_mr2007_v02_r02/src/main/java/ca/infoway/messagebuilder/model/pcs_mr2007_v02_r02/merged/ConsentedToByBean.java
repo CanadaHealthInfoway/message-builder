@@ -59,7 +59,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.merged.Consenter;
 @Hl7PartTypeMapping({"COCT_MT470012CA.Author","RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV modeCode = new CVImpl();
     private Consenter consenter;
     private ST signatureText = new STImpl();

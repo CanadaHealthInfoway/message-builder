@@ -100,7 +100,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ChangedByBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueManagement","COCT_MT260012CA.DetectedIssueManagement","COCT_MT260020CA.DetectedIssueManagement","COCT_MT260022CA.DetectedIssueManagement","COCT_MT260030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private ChangedByBean author;

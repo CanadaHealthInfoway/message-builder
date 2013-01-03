@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -75,6 +75,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private List<PrimaryPerformer3Bean> performance = new ArrayList<PrimaryPerformer3Bean>();
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RoleChoice.responsibleFor</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"responsibleFor"})
     public List<ResponsiblePartyBean> getResponsibleFor() {
         return this.responsibleFor;
@@ -208,6 +213,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.AssignedEntity.performance</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-25)</p>
+     */
     @Hl7XmlMapping({"performance"})
     public List<PrimaryPerformer3Bean> getPerformance() {
         return this.performance;

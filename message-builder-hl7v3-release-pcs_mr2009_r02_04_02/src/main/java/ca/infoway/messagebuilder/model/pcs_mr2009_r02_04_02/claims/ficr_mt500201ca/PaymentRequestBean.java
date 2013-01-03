@@ -50,7 +50,7 @@ import java.util.Set;
 @Hl7RootType
 public class PaymentRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private MO amt = new MOImpl();
     private ContactPartyBean primaryPerformerContactParty;
@@ -97,11 +97,23 @@ public class PaymentRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT500201CA.PaymentRequestAttention.contactParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"primaryPerformer/contactParty"})
     public ContactPartyBean getPrimaryPerformerContactParty() {
         return this.primaryPerformerContactParty;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT500201CA.PaymentRequestAttention.contactParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPrimaryPerformerContactParty(ContactPartyBean primaryPerformerContactParty) {
         this.primaryPerformerContactParty = primaryPerformerContactParty;
     }
@@ -147,6 +159,12 @@ public class PaymentRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT500201CA.PertinentInformation.providerBillingTaxAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
     public List<ProviderBillingTaxAccountBean> getPertinentInformationProviderBillingTaxAccount() {
         return this.pertinentInformationProviderBillingTaxAccount;

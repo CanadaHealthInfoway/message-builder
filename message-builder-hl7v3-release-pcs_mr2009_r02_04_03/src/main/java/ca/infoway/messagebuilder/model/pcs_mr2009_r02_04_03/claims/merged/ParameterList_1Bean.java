@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterList_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private TS coveredPartyDOBValue = new TSImpl();
     private CV coveredPartyGenderValue = new CVImpl();
     private PN coveredPartyNameValue = new PNImpl();
@@ -367,7 +367,8 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationExpiryDateRange</p>
      * 
-     * <p>Un-merged Business Name: SpecialAuthorizationExpiryDateRange</p>
+     * <p>Un-merged Business Name: 
+     * SpecialAuthorizationExpiryDateRange</p>
      * 
      * <p>Relationship: FICR_MT490001CA.ExpiryDateRange.value</p>
      * 
@@ -381,7 +382,8 @@ public class ParameterList_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationExpiryDateRange</p>
      * 
-     * <p>Un-merged Business Name: SpecialAuthorizationExpiryDateRange</p>
+     * <p>Un-merged Business Name: 
+     * SpecialAuthorizationExpiryDateRange</p>
      * 
      * <p>Relationship: FICR_MT490001CA.ExpiryDateRange.value</p>
      * 

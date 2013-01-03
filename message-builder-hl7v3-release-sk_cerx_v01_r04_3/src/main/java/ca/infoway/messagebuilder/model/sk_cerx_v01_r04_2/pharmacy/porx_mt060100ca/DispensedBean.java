@@ -38,15 +38,27 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Substan
 @Hl7PartTypeMapping({"PORX_MT060100CA.InFulfillmentOf"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SubstanceAdministrationRequestBean substanceAdministrationRequest;
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.InFulfillmentOf.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"substanceAdministrationRequest"})
     public SubstanceAdministrationRequestBean getSubstanceAdministrationRequest() {
         return this.substanceAdministrationRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.InFulfillmentOf.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubstanceAdministrationRequest(SubstanceAdministrationRequestBean substanceAdministrationRequest) {
         this.substanceAdministrationRequest = substanceAdministrationRequest;
     }

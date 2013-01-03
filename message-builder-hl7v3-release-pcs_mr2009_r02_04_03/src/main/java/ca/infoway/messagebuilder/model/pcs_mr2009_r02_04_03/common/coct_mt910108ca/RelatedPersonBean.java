@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActingPersonB
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ActingPersonBean relationshipHolder;
@@ -274,11 +274,23 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT910108CA.PersonalRelationship.relationshipHolder</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"relationshipHolder"})
     public ActingPersonBean getRelationshipHolder() {
         return this.relationshipHolder;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT910108CA.PersonalRelationship.relationshipHolder</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setRelationshipHolder(ActingPersonBean relationshipHolder) {
         this.relationshipHolder = relationshipHolder;
     }

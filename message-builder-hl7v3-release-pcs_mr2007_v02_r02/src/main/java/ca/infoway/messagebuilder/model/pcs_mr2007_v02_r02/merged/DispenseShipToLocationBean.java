@@ -172,7 +172,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010110CA.ServiceDeliveryLocation","PORX_MT010120CA.ServiceDeliveryLocation","PORX_MT020060CA.ServiceDeliveryLocation","PORX_MT020070CA.ServiceDeliveryLocation","PORX_MT060010CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation","PORX_MT060040CA.ServiceDeliveryLocation2","PORX_MT060090CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation","PORX_MT060160CA.ServiceDeliveryLocation2","PORX_MT060340CA.ServiceDeliveryLocation","PORX_MT060340CA.ServiceDeliveryLocation2","PRPM_MT301010CA.ServiceDeliveryLocation","PRPM_MT303010CA.ServiceDeliveryLocation"})
 public class DispenseShipToLocationBean extends MessagePartBean implements Choice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -184,7 +184,8 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -196,7 +197,8 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -216,7 +218,8 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -228,7 +231,8 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -762,7 +766,8 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -775,7 +780,8 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -796,7 +802,8 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -809,7 +816,8 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>

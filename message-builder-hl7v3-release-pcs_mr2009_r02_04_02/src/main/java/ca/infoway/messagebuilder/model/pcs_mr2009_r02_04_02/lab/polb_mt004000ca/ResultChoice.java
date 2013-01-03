@@ -43,17 +43,42 @@ import java.util.List;
 public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.ResultInstancePayloadChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001999ca.ResultChoice {
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.ResultChoice.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     public List<ReportSectionSpecimenBean> getSpecimen();
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public Patient_1Bean getRecordTargetPatient();
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.ResultChoice.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     public List<ElectronicResultReceiverBean> getReceiver();
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Performer.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RoleChoice> getPerformerRoleChoice();
 
 
@@ -74,22 +99,62 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.InFulfillmentOf.fulfillmentChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public OutbreakBean getPertinentInformation1OutbreakEvent();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation2.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Component2.resultSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ResultSortKeyBean getComponent1ResultSortKey();
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Component2.resultSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.Component3.reportableTestIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<ReportableHealthIndicatorBean> getComponent2ReportableTestIndicator();
 
 
@@ -116,11 +181,28 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.ResultChoice.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     public List<IncludesBean> getSubjectOf2();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
 
 }

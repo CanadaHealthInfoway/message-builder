@@ -87,7 +87,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.LanguageCommunication","PRPA_MT101002CA.LanguageCommunication","PRPM_MT301010CA.LanguageCommunication","PRPM_MT303010CA.LanguageCommunication","PRPM_MT306011CA.LanguageCommunication"})
 public class LanguageOfCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV languageCode = new CVImpl();
     private CV modeCode = new CVImpl();
     private CV proficiencyLevelCode = new CVImpl();
@@ -233,7 +233,8 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.LanguageCommunication.modeCode</p>
@@ -248,7 +249,8 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.LanguageCommunication.modeCode</p>
@@ -263,7 +265,8 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.LanguageCommunication.modeCode</p>
@@ -286,7 +289,8 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.LanguageCommunication.modeCode</p>
@@ -301,7 +305,8 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.LanguageCommunication.modeCode</p>
@@ -316,7 +321,8 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
      * the healthcare provider's communication skills in a given 
      * language</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.LanguageCommunication.modeCode</p>

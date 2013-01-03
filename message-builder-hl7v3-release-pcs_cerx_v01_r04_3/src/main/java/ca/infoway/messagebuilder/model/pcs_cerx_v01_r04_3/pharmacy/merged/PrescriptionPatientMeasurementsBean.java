@@ -71,7 +71,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ value = new PQImpl();
@@ -80,7 +80,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.code</p>
@@ -99,7 +100,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * about the patient. The only two allowable types are height 
      * and weight.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.code</p>
@@ -116,7 +118,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * that was made about the patient. The only two allowable 
      * types are height and weight.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.code</p>
@@ -143,7 +146,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.code</p>
@@ -162,7 +166,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * about the patient. The only two allowable types are height 
      * and weight.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.code</p>
@@ -179,7 +184,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * that was made about the patient. The only two allowable 
      * types are height and weight.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.code</p>
@@ -204,7 +210,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
@@ -242,7 +249,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>The date on which the measurement was made</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
@@ -268,7 +276,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
@@ -306,7 +315,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>The date on which the measurement was made</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>

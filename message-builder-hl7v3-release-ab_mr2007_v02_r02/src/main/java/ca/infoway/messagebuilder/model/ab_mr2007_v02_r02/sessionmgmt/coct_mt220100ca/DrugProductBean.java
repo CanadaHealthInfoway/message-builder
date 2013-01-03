@@ -57,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Medication {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD playerCode = new CDImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
@@ -892,16 +892,31 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT220100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"player/asContent"})
     public DrugDispensedInBean getPlayerAsContent() {
         return this.playerAsContent;
     }
 
+    /**
+     * <p>Relationship: COCT_MT220100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPlayerAsContent(DrugDispensedInBean playerAsContent) {
         this.playerAsContent = playerAsContent;
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT220100CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"player/ingredient"})
     public List<DrugContainsBean> getPlayerIngredient() {
         return this.playerIngredient;

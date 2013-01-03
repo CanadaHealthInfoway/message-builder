@@ -30,6 +30,12 @@ import java.util.List;
 public interface AdjudicationCodeChoice {
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Trigger2.adjudicationResultRequiredAct</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<AdjudicationResultRequiredActBean> getTriggerAdjudicationResultRequiredAct();
 
 }

@@ -71,7 +71,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ value = new PQImpl();
@@ -80,7 +80,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.code</p>
@@ -103,7 +104,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * to ensure that measurements/observations are 
      * distinguishable.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.code</p>
@@ -120,7 +122,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * specified. Code is mandatory to ensure that 
      * measurements/observations are distinguishable.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.code</p>
@@ -151,7 +154,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescriptionPatientMeasurementType</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.code</p>
@@ -174,7 +178,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * to ensure that measurements/observations are 
      * distinguishable.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.code</p>
@@ -191,7 +196,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * specified. Code is mandatory to ensure that 
      * measurements/observations are distinguishable.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementType</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementType</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.code</p>
@@ -220,7 +226,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
@@ -268,7 +275,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * determines the relevance of the information, this attribute 
      * is defined as 'populated'.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
@@ -299,7 +307,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
@@ -347,7 +356,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * determines the relevance of the information, this attribute 
      * is defined as 'populated'.</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionPatientMeasurementTime</p>
+     * <p>Un-merged Business Name: 
+     * PrescriptionPatientMeasurementTime</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>

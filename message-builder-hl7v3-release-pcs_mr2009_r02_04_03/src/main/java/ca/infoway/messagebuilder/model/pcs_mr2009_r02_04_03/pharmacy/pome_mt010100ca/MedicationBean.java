@@ -63,7 +63,7 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV administerableMedicineCode = new CVImpl();
     private SET<TN, TrivialName> administerableMedicineName = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST administerableMedicineDesc = new STImpl();
@@ -226,11 +226,23 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010100CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
     public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
         return this.administerableMedicineAsManufacturedProductManufacturer;
     }
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010100CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
         this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
     }
@@ -274,38 +286,73 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"administerableMedicine/asContent"})
     public DispensedInBean getAdministerableMedicineAsContent() {
         return this.administerableMedicineAsContent;
     }
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
         this.administerableMedicineAsContent = administerableMedicineAsContent;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Medicine.asSpecializedKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     @Hl7XmlMapping({"administerableMedicine/asSpecializedKind"})
     public List<GroupedWithinBean> getAdministerableMedicineAsSpecializedKind() {
         return this.administerableMedicineAsSpecializedKind;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"administerableMedicine/ingredient"})
     public List<DrugContainsBean> getAdministerableMedicineIngredient() {
         return this.administerableMedicineIngredient;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Subject7.potentialCharge</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/potentialCharge"})
     public DrugCostBean getSubjectOf1PotentialCharge() {
         return this.subjectOf1PotentialCharge;
     }
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Subject7.potentialCharge</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1PotentialCharge(DrugCostBean subjectOf1PotentialCharge) {
         this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Subject10.characteristic</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/characteristic"})
     public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
         return this.subjectOf2Characteristic;

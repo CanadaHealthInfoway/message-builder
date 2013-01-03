@@ -108,7 +108,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;
@@ -293,7 +293,7 @@ public class MedicationDispenseBean extends MessagePartBean {
      * mandatory requirement.</p>
      * 
      * <p>Allows for the referencing of a specific dispense 
-     * record.
+     *
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -468,7 +468,7 @@ public class MedicationDispenseBean extends MessagePartBean {
      * mandatory requirement.</p>
      * 
      * <p>Allows for the referencing of a specific dispense 
-     * record.
+     *
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {

@@ -100,7 +100,7 @@ import java.util.Date;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private II inFulfillmentOfActRequestId = new IIImpl();
     private CS statusCode = new CSImpl();

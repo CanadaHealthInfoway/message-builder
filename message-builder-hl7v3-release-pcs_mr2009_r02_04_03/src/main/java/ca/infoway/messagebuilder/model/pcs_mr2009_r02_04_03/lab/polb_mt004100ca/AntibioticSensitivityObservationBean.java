@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SensitivityObservationEvent"})
 public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private CS statusCode = new CSImpl();
@@ -271,17 +271,35 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.SensitivityObservationEvent.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf1"})
     public List<IncludesBean> getSubjectOf1() {
         return this.subjectOf1;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
         return this.subjectOf2ResultStatusProcessStep;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
         this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
     }

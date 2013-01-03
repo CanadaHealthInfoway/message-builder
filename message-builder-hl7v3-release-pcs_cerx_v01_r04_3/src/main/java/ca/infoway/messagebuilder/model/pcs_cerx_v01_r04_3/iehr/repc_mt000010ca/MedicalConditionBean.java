@@ -74,7 +74,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -352,11 +352,21 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -384,31 +394,61 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.MedicalCondition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.MedicalCondition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.MedicalCondition.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
         return this.informant;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.MedicalCondition.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInformant(ReportedByBean informant) {
         this.informant = informant;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.MedicalCondition.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.MedicalCondition.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
@@ -436,12 +476,22 @@ public class MedicalConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.Subject.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public List<VersionInformationBean> getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000010CA.Subject3.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public List<CommentBean> getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;

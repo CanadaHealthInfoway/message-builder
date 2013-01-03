@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -409,7 +409,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceMaskingIndicators</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicators</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.confidentialityCode</p>
@@ -435,7 +436,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * Restricted').</p><p>The default is 'normal' signifying 'Not 
      * Masked'.</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicators</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.confidentialityCode</p>

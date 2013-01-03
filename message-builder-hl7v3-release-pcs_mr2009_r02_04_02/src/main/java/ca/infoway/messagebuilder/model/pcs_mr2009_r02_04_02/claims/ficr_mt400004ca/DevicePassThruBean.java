@@ -30,15 +30,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ClinicalDevic
 @Hl7PartTypeMapping({"FICR_MT400004CA.DevicePassThru"})
 public class DevicePassThruBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.SpecialAuthorizationChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ClinicalDeviceBean directTargetManufacturedProductManufacturedClinicalDevice;
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT400004CA.ManufacturedProduct.manufacturedClinicalDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"directTarget/manufacturedProduct/manufacturedClinicalDevice"})
     public ClinicalDeviceBean getDirectTargetManufacturedProductManufacturedClinicalDevice() {
         return this.directTargetManufacturedProductManufacturedClinicalDevice;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT400004CA.ManufacturedProduct.manufacturedClinicalDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setDirectTargetManufacturedProductManufacturedClinicalDevice(ClinicalDeviceBean directTargetManufacturedProductManufacturedClinicalDevice) {
         this.directTargetManufacturedProductManufacturedClinicalDevice = directTargetManufacturedProductManufacturedClinicalDevice;
     }

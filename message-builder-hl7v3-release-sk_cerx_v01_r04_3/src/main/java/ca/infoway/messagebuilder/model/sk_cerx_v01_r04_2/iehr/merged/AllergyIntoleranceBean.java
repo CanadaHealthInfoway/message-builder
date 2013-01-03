@@ -78,7 +78,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -443,7 +443,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceMaskingIndicator</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.confidentialityCode</p>
@@ -470,7 +471,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * this must be </strong><strong>NORMAL or a CODE_INVAL error 
      * issue will be returned.</strong></p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.confidentialityCode</p>
@@ -506,7 +508,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceMaskingIndicator</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.confidentialityCode</p>
@@ -533,7 +536,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * this must be </strong><strong>NORMAL or a CODE_INVAL error 
      * issue will be returned.</strong></p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.confidentialityCode</p>
@@ -738,7 +742,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * that it may not be free of errors and uncertainty may still 
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication 
+     * record is always used in drug contraind
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"uncertaintyCode"})
@@ -918,7 +922,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * that it may not be free of errors and uncertainty may still 
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraindication 
+     * record is always used in drug contraind
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {

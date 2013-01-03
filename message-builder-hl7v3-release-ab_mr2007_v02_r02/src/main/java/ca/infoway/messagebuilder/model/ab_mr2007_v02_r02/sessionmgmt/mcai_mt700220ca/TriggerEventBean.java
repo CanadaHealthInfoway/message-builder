@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -246,16 +246,31 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCAI_MT700220CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public RefersToBean<ACT> getSubject() {
         return this.subject;
     }
 
+    /**
+     * <p>Relationship: MCAI_MT700220CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubject(RefersToBean<ACT> subject) {
         this.subject = subject;
     }
 
 
+    /**
+     * <p>Relationship: MCAI_MT700220CA.ControlActEvent.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public List<CausedBean> getSubjectOf() {
         return this.subjectOf;

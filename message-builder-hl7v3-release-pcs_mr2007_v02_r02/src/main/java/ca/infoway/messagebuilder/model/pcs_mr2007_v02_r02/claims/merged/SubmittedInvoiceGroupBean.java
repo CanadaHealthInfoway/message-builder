@@ -83,7 +83,7 @@ import java.util.List;
 @Hl7RootType
 public class SubmittedInvoiceGroupBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt600201ca.InvoiceElementChoice, InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();

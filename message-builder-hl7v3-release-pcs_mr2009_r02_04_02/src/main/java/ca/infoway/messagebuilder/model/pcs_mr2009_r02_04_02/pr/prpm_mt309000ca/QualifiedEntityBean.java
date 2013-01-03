@@ -59,7 +59,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
@@ -69,6 +69,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     private OrganizationBean qualificationGrantingOrganization;
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.ResponsibleParty.privilege</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleFor/privilege"})
     public List<PrivilegeBean> getResponsibleForPrivilege() {
         return this.responsibleForPrivilege;

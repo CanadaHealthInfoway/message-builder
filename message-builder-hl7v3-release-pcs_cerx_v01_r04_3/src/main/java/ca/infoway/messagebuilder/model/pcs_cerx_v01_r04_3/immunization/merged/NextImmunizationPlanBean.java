@@ -45,7 +45,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.NextImmunizationPlan","POIZ_MT030060CA.NextImmunizationPlan","POIZ_MT060150CA.NextImmunizationPlan"})
 public class NextImmunizationPlanBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private TS effectiveTime = new TSImpl();
 
 

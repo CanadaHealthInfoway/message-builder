@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.Prescr
 @Hl7PartTypeMapping({"PORX_MT010120CA.PertinentInformation"})
 public class IncludesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private BL contextConductionInd = new BLImpl();
     private PrescriptionPatientMeasurementsBean quantityObservationEvent;
 
@@ -73,11 +73,23 @@ public class IncludesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.PertinentInformation.quantityObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"quantityObservationEvent"})
     public PrescriptionPatientMeasurementsBean getQuantityObservationEvent() {
         return this.quantityObservationEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.PertinentInformation.quantityObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setQuantityObservationEvent(PrescriptionPatientMeasurementsBean quantityObservationEvent) {
         this.quantityObservationEvent = quantityObservationEvent;
     }

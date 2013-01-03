@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -214,12 +214,22 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-999)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public List<RefersToBean<ACT>> getSubject() {
         return this.subject;
     }
 
 
+    /**
+     * <p>Relationship: QUQI_MT120000CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
@@ -246,11 +256,23 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUQI_MT120000CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"queryByParameter"})
     public QueryDefinitionBean<PL> getQueryByParameter() {
         return this.queryByParameter;
     }
 
+    /**
+     * <p>Relationship: 
+     * QUQI_MT120000CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
     }

@@ -37,7 +37,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Subject2","COCT_MT470002CA.Subject2","COCT_MT470012CA.Subject2"})
 public class ControlsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private CS informDefinitionClassCode = new CSImpl();

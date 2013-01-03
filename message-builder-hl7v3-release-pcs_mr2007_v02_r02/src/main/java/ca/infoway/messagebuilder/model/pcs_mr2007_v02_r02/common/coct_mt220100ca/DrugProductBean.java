@@ -55,7 +55,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV administerableMedicineCode = new CVImpl();
     private ST administerableMedicineName = new STImpl();
     private ST administerableMedicineDesc = new STImpl();
@@ -546,16 +546,31 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT220100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"administerableMedicine/asContent"})
     public DrugDispensedInBean getAdministerableMedicineAsContent() {
         return this.administerableMedicineAsContent;
     }
 
+    /**
+     * <p>Relationship: COCT_MT220100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
         this.administerableMedicineAsContent = administerableMedicineAsContent;
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT220100CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"administerableMedicine/ingredient"})
     public List<DrugContainsBean> getAdministerableMedicineIngredient() {
         return this.administerableMedicineIngredient;

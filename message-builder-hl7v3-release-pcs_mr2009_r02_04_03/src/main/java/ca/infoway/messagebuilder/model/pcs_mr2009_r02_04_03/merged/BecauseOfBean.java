@@ -249,7 +249,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt120402
 @Hl7PartTypeMapping({"POME_MT010040CA.Reason","PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2","REPC_MT210001CA.Reason","REPC_MT210002CA.Reason","REPC_MT210003CA.Reason","REPC_MT220001CA.Reason","REPC_MT220002CA.Reason","REPC_MT220003CA.Reason","REPC_MT230001CA.Reason","REPC_MT230002CA.Reason","REPC_MT230003CA.Reason","REPC_MT410001CA.Reason","REPC_MT410003CA.Reason","REPC_MT420001CA.Reason","REPC_MT420003CA.Reason","REPC_MT500001CA.Reason","REPC_MT500002CA.Reason","REPC_MT500003CA.Reason","REPC_MT500004CA.Reason","REPC_MT610001CA.Reason","REPC_MT610002CA.Reason"})
 public class BecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private Indications indications;
     private INT priorityNumber = new INTImpl();
 

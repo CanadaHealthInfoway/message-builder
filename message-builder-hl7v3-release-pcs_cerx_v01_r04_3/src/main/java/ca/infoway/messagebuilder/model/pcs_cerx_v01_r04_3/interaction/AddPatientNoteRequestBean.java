@@ -43,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 @Hl7PartTypeMapping({"COMT_IN300001CA"})
 public class AddPatientNoteRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
 
 }

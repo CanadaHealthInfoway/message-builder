@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.HealthcareWorke
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private ST title = new STImpl();
     private HealthcareWorkerBean performerAssignedEntity;
@@ -121,11 +121,21 @@ public class FormulariesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/assignedEntity"})
     public HealthcareWorkerBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }

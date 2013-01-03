@@ -121,7 +121,7 @@ import java.util.List;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Patient, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -340,7 +340,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (Root)</p><p>Person.PHN (Extension)</p>
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p
+     * (Exten
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -558,7 +558,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (Root)</p><p>Person.PHN (Extension)</p>
      * 
      * <p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p
+     * (Exten
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -771,7 +771,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
      * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
-     * (partType=CNT - populate mnemonic of SC)<
+     * (partType=CNT - populate mnemonic of 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"addr"})
@@ -984,7 +984,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
      * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
-     * (partType=CNT - populate mnemonic of SC)<
+     * (partType=CNT - populate mnemonic of 
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setAddr(PostalAddress addr) {
@@ -1336,7 +1336,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.mi
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Perso
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientPerson/name"})
@@ -1535,7 +1535,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.mi
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Perso
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientPersonName(PersonName patientPersonName) {

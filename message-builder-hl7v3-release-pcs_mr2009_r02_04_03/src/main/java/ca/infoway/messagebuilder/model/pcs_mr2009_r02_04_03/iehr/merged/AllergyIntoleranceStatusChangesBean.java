@@ -68,7 +68,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000007CA.ControlActEvent","REPC_MT000009CA.ControlActEvent","REPC_MT000010CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV reasonCode = new CVImpl();
     private ChangedByBean author;
     private CV code = new CVImpl();
@@ -117,7 +117,8 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
@@ -176,7 +177,8 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
      * to the record as indicated by the person who made the 
      * change.</i> </p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
@@ -245,7 +247,8 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeType</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
@@ -266,7 +269,8 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceStatusChangeType</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeType</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 

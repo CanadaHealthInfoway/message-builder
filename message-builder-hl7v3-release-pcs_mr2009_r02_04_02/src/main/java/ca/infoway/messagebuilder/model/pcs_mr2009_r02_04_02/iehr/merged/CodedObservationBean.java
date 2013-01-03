@@ -103,7 +103,7 @@ import java.util.Set;
 @Hl7RootType
 public class CodedObservationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -777,7 +777,8 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ObservationNormalityInterpretation</p>
      * 
-     * <p>Un-merged Business Name: ObservationNormalityInterpretation</p>
+     * <p>Un-merged Business Name: 
+     * ObservationNormalityInterpretation</p>
      * 
      * <p>Relationship: 
      * REPC_MT420003CA.CommonObservationEvent.interpretationCode</p>
@@ -793,7 +794,8 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * similar age and gender. E.g. &quot;Normal&quot;, 
      * &quot;High&quot;, etc.</p>
      * 
-     * <p>Un-merged Business Name: ObservationNormalityInterpretation</p>
+     * <p>Un-merged Business Name: 
+     * ObservationNormalityInterpretation</p>
      * 
      * <p>Relationship: 
      * REPC_MT420001CA.CommonObservationEvent.interpretationCode</p>
@@ -817,7 +819,8 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Business Name: ObservationNormalityInterpretation</p>
      * 
-     * <p>Un-merged Business Name: ObservationNormalityInterpretation</p>
+     * <p>Un-merged Business Name: 
+     * ObservationNormalityInterpretation</p>
      * 
      * <p>Relationship: 
      * REPC_MT420003CA.CommonObservationEvent.interpretationCode</p>
@@ -833,7 +836,8 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * similar age and gender. E.g. &quot;Normal&quot;, 
      * &quot;High&quot;, etc.</p>
      * 
-     * <p>Un-merged Business Name: ObservationNormalityInterpretation</p>
+     * <p>Un-merged Business Name: 
+     * ObservationNormalityInterpretation</p>
      * 
      * <p>Relationship: 
      * REPC_MT420001CA.CommonObservationEvent.interpretationCode</p>

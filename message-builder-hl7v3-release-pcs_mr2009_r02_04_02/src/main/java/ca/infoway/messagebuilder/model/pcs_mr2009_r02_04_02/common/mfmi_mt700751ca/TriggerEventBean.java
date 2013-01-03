@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -293,31 +293,63 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public CreatedBy_2Bean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(CreatedBy_2Bean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700751CA.DataEnterer.entererChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"dataEnterer/entererChoice"})
     public EntererChoice getDataEntererEntererChoice() {
         return this.dataEntererEntererChoice;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700751CA.DataEnterer.entererChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDataEntererEntererChoice(EntererChoice dataEntererEntererChoice) {
         this.dataEntererEntererChoice = dataEntererEntererChoice;
     }
@@ -337,31 +369,65 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
     public ServiceDeliveryLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.DataEntryLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDataEntryLocationServiceDeliveryLocation(ServiceDeliveryLocationBean dataEntryLocationServiceDeliveryLocation) {
         this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public CreatedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.PertinentInformation.authorizationToken</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
     public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
         return this.pertinentInformationAuthorizationToken;
     }
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.PertinentInformation.authorizationToken</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
         this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
     }
@@ -387,17 +453,34 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700751CA.Subject2.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf2DetectedIssueEvent() {
         return this.subjectOf2DetectedIssueEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"queryByParameter"})
     public QueryByParameterBean<PL> getQueryByParameter() {
         return this.queryByParameter;
     }
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
     }

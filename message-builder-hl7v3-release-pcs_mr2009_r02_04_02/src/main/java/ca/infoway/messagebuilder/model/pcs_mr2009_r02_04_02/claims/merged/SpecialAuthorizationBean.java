@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT400003CA.SpecialAuthorization","FICR_MT400004CA.SpecialAuthorization","FICR_MT490101CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;
@@ -112,21 +112,24 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationEffectiveDate</p>
      * 
-     * <p>Un-merged Business Name: SpecialAuthorizationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.SpecialAuthorization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: SpecialAuthorizationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SpecialAuthorization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: SpecialAuthorizationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.SpecialAuthorization.effectiveTime</p>
@@ -141,21 +144,24 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecialAuthorizationEffectiveDate</p>
      * 
-     * <p>Un-merged Business Name: SpecialAuthorizationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * FICR_MT490101CA.SpecialAuthorization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: SpecialAuthorizationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SpecialAuthorization.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: SpecialAuthorizationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * SpecialAuthorizationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * FICR_MT400003CA.SpecialAuthorization.effectiveTime</p>

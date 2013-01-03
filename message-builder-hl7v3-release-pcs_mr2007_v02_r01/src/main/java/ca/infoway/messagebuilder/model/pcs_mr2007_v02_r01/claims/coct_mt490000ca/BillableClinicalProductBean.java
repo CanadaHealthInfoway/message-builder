@@ -56,7 +56,7 @@ import java.util.List;
 @Hl7RootType
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
@@ -167,76 +167,164 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT490000CA.Product.manufacturedProduct</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"product/manufacturedProduct"})
     public ManufacturedProductBean getProductManufacturedProduct() {
         return this.productManufacturedProduct;
     }
 
+    /**
+     * <p>Relationship: COCT_MT490000CA.Product.manufacturedProduct</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setProductManufacturedProduct(ManufacturedProductBean productManufacturedProduct) {
         this.productManufacturedProduct = productManufacturedProduct;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ResponsibleProvider.healthCareProvider</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/healthCareProvider"})
     public HealthCareProviderBean getPerformerHealthCareProvider() {
         return this.performerHealthCareProvider;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ResponsibleProvider.healthCareProvider</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPerformerHealthCareProvider(HealthCareProviderBean performerHealthCareProvider) {
         this.performerHealthCareProvider = performerHealthCareProvider;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProductReferrer.healthCareProvider</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"referrer/healthCareProvider"})
     public HealthCareProviderBean getReferrerHealthCareProvider() {
         return this.referrerHealthCareProvider;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProductReferrer.healthCareProvider</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReferrerHealthCareProvider(HealthCareProviderBean referrerHealthCareProvider) {
         this.referrerHealthCareProvider = referrerHealthCareProvider;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.Consultant.healthCareProvider</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consultant/healthCareProvider"})
     public HealthCareProviderBean getConsultantHealthCareProvider() {
         return this.consultantHealthCareProvider;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.Consultant.healthCareProvider</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsultantHealthCareProvider(HealthCareProviderBean consultantHealthCareProvider) {
         this.consultantHealthCareProvider = consultantHealthCareProvider;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ServiceLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
     public ServiceLocationBean getLocationServiceDeliveryLocation() {
         return this.locationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ServiceLocation.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProductLocationOrigin.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
     public ServiceLocationBean getOriginServiceDeliveryLocation() {
         return this.originServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProductLocationOrigin.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
         this.originServiceDeliveryLocation = originServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProductLocationDestination.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public ServiceLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.ProductLocationDestination.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT490000CA.BillableClinicalProduct.pertinentInformation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation"})
     public List<DiagnosisInformationBean> getPertinentInformation() {
         return this.pertinentInformation;

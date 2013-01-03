@@ -57,7 +57,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
     private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
     private II id = new IIImpl();
@@ -74,6 +74,12 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     private List<CareCompositionsBean> componentOf2PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.InformationRecipient.recipientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informationRecipient/recipientChoice"})
     public List<RecipientChoice> getInformationRecipientRecipientChoice() {
         return this.informationRecipientRecipientChoice;
@@ -135,11 +141,23 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
     public ParentTestBean getOccurrenceOfActParentPointer() {
         return this.occurrenceOfActParentPointer;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
         this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
     }
@@ -171,37 +189,77 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.PertinentInformation.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/supportingClinicalObservationEvent"})
     public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent() {
         return this.pertinentInformationSupportingClinicalObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/labInitiatedOrderIndicator"})
     public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator() {
         return this.component1LabInitiatedOrderIndicator;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator) {
         this.component1LabInitiatedOrderIndicator = component1LabInitiatedOrderIndicator;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/referralRedirectIndicator"})
     public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator() {
         return this.component2ReferralRedirectIndicator;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator) {
         this.component2ReferralRedirectIndicator = component2ReferralRedirectIndicator;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/requestSortKey"})
     public OrderSortKeyBean getComponent3RequestSortKey() {
         return this.component3RequestSortKey;
     }
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey) {
         this.component3RequestSortKey = component3RequestSortKey;
     }
@@ -218,6 +276,11 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.RequestChoice.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf1"})
     public List<IncludesBean> getSubjectOf1() {
         return this.subjectOf1;
@@ -244,16 +307,32 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf1/priorActRequest"})
     public PriorTestRequestBean getComponentOf1PriorActRequest() {
         return this.componentOf1PriorActRequest;
     }
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentOf1PriorActRequest(PriorTestRequestBean componentOf1PriorActRequest) {
         this.componentOf1PriorActRequest = componentOf1PriorActRequest;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component4.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf2/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent() {
         return this.componentOf2PatientCareProvisionEvent;

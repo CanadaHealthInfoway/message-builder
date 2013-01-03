@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -70,6 +70,11 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     private OrganizationBean qualificationGrantingOrganization;
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.responsibleFor</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"responsibleFor"})
     public List<ResponsiblePartyBean> getResponsibleFor() {
         return this.responsibleFor;
@@ -195,11 +200,23 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.QualifiedEntity.qualifiedPrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"qualifiedPrincipalPerson"})
     public PrinicpalPerson_2Bean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.QualifiedEntity.qualifiedPrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setQualifiedPrincipalPerson(PrinicpalPerson_2Bean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
     }

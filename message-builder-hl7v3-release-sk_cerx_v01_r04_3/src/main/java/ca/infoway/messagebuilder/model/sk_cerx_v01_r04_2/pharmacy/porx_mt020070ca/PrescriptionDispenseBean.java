@@ -57,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
@@ -168,6 +168,10 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Business Name: Dispensed For</p>
      * 
+     * <p>Relationship: PORX_MT020070CA.Subject8.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><strong>NOTE: The CeRx model allows for this field to be 
      * an animal. PIN does not support animals and this field is 
      * constrained to only allow Patients</strong></p>
@@ -181,6 +185,10 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
     /**
      * <p>Business Name: Dispensed For</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Subject8.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p><strong>NOTE: The CeRx model allows for this field to be 
      * an animal. PIN does not support animals and this field is 
@@ -207,21 +215,43 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recordTarget/patient"})
     public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
     public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
@@ -229,6 +259,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
     /**
      * <p>Business Name: Performs</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;An indication of what kind of substitution was</p> 
      * <div>made, if any.</div>
@@ -240,6 +275,11 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
     /**
      * <p>Business Name: Performs</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>&nbsp;An indication of what kind of substitution was</p> 
      * <div>made, if any.</div>
@@ -281,11 +321,21 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public CommentBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Relationship: PORX_MT020070CA.Subject7.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

@@ -74,7 +74,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueManagement","PORX_MT980020CA.DetectedIssueManagement","PORX_MT980030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private ManagedByBean author;
@@ -235,7 +235,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * dealing with clinical indication overrides, otherwise use 
      * overrides in ControlAct 
      * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15
+     * Codes</p><p>ZPS.8</p><
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -398,7 +398,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * dealing with clinical indication overrides, otherwise use 
      * overrides in ControlAct 
      * wrapper.</p><p>ZPB3.10</p><p>Intervention 
-     * Codes</p><p>ZPS.8</p><p>ZPS.15
+     * Codes</p><p>ZPS.8</p><
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActDetectedIssueManagementCode code) {

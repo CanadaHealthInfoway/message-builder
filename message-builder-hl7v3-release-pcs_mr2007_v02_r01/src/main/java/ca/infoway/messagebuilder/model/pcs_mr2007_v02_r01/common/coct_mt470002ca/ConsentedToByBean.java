@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.RelatedPersonBe
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
     private RelatedPersonBean personalRelationship;
@@ -126,11 +126,21 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.Author.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"personalRelationship"})
     public RelatedPersonBean getPersonalRelationship() {
         return this.personalRelationship;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.Author.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPersonalRelationship(RelatedPersonBean personalRelationship) {
         this.personalRelationship = personalRelationship;
     }

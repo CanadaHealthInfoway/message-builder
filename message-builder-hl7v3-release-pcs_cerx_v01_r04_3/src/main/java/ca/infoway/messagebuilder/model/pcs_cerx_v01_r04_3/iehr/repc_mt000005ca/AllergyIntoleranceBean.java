@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -457,11 +457,21 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000005CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000005CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -489,53 +499,109 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
         return this.informant;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInformant(ReportedByBean informant) {
         this.informant = informant;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.IntoleranceCondition.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000005CA.Support.records</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"support/records"})
     public List<Records> getSupportRecords() {
         return this.supportRecords;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000005CA.Subject4.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotation"})
     public List<CommentBean> getSubjectOf1Annotation() {
         return this.subjectOf1Annotation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
         return this.subjectOf2SeverityObservation;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000005CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
         this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
     }

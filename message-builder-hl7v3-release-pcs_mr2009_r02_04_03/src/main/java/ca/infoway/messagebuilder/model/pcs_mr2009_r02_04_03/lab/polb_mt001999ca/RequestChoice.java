@@ -45,11 +45,26 @@ import java.util.List;
 public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.Lab {
 
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<SpecimenRoleBean> getSpecimenSpecimen();
 
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public Patient_1Bean getRecordTargetPatient();
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
 
@@ -68,9 +83,21 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.CallBackContact.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<HealthcareWorkerBean> getCallBackContactAssignedEntity();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.InformationRecipient.recipientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RecipientChoice> getInformationRecipientRecipientChoice();
 
 
@@ -82,31 +109,95 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean> getVerifierAssignedEntity();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ParentTestBean getOccurrenceOfActParentPointer();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public OutbreakBean getPertinentInformation1OutbreakEvent();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.PertinentInformation.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ReferralRedirectIndicatorBean getComponent1ReferralRedirectIndicator();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1ReferralRedirectIndicator(ReferralRedirectIndicatorBean component1ReferralRedirectIndicator);
 
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public OrderSortKeyBean getComponent2RequestSortKey();
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2RequestSortKey(OrderSortKeyBean component2RequestSortKey);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public LabInitiatedOrderIndicatorBean getComponent3LabInitiatedOrderIndicator();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001999CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator);
 
 
@@ -127,6 +218,11 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public List<ResultChoice> getFulfillmentResultChoice1();
 
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.RequestChoice.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     public List<IncludesBean> getSubjectOf1();
 
 
@@ -145,8 +241,18 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent);
 
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public PriorTestRequestBean getComponentOfPriorActRequest();
 
+    /**
+     * <p>Relationship: POLB_MT001999CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentOfPriorActRequest(PriorTestRequestBean componentOfPriorActRequest);
 
 }

@@ -140,7 +140,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060190CA.Author2","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ProviderBean assignedPerson;
     private TS time = new TSImpl();
 
@@ -456,7 +456,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, f
+     * format=102)</p><p>DRU.040-02 (
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"time"})
@@ -667,7 +667,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Prescription.prescribedDate</p><p>Date prescription 
      * written</p><p>ZDP.8</p><p>DRU.040-02 (low, qualifier=85, 
-     * format=102)</p><p>DRU.040-02 (low, qualifier=LO, f
+     * format=102)</p><p>DRU.040-02 (
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setTime(Date time) {

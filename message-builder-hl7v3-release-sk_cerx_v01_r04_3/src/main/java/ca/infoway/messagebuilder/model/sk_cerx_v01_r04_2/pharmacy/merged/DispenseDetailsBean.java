@@ -41,7 +41,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT quantity = new INTImpl();
@@ -433,7 +433,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * qualifier=36, 
      * format=102)</p><p>A_BillablePharmacyDispense</p><p>Dispense 
      * Date</p><p>Dispense 
-     * Date</p><p>DispensedItem.dispenseDate</p
+     * Date</p><p>DispensedItem.dis
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -651,7 +651,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * qualifier=36, 
      * format=102)</p><p>A_BillablePharmacyDispense</p><p>Dispense 
      * Date</p><p>Dispense 
-     * Date</p><p>DispensedItem.dispenseDate</p
+     * Date</p><p>DispensedItem.dis
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
@@ -814,7 +814,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
      * fact that it is package is determined by a playing 
      * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.1 (the fact that it is 
-     * package is determined by a playing entity)</p><p>DRU.
+     * package is determined by a playing entity)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"quantity"})
@@ -977,7 +977,7 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
      * fact that it is package is determined by a playing 
      * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.1 (the fact that it is 
-     * package is determined by a playing entity)</p><p>DRU.
+     * package is determined by a playing entity)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setQuantity(Integer quantity) {

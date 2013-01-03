@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -210,21 +210,45 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
     public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
         return this.component1SubsequentSupplyRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component8.subsequentSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
         this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component7.initialSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/initialSupplyRequest"})
     public FirstFillBean getComponent2InitialSupplyRequest() {
         return this.component2InitialSupplyRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Component7.initialSupplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;
     }

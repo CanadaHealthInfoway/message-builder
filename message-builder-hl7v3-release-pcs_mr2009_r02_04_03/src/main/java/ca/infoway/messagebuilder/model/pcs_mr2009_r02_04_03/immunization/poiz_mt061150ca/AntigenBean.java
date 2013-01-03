@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.merged.
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Antigen"})
 public class AntigenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private AntigenValidityBean asHealthChartSubjectOf1AntigenValidity;
@@ -124,11 +124,21 @@ public class AntigenBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT061150CA.Subject4.antigenValidity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"asHealthChart/subjectOf1/antigenValidity"})
     public AntigenValidityBean getAsHealthChartSubjectOf1AntigenValidity() {
         return this.asHealthChartSubjectOf1AntigenValidity;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT061150CA.Subject4.antigenValidity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAsHealthChartSubjectOf1AntigenValidity(AntigenValidityBean asHealthChartSubjectOf1AntigenValidity) {
         this.asHealthChartSubjectOf1AntigenValidity = asHealthChartSubjectOf1AntigenValidity;
     }

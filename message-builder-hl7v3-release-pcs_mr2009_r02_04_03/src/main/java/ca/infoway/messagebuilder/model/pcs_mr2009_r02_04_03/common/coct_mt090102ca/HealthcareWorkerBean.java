@@ -51,7 +51,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Recipient, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.Assignees {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private ActingPersonBean assignedPerson;
     private ResponsibleOrganizationBean representedOrganization;
@@ -76,21 +76,45 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT090102CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"assignedPerson"})
     public ActingPersonBean getAssignedPerson() {
         return this.assignedPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT090102CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAssignedPerson(ActingPersonBean assignedPerson) {
         this.assignedPerson = assignedPerson;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT090102CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"representedOrganization"})
     public ResponsibleOrganizationBean getRepresentedOrganization() {
         return this.representedOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT090102CA.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setRepresentedOrganization(ResponsibleOrganizationBean representedOrganization) {
         this.representedOrganization = representedOrganization;
     }

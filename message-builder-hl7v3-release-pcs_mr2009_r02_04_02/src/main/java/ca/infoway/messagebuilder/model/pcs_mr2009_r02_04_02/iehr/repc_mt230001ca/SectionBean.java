@@ -37,7 +37,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private DocumentContent component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
@@ -119,12 +119,22 @@ public class SectionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT230001CA.Component.subSection</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/subSection"})
     public List<DocumentSectionsBean> getComponent2SubSection() {
         return this.component2SubSection;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT230001CA.Component5.reference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/reference"})
     public List<ReferenceBean> getComponent3Reference() {
         return this.component3Reference;

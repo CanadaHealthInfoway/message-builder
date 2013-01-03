@@ -48,7 +48,7 @@ import java.util.Set;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV issueFilterCodeValue = new CVImpl();
     private SET<II, Identifier> prescriptionOrderNumberValue = new SETImpl<II, Identifier>(IIImpl.class);
 

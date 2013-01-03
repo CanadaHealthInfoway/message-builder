@@ -57,7 +57,7 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.Summary {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -264,11 +264,21 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT061150CA.Immunization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public AdministeredToBean getSubject() {
         return this.subject;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT061150CA.Immunization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject(AdministeredToBean subject) {
         this.subject = subject;
     }
@@ -340,11 +350,21 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT061150CA.CauseOf.investigationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"cause/investigationEvent"})
     public InvestigationEventBean getCauseInvestigationEvent() {
         return this.causeInvestigationEvent;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT061150CA.CauseOf.investigationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCauseInvestigationEvent(InvestigationEventBean causeInvestigationEvent) {
         this.causeInvestigationEvent = causeInvestigationEvent;
     }

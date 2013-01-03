@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV assignedPatientLocationValue = new CVImpl();
     private BL includeHistoryIndicatorValue = new BLImpl();
     private IVL<TS, Interval<Date>> jLISReceivedDateTimeValue = new IVLImpl<TS, Interval<Date>>();
@@ -848,7 +848,8 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenCollectionEffectiveTimeRange</p>
      * 
-     * <p>Un-merged Business Name: SpecimenCollectionEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * SpecimenCollectionEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.SpecimenCollectedDateTimeRange.value</p>
@@ -874,7 +875,8 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenCollectionEffectiveTimeRange</p>
      * 
-     * <p>Un-merged Business Name: SpecimenCollectionEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * SpecimenCollectionEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.SpecimenCollectedDateTimeRange.value</p>
@@ -900,7 +902,8 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenReceivedEffectiveTimeRange</p>
      * 
-     * <p>Un-merged Business Name: SpecimenReceivedEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * SpecimenReceivedEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.SpecimenReceivedDateTimeRange.value</p>
@@ -926,7 +929,8 @@ public class ParameterListBean extends MessagePartBean {
     /**
      * <p>Business Name: SpecimenReceivedEffectiveTimeRange</p>
      * 
-     * <p>Un-merged Business Name: SpecimenReceivedEffectiveTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * SpecimenReceivedEffectiveTimeRange</p>
      * 
      * <p>Relationship: 
      * POLB_MT310000CA.SpecimenReceivedDateTimeRange.value</p>

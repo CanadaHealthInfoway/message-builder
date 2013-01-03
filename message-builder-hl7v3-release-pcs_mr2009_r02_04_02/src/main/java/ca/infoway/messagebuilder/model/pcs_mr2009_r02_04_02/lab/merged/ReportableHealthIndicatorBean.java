@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Reportab
 @Hl7PartTypeMapping({"POLB_MT004000CA.ReportableTestIndicator","POLB_MT004100CA.ReportableTestIndicator","POLB_MT004200CA.ReportableTestIndicator"})
 public class ReportableHealthIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private BL value = new BLImpl();
 
@@ -64,7 +64,8 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationTypeReportableIndicator</p>
      * 
-     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.ReportableTestIndicator.code</p>
@@ -75,7 +76,8 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * associated result is reportable to an agency, ministry, 
      * study, etc.</p>
      * 
-     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.ReportableTestIndicator.code</p>
@@ -85,7 +87,8 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * <p>Describes this observation as an indicator as to whether 
      * or not this result is to be reported to public health.</p>
      * 
-     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.ReportableTestIndicator.code</p>
@@ -103,7 +106,8 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
     /**
      * <p>Business Name: ObservationTypeReportableIndicator</p>
      * 
-     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.ReportableTestIndicator.code</p>
@@ -114,7 +118,8 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * associated result is reportable to an agency, ministry, 
      * study, etc.</p>
      * 
-     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.ReportableTestIndicator.code</p>
@@ -124,7 +129,8 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
      * <p>Describes this observation as an indicator as to whether 
      * or not this result is to be reported to public health.</p>
      * 
-     * <p>Un-merged Business Name: ObservationTypeReportableIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ObservationTypeReportableIndicator</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.ReportableTestIndicator.code</p>

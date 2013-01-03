@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt060110c
 @Hl7PartTypeMapping({"PORX_IN060240CA"})
 public class MedicationDispenseSummaryQueryResponseBean extends HL7MessageBean<TriggerEvent_4Bean<DispenseBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
 
 }

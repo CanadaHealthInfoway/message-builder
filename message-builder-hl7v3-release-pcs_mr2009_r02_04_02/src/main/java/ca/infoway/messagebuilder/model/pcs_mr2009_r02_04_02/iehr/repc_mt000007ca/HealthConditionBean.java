@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -508,21 +508,41 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.ConditionEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public ChangedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.ConditionEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Informant.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informant/actingPerson"})
     public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Informant.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformantActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
@@ -549,47 +569,94 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000007CA.Custodian2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
     public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
         return this.custodian1ServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000007CA.Custodian2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
         this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"custodian2/assignedDevice"})
     public EHRRepositoryBean getCustodian2AssignedDevice() {
         return this.custodian2AssignedDevice;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
         this.custodian2AssignedDevice = custodian2AssignedDevice;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Predecessor.oldCondition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/oldCondition"})
     public List<OldConditionBean> getPredecessorOldCondition() {
         return this.predecessorOldCondition;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Predecessor2.newCondition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"successor/newCondition"})
     public NewConditionBean getSuccessorNewCondition() {
         return this.successorNewCondition;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Predecessor2.newCondition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSuccessorNewCondition(NewConditionBean successorNewCondition) {
         this.successorNewCondition = successorNewCondition;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public AllergyIntoleranceStatusChangesBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000007CA.Subject.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1ControlActEvent(AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }
@@ -617,6 +684,12 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000007CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;

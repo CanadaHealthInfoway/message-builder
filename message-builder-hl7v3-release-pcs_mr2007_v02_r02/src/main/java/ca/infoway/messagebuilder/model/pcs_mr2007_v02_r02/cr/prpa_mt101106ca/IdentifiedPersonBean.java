@@ -65,7 +65,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -234,6 +234,11 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101106CA.Person.asOtherIDs</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
     public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
         return this.identifiedPersonAsOtherIDs;

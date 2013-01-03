@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningOrganizationId = new IIImpl();
@@ -95,7 +95,8 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * helps keep track of the different id's assigned during each 
      * phase of processing.</p>
      * 
-     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: 
+     * ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
      * 
@@ -127,7 +128,8 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * helps keep track of the different id's assigned during each 
      * phase of processing.</p>
      * 
-     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: 
+     * ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
      * 

@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
@@ -98,11 +98,21 @@ public class KeywordBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: RCMR_MT010002CA.Author.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/consenter"})
     public Consenter getAuthorConsenter() {
         return this.authorConsenter;
     }
 
+    /**
+     * <p>Relationship: RCMR_MT010002CA.Author.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorConsenter(Consenter authorConsenter) {
         this.authorConsenter = authorConsenter;
     }

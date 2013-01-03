@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInsur
 @Hl7PartTypeMapping({"FICR_MT490102CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CoveredPartyBean beneficiaryCoveredParty;
@@ -93,21 +93,41 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"beneficiary/coveredParty"})
     public CoveredPartyBean getBeneficiaryCoveredParty() {
         return this.beneficiaryCoveredParty;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Beneficiary.coveredParty</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
         this.beneficiaryCoveredParty = beneficiaryCoveredParty;
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"holder/policyHolder"})
     public PolicyHolderBean getHolderPolicyHolder() {
         return this.holderPolicyHolder;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
         this.holderPolicyHolder = holderPolicyHolder;
     }

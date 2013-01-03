@@ -89,7 +89,7 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -561,11 +561,21 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -613,52 +623,106 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Immunization.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Immunization.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Informant.informationSourceRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informant/informationSourceRole"})
     public InformationSourceRoleBean getInformantInformationSourceRole() {
         return this.informantInformationSourceRole;
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Informant.informationSourceRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformantInformationSourceRole(InformationSourceRoleBean informantInformationSourceRole) {
         this.informantInformationSourceRole = informantInformationSourceRole;
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Immunization.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Immunization.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf"})
     public PartOfBean getInFulfillmentOf() {
         return this.inFulfillmentOf;
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInFulfillmentOf(PartOfBean inFulfillmentOf) {
         this.inFulfillmentOf = inFulfillmentOf;
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Subject6.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
         return this.subjectOf1DetectedIssueEvent;
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Subject9.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public List<CommentBean> getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;

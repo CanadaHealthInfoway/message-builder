@@ -93,7 +93,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.DosageLine","PORX_MT980040CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
     private GTS effectiveTime = new GTSImpl();
@@ -607,7 +607,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * - codes will need to be mapped to and from formal GTS 
      * expressions)</p><p>RepeatPattern.uncodedPattern 
      * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single t
+     * (PIVL.period)</p><p>DP.13.2.2 (
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -799,7 +799,7 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * - codes will need to be mapped to and from formal GTS 
      * expressions)</p><p>RepeatPattern.uncodedPattern 
      * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (single t
+     * (PIVL.period)</p><p>DP.13.2.2 (
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setEffectiveTime(GeneralTimingSpecification effectiveTime) {

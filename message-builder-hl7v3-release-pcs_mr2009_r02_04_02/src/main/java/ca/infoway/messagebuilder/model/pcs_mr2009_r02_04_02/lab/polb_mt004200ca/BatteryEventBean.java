@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
@@ -86,12 +86,22 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.ObservationChoice.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"specimen"})
     public List<ReportSectionSpecimenBean> getSpecimen() {
         return this.specimen;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.ObservationChoice.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public List<ElectronicResultReceiverBean> getReceiver() {
         return this.receiver;
@@ -111,6 +121,11 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.ObservationChoice.performer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-2)</p>
+     */
     @Hl7XmlMapping({"performer"})
     public List<WasPerformedByBean> getPerformer() {
         return this.performer;
@@ -163,6 +178,12 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.InFulfillmentOf.fulfillmentChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
         return this.inFulfillmentOfFulfillmentChoice;
@@ -221,11 +242,23 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
     public OutbreakBean getPertinentInformation1OutbreakEvent() {
         return this.pertinentInformation1OutbreakEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
         this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
@@ -245,23 +278,45 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.PertinentInformation2.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
         return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Component2.reportableTestIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/reportableTestIndicator"})
     public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator() {
         return this.component1ReportableTestIndicator;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.Component3.resultSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/resultSortKey"})
     public ResultSortKeyBean getComponent2ResultSortKey() {
         return this.component2ResultSortKey;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004200CA.Component3.resultSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
         this.component2ResultSortKey = component2ResultSortKey;
     }
@@ -311,17 +366,35 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.ObservationChoice.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf2"})
     public List<IncludesBean> getSubjectOf2() {
         return this.subjectOf2;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
         return this.subjectOf3ResultStatusProcessStep;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004200CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
         this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }

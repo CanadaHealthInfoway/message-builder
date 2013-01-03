@@ -83,7 +83,7 @@ import java.util.List;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
@@ -392,7 +392,8 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
-     * <p>Un-merged Business Name: ProfessionalServiceMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ProfessionalServiceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000017CA.ProcedureEvent.confidentialityCode</p>
@@ -411,7 +412,8 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * 'Masked'). The default is 'NORMAL' signifying 'Not 
      * Masked'.</p>
      * 
-     * <p>Un-merged Business Name: ProfessionalServiceMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ProfessionalServiceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.ProcedureEvent.confidentialityCode</p>
@@ -438,7 +440,8 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Business Name: ProfessionalServiceMaskingIndicator</p>
      * 
-     * <p>Un-merged Business Name: ProfessionalServiceMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ProfessionalServiceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000017CA.ProcedureEvent.confidentialityCode</p>
@@ -457,7 +460,8 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * 'Masked'). The default is 'NORMAL' signifying 'Not 
      * Masked'.</p>
      * 
-     * <p>Un-merged Business Name: ProfessionalServiceMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * ProfessionalServiceMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT100001CA.ProcedureEvent.confidentialityCode</p>

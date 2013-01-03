@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS classCode = new CSImpl();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
@@ -286,11 +286,21 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101102CA.IdentifiedEntity.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public HasConfidenceValueBean getSubjectOf() {
         return this.subjectOf;
     }
 
+    /**
+     * <p>Relationship: PRPA_MT101102CA.IdentifiedEntity.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubjectOf(HasConfidenceValueBean subjectOf) {
         this.subjectOf = subjectOf;
     }

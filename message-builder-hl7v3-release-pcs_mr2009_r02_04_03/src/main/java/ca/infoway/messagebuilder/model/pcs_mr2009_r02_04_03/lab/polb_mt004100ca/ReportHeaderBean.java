@@ -82,7 +82,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportHeaderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004999ca.ResultInstancePayloadChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt001999ca.ResultChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST title = new STImpl();
@@ -338,22 +338,42 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recordTarget/patient"})
     public Patient_1Bean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public List<ElectronicResultReceiverBean> getReceiver() {
         return this.receiver;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.ObservationReport.performer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-2)</p>
+     */
     @Hl7XmlMapping({"performer"})
     public List<WasPerformedByBean> getPerformer() {
         return this.performer;
@@ -382,28 +402,58 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.InFulfillmentOf.fulfillmentChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
         return this.inFulfillmentOfFulfillmentChoice;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
     public OutbreakBean getPertinentInformation1OutbreakEvent() {
         return this.pertinentInformation1OutbreakEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
         this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PertinentInformation3.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
         return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component9.reportableTestIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/reportableTestIndicator"})
     public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator() {
         return this.component1ReportableTestIndicator;
@@ -441,17 +491,35 @@ public class ReportHeaderBean extends MessagePartBean implements ca.infoway.mess
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.ObservationReport.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf2"})
     public List<IncludesBean> getSubjectOf2() {
         return this.subjectOf2;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
         return this.subjectOf3ResultStatusProcessStep;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
         this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }

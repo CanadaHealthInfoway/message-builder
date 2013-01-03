@@ -117,7 +117,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
 public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
@@ -129,7 +129,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.ServiceDeliveryLocation.id</p>
      * 
@@ -141,7 +142,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT309000CA.ServiceDeliveryLocation.id</p>
      * 
@@ -247,7 +249,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -268,7 +271,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>

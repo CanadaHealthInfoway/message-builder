@@ -34,17 +34,29 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationProfileBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private AdministeredToBean subject1;
     private List<ImmunizationForecastBean> subject2ImmunizationForecast = new ArrayList<ImmunizationForecastBean>();
     private AttachmentBean pertinentInformationAttachment;
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT070020CA.ImmunizationProfile.subject1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject1"})
     public AdministeredToBean getSubject1() {
         return this.subject1;
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT070020CA.ImmunizationProfile.subject1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubject1(AdministeredToBean subject1) {
         this.subject1 = subject1;
     }

@@ -58,7 +58,7 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Supply
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -246,21 +246,41 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060100CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060100CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060100CA.Component2.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/supplyEvent"})
     public SupplyEventBean getComponent1SupplyEvent() {
         return this.component1SupplyEvent;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060100CA.Component2.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
         this.component1SupplyEvent = component1SupplyEvent;
     }
@@ -332,11 +352,23 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.InFulfillmentOf.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
     public CombinedMedicationRequest_1Bean getFulfillmentSubstanceAdministrationRequest() {
         return this.fulfillmentSubstanceAdministrationRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060100CA.InFulfillmentOf.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillmentSubstanceAdministrationRequest(CombinedMedicationRequest_1Bean fulfillmentSubstanceAdministrationRequest) {
         this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
     }

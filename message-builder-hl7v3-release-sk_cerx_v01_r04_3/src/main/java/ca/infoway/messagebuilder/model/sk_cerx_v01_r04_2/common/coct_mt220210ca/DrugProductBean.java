@@ -63,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CE playerCode = new CEImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
@@ -1030,6 +1030,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Business Name: Manufactured By</p>
      * 
+     * <p>Relationship: 
+     * COCT_MT220210CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Identity of the organization that manufactured 
      * the</div> <p>drug product.&nbsp;</p></p>
      */
@@ -1041,6 +1046,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Business Name: Manufactured By</p>
      * 
+     * <p>Relationship: 
+     * COCT_MT220210CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Identity of the organization that manufactured 
      * the</div> <p>drug product.&nbsp;</p></p>
      */
@@ -1051,6 +1061,10 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
     /**
      * <p>Business Name: Drug Dispensed In</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p><div>Information about how the dispensed drug is or</div> 
      * <div>should be contained. If specified, either one of</div> 
@@ -1065,6 +1079,10 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Business Name: Drug Dispensed In</p>
      * 
+     * <p>Relationship: COCT_MT220210CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p><div>Information about how the dispensed drug is or</div> 
      * <div>should be contained. If specified, either one of</div> 
      * <div>Quantity or ContainerPackedMedicine must be</div> 
@@ -1076,6 +1094,10 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
+     * <p>Relationship: COCT_MT220210CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * 
      * <p><div>Identification of which ingredients are contained 
      * (or</div> <div>are not contained) in a drug, along with 
      * their</div> <p>respective quantities.&nbsp;</p></p>

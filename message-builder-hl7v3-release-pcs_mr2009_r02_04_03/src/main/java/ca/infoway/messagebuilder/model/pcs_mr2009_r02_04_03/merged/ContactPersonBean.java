@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.ContactPerson","FICR_MT600201CA.ContactPerson"})
 public class ContactPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private PN name = new PNImpl();
     private TEL telecom = new TELImpl();
 
@@ -83,13 +83,15 @@ public class ContactPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
-     * <p>Un-merged Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Un-merged Business Name: 
+     * ContactPersonTelephoneOrEmailDetails</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Un-merged Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Un-merged Business Name: 
+     * ContactPersonTelephoneOrEmailDetails</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
      * 
@@ -103,13 +105,15 @@ public class ContactPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ContactPersonTelephoneOrEmailDetails</p>
      * 
-     * <p>Un-merged Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Un-merged Business Name: 
+     * ContactPersonTelephoneOrEmailDetails</p>
      * 
      * <p>Relationship: FICR_MT500201CA.ContactPerson.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Un-merged Business Name: ContactPersonTelephoneOrEmailDetails</p>
+     * <p>Un-merged Business Name: 
+     * ContactPersonTelephoneOrEmailDetails</p>
      * 
      * <p>Relationship: FICR_MT600201CA.ContactPerson.telecom</p>
      * 

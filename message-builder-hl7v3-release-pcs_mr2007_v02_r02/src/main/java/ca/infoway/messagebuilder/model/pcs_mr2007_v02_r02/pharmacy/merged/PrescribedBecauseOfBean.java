@@ -174,7 +174,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca
 @Hl7PartTypeMapping({"PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2"})
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private INT priorityNumber = new INTImpl();
     private Indications indications;
     private AdministrationInstructionsBean dosageInstruction;

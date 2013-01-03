@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -409,7 +409,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Business Name: AllergyIntoleranceMaskingIndicators</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicators</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.confidentialityCode</p>
@@ -492,7 +493,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * codes simultaneously.</p><p>The attribute is optional 
      * because not all systems will support masking.</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicators</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.confidentialityCode</p>
@@ -749,7 +751,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * statement. In other words, they know that parts of the act 
      * statement are not certain or are inferred. An example of 
      * this is an inferred prescription where some order data is 
-     * inferred
+     * 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"uncertaintyCode"})
@@ -929,7 +931,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * statement. In other words, they know that parts of the act 
      * statement are not certain or are inferred. An example of 
      * this is an inferred prescription where some order data is 
-     * inferred
+     * 
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {

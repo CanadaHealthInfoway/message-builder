@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class HL7MessageBean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private List<ST> securityText = new ArrayList<ST>();
@@ -398,11 +398,21 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.respondTo</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     @Hl7XmlMapping({"respondTo"})
     public ToBeRespondedToByBean getRespondTo() {
         return this.respondTo;
     }
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.respondTo</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
     public void setRespondTo(ToBeRespondedToByBean respondTo) {
         this.respondTo = respondTo;
     }
@@ -428,6 +438,11 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     */
     @Hl7XmlMapping({"attentionLine"})
     public List<RoutingInstructionLinesBean> getAttentionLine() {
         return this.attentionLine;

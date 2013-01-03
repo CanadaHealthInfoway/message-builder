@@ -53,7 +53,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
@@ -284,11 +284,23 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"author/adjudicatorRole"})
     public AdjudicatorRoleBean getAuthorAdjudicatorRole() {
         return this.authorAdjudicatorRole;
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAuthorAdjudicatorRole(AdjudicatorRoleBean authorAdjudicatorRole) {
         this.authorAdjudicatorRole = authorAdjudicatorRole;
     }

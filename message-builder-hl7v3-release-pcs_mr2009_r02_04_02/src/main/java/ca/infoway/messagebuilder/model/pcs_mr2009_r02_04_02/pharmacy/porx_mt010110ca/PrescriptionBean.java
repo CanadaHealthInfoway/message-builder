@@ -66,7 +66,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -250,6 +250,11 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010110CA.DeviceRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<BecauseOfBean> getReason() {
         return this.reason;
@@ -278,37 +283,72 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010110CA.Coverage2.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"coverage/coverage"})
     public List<CoverageExtensions_1Bean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/procedureRequest"})
     public ProcedureRequestBean getComponent1ProcedureRequest() {
         return this.component1ProcedureRequest;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
         this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component2/supplyRequest"})
     public DispenseInstructionsBean getComponent2SupplyRequest() {
         return this.component2SupplyRequest;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010110CA.DeviceRequest.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public IncludesBean getSubjectOf() {
         return this.subjectOf;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010110CA.DeviceRequest.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubjectOf(IncludesBean subjectOf) {
         this.subjectOf = subjectOf;
     }

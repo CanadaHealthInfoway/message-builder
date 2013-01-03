@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -374,46 +374,96 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000002CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000002CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
         return this.informant;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000002CA.ReactionObservationEvent.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInformant(ReportedByBean informant) {
         this.informant = informant;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000002CA.Subject3.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/annotation"})
     public CommentBean getSubjectOf1Annotation() {
         return this.subjectOf1Annotation;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000002CA.Subject3.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1Annotation(CommentBean subjectOf1Annotation) {
         this.subjectOf1Annotation = subjectOf1Annotation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000002CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
         return this.subjectOf2SeverityObservation;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000002CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
         this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000002CA.Subject6.causalityAssessment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
     public List<ReactionAssessmentsBean> getSubjectOf3CausalityAssessment() {
         return this.subjectOf3CausalityAssessment;

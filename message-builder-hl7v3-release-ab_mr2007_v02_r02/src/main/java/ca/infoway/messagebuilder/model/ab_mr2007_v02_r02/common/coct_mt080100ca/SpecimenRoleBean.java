@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private CV specimenMaterialCode = new CVImpl();
@@ -235,6 +235,11 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT080100CA.Material.asIdentifiedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
     public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
         return this.specimenMaterialAsIdentifiedEntity;

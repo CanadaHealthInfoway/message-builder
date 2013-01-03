@@ -77,7 +77,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Culture"})
 public class CultureGrouperObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -227,22 +227,42 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Culture.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"specimen"})
     public ReportSectionSpecimenBean getSpecimen() {
         return this.specimen;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Culture.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSpecimen(ReportSectionSpecimenBean specimen) {
         this.specimen = specimen;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Culture.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public List<ElectronicResultReceiverBean> getReceiver() {
         return this.receiver;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Culture.performer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-2)</p>
+     */
     @Hl7XmlMapping({"performer"})
     public List<WasPerformedByBean> getPerformer() {
         return this.performer;
@@ -271,23 +291,47 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.InFulfillmentOf.fulfillmentChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
         return this.inFulfillmentOfFulfillmentChoice;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PertinentInformation1.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation1/supportingClinicalObservationEvent"})
     public List<SupportingClinicalInformationBean> getPertinentInformation1SupportingClinicalObservationEvent() {
         return this.pertinentInformation1SupportingClinicalObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation2/outbreakEvent"})
     public OutbreakBean getPertinentInformation2OutbreakEvent() {
         return this.pertinentInformation2OutbreakEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation2OutbreakEvent(OutbreakBean pertinentInformation2OutbreakEvent) {
         this.pertinentInformation2OutbreakEvent = pertinentInformation2OutbreakEvent;
     }
@@ -305,11 +349,21 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Component7.resultSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/resultSortKey"})
     public ResultSortKeyBean getComponent2ResultSortKey() {
         return this.component2ResultSortKey;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Component7.resultSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
         this.component2ResultSortKey = component2ResultSortKey;
     }
@@ -326,6 +380,12 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component9.reportableTestIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component4/reportableTestIndicator"})
     public List<ReportableHealthIndicatorBean> getComponent4ReportableTestIndicator() {
         return this.component4ReportableTestIndicator;
@@ -352,17 +412,34 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004100CA.Culture.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf2"})
     public List<IncludesBean> getSubjectOf2() {
         return this.subjectOf2;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
         return this.subjectOf3ResultStatusProcessStep;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
         this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }

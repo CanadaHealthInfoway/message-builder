@@ -45,32 +45,58 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public RegisteredItemBean<RR> getSubject() {
         return this.subject;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject(RegisteredItemBean<RR> subject) {
         this.subject = subject;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"custodian/assignedDevice"})
     public EHRRepositoryBean getCustodianAssignedDevice() {
         return this.custodianAssignedDevice;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCustodianAssignedDevice(EHRRepositoryBean custodianAssignedDevice) {
         this.custodianAssignedDevice = custodianAssignedDevice;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700746CA.RegistrationEvent.replacementOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
+     */
     @Hl7XmlMapping({"replacementOf"})
     public List<ReplacesBean> getReplacementOf() {
         return this.replacementOf;

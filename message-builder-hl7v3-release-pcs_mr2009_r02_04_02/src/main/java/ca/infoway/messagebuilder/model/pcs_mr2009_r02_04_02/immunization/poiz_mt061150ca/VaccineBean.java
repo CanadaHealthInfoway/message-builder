@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Vaccine"})
 public class VaccineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private ST desc = new STImpl();
@@ -327,11 +327,23 @@ public class VaccineBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT061150CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
     public ManufacturerBean getAsManufacturedProductManufacturer() {
         return this.asManufacturedProductManufacturer;
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT061150CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
         this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
     }

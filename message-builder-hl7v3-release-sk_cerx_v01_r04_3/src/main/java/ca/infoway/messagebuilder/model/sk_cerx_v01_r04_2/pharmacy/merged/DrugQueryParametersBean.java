@@ -75,7 +75,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV drugCodeValue = new CVImpl();
     private II medicationDocumentIDValue = new IIImpl();
     private CV medicationDocumentTypeValue = new CVImpl();
@@ -343,7 +343,8 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Un-merged Business Name: PrescribingIndicationDiagnosisCode</p>
+     * <p>Un-merged Business Name: 
+     * PrescribingIndicationDiagnosisCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
@@ -364,7 +365,8 @@ public class DrugQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Un-merged Business Name: PrescribingIndicationDiagnosisCode</p>
+     * <p>Un-merged Business Name: 
+     * PrescribingIndicationDiagnosisCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingDiagnosisCode.value</p>

@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration","FICR_MT400001CA.SubstanceAdministration","FICR_MT400003CA.SubstanceAdministration","FICR_MT400004CA.SubstanceAdministration","FICR_MT490101CA.SubstanceAdministration","FICR_MT490102CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.SpecialAuthorizationChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private PQ doseQuantity = new PQImpl();
     private MedicationBean directTargetMedication;
     private MedicineBean directTargetMedicationAdministerableMedicine;

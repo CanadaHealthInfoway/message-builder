@@ -84,7 +84,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
@@ -287,21 +287,41 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.subject1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject1"})
     public ConsentPertainsToBean getSubject1() {
         return this.subject1;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.subject1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject1(ConsentPertainsToBean subject1) {
         this.subject1 = subject1;
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author1"})
     public ConsentOverriddenByBean getAuthor1() {
         return this.author1;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor1(ConsentOverriddenByBean author1) {
         this.author1 = author1;
     }
@@ -327,11 +347,21 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.subject2</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject2"})
     public ControlsBean getSubject2() {
         return this.subject2;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.subject2</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject2(ControlsBean subject2) {
         this.subject2 = subject2;
     }

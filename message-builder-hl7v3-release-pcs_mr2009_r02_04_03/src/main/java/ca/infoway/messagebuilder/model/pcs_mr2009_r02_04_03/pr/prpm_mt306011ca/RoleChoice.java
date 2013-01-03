@@ -32,6 +32,11 @@ import java.util.List;
 public interface RoleChoice {
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.ResponsibleParty.privilege</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<PrivilegeBean> getResponsibleForPrivilege();
 
 

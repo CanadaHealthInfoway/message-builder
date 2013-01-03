@@ -36,7 +36,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
     private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
@@ -79,6 +79,12 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Reference.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reference/invoiceElementChoice"})
     public List<InvoiceElementChoice> getReferenceInvoiceElementChoice() {
         return this.referenceInvoiceElementChoice;
@@ -97,6 +103,11 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT510201CA.Reason1.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reasonOf/detectedIssueEvent"})
     public List<IssuesBean> getReasonOfDetectedIssueEvent() {
         return this.reasonOfDetectedIssueEvent;

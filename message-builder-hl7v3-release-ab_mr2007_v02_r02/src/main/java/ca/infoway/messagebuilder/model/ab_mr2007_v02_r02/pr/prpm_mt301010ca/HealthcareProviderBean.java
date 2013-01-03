@@ -67,7 +67,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private II id = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -81,6 +81,11 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     private OrganizationBean issuingOrganization;
 
 
+    /**
+     * <p>Relationship: PRPM_MT301010CA.ResponsibleParty.privilege</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleFor/privilege"})
     public List<PrivilegeBean> getResponsibleForPrivilege() {
         return this.responsibleForPrivilege;
@@ -303,11 +308,23 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT301010CA.HealthCareProvider.healthCarePrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
     public PrinicpalPerson_1Bean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT301010CA.HealthCareProvider.healthCarePrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setHealthCarePrincipalPerson(PrinicpalPerson_1Bean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }

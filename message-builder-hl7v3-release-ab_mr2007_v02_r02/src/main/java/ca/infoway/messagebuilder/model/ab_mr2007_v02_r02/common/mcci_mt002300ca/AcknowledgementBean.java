@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS typeCode = new CSImpl();
     private List<INT> messageWaitingNumber = new ArrayList<INT>();
     private List<CV> messageWaitingPriorityCode = new ArrayList<CV>();
@@ -175,6 +175,12 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MCCI_MT002300CA.Acknowledgement.acknowledgementDetail</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     */
     @Hl7XmlMapping({"acknowledgementDetail"})
     public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
         return this.acknowledgementDetail;

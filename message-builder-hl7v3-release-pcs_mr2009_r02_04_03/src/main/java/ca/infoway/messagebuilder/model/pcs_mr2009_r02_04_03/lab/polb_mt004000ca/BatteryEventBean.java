@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
     private Patient_1Bean recordTargetPatient;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
@@ -92,17 +92,32 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.ResultChoice.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"specimen"})
     public List<ReportSectionSpecimenBean> getSpecimen() {
         return this.specimen;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recordTarget/patient"})
     public Patient_1Bean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
@@ -123,6 +138,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.ResultChoice.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public List<ElectronicResultReceiverBean> getReceiver() {
         return this.receiver;
@@ -159,6 +179,11 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Performer.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/roleChoice"})
     public List<RoleChoice> getPerformerRoleChoice() {
         return this.performerRoleChoice;
@@ -245,6 +270,12 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.InFulfillmentOf.fulfillmentChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
         return this.inFulfillmentOfFulfillmentChoice;
@@ -269,32 +300,66 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
     public OutbreakBean getPertinentInformation1OutbreakEvent() {
         return this.pertinentInformation1OutbreakEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
         this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation2.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
         return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Component2.resultSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/resultSortKey"})
     public ResultSortKeyBean getComponent1ResultSortKey() {
         return this.component1ResultSortKey;
     }
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.Component2.resultSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey) {
         this.component1ResultSortKey = component1ResultSortKey;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.Component3.reportableTestIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/reportableTestIndicator"})
     public List<ReportableHealthIndicatorBean> getComponent2ReportableTestIndicator() {
         return this.component2ReportableTestIndicator;
@@ -332,17 +397,34 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT004000CA.ResultChoice.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf2"})
     public List<IncludesBean> getSubjectOf2() {
         return this.subjectOf2;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
         return this.subjectOf3ResultStatusProcessStep;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
         this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }

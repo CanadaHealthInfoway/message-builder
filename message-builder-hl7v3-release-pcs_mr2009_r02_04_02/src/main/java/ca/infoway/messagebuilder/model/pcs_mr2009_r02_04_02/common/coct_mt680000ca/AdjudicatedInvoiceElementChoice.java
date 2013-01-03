@@ -29,8 +29,20 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedRe
 public interface AdjudicatedInvoiceElementChoice {
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public AdjudicatedResultOutcomeBean getOutcomeOf();
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
 
 }

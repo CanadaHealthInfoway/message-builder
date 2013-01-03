@@ -152,7 +152,7 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
@@ -462,8 +462,7 @@ public class IssuesBean extends MessagePartBean {
      * issue type can be distinguished from another.</p>
      * 
      * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized ide
+     * different kinds of issues. Types of issu
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -769,8 +768,7 @@ public class IssuesBean extends MessagePartBean {
      * issue type can be distinguished from another.</p>
      * 
      * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issue include: 
-     * unrecognized ide
+     * different kinds of issues. Types of issu
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActDetectedIssueCode code) {

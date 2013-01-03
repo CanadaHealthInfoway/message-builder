@@ -101,7 +101,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.ControlActEvent","PORX_MT060040CA.ControlActEvent","PORX_MT060090CA.ControlActEvent","PORX_MT060160CA.ControlActEvent","PORX_MT060210CA.ControlActEvent","PORX_MT060340CA.ControlActEvent"})
 public class StatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -404,7 +404,8 @@ public class StatusChangesBean extends MessagePartBean {
      * of a suspend, may also indicate the scheduled time at which 
      * the status change will end.</p>
      * 
-     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
@@ -420,7 +421,8 @@ public class StatusChangesBean extends MessagePartBean {
      * case of a suspend, may also indicate the scheduled time at 
      * which the status change will end.</p>
      * 
-     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
@@ -561,7 +563,8 @@ public class StatusChangesBean extends MessagePartBean {
      * of a suspend, may also indicate the scheduled time at which 
      * the status change will end.</p>
      * 
-     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
@@ -577,7 +580,8 @@ public class StatusChangesBean extends MessagePartBean {
      * case of a suspend, may also indicate the scheduled time at 
      * which the status change will end.</p>
      * 
-     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
@@ -650,7 +654,8 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Denotes the reason the status of the prescription was 
      * changed.</p>
      * 
-     * <p>Un-merged Business Name: OtherMedicationStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * OtherMedicationStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
      * 
@@ -746,7 +751,8 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Denotes the reason the status of the prescription was 
      * changed.</p>
      * 
-     * <p>Un-merged Business Name: OtherMedicationStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * OtherMedicationStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
      * 

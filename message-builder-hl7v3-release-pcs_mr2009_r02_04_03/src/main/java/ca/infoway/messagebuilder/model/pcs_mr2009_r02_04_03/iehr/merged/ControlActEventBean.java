@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT500003CA.ControlActEvent","REPC_MT500004CA.ControlActEvent"})
 public class ControlActEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV reasonCode = new CVImpl();
     private RequestedByBean author;
 

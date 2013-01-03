@@ -55,7 +55,7 @@ import java.util.Date;
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -290,11 +290,23 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020050CA.InFulfillmentOf.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"fulfillment/supplyRequest"})
     public SupplyOrderBean getFulfillmentSupplyRequest() {
         return this.fulfillmentSupplyRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020050CA.InFulfillmentOf.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }

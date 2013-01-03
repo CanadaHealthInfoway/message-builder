@@ -109,7 +109,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -132,7 +132,8 @@ public class IdentifiedPersonBean extends MessagePartBean {
     /**
      * <p>Business Name: ClientHealthcareIdentificationNumber</p>
      * 
-     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: 
+     * ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101106CA.IdentifiedEntity.id</p>
      * 
@@ -149,7 +150,8 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * identifier may be assigned jurisdictionally or by care 
      * facility.</p>
      * 
-     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: 
+     * ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.id</p>
      * 
@@ -166,7 +168,8 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * identifier may be assigned jurisdictionally or by care 
      * facility.</p>
      * 
-     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: 
+     * ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.id</p>
      * 

@@ -92,7 +92,7 @@ import java.util.List;
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -318,7 +318,8 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: CommonObservationMaskingIndicator</p>
      * 
-     * <p>Un-merged Business Name: CommonObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * CommonObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.confidentialityCode</p>
@@ -341,7 +342,8 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * to their common observation data.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Un-merged Business Name: CommonObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * CommonObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.confidentialityCode</p>
@@ -372,7 +374,8 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Business Name: CommonObservationMaskingIndicator</p>
      * 
-     * <p>Un-merged Business Name: CommonObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * CommonObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.confidentialityCode</p>
@@ -395,7 +398,8 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * to their common observation data.</p><p>The attribute is 
      * optional because not all systems will support masking.</p>
      * 
-     * <p>Un-merged Business Name: CommonObservationMaskingIndicator</p>
+     * <p>Un-merged Business Name: 
+     * CommonObservationMaskingIndicator</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.confidentialityCode</p>

@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.PromiseGroup"})
 public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ReportSectionSpecimenBean specimen;
     private Patient_1Bean recordTargetPatient;
     private II id = new IIImpl();
@@ -72,21 +72,41 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.PromiseChoice.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"specimen"})
     public ReportSectionSpecimenBean getSpecimen() {
         return this.specimen;
     }
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.PromiseChoice.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSpecimen(ReportSectionSpecimenBean specimen) {
         this.specimen = specimen;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recordTarget/patient"})
     public Patient_1Bean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
@@ -116,12 +136,22 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.PromiseChoice.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public List<ElectronicResultReceiverBean> getReceiver() {
         return this.receiver;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Performer.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"performer/roleChoice"})
     public List<RoleChoice> getPerformerRoleChoice() {
         return this.performerRoleChoice;
@@ -188,22 +218,46 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.InFulfillmentOf.fulfillmentChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
         return this.inFulfillmentOfFulfillmentChoice;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
     public OutbreakBean getPertinentInformation1OutbreakEvent() {
         return this.pertinentInformation1OutbreakEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
         this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PertinentInformation2.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
         return this.pertinentInformation2SupportingClinicalObservationEvent;
@@ -241,17 +295,34 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.PromiseChoice.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf2"})
     public List<IncludesBean> getSubjectOf2() {
         return this.subjectOf2;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
         return this.subjectOf3ResultStatusProcessStep;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
         this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }

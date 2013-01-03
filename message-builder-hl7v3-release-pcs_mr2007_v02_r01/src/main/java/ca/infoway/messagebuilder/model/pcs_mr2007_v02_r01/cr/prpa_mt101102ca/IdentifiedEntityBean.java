@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -381,23 +381,44 @@ public class IdentifiedEntityBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101102CA.Person.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson/personalRelationship"})
     public List<PersonalRelationshipBean> getIdentifiedPersonPersonalRelationship() {
         return this.identifiedPersonPersonalRelationship;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101102CA.Person.languageCommunication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson/languageCommunication"})
     public List<LanguageCommunicationBean> getIdentifiedPersonLanguageCommunication() {
         return this.identifiedPersonLanguageCommunication;
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101102CA.Subject.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/observationEvent"})
     public ConfidenceValueBean getSubjectOfObservationEvent() {
         return this.subjectOfObservationEvent;
     }
 
+    /**
+     * <p>Relationship: PRPA_MT101102CA.Subject.observationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
         this.subjectOfObservationEvent = subjectOfObservationEvent;
     }

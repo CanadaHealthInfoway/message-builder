@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PolicyUnderwr
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private PolicyUnderwriterBean author;
 
@@ -72,11 +72,21 @@ public class FinancialContractPolicyAccountBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public PolicyUnderwriterBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(PolicyUnderwriterBean author) {
         this.author = author;
     }

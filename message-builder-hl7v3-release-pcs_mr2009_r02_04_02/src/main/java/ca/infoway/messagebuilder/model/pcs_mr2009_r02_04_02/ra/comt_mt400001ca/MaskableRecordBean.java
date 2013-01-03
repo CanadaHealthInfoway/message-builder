@@ -52,7 +52,7 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -188,11 +188,21 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COMT_MT400001CA.Reason.diagnosis</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reason/diagnosis"})
     public DiagnosisBean getReasonDiagnosis() {
         return this.reasonDiagnosis;
     }
 
+    /**
+     * <p>Relationship: COMT_MT400001CA.Reason.diagnosis</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
         this.reasonDiagnosis = reasonDiagnosis;
     }

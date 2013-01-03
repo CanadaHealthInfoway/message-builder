@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Substanc
 @Hl7PartTypeMapping({"PORX_MT060190CA.AdministrationInstructions"})
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
 

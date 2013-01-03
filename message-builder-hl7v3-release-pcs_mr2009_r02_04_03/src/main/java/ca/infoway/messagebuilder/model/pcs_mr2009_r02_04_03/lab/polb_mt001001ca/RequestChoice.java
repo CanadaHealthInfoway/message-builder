@@ -42,6 +42,12 @@ import java.util.List;
 public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.FulfillmentChoice {
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.InformationRecipient.recipientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RecipientChoice> getInformationRecipientRecipientChoice();
 
 
@@ -53,26 +59,78 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public List<HealthcareWorkerBean> getVerifierAssignedEntity();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ParentTestBean getOccurrenceOfActParentPointer();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.PertinentInformation.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator);
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public OrderSortKeyBean getComponent3RequestSortKey();
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey);
 
 
@@ -84,6 +142,11 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public List<RequestChoice> getComponent4RequestChoice();
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.RequestChoice.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     public List<IncludesBean> getSubjectOf1();
 
 
@@ -102,11 +165,27 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
     public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent);
 
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public PriorTestRequestBean getComponentOf1PriorActRequest();
 
+    /**
+     * <p>Relationship: POLB_MT001001CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentOf1PriorActRequest(PriorTestRequestBean componentOf1PriorActRequest);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001001CA.Component4.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent();
 
 }

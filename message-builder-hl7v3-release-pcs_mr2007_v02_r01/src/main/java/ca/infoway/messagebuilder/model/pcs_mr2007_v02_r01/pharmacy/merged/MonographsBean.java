@@ -64,7 +64,7 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
@@ -425,7 +425,8 @@ public class MonographsBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentContentLanguage</p>
      * 
-     * <p>Un-merged Business Name: MedicationDocumentContentLanguage</p>
+     * <p>Un-merged Business Name: 
+     * MedicationDocumentContentLanguage</p>
      * 
      * <p>Relationship: PORR_MT050016CA.DocumentBodyEvent.text</p>
      * 
@@ -453,7 +454,8 @@ public class MonographsBean extends MessagePartBean {
     /**
      * <p>Business Name: MedicationDocumentContentLanguage</p>
      * 
-     * <p>Un-merged Business Name: MedicationDocumentContentLanguage</p>
+     * <p>Un-merged Business Name: 
+     * MedicationDocumentContentLanguage</p>
      * 
      * <p>Relationship: PORR_MT050016CA.DocumentBodyEvent.text</p>
      * 

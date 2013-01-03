@@ -43,7 +43,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
@@ -679,7 +679,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
      * fact that it is package is determined by a playing 
-     * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.
+     * entity)</p><p>ZDP.9.1</p><p>
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"quantity"})
@@ -843,7 +843,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
      * fact that it is package is determined by a playing 
-     * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.
+     * entity)</p><p>ZDP.9.1</p><p>
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setQuantity(PhysicalQuantity quantity) {

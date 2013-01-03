@@ -70,7 +70,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -263,11 +263,21 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470012CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author1"})
     public ConsentedToByBean getAuthor1() {
         return this.author1;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470012CA.ConsentEvent.author1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor1(ConsentedToByBean author1) {
         this.author1 = author1;
     }
@@ -293,11 +303,21 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470012CA.Subject2.informDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject2/informDefinition"})
     public AccessTypeBean getSubject2InformDefinition() {
         return this.subject2InformDefinition;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470012CA.Subject2.informDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
         this.subject2InformDefinition = subject2InformDefinition;
     }

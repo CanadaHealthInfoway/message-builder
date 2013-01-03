@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -327,17 +327,32 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p><div>Documentation of why a prescriber has chosen 
      * to&nbsp;prescribe the drug in the manner they 
      * have.&nbsp;</div></p>
@@ -348,17 +363,34 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
     public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
         return this.predecessorPriorCombinedMedicationRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
         this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
     }
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * 
      * <p><div>Denotes the reason(s) for this 
      * specific&nbsp;prescription; it must not be interpreted as 
      * a</div> <div>permanent diagnosis.</div> <div>NOTE: Although 
@@ -410,6 +442,11 @@ public class PrescriptionBean extends MessagePartBean {
     /**
      * <p>Business Name: Includes</p>
      * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.PertinentInformation.quantityObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This comprises the height and/or weight of 
      * a&nbsp;patient as measured/observed/known by 
      * the&nbsp;prescriber at the time of prescribing.</p>
@@ -420,6 +457,11 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Coverage2.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"coverage/coverage"})
     public List<CoverageExtensions_1Bean> getCoverageCoverage() {
         return this.coverageCoverage;
@@ -496,27 +538,54 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Subject.substitutionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/substitutionPermission"})
     public AllowedSubstitutionBean getSubjectOf1SubstitutionPermission() {
         return this.subjectOf1SubstitutionPermission;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Subject.substitutionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1SubstitutionPermission(AllowedSubstitutionBean subjectOf1SubstitutionPermission) {
         this.subjectOf1SubstitutionPermission = subjectOf1SubstitutionPermission;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject4.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public CommentBean getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject4.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2Annotation(CommentBean subjectOf2Annotation) {
         this.subjectOf2Annotation = subjectOf2Annotation;
     }
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;Indicates the clinical use category in which 
      * the</p> <div>prescription has been put.</div>
      */
@@ -526,6 +595,11 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;Indicates the clinical use category in which 
      * the</p> <div>prescription has been put.</div>
      */

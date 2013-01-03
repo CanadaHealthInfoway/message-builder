@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.pharmacy.merged.Protoc
 @Hl7PartTypeMapping({"PORX_MT010120CA.Definition"})
 public class ReferencesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private BL contextConductionInd = new BLImpl();
     private ProtocolsBean substanceAdministrationDefinition;
 
@@ -69,11 +69,23 @@ public class ReferencesBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"substanceAdministrationDefinition"})
     public ProtocolsBean getSubstanceAdministrationDefinition() {
         return this.substanceAdministrationDefinition;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubstanceAdministrationDefinition(ProtocolsBean substanceAdministrationDefinition) {
         this.substanceAdministrationDefinition = substanceAdministrationDefinition;
     }

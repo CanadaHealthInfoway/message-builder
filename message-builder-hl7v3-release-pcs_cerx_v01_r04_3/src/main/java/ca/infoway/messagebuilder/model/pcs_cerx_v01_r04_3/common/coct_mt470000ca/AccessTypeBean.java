@@ -45,16 +45,26 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470000CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
         return this.receiver;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.InformDefinition.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
     }

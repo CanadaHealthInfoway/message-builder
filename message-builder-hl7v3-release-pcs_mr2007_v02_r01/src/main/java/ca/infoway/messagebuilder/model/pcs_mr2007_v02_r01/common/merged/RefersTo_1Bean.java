@@ -212,7 +212,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Subject2","MCAI_MT700211CA.Subject2","MCAI_MT700212CA.Subject2","MCAI_MT700216CA.Subject2","MCAI_MT700217CA.Subject2","MCAI_MT700218CA.Subject2","MCAI_MT700220CA.Subject2","MCAI_MT700221CA.Subject2","MCAI_MT700222CA.Subject2","MCAI_MT700226CA.Subject2","MCAI_MT700227CA.Subject2","QUQI_MT120006CA.Subject2","QUQI_MT120008CA.Subject2"})
 public class RefersTo_1Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private BL contextConductionInd = new BLImpl();
     private ACT act;
 
@@ -427,8 +427,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * otherwise it must be false.</p>
      * 
      * <p>Cascading of trigger event objects allows different 
-     * messages to employ consistent and common 
-     * objects.</p><
+     * messages to employ consistent a
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"contextConductionInd"})
@@ -646,8 +645,7 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * otherwise it must be false.</p>
      * 
      * <p>Cascading of trigger event objects allows different 
-     * messages to employ consistent and common 
-     * objects.</p><
+     * messages to employ consistent a
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setContextConductionInd(Boolean contextConductionInd) {

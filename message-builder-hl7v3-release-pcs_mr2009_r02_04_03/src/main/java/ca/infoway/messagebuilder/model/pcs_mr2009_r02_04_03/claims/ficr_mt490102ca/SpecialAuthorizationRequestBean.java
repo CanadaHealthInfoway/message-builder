@@ -56,7 +56,7 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -193,21 +193,43 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/assignedEntity"})
     public HealthcareWorkerBean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Author2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.Predecessor.specialAuthorizationRequestCrossReference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/specialAuthorizationRequestCrossReference"})
     public SpecialAuthorizationRequestCrossReferenceBean getPredecessorSpecialAuthorizationRequestCrossReference() {
         return this.predecessorSpecialAuthorizationRequestCrossReference;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.Predecessor.specialAuthorizationRequestCrossReference</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPredecessorSpecialAuthorizationRequestCrossReference(SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference) {
         this.predecessorSpecialAuthorizationRequestCrossReference = predecessorSpecialAuthorizationRequestCrossReference;
     }
@@ -225,16 +247,34 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.subject1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subject1"})
     public Subject3Bean getSubject1() {
         return this.subject1;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.subject1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubject1(Subject3Bean subject1) {
         this.subject1 = subject1;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.subject2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"subject2"})
     public List<Subject5Bean> getSubject2() {
         return this.subject2;
@@ -261,6 +301,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.PertinentInformation.healthDocumentAttachment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
     public List<HealthDocumentAttachment_1Bean> getPertinentInformationHealthDocumentAttachment() {
         return this.pertinentInformationHealthDocumentAttachment;
@@ -289,6 +335,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorizationRequest.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public List<IncludesBean> getSubjectOf() {
         return this.subjectOf;

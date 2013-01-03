@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT470002CA.Subject","COCT_MT470012CA.Subject"})
 public class ConsentPertainsToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SubjectChoice subjectChoice;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();

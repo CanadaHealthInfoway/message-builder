@@ -111,7 +111,7 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDValue = new ArrayList<II>();
@@ -1178,7 +1178,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -1199,7 +1200,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * retrieval should be for only the most recent dispense for a 
      * prescription is to be included in a query result.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -1228,7 +1230,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -1249,7 +1252,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * retrieval should be for only the most recent dispense for a 
      * prescription is to be included in a query result.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -1755,7 +1759,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Un-merged Business Name: PrescribingIndicationDiagnosisCode</p>
+     * <p>Un-merged Business Name: 
+     * PrescribingIndicationDiagnosisCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingDiagnosisCode.value</p>
@@ -1776,7 +1781,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: PrescribingIndicationDiagnosisCode</p>
      * 
-     * <p>Un-merged Business Name: PrescribingIndicationDiagnosisCode</p>
+     * <p>Un-merged Business Name: 
+     * PrescribingIndicationDiagnosisCode</p>
      * 
      * <p>Relationship: 
      * POME_MT010050CA.PrescribingDiagnosisCode.value</p>

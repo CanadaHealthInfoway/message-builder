@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActSuppo
 @Hl7PartTypeMapping({"FICR_MT400001CA.SpecialAuthorizationCriteria","FICR_MT490103CA.SpecialAuthorizationCriteria"})
 public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private ST value = new STImpl();
@@ -127,14 +127,16 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     /**
      * <p>Business Name: GeneralSupportingInformationValue</p>
      * 
-     * <p>Un-merged Business Name: GeneralSupportingInformationValue</p>
+     * <p>Un-merged Business Name: 
+     * GeneralSupportingInformationValue</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationCriteria.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: GeneralSupportingInformationValue</p>
+     * <p>Un-merged Business Name: 
+     * GeneralSupportingInformationValue</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationCriteria.value</p>
@@ -149,14 +151,16 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     /**
      * <p>Business Name: GeneralSupportingInformationValue</p>
      * 
-     * <p>Un-merged Business Name: GeneralSupportingInformationValue</p>
+     * <p>Un-merged Business Name: 
+     * GeneralSupportingInformationValue</p>
      * 
      * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationCriteria.value</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: GeneralSupportingInformationValue</p>
+     * <p>Un-merged Business Name: 
+     * GeneralSupportingInformationValue</p>
      * 
      * <p>Relationship: 
      * FICR_MT400001CA.SpecialAuthorizationCriteria.value</p>

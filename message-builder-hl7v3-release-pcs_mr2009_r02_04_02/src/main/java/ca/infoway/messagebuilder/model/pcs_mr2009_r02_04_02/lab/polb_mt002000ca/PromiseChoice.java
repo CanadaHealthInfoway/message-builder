@@ -41,19 +41,49 @@ import java.util.List;
 public interface PromiseChoice {
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.PromiseChoice.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public ReportSectionSpecimenBean getSpecimen();
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.PromiseChoice.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSpecimen(ReportSectionSpecimenBean specimen);
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public Patient_1Bean getRecordTargetPatient();
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.PromiseChoice.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     public List<ElectronicResultReceiverBean> getReceiver();
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.Performer.roleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<RoleChoice> getPerformerRoleChoice();
 
 
@@ -74,14 +104,38 @@ public interface PromiseChoice {
     public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.InFulfillmentOf.fulfillmentChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public OutbreakBean getPertinentInformation1OutbreakEvent();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PertinentInformation1.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PertinentInformation2.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
 
 
@@ -108,11 +162,28 @@ public interface PromiseChoice {
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
 
 
+    /**
+     * <p>Relationship: POLB_MT002000CA.PromiseChoice.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     public List<IncludesBean> getSubjectOf2();
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
 
 }

@@ -84,7 +84,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -536,18 +536,34 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101002CA.Person.asOtherIDs</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
     public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
         return this.identifiedPersonAsOtherIDs;
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT101002CA.Person.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson/personalRelationship"})
     public List<PersonalRelationshipBean> getIdentifiedPersonPersonalRelationship() {
         return this.identifiedPersonPersonalRelationship;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT101002CA.Person.languageCommunication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     */
     @Hl7XmlMapping({"identifiedPerson/languageCommunication"})
     public List<LanguageOfCommunicationBean> getIdentifiedPersonLanguageCommunication() {
         return this.identifiedPersonLanguageCommunication;

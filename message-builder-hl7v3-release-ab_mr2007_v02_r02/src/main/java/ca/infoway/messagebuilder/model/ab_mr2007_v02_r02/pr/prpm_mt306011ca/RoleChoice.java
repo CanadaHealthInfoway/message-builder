@@ -32,6 +32,11 @@ import java.util.List;
 public interface RoleChoice {
 
 
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.responsibleFor</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     public List<ResponsiblePartyBean> getResponsibleFor();
 
 

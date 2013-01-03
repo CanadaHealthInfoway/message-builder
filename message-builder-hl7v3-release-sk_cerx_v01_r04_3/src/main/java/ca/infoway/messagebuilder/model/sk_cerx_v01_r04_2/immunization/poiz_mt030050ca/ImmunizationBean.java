@@ -78,7 +78,7 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private TS effectiveTime = new TSImpl();
@@ -519,11 +519,21 @@ public class ImmunizationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
@@ -571,21 +581,43 @@ public class ImmunizationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf"})
     public PartOfBean getInFulfillmentOf() {
         return this.inFulfillmentOf;
     }
 
+    /**
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Immunization.inFulfillmentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInFulfillmentOf(PartOfBean inFulfillmentOf) {
         this.inFulfillmentOf = inFulfillmentOf;
     }
 
 
+    /**
+     * <p>Relationship: POIZ_MT030050CA.Subject9.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public CommentBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
+    /**
+     * <p>Relationship: POIZ_MT030050CA.Subject9.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }

@@ -75,7 +75,7 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -96,7 +96,8 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeType</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
@@ -137,7 +138,8 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>This attribute is mandatory to ensure that change types 
      * are distinguishable.</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeType</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceStatusChangeType</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.code</p>
      * 
@@ -281,7 +283,8 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: MedicalConditionStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * MedicalConditionStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
@@ -294,7 +297,8 @@ public class VersionInformationBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 
@@ -325,7 +329,8 @@ public class VersionInformationBean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: MedicalConditionStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * MedicalConditionStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000010CA.ControlActEvent.reasonCode</p>
      * 
@@ -338,7 +343,8 @@ public class VersionInformationBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceStatusChangeReason</p>
      * 
      * <p>Relationship: REPC_MT000009CA.ControlActEvent.reasonCode</p>
      * 

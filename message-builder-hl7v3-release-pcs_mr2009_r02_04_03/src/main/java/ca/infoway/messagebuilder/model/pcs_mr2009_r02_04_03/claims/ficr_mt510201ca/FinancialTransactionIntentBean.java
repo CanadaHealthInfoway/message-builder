@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private TS effectiveTime = new TSImpl();
@@ -213,6 +213,12 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.PertinentInformation2.adjudicatorBillingTaxAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
     public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
         return this.pertinentInformationAdjudicatorBillingTaxAccount;

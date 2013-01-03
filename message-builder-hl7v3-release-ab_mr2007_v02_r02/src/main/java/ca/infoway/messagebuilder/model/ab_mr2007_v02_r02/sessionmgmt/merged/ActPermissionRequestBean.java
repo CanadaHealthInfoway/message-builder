@@ -62,7 +62,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
 @Hl7RootType
 public class ActPermissionRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II subjectAssignedDeviceAssignedDeviceId = new IIImpl();
     private ST performerSignatureText = new STImpl();
     private II performerAssignedEntityId = new IIImpl();

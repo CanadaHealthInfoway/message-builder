@@ -80,7 +80,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -256,21 +256,41 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"author2"})
     public ConsentedToByBean getAuthor2() {
         return this.author2;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.author2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAuthor2(ConsentedToByBean author2) {
         this.author2 = author2;
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.subject2</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject2"})
     public ControlsBean getSubject2() {
         return this.subject2;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.ConsentEvent.subject2</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject2(ControlsBean subject2) {
         this.subject2 = subject2;
     }

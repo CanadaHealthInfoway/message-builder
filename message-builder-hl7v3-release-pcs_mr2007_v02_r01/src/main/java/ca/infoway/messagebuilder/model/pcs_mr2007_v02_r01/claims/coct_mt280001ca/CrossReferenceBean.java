@@ -48,7 +48,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT280001CA.CrossReference"})
 public class CrossReferenceBean extends MessagePartBean implements A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 

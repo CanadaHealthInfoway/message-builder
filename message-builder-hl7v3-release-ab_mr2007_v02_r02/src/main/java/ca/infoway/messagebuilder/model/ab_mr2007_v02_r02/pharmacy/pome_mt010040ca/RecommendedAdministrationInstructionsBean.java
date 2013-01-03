@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private PatientBean subjectPatient;
     private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
@@ -111,12 +111,22 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Option.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"option/dosageInstruction"})
     public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
         return this.optionDosageInstruction;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Reason.indications</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"reason/indications"})
     public List<Indications> getReasonIndications() {
         return this.reasonIndications;

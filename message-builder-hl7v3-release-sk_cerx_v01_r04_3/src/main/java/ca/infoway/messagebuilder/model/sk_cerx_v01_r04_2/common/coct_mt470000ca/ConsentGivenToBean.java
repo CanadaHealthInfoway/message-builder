@@ -48,15 +48,25 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Recipient;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private Recipient recipient;
 
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recipient"})
     public Recipient getRecipient() {
         return this.recipient;
     }
 
+    /**
+     * <p>Relationship: COCT_MT470000CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecipient(Recipient recipient) {
         this.recipient = recipient;
     }

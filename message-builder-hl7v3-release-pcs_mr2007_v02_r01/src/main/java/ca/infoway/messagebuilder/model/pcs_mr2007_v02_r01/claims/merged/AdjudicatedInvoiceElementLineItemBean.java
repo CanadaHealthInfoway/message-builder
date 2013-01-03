@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.domainvalue.ActInvoice
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail","FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.coct_mt680000ca.AdjudicatedInvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.ficr_mt610201ca.AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private AdjudicatedResultOutcomeBean outcomeOf;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
@@ -374,7 +374,8 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
      * 
-     * <p>Un-merged Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * <p>Un-merged Business Name: 
+     * PercentageOfTaxAppliedToUnitPriceAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
@@ -402,7 +403,8 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
      * <p>multiplier, can be used for tax percentages such as 
      * 0.07</p>
      * 
-     * <p>Un-merged Business Name: PercentageOfTaxAppliedToUnitPriceAmt</p>
+     * <p>Un-merged Business Name: 
+     * PercentageOfTaxAppliedToUnitPriceAmt</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.factorNumber</p>
@@ -444,7 +446,8 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
     /**
      * <p>Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
-     * <p>Un-merged Business Name: AdjudicatedInvoiceElementIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * AdjudicatedInvoiceElementIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.id</p>
@@ -475,7 +478,8 @@ public class AdjudicatedInvoiceElementLineItemBean extends MessagePartBean imple
     /**
      * <p>Business Name: AdjudicatedInvoiceElementIdentifier</p>
      * 
-     * <p>Un-merged Business Name: AdjudicatedInvoiceElementIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * AdjudicatedInvoiceElementIdentifier</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoiceElementDetail.id</p>

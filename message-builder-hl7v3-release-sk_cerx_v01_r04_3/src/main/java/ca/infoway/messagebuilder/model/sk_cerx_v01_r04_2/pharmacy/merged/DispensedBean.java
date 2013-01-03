@@ -57,7 +57,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt220200ca.
 @Hl7PartTypeMapping({"PORX_MT980010CA.Product","PORX_MT980020CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private DrugProductBean medication;
 
 

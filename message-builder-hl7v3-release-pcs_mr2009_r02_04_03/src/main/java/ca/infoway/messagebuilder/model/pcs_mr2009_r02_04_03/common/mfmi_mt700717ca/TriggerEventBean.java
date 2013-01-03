@@ -64,7 +64,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -278,16 +278,31 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700717CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public RefersTo_3Bean<RR> getSubject() {
         return this.subject;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700717CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject(RefersTo_3Bean<RR> subject) {
         this.subject = subject;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700717CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;

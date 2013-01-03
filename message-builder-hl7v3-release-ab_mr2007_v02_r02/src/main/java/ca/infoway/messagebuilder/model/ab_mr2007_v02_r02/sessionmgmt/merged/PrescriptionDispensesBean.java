@@ -90,7 +90,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.MedicationDispense","PORX_MT060340CA.MedicationDispense"})
 public class PrescriptionDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;
@@ -270,7 +270,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
      * for the prescription assigned by pharmacy)</p><p>D55(ID for 
      * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>
+     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -442,7 +442,7 @@ public class PrescriptionDispensesBean extends MessagePartBean {
      * <p>DispensedItem.dispensedItemKey</p><p>DispensedItem.externalKey</p><p>D53(ID 
      * for the prescription assigned by pharmacy)</p><p>D55(ID for 
      * the dispense 
-     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route)</p><p>
+     * event)</p><p>D99.01</p><p>ZDP.5</p><p>ZDP.6</p><p>ZDP.22</p><p>ZRV.5</p><p>DRU.080-01(extension)</p><p>DRU.080-02(route
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {

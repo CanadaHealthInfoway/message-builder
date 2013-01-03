@@ -93,7 +93,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -504,7 +504,8 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
      * 
@@ -519,7 +520,8 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>If Restrictions to Practice are included in the message, 
      * then Effective Date Must Exist</p>
      * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.effectiveTime</p>
      * 
@@ -549,7 +551,8 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>If Restrictions to Practice are included in the message, 
      * then Effective Date Must Exist</p>
      * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.effectiveTime</p>
      * 
@@ -570,7 +573,8 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
      * 
@@ -585,7 +589,8 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>If Restrictions to Practice are included in the message, 
      * then Effective Date Must Exist</p>
      * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.effectiveTime</p>
      * 
@@ -615,7 +620,8 @@ public class PrivilegeBean extends MessagePartBean {
      * <p>If Restrictions to Practice are included in the message, 
      * then Effective Date Must Exist</p>
      * 
-     * <p>Un-merged Business Name: RestrictionsToPracticeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * RestrictionsToPracticeEffectiveDate</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.Privilege.effectiveTime</p>
      * 

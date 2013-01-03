@@ -78,7 +78,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -374,6 +374,10 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Business Name: Administered To</p>
      * 
+     * <p>Relationship: PORX_MT060190CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>&nbsp;Indicates the patient who is taking the drug</p> 
      * <div>product.</div>
      */
@@ -384,6 +388,10 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
     /**
      * <p>Business Name: Administered To</p>
+     * 
+     * <p>Relationship: PORX_MT060190CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>&nbsp;Indicates the patient who is taking the drug</p> 
      * <div>product.</div>
@@ -436,6 +444,10 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the identity of the provider who 
      * recorded</div> <p>the other medication 
      * information.&nbsp;</p></p>
@@ -446,6 +458,10 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the identity of the provider who 
      * recorded</div> <p>the other medication 
      * information.&nbsp;</p></p>
@@ -456,6 +472,10 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the facility/location where the 
      * other</div> <p>medication was recorded.&nbsp;</p></p>
      */
@@ -465,6 +485,10 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
     /**
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the facility/location where the 
      * other</div> <p>medication was recorded.&nbsp;</p></p>
      */

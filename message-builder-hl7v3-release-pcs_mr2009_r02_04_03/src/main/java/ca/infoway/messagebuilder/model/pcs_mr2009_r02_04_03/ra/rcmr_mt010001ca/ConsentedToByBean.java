@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.ra.merged.PatientBea
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV modeCode = new CVImpl();
     private Consenter consenter;
 
@@ -86,11 +86,21 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: RCMR_MT010001CA.Author.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"consenter"})
     public Consenter getConsenter() {
         return this.consenter;
     }
 
+    /**
+     * <p>Relationship: RCMR_MT010001CA.Author.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setConsenter(Consenter consenter) {
         this.consenter = consenter;
     }

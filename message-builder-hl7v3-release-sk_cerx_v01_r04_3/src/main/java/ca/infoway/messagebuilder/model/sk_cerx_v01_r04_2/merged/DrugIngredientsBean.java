@@ -112,7 +112,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Substance","COCT_MT220110CA.Substance","COCT_MT220200CA.Substance","COCT_MT220210CA.Substance","POME_MT010040CA.Substance","POME_MT010100CA.Substance"})
 public class DrugIngredientsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
 
@@ -244,7 +244,7 @@ public class DrugIngredientsBean extends MessagePartBean {
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
      * name)</p><p>ZCP.2</p>
      * 
-     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.Ingredien
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.I
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -379,7 +379,7 @@ public class DrugIngredientsBean extends MessagePartBean {
      * name)</p><p>ZPJ1.1(mnemonic)</p><p>ZPJ1.2(print 
      * name)</p><p>ZCP.2</p>
      * 
-     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.Ingredien
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p><p>CompoundIngredient.I
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActiveIngredientDrugEntityType code) {

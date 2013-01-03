@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.Recipient
 @Hl7PartTypeMapping({"POLB_MT004000CA.PrimaryInformationRecipient"})
 public class PrimaryInformationRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS contextControlCode = new CSImpl();
     private RecipientChoice recipientChoice;
 
@@ -62,11 +62,23 @@ public class PrimaryInformationRecipientBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PrimaryInformationRecipient.recipientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recipientChoice"})
     public RecipientChoice getRecipientChoice() {
         return this.recipientChoice;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004000CA.PrimaryInformationRecipient.recipientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecipientChoice(RecipientChoice recipientChoice) {
         this.recipientChoice = recipientChoice;
     }

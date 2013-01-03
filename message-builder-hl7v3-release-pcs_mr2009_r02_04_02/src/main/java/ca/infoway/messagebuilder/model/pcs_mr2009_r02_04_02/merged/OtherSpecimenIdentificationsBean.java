@@ -79,7 +79,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningOrganizationId = new IIImpl();
@@ -114,7 +114,8 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * <p>Alternate Identifiers for the Patient (e.g., Drivers 
      * License number, Health insurance number).</p>
      * 
-     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: 
+     * ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
      * 
@@ -158,7 +159,8 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * <p>Alternate Identifiers for the Patient (e.g., Drivers 
      * License number, Health insurance number).</p>
      * 
-     * <p>Un-merged Business Name: ClientHealthcareIdentificationNumber</p>
+     * <p>Un-merged Business Name: 
+     * ClientHealthcareIdentificationNumber</p>
      * 
      * <p>Relationship: PRPA_MT101003CA.IdentifiedEntity.id</p>
      * 

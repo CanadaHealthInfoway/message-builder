@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -305,32 +305,66 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"definition/substanceAdministrationDefinition"})
     public List<ProtocolsBean> getDefinitionSubstanceAdministrationDefinition() {
         return this.definitionSubstanceAdministrationDefinition;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
     public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
         return this.predecessorPriorCombinedMedicationRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
         this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
         return this.reason;
@@ -359,12 +393,23 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.PertinentInformation.quantityObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
     public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
         return this.pertinentInformationQuantityObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Coverage2.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"coverage/coverage"})
     public List<CoverageExtensions_1Bean> getCoverageCoverage() {
         return this.coverageCoverage;
@@ -427,31 +472,65 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Subject.substitutionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/substitutionPermission"})
     public AllowedSubstitutionBean getSubjectOf1SubstitutionPermission() {
         return this.subjectOf1SubstitutionPermission;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Subject.substitutionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1SubstitutionPermission(AllowedSubstitutionBean subjectOf1SubstitutionPermission) {
         this.subjectOf1SubstitutionPermission = subjectOf1SubstitutionPermission;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject4.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public CommentBean getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;
     }
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject4.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf2Annotation(CommentBean subjectOf2Annotation) {
         this.subjectOf2Annotation = subjectOf2Annotation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf"})
     public ClassifiesBean getComponentOf() {
         return this.componentOf;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentOf(ClassifiesBean componentOf) {
         this.componentOf = componentOf;
     }

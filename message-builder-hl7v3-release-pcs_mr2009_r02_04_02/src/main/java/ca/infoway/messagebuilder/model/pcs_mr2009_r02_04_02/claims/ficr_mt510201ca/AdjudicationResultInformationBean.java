@@ -35,11 +35,17 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResultInformation"})
 public class AdjudicationResultInformationBean extends MessagePartBean implements AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<AdjudicationResultRequiredActBean> triggerAdjudicationResultRequiredAct = new ArrayList<AdjudicationResultRequiredActBean>();
     private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Trigger2.adjudicationResultRequiredAct</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"trigger/adjudicationResultRequiredAct"})
     public List<AdjudicationResultRequiredActBean> getTriggerAdjudicationResultRequiredAct() {
         return this.triggerAdjudicationResultRequiredAct;

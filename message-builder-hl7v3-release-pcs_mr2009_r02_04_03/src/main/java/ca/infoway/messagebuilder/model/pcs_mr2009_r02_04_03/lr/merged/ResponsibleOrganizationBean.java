@@ -64,7 +64,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.Organization","PRPA_MT202302CA.Organization","PRPA_MT202303CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private ST name = new STImpl();
 
@@ -72,7 +72,8 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.Organization.id</p>
      * 
@@ -89,7 +90,8 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the responsible organization.</p>
      * 
-     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Organization.id</p>
      * 
@@ -106,7 +108,8 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the responsible organization.</p>
      * 
-     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Organization.id</p>
      * 
@@ -131,7 +134,8 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
     /**
      * <p>Business Name: ResponsibleOrganizationIdentifier</p>
      * 
-     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202302CA.Organization.id</p>
      * 
@@ -148,7 +152,8 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the responsible organization.</p>
      * 
-     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202301CA.Organization.id</p>
      * 
@@ -165,7 +170,8 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Unique identifier for the responsible organization.</p>
      * 
-     * <p>Un-merged Business Name: ResponsibleOrganizationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ResponsibleOrganizationIdentifier</p>
      * 
      * <p>Relationship: PRPA_MT202303CA.Organization.id</p>
      * 

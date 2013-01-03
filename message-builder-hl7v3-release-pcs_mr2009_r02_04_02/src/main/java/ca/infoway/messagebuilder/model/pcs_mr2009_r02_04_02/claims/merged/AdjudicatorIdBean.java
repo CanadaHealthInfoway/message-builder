@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatorRole","QUCR_MT830201CA.AdjudicatorRole"})
 public class AdjudicatorIdBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private AdjudicatorPersonBean playingAdjudicatorPerson;
     private II directAuthorityInsuranceCarrierRoleId = new IIImpl();

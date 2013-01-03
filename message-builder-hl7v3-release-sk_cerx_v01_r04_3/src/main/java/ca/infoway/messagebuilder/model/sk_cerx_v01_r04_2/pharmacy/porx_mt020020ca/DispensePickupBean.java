@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 @Hl7RootType
 public class DispensePickupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
@@ -92,6 +92,10 @@ public class DispensePickupBean extends MessagePartBean {
     /**
      * <p>Business Name: Dispensed For</p>
      * 
+     * <p>Relationship: PORX_MT020020CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Identity of the Patient who is being dispensed 
      * to.&nbsp;</p>
      */
@@ -102,6 +106,10 @@ public class DispensePickupBean extends MessagePartBean {
 
     /**
      * <p>Business Name: Dispensed For</p>
+     * 
+     * <p>Relationship: PORX_MT020020CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Identity of the Patient who is being dispensed 
      * to.&nbsp;</p>

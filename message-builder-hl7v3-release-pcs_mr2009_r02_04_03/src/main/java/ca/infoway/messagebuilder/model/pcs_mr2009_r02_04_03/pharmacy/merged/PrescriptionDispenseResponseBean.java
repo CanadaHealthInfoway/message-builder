@@ -73,7 +73,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private SET<II, Identifier> inFulfillmentOfActRequestId = new SETImpl<II, Identifier>(IIImpl.class);
     private RelatedPersonBean receiverPersonalRelationship;

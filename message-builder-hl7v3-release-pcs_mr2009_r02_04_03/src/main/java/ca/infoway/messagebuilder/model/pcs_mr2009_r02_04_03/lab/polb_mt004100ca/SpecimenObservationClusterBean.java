@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SpecimenObservationCluster"})
 public class SpecimenObservationClusterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ST text = new STImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -152,6 +152,12 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.SpecimenObservationCluster.performer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-2)</p>
+     */
     @Hl7XmlMapping({"performer"})
     public List<WasPerformedByBean> getPerformer() {
         return this.performer;
@@ -204,11 +210,23 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOfResultStatusProcessStep() {
         return this.subjectOfResultStatusProcessStep;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOfResultStatusProcessStep(ResultStatusProcessStepBean subjectOfResultStatusProcessStep) {
         this.subjectOfResultStatusProcessStep = subjectOfResultStatusProcessStep;
     }

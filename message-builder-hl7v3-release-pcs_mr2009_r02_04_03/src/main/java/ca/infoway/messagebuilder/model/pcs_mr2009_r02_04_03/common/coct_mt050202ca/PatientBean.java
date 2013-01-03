@@ -52,7 +52,7 @@ import java.util.Set;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Patient {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private ActingPersonBean patientPerson;
 
@@ -116,11 +116,21 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT050202CA.Patient.patientPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"patientPerson"})
     public ActingPersonBean getPatientPerson() {
         return this.patientPerson;
     }
 
+    /**
+     * <p>Relationship: COCT_MT050202CA.Patient.patientPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPatientPerson(ActingPersonBean patientPerson) {
         this.patientPerson = patientPerson;
     }

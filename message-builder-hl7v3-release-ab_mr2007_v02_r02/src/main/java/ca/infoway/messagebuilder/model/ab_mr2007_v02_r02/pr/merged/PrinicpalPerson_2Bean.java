@@ -75,7 +75,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.PrincipalPerson","PRPM_MT306051CA.PrincipalPerson"})
 public class PrinicpalPerson_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV administrativeGenderCode = new CVImpl();
@@ -89,7 +89,8 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT306051CA.PrincipalPerson.id</p>
      * 
@@ -102,7 +103,8 @@ public class PrinicpalPerson_2Bean extends MessagePartBean {
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT306011CA.PrincipalPerson.id</p>
      * 

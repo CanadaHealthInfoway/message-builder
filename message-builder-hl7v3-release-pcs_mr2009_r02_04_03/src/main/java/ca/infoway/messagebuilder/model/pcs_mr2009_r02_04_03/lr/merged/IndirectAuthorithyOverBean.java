@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.IndirectAuthorithyOver","PRPA_MT202302CA.IndirectAuthorithyOver","PRPA_MT202303CA.IndirectAuthorithyOver","PRPA_MT202317CA.IndirectAuthorithyOver"})
 public class IndirectAuthorithyOverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private TerritorialAuthorityBean territorialAuthority;
 
 

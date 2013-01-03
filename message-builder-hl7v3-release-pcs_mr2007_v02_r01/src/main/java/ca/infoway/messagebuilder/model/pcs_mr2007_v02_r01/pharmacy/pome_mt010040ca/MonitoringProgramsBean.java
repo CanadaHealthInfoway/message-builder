@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.merged.HealthcareWorke
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private HealthcareWorkerBean custodianAssignedEntity;
@@ -131,11 +131,21 @@ public class MonitoringProgramsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Custodian.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"custodian/assignedEntity"})
     public HealthcareWorkerBean getCustodianAssignedEntity() {
         return this.custodianAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Custodian.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setCustodianAssignedEntity(HealthcareWorkerBean custodianAssignedEntity) {
         this.custodianAssignedEntity = custodianAssignedEntity;
     }

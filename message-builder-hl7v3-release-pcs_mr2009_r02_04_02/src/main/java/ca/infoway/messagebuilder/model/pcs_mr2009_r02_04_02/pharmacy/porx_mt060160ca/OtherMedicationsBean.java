@@ -89,7 +89,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
 public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -368,31 +368,63 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060160CA.ResponsibleParty4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060160CA.ResponsibleParty4.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(OccurredAtBean location) {
         this.location = location;
     }
@@ -410,6 +442,11 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060160CA.Subject11.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
@@ -438,6 +475,11 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.subjectOf3</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
+     */
     @Hl7XmlMapping({"subjectOf3"})
     public List<IncludesBean> getSubjectOf3() {
         return this.subjectOf3;
@@ -466,12 +508,24 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060160CA.Subject17.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf5/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf5DetectedIssueEvent() {
         return this.subjectOf5DetectedIssueEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component10.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;

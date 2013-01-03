@@ -98,7 +98,7 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -271,7 +271,7 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
      * for the prescription assigned by pharmacy)</p><p>D55(ID for 
      * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</
+     * prescri
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -434,7 +434,7 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Prescription.prescriptionNumber</p><p>Prescription.prescriptionExternalKey</p><p>D53(ID 
      * for the prescription assigned by pharmacy)</p><p>D55(ID for 
      * the dispense event)</p><p>D99.01</p><p>X0101(id for 
-     * prescription)</
+     * prescri
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {

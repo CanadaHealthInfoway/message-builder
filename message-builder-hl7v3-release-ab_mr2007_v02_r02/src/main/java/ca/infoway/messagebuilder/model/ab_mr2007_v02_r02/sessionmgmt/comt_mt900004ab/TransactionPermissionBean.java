@@ -35,7 +35,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COMT_MT900004AB.TransactionPermission"})
 public class TransactionPermissionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private List<HealthcareWorkerBean> responsiblePartyAssignedEntity = new ArrayList<HealthcareWorkerBean>();
 
@@ -76,6 +76,12 @@ public class TransactionPermissionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COMT_MT900004AB.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public List<HealthcareWorkerBean> getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;

@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private DrugOrCompoundBean player;
     private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private DrugHalfLifeBean subjectOf2HalfLife;
@@ -110,6 +110,11 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject9.document</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/document"})
     public List<MonographsBean> getSubjectOf1Document() {
         return this.subjectOf1Document;
@@ -136,6 +141,11 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject10.characteristic</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/characteristic"})
     public List<AppearanceCharacteristicsBean> getSubjectOf3Characteristic() {
         return this.subjectOf3Characteristic;
@@ -159,11 +169,21 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject7.potentialCharge</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf5/potentialCharge"})
     public DrugCostBean getSubjectOf5PotentialCharge() {
         return this.subjectOf5PotentialCharge;
     }
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject7.potentialCharge</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf5PotentialCharge(DrugCostBean subjectOf5PotentialCharge) {
         this.subjectOf5PotentialCharge = subjectOf5PotentialCharge;
     }

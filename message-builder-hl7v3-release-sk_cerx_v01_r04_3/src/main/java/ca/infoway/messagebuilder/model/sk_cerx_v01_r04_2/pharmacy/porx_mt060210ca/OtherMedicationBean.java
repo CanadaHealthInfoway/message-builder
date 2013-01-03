@@ -106,7 +106,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -426,6 +426,10 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT060210CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the patient who is taking the drug</div> 
      * <p>product.&nbsp;</p></p>
      */
@@ -435,6 +439,10 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PORX_MT060210CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the patient who is taking the drug</div> 
      * <p>product.&nbsp;</p></p>
      */
@@ -486,6 +494,10 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the identity of the provider who 
      * recorded</div> <p>the other medication 
      * information.&nbsp;</p></p>
@@ -496,6 +508,10 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the identity of the provider who 
      * recorded</div> <p>the other medication 
      * information.&nbsp;</p></p>
@@ -506,6 +522,10 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>&nbsp;Indicates the facility/location where the other</p> 
      * <div>medication was recorded.</div>
      */
@@ -515,6 +535,10 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PORX_MT060210CA.OtherMedication.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>&nbsp;Indicates the facility/location where the other</p> 
      * <div>medication was recorded.</div>
      */
@@ -535,6 +559,10 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT060210CA.Subject11.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
      * <p>&nbsp;This records the history of changes that have</p> 
      * <div>been made to the other medication record,</div> 
      * <div>including why the changes were made, who made</div> 
@@ -580,6 +608,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Subject14.annotation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf3/annotation"})
     public List<CommentBean> getSubjectOf3Annotation() {
         return this.subjectOf3Annotation;
@@ -618,6 +651,11 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060210CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf5/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf5DetectedIssueEvent() {
         return this.subjectOf5DetectedIssueEvent;

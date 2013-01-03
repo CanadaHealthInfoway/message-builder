@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7RootType
 public class InvoiceIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private MO amt = new MOImpl();
     private AdministrativeContactsSBean primaryPerformerContactParty;

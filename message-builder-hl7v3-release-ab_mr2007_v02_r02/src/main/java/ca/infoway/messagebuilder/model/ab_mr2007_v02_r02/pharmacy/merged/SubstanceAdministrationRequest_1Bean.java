@@ -52,7 +52,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class SubstanceAdministrationRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private TS authorTime = new TSImpl();

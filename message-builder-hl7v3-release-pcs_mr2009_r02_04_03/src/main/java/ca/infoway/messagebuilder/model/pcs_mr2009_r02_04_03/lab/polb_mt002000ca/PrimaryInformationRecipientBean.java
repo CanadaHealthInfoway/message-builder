@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Health
 @Hl7PartTypeMapping({"POLB_MT002000CA.PrimaryInformationRecipient"})
 public class PrimaryInformationRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS contextControlCode = new CSImpl();
     private HealthcareWorkerBean assignedEntity;
 
@@ -60,11 +60,23 @@ public class PrimaryInformationRecipientBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT002000CA.PrimaryInformationRecipient.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }

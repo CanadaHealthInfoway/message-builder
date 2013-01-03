@@ -74,7 +74,7 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<ST, String> name = new SETImpl<ST, String>(STImpl.class);
@@ -368,11 +368,23 @@ public class LocationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202317CA.ServiceDeliveryLocation.indirectAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"indirectAuthority"})
     public IndirectAuthorithyOverBean getIndirectAuthority() {
         return this.indirectAuthority;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202317CA.ServiceDeliveryLocation.indirectAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
         this.indirectAuthority = indirectAuthority;
     }

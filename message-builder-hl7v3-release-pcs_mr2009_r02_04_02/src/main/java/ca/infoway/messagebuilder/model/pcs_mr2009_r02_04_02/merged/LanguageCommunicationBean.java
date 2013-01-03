@@ -107,7 +107,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.LanguageCommunication","PRPA_MT101002CA.LanguageCommunication","PRPA_MT101102CA.LanguageCommunication","PRPA_MT101104CA.LanguageCommunication","PRPM_MT301010CA.LanguageCommunication","PRPM_MT303010CA.LanguageCommunication","PRPM_MT306011CA.LanguageCommunication"})
 public class LanguageCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV languageCode = new CVImpl();
     private CV modeCode = new CVImpl();
     private CV proficiencyLevelCode = new CVImpl();
@@ -301,7 +301,8 @@ public class LanguageCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.LanguageCommunication.modeCode</p>
@@ -316,7 +317,8 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * communicate in the indicated language i.e. written, spoken, 
      * read</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.LanguageCommunication.modeCode</p>
@@ -331,7 +333,8 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * communicate in the indicated language i.e. written, spoken, 
      * read</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.LanguageCommunication.modeCode</p>
@@ -354,7 +357,8 @@ public class LanguageCommunicationBean extends MessagePartBean {
     /**
      * <p>Business Name: LanguageOfCommunicationSkillsCode</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT306011CA.LanguageCommunication.modeCode</p>
@@ -369,7 +373,8 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * communicate in the indicated language i.e. written, spoken, 
      * read</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.LanguageCommunication.modeCode</p>
@@ -384,7 +389,8 @@ public class LanguageCommunicationBean extends MessagePartBean {
      * communicate in the indicated language i.e. written, spoken, 
      * read</p>
      * 
-     * <p>Un-merged Business Name: LanguageOfCommunicationSkillsCode</p>
+     * <p>Un-merged Business Name: 
+     * LanguageOfCommunicationSkillsCode</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.LanguageCommunication.modeCode</p>

@@ -30,15 +30,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.InvoiceE
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private InvoiceElementChoice invoiceElementChoice;
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementComponent.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"invoiceElementChoice"})
     public InvoiceElementChoice getInvoiceElementChoice() {
         return this.invoiceElementChoice;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT680000CA.InvoiceElementComponent.invoiceElementChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInvoiceElementChoice(InvoiceElementChoice invoiceElementChoice) {
         this.invoiceElementChoice = invoiceElementChoice;
     }

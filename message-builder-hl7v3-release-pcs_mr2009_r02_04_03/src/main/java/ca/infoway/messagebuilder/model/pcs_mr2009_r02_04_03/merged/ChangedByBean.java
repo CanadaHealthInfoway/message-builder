@@ -280,7 +280,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT130001CA.Author3","COCT_MT260020CA.Author1","COCT_MT260022CA.Author1","COCT_MT260030CA.Author1","PORX_MT060010CA.Author6","PORX_MT060040CA.Author1","PORX_MT060090CA.Author6","PORX_MT060160CA.Author1","PORX_MT060210CA.Author7","PORX_MT060340CA.Author1","REPC_MT000007CA.Author","REPC_MT000007CA.Author3","REPC_MT000009CA.Author3","REPC_MT000010CA.Author","REPC_MT000010CA.Author3","REPC_MT420003CA.Author3","REPC_MT500003CA.Author3","REPC_MT500004CA.Author3","REPC_MT610002CA.Author3"})
 public class ChangedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private TS time = new TSImpl();
     private ChangedBy changedBy;
     private ActingPerson actingPerson;
@@ -528,9 +528,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.time</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Gives 
+     * <p>C
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"time"})
@@ -779,9 +777,7 @@ public class ChangedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060210CA.Author7.time</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Gives 
+     * <p>C
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setTime(Date time) {

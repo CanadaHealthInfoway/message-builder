@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrincipalPerson","PRPM_MT303010CA.PrincipalPerson"})
 public class PrinicpalPerson_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV administrativeGenderCode = new CVImpl();
@@ -86,7 +86,8 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.id</p>
      * 
@@ -99,7 +100,8 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.id</p>
      * 
@@ -120,7 +122,8 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     /**
      * <p>Business Name: PrincipalPersonAggregateIdentifier</p>
      * 
-     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.id</p>
      * 
@@ -133,7 +136,8 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>Un-merged Business Name: PrincipalPersonAggregateIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * PrincipalPersonAggregateIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.id</p>
      * 

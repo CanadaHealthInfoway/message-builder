@@ -75,7 +75,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001010CA.BatteryRequest"})
 public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private Patient_1Bean recordTargetPatient;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
@@ -100,17 +100,32 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     private PriorTestRequestBean componentOfPriorActRequest;
 
 
+    /**
+     * <p>Relationship: POLB_MT001010CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"specimen/specimen"})
     public List<SpecimenRoleBean> getSpecimenSpecimen() {
         return this.specimenSpecimen;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001010CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"recordTarget/patient"})
     public Patient_1Bean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
+    /**
+     * <p>Relationship: POLB_MT001010CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
@@ -154,6 +169,12 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.CallBackContact.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"callBackContact/assignedEntity"})
     public List<HealthcareWorkerBean> getCallBackContactAssignedEntity() {
         return this.callBackContactAssignedEntity;
@@ -204,6 +225,12 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.InformationRecipient.recipientChoice</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informationRecipient/recipientChoice"})
     public List<RecipientChoice> getInformationRecipientRecipientChoice() {
         return this.informationRecipientRecipientChoice;
@@ -294,11 +321,23 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
     public ParentTestBean getOccurrenceOfActParentPointer() {
         return this.occurrenceOfActParentPointer;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.OccurrenceOf.actParentPointer</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
         this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
     }
@@ -364,47 +403,99 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
     public OutbreakBean getPertinentInformation1OutbreakEvent() {
         return this.pertinentInformation1OutbreakEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.PertinentInformation2.outbreakEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
         this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.PertinentInformation.supportingClinicalObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
         return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/referralRedirectIndicator"})
     public ReferralRedirectIndicatorBean getComponent1ReferralRedirectIndicator() {
         return this.component1ReferralRedirectIndicator;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.Component1.referralRedirectIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1ReferralRedirectIndicator(ReferralRedirectIndicatorBean component1ReferralRedirectIndicator) {
         this.component1ReferralRedirectIndicator = component1ReferralRedirectIndicator;
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001010CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component2/requestSortKey"})
     public OrderSortKeyBean getComponent2RequestSortKey() {
         return this.component2RequestSortKey;
     }
 
+    /**
+     * <p>Relationship: POLB_MT001010CA.Component2.requestSortKey</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent2RequestSortKey(OrderSortKeyBean component2RequestSortKey) {
         this.component2RequestSortKey = component2RequestSortKey;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component3/labInitiatedOrderIndicator"})
     public LabInitiatedOrderIndicatorBean getComponent3LabInitiatedOrderIndicator() {
         return this.component3LabInitiatedOrderIndicator;
     }
 
+    /**
+     * <p>Relationship: 
+     * POLB_MT001010CA.Component.labInitiatedOrderIndicator</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator) {
         this.component3LabInitiatedOrderIndicator = component3LabInitiatedOrderIndicator;
     }
@@ -421,6 +512,11 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001010CA.RequestChoice.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf1"})
     public List<IncludesBean> getSubjectOf1() {
         return this.subjectOf1;
@@ -447,11 +543,21 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>Relationship: POLB_MT001010CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/priorActRequest"})
     public PriorTestRequestBean getComponentOfPriorActRequest() {
         return this.componentOfPriorActRequest;
     }
 
+    /**
+     * <p>Relationship: POLB_MT001010CA.Component3.priorActRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentOfPriorActRequest(PriorTestRequestBean componentOfPriorActRequest) {
         this.componentOfPriorActRequest = componentOfPriorActRequest;
     }

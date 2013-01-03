@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
     private ProviderBean authorAssignedPerson;

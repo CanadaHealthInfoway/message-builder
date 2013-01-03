@@ -51,7 +51,7 @@ import java.util.Date;
 @Hl7RootType
 public class SupplyEventBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
@@ -160,11 +160,21 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Product.content</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"product/content"})
     public DispensedInBean getProductContent() {
         return this.productContent;
     }
 
+    /**
+     * <p>Relationship: COCT_MT300000CA.Product.content</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setProductContent(DispensedInBean productContent) {
         this.productContent = productContent;
     }
@@ -192,21 +202,45 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.Origin.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
     public ServiceLocationBean getOriginServiceDeliveryLocation() {
         return this.originServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.Origin.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
         this.originServiceDeliveryLocation = originServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.Destination.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public ServiceLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.Destination.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
@@ -234,11 +268,23 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.EncounterInformation.patientEncounter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientEncounter"})
     public PatientEncounterBean getComponentOfPatientEncounter() {
         return this.componentOfPatientEncounter;
     }
 
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.EncounterInformation.patientEncounter</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentOfPatientEncounter(PatientEncounterBean componentOfPatientEncounter) {
         this.componentOfPatientEncounter = componentOfPatientEncounter;
     }

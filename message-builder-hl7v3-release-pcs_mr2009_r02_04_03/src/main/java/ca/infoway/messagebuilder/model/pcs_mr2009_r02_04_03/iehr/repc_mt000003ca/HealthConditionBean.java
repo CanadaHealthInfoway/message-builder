@@ -73,7 +73,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -402,11 +402,21 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000003CA.Informant.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"informant/actingPerson"})
     public ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000003CA.Informant.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInformantActingPerson(ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
@@ -433,22 +443,43 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000003CA.Predecessor.oldCondition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/oldCondition"})
     public List<OldConditionBean> getPredecessorOldCondition() {
         return this.predecessorOldCondition;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public IncludesBean getSubjectOf() {
         return this.subjectOf;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000003CA.ConditionEvent.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubjectOf(IncludesBean subjectOf) {
         this.subjectOf = subjectOf;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000003CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;

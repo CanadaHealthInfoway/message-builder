@@ -193,7 +193,7 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDeviceIndicatorValue = new BLImpl();
@@ -1860,8 +1860,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p>
+     * only those records pertaining
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -2122,8 +2122,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p>
+     * only those records pertaining
+     * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientIDValue(Identifier patientIDValue) {
         this.patientIDValue.setValue(patientIDValue);
@@ -4106,7 +4106,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4127,7 +4128,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * retrieval should be for only the most recent dispense for a 
      * prescription is to be included in a query result.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4148,7 +4150,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * retrieval should be for only the most recent dispense for a 
      * prescription is to be included in a query result.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4177,7 +4180,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4198,7 +4202,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * retrieval should be for only the most recent dispense for a 
      * prescription is to be included in a query result.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4219,7 +4224,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * retrieval should be for only the most recent dispense for a 
      * prescription is to be included in a query result.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>

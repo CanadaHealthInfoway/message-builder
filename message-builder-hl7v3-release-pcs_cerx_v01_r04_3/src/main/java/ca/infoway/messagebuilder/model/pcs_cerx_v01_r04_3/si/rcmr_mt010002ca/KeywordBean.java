@@ -52,18 +52,28 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private PatientBean subject1Patient;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
     private List<CV> subject2RecordTypeCode = new ArrayList<CV>();
 
 
+    /**
+     * <p>Relationship: RCMR_MT010002CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject1/patient"})
     public PatientBean getSubject1Patient() {
         return this.subject1Patient;
     }
 
+    /**
+     * <p>Relationship: RCMR_MT010002CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject1Patient(PatientBean subject1Patient) {
         this.subject1Patient = subject1Patient;
     }
@@ -141,11 +151,21 @@ public class KeywordBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: RCMR_MT010002CA.Author.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author/consenter"})
     public Consenter getAuthorConsenter() {
         return this.authorConsenter;
     }
 
+    /**
+     * <p>Relationship: RCMR_MT010002CA.Author.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthorConsenter(Consenter authorConsenter) {
         this.authorConsenter = authorConsenter;
     }

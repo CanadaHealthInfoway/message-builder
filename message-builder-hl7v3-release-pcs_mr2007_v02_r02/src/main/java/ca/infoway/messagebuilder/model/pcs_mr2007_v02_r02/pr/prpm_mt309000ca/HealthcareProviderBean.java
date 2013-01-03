@@ -55,7 +55,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -65,6 +65,11 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     private OrganizationBean issuingOrganization;
 
 
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RoleChoice.responsibleFor</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"responsibleFor"})
     public List<ResponsiblePartyBean> getResponsibleFor() {
         return this.responsibleFor;

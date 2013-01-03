@@ -46,7 +46,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.ImmunizationForecast"})
 public class ImmunizationForecastBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT consumableSequenceNumber = new INTImpl();
     private CV consumableMedicationAdministerableMedicineCode = new CVImpl();

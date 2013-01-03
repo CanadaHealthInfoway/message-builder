@@ -57,7 +57,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;
@@ -162,21 +162,45 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
     public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"component1/substitutionMade"})
     public SubstitutionBean getComponent1SubstitutionMade() {
         return this.component1SubstitutionMade;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.Component13.substitutionMade</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
         this.component1SubstitutionMade = component1SubstitutionMade;
     }
@@ -214,11 +238,23 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.MedicationDispense.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public IncludesBean getSubjectOf() {
         return this.subjectOf;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.MedicationDispense.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubjectOf(IncludesBean subjectOf) {
         this.subjectOf = subjectOf;
     }

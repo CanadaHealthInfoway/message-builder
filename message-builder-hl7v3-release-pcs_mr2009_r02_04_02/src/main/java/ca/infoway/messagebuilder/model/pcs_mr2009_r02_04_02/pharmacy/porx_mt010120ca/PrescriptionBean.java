@@ -69,7 +69,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -289,6 +289,12 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"definition/substanceAdministrationDefinition"})
     public List<ProtocolsBean> getDefinitionSubstanceAdministrationDefinition() {
         return this.definitionSubstanceAdministrationDefinition;
@@ -317,6 +323,12 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     */
     @Hl7XmlMapping({"reason"})
     public List<BecauseOfBean> getReason() {
         return this.reason;
@@ -345,12 +357,23 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT010120CA.Coverage2.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"coverage/coverage"})
     public List<CoverageExtensions_1Bean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.PertinentInformation.quantityObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
     public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
         return this.pertinentInformationQuantityObservationEvent;
@@ -413,31 +436,67 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Subject.substitutionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/substitutionPermission"})
     public AllowedSubstitutionBean getSubjectOf1SubstitutionPermission() {
         return this.subjectOf1SubstitutionPermission;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Subject.substitutionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1SubstitutionPermission(AllowedSubstitutionBean subjectOf1SubstitutionPermission) {
         this.subjectOf1SubstitutionPermission = subjectOf1SubstitutionPermission;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2"})
     public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean getSubjectOf2() {
         return this.subjectOf2;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubjectOf2(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean subjectOf2) {
         this.subjectOf2 = subjectOf2;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf"})
     public ClassifiesBean getComponentOf() {
         return this.componentOf;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setComponentOf(ClassifiesBean componentOf) {
         this.componentOf = componentOf;
     }

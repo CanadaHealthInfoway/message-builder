@@ -62,7 +62,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private SET<TN, TrivialName> name = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST desc = new STImpl();
@@ -231,11 +231,23 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010040CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
     public ManufacturerBean getAsManufacturedProductManufacturer() {
         return this.asManufacturedProductManufacturer;
     }
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010040CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
         this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
     }
@@ -279,22 +291,42 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"asContent"})
     public DispensedInBean getAsContent() {
         return this.asContent;
     }
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setAsContent(DispensedInBean asContent) {
         this.asContent = asContent;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Medicine.asSpecializedKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     @Hl7XmlMapping({"asSpecializedKind"})
     public List<GroupedWithinBean> getAsSpecializedKind() {
         return this.asSpecializedKind;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010040CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"ingredient"})
     public List<DrugContainsBean> getIngredient() {
         return this.ingredient;

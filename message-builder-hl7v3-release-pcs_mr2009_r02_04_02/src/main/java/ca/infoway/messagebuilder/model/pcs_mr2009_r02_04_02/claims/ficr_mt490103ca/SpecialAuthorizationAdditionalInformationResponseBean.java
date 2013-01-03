@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private ST text = new STImpl();
     private SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
@@ -101,22 +101,46 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490103CA.InFulfillmentOf2.specialAuthorizationAdditionalInformationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"inFulfillmentOf/specialAuthorizationAdditionalInformationRequest"})
     public SpecialAuthorizationAdditionalInformationRequestBean getInFulfillmentOfSpecialAuthorizationAdditionalInformationRequest() {
         return this.inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490103CA.InFulfillmentOf2.specialAuthorizationAdditionalInformationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setInFulfillmentOfSpecialAuthorizationAdditionalInformationRequest(SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest) {
         this.inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest = inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490103CA.Support.specialAuthorizationCriteria</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"support/specialAuthorizationCriteria"})
     public List<SpecialAuthorizationCriteriaBean> getSupportSpecialAuthorizationCriteria() {
         return this.supportSpecialAuthorizationCriteria;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490103CA.PertinentInformation2.healthDocumentAttachment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
     public List<HealthDocumentAttachment_1Bean> getPertinentInformationHealthDocumentAttachment() {
         return this.pertinentInformationHealthDocumentAttachment;

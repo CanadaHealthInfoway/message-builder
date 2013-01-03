@@ -65,7 +65,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -383,32 +383,63 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/registrationEvent/subject"})
     public RegisteredItemBean<RR> getSubjectRegistrationEventSubject() {
         return this.subjectRegistrationEventSubject;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectRegistrationEventSubject(RegisteredItemBean<RR> subjectRegistrationEventSubject) {
         this.subjectRegistrationEventSubject = subjectRegistrationEventSubject;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700726CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/registrationEvent/custodian/assignedDevice"})
     public EHRRepositoryBean getSubjectRegistrationEventCustodianAssignedDevice() {
         return this.subjectRegistrationEventCustodianAssignedDevice;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700726CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectRegistrationEventCustodianAssignedDevice(EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice) {
         this.subjectRegistrationEventCustodianAssignedDevice = subjectRegistrationEventCustodianAssignedDevice;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700726CA.RegistrationEvent.replacementOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
+     */
     @Hl7XmlMapping({"subject/registrationEvent/replacementOf"})
     public List<ReplacesBean> getSubjectRegistrationEventReplacementOf() {
         return this.subjectRegistrationEventReplacementOf;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700726CA.ControlActEvent.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public List<CausedBean> getSubjectOf() {
         return this.subjectOf;

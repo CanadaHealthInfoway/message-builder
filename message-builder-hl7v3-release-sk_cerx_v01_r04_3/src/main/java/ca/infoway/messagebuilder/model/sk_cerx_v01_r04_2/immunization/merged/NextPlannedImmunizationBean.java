@@ -34,7 +34,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.NextPlannedImmunization","POIZ_MT030060CA.NextPlannedImmunization","POIZ_MT060150CA.NextPlannedImmunization"})
 public class NextPlannedImmunizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 

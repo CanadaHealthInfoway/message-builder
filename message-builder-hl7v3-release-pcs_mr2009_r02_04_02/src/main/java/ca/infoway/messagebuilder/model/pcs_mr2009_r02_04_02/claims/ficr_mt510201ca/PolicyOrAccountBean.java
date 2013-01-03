@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInsur
 @Hl7PartTypeMapping({"FICR_MT510201CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
@@ -97,11 +97,23 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Beneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
     public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
         return this.beneficiaryCoveredPartyAsPatient;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT510201CA.Beneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
         this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
     }

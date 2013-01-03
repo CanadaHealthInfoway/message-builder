@@ -66,7 +66,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -282,33 +282,65 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subject/registrationEvent"})
     public List<RegistrationEventBean<RR>> getSubjectRegistrationEvent() {
         return this.subjectRegistrationEvent;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
     }
 
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"queryAck"})
     public QueryAckBean getQueryAck() {
         return this.queryAck;
     }
 
+    /**
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setQueryAck(QueryAckBean queryAck) {
         this.queryAck = queryAck;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"queryByParameter"})
     public QueryByParameterBean<PL> getQueryByParameter() {
         return this.queryByParameter;
     }
 
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700746CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
     }

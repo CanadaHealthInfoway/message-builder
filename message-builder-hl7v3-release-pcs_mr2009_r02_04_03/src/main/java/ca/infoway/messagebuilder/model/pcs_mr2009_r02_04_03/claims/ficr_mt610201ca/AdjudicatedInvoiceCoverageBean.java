@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.Policy
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private INT sequenceNumber = new INTImpl();
     private PolicyOrAccount_2Bean policyOrAccount;
 
@@ -70,11 +70,23 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceCoverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"policyOrAccount"})
     public PolicyOrAccount_2Bean getPolicyOrAccount() {
         return this.policyOrAccount;
     }
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedInvoiceCoverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPolicyOrAccount(PolicyOrAccount_2Bean policyOrAccount) {
         this.policyOrAccount = policyOrAccount;
     }

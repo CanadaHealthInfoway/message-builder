@@ -84,7 +84,7 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();

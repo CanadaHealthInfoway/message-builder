@@ -81,7 +81,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.ControlActEvent","PORX_MT060040CA.ControlActEvent","PORX_MT060090CA.ControlActEvent","PORX_MT060210CA.ControlActEvent"})
 public class DispenseStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
@@ -239,7 +239,8 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
@@ -259,7 +260,8 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
@@ -326,7 +328,8 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060010CA.ControlActEvent.effectiveTime</p>
@@ -346,7 +349,8 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * effective date can be defaulted to change date, and thus is 
      * mandatory.</p>
      * 
-     * <p>Un-merged Business Name: DispenseStatusChangeEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * DispenseStatusChangeEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.ControlActEvent.effectiveTime</p>
@@ -385,7 +389,8 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Un-merged Business Name: OtherMedicationStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * OtherMedicationStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
      * 
@@ -443,7 +448,8 @@ public class DispenseStatusChangesBean extends MessagePartBean {
      * interpreting reasons for change. Allows CWE because not all 
      * reasons will correspond to a pre-defined code.</p>
      * 
-     * <p>Un-merged Business Name: OtherMedicationStatusChangeReason</p>
+     * <p>Un-merged Business Name: 
+     * OtherMedicationStatusChangeReason</p>
      * 
      * <p>Relationship: PORX_MT060210CA.ControlActEvent.reasonCode</p>
      * 

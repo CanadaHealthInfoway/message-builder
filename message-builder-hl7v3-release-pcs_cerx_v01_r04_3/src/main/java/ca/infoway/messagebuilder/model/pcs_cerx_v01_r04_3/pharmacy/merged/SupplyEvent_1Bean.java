@@ -65,7 +65,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SupplyEvent","PORX_MT980020CA.SupplyEvent"})
 public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

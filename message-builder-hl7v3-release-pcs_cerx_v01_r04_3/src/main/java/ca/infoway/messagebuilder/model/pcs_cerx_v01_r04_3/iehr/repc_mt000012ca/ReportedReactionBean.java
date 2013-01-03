@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -340,36 +340,76 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT000012CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
 
+    /**
+     * <p>Relationship: REPC_MT000012CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
         return this.informant;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000012CA.ReactionObservationEvent.informant</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setInformant(ReportedByBean informant) {
         this.informant = informant;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000012CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf1SeverityObservation() {
         return this.subjectOf1SeverityObservation;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000012CA.Subject1.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation) {
         this.subjectOf1SeverityObservation = subjectOf1SeverityObservation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT000012CA.Subject6.causalityAssessment</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
     public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
         return this.subjectOf2CausalityAssessment;

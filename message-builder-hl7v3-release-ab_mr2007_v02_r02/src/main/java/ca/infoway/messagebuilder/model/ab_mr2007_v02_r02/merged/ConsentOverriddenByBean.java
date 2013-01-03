@@ -139,7 +139,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author2","COCT_MT470012CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060190CA.Author2","RCMR_MT010001CA.Author2"})
 public class ConsentOverriddenByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private HealthcareWorkerBean assignedEntity;

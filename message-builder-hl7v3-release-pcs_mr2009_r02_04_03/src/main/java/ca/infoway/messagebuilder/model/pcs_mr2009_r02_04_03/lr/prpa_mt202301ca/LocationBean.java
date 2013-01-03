@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private SET<ST, String> name = new SETImpl<ST, String>(STImpl.class);
     private AD addr = new ADImpl();
@@ -297,21 +297,45 @@ public class LocationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDeliveryLocation.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public PlaceBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDeliveryLocation.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setLocation(PlaceBean location) {
         this.location = location;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDeliveryLocation.serviceProviderOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"serviceProviderOrganization"})
     public ResponsibleOrganizationBean getServiceProviderOrganization() {
         return this.serviceProviderOrganization;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDeliveryLocation.serviceProviderOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setServiceProviderOrganization(ResponsibleOrganizationBean serviceProviderOrganization) {
         this.serviceProviderOrganization = serviceProviderOrganization;
     }
@@ -328,29 +352,57 @@ public class LocationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT202301CA.Location.serviceDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"locationOf/serviceDefinition"})
     public List<AvailableServicesBean> getLocationOfServiceDefinition() {
         return this.locationOfServiceDefinition;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202301CA.DirectAuthorityOver.contactParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"directAuthorityOver/contactParty"})
     public List<ContactPointsBean> getDirectAuthorityOverContactParty() {
         return this.directAuthorityOverContactParty;
     }
 
 
+    /**
+     * <p>Relationship: PRPA_MT202301CA.Part.subLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"part/subLocation"})
     public List<SubLocationsBean> getPartSubLocation() {
         return this.partSubLocation;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDeliveryLocation.indirectAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"indirectAuthority"})
     public IndirectAuthorithyOverBean getIndirectAuthority() {
         return this.indirectAuthority;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPA_MT202301CA.ServiceDeliveryLocation.indirectAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
         this.indirectAuthority = indirectAuthority;
     }

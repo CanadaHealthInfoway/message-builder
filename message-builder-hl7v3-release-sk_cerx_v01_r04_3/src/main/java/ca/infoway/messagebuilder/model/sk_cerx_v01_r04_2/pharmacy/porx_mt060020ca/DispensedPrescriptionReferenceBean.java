@@ -38,15 +38,27 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.SupplyO
 @Hl7PartTypeMapping({"PORX_MT060020CA.InFulfillmentOf"})
 public class DispensedPrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SupplyOrderBean supplyRequest;
 
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060020CA.InFulfillmentOf.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"supplyRequest"})
     public SupplyOrderBean getSupplyRequest() {
         return this.supplyRequest;
     }
 
+    /**
+     * <p>Relationship: 
+     * PORX_MT060020CA.InFulfillmentOf.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSupplyRequest(SupplyOrderBean supplyRequest) {
         this.supplyRequest = supplyRequest;
     }

@@ -36,15 +36,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r01.claims.merged.InvoiceT
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResultReference"})
 public class AdjudicationResultReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private InvoiceTypeBean invoiceElementGroup;
 
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicationResultReference.invoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"invoiceElementGroup"})
     public InvoiceTypeBean getInvoiceElementGroup() {
         return this.invoiceElementGroup;
     }
 
+    /**
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicationResultReference.invoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setInvoiceElementGroup(InvoiceTypeBean invoiceElementGroup) {
         this.invoiceElementGroup = invoiceElementGroup;
     }

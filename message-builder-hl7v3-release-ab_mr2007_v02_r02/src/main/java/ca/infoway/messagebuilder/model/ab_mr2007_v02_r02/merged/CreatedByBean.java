@@ -278,7 +278,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Author","MCAI_MT700211CA.Author","MCAI_MT700212CA.Author","MCAI_MT700221CA.Author","MCAI_MT700230CA.Author","MCAI_MT700231CA.Author","MCAI_MT700232CA.Author","QUQI_MT020000CA.Author","QUQI_MT020002CA.Author"})
 public class CreatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -497,8 +497,7 @@ public class CreatedByBean extends MessagePartBean {
      * 
      * <p>The time the person responsible for the event made the 
      * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * d
+     * time the change became effec
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"time"})
@@ -717,8 +716,7 @@ public class CreatedByBean extends MessagePartBean {
      * 
      * <p>The time the person responsible for the event made the 
      * decision for it to occur. This may be different than the 
-     * time the change became effective. (E.g. If a provider 
-     * d
+     * time the change became effec
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setTime(Date time) {

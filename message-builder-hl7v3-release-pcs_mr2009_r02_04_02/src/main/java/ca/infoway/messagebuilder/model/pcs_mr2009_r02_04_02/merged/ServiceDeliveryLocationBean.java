@@ -131,7 +131,7 @@ import java.util.Date;
 @Hl7RootType
 public class ServiceDeliveryLocationBean extends MessagePartBean implements Choice, Recipient {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -141,7 +141,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -178,7 +179,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>Identifier of the facility where the dispensed medication 
      * was shipped.</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -247,7 +249,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
 
     /**
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -284,7 +287,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>Identifier of the facility where the dispensed medication 
      * was shipped.</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationIdentifier</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
      * 
@@ -555,7 +559,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -568,7 +573,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -589,7 +595,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     /**
      * <p>Business Name: ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
@@ -602,7 +609,8 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>Effective date of the specific service delivery 
      * location</p>
      * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationEffectiveDate</p>
+     * <p>Un-merged Business Name: 
+     * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
      * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>

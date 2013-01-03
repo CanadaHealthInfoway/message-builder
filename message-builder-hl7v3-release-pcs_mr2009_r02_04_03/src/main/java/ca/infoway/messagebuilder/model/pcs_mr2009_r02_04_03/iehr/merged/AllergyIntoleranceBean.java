@@ -91,7 +91,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -610,7 +610,8 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     /**
      * <p>Business Name: AllergyIntoleranceMaskingIndicators</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicators</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT000001CA.IntoleranceCondition.confidentialityCode</p>
@@ -644,7 +645,8 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * patient, respectively. 'normal' should never be asserted 
      * with one of the other codes.</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicators</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.IntoleranceCondition.confidentialityCode</p>
@@ -680,7 +682,8 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * patient, respectively. 'normal' should never be asserted 
      * with one of the other codes.</p>
      * 
-     * <p>Un-merged Business Name: AllergyIntoleranceMaskingIndicators</p>
+     * <p>Un-merged Business Name: 
+     * AllergyIntoleranceMaskingIndicators</p>
      * 
      * <p>Relationship: 
      * REPC_MT000013CA.IntoleranceCondition.confidentialityCode</p>

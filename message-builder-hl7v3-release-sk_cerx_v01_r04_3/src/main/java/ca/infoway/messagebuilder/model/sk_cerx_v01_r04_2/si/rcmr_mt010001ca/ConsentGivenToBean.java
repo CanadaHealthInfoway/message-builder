@@ -41,11 +41,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<Recipient> recipient = new ArrayList<Recipient>();
 
 
     /**
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (0)</p>
+     * 
      * <p><strong>NOTE: Although the CeRx specification allows for 
      * a Service Delivery Location to be specified, in SK, consent 
      * can only be given to a specific provider, so this has been 

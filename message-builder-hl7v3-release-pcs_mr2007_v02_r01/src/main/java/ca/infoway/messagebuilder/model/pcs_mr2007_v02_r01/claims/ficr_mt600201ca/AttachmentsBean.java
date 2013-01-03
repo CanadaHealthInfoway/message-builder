@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementGroupAttachment"})
 public class AttachmentsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS typeCode = new CSImpl();
     private HealthDocumentAttachmentBean healthDocumentAttachment;
 

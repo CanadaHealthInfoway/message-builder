@@ -30,6 +30,11 @@ import java.util.List;
 public interface DocumentContent {
 
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.DocumentContent.reason</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     public List<BecauseOfBean> getReason();
 
 }

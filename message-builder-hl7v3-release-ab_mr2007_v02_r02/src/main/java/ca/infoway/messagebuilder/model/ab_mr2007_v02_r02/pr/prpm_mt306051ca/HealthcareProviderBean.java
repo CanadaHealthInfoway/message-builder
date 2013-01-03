@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -136,11 +136,23 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     }
 
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.HealthCareProvider.healthCarePrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
     public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.HealthCareProvider.healthCarePrincipalPerson</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }

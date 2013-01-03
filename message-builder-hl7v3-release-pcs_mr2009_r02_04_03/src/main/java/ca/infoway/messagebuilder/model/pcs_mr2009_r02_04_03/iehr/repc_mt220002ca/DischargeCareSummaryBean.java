@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class DischargeCareSummaryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST title = new STImpl();
@@ -315,53 +315,107 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT220002CA.Document.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RequestedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: REPC_MT220002CA.Document.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RequestedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT220002CA.Custodian2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
     public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
         return this.custodian1ServiceDeliveryLocation;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT220002CA.Custodian2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
         this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT220002CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"custodian2/assignedDevice"})
     public EHRRepositoryBean getCustodian2AssignedDevice() {
         return this.custodian2AssignedDevice;
     }
 
+    /**
+     * <p>Relationship: REPC_MT220002CA.Custodian.assignedDevice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
         this.custodian2AssignedDevice = custodian2AssignedDevice;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT220002CA.InformationRecipient.recipients</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
     public List<Recipients> getPrimaryInformationRecipientRecipients() {
         return this.primaryInformationRecipientRecipients;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT220002CA.Predecessor2.oldClinicalDocumentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
     public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
         return this.predecessorOldClinicalDocumentEvent;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT220002CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component/structuredBody/component/section/component/documentContent"})
     public DocumentContent_2 getComponentStructuredBodyComponentSectionComponentDocumentContent() {
         return this.componentStructuredBodyComponentSectionComponentDocumentContent;
     }
 
+    /**
+     * <p>Relationship: REPC_MT220002CA.Component4.documentContent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponentStructuredBodyComponentSectionComponentDocumentContent(DocumentContent_2 componentStructuredBodyComponentSectionComponentDocumentContent) {
         this.componentStructuredBodyComponentSectionComponentDocumentContent = componentStructuredBodyComponentSectionComponentDocumentContent;
     }
@@ -374,21 +428,43 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT220002CA.Predecessor.newClinicalDocumentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"successor/newClinicalDocumentEvent"})
     public NewClinicalDocumentEventBean getSuccessorNewClinicalDocumentEvent() {
         return this.successorNewClinicalDocumentEvent;
     }
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT220002CA.Predecessor.newClinicalDocumentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSuccessorNewClinicalDocumentEvent(NewClinicalDocumentEventBean successorNewClinicalDocumentEvent) {
         this.successorNewClinicalDocumentEvent = successorNewClinicalDocumentEvent;
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT220002CA.Document.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1"})
     public IncludesBean getSubjectOf1() {
         return this.subjectOf1;
     }
 
+    /**
+     * <p>Relationship: REPC_MT220002CA.Document.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubjectOf1(IncludesBean subjectOf1) {
         this.subjectOf1 = subjectOf1;
     }
@@ -416,6 +492,12 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT220002CA.Component6.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;

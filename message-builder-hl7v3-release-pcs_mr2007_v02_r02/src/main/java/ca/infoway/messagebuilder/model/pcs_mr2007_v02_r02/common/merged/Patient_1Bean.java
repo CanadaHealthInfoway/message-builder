@@ -77,7 +77,7 @@ import java.util.List;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingPerson {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);

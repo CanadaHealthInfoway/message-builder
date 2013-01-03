@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Observation","REPC_MT230002CA.Observation","REPC_MT230003CA.Observation"})
 public class ClinicalObservationDocumentBean extends MessagePartBean implements DocumentContent_3, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt230001ca.DocumentContent {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -245,7 +245,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     /**
      * <p>Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
-     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Observation.effectiveTime</p>
      * 
@@ -263,7 +264,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
-     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Observation.effectiveTime</p>
      * 
@@ -281,7 +283,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
-     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Observation.effectiveTime</p>
      * 
@@ -307,7 +310,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     /**
      * <p>Business Name: ClinicalObservationDocumentTimeRange</p>
      * 
-     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230001CA.Observation.effectiveTime</p>
      * 
@@ -325,7 +329,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
-     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230003CA.Observation.effectiveTime</p>
      * 
@@ -343,7 +348,8 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * date (the point up to which the assessment is current) needs 
      * to be specified.</p>
      * 
-     * <p>Un-merged Business Name: ClinicalObservationDocumentTimeRange</p>
+     * <p>Un-merged Business Name: 
+     * ClinicalObservationDocumentTimeRange</p>
      * 
      * <p>Relationship: REPC_MT230002CA.Observation.effectiveTime</p>
      * 

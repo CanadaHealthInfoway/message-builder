@@ -57,7 +57,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.SupplyE
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
@@ -322,6 +322,10 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT060100CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the facility/location where the 
      * dispensing</div> <p>was performed.&nbsp;</p></p>
      */
@@ -331,6 +335,10 @@ public class DispenseBean extends MessagePartBean {
     }
 
     /**
+     * <p>Relationship: PORX_MT060100CA.MedicationDispense.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Indicates the facility/location where the 
      * dispensing</div> <p>was performed.&nbsp;</p></p>
      */
@@ -339,11 +347,21 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT060100CA.Component2.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"component1/supplyEvent"})
     public SupplyEvent_1Bean getComponent1SupplyEvent() {
         return this.component1SupplyEvent;
     }
 
+    /**
+     * <p>Relationship: PORX_MT060100CA.Component2.supplyEvent</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setComponent1SupplyEvent(SupplyEvent_1Bean component1SupplyEvent) {
         this.component1SupplyEvent = component1SupplyEvent;
     }

@@ -107,7 +107,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Supporti
 @Hl7PartTypeMapping({"POLB_MT001000CA.SupportingClinicalObservationEvent","POLB_MT001001CA.SupportingClinicalObservationEvent","POLB_MT001010CA.SupportingClinicalObservationEvent","POLB_MT001999CA.SupportingClinicalObservationEvent","POLB_MT002000CA.SupportingClinicalObservationEvent","POLB_MT004000CA.SupportingClinicalObservationEvent","POLB_MT004100CA.SupportingClinicalObservationEvent1","POLB_MT004100CA.SupportingClinicalObservationEvent2","POLB_MT004200CA.SupportingClinicalObservationEvent1"})
 public class SupportingClinicalInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD code = new CDImpl();
     private ANY<Object> value = new ANYImpl<Object>();
 
@@ -115,14 +115,16 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: SupportingClinicalObservationCode</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT002000CA.SupportingClinicalObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT001000CA.SupportingClinicalObservationEvent.code</p>
@@ -135,7 +137,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Describes the type of supporting clinical 
      * information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT001001CA.SupportingClinicalObservationEvent.code</p>
@@ -148,7 +151,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Describes the type of supporting clinical 
      * information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT001010CA.SupportingClinicalObservationEvent.code</p>
@@ -161,7 +165,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Describes the type of supporting clinical 
      * information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT001999CA.SupportingClinicalObservationEvent.code</p>
@@ -174,14 +179,16 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Describes the type of supporting clinical 
      * information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.SupportingClinicalObservationEvent2.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.SupportingClinicalObservationEvent1.code</p>
@@ -198,7 +205,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * the report level (as opposed to at the culture, isolate, or 
      * sensitivity level). This includes drugs taken.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.SupportingClinicalObservationEvent1.code</p>
@@ -211,7 +219,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Code used to describe this observation as supporting 
      * clinical information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.SupportingClinicalObservationEvent.code</p>
@@ -229,14 +238,16 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: SupportingClinicalObservationCode</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT002000CA.SupportingClinicalObservationEvent.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT001000CA.SupportingClinicalObservationEvent.code</p>
@@ -249,7 +260,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Describes the type of supporting clinical 
      * information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT001001CA.SupportingClinicalObservationEvent.code</p>
@@ -262,7 +274,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Describes the type of supporting clinical 
      * information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT001010CA.SupportingClinicalObservationEvent.code</p>
@@ -275,7 +288,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Describes the type of supporting clinical 
      * information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT001999CA.SupportingClinicalObservationEvent.code</p>
@@ -288,14 +302,16 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Describes the type of supporting clinical 
      * information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.SupportingClinicalObservationEvent2.code</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.SupportingClinicalObservationEvent1.code</p>
@@ -312,7 +328,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * the report level (as opposed to at the culture, isolate, or 
      * sensitivity level). This includes drugs taken.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.SupportingClinicalObservationEvent1.code</p>
@@ -325,7 +342,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>Code used to describe this observation as supporting 
      * clinical information.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationCode</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationCode</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.SupportingClinicalObservationEvent.code</p>
@@ -343,7 +361,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: SupportingClinicalObservationValue</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT002000CA.SupportingClinicalObservationEvent.value</p>
@@ -353,7 +372,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>If a coded value applies, the value must be selected from 
      * the SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT001000CA.SupportingClinicalObservationEvent.value</p>
@@ -365,7 +385,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT001001CA.SupportingClinicalObservationEvent.value</p>
@@ -377,7 +398,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT001010CA.SupportingClinicalObservationEvent.value</p>
@@ -389,7 +411,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * must be selected from the SupportingClinicalInformationValue 
      * Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT001999CA.SupportingClinicalObservationEvent.value</p>
@@ -401,7 +424,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.SupportingClinicalObservationEvent2.value</p>
@@ -413,7 +437,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * selected from the SupportingClinicalInformationValue Concept 
      * Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.SupportingClinicalObservationEvent1.value</p>
@@ -430,7 +455,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * a coded value applies, values must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.SupportingClinicalObservationEvent1.value</p>
@@ -446,7 +472,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * values must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.SupportingClinicalObservationEvent.value</p>
@@ -465,7 +492,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
     /**
      * <p>Business Name: SupportingClinicalObservationValue</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT002000CA.SupportingClinicalObservationEvent.value</p>
@@ -475,7 +503,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * <p>If a coded value applies, the value must be selected from 
      * the SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT001000CA.SupportingClinicalObservationEvent.value</p>
@@ -487,7 +516,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT001001CA.SupportingClinicalObservationEvent.value</p>
@@ -499,7 +529,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT001010CA.SupportingClinicalObservationEvent.value</p>
@@ -511,7 +542,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * must be selected from the SupportingClinicalInformationValue 
      * Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT001999CA.SupportingClinicalObservationEvent.value</p>
@@ -523,7 +555,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * value must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.SupportingClinicalObservationEvent2.value</p>
@@ -535,7 +568,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * selected from the SupportingClinicalInformationValue Concept 
      * Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT004100CA.SupportingClinicalObservationEvent1.value</p>
@@ -552,7 +586,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * a coded value applies, values must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT004200CA.SupportingClinicalObservationEvent1.value</p>
@@ -568,7 +603,8 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
      * values must be selected from the 
      * SupportingClinicalInformationValue Concept Domain.</p>
      * 
-     * <p>Un-merged Business Name: SupportingClinicalObservationValue</p>
+     * <p>Un-merged Business Name: 
+     * SupportingClinicalObservationValue</p>
      * 
      * <p>Relationship: 
      * POLB_MT004000CA.SupportingClinicalObservationEvent.value</p>

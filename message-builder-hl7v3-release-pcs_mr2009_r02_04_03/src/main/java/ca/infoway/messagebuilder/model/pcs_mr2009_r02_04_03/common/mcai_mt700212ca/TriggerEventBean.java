@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -308,21 +308,41 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCAI_MT700212CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public CreatedBy_1Bean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: MCAI_MT700212CA.ControlActEvent.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(CreatedBy_1Bean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: MCAI_MT700212CA.DataEnterer.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"dataEnterer/actingPerson"})
     public ActingPerson getDataEntererActingPerson() {
         return this.dataEntererActingPerson;
     }
 
+    /**
+     * <p>Relationship: MCAI_MT700212CA.DataEnterer.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setDataEntererActingPerson(ActingPerson dataEntererActingPerson) {
         this.dataEntererActingPerson = dataEntererActingPerson;
     }
@@ -393,21 +413,43 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCAI_MT700212CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public RefersTo_1Bean<ACT> getSubject() {
         return this.subject;
     }
 
+    /**
+     * <p>Relationship: MCAI_MT700212CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setSubject(RefersTo_1Bean<ACT> subject) {
         this.subject = subject;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * MCAI_MT700212CA.PertinentInformation.authorizationToken</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
     public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
         return this.pertinentInformationAuthorizationToken;
     }
 
+    /**
+     * <p>Relationship: 
+     * MCAI_MT700212CA.PertinentInformation.authorizationToken</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
         this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
     }
@@ -433,6 +475,11 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: MCAI_MT700212CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf2DetectedIssueEvent() {
         return this.subjectOf2DetectedIssueEvent;

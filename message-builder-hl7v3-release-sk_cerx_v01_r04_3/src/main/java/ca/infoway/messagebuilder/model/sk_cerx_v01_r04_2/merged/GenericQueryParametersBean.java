@@ -200,7 +200,7 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDeviceIndicatorValue = new BLImpl();
@@ -2089,8 +2089,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Identifier of the patient who is the subject of the 
-     * patient m
+     * <p>Id
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientID/value"})
@@ -2352,8 +2351,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Identifier of the patient who is the subject of the 
-     * patient m
+     * <p>Id
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientIDValue(Identifier patientIDValue) {
@@ -2601,9 +2599,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>The name of the patient who is the subject of the 
      * condition history query.</p><p>Filter the result set to 
      * include only those records pertaining to the patient with 
-     * this name.</p>
-     * 
-     * <p>The name of the pa
+    
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientName/value"})
@@ -2851,9 +2847,7 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>The name of the patient who is the subject of the 
      * condition history query.</p><p>Filter the result set to 
      * include only those records pertaining to the patient with 
-     * this name.</p>
-     * 
-     * <p>The name of the pa
+    
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientNameValue(PersonName patientNameValue) {
@@ -4863,7 +4857,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4906,7 +4901,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4949,7 +4945,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attribute whose value must be known to evaluate the query, 
      * the attribute is mandatory.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -4992,7 +4989,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060030CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5043,7 +5041,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
     /**
      * <p>Business Name: MostRecentDispenseForEachRxIndicator</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060180CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5086,7 +5085,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060110CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5129,7 +5129,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * attribute whose value must be known to evaluate the query, 
      * the attribute is mandatory.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060170CA.MostRecentDispenseForEachRxIndicator.value</p>
@@ -5172,7 +5173,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * whose value must be known to evaluate the query, the 
      * attribute is mandatory.</p>
      * 
-     * <p>Un-merged Business Name: MostRecentDispenseForEachRxIndicator</p>
+     * <p>Un-merged Business Name: 
+     * MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Relationship: 
      * PORX_MT060030CA.MostRecentDispenseForEachRxIndicator.value</p>

@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.OccurredAtBea
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS statusCode = new CSImpl();
     private PQ quantity = new PQImpl();
     private OccurredAtBean location;
@@ -145,11 +145,21 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
         return this.location;
     }
 
+    /**
+     * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLocation(OccurredAtBean location) {
         this.location = location;
     }

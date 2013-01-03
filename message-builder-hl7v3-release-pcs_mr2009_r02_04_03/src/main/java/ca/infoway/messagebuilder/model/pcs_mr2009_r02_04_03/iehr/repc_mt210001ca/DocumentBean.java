@@ -52,7 +52,7 @@ import java.util.Set;
 @Hl7RootType
 public class DocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -170,22 +170,44 @@ public class DocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.Document.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"author"})
     public RequestedByBean getAuthor() {
         return this.author;
     }
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.Document.author</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setAuthor(RequestedByBean author) {
         this.author = author;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT210001CA.InformationRecipient.recipients</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
     public List<Recipients> getPrimaryInformationRecipientRecipients() {
         return this.primaryInformationRecipientRecipients;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT210001CA.Predecessor2.oldClinicalDocumentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
     public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
         return this.predecessorOldClinicalDocumentEvent;
@@ -212,16 +234,32 @@ public class DocumentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.Document.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public IncludesBean getSubjectOf() {
         return this.subjectOf;
     }
 
+    /**
+     * <p>Relationship: REPC_MT210001CA.Document.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setSubjectOf(IncludesBean subjectOf) {
         this.subjectOf = subjectOf;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * REPC_MT210001CA.Component6.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;

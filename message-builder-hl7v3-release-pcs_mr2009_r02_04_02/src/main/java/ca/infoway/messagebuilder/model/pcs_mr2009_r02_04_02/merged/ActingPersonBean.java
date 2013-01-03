@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT050007CA.Person","COCT_MT050202CA.Person","COCT_MT050207CA.Person","COCT_MT050208CA.Person","COCT_MT090102CA.Person","COCT_MT090108CA.Person","COCT_MT910108CA.Person","POIZ_MT030050CA.Person","POIZ_MT030060CA.Person","POIZ_MT060150CA.Person"})
 public class ActingPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private PN name = new PNImpl();
     private CV administrativeGenderCode = new CVImpl();
     private TS birthTime = new TSImpl();
@@ -407,9 +407,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>Person.lastName</p>
      * 
-     * <p>Person.middleName</p>
-     * 
-     * <p>Person.n
+     * <p>Person.mid
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"name"})
@@ -748,9 +746,7 @@ public class ActingPersonBean extends MessagePartBean {
      * 
      * <p>Person.lastName</p>
      * 
-     * <p>Person.middleName</p>
-     * 
-     * <p>Person.n
+     * <p>Person.mid
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setName(PersonName name) {

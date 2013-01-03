@@ -73,7 +73,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ServiceDefinition","PRPA_MT202302CA.ServiceDefinition","PRPA_MT202303CA.ServiceDefinition"})
 public class AvailableServicesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private SET<PIVL, PeriodicIntervalTime> activityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);

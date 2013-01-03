@@ -77,7 +77,7 @@ import java.util.List;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements ActingPerson, Patient_2 {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -302,8 +302,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-    
+     * (Root)</p><p>Claim.330-CW</p><p>Health Car
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -527,8 +526,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (Extension)</p><p>PTT.050.02 
      * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
      * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-    
+     * (Root)</p><p>Claim.330-CW</p><p>Health Car
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -742,7 +740,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (partType=SINST=PST)</p><p>ZPA2.12 
      * (partTYpe=STA)</p><p>ZPA2.13 
      * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
-     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"addr"})
@@ -956,7 +954,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * (partType=SINST=PST)</p><p>ZPA2.12 
      * (partTYpe=STA)</p><p>ZPA2.13 
      * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
-     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2.16 
+     * (partType=DIR)</p><p>ZPA2.15 (partType=STB)</p><p>ZPA2
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setAddr(PostalAddress addr) {
@@ -1165,7 +1163,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * not always available, and therefore only marked as 
      * 'populated'.</p>
      * 
-     * <p>Provides ba
+     * <p>Pro
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"telecom"})
@@ -1365,7 +1363,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * than first repetition is an 
      * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p>ZPA.1 (partType=Give
+     * <p>ZPA.1 (partType=
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientPerson/name"})
@@ -1564,7 +1562,7 @@ public class Patient_1Bean extends MessagePartBean implements ActingPerson, Pati
      * than first repetition is an 
      * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
-     * <p>ZPA.1 (partType=Give
+     * <p>ZPA.1 (partType=
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientPersonName(PersonName patientPersonName) {

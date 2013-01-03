@@ -95,7 +95,7 @@ import java.util.Set;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Consenter, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ActingPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN relationshipHolderName = new PNImpl();
@@ -301,7 +301,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>Provider.providerKey 
      * (Extension)</p><p>Provider.wellnetProviderId 
      * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.I
+     * (Extension)</p><p>ProviderRegistrati
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -506,7 +506,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>Provider.providerKey 
      * (Extension)</p><p>Provider.wellnetProviderId 
      * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistration.I
+     * (Extension)</p><p>ProviderRegistrati
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -836,7 +836,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
      * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType 
+     * the first)</p><p>PVD.050-04 (PartT
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
@@ -1018,7 +1018,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
      * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartType 
+     * the first)</p><p>PVD.050-04 (PartT
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setRelationshipHolderName(PersonName relationshipHolderName) {

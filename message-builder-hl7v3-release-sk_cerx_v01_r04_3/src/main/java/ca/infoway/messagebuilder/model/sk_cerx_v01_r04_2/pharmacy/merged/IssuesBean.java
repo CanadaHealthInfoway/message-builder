@@ -132,7 +132,7 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
@@ -329,8 +329,7 @@ public class IssuesBean extends MessagePartBean {
      * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.reasonDomain</p><p>ZP3.3</p><p>E06(for 
      * contraindications errors are handled at transmission or 
      * controlAct wrapper level)</p><p>05.03D</p><p>DUR Response 
-     * Codes</p><p>Interaction 
-     * T
+     * Codes</p><p>In
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -523,8 +522,7 @@ public class IssuesBean extends MessagePartBean {
      * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.reasonDomain</p><p>ZP3.3</p><p>E06(for 
      * contraindications errors are handled at transmission or 
      * controlAct wrapper level)</p><p>05.03D</p><p>DUR Response 
-     * Codes</p><p>Interaction 
-     * T
+     * Codes</p><p>In
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActDetectedIssueCode code) {

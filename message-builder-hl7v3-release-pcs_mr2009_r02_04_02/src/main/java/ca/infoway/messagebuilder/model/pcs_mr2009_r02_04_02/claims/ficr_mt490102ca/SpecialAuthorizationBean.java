@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;
@@ -126,6 +126,12 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorization.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-100)</p>
+     */
     @Hl7XmlMapping({"subject"})
     public List<Subject3Bean> getSubject() {
         return this.subject;
@@ -172,16 +178,32 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Limitation.maximumLimits</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"limitation2/maximumLimits"})
     public MaximumLimitsBean getLimitation2MaximumLimits() {
         return this.limitation2MaximumLimits;
     }
 
+    /**
+     * <p>Relationship: FICR_MT490102CA.Limitation.maximumLimits</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setLimitation2MaximumLimits(MaximumLimitsBean limitation2MaximumLimits) {
         this.limitation2MaximumLimits = limitation2MaximumLimits;
     }
 
 
+    /**
+     * <p>Relationship: 
+     * FICR_MT490102CA.SpecialAuthorization.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
     @Hl7XmlMapping({"subjectOf"})
     public List<IncludesBean> getSubjectOf() {
         return this.subjectOf;

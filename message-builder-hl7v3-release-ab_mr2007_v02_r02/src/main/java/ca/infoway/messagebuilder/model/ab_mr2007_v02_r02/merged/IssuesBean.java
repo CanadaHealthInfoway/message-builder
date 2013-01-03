@@ -180,7 +180,7 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
@@ -353,8 +353,7 @@ public class IssuesBean extends MessagePartBean {
      * Type</p><p>ZPS.7.1</p><p>ZDU.9.1(PLYPHRM)</p><p>ZDU.10.1 
      * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_DetectedMedicationIssue</p>
      * 
-     * <p>Contraindication.crossSensitive (if code is related 
-
+     * <p>Contraindication.crossSensitive (if code is relate
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -520,8 +519,7 @@ public class IssuesBean extends MessagePartBean {
      * Type</p><p>ZPS.7.1</p><p>ZDU.9.1(PLYPHRM)</p><p>ZDU.10.1 
      * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_DetectedMedicationIssue</p>
      * 
-     * <p>Contraindication.crossSensitive (if code is related 
-
+     * <p>Contraindication.crossSensitive (if code is relate
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActDetectedIssueCode code) {
@@ -761,9 +759,7 @@ public class IssuesBean extends MessagePartBean {
      * contraindication errors are handled at transmission or 
      * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
      * 
-     * <p>Lets providers see textual explanation of the issue.</p>
-     * 
-     * <p>Other Busi
+     * <p>Lets providers see textual explanation of t
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"text"})
@@ -1003,9 +999,7 @@ public class IssuesBean extends MessagePartBean {
      * contraindication errors are handled at transmission or 
      * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
      * 
-     * <p>Lets providers see textual explanation of the issue.</p>
-     * 
-     * <p>Other Busi
+     * <p>Lets providers see textual explanation of t
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setText(String text) {
@@ -1680,9 +1674,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Cont
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"subjectOf/severityObservation/value","subjectOf2/severityObservation/value"})
@@ -1880,9 +1872,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Cont
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setSubjectOfSeverityObservationValue(SeverityObservation subjectOfSeverityObservationValue) {

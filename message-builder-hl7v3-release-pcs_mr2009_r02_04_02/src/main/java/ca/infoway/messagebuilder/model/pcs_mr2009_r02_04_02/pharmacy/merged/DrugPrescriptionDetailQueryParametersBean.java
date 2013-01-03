@@ -61,7 +61,7 @@ import java.util.Set;
 @Hl7RootType
 public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private List<II> careCompositionIDValue = new ArrayList<II>();
     private List<CV> careCompositionTypeValue = new ArrayList<CV>();
     private BL includeEventHistoryIndicatorValue = new BLImpl();

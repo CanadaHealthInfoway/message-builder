@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CD playerCode = new CDImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
@@ -919,6 +919,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Business Name: Manufactured By</p>
      * 
+     * <p>Relationship: 
+     * COCT_MT220110CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Identity of the organization that manufactured 
      * the</div> <p>drug product.&nbsp;</p></p>
      */
@@ -930,6 +935,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Business Name: Manufactured By</p>
      * 
+     * <p>Relationship: 
+     * COCT_MT220110CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p><div>Identity of the organization that manufactured 
      * the</div> <p>drug product.&nbsp;</p></p>
      */
@@ -940,6 +950,10 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
     /**
      * <p>Business Name: Dispensed in</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p><b><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 
@@ -960,6 +974,10 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Business Name: Dispensed in</p>
      * 
+     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p><b><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 
      * face="Helvetica-Bold"><font color="#000080" size="2" 
@@ -978,6 +996,10 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
     /**
      * <p>Business Name: Drug Contains</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p><div>Identification of which ingredients are contained 
      * (or</div> <div>are not contained) in a drug, along with 

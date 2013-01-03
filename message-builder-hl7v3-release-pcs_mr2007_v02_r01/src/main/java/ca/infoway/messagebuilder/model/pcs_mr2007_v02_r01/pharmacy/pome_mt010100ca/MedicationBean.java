@@ -63,7 +63,7 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private CV playerCode = new CVImpl();
     private SET<TN, TrivialName> playerName = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST playerDesc = new STImpl();
@@ -226,11 +226,23 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010100CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
     public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
         return this.playerAsManufacturedProductManufacturer;
     }
 
+    /**
+     * <p>Relationship: 
+     * POME_MT010100CA.ManufacturedProduct.manufacturer</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
     public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
         this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
     }
@@ -274,38 +286,73 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     @Hl7XmlMapping({"player/asContent"})
     public DispensedInBean getPlayerAsContent() {
         return this.playerAsContent;
     }
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
     public void setPlayerAsContent(DispensedInBean playerAsContent) {
         this.playerAsContent = playerAsContent;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Medicine.asSpecializedKind</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     */
     @Hl7XmlMapping({"player/asSpecializedKind"})
     public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
         return this.playerAsSpecializedKind;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     */
     @Hl7XmlMapping({"player/ingredient"})
     public List<DrugContainsBean> getPlayerIngredient() {
         return this.playerIngredient;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Subject7.potentialCharge</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf1/potentialCharge"})
     public DrugCostBean getSubjectOf1PotentialCharge() {
         return this.subjectOf1PotentialCharge;
     }
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Subject7.potentialCharge</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     public void setSubjectOf1PotentialCharge(DrugCostBean subjectOf1PotentialCharge) {
         this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
     }
 
 
+    /**
+     * <p>Relationship: POME_MT010100CA.Subject10.characteristic</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
     @Hl7XmlMapping({"subjectOf2/characteristic"})
     public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
         return this.subjectOf2Characteristic;

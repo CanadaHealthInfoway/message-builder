@@ -55,7 +55,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20121204L;
+    private static final long serialVersionUID = 20130103L;
     private ST specimenMaterialDesc = new STImpl();
     private II id = new IIImpl();
     private CD specimenMaterialCode = new CDImpl();
