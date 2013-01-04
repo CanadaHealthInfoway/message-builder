@@ -19,16 +19,12 @@
 # Revision:      $LastChangedRevision$
 #
 
-mvn install:install-file -Dfile=./pom/message-builder-pom.xml -DpomFile=./pom/message-builder-pom.xml -DgeneratePom=false
-mvn install:install-file -Dfile=message-builder-util-${project.version}.jar -DpomFile=./pom/message-builder-util-pom.xml -DgeneratePom=false
-mvn install:install-file -Dfile=message-builder-xml-${project.version}.jar -DpomFile=./pom/message-builder-xml-pom.xml -DgeneratePom=false
-mvn install:install-file -Dfile=message-builder-core-${project.version}.jar -DpomFile=./pom/message-builder-core-pom.xml -DgeneratePom=false
-mvn install:install-file -Dfile=message-builder-terminology-${project.version}.jar -DpomFile=./pom/message-builder-terminology-pom.xml -DgeneratePom=false
 if [ "X$1" = "Xterminology" ]
 then
-	cp ./pom/obtain-core-dependencies-with-terminology-pom.xml pom.xml
+	cp ./obtain-core-dependencies-with-terminology-pom.xml pom.xml
 else
-	cp ./pom/obtain-core-dependencies-pom.xml pom.xml
+	cp ./obtain-core-dependencies-pom.xml pom.xml
 fi
 rm -rf message_builder_lib
 mvn dependency:copy-dependencies -DoutputDirectory=message_builder_lib
+rm pom.xml

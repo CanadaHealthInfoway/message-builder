@@ -18,15 +18,11 @@
 @REM Revision:      $LastChangedRevision$
 @REM
 
-call mvn install:install-file -Dfile=./pom/message-builder-pom.xml -DpomFile=./pom/message-builder-pom.xml -DgeneratePom=false
-call mvn install:install-file -Dfile=message-builder-util-${project.version}.jar -DpomFile=./pom/message-builder-util-pom.xml -DgeneratePom=false
-call mvn install:install-file -Dfile=message-builder-xml-${project.version}.jar -DpomFile=./pom/message-builder-xml-pom.xml -DgeneratePom=false
-call mvn install:install-file -Dfile=message-builder-core-${project.version}.jar -DpomFile=./pom/message-builder-core-pom.xml -DgeneratePom=false
-call mvn install:install-file -Dfile=message-builder-terminology-${project.version}.jar -DpomFile=./pom/message-builder-terminology-pom.xml -DgeneratePom=false
 if "%1"=="terminology" (
-	copy pom\obtain-core-dependencies-with-terminology-pom.xml pom.xml
+	copy obtain-core-dependencies-with-terminology-pom.xml pom.xml
 ) else (
-	copy pom\obtain-core-dependencies-pom.xml pom.xml
+	copy obtain-core-dependencies-pom.xml pom.xml
 )
 rd /s/q message_builder_lib
 call mvn dependency:copy-dependencies -DoutputDirectory=message_builder_lib
+del pom.xml

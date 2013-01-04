@@ -22,18 +22,70 @@
 -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-deploy</artifactId>
 	<packaging>pom</packaging>
-	<version>${project.version}</version>
-	<name>Message Builder Deployer</name>
-		<dependencies>
-			<dependency>
-				<groupId>ca.infoway.messagebuilder</groupId>
-				<artifactId>message-builder-terminology</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-		</dependencies>
+	<version>1.0</version>
+	<name>Message Builder Terminology Deployer</name>
+
+	<properties>
+		<messageBuilder.version>${project.version}</messageBuilder.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+			<artifactId>message-builder-terminology</artifactId>
+			<version>${messageBuilder.version}</version>
+		</dependency>
+
+        	<dependency>
+                     <groupId>ca.infoway.messagebuilder</groupId>
+                     <artifactId>message-builder-hl7v3-release-ab_mr2007_v02_r02</artifactId>
+                     <version>${messageBuilder.version}</version>
+              </dependency>
+              <dependency>
+                     <groupId>ca.infoway.messagebuilder</groupId>
+                     <artifactId>message-builder-hl7v3-release-sk_cerx_v01_r04_3</artifactId>
+                     <version>${messageBuilder.version}</version>
+              </dependency>
+              <dependency>
+                     <groupId>ca.infoway.messagebuilder</groupId>
+                     <artifactId>message-builder-hl7v3-release-pcs_mr2009_r02_04_03</artifactId>
+                     <version>${messageBuilder.version}</version>
+              </dependency>
+              <dependency>
+                     <groupId>ca.infoway.messagebuilder</groupId>
+                     <artifactId>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</artifactId>
+                     <version>${messageBuilder.version}</version>
+              </dependency>
+              <dependency>
+                     <groupId>ca.infoway.messagebuilder</groupId>
+                     <artifactId>message-builder-hl7v3-release-pcs_mr2007_v02_r02</artifactId>
+                     <version>${messageBuilder.version}</version>
+              </dependency>
+              <dependency>
+                     <groupId>ca.infoway.messagebuilder</groupId>
+                     <artifactId>message-builder-hl7v3-release-pcs_mr2007_v02_r01</artifactId>
+                     <version>${messageBuilder.version}</version>
+              </dependency>
+              <dependency>
+                     <groupId>ca.infoway.messagebuilder</groupId>
+                     <artifactId>message-builder-hl7v3-release-pcs_cerx_v01_r04_3</artifactId>
+                     <version>${messageBuilder.version}</version>
+              </dependency>
+
+	</dependencies>
+
+<repositories>
+	<repository>
+	   <id>infoway-public-release</id>
+        <name>infoway-public-release</name>
+        <url>https://infoapp.infoway-inforoute.ca/repo/public-release/</url>                   
+	</repository>     
+</repositories>
+
 </project>
 
