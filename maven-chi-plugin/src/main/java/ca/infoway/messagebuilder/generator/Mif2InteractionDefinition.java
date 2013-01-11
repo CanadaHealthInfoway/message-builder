@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
@@ -72,6 +73,7 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 	public Interaction extract(MessagePartResolver resolver) throws GeneratorException {
 		try {
 			Interaction interaction = new Interaction();
+			interaction.setDocumentation(new Documentation());
 			
 			interaction.setCategory(this.category);
 
@@ -82,7 +84,8 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			interaction.setSuperTypeName(resolveType(interaction, resolver, message));
 			
 			Element interactionElement = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction", MIF2_NAMESPACE);
-			interaction.setBusinessName(new Mif2XPathHelper().getBusinessName(interactionElement));
+			interaction.getDocumentation().setBusinessName(new Mif2XPathHelper().getBusinessName(interactionElement));
+			interaction.getDocumentation().setTitle(new Mif2XPathHelper().getTitle(interactionElement));
 			List<Annotation> annotations = new Mif2XPathHelper().getDocumentationForInteraction(interactionElement);
 			interaction.getDocumentation().setAnnotations(annotations);
 			

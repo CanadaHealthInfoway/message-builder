@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.generator;
 
-import static ca.infoway.messagebuilder.util.iterator.NodeListIterator.elementIterable;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -29,13 +28,10 @@ import java.util.List;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
-import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
-import ca.infoway.messagebuilder.xml.RimClass;
 
 
 public class Mif2XPathHelperTest {
@@ -77,6 +73,15 @@ public class Mif2XPathHelperTest {
 		
 		List<Element> classes = Mif2XPathHelper.getGraphicRepresentationClasses(mif);
 		assertEquals(13, classes.size());
+	}
+	
+	@Test
+	public void shouldReadInteractionTitle() throws Exception {
+		Document mif = new DocumentFactory().createFromResource(
+				new ClasspathResource(getClass(), 
+						"COMT_IN200000CA - Clinical summary-profile query response.mif"));
+		
+		assertEquals("Cross-domain Query Query Response List", new Mif2XPathHelper().getTitle(mif.getDocumentElement()));
 	}
 	
 }

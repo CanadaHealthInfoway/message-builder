@@ -59,6 +59,7 @@ public class Mif2InteractionDefinitionTest {
 		assertEquals("name", "PRPA_IN101205CA", interaction.getName());
 		assertEquals("category", "myCategory", interaction.getCategory());
 		assertEquals("businessName", "Person Revise Event Accept", interaction.getBusinessName());
+		assertEquals("title", "Identifiedperson Event Revise Confirmation", interaction.getDocumentation().getTitle());
 		assertEquals("super type", "MCCI_MT002300CA.Message", interaction.getSuperTypeName());
 		assertEquals("arguments", 1, interaction.getArguments().size());
 		assertEquals("argument name", "MFMI_MT700726CA.ControlActEvent", interaction.getArguments().get(0).getName());

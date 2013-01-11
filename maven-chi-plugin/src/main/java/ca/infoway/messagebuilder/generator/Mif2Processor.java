@@ -354,7 +354,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		choice.setType(determineType(targetConnection.getAttribute("participantClassName"), messageSet, targetConnection));
 
 		addChoiceItems(messageSet, targetConnection, choice);
-		choice.setSortOrder(part.getRelationships().size());
+		choice.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
 		part.getRelationships().add(choice);
 	}
 
@@ -400,7 +400,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) {
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
 		Relationship relationship = new Relationship();
-		relationship.setSortOrder(part.getRelationships().size());
+		relationship.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
 		relationship.setName(targetConnection.getAttribute("name"));
 		
 		if (isTemplateParameter(targetConnection)) {
@@ -430,7 +430,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private void createAttribute(MessagePart part, Element element) {
 		Relationship relationship = new Relationship();
-		relationship.setSortOrder(part.getRelationships().size());
+		relationship.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
 		relationship.setName(element.getAttribute("name"));
 		relationship.setStructural("true".equals(element.getAttribute("isImmutable")));
 		relationship.setFixedValue(StringUtils.trimToNull(element.getAttribute("fixedValue")));
