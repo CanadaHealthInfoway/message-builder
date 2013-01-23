@@ -95,8 +95,6 @@ public class Instantiator {
 	private Map<String,Class<?>> createParameterMap(Interaction interaction, VersionNumber version) {
 		Map<String,Class<?>> map = new HashMap<String,Class<?>>();
 		createParameterMap(version, map, interaction.getArguments());
-		
-		System.out.println(map);
 		return map;
 	}
 
