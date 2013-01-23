@@ -175,7 +175,7 @@ public class MessageBeanRegistry {
 	
 	@SuppressWarnings("unchecked")
 	public Class<? extends Code> getCodeType(String domainType, String version) {
-		return (Class<? extends Code>) this.partTypeRegistry.get(new MessageTypeKey(version, domainType));
+		return (Class<? extends Code>) this.codeTypeRegistry.get(new MessageTypeKey(version, domainType));
 	}
 	Class<?> getMessagePartType(MessageTypeKey key) {
 		return this.partTypeRegistry.get(key);
