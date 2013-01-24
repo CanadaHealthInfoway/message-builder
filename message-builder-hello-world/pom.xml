@@ -7,8 +7,8 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.infoway.messagebuilder</groupId>
-	<artifactId>message-builder-example</artifactId>
-	<name>message-builder-example</name>
+	<artifactId>message-builder-hello-world</artifactId>
+	<name>message-builder-hello-world</name>
 	<version>1.4.5-SNAPSHOT</version>
 	<url>http://maven.apache.org</url>
 	<dependencies>
@@ -49,7 +49,7 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
  			</plugin>
             <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+			<groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
             </plugin>
 		</plugins>

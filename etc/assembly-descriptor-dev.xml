@@ -120,12 +120,12 @@
 
       <moduleSet>
         <includes>
-          <include>ca.infoway.messagebuilder:message-builder-example</include>
+          <include>ca.infoway.messagebuilder:message-builder-hello-world</include>
         </includes>
         <binaries>
           <includeDependencies>false</includeDependencies>
           <unpack>false</unpack>
-          <outputDirectory>example-code/bin</outputDirectory>
+          <outputDirectory>hello-world-code/bin</outputDirectory>
         </binaries>
       </moduleSet>
 
@@ -202,11 +202,11 @@
           <outputDirectory>hl7v3-releases/sk_cerx_v01_r04_3/javadoc</outputDirectory>
       </fileSet>
       <fileSet>
-        <directory>message-builder-example/target</directory>
+        <directory>message-builder-hello-world/target</directory>
         <includes>
           <include>*-javadoc.jar</include>
         </includes>
-          <outputDirectory>example-code/javadoc</outputDirectory>
+          <outputDirectory>hello-world-code/javadoc</outputDirectory>
       </fileSet>
       <fileSet>
         <directory>message-builder-simple-xml/target</directory>
@@ -281,11 +281,11 @@
           <outputDirectory>hl7v3-releases/sk_cerx_v01_r04_3/sources</outputDirectory>
       </fileSet>
       <fileSet>
-        <directory>message-builder-example/target</directory>
+        <directory>message-builder-hello-world/target</directory>
         <includes>
           <include>*-sources.jar</include>
         </includes>
-          <outputDirectory>example-code/sources</outputDirectory>
+          <outputDirectory>hello-world-code/sources</outputDirectory>
       </fileSet>
       <fileSet>
         <directory>message-builder-simple-xml/target</directory>

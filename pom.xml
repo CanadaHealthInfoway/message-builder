@@ -38,7 +38,7 @@
 	<modules>
 		<module>message-builder-acceptance</module>
 		<module>maven-chi-plugin</module>
-		<module>message-builder-example</module>
+		<module>message-builder-hello-world</module>
 		<module>message-builder-util</module>
 		<module>message-builder-xml</module>
 		<module>message-builder-core</module>
@@ -314,8 +314,8 @@
 						<exclude>ca/infoway/messagebuilder/model/pcs_mr2009_r02_04_02/**/*.java</exclude>
 						-->
 						<exclude>ca/infoway/messagebuilder/model/newfoundland/**/*.java</exclude>
-						<!-- example -->
-						<!--exclude>ca/infoway/messagebuilder/example/**/*.java</exclude-->
+						<!-- hello-world -->
+						<!--exclude>ca/infoway/messagebuilder/helloWorld/**/*.java</exclude-->
 						<!-- simplified xml -->
 						<!--exclude>ca/infoway/messagebuilder/simple/**/*.java</exclude-->
 					</excludes>

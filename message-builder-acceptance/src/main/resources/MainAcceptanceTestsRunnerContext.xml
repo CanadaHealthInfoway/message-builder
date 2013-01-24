@@ -355,7 +355,7 @@
 			  					<constructor-arg>
 			  						<list>
 					  					<value>message-builder-sample-messages</value>
-					  					<value>message-builder-example</value>
+					  					<value>message-builder-hello-world</value>
 			  						</list>
 			  					</constructor-arg>
 		  						</bean>
